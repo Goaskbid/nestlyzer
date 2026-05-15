@@ -1,3 +1,4 @@
-index.html bytes: 18665352
-index.html sha256: 0e3def663fc41185a7d77625fab9d02359da39a143b102202415c6809eef8f9c
-CNAME content: nestlyzer.com
+Before upload:
+- index.html must be the full app, not a one-line file.
+- CNAME must contain only nestlyzer.com.
+- Upload the extracted files, not the zip itself.

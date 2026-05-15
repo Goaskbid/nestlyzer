@@ -1,28 +1,8 @@
 {
   "project": "Nestlyzer.com",
-  "version": "v67-stable-deploy-repair",
+  "version": "v86-final-municipality-region-ranking",
   "date": "2026-05-15",
-  "time": "CET",
+  "status": "Stable layout restored. Large European countries rank municipality-level records inside selected performance regions.",
   "domain": "nestlyzer.com",
-  "index_html_size_bytes": 18665352,
-  "index_html_sha256": "0e3def663fc41185a7d77625fab9d02359da39a143b102202415c6809eef8f9c",
-  "cname_contents": "nestlyzer.com",
-  "base": "v65 valid stable app, rebranded to Nestlyzer",
-  "status": "GitHub deployable package with real root index.html and separate CNAME file.",
-  "change_summary": [
-    "Rebuilt from valid v65 base instead of broken v66 export.",
-    "Added Nestlyzer header and logo with readable white text.",
-    "Added deployment proof and explicit index-vs-CNAME safeguards.",
-    "Kept polished regulatory, booklet, rankings, map, context and recovery structure."
-  ],
-  "open_issues": [
-    "Country-specific European data depth still varies.",
-    "Live public image/contact enrichment depends on external services and browser policy.",
-    "Legal, tax and advertising disclosures need professional review before commercial launch."
-  ],
-  "next_actions": [
-    "Upload all files from GitHub deployment ZIP into repository root.",
-    "Verify index.html is about 18 MB and CNAME is 14 bytes.",
-    "Set GitHub Pages branch main/root and custom domain nestlyzer.com."
-  ]
+  "deployment": "GitHub Pages static root"
 }

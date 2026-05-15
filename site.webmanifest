@@ -1,8 +1,1 @@
-{
-  "name": "Nestlyzer.com",
-  "short_name": "Nestlyzer",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#f4f7fb",
-  "theme_color": "#071326"
-}
+{"name":"Nestlyzer","short_name":"Nestlyzer","start_url":"/","display":"standalone","background_color":"#f7fbff","theme_color":"#0f766e","icons":[{"src":"assets/favicon.png","sizes":"512x512","type":"image/png"}]}

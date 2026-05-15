@@ -1,13 +1,1 @@
-# GitHub package policy
-
-Keep the deployment repository small.
-
-Do not commit:
-
-- recovery ZIPs
-- PDF reports
-- large raw datasets
-- experimental archives
-- screenshots unless compressed
-
-Use the recovery ZIP for project continuation, not for GitHub Pages deployment.
+nestlyzer.com

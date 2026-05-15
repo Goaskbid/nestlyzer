@@ -1,0 +1,5 @@
+# PDF booklet
+
+The app includes a selected-place booklet flow. In the browser, select a municipality and use the booklet action in the profile panel. The static prototype uses browser print-to-PDF.
+
+The booklet should include place identity, score, confidence, source labels, trends, contact details, map link, context, category sub-ranks and factor sub-ranks.

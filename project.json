@@ -1,0 +1,28 @@
+{
+  "project": "Nestlyzer.com",
+  "version": "v66-nestlyzer-rebrand-github-guide",
+  "date": "2026-05-15",
+  "time": "CET",
+  "base_state": "v65-polished-regulatory-booklet",
+  "change_summary": [
+    "Rebranded the product from Municipality Decision Atlas to Nestlyzer.com.",
+    "Added the Nestlyzer logo and favicon assets from the supplied logo image.",
+    "Updated header, metadata, advertising disclosure, footer brand line and deployment files.",
+    "Prepared a GitHub Pages-ready static package with root index.html, CNAME, assets and documentation.",
+    "Prepared a separate project recovery package with master context, bootstrap prompt, recovery instructions and PDF report."
+  ],
+  "current_status": "Static, GitHub-deployable prototype. Switzerland remains the deepest official-data module. Europe is available through municipality-level LAU records with visible country-depth status.",
+  "open_issues": [
+    "Country-grade data packs outside Switzerland still need official tax, school, safety, housing, health and local service joins.",
+    "Public photos, coats of arms and authority contact enrichment depend on runtime public endpoints unless cached.",
+    "The selected-place booklet uses browser print-to-PDF in the static GitHub version.",
+    "Legal, privacy, advertising and consumer-disclosure pages need professional review before commercial launch."
+  ],
+  "next_recommended_actions": [
+    "Deploy v66 to GitHub Pages under nestlyzer.com.",
+    "Test the deployed app in Chrome, Edge and Safari with Switzerland, Germany and France scopes.",
+    "Build an audited local-authority contact cache.",
+    "Build certified country data packs for Germany and Austria first.",
+    "Add country-specific tax modules before making tax-sensitive ranking claims outside Switzerland."
+  ]
+}

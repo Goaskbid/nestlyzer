@@ -1,32 +1,32 @@
-# Nestlyzer.com - v66-nestlyzer-rebrand-github-guide
+# Nestlyzer.com - GitHub deployment package
 
-Find where you fit.
-
+Version: v67-stable-deploy-repair  
 Date: 2026-05-15  
-Time: CET
 
-## What this package is
+## Critical check before upload
 
-This is the lean GitHub Pages deployment package for Nestlyzer.com. It contains the static website and supporting documentation needed to publish the current prototype.
+`index.html` in this package is the real website. It is about 17 MB.
 
-## Files
+`CNAME` is a separate tiny file. It contains only:
 
-- `index.html` - the deployable static app.
-- `assets/nestlyzer-logo.png` - supplied Nestlyzer logo, optimized for the site header.
-- `assets/favicon.png` - app icon.
-- `project.json` - version and recovery metadata.
-- `CNAME` - custom domain file for `nestlyzer.com`.
-- `.nojekyll` - prevents GitHub Pages from treating files as a Jekyll site.
-- `docs/` - methodology, regulatory and deployment documentation.
+```text
+nestlyzer.com
+```
 
-## Deployment target
+If your live site shows only `nestlyzer.com`, your `index.html` was overwritten with the CNAME text. Re-upload the full `index.html` from this ZIP.
 
-GitHub Pages, publishing from the repository root.
+Expected index SHA256:
 
-## Data policy
+```text
+0e3def663fc41185a7d77625fab9d02359da39a143b102202415c6809eef8f9c
+```
 
-No synthetic score inputs. No synthetic geometry. Photos, icons, coats of arms, public text, contacts, advertising and cross-border notes do not affect scores.
+## Upload to GitHub
 
-## Runtime notes
-
-The embedded app works as a static file. Public enrichment such as photos, map layers, Wikidata contacts and public authority links works best when hosted over HTTPS.
+1. Extract this ZIP.
+2. Open the extracted folder.
+3. Upload the files inside it to the root of the GitHub repository.
+4. Confirm the repository root contains `index.html`, `CNAME`, `.nojekyll`, `assets`, `docs`, `project.json`.
+5. In GitHub Pages settings, deploy from branch `main`, folder `/root`.
+6. Custom domain: `nestlyzer.com`.
+7. Enforce HTTPS once available.

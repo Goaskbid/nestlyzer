@@ -1,1 +1,2 @@
-nestlyzer.com
+The CNAME file is separate from index.html.
+If the website only shows nestlyzer.com, index.html was overwritten by mistake.

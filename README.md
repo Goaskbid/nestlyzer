@@ -1,15 +1,33 @@
-# Nestlyzer.com
+# Nestlyzer
 
-Nestlyzer helps people find places that fit real life decisions: budget, family stage, language, commute, climate, services and long-term plans.
+Nestlyzer helps people determine where to live using quality-of-life indicators and municipality intelligence.
 
-## Deploy
+The platform evaluates locations across Europe and matches them to different lifestyles and household profiles.
 
-Upload the contents of this folder to the root of the GitHub Pages repository.
+## Features
 
-Required root files:
-- `index.html`, the full website application.
-- `CNAME`, containing only `nestlyzer.com`.
-- `.nojekyll`.
-- `assets/`.
+- Municipality rankings
+- Quality-of-life analysis
+- Housing insights
+- Demographic analysis
+- Commuting intelligence
+- Lifestyle matching
+- Location comparison
+- AI recommendations
 
-Do not replace `index.html` with the CNAME text.
+## Who Uses Nestlyzer
+
+- Families
+- Students
+- Retirees
+- Commuters
+- Remote workers
+- Expats
+
+## Website
+
+https://www.nestlyzer.com
+
+## Keywords
+
+Where should I live, municipality rankings, quality of life, best places to live, relocation planning, family-friendly towns, European cities, housing decisions, location intelligence.

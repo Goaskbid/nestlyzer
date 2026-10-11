@@ -1035,6 +1035,20 @@ async def main():
             rec('R72', 'Privacy from the map: Tools offers "Privacy settings" (focus goes into the choice) and "Imprint and privacy"; switching live content off stops all outside lookups at once', ok, f'tiles={tiles}, banner opened={open_}, focus in banner={foc}, outside requests after switching off={after}')
         await check('R72', 'Privacy from the map', r72)
 
+        async def r73():
+            import urllib.request
+            ctx, q = await new_page(b); await q.goto(BASE + '/about/', wait_until='load')
+            for y in range(0, 16000, 1000): await q.evaluate(f'scrollTo(0,{y})'); await q.wait_for_timeout(50)
+            await q.wait_for_timeout(500)
+            info = await q.evaluate("[document.querySelectorAll('.qa').length, [...document.querySelectorAll('.about-fig img')].filter(i=>i.complete&&i.naturalWidth>0).length, document.querySelector('h1').innerText, document.body.innerText.includes('GitHub'), document.body.innerText.includes('[Photo')]")
+            await q.goto(BASE + '/germany/', wait_until='domcontentloaded')
+            foot = await q.locator('.site-footer a[href="/about/"]').count(); nav = await q.locator('.site-header a[href="/about/"]').count()
+            await ctx.close()
+            sm = urllib.request.urlopen(BASE + '/sitemap.xml').read().decode()
+            ok = info[0] == 14 and info[1] == 4 and 'priorities change' in info[2] and not info[3] and not info[4] and foot == 1 and nav == 0 and '/about/' in sm
+            rec('R73', 'About page: the founder interview (14 questions, 4 photos), linked quietly from the footer only, listed in the sitemap, no draft notes left', ok, f'questions={info[0]}, photos loaded={info[1]}, footer link={foot}, header link={nav}, in sitemap={"/about/" in sm}, draft notes left={info[3] or info[4]}')
+        await check('R73', 'About page', r73)
+
         rec('R32', 'No uncaught JavaScript errors across all flows', not errors, f'{len(errors)} errors: {errors[:3]}')
         await ctx.close(); await b.close()
     passed = sum(1 for r in RESULTS if r['status'] == 'PASS'); failed = [r for r in RESULTS if r['status'] == 'FAIL']

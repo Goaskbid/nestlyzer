@@ -25,7 +25,7 @@ class Q(http.server.SimpleHTTPRequestHandler):
 
 
 def files():
-    must = ['index.html', 'CNAME', 'sitemap.xml', 'robots.txt', 'sw.js', 'offline.html', 'data/meta.json', 'data/search.json', 'legal/index.html', 'method/index.html', 'best/index.html']
+    must = ['index.html', 'CNAME', 'sitemap.xml', 'robots.txt', 'sw.js', 'offline.html', 'data/meta.json', 'data/search.json', 'legal/index.html', 'method/index.html', 'best/index.html', 'about/index.html']
     for m in must:
         check(os.path.exists(os.path.join(SITE, m)), 'file present: ' + m)
     meta = json.load(open(os.path.join(SITE, 'data/meta.json')))
@@ -69,7 +69,7 @@ def browser(meta):
             pg.locator('ol.list li.row').first.click()
             pg.wait_for_timeout(1200)
             check(pg.evaluate('!!NZ.state.selected'), f'{name}: a place opens from the list')
-            for path in ('/legal/', '/method/', '/best/', '/switzerland/', '/germany/'):
+            for path in ('/legal/', '/method/', '/best/', '/about/', '/switzerland/', '/germany/'):
                 r = pg.goto(base + path, wait_until='domcontentloaded')
                 check(r is not None and r.status == 200 and pg.locator('h1').count() == 1, f'{name}: {path} opens')
             ctx.close()

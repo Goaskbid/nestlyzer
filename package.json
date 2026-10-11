@@ -1,0 +1,18 @@
+{
+  "name": "nestlyzer",
+  "version": "2.4.0",
+  "private": true,
+  "description": "Nestlyzer.com — find where you fit. Static site build.",
+  "scripts": {
+    "data": "python3 build/build_data.py",
+    "build": "node build/build_site.mjs",
+    "test": "node tests/fixtures.test.js && node tests/builder.test.js && node tests/data.test.js",
+    "regress": "python3 tests/regress.py"
+  },
+  "devDependencies": {
+    "esbuild": "0.23.1",
+    "terser": "5.31.6",
+    "topojson-client": "3.1.0",
+    "topojson-simplify": "^3.0.3"
+  }
+}

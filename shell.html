@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nestlyzer: find the best place to live in Europe for your life</title>
+<meta name="description" content="Compare __TOTAL__ municipalities in 35 European countries by who is moving: families, retirees, students, commuters, remote workers and more. Transparent scores from public data, on a fast map.">
+<link rel="canonical" href="https://nestlyzer.com/">
+<meta name="theme-color" content="#F2F4F0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1621" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Nestlyzer"><meta property="og:url" content="https://nestlyzer.com/">
+<meta property="og:title" content="Nestlyzer: find where you fit"><meta property="og:description" content="Rank __TOTAL__ European municipalities for your household. Public data, visible weights, a fast map.">
+<meta property="og:image" content="https://nestlyzer.com/assets/og.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/public-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/data/meta.json?v=__VERSION__" as="fetch" crossorigin>
+<link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
+<script>try{var t=localStorage.getItem('nz:theme');if(t)document.documentElement.dataset.theme=JSON.parse(t)}catch(e){}if(location.hash.indexOf('#/explore')===0)document.documentElement.className='pre-explore'</script>
+__TRACKING__
+<style>__CSS__ .pre-explore .landing,.pre-explore .site-footer{display:none}</style>
+<script type="application/ld+json">__JSONLD__</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+__CONSENT_HTML__
+__HEADER__
+<main id="main">
+<div class="landing">__LANDING__</div>
+<section class="explore" id="explore" data-tab="map" aria-label="Explore places">
+  <div class="profilebar"><span class="lbl">Moving as</span><button class="pscroll" type="button" data-pscroll="-1" aria-label="Show earlier profiles">‹</button><div class="pchips" id="pchips" role="group" aria-label="Household profile"></div><button class="pscroll" type="button" data-pscroll="1" aria-label="Show more profiles">›</button><button class="btn btn-sm tools-btn" type="button" data-tools aria-label="Open tools">__SPARK__Tools</button></div>
+  <aside class="rail" aria-label="Scope and results">
+    <div class="scope-bar"><button class="prof-pill" type="button" data-pickprofile aria-label="Change who is moving"><span id="profpill">Young family</span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></button><button class="scope-summary" type="button" data-scopetoggle aria-expanded="false"><span id="scopesum">Scope</span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></button><button class="btn btn-sm" type="button" data-filters>__SLIDERS__<span class="fcount">Filters</span></button></div>
+    <div class="scope">
+      <div class="scope-row">
+        <div class="field"><label for="f-country">Country</label><select class="select" id="f-country"></select></div>
+        <div class="field"><label for="f-region">Region</label><select class="select" id="f-region"></select></div>
+        <div class="field"><label for="f-area" id="l-area">Local area</label><select class="select" id="f-area"></select></div>
+      </div>
+      <div class="scope-tools">
+        <button class="btn btn-sm" type="button" data-filters aria-expanded="false" aria-controls="filterpanel">__SLIDERS__Filters <span id="filtercount" class="muted"></span></button>
+        <label class="visually-hidden" for="f-sort">Sort</label><select class="select sort" id="f-sort"><option value="score">Best fit</option><option value="pop">Largest</option><option value="growth">Fastest growing</option><option value="city">Closest to a city</option><option value="airport">Closest to an airport</option><option value="rail">Closest to a railway</option><option value="lake">Closest to a lake</option><option value="coast">Closest to the sea</option><option value="alt">Highest terrain</option><option value="daylight">Most winter daylight</option><option value="name">A to Z</option></select>
+        <button class="btn btn-sm btn-ghost" type="button" data-lt="saved" aria-label="Your shortlist" title="Your shortlist">__HEART__<span id="savedcount">0</span></button>
+      </div>
+      <div class="filterpanel" id="filterpanel" hidden>
+        <div class="fp-h"><b>Filters</b><button class="btn btn-sm btn-ghost" type="button" data-clearfilters>Clear all</button><button class="icon-btn" type="button" data-filters aria-label="Close filters">__CLOSE__</button></div>
+        <div class="fp-grid">
+          <div class="range"><label for="f-conf">Minimum confidence <button class="info" type="button" data-def="confidence" aria-label="About confidence">i</button></label><output id="o-conf">0%</output><input id="f-conf" type="range" min="0" max="80" step="1" value="0"></div>
+          <div class="range"><label for="f-popmin">Residents, at least</label><output id="o-popmin">any</output><input id="f-popmin" data-f="popMin" type="range" min="0" max="100000" step="1000" value="0"></div>
+          <div class="range"><label for="f-city">City of 100,000+ within</label><output id="o-city">any</output><input id="f-city" data-f="cityKm" type="range" min="0" max="120" step="5" value="0"></div>
+          <div class="range"><label for="f-air">Hub airport within</label><output id="o-air">any</output><input id="f-air" data-f="airportKm" type="range" min="0" max="200" step="5" value="0"></div>
+          <div class="range"><label for="f-coast">Sea within</label><output id="o-coast">any</output><input id="f-coast" data-f="coastKm" type="range" min="0" max="100" step="5" value="0"></div>
+          <div id="xfilters" class="fp-x"></div>
+          <div class="fp-chips"><span class="lbl2">Terrain</span><div class="seg" id="f-terrain"></div></div>
+          <div class="fp-chips"><span class="lbl2">Climate</span><div class="seg" id="f-climate"></div></div>
+          <div class="field"><label for="f-q">Filter results by name, area or code</label><input class="select" style="background-image:none" id="f-q" type="search" placeholder="e.g. Zug, 261, Bavaria"></div>
+        </div>
+        <div class="fp-f"><span id="fp-count" class="small muted"></span><button class="btn btn-sm btn-primary" type="button" data-filters>Show results</button></div>
+      </div>
+    </div>
+    <div class="results-head"><div style="flex:1;min-width:0"><h2 id="scopename">Results</h2><div class="count" id="rcount"></div></div><span id="depthbadge"></span></div>
+    <div class="tabs" id="listtabs" role="tablist"><button role="tab" type="button" data-lt="ranking" aria-selected="true">Ranking</button><button role="tab" type="button" data-lt="board">Regional reality</button><button role="tab" type="button" data-lt="records">Records</button><button role="tab" type="button" data-lt="saved">♥ Shortlist</button></div>
+    <div class="scroll"><div class="depthnote" id="depthnote"></div><div id="results"></div></div>
+  </aside>
+  <div class="mapwrap">
+    <div id="map" role="region" aria-label="Map of municipalities"></div>
+    <div class="map-ui tl"><label class="visually-hidden" for="f-layer">Map layer</label><select class="select" id="f-layer"></select><button class="btn btn-sm" type="button" data-fit>__FIT__<span class="t">Fit scope</span></button><button class="btn btn-sm" type="button" data-gisco aria-pressed="false" title="Load official Eurostat GISCO municipal polygons for this scope">Boundaries</button><button class="btn btn-sm" type="button" data-surprise title="Show me a random good place">🎲<span class="t">Surprise me</span></button><button class="btn btn-sm" type="button" data-tour aria-label="Quick tour">?</button></div>
+    <div class="map-ui bl"><div class="legend" id="legend"></div></div>
+    <div class="mapnote" id="mapnote"></div>
+    <div class="maploading" id="maploading" hidden><div><b>Loading map</b><div class="progress"><i></i></div></div></div>
+    <aside class="place" id="place" aria-label="Selected place" aria-hidden="true"></aside>
+  </div>
+  <nav class="mobile-tabs" aria-label="Views"><button type="button" data-mt="map" aria-selected="true">__MAP__Map</button><button type="button" data-mt="list">__LIST__Ranking</button><button type="button" data-mt="place" disabled>__PIN__Place</button><button type="button" data-mt="saved">__HEART__Shortlist<span class="sl-n badge" hidden>0</span></button><button type="button" data-tools>__SPARK__Tools</button></nav>
+</section>
+</main>
+__FOOTER__
+<div class="scrim" id="scrim"></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true"></div>
+<div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Search places"><input id="pal-q" type="search" placeholder="Search __TOTAL__ places or a country" autocomplete="off" aria-controls="pal-list"><ul id="pal-list" role="listbox"></ul><div class="hint"><span class="kb-only">Enter opens the place. Esc closes.</span><span class="touch-only">Tap a result to open it.</span></div></div>
+<div class="drawer" id="tools" role="dialog" aria-modal="true" aria-label="Tools" hidden></div>
+<div class="coach" id="coach" hidden></div>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo" hidden></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="tray" id="tray"></div>
+<script>__JS__</script>
+__CONSENT_JS__
+</body>
+</html>

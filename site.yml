@@ -3,9 +3,11 @@
 # When it runs
 #   * on every push to main: build, test, publish (about 5 minutes);
 #   * on the 3rd of every month: only checks Eurostat for a newer population year. If there is one, it
-#     rebuilds the data, tests everything, saves the new data in the repository and publishes. If not,
-#     it stops after a minute and publishes nothing;
+#     rebuilds the data, tests everything, saves the new data in the repository and publishes;
 #   * by hand: Actions -> "Build and publish nestlyzer.com" -> Run workflow.
+# Browser uploads: drop the release zips (nestlyzer-upload-1-of-2.zip, ...) into the repository with
+# "Add file -> Upload files". This workflow checks that all parts are there, replaces every old file
+# (except .git and .github) with their contents, saves that as one commit, then builds and publishes.
 # If any check fails, nothing is published and the live site stays as it was. GitHub then emails you.
 #
 # Settings needed once: Settings -> Pages -> Build and deployment -> Source: "GitHub Actions".
@@ -34,30 +36,95 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     permissions:
-      contents: write     # only used to save refreshed data back into this repository
+      contents: write     # saves refreshed data, or an unpacked browser upload, back into this repository
+      pages: read         # checks that Pages is set to "GitHub Actions" before unpacking an upload
     outputs:
       publish: ${{ steps.decide.outputs.publish }}
     steps:
       - uses: actions/checkout@v7
 
+      - name: Unpack a release uploaded through the browser
+        id: unpack
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          shopt -s nullglob
+          parts=(nestlyzer-upload-*.zip)
+          if [ ${#parts[@]} -eq 0 ]; then echo "No uploaded release zip; using the files in the repository."; exit 0; fi
+          rm -rf "$RUNNER_TEMP/up" && mkdir -p "$RUNNER_TEMP/up"
+          for z in "${parts[@]}"; do unzip -oq "$z" -d "$RUNNER_TEMP/up"; done
+          python3 - "$RUNNER_TEMP/up" "${parts[@]}" <<'PY'
+          import json, os, sys, glob
+          up = sys.argv[1]
+          info = [json.load(open(p)) for p in sorted(glob.glob(os.path.join(up, 'UPLOAD_PART_*.json')))]
+          if not info:
+              sys.exit('The uploaded zip is not a Nestlyzer release (no UPLOAD_PART file inside).')
+          need = info[0]['of']; ver = info[0]['version']; have = sorted({i['part'] for i in info if i['version'] == ver})
+          if have != list(range(1, need + 1)):
+              print(f'::warning::Release {ver}: parts {have} of {need} uploaded so far. Upload the missing part(s); nothing is changed until all are there.')
+              open(os.environ['GITHUB_OUTPUT'], 'a').write('waiting=true\n'); sys.exit(0)
+          missing = [f for i in info for f in i['files'] if not os.path.exists(os.path.join(up, f))]
+          if missing:
+              sys.exit(f'Release {ver} is incomplete after unpacking: {missing[:5]}')
+          for f in ('package.json', 'build/build_site.mjs', '.github/workflows/site.yml'):
+              if not os.path.exists(os.path.join(up, f)):
+                  sys.exit('Release is missing ' + f)
+          open(os.environ['GITHUB_OUTPUT'], 'a').write(f'version={ver}\n')
+          print(f'Release {ver}: all {need} parts present, {sum(len(i["files"]) for i in info)} files checked.')
+          PY
+          if grep -q "waiting=true" "$GITHUB_OUTPUT"; then exit 0; fi
+          # safety: with "Deploy from a branch" the sources themselves would go live; only unpack when Pages uses Actions
+          bt=$(curl -fsS -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/pages" | python3 -c "import sys,json; print(json.load(sys.stdin).get('build_type',''))" || echo unknown)
+          if [ "$bt" != "workflow" ]; then
+            echo "::error::Settings -> Pages -> Source must be 'GitHub Actions' before the upload is unpacked (now: $bt). Nothing was changed. Switch it, then open this run and click 'Re-run all jobs'."
+            exit 1
+          fi
+          # replace everything except .git and .github with the release (the workflow file itself stays as you created it)
+          find . -mindepth 1 -maxdepth 1 ! -name .git ! -name .github -exec rm -rf {} +
+          rm -rf "$RUNNER_TEMP/up/.github" "$RUNNER_TEMP/up"/UPLOAD_PART_*.json
+          cp -R "$RUNNER_TEMP/up/." .
+          git config user.name "nestlyzer release"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          V=$(grep -o '"version": *"[^"]*"' package.json | cut -d'"' -f4)
+          git commit -q -m "Nestlyzer $V: unpacked from the uploaded release, old files removed"
+          git pull --rebase --autostash -q
+          git push -q
+          echo "unpacked=true" >> "$GITHUB_OUTPUT"
+          echo "Nestlyzer $V unpacked from the browser upload; old files removed." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Check the sources are complete
+        id: ready
+        run: |
+          if [ -f build/build_site.mjs ] && [ -f package-lock.json ] && [ "${{ steps.unpack.outputs.waiting }}" != "true" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "The repository does not hold the complete Nestlyzer sources yet (upload all release zip parts). Nothing was built or published." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       - uses: actions/setup-node@v6
+        if: steps.ready.outputs.ready == 'true'
         with:
           node-version: 22
           cache: npm
 
       - uses: actions/setup-python@v7
+        if: steps.ready.outputs.ready == 'true'
         with:
           python-version: '3.13'
           cache: pip
           cache-dependency-path: build/requirements.txt
 
       - name: Install build tools
+        if: steps.ready.outputs.ready == 'true'
         run: |
           npm ci
           pip install -r build/requirements.txt
 
       - name: Look for newer population data (Eurostat GISCO)
         id: refresh
+        if: steps.ready.outputs.ready == 'true'
         continue-on-error: true   # if Eurostat cannot be reached, keep the current data
         run: python build/refresh_data.py
 
@@ -70,7 +137,9 @@ jobs:
       - name: Decide whether to publish
         id: decide
         run: |
-          if [ "${{ github.event_name }}" != "schedule" ] || [ "${{ steps.refresh.outputs.changed }}" = "true" ]; then
+          if [ "${{ steps.ready.outputs.ready }}" != "true" ]; then
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event_name }}" != "schedule" ] || [ "${{ steps.refresh.outputs.changed }}" = "true" ]; then
             echo "publish=true" >> "$GITHUB_OUTPUT"
           else
             echo "publish=false" >> "$GITHUB_OUTPUT"

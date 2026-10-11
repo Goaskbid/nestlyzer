@@ -18,6 +18,8 @@ If any test fails, nothing is published and the live site stays as it was. GitHu
 
 One-time setting: **Settings → Pages → Build and deployment → Source: GitHub Actions**. Custom domain: `nestlyzer.com`.
 
+Releases through the browser: upload the release zips (`nestlyzer-upload-<version>-1-of-2.zip`, …) with **Add file → Upload files**. The workflow checks that all parts are there and that Pages uses GitHub Actions, replaces every file except `.git` and `.github` with the release, saves that as one commit, then builds and publishes. See `docs/DEPLOY.md`.
+
 GitHub pauses scheduled workflows in public repositories after 60 days without any commit. Any push, or **Run workflow**, also checks for new data. If the Actions page shows "This scheduled workflow is disabled", click **Enable workflow**.
 
 ## What the yearly refresh updates

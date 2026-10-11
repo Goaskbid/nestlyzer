@@ -4,7 +4,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.resolve(ROOT, process.argv[2] || '_site');
 const meta = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/meta.json'), 'utf8'));
 const slug = (s) => String(s || '').normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/ß/g, 'ss').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-const dirs = ['assets', 'vendor', 'data', 'best', 'method', 'legal', ...meta.countries.map((c) => slug(c.name))];
+const dirs = ['assets', 'vendor', 'data', 'best', 'method', 'legal', 'about', ...meta.countries.map((c) => slug(c.name))];
 const files = ['index.html', '404.html', 'ads.txt', 'favicon.ico', 'favicon.svg', 'robots.txt', 'site.webmanifest', 'sw.js', 'offline.html', 'CNAME', '.nojekyll', 'VERSION.txt'];
 fs.rmSync(OUT, { recursive: true, force: true }); fs.mkdirSync(OUT, { recursive: true });
 let n = 0, bytes = 0;

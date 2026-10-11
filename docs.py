@@ -11,6 +11,7 @@ for f in ('old_desktop_top.png', 'old_mobile_top.png'):
 
 SRC = os.environ.get('NZ_REPORT', 'RELEASE_2.4.md')
 VER = re.search(r'(\d+\.\d+)', SRC).group(1)
+PKG = json.load(open(os.path.join(ROOT, 'package.json')))['version']
 md = open(os.path.join(ROOT, 'docs', SRC)).read()
 d = json.load(open(os.path.join(ROOT, 'tests', 'results', 'regression.json')))
 rows = ['| Check | What is tested | Result | Evidence |', '|---|---|---|---|']
@@ -157,16 +158,22 @@ if VER == '2.4':
 
 ![Tools](v24_d_tools.png){width=100%}
 
+## About: the founder interview, linked quietly from the footer
+
+![About](v24_d_about.png){width=100%}
+
+![Footer with the About link](v24_d_footer.png){width=100%}
+
 ## Phone
 
-![France map](v24_m_france_map.png){width=32%} ![Residents chart](v24_m_meilen_chart.png){width=32%} ![Ranking](v24_m_list.png){width=32%}
+![About on a phone](v24_m_about.png){width=32%} ![France map](v24_m_france_map.png){width=32%} ![Residents chart](v24_m_meilen_chart.png){width=32%} ![Ranking](v24_m_list.png){width=32%}
 """
 rep = md.replace('SCREENSHOTS', shots_md)
 open(os.path.join(ROOT, 'docs', SRC.replace('.md', '.filled.md')), 'w').write(md.replace('SCREENSHOTS', 'Screenshots are in the Word and PDF versions.'))
 open(os.path.join(W, 'report.md'), 'w').write(rep)
 dep = open(os.path.join(ROOT, 'docs', 'DEPLOY.md')).read()
 dep = re.sub(r'^# .*\n', '', dep, count=1)
-open(os.path.join(W, 'deploy.md'), 'w').write('---\ntitle: "Nestlyzer ' + VER + ': deploy guide"\nsubtitle: "Upload the sources once; GitHub builds, tests, publishes and refreshes the data"\ndate: "11 October 2026"\n---\n\n' + dep)
+open(os.path.join(W, 'deploy.md'), 'w').write('---\ntitle: "Nestlyzer ' + PKG + ': deploy guide"\nsubtitle: "Everything in the browser: paste one file, upload two zips, GitHub does the rest"\ndate: "11 October 2026"\n---\n\n' + dep)
 
 ref = os.path.join(W, 'ref.docx')
 subprocess.run(['pandoc', '-o', ref, '--print-default-data-file', 'reference.docx'], check=True)
@@ -192,7 +199,7 @@ for cs in ('Verbatim Char',):
     try: doc.styles[cs].font.name = 'Courier New'
     except KeyError: pass
 doc.save(ref)
-out = {'report': 'Nestlyzer-' + VER + '-Release-Report', 'deploy': 'Nestlyzer-' + VER + '-Deploy-Guide'}
+out = {'report': 'Nestlyzer-' + PKG + '-Release-Report', 'deploy': 'Nestlyzer-' + PKG + '-Deploy-Guide'}
 for n, title in out.items():
     dx = os.path.join(W, n + '.docx')
     subprocess.run(['pandoc', n + '.md', '-o', dx, '--reference-doc=ref.docx', '--resource-path=.'], cwd=W, check=True)

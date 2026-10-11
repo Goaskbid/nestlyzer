@@ -31,6 +31,11 @@ def source_files():
     return out
 
 
+def zlib_compress(path):
+    import zlib
+    return zlib.compress(open(path, 'rb').read(), 6)
+
+
 def zipup(name, root, files):
     p = os.path.join(DIST, name)
     with zipfile.ZipFile(p, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as z:
@@ -57,6 +62,32 @@ def main():
         low[k] = f
     assert '.github/workflows/site.yml' in src and '.gitignore' in src and 'package-lock.json' in src
     p = zipup('nestlyzer-repo-%s.zip' % ver0, ROOT, src)
+    # browser-upload parts: each under 24 MB (GitHub's web upload takes files up to 25 MB); the workflow
+    # unpacks them once all parts are in the repository (see .github/workflows/site.yml)
+    for f in os.listdir(DIST):
+        if f.startswith('nestlyzer-upload-'):
+            os.remove(os.path.join(DIST, f))
+    sizes = {f: len(zlib_compress(os.path.join(ROOT, f))) for f in src}
+    parts, cur, size = [], [], 0
+    for f in sorted(src, key=lambda x: (x.split('/')[0], x)):
+        if cur and size + sizes[f] > 22e6:
+            parts.append(cur); cur, size = [], 0
+        cur.append(f); size += sizes[f]
+    if cur: parts.append(cur)
+    report['upload_parts'] = []
+    for i, files in enumerate(parts, 1):
+        name = 'nestlyzer-upload-%s-%d-of-%d.zip' % (ver0, i, len(parts))
+        zp = os.path.join(DIST, name)
+        with zipfile.ZipFile(zp, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as z:
+            for f in files:
+                z.write(os.path.join(ROOT, f), f)
+            z.writestr('UPLOAD_PART_%d.json' % i, json.dumps({'part': i, 'of': len(parts), 'version': ver0, 'files': files}))
+        mb = os.path.getsize(zp) / 1e6
+        if mb > 24.5: sys.exit('upload part too large: %s %.1f MB' % (name, mb))
+        report['upload_parts'].append({'zip': name, 'files': len(files), 'mb': round(mb, 1)})
+    assert sum(len(x) for x in parts) == len(src)
+    import shutil
+    shutil.copy(os.path.join(ROOT, '.github/workflows/site.yml'), os.path.join(DIST, 'nestlyzer-workflow-site.yml.txt'))
     batch_a = [f for f in src if not (f.startswith('assets/') or f.startswith('data/'))]
     batch_b = [f for f in src if f.startswith('assets/') or f.startswith('data/')]
     report['source'] = {'files': len(src), 'mb': round(sum(os.path.getsize(os.path.join(ROOT, f)) for f in src) / 1e6, 1),

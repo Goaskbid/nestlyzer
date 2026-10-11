@@ -1,0 +1,96 @@
+{
+  "title": "“I wanted a ranking that changes when your priorities change.”",
+  "standfirst": "A conversation with Torsten Sauter, founder of Nestlyzer, about choosing where to live, looking beyond familiar places, and turning the idea of a municipality ranking into something more personal.",
+  "intro": [
+    "A place can finish near the top of a ranking and still be the wrong choice for the person reading it. For Torsten Sauter, that distinction became the starting point for Nestlyzer.",
+    "Inspired by municipality rankings he had seen in Swiss newspapers, the Switzerland-based founder wanted to make the idea more interactive: a way to explore places, compare their characteristics and give greater importance to the things that matter to you.",
+    "Nestlyzer’s focus is the municipality itself. It brings together quality-of-life measures, housing pressure, demographics, commuting and lifestyle matching to help people consider where they might want to live. The ambition is to make the alternatives easier to understand before the search narrows to a particular home."
+  ],
+  "photos": {
+    "portrait": {"src": "torsten-frankfurt", "alt": "Torsten Sauter taking a selfie beside the bronze bear, with the bull sculpture behind him, outside the Frankfurt Stock Exchange", "caption": "Torsten Sauter, founder of Nestlyzer, with the bull and the bear outside the Frankfurt Stock Exchange."},
+    "meilen": {"src": "meilen-evening", "alt": "Feet resting on a yellow chair marked “meilen” on a lakeside terrace at night, with the lights of the far shore of Lake Zurich", "caption": "An evening by Lake Zurich in Meilen, canton of Zurich, where Nestlyzer is made.", "link": "/switzerland/zurich/meilen/", "linkText": "Meilen on Nestlyzer"},
+    "hamburg": {"src": "hamburg-landungsbruecken", "alt": "The St. Pauli Landungsbrücken with their domed towers, the river Elbe and the container cranes of the port of Hamburg under a big sky", "caption": "St. Pauli Landungsbrücken and the port, Hamburg, Germany.", "find": "Hamburg"},
+    "warnemuende": {"src": "warnemuende", "alt": "The white lighthouse and the curved Teepott pavilion on the seaside promenade of Warnemünde on a sunny evening", "caption": "The lighthouse and the Teepott on the promenade in Warnemünde, Rostock, Germany.", "find": "Rostock"}
+  },
+  "qa": [
+    {"photo": "portrait"},
+    {"q": "Where did the idea for Nestlyzer come from?", "a": [
+      "From municipality rankings I had seen in Swiss newspapers. I liked the premise: take places you know, add others you may never have considered, and compare them in a structured way.",
+      "What interested me was what you could do with that idea beyond reading the published result. I wanted something you could explore yourself, return to whenever you needed it, and adapt to your own priorities.",
+      "A newspaper has to choose a methodology and present a result. I was interested in giving the reader more control over the comparison.",
+      "That was the original thought behind Nestlyzer: take something I already found useful and make it more personal, more interactive and capable of developing as the information improves."]},
+    {"q": "What would you change about the traditional “best places to live” ranking?", "a": [
+      "I would make it easier to see whose definition of “best” is being used.",
+      "Imagine two people considering the same town. One wants to keep the journey to work short and have plenty happening nearby. The other works mostly from home and would happily trade some convenience for more space and a quieter setting. They could agree on every fact about the town and still reach different conclusions.",
+      "That is what interests me. I wanted a ranking that changes when your priorities change, with enough explanation for you to understand why."],
+     "note": "Nestlyzer’s methodology uses visible weights for each household profile and separate rankings within regions, so the comparison can reflect different priorities rather than conceal them inside one overall result."},
+    {"q": "How should someone begin exploring, especially when they do not yet know where they want to live?", "a": [
+      "I would begin with the area in which moving is realistic. Perhaps your job keeps you within a certain region. Perhaps you have more freedom and want to explore somewhere unfamiliar.",
+      "Then I would separate what is essential from what is simply attractive. Being close to a particular workplace might be essential. Having a particular kind of leisure facility nearby might be a preference. Treating those as equivalent would not produce a useful shortlist.",
+      "The result I would want from that first exploration is a manageable selection of places, with a reason to investigate each one."],
+     "note": "Results stay at municipality level, including inside the regions of larger European countries. The region defines the search area; it does not replace the individual places being compared."},
+    {"q": "Why are individual municipalities so important to the idea?", "a": [
+      "Because I want the comparison to lead somewhere you can actually visit and consider.",
+      "A broad description of a region can be useful background. But when you are choosing a home, you eventually need to distinguish between the places inside it. I want Nestlyzer to help at that level.",
+      "I am particularly interested in places that someone would not automatically search for. A familiar name already has an advantage because it comes to mind. A smaller or less familiar municipality should have the opportunity to appear because it fits the person’s priorities.",
+      "That does not mean promoting obscure places for the sake of being different. It means allowing the comparison to challenge the shortlist you arrived with.",
+      "Discovering that another place deserves a visit would already be a useful outcome."]},
+    {"q": "The inspiration is Swiss. How much of this is really about finding somewhere with lower taxes?", "a": [
+      "Taxes belong in the decision where they are relevant, but I would find a purely tax-driven version of Nestlyzer too narrow.",
+      "A lower tax bill can be outweighed by higher housing costs. Even when the overall financial comparison favours one place, you still have to decide how much you value a shorter commute, being close to friends or having the surroundings you enjoy.",
+      "I do not want to prescribe the right balance. Someone may reasonably put cost first. Someone else may accept a higher cost because a place makes their daily routine easier.",
+      "The useful task is to make those trade-offs clearer. I would rather help someone understand what they are choosing than encourage them to optimise one number and ignore the rest."]},
+    {"photo": "meilen"},
+    {"q": "You originally described the idea as something closer to a real-time ranking. What does that mean?", "a": [
+      "The appeal was to move beyond a result published at one moment and give people something they could work with whenever the question became relevant.",
+      "There are two different kinds of change involved. One is your own: you adjust your priorities, explore another area or reconsider a compromise. An interactive comparison should respond to that.",
+      "The other is the underlying information. That needs updating when reliable new information becomes available, but I would not describe an annual statistic as live data simply because you are viewing it on a website.",
+      "My ambition is an evolving service, rather than a ranking that remains fixed until its next edition. Keeping the distinction between an updated comparison and newly published data is part of making that useful."],
+     "note": "Population figures are checked against Eurostat every month and refreshed automatically when a new year is published. The method page shows how fresh each source is."},
+    {"q": "Can a score really capture what makes somewhere a good place to live?", "a": [
+      "It can help organise a decision. I would not ask it to capture the whole experience.",
+      "Some things are suitable for comparison. Others require interpretation, and some are personal in a way that no general ranking can settle. You may want to live near someone important to you. You may feel comfortable in a town that another person finds unremarkable.",
+      "I would use a score to identify places worth examining and to understand their relative strengths and compromises. I would not treat a small difference in the final number as a reason to overrule everything else.",
+      "For me, the explanation matters more than the apparent precision. A result should help you say, “I understand why this place appears here,” rather than simply ask you to trust it."]},
+    {"q": "What happens when the information is much better for one place than another?", "a": [
+      "That needs to remain separate from how attractive the place appears.",
+      "I care about that separation. Knowing more about a place and preferring that place are different judgements.",
+      "From a user’s perspective, I would want to understand both the result and how much reliance to place on it. A confident-looking number is not helpful when it hides a weak basis.",
+      "The same applies when information is missing. I would rather have a comparison that acknowledges a gap than one that seems complete because nobody has made the gap visible."],
+     "note": "In Nestlyzer, confidence is shown next to every score and can be used to filter out places with thin data; it does not raise a place’s score."},
+    {"q": "What would you do after Nestlyzer helped you identify a promising place?", "a": [
+      "Go there and pay attention to the parts of the visit that resemble everyday life.",
+      "I would try the journey I expected to make regularly. I would walk around the area rather than only look at the most attractive street. I would think about shopping, transport, the things I enjoy doing and how the place feels at a time when I would actually be there.",
+      "A photograph can make a place appealing. It cannot tell me whether I will enjoy the routine of living there.",
+      "That is how I see the relationship between the platform and the visit. Nestlyzer should help you decide where to look and what to examine. Your experience of the place should then inform the decision."]},
+    {"photo": "hamburg"},
+    {"q": "Does an idea inspired by Swiss municipality rankings work elsewhere?", "a": [
+      "I think the underlying question travels very well. The factors that deserve attention will differ, and tax differences will not have the same role everywhere. But the wish to understand how one place compares with another is not confined to Switzerland.",
+      "My ambition is to take the approach beyond its Swiss starting point without pretending that every country has the same information or the same local context.",
+      "The comparison should remain useful at the level of actual towns and municipalities. Adding another country is worthwhile when it helps someone make a meaningful choice there, rather than merely making the coverage map look larger."],
+     "note": "Nestlyzer covers 35 European countries. Switzerland has the deepest official data; in most other countries the rankings are marked as an early indication until more national data is joined."},
+    {"q": "Is Nestlyzer mainly for people who are already planning a move?", "a": [
+      "They are an obvious audience, but I would like it to be useful earlier in the process too.",
+      "You might be considering a job in another region and want to understand the surrounding places before making a decision. You might be thinking about a different kind of home in a few years. Or you might simply be curious about the alternatives near where you already live.",
+      "I also like the possibility that the result confirms your present choice. Discovering why your current municipality suits you is a perfectly worthwhile outcome.",
+      "I do not want the service to assume that everyone needs to relocate. Its purpose is to help people understand their options. Sometimes that will lead to a move; sometimes it will make the case for staying clearer."]},
+    {"q": "How do you keep the commercial side from influencing the comparison?", "a": [
+      "By keeping promotion separate from the assessment of a place.",
+      "That principle matters to me because the usefulness of the service depends on the comparison being worth trusting. An attractive presentation should help you understand a place. It should not silently improve that place’s position.",
+      "There is also a practical need to support maintenance and development. I am interested in finding a sustainable way to do that, but I do not want to begin by making promises about a commercial model that has not been settled.",
+      "The first responsibility is to create something useful enough that people choose to use it."],
+     "note": "Advertising, photographs and other presentation elements never enter the score."},
+    {"q": "You also created CurveScout and DipMapper. What connects choosing a place to live with finding a road to ride or somewhere to swim?", "a": [
+      "They begin with different interests, but the common idea is helping someone understand a place before deciding what to do.",
+      "CurveScout concerns riding and discovering roads. DipMapper concerns swimming places. Nestlyzer applies that approach to municipalities and the question of where to live.",
+      "The decision in Nestlyzer carries more weight, so I would expect people to investigate more deeply. But the part that interests me is similar: take information that can be difficult to assemble, organise it around a practical question and leave room for the person’s own preferences.",
+      "I enjoy finding these applications for publicly available information. Each project still needs to justify itself independently. A person considering a move does not need to share my enthusiasm for motorcycles to find Nestlyzer useful."]},
+    {"photo": "warnemuende"},
+    {"q": "What would make Nestlyzer a success in your eyes?", "a": [
+      "Helping someone make a choice they understand better.",
+      "Perhaps a family discovers a municipality they had not considered and finds that it suits their daily life. Perhaps someone realises that the place they initially preferred involves a compromise they do not want to make. Perhaps a couple can finally explain to each other why they favour different options.",
+      "Those are the kinds of results I have in mind.",
+      "I would like Nestlyzer to become a useful starting point for choosing where to live, with enough depth to reward a closer look. But I would not measure that only by the number of places listed or comparisons generated.",
+      "The result I would value most is someone saying: “We would not have looked there without it. Now we understand why it works for us.”"]}
+  ]
+}

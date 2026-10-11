@@ -12,7 +12,7 @@ const topojson = require('topojson-client');
 const Engine = require(path.join(ROOT, 'src/engine.js'));
 const NestData = require(path.join(ROOT, 'src/data.js'));
 
-const VERSION = process.env.NZ_VERSION || '2.4.0';
+const VERSION = process.env.NZ_VERSION || '2.4.1';
 const SITE = 'https://nestlyzer.com';
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
 const write = (p, s) => { const f = path.join(ROOT, p); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, s); };
@@ -148,7 +148,7 @@ function footer() {
 <section><h2>Privacy</h2><p>There is no account system and no server-side user profile. Searches, filters, saved places and guided-profile answers stay in your browser. Public enrichment calls go to official data services, Wikimedia, Wikidata, OpenStreetMap and map tile servers, which receive normal technical request data. ${ANALYTICS ? 'Visit statistics (Google Analytics) and the ad service load only after you agree.' : 'There is no visitor tracking or analytics. The ad service loads only after you agree.'}</p><p>User relocation preferences are never sold or used for advertising.</p></section>
 <section><h2>Minimum disclosure</h2><p>Scores are decision aids. Verify taxes, residence rules, school access, healthcare, housing, noise, transport, permits and property details with the responsible authority or a qualified adviser. Country-specific tax outputs are only reliable where that country's tax module is joined.</p><p>Photos, coats of arms, public text, contact links, advertising and cross-border notes do not affect the score.</p></section>
 <section><h2>Sources and licences</h2><p>Public datasets and media keep their own terms. OSM-derived data requires attribution. Creative Commons and Wikimedia media may require creator, source and licence attribution. Boundaries are for visualisation and are not cadastral documents.</p><p><a href="https://www.fedlex.admin.ch/eli/cc/2022/491/en">Swiss FADP</a> · <a href="https://commission.europa.eu/law/law-topic/data-protection_en">EU data protection</a> · <a href="https://osmfoundation.org/wiki/Licence/Attribution_Guidelines">OSM attribution</a> · <a href="https://creativecommons.org/reusing-cc-licensed-content/">Creative Commons reuse</a> · <a href="https://gisco-services.ec.europa.eu/distribution/v2/lau/download/">Eurostat GISCO LAU</a> · <a href="https://www.swisstopo.admin.ch/en/landscape-model-swissboundaries3d">swissBOUNDARIES3D</a> · <a href="/method/#sources">All sources</a></p></section>
-</div><div class="footer-legal"><span><b>Nestlyzer.com</b>, find where you fit. Operator: Torsten Sauter, Alte Landstrasse 77, 8706 Meilen, Switzerland. Contact: torsten.sauter@icloud.com.</span><span><a href="/legal/">Imprint</a> · <a href="/legal/#privacy">Privacy</a> · <a href="/legal/#advertising">Advertising</a> · <a href="/legal/#cookies" data-privacy>Privacy settings</a> · <a href="/method/">Methodology</a> · <a href="/sitemap.xml">Sitemap</a></span></div></footer>`;
+</div><div class="footer-legal"><span><b>Nestlyzer.com</b>, find where you fit. Operator: Torsten Sauter, Alte Landstrasse 77, 8706 Meilen, Switzerland. Contact: torsten.sauter@icloud.com.</span><span><a href="/legal/">Imprint</a> · <a href="/legal/#privacy">Privacy</a> · <a href="/legal/#advertising">Advertising</a> · <a href="/legal/#cookies" data-privacy>Privacy settings</a> · <a href="/method/">Methodology</a> · <a href="/about/">About</a> · <a href="/sitemap.xml">Sitemap</a></span></div></footer>`;
 }
 const STATIC_JS = `try{var t=localStorage.getItem('nz:theme');if(t)document.documentElement.dataset.theme=JSON.parse(t)}catch(e){}`;
 const STATIC_TAIL = `__CONSENT_HTML__
@@ -432,6 +432,31 @@ ${metrosOf(cc).length ? `<section style="margin-top:28px"><h2 style="font-size:v
   page({ p: countryPath(cc), cc, jsonld: [{ '@context': 'https://schema.org', '@type': 'ItemList', name: `Best places in ${c.name} for young families`, itemListElement: yfC.map((x, i) => ({ '@type': 'ListItem', position: i + 1, name: x.r.name, url: PAGES[x.r.id] ? SITE + PAGES[x.r.id] : undefined })) }], title: fitTitle([`Best places to live in ${c.name}`, `: ${units(cc, c.n)} ranked`]), desc: `Where to live in ${c.name}? Compare ${units(cc, c.n)} for families, retirees, commuters, remote workers, students and more. Transparent scores from public data.`, body, crumbs: [['Home', '/'], [c.name, countryPath(cc)]] });
 }
 
+
+// ------------------------------------------------------------------ about page (founder interview)
+function aboutPage() {
+  const A = JSON.parse(read('build/content/about.json'));
+  const findPlace = (name) => { for (const cc of Object.keys(SH)) { const r = SH[cc].recs.find((x) => x.name === name && !x.superseded && PAGES[x.id]); if (r) return r; } return null; };
+  const fig = (k, lead) => {
+    const f = A.photos[k], r = f.find ? findPlace(f.find) : null, link = f.link || (r ? PAGES[r.id] : '');
+    return `<figure class="about-fig${lead ? ' lead' : ''} ${k === 'meilen' ? 'tall' : ''}"><img src="/assets/about/${f.src}-700.jpg" srcset="/assets/about/${f.src}-700.jpg 700w, /assets/about/${f.src}.jpg 1400w" sizes="(max-width: 760px) 100vw, (min-width: 1000px) 840px, 720px" alt="${esc(f.alt)}" loading="${lead ? 'eager' : 'lazy'}" decoding="async"><figcaption>${esc(f.caption)}${link ? ` <a href="${link}">${esc(f.linkText || (r ? r.name + ' on Nestlyzer' : 'On Nestlyzer'))}</a>` : ''}</figcaption></figure>`;
+  };
+  const linkify = (t) => esc(t).replace('CurveScout concerns', '<a href="https://curvescout.com" rel="noopener">CurveScout</a> concerns').replace('DipMapper concerns', '<a href="https://dipmapper.com" rel="noopener">DipMapper</a> concerns');
+  let firstPhoto = true;
+  const qa = A.qa.map((x) => {
+    if (x.photo) { const h = fig(x.photo, firstPhoto); firstPhoto = false; return h; }
+    return `<section class="qa"><h2>${esc(x.q)}</h2>${x.a.map((p) => `<p>${linkify(p)}</p>`).join('')}${x.note ? `<aside class="about-note"><b>How Nestlyzer does it.</b> ${esc(x.note)}</aside>` : ''}</section>`;
+  }).join('\n');
+  const body = `<article class="about"><h1>${esc(A.title)}</h1><p class="lede">${esc(A.standfirst)}</p>
+${A.intro.map((p) => `<p>${esc(p)}</p>`).join('')}
+${qa}
+<div class="cta-band"><h2>Find where you fit</h2><a class="btn" href="${appLink({ cc: 'CH', p: 'young_family' })}">Open the map</a></div>
+<p class="small muted">Interview with Torsten Sauter, founder and operator of Nestlyzer, Meilen, Switzerland. Photos: Torsten Sauter. Contact: <a href="mailto:torsten.sauter@icloud.com">torsten.sauter@icloud.com</a>.</p></article>`;
+  page({ p: '/about/', title: 'About Nestlyzer: an interview with founder Torsten Sauter | Nestlyzer', desc: 'Why Nestlyzer exists: a conversation with founder Torsten Sauter about choosing where to live, rankings that change with your priorities, and looking beyond familiar places.', body,
+    jsonld: [{ '@context': 'https://schema.org', '@type': 'AboutPage', name: 'About Nestlyzer', url: SITE + '/about/', mainEntity: { '@type': 'Person', name: 'Torsten Sauter', jobTitle: 'Founder', worksFor: { '@type': 'Organization', name: 'Nestlyzer', url: SITE }, address: { '@type': 'PostalAddress', addressLocality: 'Meilen', addressCountry: 'CH' } } }],
+    crumbs: [['Home', '/'], ['About', '/about/']] });
+}
+
 // ------------------------------------------------------------------ profile pages
 function bestIndexPage() {
   const body = `<h1>Best places to live, by household</h1><p class="lede">${profiles.length} household profiles, each a transparent set of weights. Pick yours to see its best places in Switzerland and across ${countries.length - 1} more European countries.</p>
@@ -690,7 +715,7 @@ if (!FAST) {
 const GEN_ROOTS = new Set([...countries.map((c) => cslug(c.cc)), 'best', 'method', 'legal']);
 for (const d of GEN_ROOTS) fs.rmSync(path.join(ROOT, d), { recursive: true, force: true });
 SITEMAP.length = 0; SITEMAP.push('/');
-methodPage(); legalPage();
+methodPage(); legalPage(); aboutPage();
 { const seen = new Map(); for (const r of pageRecs) { const k = r.country + '|' + r.name; seen.set(k, (seen.get(k) || 0) + 1); } for (const [k, n] of seen) if (n > 1) DUPNAME.add(k); }
 bestIndexPage();
 for (const p of profiles) profilePage(p);

@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.4.1 (October 2026)
+
+- Browser-only releases: the workflow unpacks uploaded release zips (all parts checked, Pages source checked), removes old and loose files, commits once, builds and publishes. Repairs the flattened browser upload of 2.4.0.
+- About page with the founder interview and four photos, linked from the footer and listed in the sitemap.
+
 ## 2.4.0 (October 2026)
 
 ### Privacy

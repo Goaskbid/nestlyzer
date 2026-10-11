@@ -1,10 +1,47 @@
 ---
-title: "Nestlyzer 2.4: privacy-first, built by GitHub, refreshed every year"
+title: "Nestlyzer 2.4.1: privacy-first, built by GitHub, refreshed every year"
 subtitle: "Nothing goes to Google before consent, light Analytics after it, a self-refreshing data pipeline, new maps and charts on every country and place page, and a final independent audit"
 date: "11 October 2026"
 ---
 
-# In short
+# What 2.4.1 adds
+
+**Why the live site still showed the old version, and the repair**
+
+- **What happened:** the 2.4 files were uploaded with the browser's **Add file → Upload files**. That upload puts every file in the top folder:
+  - the workflow ended up beside everything else instead of in `.github/workflows/`, so GitHub never ran it;
+  - the old `index.html` from June stayed in the top folder, so GitHub Pages kept serving the old site.
+
+  I checked this directly in the repository: 6 upload commits on 11 October between 19:20 and 19:28, about 190 loose files, and no `.github` folder.
+- **The repair:** the release now comes as two zip files plus one text file.
+  1. You paste the text once as `.github/workflows/site.yml`.
+  2. You upload both zips in the browser.
+  3. GitHub then checks that both parts are there and that Pages is set to "GitHub Actions".
+  4. It removes every old and loose file (the workflow file stays), unpacks the release with all folders in place, saves that as one commit, builds, tests and publishes.
+- **The safety stop:** if Pages is still set to "Deploy from a branch", it stops before changing anything and says so.
+- **Tested on a copy of the repository as it is today:**
+
+  | Test | Result |
+  |---|---|
+  | Starting state | the real current state, with the loose files and the old `index.html` |
+  | Only part 1 uploaded | waits, changes nothing, publishes nothing |
+  | Pages still on "Deploy from a branch" | stops with a clear message; nothing changed |
+  | Both parts, Pages on GitHub Actions | old files removed, 225 source files in place, no zip left behind; build, 5,656 pages and browser smoke test pass |
+
+**About page.**
+
+- **Content:** your interview with Torsten Sauter, with the four photos: Frankfurt, Meilen, Hamburg and Warnemünde.
+- **Where it is linked:** as you asked, it sits quietly at the end. It is linked from the footer on every page and listed in the sitemap for search engines, but it is not in the header or the menu.
+- **What I removed from the draft:** the editor's placeholders, the "GitHub" citation marks and the "Pasted markdown" remnant.
+- **Fact boxes:** the factual notes between the answers now say how Nestlyzer actually does it, in small "How Nestlyzer does it" boxes. Each one was checked against the site.
+- **Photos:** re-encoded without any camera metadata (no location data), in two sizes.
+
+**Checked for losses.**
+
+- **Pages:** all 5,655 pages of 2.4.0 are still there, and `/about/` is new.
+- **Tests:** all earlier tests still pass, with one new test (R73) for the About page.
+
+# In short (2.4)
 
 **Privacy-first by default.**
 
@@ -163,12 +200,12 @@ The reviewer had never seen the project. They used the site as a first-time visi
 
 Run in headless Chromium on desktop and phone sizes against the built site.
 
-Result: **70 pass, 0 fail, 1 not verifiable offline** (2026-10-11 14:32).
+Result: **71 pass, 0 fail, 1 not verifiable offline** (2026-10-11 20:42).
 
 | Check | What is tested | Result | Evidence |
 |---|---|---|---|
-| R01 | Landing page: hero, 25+ profile tiles, 35 countries, FAQ, legal footer, sponsorship, consent banner | Pass | h1="Find where you fit.", profiles=25, countries=35, faq=6, consent=True after 0.4s ['consent open', 'object', None, 'undefined', False], sponsor_link=1 |
-| R02 | Ranking list renders after load (legacy defect: 0 rows shown) | Pass | 480 ranked, 100 rows rendered, 9 top-pick cards, #1 Bürglen (TG), 2.70s to results |
+| R01 | Landing page: hero, 25+ profile tiles, 35 countries, FAQ, legal footer, sponsorship, consent banner | Pass | h1="Find where you fit.", profiles=25, countries=35, faq=6, consent=True after 0.2s ['consent open', 'object', None, 'undefined', False], sponsor_link=1 |
+| R02 | Ranking list renders after load (legacy defect: 0 rows shown) | Pass | 480 ranked, 100 rows rendered, 9 top-pick cards, #1 Bürglen (TG), 1.41s to results |
 | R03 | Method v1 in the browser reproduces legacy v86 rankings exactly | Pass | young_family: n 480/480 match; hnw: n 7/7 match; swiss_lottery: n 2172/2172 match; pensioner: n 793/793 match; student: n 49/49 match |
 | R04 | Profile switch re-ranks live and updates the URL | Pass | profile=pensioner, n=793, hash=#/explore?cc=CH&p=pensioner |
 | R05 | Swiss region and canton filters narrow the scope | Pass | Zurich region scope=519, Zug scope=11, all ZG=True |
@@ -194,7 +231,7 @@ Result: **70 pass, 0 fail, 1 not verifiable offline** (2026-10-11 14:32).
 | R25 | Official GISCO polygons on demand for Europe (runtime fetch). Offline: fails soft with a message | Pass | Boundaries unavailable The GISCO service did not respond (Failed to fetch). The dot map keeps working. × |
 | R26 | Deep links open the exact place; home and back navigation work | Pass | opened Meilen, home visible=True, back->explore |
 | R27 | Lottery tax panel (CH joined / Europe pending) and language-reality line | Pass | Swiss tax panel=True, other-country notice=True, language line=True |
-| R28 | SEO: static pages (municipality, canton, country, profile, method, legal) with canonical + JSON-LD, sitemap, 404 | Pass | [] bad; 404=404, sitemap urls=5655 |
+| R28 | SEO: static pages (municipality, canton, country, profile, method, legal) with canonical + JSON-LD, sitemap, 404 | Pass | [] bad; 404=404, sitemap urls=5656 |
 | R29 | Accessibility basics: named controls, image alt, visible keyboard focus (legacy: none) | Pass | unnamed landing=0, explore=0, imgs without alt=0, focus outline=solid |
 | R30 | Performance: legacy shipped one 18.7 MB HTML (90 MB JSON parsed in the browser) | Pass | gzip transfer KB: {'/': 118, '/data/meta.json': 53, '/data/c/CH.json': 606, '/data/c/FR.json': 1908, '/data/geo/ch.topo.json': 139, '/vendor/maplibre-gl.js':... |
 | R31 | Wikipedia/Wikidata/Commons/Overpass enrichment (photos, extracts, arms, contacts, sights, gallery) | Not verifiable here | Hosts blocked in this sandbox; panel renders without them and slots stay empty, no errors. Must be checked on the live site. |
@@ -204,7 +241,7 @@ Result: **70 pass, 0 fail, 1 not verifiable offline** (2026-10-11 14:32).
 | R36 | Map markers never overlap (phone width, Switzerland): lower-ranked pins hide until zoomed in | Pass | visible pins=11, overlapping pairs=0 |
 | R37 | AdSense ready: ads.txt, account meta on every page, Auto ads script on content pages only (not on legal or error pages) | Pass | ads.txt="google.com, pub-2870312071451207, DIRECT, f08c47fec0942fa0", pages={'/': (True, True), '/switzerland/': (True, True), '/switzerland/zurich/meilen/':... |
 | R38 | Consent: equal-weight buttons, "Only necessary" keeps everything denied, choice remembered, "Privacy settings" in the footer reopens it, analytics never receives the # selections | Pass | equal buttons=True, after decline={'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'}, shown ag... |
-| R39 | With Google's certified consent dialog (IAB TCF) active, Nestlyzer's own banner stays hidden and the choice is mirrored (simulated CMP) | Pass | own banner shown=False, mode=tcf, mirrored={'v': 2, 'a': True, 'd': True, 't': 1791721601154, 'src': 'tcf'} |
+| R39 | With Google's certified consent dialog (IAB TCF) active, Nestlyzer's own banner stays hidden and the choice is mirrored (simulated CMP) | Pass | own banner shown=False, mode=tcf, mirrored={'v': 2, 'a': True, 'd': True, 't': 1791743830009, 'src': 'tcf'} |
 | R40 | Legal page: imprint, GDPR/FADP privacy policy, AdSense-required disclosures, cookie table, consent withdrawal | Pass | missing=[], 16/16 required items present |
 | R41 | Switching country while a place is open: back to the map, no stale place sheet, map points belong to the new country | Pass | tab before=place, after=map, stale sheet visible=False, map points after switch=34997 (France has 35,359) |
 | R42 | First visit: a gentle invitation (never a blocking overlay) to a short tour, not shown again, reopened with ? | Pass | invitation first, blocking overlay=False; steps=['Who is moving?', 'Where to look', 'The map', 'The ranking', 'Your shortlist', 'Tools'], shown again=False, ... |
@@ -213,7 +250,7 @@ Result: **70 pass, 0 fail, 1 not verifiable offline** (2026-10-11 14:32).
 | R45 | Save from a card without opening it, notes survive a reload, shared lists import after the visitor agrees | Pass | opened by heart=CH:4911, note="Visit on Saturday", count=1, after import=3 |
 | R46 | Home: set a home, every other place shows the differences | Pass | 🏠 Zürich against your home, Meilen Zürich scores 31 less 29.0× as many residents 2.8× as many people within 10 km 15 km closer to a big city 2.6 km closer to a  |
 | R47 | Look-alikes elsewhere in Europe resolve to names and open in their own country | Pass | look-alikes=[' Meersburg (Germany)\nopen', ' Cernobbio (Italy)\nopen', ' Lochau (Austria)\nopen'], opened ['DE', 'Meersburg'] |
-| R48 | Tools drawer (11+ tools) and the higher-or-lower game with real values | Pass | tools=14, question="Which one is further from a railway line?", result="✅ Right! Streak: 1 · best: 1 Next pair" |
+| R48 | Tools drawer (11+ tools) and the higher-or-lower game with real values | Pass | tools=14, question="Which one has more people within 10 km?", result="❌ Not this time. Streak: 0 · best: 0 Nex" |
 | R49 | Photos with author and licence, lightbox, notable places (UNESCO badge), climate chart and Wikidata facts (simulated Wikimedia, Wikidata and NASA responses) | Pass | strip=6, grid=6, credit="Photographer 1 · CC BY-SA 4.0 · Wikimedia Commons", lightbox→next ok=True, nearby=2 (UNESCO 1), climate svg=1, "July days reach abou... |
 | R51 | Search from the home page opens Swiss places (audit: it left an empty shell) | Pass | opened=Zug, rows=100, link=#/explore?cc=CH&p=young_family&sel=CH%3A1711 |
 | R52 | Place stories vary (no single opening dominates), avoid stock travel-copy words, and do not repeat lines | Pass | 568 lines for 40 places; most common opening used 15×; banned words=[]; repeated lines=107 |
@@ -227,16 +264,17 @@ Result: **70 pass, 0 fail, 1 not verifiable offline** (2026-10-11 14:32).
 | R60 | Everyday life within 1.5 km (OpenStreetMap counts) and the wider region from Eurostat (simulated responses; live services are blocked here) | Pass | amenity tiles=14, "The basics are within walking distance: shopping, school and health ca"; region rows: ['Economic output per person', 'Zürich, 2023', '\t11... |
 | R61 | Honest wording: early-data countries say what the rank rests on; the why-card names the measure (not just a category) and never repeats a strength as a watch-out | Pass | card="Ranked on what is known so far: growing (+8.2% in 5 years), 18 km to a city of 100,000+. Local costs, schools "; why="A lot of new housing being built ... |
 | R62 | SEO and legal: greater-area pages with lists and structured data, place highlights, country-aware Explore links, terms of use, reporting, accessibility, EU/UK representative section, full storage list | Pass | metro page=True, place page=True, country explore link=True, legal sections=True, in sitemap=True |
-| R63 | App-ready: installable manifest with shortcuts, service worker with a versioned cache (pages always fresh), offline page | Pass | shortcuts=['Map', 'Shortlist', 'Families'], worker=activated, controls page=True, cache=nz-2.4.0 |
+| R63 | App-ready: installable manifest with shortcuts, service worker with a versioned cache (pages always fresh), offline page | Pass | shortcuts=['Map', 'Shortlist', 'Families'], worker=activated, controls page=True, cache=nz-2.4.1 |
 | R64 | Phone: the compare tray never covers the place action bar, the confirmation toast sits above it, the Shortlist tab is the active one and shows a count | Pass | tray visible on place=False, action bar visible=True, toast bottom 708 < bar top 728, active tab=['saved'], badge=1, overflow=0 |
 | R65 | Phone: profile picker sheet; filter sheet sits on top and is usable; Back closes the sheet instead of leaving the page; a tap outside closes it | Pass | profiles in picker=26, picker closed=True, pill="Pensioner couple", sheet on top=True, back closed=True, still exploring=True, tap outside closed=True |
 | R66 | Shortlist works across countries (a Swiss place can be removed while exploring Germany); quick country changes end in the last country chosen | Pass | listed in DE=1, left after remove=0, race ends in AT=True |
 | R67 | Records tab: every record is a real place in the country, with no broken numbers | Pass | 21 records, broken words=[], outside country=0 |
 | R68 | Privacy: with live content switched off, opening a place contacts no third-party service and offers a switch to turn it back on | Pass | third-party requests=0, turn-on buttons=5 |
 | R69 | Privacy-first: before a choice and after "Only necessary" the browser contacts no Google service at all; after "Accept all" light Analytics and the ad script (non-personalised) load once each | Pass | requests to Google before choice=0, Google scripts=0, after "Only necessary"=0 (next page 0); after accept: ad script=1, non-personalised=1, analytics loaded... |
-| R70 | SEO pages: the profiles overview is styled like the app, and all pages have their own title | Pass | tile style=['solid', '14px', 'flex'], pages checked=5655, duplicate titles=0, titles over 80 chars=0 |
+| R70 | SEO pages: the profiles overview is styled like the app, and all pages have their own title | Pass | tile style=['solid', '14px', 'flex'], pages checked=5656, duplicate titles=0, titles over 80 chars=0 |
 | R71 | Page graphics: country dot map with 10 numbered pins that match the list and link somewhere real; overseas ranks named; residents chart starts at zero; strength bars | Pass | pins=10, names match list=True, France caption="#3 lies outside this map (overseas)", chart bars=6 first/last=0.95, strength bars=11 |
 | R72 | Privacy from the map: Tools offers "Privacy settings" (focus goes into the choice) and "Imprint and privacy"; switching live content off stops all outside lookups at once | Pass | tiles=2, banner opened=True, focus in banner=True, outside requests after switching off=0 |
+| R73 | About page: the founder interview (14 questions, 4 photos), linked quietly from the footer only, listed in the sitemap, no draft notes left | Pass | questions=14, photos loaded=4, footer link=1, header link=0, in sitemap=True, draft notes left=False |
 | R32 | No uncaught JavaScript errors across all flows | Pass | 0 errors: [] |
 
 Also passing: 49 of 49 legacy score fixtures, 60 of 60 builder fixtures, all data checks, and the new smoke test that GitHub runs before every publish.
@@ -248,6 +286,7 @@ New in 2.4:
 | R23 | Light Analytics: everything denied by default. "Accept all" grants statistics and ad cookies, never personalised ads. Google signals and ad personalisation are off. |
 | R69 | No Google request before a choice or after "Only necessary"; after "Accept all", Analytics and the ad script load once each |
 | R71 | Dot-map pins match the list and link to real pages; overseas ranks are named; the chart starts at zero; strength bars |
+| R73 | About page: 14 questions and 4 photos, linked only from the footer, in the sitemap, with no draft notes left |
 | R72 | Privacy settings in Tools (with focus inside the banner), Imprint and privacy, and live content switched off stops all outside lookups |
 
 ## Single file
@@ -262,11 +301,11 @@ Screenshots are in the Word and PDF versions.
 
 **For you**
 
-1. Publish 2.4 as the deploy guide describes:
+1. Publish 2.4.1 in the browser, as the deploy guide describes:
    - Settings → Actions → allow actions;
    - Settings → Pages → Source: GitHub Actions;
-   - one paste in Terminal;
-   - one commit and one push;
+   - create `.github/workflows/site.yml` by pasting the text file;
+   - upload both zips;
    - watch the green tick.
 2. EU and UK representative: name one each (or a service), or build without Analytics (section 1).
 3. AdSense: add the site and turn on Auto ads. Do **not** turn on Google's European consent message.

@@ -1,10 +1,47 @@
 ---
-title: "Nestlyzer 2.4: privacy-first, built by GitHub, refreshed every year"
+title: "Nestlyzer 2.4.1: privacy-first, built by GitHub, refreshed every year"
 subtitle: "Nothing goes to Google before consent, light Analytics after it, a self-refreshing data pipeline, new maps and charts on every country and place page, and a final independent audit"
 date: "11 October 2026"
 ---
 
-# In short
+# What 2.4.1 adds
+
+**Why the live site still showed the old version, and the repair**
+
+- **What happened:** the 2.4 files were uploaded with the browser's **Add file → Upload files**. That upload puts every file in the top folder:
+  - the workflow ended up beside everything else instead of in `.github/workflows/`, so GitHub never ran it;
+  - the old `index.html` from June stayed in the top folder, so GitHub Pages kept serving the old site.
+
+  I checked this directly in the repository: 6 upload commits on 11 October between 19:20 and 19:28, about 190 loose files, and no `.github` folder.
+- **The repair:** the release now comes as two zip files plus one text file.
+  1. You paste the text once as `.github/workflows/site.yml`.
+  2. You upload both zips in the browser.
+  3. GitHub then checks that both parts are there and that Pages is set to "GitHub Actions".
+  4. It removes every old and loose file (the workflow file stays), unpacks the release with all folders in place, saves that as one commit, builds, tests and publishes.
+- **The safety stop:** if Pages is still set to "Deploy from a branch", it stops before changing anything and says so.
+- **Tested on a copy of the repository as it is today:**
+
+  | Test | Result |
+  |---|---|
+  | Starting state | the real current state, with the loose files and the old `index.html` |
+  | Only part 1 uploaded | waits, changes nothing, publishes nothing |
+  | Pages still on "Deploy from a branch" | stops with a clear message; nothing changed |
+  | Both parts, Pages on GitHub Actions | old files removed, 225 source files in place, no zip left behind; build, 5,656 pages and browser smoke test pass |
+
+**About page.**
+
+- **Content:** your interview with Torsten Sauter, with the four photos: Frankfurt, Meilen, Hamburg and Warnemünde.
+- **Where it is linked:** as you asked, it sits quietly at the end. It is linked from the footer on every page and listed in the sitemap for search engines, but it is not in the header or the menu.
+- **What I removed from the draft:** the editor's placeholders, the "GitHub" citation marks and the "Pasted markdown" remnant.
+- **Fact boxes:** the factual notes between the answers now say how Nestlyzer actually does it, in small "How Nestlyzer does it" boxes. Each one was checked against the site.
+- **Photos:** re-encoded without any camera metadata (no location data), in two sizes.
+
+**Checked for losses.**
+
+- **Pages:** all 5,655 pages of 2.4.0 are still there, and `/about/` is new.
+- **Tests:** all earlier tests still pass, with one new test (R73) for the About page.
+
+# In short (2.4)
 
 **Privacy-first by default.**
 
@@ -152,6 +189,7 @@ New in 2.4:
 | R23 | Light Analytics: everything denied by default. "Accept all" grants statistics and ad cookies, never personalised ads. Google signals and ad personalisation are off. |
 | R69 | No Google request before a choice or after "Only necessary"; after "Accept all", Analytics and the ad script load once each |
 | R71 | Dot-map pins match the list and link to real pages; overseas ranks are named; the chart starts at zero; strength bars |
+| R73 | About page: 14 questions and 4 photos, linked only from the footer, in the sitemap, with no draft notes left |
 | R72 | Privacy settings in Tools (with focus inside the banner), Imprint and privacy, and live content switched off stops all outside lookups |
 
 ## Single file
@@ -166,11 +204,11 @@ SCREENSHOTS
 
 **For you**
 
-1. Publish 2.4 as the deploy guide describes:
+1. Publish 2.4.1 in the browser, as the deploy guide describes:
    - Settings → Actions → allow actions;
    - Settings → Pages → Source: GitHub Actions;
-   - one paste in Terminal;
-   - one commit and one push;
+   - create `.github/workflows/site.yml` by pasting the text file;
+   - upload both zips;
    - watch the green tick.
 2. EU and UK representative: name one each (or a service), or build without Analytics (section 1).
 3. AdSense: add the site and turn on Auto ads. Do **not** turn on Google's European consent message.

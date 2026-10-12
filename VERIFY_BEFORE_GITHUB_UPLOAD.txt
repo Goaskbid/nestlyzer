@@ -1,4 +1,0 @@
-Before upload:
-- index.html must be the full app, not a one-line file.
-- CNAME must contain only nestlyzer.com.
-- Upload the extracted files, not the zip itself.

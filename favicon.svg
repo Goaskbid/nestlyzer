@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Nestlyzer">
-  <path d="M32 61.5C26.4 54.6 8.5 41 8.5 25.3 8.5 12.4 19 2.5 32 2.5s23.5 9.9 23.5 22.8C55.5 41 37.6 54.6 32 61.5Z" fill="#0B2E5C"/>
-  <ellipse cx="32" cy="21.8" rx="7.2" ry="9" fill="#FFFFFF"/>
-  <path d="M16.8 24.6h30.4c0 9-6.8 15.4-15.2 15.4s-15.2-6.4-15.2-15.4Z" fill="#F5B700"/>
-  <path d="M19.6 30c3.5 1.6 7.7 2.4 12.4 2.4s8.9-.8 12.4-2.4M23.3 35.3c2.7 1.1 5.6 1.6 8.7 1.6s6-.5 8.7-1.6" fill="none" stroke="#0B2E5C" stroke-opacity=".3" stroke-width="1.7" stroke-linecap="round"/>
-</svg>

@@ -1,0 +1,2483 @@
+{
+ "_about": "Reference results from the old build (repo.html) computed in headless Chromium via the page's own applyRanking() after all patches. CH: scope All Switzerland, minConf 0, no search; derived access irrelevant for CH. AT and DE_NORTH computed WITHOUT boundary geometry (GISCO unreachable in the audit harness), so Europe access profiles return 0 here; with geometry they depend on centroids. Rows: [id,name,overall,coverage].",
+ "CH": {
+  "young_family": {
+   "n": 480,
+   "top": [
+    [
+     "CH:4911",
+     "Bürglen (TG)",
+     72.3382,
+     94
+    ],
+    [
+     "CH:4196",
+     "Fahrwangen",
+     70.2883,
+     94
+    ],
+    [
+     "CH:3442",
+     "Gaiserwald",
+     69.4387,
+     94
+    ],
+    [
+     "CH:1201",
+     "Altdorf (UR)",
+     69.3738,
+     94
+    ],
+    [
+     "CH:2826",
+     "Giebenach",
+     69.3691,
+     94
+    ],
+    [
+     "CH:4724",
+     "Eschlikon",
+     69.2249,
+     94
+    ],
+    [
+     "CH:6263",
+     "Grimisuat",
+     69.2153,
+     94
+    ],
+    [
+     "CH:3408",
+     "Uzwil",
+     69.1897,
+     94
+    ],
+    [
+     "CH:4047",
+     "Würenlingen",
+     68.8799,
+     94
+    ],
+    [
+     "CH:9",
+     "Mettmenstetten",
+     68.7777,
+     94
+    ]
+   ]
+  },
+  "low_income": {
+   "n": 365,
+   "top": [
+    [
+     "CH:4125",
+     "Schinznach",
+     79.1922,
+     92
+    ],
+    [
+     "CH:4911",
+     "Bürglen (TG)",
+     79.0502,
+     92
+    ],
+    [
+     "CH:1201",
+     "Altdorf (UR)",
+     77.9673,
+     92
+    ],
+    [
+     "CH:1059",
+     "Kriens",
+     77.9486,
+     92
+    ],
+    [
+     "CH:2125",
+     "Bulle",
+     76.342,
+     92
+    ],
+    [
+     "CH:1301",
+     "Einsiedeln",
+     74.923,
+     92
+    ],
+    [
+     "CH:3954",
+     "Malans",
+     74.2223,
+     92
+    ],
+    [
+     "CH:4201",
+     "Lenzburg",
+     73.5533,
+     92
+    ],
+    [
+     "CH:4071",
+     "Jonen",
+     73.2001,
+     92
+    ],
+    [
+     "CH:34",
+     "Laufen-Uhwiesen",
+     72.5499,
+     92
+    ]
+   ]
+  },
+  "low_income_family": {
+   "n": 315,
+   "top": [
+    [
+     "CH:4911",
+     "Bürglen (TG)",
+     79.2102,
+     96
+    ],
+    [
+     "CH:4071",
+     "Jonen",
+     74.9758,
+     96
+    ],
+    [
+     "CH:2125",
+     "Bulle",
+     74.8799,
+     96
+    ],
+    [
+     "CH:4210",
+     "Staufen",
+     74.1646,
+     96
+    ],
+    [
+     "CH:1033",
+     "Inwil",
+     73.859,
+     96
+    ],
+    [
+     "CH:4196",
+     "Fahrwangen",
+     73.0389,
+     96
+    ],
+    [
+     "CH:5584",
+     "Epalinges",
+     73.0301,
+     96
+    ],
+    [
+     "CH:1055",
+     "Gisikon",
+     72.5455,
+     96
+    ],
+    [
+     "CH:6263",
+     "Grimisuat",
+     72.0417,
+     96
+    ],
+    [
+     "CH:4205",
+     "Othmarsingen",
+     71.9991,
+     96
+    ]
+   ]
+  },
+  "single_parent": {
+   "n": 300,
+   "top": [
+    [
+     "CH:4911",
+     "Bürglen (TG)",
+     76.6684,
+     92
+    ],
+    [
+     "CH:4071",
+     "Jonen",
+     73.9887,
+     92
+    ],
+    [
+     "CH:4196",
+     "Fahrwangen",
+     73.875,
+     92
+    ],
+    [
+     "CH:4210",
+     "Staufen",
+     73.3441,
+     92
+    ],
+    [
+     "CH:4205",
+     "Othmarsingen",
+     72.443,
+     92
+    ],
+    [
+     "CH:1125",
+     "Dagmersellen",
+     71.8817,
+     92
+    ],
+    [
+     "CH:5584",
+     "Epalinges",
+     71.7642,
+     92
+    ],
+    [
+     "CH:4724",
+     "Eschlikon",
+     71.5512,
+     92
+    ],
+    [
+     "CH:9",
+     "Mettmenstetten",
+     71.4292,
+     92
+    ],
+    [
+     "CH:3232",
+     "Balgach",
+     71.3125,
+     92
+    ]
+   ]
+  },
+  "pensioner": {
+   "n": 793,
+   "top": [
+    [
+     "CH:34",
+     "Laufen-Uhwiesen",
+     81.5211,
+     90
+    ],
+    [
+     "CH:4125",
+     "Schinznach",
+     79.7414,
+     90
+    ],
+    [
+     "CH:4851",
+     "Salenstein",
+     79.6976,
+     90
+    ],
+    [
+     "CH:1201",
+     "Altdorf (UR)",
+     79.5564,
+     90
+    ],
+    [
+     "CH:5263",
+     "Riva San Vitale",
+     79.4757,
+     90
+    ],
+    [
+     "CH:192",
+     "Egg",
+     79.3748,
+     90
+    ],
+    [
+     "CH:1710",
+     "Walchwil",
+     78.987,
+     90
+    ],
+    [
+     "CH:216",
+     "Dinhard",
+     78.815,
+     90
+    ],
+    [
+     "CH:6254",
+     "Noble-Contrée",
+     78.6534,
+     76
+    ],
+    [
+     "CH:4005",
+     "Erlinsbach (AG)",
+     78.5613,
+     90
+    ]
+   ]
+  },
+  "single_pensioner": {
+   "n": 274,
+   "top": [
+    [
+     "CH:34",
+     "Laufen-Uhwiesen",
+     82.9131,
+     88
+    ],
+    [
+     "CH:6254",
+     "Noble-Contrée",
+     82.8014,
+     78
+    ],
+    [
+     "CH:5180",
+     "Cureglia",
+     81.488,
+     88
+    ],
+    [
+     "CH:1201",
+     "Altdorf (UR)",
+     81.3288,
+     88
+    ],
+    [
+     "CH:192",
+     "Egg",
+     80.3693,
+     88
+    ],
+    [
+     "CH:5263",
+     "Riva San Vitale",
+     80.1993,
+     88
+    ],
+    [
+     "CH:4005",
+     "Erlinsbach (AG)",
+     79.77,
+     88
+    ],
+    [
+     "CH:3212",
+     "Eggersriet",
+     79.7424,
+     88
+    ],
+    [
+     "CH:156",
+     "Meilen",
+     79.628,
+     88
+    ],
+    [
+     "CH:1710",
+     "Walchwil",
+     79.4407,
+     88
+    ]
+   ]
+  },
+  "early_retiree": {
+   "n": 247,
+   "top": [
+    [
+     "CH:3787",
+     "St. Moritz",
+     81.2694,
+     92
+    ],
+    [
+     "CH:1507",
+     "Hergiswil (NW)",
+     81.1516,
+     92
+    ],
+    [
+     "CH:5192",
+     "Lugano",
+     79.3586,
+     92
+    ],
+    [
+     "CH:1407",
+     "Sarnen",
+     78.3668,
+     92
+    ],
+    [
+     "CH:1323",
+     "Wollerau",
+     77.8882,
+     92
+    ],
+    [
+     "CH:4646",
+     "Ermatingen",
+     77.7659,
+     92
+    ],
+    [
+     "CH:1710",
+     "Walchwil",
+     77.5021,
+     92
+    ],
+    [
+     "CH:1509",
+     "Stans",
+     76.5482,
+     92
+    ],
+    [
+     "CH:3024",
+     "Teufen (AR)",
+     76.5107,
+     92
+    ],
+    [
+     "CH:3101",
+     "Appenzell",
+     76.4462,
+     92
+    ]
+   ]
+  },
+  "single": {
+   "n": 22,
+   "top": [
+    [
+     "CH:4201",
+     "Lenzburg",
+     81.8801,
+     100
+    ],
+    [
+     "CH:1701",
+     "Baar",
+     81.771,
+     100
+    ],
+    [
+     "CH:1711",
+     "Zug",
+     81.5693,
+     100
+    ],
+    [
+     "CH:4021",
+     "Baden",
+     81.5255,
+     100
+    ],
+    [
+     "CH:1702",
+     "Cham",
+     77.9444,
+     100
+    ],
+    [
+     "CH:1707",
+     "Risch",
+     77.7948,
+     100
+    ],
+    [
+     "CH:4566",
+     "Frauenfeld",
+     76.8836,
+     100
+    ],
+    [
+     "CH:4001",
+     "Aarau",
+     74.5382,
+     100
+    ],
+    [
+     "CH:1703",
+     "Hünenberg",
+     74.4294,
+     100
+    ],
+    [
+     "CH:1708",
+     "Steinhausen",
+     74.035,
+     100
+    ]
+   ]
+  },
+  "young_professional": {
+   "n": 69,
+   "top": [
+    [
+     "CH:4201",
+     "Lenzburg",
+     82.9358,
+     100
+    ],
+    [
+     "CH:1711",
+     "Zug",
+     81.32,
+     100
+    ],
+    [
+     "CH:1701",
+     "Baar",
+     80.5908,
+     100
+    ],
+    [
+     "CH:4021",
+     "Baden",
+     79.9137,
+     100
+    ],
+    [
+     "CH:1707",
+     "Risch",
+     77.2523,
+     100
+    ],
+    [
+     "CH:1702",
+     "Cham",
+     77.1985,
+     100
+    ],
+    [
+     "CH:4566",
+     "Frauenfeld",
+     76.2539,
+     100
+    ],
+    [
+     "CH:4001",
+     "Aarau",
+     74.7345,
+     100
+    ],
+    [
+     "CH:69",
+     "Wallisellen",
+     74.0699,
+     100
+    ],
+    [
+     "CH:1708",
+     "Steinhausen",
+     72.7639,
+     100
+    ]
+   ]
+  },
+  "dinks": {
+   "n": 9,
+   "top": [
+    [
+     "CH:1711",
+     "Zug",
+     85.4047,
+     100
+    ],
+    [
+     "CH:1701",
+     "Baar",
+     85.0086,
+     100
+    ],
+    [
+     "CH:4021",
+     "Baden",
+     84.3516,
+     100
+    ],
+    [
+     "CH:4001",
+     "Aarau",
+     78.5883,
+     100
+    ],
+    [
+     "CH:1702",
+     "Cham",
+     78.4383,
+     100
+    ],
+    [
+     "CH:1708",
+     "Steinhausen",
+     76.8831,
+     100
+    ],
+    [
+     "CH:1061",
+     "Luzern",
+     74.9718,
+     100
+    ],
+    [
+     "CH:69",
+     "Wallisellen",
+     74.4214,
+     100
+    ],
+    [
+     "CH:4095",
+     "Brugg",
+     68.8187,
+     100
+    ]
+   ]
+  },
+  "remote": {
+   "n": 2172,
+   "top": [
+    [
+     "CH:5206",
+     "Neggio",
+     75.5553,
+     90
+    ],
+    [
+     "CH:1201",
+     "Altdorf (UR)",
+     75.3715,
+     100
+    ],
+    [
+     "CH:1321",
+     "Feusisberg",
+     75.0251,
+     100
+    ],
+    [
+     "CH:1301",
+     "Einsiedeln",
+     73.773,
+     100
+    ],
+    [
+     "CH:4125",
+     "Schinznach",
+     73.2387,
+     100
+    ],
+    [
+     "CH:4851",
+     "Salenstein",
+     72.8817,
+     100
+    ],
+    [
+     "CH:1507",
+     "Hergiswil (NW)",
+     72.8594,
+     100
+    ],
+    [
+     "CH:1059",
+     "Kriens",
+     72.096,
+     100
+    ],
+    [
+     "CH:192",
+     "Egg",
+     71.6459,
+     100
+    ],
+    [
+     "CH:1323",
+     "Wollerau",
+     71.4737,
+     100
+    ]
+   ]
+  },
+  "commuter": {
+   "n": 74,
+   "top": [
+    [
+     "CH:4201",
+     "Lenzburg",
+     84.5668,
+     100
+    ],
+    [
+     "CH:1707",
+     "Risch",
+     81.1218,
+     100
+    ],
+    [
+     "CH:4566",
+     "Frauenfeld",
+     81.023,
+     100
+    ],
+    [
+     "CH:1711",
+     "Zug",
+     80.2994,
+     100
+    ],
+    [
+     "CH:1702",
+     "Cham",
+     78.697,
+     100
+    ],
+    [
+     "CH:1701",
+     "Baar",
+     78.5291,
+     100
+    ],
+    [
+     "CH:4021",
+     "Baden",
+     78.5194,
+     100
+    ],
+    [
+     "CH:53",
+     "Bülach",
+     78.2565,
+     100
+    ],
+    [
+     "CH:1059",
+     "Kriens",
+     77.2079,
+     100
+    ],
+    [
+     "CH:198",
+     "Uster",
+     76.8905,
+     100
+    ]
+   ]
+  },
+  "car_free": {
+   "n": 53,
+   "top": [
+    [
+     "CH:1701",
+     "Baar",
+     83.882,
+     100
+    ],
+    [
+     "CH:1711",
+     "Zug",
+     82.6636,
+     100
+    ],
+    [
+     "CH:1702",
+     "Cham",
+     81.5253,
+     100
+    ],
+    [
+     "CH:4201",
+     "Lenzburg",
+     81.4717,
+     100
+    ],
+    [
+     "CH:4566",
+     "Frauenfeld",
+     79.4824,
+     100
+    ],
+    [
+     "CH:1707",
+     "Risch",
+     78.1284,
+     100
+    ],
+    [
+     "CH:4021",
+     "Baden",
+     77.9645,
+     100
+    ],
+    [
+     "CH:1703",
+     "Hünenberg",
+     76.243,
+     100
+    ],
+    [
+     "CH:62",
+     "Kloten",
+     75.0234,
+     100
+    ],
+    [
+     "CH:4001",
+     "Aarau",
+     74.888,
+     100
+    ]
+   ]
+  },
+  "student": {
+   "n": 49,
+   "top": [
+    [
+     "CH:5192",
+     "Lugano",
+     81.1694,
+     100
+    ],
+    [
+     "CH:1061",
+     "Luzern",
+     76.1142,
+     100
+    ],
+    [
+     "CH:2196",
+     "Fribourg",
+     74.9988,
+     100
+    ],
+    [
+     "CH:6458",
+     "Neuchâtel",
+     74.7336,
+     100
+    ],
+    [
+     "CH:3203",
+     "St. Gallen",
+     74.4489,
+     100
+    ],
+    [
+     "CH:3901",
+     "Chur",
+     74.0963,
+     100
+    ],
+    [
+     "CH:261",
+     "Zürich",
+     73.609,
+     100
+    ],
+    [
+     "CH:351",
+     "Bern",
+     73.3274,
+     100
+    ],
+    [
+     "CH:2701",
+     "Basel",
+     72.6941,
+     100
+    ],
+    [
+     "CH:5586",
+     "Lausanne",
+     71.0736,
+     100
+    ]
+   ]
+  },
+  "first_home": {
+   "n": 646,
+   "top": [
+    [
+     "CH:4911",
+     "Bürglen (TG)",
+     77.9847,
+     97
+    ],
+    [
+     "CH:6",
+     "Kappel am Albis",
+     75.7979,
+     97
+    ],
+    [
+     "CH:2125",
+     "Bulle",
+     74.6403,
+     97
+    ],
+    [
+     "CH:4125",
+     "Schinznach",
+     74.4895,
+     97
+    ],
+    [
+     "CH:4071",
+     "Jonen",
+     74.4002,
+     97
+    ],
+    [
+     "CH:2257",
+     "Cressier (FR)",
+     72.5651,
+     97
+    ],
+    [
+     "CH:1301",
+     "Einsiedeln",
+     72.5297,
+     97
+    ],
+    [
+     "CH:1201",
+     "Altdorf (UR)",
+     72.5023,
+     97
+    ],
+    [
+     "CH:1059",
+     "Kriens",
+     72.2021,
+     97
+    ],
+    [
+     "CH:3954",
+     "Malans",
+     71.7088,
+     97
+    ]
+   ]
+  },
+  "budget": {
+   "n": 1312,
+   "top": [
+    [
+     "CH:1201",
+     "Altdorf (UR)",
+     79.5333,
+     92
+    ],
+    [
+     "CH:1301",
+     "Einsiedeln",
+     78.6099,
+     92
+    ],
+    [
+     "CH:4125",
+     "Schinznach",
+     77.224,
+     92
+    ],
+    [
+     "CH:1059",
+     "Kriens",
+     76.9597,
+     92
+    ],
+    [
+     "CH:6",
+     "Kappel am Albis",
+     76.4481,
+     92
+    ],
+    [
+     "CH:34",
+     "Laufen-Uhwiesen",
+     76.0557,
+     92
+    ],
+    [
+     "CH:4911",
+     "Bürglen (TG)",
+     75.7001,
+     92
+    ],
+    [
+     "CH:3103",
+     "Rüte",
+     75.2538,
+     92
+    ],
+    [
+     "CH:3954",
+     "Malans",
+     75.0857,
+     92
+    ],
+    [
+     "CH:216",
+     "Dinhard",
+     74.8243,
+     92
+    ]
+   ]
+  },
+  "urban": {
+   "n": 16,
+   "top": [
+    [
+     "CH:1701",
+     "Baar",
+     84.5509,
+     100
+    ],
+    [
+     "CH:1711",
+     "Zug",
+     84.4294,
+     100
+    ],
+    [
+     "CH:4021",
+     "Baden",
+     80.2575,
+     100
+    ],
+    [
+     "CH:1702",
+     "Cham",
+     78.3874,
+     100
+    ],
+    [
+     "CH:1703",
+     "Hünenberg",
+     78.3737,
+     100
+    ],
+    [
+     "CH:4201",
+     "Lenzburg",
+     77.6368,
+     100
+    ],
+    [
+     "CH:4566",
+     "Frauenfeld",
+     75.1585,
+     100
+    ],
+    [
+     "CH:2829",
+     "Liestal",
+     73.5193,
+     100
+    ],
+    [
+     "CH:1707",
+     "Risch",
+     72.2995,
+     100
+    ],
+    [
+     "CH:2581",
+     "Olten",
+     71.6069,
+     100
+    ]
+   ]
+  },
+  "expat_professional": {
+   "n": 0,
+   "top": []
+  },
+  "healthcare_first": {
+   "n": 279,
+   "top": [
+    [
+     "CH:6254",
+     "Noble-Contrée",
+     84.3061,
+     86
+    ],
+    [
+     "CH:5214",
+     "Porza",
+     82.7524,
+     86
+    ],
+    [
+     "CH:1201",
+     "Altdorf (UR)",
+     82.7076,
+     90
+    ],
+    [
+     "CH:1058",
+     "Horw",
+     82.4897,
+     90
+    ],
+    [
+     "CH:3787",
+     "St. Moritz",
+     82.0866,
+     90
+    ],
+    [
+     "CH:2473",
+     "Dornach",
+     81.8459,
+     90
+    ],
+    [
+     "CH:156",
+     "Meilen",
+     81.7944,
+     90
+    ],
+    [
+     "CH:152",
+     "Herrliberg",
+     81.5261,
+     90
+    ],
+    [
+     "CH:192",
+     "Egg",
+     80.7669,
+     90
+    ],
+    [
+     "CH:4144",
+     "Schöftland",
+     80.7439,
+     90
+    ]
+   ]
+  },
+  "nature": {
+   "n": 2172,
+   "top": [
+    [
+     "CH:34",
+     "Laufen-Uhwiesen",
+     78.3128,
+     94
+    ],
+    [
+     "CH:5206",
+     "Neggio",
+     77.0659,
+     94
+    ],
+    [
+     "CH:216",
+     "Dinhard",
+     76.8089,
+     94
+    ],
+    [
+     "CH:4125",
+     "Schinznach",
+     76.4715,
+     94
+    ],
+    [
+     "CH:5263",
+     "Riva San Vitale",
+     75.5671,
+     94
+    ],
+    [
+     "CH:4826",
+     "Mammern",
+     75.5389,
+     94
+    ],
+    [
+     "CH:4287",
+     "Vordemwald",
+     75.3315,
+     94
+    ],
+    [
+     "CH:4005",
+     "Erlinsbach (AG)",
+     74.9965,
+     94
+    ],
+    [
+     "CH:4851",
+     "Salenstein",
+     74.9502,
+     94
+    ],
+    [
+     "CH:82",
+     "Boppelsen",
+     74.6859,
+     94
+    ]
+   ]
+  },
+  "rural_value": {
+   "n": 865,
+   "top": [
+    [
+     "CH:4125",
+     "Schinznach",
+     78.7574,
+     98
+    ],
+    [
+     "CH:34",
+     "Laufen-Uhwiesen",
+     77.5862,
+     98
+    ],
+    [
+     "CH:1059",
+     "Kriens",
+     77.2858,
+     98
+    ],
+    [
+     "CH:5206",
+     "Neggio",
+     77.1726,
+     98
+    ],
+    [
+     "CH:1301",
+     "Einsiedeln",
+     75.4713,
+     98
+    ],
+    [
+     "CH:1201",
+     "Altdorf (UR)",
+     75.1907,
+     98
+    ],
+    [
+     "CH:5263",
+     "Riva San Vitale",
+     75.1005,
+     98
+    ],
+    [
+     "CH:4911",
+     "Bürglen (TG)",
+     74.5588,
+     98
+    ],
+    [
+     "CH:216",
+     "Dinhard",
+     73.7325,
+     98
+    ],
+    [
+     "CH:6267",
+     "Veysonnaz",
+     73.6261,
+     98
+    ]
+   ]
+  },
+  "hnw": {
+   "n": 7,
+   "top": [
+    [
+     "CH:1323",
+     "Wollerau",
+     87.3519,
+     97
+    ],
+    [
+     "CH:1322",
+     "Freienbach",
+     86.3133,
+     97
+    ],
+    [
+     "CH:1507",
+     "Hergiswil (NW)",
+     84.5554,
+     97
+    ],
+    [
+     "CH:1711",
+     "Zug",
+     83.5411,
+     97
+    ],
+    [
+     "CH:1509",
+     "Stans",
+     82.7895,
+     97
+    ],
+    [
+     "CH:1703",
+     "Hünenberg",
+     81.6307,
+     97
+    ],
+    [
+     "CH:154",
+     "Küsnacht (ZH)",
+     78.6842,
+     97
+    ]
+   ]
+  },
+  "swiss_lottery": {
+   "n": 2172,
+   "top": [
+    [
+     "CH:1323",
+     "Wollerau",
+     86.1519,
+     96
+    ],
+    [
+     "CH:1507",
+     "Hergiswil (NW)",
+     84.8973,
+     96
+    ],
+    [
+     "CH:1701",
+     "Baar",
+     84.6795,
+     96
+    ],
+    [
+     "CH:1322",
+     "Freienbach",
+     84.677,
+     96
+    ],
+    [
+     "CH:1711",
+     "Zug",
+     82.7639,
+     96
+    ],
+    [
+     "CH:1509",
+     "Stans",
+     82.5347,
+     96
+    ],
+    [
+     "CH:5192",
+     "Lugano",
+     82.0603,
+     96
+    ],
+    [
+     "CH:1703",
+     "Hünenberg",
+     81.6427,
+     96
+    ],
+    [
+     "CH:3787",
+     "St. Moritz",
+     81.1235,
+     96
+    ],
+    [
+     "CH:4643",
+     "Bottighofen",
+     80.6371,
+     96
+    ]
+   ]
+  },
+  "climate": {
+   "n": 2172,
+   "top": [
+    [
+     "CH:5263",
+     "Riva San Vitale",
+     77.9333,
+     94
+    ],
+    [
+     "CH:5206",
+     "Neggio",
+     77.5758,
+     94
+    ],
+    [
+     "CH:4125",
+     "Schinznach",
+     77.108,
+     94
+    ],
+    [
+     "CH:34",
+     "Laufen-Uhwiesen",
+     75.8572,
+     94
+    ],
+    [
+     "CH:4005",
+     "Erlinsbach (AG)",
+     75.6321,
+     94
+    ],
+    [
+     "CH:3316",
+     "Weesen",
+     75.2041,
+     94
+    ],
+    [
+     "CH:4287",
+     "Vordemwald",
+     74.3925,
+     94
+    ],
+    [
+     "CH:1059",
+     "Kriens",
+     74.3238,
+     94
+    ],
+    [
+     "CH:3212",
+     "Eggersriet",
+     73.6628,
+     94
+    ],
+    [
+     "CH:4851",
+     "Salenstein",
+     73.4627,
+     94
+    ]
+   ]
+  },
+  "self_fit": {
+   "n": 1290,
+   "top": [
+    [
+     "CH:4201",
+     "Lenzburg",
+     73.0348,
+     100
+    ],
+    [
+     "CH:1711",
+     "Zug",
+     72.8047,
+     100
+    ],
+    [
+     "CH:1201",
+     "Altdorf (UR)",
+     71.8549,
+     100
+    ],
+    [
+     "CH:1701",
+     "Baar",
+     71.6721,
+     100
+    ],
+    [
+     "CH:1323",
+     "Wollerau",
+     71.4123,
+     100
+    ],
+    [
+     "CH:4566",
+     "Frauenfeld",
+     70.8697,
+     100
+    ],
+    [
+     "CH:1321",
+     "Feusisberg",
+     70.7243,
+     100
+    ],
+    [
+     "CH:3787",
+     "St. Moritz",
+     70.2387,
+     100
+    ],
+    [
+     "CH:1509",
+     "Stans",
+     69.716,
+     100
+    ],
+    [
+     "CH:3901",
+     "Chur",
+     69.6016,
+     100
+    ]
+   ]
+  }
+ },
+ "AT_no_geometry": {
+  "young_family": {
+   "n": 1686,
+   "top": [
+    [
+     "AT:30856",
+     "Strasshof an der Nordbahn",
+     74.9877,
+     82
+    ],
+    [
+     "AT:30621",
+     "Mitterndorf an der Fischa",
+     71.326,
+     82
+    ],
+    [
+     "AT:32330",
+     "Theresienfeld",
+     70.9839,
+     82
+    ],
+    [
+     "AT:41731",
+     "Regau",
+     70.7045,
+     82
+    ],
+    [
+     "AT:80303",
+     "Lustenau",
+     70.6476,
+     82
+    ]
+   ]
+  },
+  "low_income": {
+   "n": 1815,
+   "top": [
+    [
+     "AT:41003",
+     "Asten",
+     70.4179,
+     80
+    ],
+    [
+     "AT:30401",
+     "Wiener Neustadt",
+     70.3096,
+     80
+    ],
+    [
+     "AT:32016",
+     "Wieselburg",
+     69.371,
+     80
+    ],
+    [
+     "AT:80404",
+     "Feldkirch",
+     69.223,
+     80
+    ],
+    [
+     "AT:31723",
+     "Vösendorf",
+     68.8012,
+     80
+    ]
+   ]
+  },
+  "low_income_family": {
+   "n": 1686,
+   "top": [
+    [
+     "AT:30856",
+     "Strasshof an der Nordbahn",
+     71.6026,
+     80
+    ],
+    [
+     "AT:30621",
+     "Mitterndorf an der Fischa",
+     68.8426,
+     80
+    ],
+    [
+     "AT:80240",
+     "Wolfurt",
+     68.159,
+     80
+    ],
+    [
+     "AT:80303",
+     "Lustenau",
+     68.0678,
+     80
+    ],
+    [
+     "AT:80224",
+     "Lauterach",
+     67.9805,
+     80
+    ]
+   ]
+  },
+  "single_parent": {
+   "n": 1296,
+   "top": [
+    [
+     "AT:30856",
+     "Strasshof an der Nordbahn",
+     78.3533,
+     78
+    ],
+    [
+     "AT:80303",
+     "Lustenau",
+     73.2919,
+     78
+    ],
+    [
+     "AT:80240",
+     "Wolfurt",
+     72.8325,
+     78
+    ],
+    [
+     "AT:80412",
+     "Mäder",
+     72.6093,
+     78
+    ],
+    [
+     "AT:30731",
+     "Gramatneusiedl",
+     72.0784,
+     78
+    ]
+   ]
+  },
+  "pensioner": {
+   "n": 1815,
+   "top": [
+    [
+     "AT:30531",
+     "St. Valentin",
+     73.5482,
+     78
+    ],
+    [
+     "AT:70416",
+     "St. Johann in Tirol",
+     73.46,
+     78
+    ],
+    [
+     "AT:50404",
+     "Bischofshofen",
+     73.424,
+     78
+    ],
+    [
+     "AT:62379",
+     "Feldbach",
+     73.345,
+     78
+    ],
+    [
+     "AT:50628",
+     "Zell am See",
+     73.2269,
+     78
+    ]
+   ]
+  },
+  "single_pensioner": {
+   "n": 1529,
+   "top": [
+    [
+     "AT:20101",
+     "Klagenfurt am Wörthersee",
+     82.624,
+     78
+    ],
+    [
+     "AT:62041",
+     "Knittelfeld",
+     81.3018,
+     78
+    ],
+    [
+     "AT:41746",
+     "Vöcklabruck",
+     80.6408,
+     78
+    ],
+    [
+     "AT:40404",
+     "Braunau am Inn",
+     80.5064,
+     78
+    ],
+    [
+     "AT:70346",
+     "Rum",
+     80.3843,
+     78
+    ]
+   ]
+  },
+  "early_retiree": {
+   "n": 747,
+   "top": [
+    [
+     "AT:30531",
+     "St. Valentin",
+     72.9649,
+     78
+    ],
+    [
+     "AT:50404",
+     "Bischofshofen",
+     72.9556,
+     78
+    ],
+    [
+     "AT:62379",
+     "Feldbach",
+     72.7698,
+     78
+    ],
+    [
+     "AT:70416",
+     "St. Johann in Tirol",
+     72.562,
+     78
+    ],
+    [
+     "AT:32135",
+     "Tulln an der Donau",
+     72.5593,
+     78
+    ]
+   ]
+  },
+  "single": {
+   "n": 0,
+   "top": []
+  },
+  "young_professional": {
+   "n": 0,
+   "top": []
+  },
+  "dinks": {
+   "n": 0,
+   "top": []
+  },
+  "remote": {
+   "n": 2093,
+   "top": [
+    [
+     "AT:70369",
+     "Zirl",
+     65.7639,
+     78
+    ],
+    [
+     "AT:70334",
+     "Neustift im Stubaital",
+     65.4543,
+     78
+    ],
+    [
+     "AT:50418",
+     "St. Johann im Pongau",
+     65.3093,
+     78
+    ],
+    [
+     "AT:50335",
+     "Straßwalchen",
+     65.2664,
+     78
+    ],
+    [
+     "AT:50628",
+     "Zell am See",
+     65.1543,
+     78
+    ]
+   ]
+  },
+  "commuter": {
+   "n": 0,
+   "top": []
+  },
+  "car_free": {
+   "n": 0,
+   "top": []
+  },
+  "student": {
+   "n": 0,
+   "top": []
+  },
+  "first_home": {
+   "n": 1686,
+   "top": [
+    [
+     "AT:30621",
+     "Mitterndorf an der Fischa",
+     66.3371,
+     81
+    ],
+    [
+     "AT:50335",
+     "Straßwalchen",
+     65.8304,
+     81
+    ],
+    [
+     "AT:41009",
+     "Kematen an der Krems",
+     64.808,
+     81
+    ],
+    [
+     "AT:70208",
+     "Längenfeld",
+     64.4516,
+     81
+    ],
+    [
+     "AT:70223",
+     "Umhausen",
+     64.0638,
+     81
+    ]
+   ]
+  },
+  "budget": {
+   "n": 2093,
+   "top": [
+    [
+     "AT:30401",
+     "Wiener Neustadt",
+     67.5053,
+     78
+    ],
+    [
+     "AT:41003",
+     "Asten",
+     67.3397,
+     78
+    ],
+    [
+     "AT:80404",
+     "Feldkirch",
+     66.494,
+     78
+    ],
+    [
+     "AT:80408",
+     "Götzis",
+     66.4333,
+     78
+    ],
+    [
+     "AT:32016",
+     "Wieselburg",
+     66.2166,
+     78
+    ]
+   ]
+  },
+  "urban": {
+   "n": 0,
+   "top": []
+  },
+  "expat_professional": {
+   "n": 277,
+   "top": [
+    [
+     "AT:30401",
+     "Wiener Neustadt",
+     92.7529,
+     86
+    ],
+    [
+     "AT:80404",
+     "Feldkirch",
+     91.7326,
+     86
+    ],
+    [
+     "AT:41003",
+     "Asten",
+     91.3847,
+     86
+    ],
+    [
+     "AT:70101",
+     "Innsbruck",
+     91.2142,
+     86
+    ],
+    [
+     "AT:31723",
+     "Vösendorf",
+     90.6683,
+     86
+    ]
+   ]
+  },
+  "healthcare_first": {
+   "n": 1296,
+   "top": [
+    [
+     "AT:20101",
+     "Klagenfurt am Wörthersee",
+     90.3923,
+     78
+    ],
+    [
+     "AT:62041",
+     "Knittelfeld",
+     88.8693,
+     78
+    ],
+    [
+     "AT:40404",
+     "Braunau am Inn",
+     88.4376,
+     78
+    ],
+    [
+     "AT:41746",
+     "Vöcklabruck",
+     88.2721,
+     78
+    ],
+    [
+     "AT:70346",
+     "Rum",
+     88.2243,
+     78
+    ]
+   ]
+  },
+  "nature": {
+   "n": 2093,
+   "top": [
+    [
+     "AT:80237",
+     "Sibratsgfäll",
+     78.2614,
+     78
+    ],
+    [
+     "AT:50408",
+     "Flachau",
+     77.1417,
+     78
+    ],
+    [
+     "AT:50212",
+     "Scheffau am Tennengebirge",
+     76.6506,
+     78
+    ],
+    [
+     "AT:70336",
+     "Obernberg am Brenner",
+     76.6122,
+     78
+    ],
+    [
+     "AT:80411",
+     "Laterns",
+     76.5337,
+     78
+    ]
+   ]
+  },
+  "rural_value": {
+   "n": 2093,
+   "top": [
+    [
+     "AT:70334",
+     "Neustift im Stubaital",
+     66.6115,
+     78
+    ],
+    [
+     "AT:70907",
+     "Eben am Achensee",
+     66.2591,
+     78
+    ],
+    [
+     "AT:70220",
+     "Sölden",
+     66.1903,
+     78
+    ],
+    [
+     "AT:70621",
+     "St. Anton am Arlberg",
+     65.8997,
+     78
+    ],
+    [
+     "AT:70208",
+     "Längenfeld",
+     65.6837,
+     78
+    ]
+   ]
+  },
+  "hnw": {
+   "n": 323,
+   "top": [
+    [
+     "AT:20101",
+     "Klagenfurt am Wörthersee",
+     90.0887,
+     78
+    ],
+    [
+     "AT:80224",
+     "Lauterach",
+     88.8762,
+     78
+    ],
+    [
+     "AT:30401",
+     "Wiener Neustadt",
+     88.8504,
+     78
+    ],
+    [
+     "AT:80408",
+     "Götzis",
+     88.7644,
+     78
+    ],
+    [
+     "AT:50205",
+     "Hallein",
+     88.2831,
+     78
+    ]
+   ]
+  },
+  "swiss_lottery": {
+   "n": 2093,
+   "top": [
+    [
+     "AT:30401",
+     "Wiener Neustadt",
+     87.1196,
+     94
+    ],
+    [
+     "AT:80404",
+     "Feldkirch",
+     85.9125,
+     94
+    ],
+    [
+     "AT:41003",
+     "Asten",
+     85.6072,
+     94
+    ],
+    [
+     "AT:80408",
+     "Götzis",
+     85.5566,
+     94
+    ],
+    [
+     "AT:60669",
+     "Seiersberg-Pirka",
+     84.1734,
+     94
+    ]
+   ]
+  },
+  "climate": {
+   "n": 2093,
+   "top": [
+    [
+     "AT:70717",
+     "Matrei in Osttirol",
+     73.8243,
+     79
+    ],
+    [
+     "AT:50201",
+     "Abtenau",
+     73.6455,
+     79
+    ],
+    [
+     "AT:70936",
+     "Vomp",
+     73.1392,
+     79
+    ],
+    [
+     "AT:40909",
+     "Molln",
+     72.8412,
+     79
+    ],
+    [
+     "AT:70406",
+     "Hopfgarten im Brixental",
+     72.8103,
+     79
+    ]
+   ]
+  },
+  "self_fit": {
+   "n": 1296,
+   "top": [
+    [
+     "AT:30621",
+     "Mitterndorf an der Fischa",
+     74.1385,
+     78
+    ],
+    [
+     "AT:30401",
+     "Wiener Neustadt",
+     73.4804,
+     78
+    ],
+    [
+     "AT:60608",
+     "Feldkirchen bei Graz",
+     73.0564,
+     78
+    ],
+    [
+     "AT:41003",
+     "Asten",
+     72.9646,
+     78
+    ],
+    [
+     "AT:80104",
+     "Bludesch",
+     72.7044,
+     78
+    ]
+   ]
+  }
+ },
+ "DE_NORTH_no_geometry": {
+  "young_family": {
+   "n": 1390,
+   "top": [
+    [
+     "DE:03159013",
+     "Friedland",
+     67.0362,
+     74
+    ],
+    [
+     "DE:03359023",
+     "Harsefeld, Flecken",
+     66.2022,
+     74
+    ],
+    [
+     "DE:03360002",
+     "Bad Bevensen, Stadt",
+     65.9411,
+     74
+    ],
+    [
+     "DE:03458014",
+     "Wildeshausen, Stadt",
+     65.6872,
+     74
+    ],
+    [
+     "DE:03157007",
+     "Vechelde",
+     64.9279,
+     74
+    ]
+   ]
+  },
+  "pensioner": {
+   "n": 1618,
+   "top": [
+    [
+     "DE:03257031",
+     "Rinteln, Stadt",
+     58.3579,
+     42
+    ],
+    [
+     "DE:03458005",
+     "Ganderkesee",
+     58.3573,
+     42
+    ],
+    [
+     "DE:03451002",
+     "Bad Zwischenahn",
+     58.3541,
+     42
+    ],
+    [
+     "DE:03452019",
+     "Norden, Stadt",
+     58.3421,
+     42
+    ],
+    [
+     "DE:03360025",
+     "Uelzen, Hansestadt",
+     58.3364,
+     42
+    ]
+   ]
+  },
+  "remote": {
+   "n": 2799,
+   "top": [
+    [
+     "DE:03360025",
+     "Uelzen, Hansestadt",
+     60.5792,
+     62
+    ],
+    [
+     "DE:03257031",
+     "Rinteln, Stadt",
+     60.5563,
+     62
+    ],
+    [
+     "DE:03458005",
+     "Ganderkesee",
+     60.5451,
+     62
+    ],
+    [
+     "DE:03451002",
+     "Bad Zwischenahn",
+     60.5309,
+     62
+    ],
+    [
+     "DE:03241003",
+     "Burgdorf, Stadt",
+     60.4985,
+     62
+    ]
+   ]
+  },
+  "nature": {
+   "n": 2799,
+   "top": [
+    [
+     "DE:03355049",
+     "Amt Neuhaus",
+     76.6932,
+     63
+    ],
+    [
+     "DE:13072111",
+     "Walkendorf",
+     75.698,
+     63
+    ],
+    [
+     "DE:13071063",
+     "Hohen Wangelin",
+     75.3854,
+     63
+    ],
+    [
+     "DE:13072022",
+     "Carinerland",
+     75.2928,
+     63
+    ],
+    [
+     "DE:13076046",
+     "Göhlen",
+     75.2694,
+     63
+    ]
+   ]
+  },
+  "swiss_lottery": {
+   "n": 2799,
+   "top": [
+    [
+     "DE:01053032",
+     "Geesthacht, Stadt",
+     87.8691,
+     94
+    ],
+    [
+     "DE:01062060",
+     "Reinbek, Stadt",
+     87.3951,
+     94
+    ],
+    [
+     "DE:01060044",
+     "Kaltenkirchen, Stadt",
+     87.1256,
+     94
+    ],
+    [
+     "DE:01054056",
+     "Husum, Stadt",
+     86.7556,
+     94
+    ],
+    [
+     "DE:01062001",
+     "Ahrensburg, Stadt",
+     86.3562,
+     94
+    ]
+   ]
+  },
+  "student": {
+   "n": 0,
+   "top": []
+  },
+  "commuter": {
+   "n": 0,
+   "top": []
+  }
+ },
+ "zurich_eligibility_CH": {
+  "cats": {
+   "foundation": 43.30666666666667,
+   "environment": 8.565,
+   "demographics": 54.13,
+   "family": 33.35,
+   "jobs": 66.66666666666667,
+   "health": 19.52,
+   "safety": 35.725,
+   "lifestyle": 85.045,
+   "affordability": 22.99,
+   "tax": 82.33166666666666,
+   "commuter_access": 96,
+   "student_access": 100
+  },
+  "elig": {
+   "young_family": "Family floor",
+   "low_income": "Costs floor",
+   "low_income_family": "Costs floor",
+   "single_parent": "Family floor",
+   "pensioner": "Health floor",
+   "single_pensioner": "Health floor",
+   "early_retiree": "Health floor",
+   "single": "Foundation floor",
+   "young_professional": "Foundation floor",
+   "dinks": "Foundation floor",
+   "remote": "",
+   "commuter": "",
+   "car_free": "Foundation floor",
+   "student": "",
+   "first_home": "Costs floor",
+   "budget": "Costs floor",
+   "urban": "Foundation floor",
+   "expat_professional": "Mobility floor",
+   "healthcare_first": "Health floor",
+   "nature": "",
+   "rural_value": "Costs floor",
+   "hnw": "Foundation floor",
+   "swiss_lottery": "",
+   "climate": "",
+   "self_fit": ""
+  }
+ },
+ "flensburg_DE_categories": {
+  "r": {
+   "common_population_scale": 100,
+   "common_density_balance": 69.08,
+   "common_low_crowding": 0,
+   "common_population_growth_5y": 61.36
+  },
+  "cats": {
+   "foundation": 84.53999999999999,
+   "environment": 0,
+   "demographics": 61.36,
+   "jobs": 84.53999999999999,
+   "lifestyle": 84.53999999999999,
+   "mobility": 84.53999999999999,
+   "affordability": 34.54,
+   "family": 30.68,
+   "health": null
+  },
+  "raw": {
+   "score": 42.79630702702702,
+   "coverage": 74,
+   "cats": {
+    "foundation": 84.53999999999999,
+    "environment": 0,
+    "demographics": 61.36,
+    "jobs": 84.53999999999999,
+    "lifestyle": 84.53999999999999,
+    "mobility": 84.53999999999999,
+    "affordability": 34.54,
+    "family": 30.68,
+    "health": null
+   }
+  },
+  "rawLot": {
+   "score": 74.95514553191488,
+   "coverage": 94,
+   "cats": {
+    "foundation": 84.53999999999999,
+    "environment": 0,
+    "demographics": 61.36,
+    "jobs": 84.53999999999999,
+    "lifestyle": 84.53999999999999,
+    "mobility": 84.53999999999999,
+    "affordability": 34.54,
+    "family": 30.68,
+    "health": null
+   }
+  },
+  "elig": ""
+ }
+}

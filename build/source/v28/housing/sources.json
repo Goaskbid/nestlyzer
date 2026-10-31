@@ -1,0 +1,29 @@
+{
+ "de_zensus2022_grid_rent": {
+  "publisher": "Statistisches Bundesamt (Destatis) / Statistische Ämter des Bundes und der Länder - Zensus 2022",
+  "dataset": "Zensus 2022 Gitterdaten 100m: 'Durchschnittliche Nettokaltmiete und Anzahl der Wohnungen' (durchschnMieteQM + AnzahlWohnungen per 100m cell)",
+  "url_official": "https://www.destatis.de/static/DE/zensus/gitterdaten/Durchschnittliche_Nettokaltmiete_und_Anzahl_der_Wohnungen.zip",
+  "url_mirror": "https://github.com/JsLth/z22data @757cb9c919d9042303d442f426f3bd4147b0af35 : z22_data_100m/rent_avg_0.parquet + z22_data_100m/dwellings_0.parquet; Kreis polygons: https://github.com/wmgeolab/geoBoundaries releaseData/gbOpen/DEU/ADM3/geoBoundaries-DEU-ADM3.geojson (BKG NUTS250 2021, dl-de/by-2-0)",
+  "licence": "Datenlizenz Deutschland - Namensnennung - Version 2.0 (dl-de/by-2-0)",
+  "period": "Zensus reference date 2022-05-15",
+  "notes": "Value = sum(cell_rent*cell_rented_dwellings)/sum(cell_rented_dwellings) over the 1,287,342 100m cells whose centre lies in the Kreis polygon (62 cells/374 dwellings unassigned). Cell dwelling counts sum to 20.78 M (= rented dwellings with rent info), so this reproduces the official Kreis average: spot checks Hamburg 9.16 (official 9.16, Statistikamt Nord SI24_085), Halle (Saale) 5.92 (official 5.92), Altmarkkreis Salzwedel 4.80 (official 4.77) per StaLa Sachsen-Anhalt PM 180/2024. Polygon->NUTS3 mapping by population-weighted vote of Nestlyzer place points. Derived aggregate, not a table copied verbatim."
+ },
+ "it_omi_2018s2": {
+  "publisher": "Agenzia delle Entrate - Osservatorio del Mercato Immobiliare (OMI)",
+  "dataset": "Quotazioni immobiliari OMI, semestre 2018/2, file VALORI (all comuni)",
+  "url_official": "https://www.agenziaentrate.gov.it/portale/web/guest/schede/fabbricatiterreni/omi/banche-dati/quotazioni-immobiliari ; verification copy: https://dati.comune.milano.it/dataset/ds2023-quotazioni-immobiliari-omi-compravendita-semestre-2018-2 and .../ds2024-quotazioni-immobiliari-omi-locazione-semestre-2018-2",
+  "url_mirror": "https://github.com/ondata/quotazioni-immobiliari-agenzia-entrate @33bd87b935c77e761a84df6ce1e7dd9d844a7750 : data/QI_294577_1_20182_VALORI_utf8.csv",
+  "licence": "Attribution required ('Fonte: Agenzia Entrate - OMI'); Comune di Milano republishes the same OMI files under CC BY 4.0 with Agenzia delle Entrate as publisher. onData README notes the Agenzia's own terms do not state an explicit open licence - coordinator should confirm.",
+  "period": "2018-S2 (newest OMI semester available in any public mirror; newer semesters only via registered Fisconline/Entratel download)",
+  "notes": "Per comune (ISTAT = last 6 digits of Comune_ISTAT): rows Cod_Tip=20 'Abitazioni civili', Stato=NORMALE; zone mid = (min+max)/2; value = median of zone mids across all OMI zones of the comune. Sale EUR/m2 (Compr_min/max), rent EUR/m2/month (Loc_min/max). Spot check: all 39 Milano zones x sale min/max and rent min/max identical to Comune di Milano official open-data files (78/78 pairs); Milano median 2500 EUR/m2 sale, 8.5 EUR/m2/month rent recomputed from official values. 229 comune codes (2018 territory) no longer exist in Nestlyzer (mergers) -> not joined."
+ },
+ "de_zensus2022_grid_rent_gem": {
+  "publisher": "Statistisches Bundesamt (Destatis) / Statistische Ämter des Bundes und der Länder - Zensus 2022",
+  "dataset": "Zensus 2022 Gitterdaten 100m: 'Durchschnittliche Nettokaltmiete und Anzahl der Wohnungen' (durchschnMieteQM + AnzahlWohnungen per 100m cell)",
+  "url_official": "https://www.destatis.de/static/DE/zensus/gitterdaten/Durchschnittliche_Nettokaltmiete_und_Anzahl_der_Wohnungen.zip",
+  "url_mirror": "https://github.com/JsLth/z22data @757cb9c919d9042303d442f426f3bd4147b0af35 : z22_data_100m/rent_avg_0.parquet + z22_data_100m/dwellings_0.parquet; Kreis polygons: https://github.com/wmgeolab/geoBoundaries releaseData/gbOpen/DEU/ADM3/geoBoundaries-DEU-ADM3.geojson (BKG NUTS250 2021, dl-de/by-2-0)",
+  "licence": "Datenlizenz Deutschland - Namensnennung - Version 2.0 (dl-de/by-2-0)",
+  "period": "Zensus reference date 2022-05-15",
+  "notes": "Gemeinde-level APPROXIMATION from the same official 100m grid: each cell is assigned to its Kreis polygon, then to the nearest Nestlyzer Gemeinde point (lat/lon) within that Kreis (Voronoi-like, no Gemeinde polygons were available offline); value = rented-dwelling-weighted mean rent of the assigned cells. Places with <10 rented dwellings in assigned cells are omitted (461) and 191 places got no cells. Spot checks vs official Zensus Gemeinde values: Hamburg 9.16 (9.16), Halle (Saale) 5.92 (5.92), München 12.88 (official 12.89 per Destatis reporting), Selke-Aue 3.70 (official 3.75), Barleben 6.15 (official 6.29; StaLa Sachsen-Anhalt PM 180/2024). Expect errors of a few percent for small Gemeinden next to larger ones; city-states/kreisfreie Städte are exact up to grid noise."
+ }
+}

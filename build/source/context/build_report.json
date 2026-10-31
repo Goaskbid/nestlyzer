@@ -1,0 +1,154 @@
+{
+ "release": "verified-rent-pay-2026-10-21",
+ "stored_records": 3407,
+ "published_records": 3339,
+ "associations": 1326,
+ "unresolved_geographies": 7,
+ "by_country": {
+  "AT": {
+   "records": 47,
+   "places_with_local_context": 0
+  },
+  "BE": {
+   "records": 46,
+   "places_with_local_context": 0
+  },
+  "BG": {
+   "records": 47,
+   "places_with_local_context": 0
+  },
+  "CA": {
+   "records": 36,
+   "places_with_local_context": 0
+  },
+  "CY": {
+   "records": 47,
+   "places_with_local_context": 0
+  },
+  "CZ": {
+   "records": 47,
+   "places_with_local_context": 0
+  },
+  "DE": {
+   "records": 47,
+   "places_with_local_context": 0
+  },
+  "DK": {
+   "records": 47,
+   "places_with_local_context": 0
+  },
+  "EE": {
+   "records": 146,
+   "places_with_local_context": 79
+  },
+  "EL": {
+   "records": 47,
+   "places_with_local_context": 0
+  },
+  "ES": {
+   "records": 47,
+   "places_with_local_context": 0
+  },
+  "FI": {
+   "records": 129,
+   "places_with_local_context": 8
+  },
+  "FR": {
+   "records": 47,
+   "places_with_local_context": 0
+  },
+  "HR": {
+   "records": 47,
+   "places_with_local_context": 0
+  },
+  "HU": {
+   "records": 47,
+   "places_with_local_context": 0
+  },
+  "IE": {
+   "records": 47,
+   "places_with_local_context": 0
+  },
+  "IS": {
+   "records": 9,
+   "places_with_local_context": 0
+  },
+  "IT": {
+   "records": 47,
+   "places_with_local_context": 0
+  },
+  "LT": {
+   "records": 47,
+   "places_with_local_context": 0
+  },
+  "LU": {
+   "records": 47,
+   "places_with_local_context": 0
+  },
+  "LV": {
+   "records": 47,
+   "places_with_local_context": 0
+  },
+  "MT": {
+   "records": 47,
+   "places_with_local_context": 0
+  },
+  "NL": {
+   "records": 509,
+   "places_with_local_context": 342
+  },
+  "NO": {
+   "records": 72,
+   "places_with_local_context": 25
+  },
+  "PL": {
+   "records": 47,
+   "places_with_local_context": 0
+  },
+  "PT": {
+   "records": 47,
+   "places_with_local_context": 0
+  },
+  "RO": {
+   "records": 47,
+   "places_with_local_context": 0
+  },
+  "RS": {
+   "records": 1632,
+   "places_with_local_context": 169
+  },
+  "SE": {
+   "records": 95,
+   "places_with_local_context": 51
+  },
+  "SI": {
+   "records": 47,
+   "places_with_local_context": 0
+  },
+  "SK": {
+   "records": 47,
+   "places_with_local_context": 0
+  },
+  "US": {
+   "records": 593,
+   "places_with_local_context": 19
+  }
+ },
+ "by_relationship": {
+  "benchmark": 4,
+  "country_context": 33,
+  "county": 79,
+  "district": 169,
+  "group_member": 15,
+  "is": 596,
+  "metro_member": 51,
+  "principal_city": 19,
+  "stat_region": 338,
+  "zone_member": 22
+ },
+ "publication": {
+  "held/hold": 68,
+  "published/production_before_flags": 1146,
+  "published/reviewed": 2193
+ }
+}

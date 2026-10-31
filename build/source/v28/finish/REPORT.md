@@ -1,0 +1,1 @@
+# finish - see the coordinator's 2.8 notes: US ACS 2019-2023 home value (B25077) and gross rent (B25064) for all counties except West Virginia home values; Poland gmina PIT share per inhabitant 2025 (GUS BDL 149128). Re-fetch checks: NM 33/33, OR 36/36, PL pages 55/55 and 70/70; DP04 cross-check New York County 1,108,900 / 2,132, Harris 255,000 / 1,349, King 811,200 / 2,035.

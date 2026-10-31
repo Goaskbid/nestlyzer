@@ -1,0 +1,596 @@
+[
+ {
+  "id": "NZ-GLOBAL-001",
+  "priority": "P0",
+  "title": "Other-profile fit scores crowd the raw-data view",
+  "status_2.10.2": "repaired_and_reverified",
+  "what_changed": "Other households' scores moved out of \"Score and ranking\" into a separate, closed \"Compare profiles\" group labelled as model outputs.",
+  "before_live_2_8_1": "FAIL DINKS: \"Score and ranking\" holds no other household's score; those sit in a separate \"Compare profiles\" group (0 rows)",
+  "after_2.10.2": "PASS DINKS: \"Score and ranking\" holds no other household's score; those sit in a separate \"Compare profiles\" group (26 rows)"
+ },
+ {
+  "id": "NZ-GLOBAL-002",
+  "priority": "P0",
+  "title": "Missing raw data can fall back to a normalized score",
+  "status_2.10.2": "repaired_and_reverified",
+  "what_changed": "Code path removed: a missing measurement shows \"no measured value\"; the 0-100 index is shown only as \"index n of 100 (a relative score, not a measurement)\". Not reproduced on the live sample, fixed at source.",
+  "before_live_2_8_1": "PASS no figure shows a 0-100 score in place of a missing measured value (323 rows checked)",
+  "after_2.10.2": "PASS no figure shows a 0-100 score in place of a missing measured value (589 rows checked)"
+ },
+ {
+  "id": "NZ-GLOBAL-003",
+  "priority": "P1",
+  "title": "Deep-data opening order prioritises 45 model figures over evidence",
+  "status_2.10.2": "repaired_and_reverified",
+  "what_changed": "Key facts block at the top of every place: up to 12 of the place's own official figures, most relevant for the profile, with year, level and source; All data stays complete and exportable (test_v210 kf).",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-004",
+  "priority": "P1",
+  "title": "Language-area leaders can carry a high overall rank on the map",
+  "status_2.10.2": "repaired_and_reverified",
+  "what_changed": "Language-area leaders outside the top 10 show their rank inside the language area (for example \"FR 1\") and the tooltip gives both ranks with the denominator.",
+  "before_live_2_8_1": "FAIL map pins never show an unexplained overall rank above 10 (2); 0 language-area leaders say \"#n among … places, #m of N in scope\" (e.g. -)",
+  "after_2.10.2": "PASS map pins never show an unexplained overall rank above 10 (0); 2 language-area leaders say \"#n among … places, #m of N in scope\" (e.g. #1 among French places, #15 of 17 in All Switzerland: Genève)"
+ },
+ {
+  "id": "NZ-GLOBAL-005",
+  "priority": "P1",
+  "title": "Parameter colours and profile-rank labels can describe different things",
+  "status_2.10.2": "repaired_and_reverified",
+  "what_changed": "Parameter layers show their unit and value scale in the legend; every pin says it is a profile rank, with scope and denominator in the tooltip.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-006",
+  "priority": "P1",
+  "title": "Add an explicit lowest-fit map view",
+  "status_2.10.2": "repaired_and_reverified",
+  "what_changed": "Best 10 / Lowest 10 switch for map pins; lowest uses only scored, eligible places (test_v210 006).",
+  "before_live_2_8_1": "",
+  "after_2.10.2": "PASS \"Lowest 10\" pins the 10 lowest-ranked scored places (10 pins, of 6993)"
+ },
+ {
+  "id": "NZ-GLOBAL-007",
+  "priority": "P0",
+  "title": "Household and business are separate application states in inspected baselines",
+  "status_2.10.2": "already_working_reverified",
+  "what_changed": "Household and business are one app with separate profiles and shortlists since 2.7; DINKS -> Business -> Places to live returns to DINKS (test).",
+  "before_live_2_8_1": "PASS DINKS -> Business (biz_manufacturing) -> Places to live returns to DINKS (dinks)",
+  "after_2.10.2": "PASS DINKS -> Business (biz_manufacturing) -> Places to live returns to DINKS (dinks)"
+ },
+ {
+  "id": "NZ-GLOBAL-008",
+  "priority": "P1",
+  "title": "Business data is not aligned with the residential market roster",
+  "status_2.10.2": "not_retested",
+  "what_changed": "Business page (16 Oct beta) country scope not re-examined in this stage.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-009",
+  "priority": "P1",
+  "title": "Industry-and-energy screen is US-specific",
+  "status_2.10.2": "still_open",
+  "what_changed": "The business page's industry and energy screen is US states only; non-US business cost context is not integrated.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-010",
+  "priority": "P1",
+  "title": "Business operating models need actual ranking contracts",
+  "status_2.10.2": "already_working_reverified",
+  "what_changed": "Seven business profiles with their own weights and must-haves rank municipalities in the app since 2.7 (tests v27/R-suite). Owner review of the weights is still pending.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-011",
+  "priority": "P1",
+  "title": "First-visit introduction reportedly disappeared",
+  "status_2.10.2": "already_working_reverified",
+  "what_changed": "Fresh visitor sees the privacy choice and the optional quick tour; no duplicate overlay (test_v210 011).",
+  "before_live_2_8_1": "",
+  "after_2.10.2": "PASS fresh visitor: privacy choice shown (True) and the optional quick tour is offered in the app (True)"
+ },
+ {
+  "id": "NZ-GLOBAL-012",
+  "priority": "P2",
+  "title": "First visit exposes a large profile and country menu",
+  "status_2.10.2": "already_working_reverified",
+  "what_changed": "Start page asks Places to live or Business, then offers 6 household chips plus \"More households\" and one country selector (screenshots, v26 tests).",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-013",
+  "priority": "P1",
+  "title": "DINKS default hard filters leave only ten Swiss places",
+  "status_2.10.2": "still_open",
+  "what_changed": "Presets with hard minimums still apply them before showing the remaining count; the \"why not\" explanation is kept.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-014",
+  "priority": "P0",
+  "title": "Country-normalized fit scores are not global utilities",
+  "status_2.10.2": "partly_repaired",
+  "what_changed": "2.8 separates measures compared across countries (pool) from within-country ones; cross-country comparison warns that scores are country-relative. No global sort of country-relative scores was added.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-015",
+  "priority": "P0",
+  "title": "National context must not become thousands of municipal observations",
+  "status_2.10.2": "already_working_reverified",
+  "what_changed": "National figures are stored once per country (2.8 regional tables) and never count as measured local data: categories backed only by a national figure are labelled estimates and are excluded from \"measured\".",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-016",
+  "priority": "P1",
+  "title": "Proxy factors need explicit caveats and correlation control",
+  "status_2.10.2": "repaired_and_reverified",
+  "what_changed": "Method page lists every modelled criterion with its inputs; modelled criteria count half and are labelled.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-017",
+  "priority": "P1",
+  "title": "Confidence can be mistaken for a probability",
+  "status_2.10.2": "partly_repaired",
+  "what_changed": "The evidence shares now say they are not a probability; the \"source confidence\" percentage is still shown with its explanation.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-018",
+  "priority": "P0",
+  "title": "Energy prices require compatible cost cohorts",
+  "status_2.10.2": "not_applicable_here",
+  "what_changed": "Tariff data from the 16-18 Oct global package was not delivered to this build (the ZIP did not arrive).",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-019",
+  "priority": "P0",
+  "title": "An energy index is useful only with its denominator",
+  "status_2.10.2": "not_applicable_here",
+  "what_changed": "B-READY / energy index data not ingested in this build.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-020",
+  "priority": "P0",
+  "title": "Two Iceland water-cost values must be quarantined",
+  "status_2.10.2": "not_applicable_here",
+  "what_changed": "Iceland B-READY water values not ingested; nothing to quarantine in this build.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-021",
+  "priority": "P1",
+  "title": "Chart-read electricity values need visible approximation",
+  "status_2.10.2": "not_applicable_here",
+  "what_changed": "Chart-read Eurostat electricity values not ingested.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-022",
+  "priority": "P0",
+  "title": "Property and gender-rights indices have limited legal scope",
+  "status_2.10.2": "not_applicable_here",
+  "what_changed": "B-READY / WBL legal indices not ingested.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-023",
+  "priority": "P1",
+  "title": "Index components can overwhelm rankings",
+  "status_2.10.2": "not_applicable_here",
+  "what_changed": "WBL / B-READY / HDR component families not ingested.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-024",
+  "priority": "P0",
+  "title": "Missing, uncollected and unavailable are different states",
+  "status_2.10.2": "partly_repaired",
+  "what_changed": "Missing stays missing in scoring and display; the business page now separates unknown, invalid and zero. Typed source-missing / not-captured / suppressed states for the new package are not applicable until it is ingested.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-025",
+  "priority": "P1",
+  "title": "Release dates and observation years differ",
+  "status_2.10.2": "partly_repaired",
+  "what_changed": "Every 2.8 measure shows its own period per country; separate edition and last-checked dates are not shown.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-026",
+  "priority": "P1",
+  "title": "Source-area energy quotes are not country averages",
+  "status_2.10.2": "not_applicable_here",
+  "what_changed": "Source-area energy quotes not ingested.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-027",
+  "priority": "P1",
+  "title": "Keep aliases and geographic hierarchy explicit",
+  "status_2.10.2": "already_working_reverified",
+  "what_changed": "EL/GR and UK/GB are mapped explicitly in the data sync and the business page; joins use official IDs (test_v28 golden values).",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-028",
+  "priority": "P1",
+  "title": "Mobile business entry is dominated by metadata cards",
+  "status_2.10.2": "already_working_reverified",
+  "what_changed": "Business page at 390 px: no sideways scroll, first action on the first screen (test_v210 028).",
+  "before_live_2_8_1": "",
+  "after_2.10.2": "PASS business page on a phone: no sideways scroll (True), first action at 651px"
+ },
+ {
+  "id": "NZ-GLOBAL-029",
+  "priority": "P1",
+  "title": "Business screening stops short of premises and operating feasibility",
+  "status_2.10.2": "repaired_and_reverified",
+  "what_changed": "Business scorecard lists measured must-haves as met or not met and site checks (plots and permits, grid connection) as next steps on site.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-030",
+  "priority": "P1",
+  "title": "Founder interview needs business-purpose context",
+  "status_2.10.2": "still_open",
+  "what_changed": "Business founder copy awaits owner approval of the proposed text.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-031",
+  "priority": "P1",
+  "title": "State migration and offline operation need current-origin testing",
+  "status_2.10.2": "already_working_reverified",
+  "what_changed": "A 2.8 shortlist with notes and a custom profile survive the update (test_v210 031).",
+  "before_live_2_8_1": "",
+  "after_2.10.2": "PASS a 2.8 shortlist with a note and a custom profile survive the update (1 saved, weights {'jobs': 30, 'safety': 20})"
+ },
+ {
+  "id": "NZ-GLOBAL-032",
+  "priority": "P1",
+  "title": "Map failure, slow responses and empty results need useful fallbacks",
+  "status_2.10.2": "already_working_reverified",
+  "what_changed": "With the map blocked, the ranking list and place pages still work (test_v210 032).",
+  "before_live_2_8_1": "",
+  "after_2.10.2": "PASS with the map blocked the ranking still lists 100 places and a place opens"
+ },
+ {
+  "id": "NZ-GLOBAL-033",
+  "priority": "P1",
+  "title": "Accessibility requires interaction-level checks",
+  "status_2.10.2": "partly_repaired",
+  "what_changed": "Search and the phone filter sheet now contain focus and restore it (050); broader keyboard and screen-reader audit open.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-034",
+  "priority": "P1",
+  "title": "Performance claims need the deployed asset graph",
+  "status_2.10.2": "already_working_reverified",
+  "what_changed": "Start page 119 KB compressed, country data loaded per country, measured in the regression suite (R30).",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-035",
+  "priority": "P0",
+  "title": "A public index is not automatically licensed for commercial redistribution",
+  "status_2.10.2": "already_working_reverified",
+  "what_changed": "Non-commercial sources (WHO GHO, WorldClim) are excluded at sync; every measure names its source and licence. Italian OMI terms flagged to the owner.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-036",
+  "priority": "P1",
+  "title": "Product counts and claims need one manifest",
+  "status_2.10.2": "repaired_and_reverified",
+  "what_changed": "docs/manifest.json is written by the build; README counts come from it.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-037",
+  "priority": "P0",
+  "title": "NASA climate payload and Ireland completeness remain open",
+  "status_2.10.2": "still_open",
+  "what_changed": "NASA climate payload and complete Ireland data still missing.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-038",
+  "priority": "P1",
+  "title": "Relocation needs household eligibility and actual lived costs",
+  "status_2.10.2": "partly_repaired",
+  "what_changed": "Household scorecard lists next steps before moving; rents and occupational pay context added where official tables exist. A full household budget model is not built.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-039",
+  "priority": "P1",
+  "title": "Business costs require scenario inputs beyond tax indices",
+  "status_2.10.2": "still_open",
+  "what_changed": "Business tax scenario inputs not built.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-040",
+  "priority": "P1",
+  "title": "Tests must distinguish data helpers from repaired website behavior",
+  "status_2.10.2": "repaired_and_reverified",
+  "what_changed": "This ledger: every ID with a status, before (live 2.8.1) and after (2.9.0) browser evidence for each repaired defect.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-041",
+  "priority": "P1",
+  "title": "Consent and network disclosures must survive new data loaders",
+  "status_2.10.2": "already_working_reverified",
+  "what_changed": "No analytics or ads before consent (regression R23, R69); no new client-side data loaders were added.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "NZ-GLOBAL-042",
+  "priority": "P1",
+  "title": "Location shortlist needs an evidence export, not just a rank",
+  "status_2.10.2": "repaired_and_reverified",
+  "what_changed": "Shortlist export now carries purpose, profile, weights, score, rank, evidence, must-haves, every figure with period, level and source, and rent/pay context rows (test_v210 042).",
+  "before_live_2_8_1": "",
+  "after_2.10.2": "PASS shortlist evidence export: 247 rows, 116 figures with period, level and source"
+ },
+ {
+  "id": "NZ-GLOBAL-043",
+  "priority": "P1",
+  "title": "Reopening the profile builder discards manually edited weights",
+  "status_2.10.2": "repaired_and_reverified",
+  "what_changed": "Fine-tuned weights are kept with the profile and restored when the builder reopens; changing an answer says so before replacing them; a separate reset is offered.",
+  "before_live_2_8_1": "FAIL edited weight 1 is applied (1), shows 1 when the builder reopens (8) and stays 1 when applied again (8)",
+  "after_2.10.2": "PASS edited weight 1 is applied (1), shows 1 when the builder reopens (1) and stays 1 when applied again (1)"
+ },
+ {
+  "id": "NZ-GLOBAL-044",
+  "priority": "P1",
+  "title": "An unmatched language choice is removed automatically",
+  "status_2.10.2": "repaired_and_reverified",
+  "what_changed": "The language choice is kept; when no place is classified in that language the results explain why and offer \"Show every place\" and \"Edit my profile\".",
+  "before_live_2_8_1": "FAIL Italian in Singapore stays selected (lang=''), ranks no place as Italian-speaking (108) and offers an explicit \"show every place\" action",
+  "after_2.10.2": "PASS Italian in Singapore stays selected (lang='it'), ranks no place as Italian-speaking (0) and offers an explicit \"show every place\" action; PASS relaxing the language is an explicit action and brings the places back"
+ },
+ {
+  "id": "NZ-GLOBAL-045",
+  "priority": "P1",
+  "title": "Shared links omit the active name filter and reproduce different results",
+  "status_2.10.2": "repaired_and_reverified",
+  "what_changed": "Links carry the name filter (q); a link without it clears an old one.",
+  "before_live_2_8_1": "FAIL a name-filtered link reproduces the same places in a new browser (113 sent, 677 received, same top 10: False); FAIL a following link without a name filter clears the old one",
+  "after_2.10.2": "PASS a name-filtered link reproduces the same places in a new browser (113 sent, 113 received, same top 10: True); PASS a following link without a name filter clears the old one"
+ },
+ {
+  "id": "NZ-GLOBAL-046",
+  "priority": "P2",
+  "title": "An Overview link can retain the previous All data tab",
+  "status_2.10.2": "repaired_and_reverified",
+  "what_changed": "Every link decodes to a complete panel state; no tab or pt=overview opens Overview.",
+  "before_live_2_8_1": "FAIL after All data, a link without a tab and a link with pt=overview both open Overview (data -> data, data)",
+  "after_2.10.2": "PASS after All data, a link without a tab and a link with pt=overview both open Overview (data -> overview, overview)"
+ },
+ {
+  "id": "NZ-GLOBAL-047",
+  "priority": "P1",
+  "title": "Opening a comparison link adds places to the shortlist without asking",
+  "status_2.10.2": "repaired_and_reverified",
+  "what_changed": "Opening a comparison link is a preview; a \"Save these places\" button adds them explicitly and reports what was added.",
+  "before_live_2_8_1": "FAIL opening a shared comparison leaves an empty shortlist empty (saved places: 2, badge '2'); FAIL an explicit \"Save these places\" button adds exactly the compared places (None)",
+  "after_2.10.2": "PASS opening a shared comparison leaves an empty shortlist empty (saved places: 0, badge '0'); PASS an explicit \"Save these places\" button adds exactly the compared places (2)"
+ },
+ {
+  "id": "NZ-GLOBAL-048",
+  "priority": "P1",
+  "title": "Malformed shared weights produce scores far above 100",
+  "status_2.10.2": "repaired_and_reverified",
+  "what_changed": "Shared weights are validated (known criteria, 0-100, no duplicates, positive total) before use; an invalid link is not applied and keeps any existing custom profile; mp=0 survives.",
+  "before_live_2_8_1": "FAIL a link with a negative weight is rejected: no negative weight applied (True), best score 7313.0 stays within 0-100; FAIL an explicit minimum population of 0 survives the link and the round trip (minPop=1200, link keeps mp=0: False); PASS link with w=jobs:NaN cannot produce a score above 100 (best 0.0); PASS link with w=jobs:0,safety:0 cannot produce a score above 100 (best 0.0); PASS link with w=jobs:1e9 cannot produce a score above 100 (best 91.5)",
+  "after_2.10.2": "PASS a link with a negative weight is rejected: no negative weight applied (False), best score 71.5 stays within 0-100; PASS an explicit minimum population of 0 survives the link and the round trip (minPop=0, link keeps mp=0: True); PASS link with w=jobs:NaN cannot produce a score above 100 (best 86.9); PASS link with w=jobs:0,safety:0 cannot produce a score above 100 (best 86.9); PASS link with w=jobs:1e9 cannot produce a score above 100 (best 86.9)"
+ },
+ {
+  "id": "NZ-GLOBAL-049",
+  "priority": "P0",
+  "title": "Displayed coverage is inflated above available selected-profile weight",
+  "status_2.10.2": "partly_repaired",
+  "what_changed": "Display repaired (2.9). The evidence-share ranking formula is implemented but switched off; rank-change reports for 4 profiles are in docs/rank_change_*.json (top 10 unchanged in every country except Israel for pensioners). Waiting for owner approval.",
+  "before_live_2_8_1": "FAIL KR #1 (Sintansin (신탄진)): headline says 78% of the weights, the criteria with data carry 92%; estimated share stated: False; FAIL AU #1 (Bagdad): headline says 78% of the weights, the criteria with data carry 92%; estimated share stated: False; FAIL CA #1 (Rivière-des-Prairies–Pointe-aux-Trembles): headline says 92% of the weights, the criteria with data carry 92%; estimated share stated: False; FAIL TW #1 (Wulai (烏來區)): headline says 78% of the weights, the criteria with data carry 74%; estimated share stated: False",
+  "after_2.10.2": "PASS KR #1 (Sintansin (신탄진)): headline says 92% of the weights, the criteria with data carry 92%; estimated share stated: True; PASS AU #1 (Bagdad): headline says 92% of the weights, the criteria with data carry 92%; estimated share stated: True; PASS CA #1 (Rivière-des-Prairies–Pointe-aux-Trembles): headline says 92% of the weights, the criteria with data carry 92%; estimated share stated: False; PASS TW #1 (Wulai (烏來區)): headline says 74% of the weights, the criteria with data carry 74%; estimated share stated: True"
+ },
+ {
+  "id": "NZ-GLOBAL-050",
+  "priority": "P1",
+  "title": "Keyboard focus escapes modal search; mobile filter sheet has no dialog contract",
+  "status_2.10.2": "repaired_and_reverified",
+  "what_changed": "One focus trap for the topmost overlay including search; the phone filter sheet is a named modal dialog with initial focus, Escape and focus return; desktop panel stays non-modal.",
+  "before_live_2_8_1": "FAIL 14 Tab presses stay inside the search window (9 left it); FAIL phone filter sheet is a named modal dialog [None, None, None], focus starts inside (False) and 25 Tab presses stay inside (14 left); FAIL Escape closes the sheet and returns focus to the Filters button (False)",
+  "after_2.10.2": "PASS 14 Tab presses stay inside the search window (0 left it); PASS phone filter sheet is a named modal dialog ['dialog', 'true', 'Filters'], focus starts inside (True) and 25 Tab presses stay inside (0 left); PASS Escape closes the sheet and returns focus to the Filters button (True)"
+ },
+ {
+  "id": "NZ-GLOBAL-051",
+  "priority": "P1",
+  "title": "Blank or invalid business quantities become zero-cost or zero-demand assumptions",
+  "status_2.10.2": "repaired_and_reverified",
+  "what_changed": "Business page: blank quantities are unknown (no USD 0), invalid ones are flagged, explicit zero stays zero; the brief exports null plus a status.",
+  "before_live_2_8_1": "FAIL blank annual consumption shows \"Enter annual consumption\", not USD 0: 'MeasureTexasNorth CarolinaIndustry jobs977,500450,400Industry share of state jobs6.8%8.8%Location quotient0.861.12Industrial price, US cents/kWh7.078.37Illustrative annual electricity, USD00LQ reference: 50 states plus DC. LQ 1.0 means the same employment share as that reference. It is concentration, not productivity, job vacancies or a verified supplier cluster.'; FAIL a negative consumption is flagged, not computed: 'MeasureTexasNorth CarolinaIndustry jobs977,500450,400Industry share of state jobs6.8%8.8%Location quotient0.861.12Industrial price, US cents/kWh7.078.37Illustrative annual electricity, USD00LQ reference: 50 states plus DC. LQ 1.0 means the same employment share as that reference. It is concentration, not productivity, job vacancies or a verified supplier cluster.'; FAIL brief: blank headcount exports as unknown (0, None), an explicit 0 m² stays 0 (0)",
+  "after_2.10.2": "PASS blank annual consumption shows \"Enter annual consumption\", not USD 0: 'MeasureTexasNorth CarolinaIndustry jobs977,500450,400Industry share of state jobs6.8%8.8%Location quotient0.861.12Industrial price, US cents/kWh7.078.37Illustrative annual electricity, USDEnter annual consumptionEnter annual consumptionLQ reference: 50 states plus DC. LQ 1.0 means the same employment share as that reference. It is concentration, not productivity, job vacancies or a verified supplier cluster.'; PASS a negative consumption is flagged, not computed: 'MeasureTexasNorth CarolinaIndustry jobs977,500450,400Industry share of state jobs6.8%8.8%Location quotient0.861.12Industrial price, US cents/kWh7.078.37Illustrative annual electricity, USDCheck the consumption figureCheck the consumption figureLQ reference: 50 states plus DC. LQ 1.0 means the same employment share as that reference. It is concentration, not productivity, job vacancies or a verified supplier cluster.'; PASS brief: blank headcount exports as unknown (None, unknown), an explicit 0 m² stays 0 (0)"
+ },
+ {
+  "id": "NZ-GLOBAL-052",
+  "priority": "P1",
+  "title": "Business screening and the exported brief use different unlinked assumptions",
+  "status_2.10.2": "repaired_and_reverified",
+  "what_changed": "Business page: screen and brief share one annual consumption; the brief (schema v2) records industry, filters, weights, compared and top states.",
+  "before_live_2_8_1": "FAIL screen set to 2,000,000 kWh exports 2,000,000 kWh (1000000) with industry None, compared states, weights and top states; FAIL changing the brief consumption updates the screen (one value, not two)",
+  "after_2.10.2": "PASS screen set to 2,000,000 kWh exports 2,000,000 kWh (2000000) with industry manufacturing, compared states, weights and top states; PASS changing the brief consumption updates the screen (one value, not two)"
+ },
+ {
+  "id": "R6-001",
+  "priority": "P0",
+  "title": "Tax bills versus multipliers",
+  "status_2.10.2": "already_working_reverified",
+  "what_changed": "German property and business tax are shown as multipliers (Hebesatz), never applied to a market value or turned into a bill.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "R6-002",
+  "priority": "P0",
+  "title": "Disposable-income double deduction",
+  "status_2.10.2": "not_applicable_here",
+  "what_changed": "No household disposable-income budget is calculated in the app yet.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "R6-003",
+  "priority": "P1",
+  "title": "Mean and median wealth are different",
+  "status_2.10.2": "not_applicable_here",
+  "what_changed": "Wealth data from the V6 package is not in this build (the 33,108-value master file did not arrive).",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "R6-004",
+  "priority": "P0",
+  "title": "Local context is not personal income",
+  "status_2.10.2": "repaired_and_reverified",
+  "what_changed": "Area pay is shown as context for the metro or country, labelled mean and occupation; never presented as the user's income.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "R6-005",
+  "priority": "P0",
+  "title": "Gewerbesteuer applicability",
+  "status_2.10.2": "already_working_reverified",
+  "what_changed": "Gewerbesteuer is a raw, unscored figure; it never enters household scores.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "R6-006",
+  "priority": "P0",
+  "title": "Inheritance is an event",
+  "status_2.10.2": "not_applicable_here",
+  "what_changed": "No inheritance calculation in the app.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": "PASS \"Lowest 10\" pins the 10 lowest-ranked scored places (10 pins, of 6993)"
+ },
+ {
+  "id": "R6-007",
+  "priority": "P0",
+  "title": "Wealth valuation and liquidity",
+  "status_2.10.2": "not_applicable_here",
+  "what_changed": "No wealth-tax valuation in the app.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "R6-008",
+  "priority": "P1",
+  "title": "Employer growth versus job growth",
+  "status_2.10.2": "not_applicable_here",
+  "what_changed": "No employer-growth data in this build.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "R6-009",
+  "priority": "P1",
+  "title": "Household formation versus family counts",
+  "status_2.10.2": "not_applicable_here",
+  "what_changed": "No household-formation data in this build.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "R6-010",
+  "priority": "P0",
+  "title": "Divorce as safety proxy",
+  "status_2.10.2": "still_open",
+  "what_changed": "The divorce rate is still a scored safety input (inherited model). Removing it is a model change and needs owner approval.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "R6-011",
+  "priority": "P1",
+  "title": "Survey-city selection bias",
+  "status_2.10.2": "not_applicable_here",
+  "what_changed": "Survey-city happiness data not in this build.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": "PASS fresh visitor: privacy choice shown (True) and the optional quick tour is offered in the app (True)"
+ },
+ {
+  "id": "R6-012",
+  "priority": "P1",
+  "title": "Amenities presence versus access",
+  "status_2.10.2": "already_working_reverified",
+  "what_changed": "Amenity counts are labelled as presence within 1.5 km from OpenStreetMap, not access or quality.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "R6-013",
+  "priority": "P0",
+  "title": "National context versus local completeness",
+  "status_2.10.2": "repaired_and_reverified",
+  "what_changed": "National and metro context (rents, pay, labour costs, price levels) never counts as measured local data; measured shares are unchanged by it (test_v210 ctx).",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ },
+ {
+  "id": "R6-014",
+  "priority": "P1",
+  "title": "Latest observation versus latest page date",
+  "status_2.10.2": "partly_repaired",
+  "what_changed": "Every figure shows its reference period; separate release and last-checked dates are not shown.",
+  "before_live_2_8_1": "",
+  "after_2.10.2": ""
+ }
+]

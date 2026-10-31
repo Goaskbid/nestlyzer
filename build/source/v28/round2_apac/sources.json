@@ -1,0 +1,56 @@
+{
+ "jp_estat_dashboard_taxable_income": {
+  "publisher": "Statistics Bureau of Japan (MIC) - e-Stat Statistics Dashboard; series from 社会・人口統計体系 (System of Social and Demographic Statistics), underlying MIC 市町村税課税状況等の調",
+  "dataset": "課税対象所得（納税義務者1人当たり） indicator 1302070100000110010, municipality, FY2024",
+  "url_official": "https://dashboard.e-stat.go.jp/api/1.0/Csv/getData?Lang=JP&IndicatorCode=1302070100000110010&Time=2024FY00&RegionLevel=9&IsSeasonalAdjustment=1&MetaGetFlg=N (+ RegionLevel=12 and RegionLevel=8%2C10%2C13)",
+  "url_mirror": "none - fetched from the official API via approved WebFetch; raw extracts in /home/claude/ext/v28/_raw/apac/jp_dashboard/income_lvl*_2024FY.txt",
+  "licence": "Government of Japan Standard Terms of Use 2.0 (compatible with CC BY 4.0)",
+  "period": "FY2024 (taxable income of calendar 2023 per taxpayer)",
+  "notes": "Unit 千円. Designated cities carry the whole-city value (wards have none). 1741/1741 municipalities returned."
+ },
+ "jp_estat_dashboard_census_unemployment": {
+  "publisher": "Statistics Bureau of Japan (MIC) - e-Stat Statistics Dashboard (社会・人口統計体系, from the 2020 Population Census)",
+  "dataset": "完全失業率（国勢調査） indicator 0301100000020020010, municipality",
+  "url_official": "https://dashboard.e-stat.go.jp/api/1.0/Csv/getData?Lang=JP&IndicatorCode=0301100000020020010&Time=2020FY00&RegionLevel=9&IsSeasonalAdjustment=1&MetaGetFlg=N (+ RegionLevel=12, 8%2C10%2C13)",
+  "url_mirror": "none - official API via WebFetch; raw in _raw/apac/jp_dashboard/unemp_lvl*_2020FY.txt and census2_lvl8_10_13_2020FY.txt",
+  "licence": "Government of Japan Standard Terms of Use 2.0 (CC BY 4.0 compatible)",
+  "period": "2020 (Census, 1 Oct 2020)",
+  "notes": "Latest municipal unemployment in Japan is the 5-yearly census; 2025 census results not yet in the dashboard."
+ },
+ "jp_estat_dashboard_census_popchange": {
+  "publisher": "Statistics Bureau of Japan (MIC) - e-Stat Statistics Dashboard (社会・人口統計体系)",
+  "dataset": "人口増減率（社会・人口統計体系） indicator 0201010000000030000, municipality",
+  "url_official": "https://dashboard.e-stat.go.jp/api/1.0/Csv/getData?Lang=JP&IndicatorCode=0201010000000030000&Time=2020FY00&RegionLevel=9&IsSeasonalAdjustment=1&MetaGetFlg=N (+ RegionLevel=12, 8%2C10%2C13)",
+  "url_mirror": "none - official API via WebFetch; raw in _raw/apac/jp_dashboard/popch_lvl*_2020FY.txt",
+  "licence": "Government of Japan Standard Terms of Use 2.0",
+  "period": "2015-2020 (census to census)",
+  "notes": "Fukushima evacuation-zone towns show extreme values (e.g. 07542 +280.5%, 07548 +2233%, 07564 +3114%) because their 2015 population was ~0; values are official, kept as published. 4 towns (07543,07545,07546,07547) have no value ('-')."
+ },
+ "jp_estat_dashboard_pref_crime": {
+  "publisher": "Statistics Bureau of Japan - e-Stat Statistics Dashboard (社会・人口統計体系; source National Police Agency)",
+  "dataset": "刑法犯認知件数（人口千人当たり） indicator 1402020000000110010, prefecture",
+  "url_official": "https://dashboard.e-stat.go.jp/api/1.0/Csv/getData?Lang=JP&IndicatorCode=1402020000000110010%2C1505040000000110010&TimeFrom=2021FY00&RegionalRank=3&IsSeasonalAdjustment=1&MetaGetFlg=N",
+  "url_mirror": "none; raw in _raw/apac/jp_dashboard/pref_crime_doctors.txt",
+  "licence": "Government of Japan Standard Terms of Use 2.0",
+  "period": "FY2023",
+  "notes": "admin1 code = Nestlyzer rc (JIS prefecture code minus 1, e.g. Tokyo 13 -> JP12)."
+ },
+ "jp_estat_dashboard_pref_doctors": {
+  "publisher": "Statistics Bureau of Japan - e-Stat Statistics Dashboard (社会・人口統計体系; source MHLW 医師・歯科医師・薬剤師統計)",
+  "dataset": "医療施設に従事する医師数（人口10万人当たり） indicator 1505040000000110010, prefecture",
+  "url_official": "same request as jp_estat_dashboard_pref_crime",
+  "url_mirror": "none; raw in _raw/apac/jp_dashboard/pref_crime_doctors.txt",
+  "licence": "Government of Japan Standard Terms of Use 2.0",
+  "period": "2022",
+  "notes": "Biennial survey; 2022 is latest in dashboard."
+ },
+ "au_abs_c21_g43_lga": {
+  "publisher": "Australian Bureau of Statistics (ABS)",
+  "dataset": "Census of Population and Housing 2021, General Community Profile G43 'Selected labour force, education and migration characteristics', LFEMP=LFS_P1 (% Unemployment), SEXP=3 (persons), by LGA 2021",
+  "url_official": "https://data.api.abs.gov.au/rest/data/ABS,C21_G43_LGA,1.0.0/LFS_P1.3..LGA2021.{STATE}?format=structurespecificdata&dimensionAtObservation=AllDimensions (STATE = 1+2; 3+4; 5+6+7+8+9)",
+  "url_mirror": "none - ABS Data API via approved WebFetch; extracts in _raw/apac/abs_g43/",
+  "licence": "CC BY 4.0 (ABS)",
+  "period": "2021 (Census night 10 Aug 2021)",
+  "notes": "565 LGA-level areas returned. Places joined with the world2 place->LGA (ASGS 2016 polygons, codes matched to 2021) table; value 0 (pseudo-areas, suppressed) dropped. Census unemployment, not the quarterly SALM estimate (SALM is only published as xlsx, not reachable verbatim)."
+ }
+}

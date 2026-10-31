@@ -1,0 +1,146 @@
+{
+ "se_scb_tab2017": {
+  "publisher": "Statistics Sweden (SCB)",
+  "dataset": "TAB2017 Local tax rates 2000-2026 (OE0101D1 total, D2 municipality, D3 region/county council)",
+  "url_official": "https://api.scb.se/OV0104/v2beta/api/v2/tables/TAB2017/data?lang=en&valueCodes[Tid]=2026&valueCodes[ContentsCode]=OE0101D1,OE0101D2,OE0101D3&valueCodes[Region]=*&codelist[Region]=vs_RegionKommun07EjAggr&outputFormat=csv&outputFormatParams=UseCodes",
+  "url_mirror": "none - official API via WebFetch; raw: _raw/nordic_api/se/scb_TAB2017_2026.csv",
+  "licence": "CC0 1.0 (SCB open data)",
+  "period": "2026",
+  "notes": "Burial fee and church fee not included. Gotland (0980) has no separate region rate (D3=0, municipality carries the whole rate)."
+ },
+ "se_scb_tab1169": {
+  "publisher": "Statistics Sweden (SCB)",
+  "dataset": "TAB1169 Sold one- and two-dwelling buildings by region and type of real estate (220 = permanent dwelling, no site leasehold); BO0501C1 number, BO0501C2 average purchase price kSEK",
+  "url_official": "https://api.scb.se/OV0104/v2beta/api/v2/tables/TAB1169/data?lang=sv&valueCodes[Tid]=2025&valueCodes[Fastighetstyp]=220&valueCodes[ContentsCode]=BO0501C1,BO0501C2&valueCodes[Region]=*&codelist[Region]=vs_RegionKommun07EjAggr&outputFormat=csv",
+  "url_mirror": "none - official API via WebFetch; raw: _raw/nordic_api/se/scb_TAB1169_2025.csv",
+  "licence": "CC0 1.0 (SCB open data)",
+  "period": "2025",
+  "notes": "Small municipalities have few sales (e.g. Dorotea 8) - average is noisy; sales count delivered alongside."
+ },
+ "se_kolada_n00905": {
+  "publisher": "RKA / Kolada (source: SCB income statistics)",
+  "dataset": "KPI N00905 Mediannettoinkomst, kr/inv 20+ (gender T)",
+  "url_official": "https://api.kolada.se/v3/data/kpi/N00905/year/2024 (+ tail: ?page=2&per_page=300)",
+  "url_mirror": "none - official API via WebFetch; raw: _raw/nordic_api/se/kolada_N00905_2024.txt",
+  "licence": "Kolada open API, free reuse with attribution (RKA); underlying SCB data CC0",
+  "period": "2024",
+  "notes": "Median disposable net income per person 20+, household benefits split among adults."
+ },
+ "se_kolada_n03941": {
+  "publisher": "RKA / Kolada (source: Arbetsformedlingen + SCB BAS)",
+  "dataset": "KPI N03941 Arbetslosa av arbetskraften (BAS), 18-65 ar, andel (%) (gender T)",
+  "url_official": "https://api.kolada.se/v3/data/kpi/N03941/year/2025?per_page=160&page=1 and &page=2",
+  "url_mirror": "none; raw: _raw/nordic_api/se/kolada_N03941_2025_p1.txt, _p2.txt",
+  "licence": "Kolada open API, free reuse with attribution (RKA)",
+  "period": "2025",
+  "notes": "Registered openly unemployed + programme participants, annual average, share of labour force (BAS)."
+ },
+ "se_kolada_n07540": {
+  "publisher": "RKA / Kolada (source: Bra - Swedish National Council for Crime Prevention, and SCB)",
+  "dataset": "KPI N07540 Anmalda brott totalt, antal/100 000 inv",
+  "url_official": "https://api.kolada.se/v3/data/kpi/N07540/year/2025?per_page=160&page=1 and &page=2",
+  "url_mirror": "none; raw: _raw/nordic_api/se/kolada_N07540_2025_p1.txt, _p2.txt",
+  "licence": "Kolada open API, free reuse with attribution (RKA); Bra official statistics",
+  "period": "2025",
+  "notes": "By crime location; some reports lack location so municipal figures can be incomplete (per KPI description). Per 1,000 = value/100."
+ },
+ "se_kolada_n00923": {
+  "publisher": "RKA / Kolada (source: SCB)",
+  "dataset": "KPI N00923 Medellivslangd man, ar",
+  "url_official": "https://api.kolada.se/v3/data/kpi/N00923/year/2025",
+  "url_mirror": "none; raw: _raw/nordic_api/se/kolada_N00923_2025.txt",
+  "licence": "Kolada open API, free reuse with attribution (RKA); underlying SCB CC0",
+  "period": "2021-2025",
+  "notes": "Five-year average ending in reference year 2025."
+ },
+ "se_kolada_n00925": {
+  "publisher": "RKA / Kolada (source: SCB)",
+  "dataset": "KPI N00925 Medellivslangd kvinnor, ar",
+  "url_official": "https://api.kolada.se/v3/data/kpi/N00925/year/2025",
+  "url_mirror": "none; raw: _raw/nordic_api/se/kolada_N00925_2025.txt",
+  "licence": "Kolada open API, free reuse with attribution (RKA); underlying SCB CC0",
+  "period": "2021-2025",
+  "notes": "Five-year average ending in reference year 2025."
+ },
+ "dk_dst_pskat": {
+  "publisher": "Statistics Denmark (DST)",
+  "dataset": "PSKAT Local government personal taxation (KOM municipal tax, KIRKE church tax, GRUND land tax)",
+  "url_official": "https://api.statbank.dk/v1/data/PSKAT/CSV?lang=en&valuePresentation=Code&delimiter=Semicolon&OMR%C3%85DE=*&SKATPCT=KOM,KIRKE,GRUND&Tid=2026",
+  "url_mirror": "none; raw: _raw/nordic_api/dk/statbank_PSKAT_2026.csv",
+  "licence": "CC BY 4.0 (Statistics Denmark)",
+  "period": "2026",
+  "notes": "Church tax applies only to members of the Folkekirke; kept as separate field. Land tax in per mille. Christianso (411) not a tax municipality - no value."
+ },
+ "dk_dst_indkp101": {
+  "publisher": "Statistics Denmark (DST)",
+  "dataset": "INDKP101 Income for people by region, unit (116 = average income for all people), sex (MOK), type of income (100 disposable, 290 taxable)",
+  "url_official": "https://api.statbank.dk/v1/data/INDKP101/CSV?lang=en&valuePresentation=Code&delimiter=Semicolon&OMR%C3%85DE=*&ENHED=116&KOEN=MOK&INDKOMSTTYPE=100&Tid=2024 ; ...&INDKOMSTTYPE=100,290&Tid=2025",
+  "url_mirror": "none; raw: _raw/nordic_api/dk/statbank_INDKP101_100_2024.csv, statbank_INDKP101_290_2025.csv",
+  "licence": "CC BY 4.0 (Statistics Denmark)",
+  "period": "2024 (disposable), 2025 (taxable)",
+  "notes": "2025 disposable income returned 0 for every area (not yet published) and was rejected; 2024 used. Mean, not median."
+ },
+ "dk_dst_aup01": {
+  "publisher": "Statistics Denmark (DST)",
+  "dataset": "AUP01 Unemployment in per cent of the labour force (provisional), ALDER=TOT, KOEN=TOT",
+  "url_official": "https://api.statbank.dk/v1/data/AUP01/CSV?lang=en&valuePresentation=Code&delimiter=Semicolon&OMR%C3%85DE=*&ALDER=TOT&K%C3%98N=TOT&Tid=2026M08",
+  "url_mirror": "none; raw: _raw/nordic_api/dk/statbank_AUP01_2026M08.csv",
+  "licence": "CC BY 4.0 (Statistics Denmark)",
+  "period": "2026-08",
+  "notes": "Monthly, provisional, not seasonally adjusted (no annual municipal rate table found)."
+ },
+ "dk_dst_hisbk": {
+  "publisher": "Statistics Denmark (DST)",
+  "dataset": "HISBK Life expectancy for new born babies by municipality, sex, 5-year period",
+  "url_official": "https://api.statbank.dk/v1/data/HISBK/CSV?lang=en&valuePresentation=Code&delimiter=Semicolon&OMR%C3%85DE=*&K%C3%98N=TOT,M,K&Tid=2021%3A2025",
+  "url_mirror": "none; raw: _raw/nordic_api/dk/statbank_HISBK_2021-2025.csv",
+  "licence": "CC BY 4.0 (Statistics Denmark)",
+  "period": "2021-2025",
+  "notes": "'..' (suppressed) for 5 small island municipalities: 411 Christianso, 492 Aero, 563 Fano, 741 Samso, 825 Laeso."
+ },
+ "dk_dst_straf11": {
+  "publisher": "Statistics Denmark (DST)",
+  "dataset": "STRAF11 Reported criminal offences by region, type of offence (1 = criminal code total), quarter",
+  "url_official": "https://api.statbank.dk/v1/data/STRAF11/CSV?lang=en&valuePresentation=Code&delimiter=Semicolon&OMR%C3%85DE=*&OVERTR%C3%86D=1&Tid=2025K3,2025K4,2026K1,2026K2",
+  "url_mirror": "none; raw: _raw/nordic_api/dk/statbank_STRAF11_1_2025K3-2026K2.csv",
+  "licence": "CC BY 4.0 (Statistics Denmark)",
+  "period": "2025Q3-2026Q2",
+  "notes": "Sum of last 4 quarters. About 10% of national offences are coded 998 (unknown municipality) and are not allocated, so municipal rates are lower bounds. Christianso excluded (pop 92)."
+ },
+ "dk_dst_folk1a": {
+  "publisher": "Statistics Denmark (DST)",
+  "dataset": "FOLK1A Population at the first day of the quarter (all other dims eliminated)",
+  "url_official": "https://api.statbank.dk/v1/data/FOLK1A/CSV?lang=en&valuePresentation=Code&delimiter=Semicolon&OMR%C3%85DE=*&Tid=2026K1",
+  "url_mirror": "none; raw: _raw/nordic_api/dk/statbank_FOLK1A_2026K1.csv",
+  "licence": "CC BY 4.0 (Statistics Denmark)",
+  "period": "2026-01-01",
+  "notes": "Denominator for the per-1,000 crime rate only."
+ },
+ "no_ssb_06944": {
+  "publisher": "Statistics Norway (SSB)",
+  "dataset": "06944 Household income by type of household; InntSkatt = median income after tax, HusholdType 0000 all households",
+  "url_official": "https://data.ssb.no/api/pxwebapi/v2/tables/06944/data?lang=en&valueCodes[Region]=????&valueCodes[Tid]=2024&valueCodes[HusholdType]=0000&valueCodes[ContentsCode]=InntSkatt&outputFormat=csv",
+  "url_mirror": "none; raw: _raw/nordic_api/no/ssb_06944_InntSkatt_2024.csv",
+  "licence": "CC BY 4.0 (Statistics Norway)",
+  "period": "2024",
+  "notes": "Excludes student households. National value 676,100 equals the figure on ssb.no statistic page. Values only for the 357 current (2024) municipalities; superseded codes in NO.json get none."
+ },
+ "no_ssb_08487": {
+  "publisher": "Statistics Norway (SSB)",
+  "dataset": "08487 Offences reported to the police by scene of crime (municipality); LovbruddKrim 1AAAAA-9ZZZZz all groups; AnmLovbrPer1000",
+  "url_official": "https://data.ssb.no/api/pxwebapi/v2/tables/08487/data?lang=en&valueCodes[Gjerningssted]=????&valueCodes[Tid]=2024-2025&valueCodes[LovbruddKrim]=1AAAAA-9ZZZZz&valueCodes[ContentsCode]=AnmLovbrPer1000&outputFormat=csv",
+  "url_mirror": "none; raw: _raw/nordic_api/no/ssb_08487_per1000_2024-2025.csv",
+  "licence": "CC BY 4.0 (Statistics Norway)",
+  "period": "2024-2025",
+  "notes": "Two-year average per year. The '0-999 Total' code is all '.' in this table; 'All groups of offences' used. Brief's 08484 is national only. Utsira (1151) suppressed."
+ },
+ "no_ssb_06035": {
+  "publisher": "Statistics Norway (SSB)",
+  "dataset": "06035 Freeholder dwellings, average price per m2 and number of sales (closed series 2002-2024), Boligtype 01 detached houses",
+  "url_official": "https://data.ssb.no/api/pxwebapi/v2/tables/06035/data?lang=en&valueCodes[Region]=????&valueCodes[Tid]=2024&valueCodes[Boligtype]=01&valueCodes[ContentsCode]=KvPris,Omsetninger&outputFormat=csv",
+  "url_mirror": "none; raw: _raw/nordic_api/no/ssb_06035_detached_2024.csv",
+  "licence": "CC BY 4.0 (Statistics Norway)",
+  "period": "2024",
+  "notes": "Price suppressed ('..') where fewer than ~10 sales; closed series, 2024 is the last year."
+ }
+}

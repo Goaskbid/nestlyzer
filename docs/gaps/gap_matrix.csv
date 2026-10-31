@@ -1,0 +1,586 @@
+country,country_name,places,topic,best_level_now,status,context_now,fields_now,why
+FR,France,34999,rent,place,ok,national,n_rent_flat12_m2 n_rent_flat3_m2 n_rent_flat_m2 n_rent_house_m2,households: what a newcomer pays
+FR,France,34999,house_price,-,missing,-,,households and businesses: property cost
+FR,France,34999,income,place,ok,national,n_income_median_cu n_income_median_fr3 n_income_pps_region n_social_minima_fr,households: local affluence; businesses: wage level
+FR,France,34999,unemployment,place,ok,-,n_unemp_census_fr3 n_unemployment_region,households and businesses: labour market
+FR,France,34999,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+FR,France,34999,births_migration,district,deepen,local,n_net_migration_region n_pop_change_region,households: momentum
+FR,France,34999,crime,place,ok,-,n_assault_region n_burglary_local n_burglary_region n_crime_total_local n_robbery_region n_violent_crime_region n_violent_local,households: safety
+FR,France,34999,schools_childcare,-,missing,national,,families
+FR,France,34999,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+FR,France,34999,broadband,region,deepen,-,n_internet_region,remote workers and businesses
+FR,France,34999,local_tax,place,ok,national,n_property_tax_fr n_waste_tax_fr,households and businesses: local tax
+FR,France,34999,industry_structure,-,deepen,local,,businesses: industry clusters (GICS mapping)
+FR,France,34999,climate,-,deepen,local,,households: climate normals
+US,United States,21184,rent,place,ok,national,n_rent_us,households: what a newcomer pays
+US,United States,21184,house_price,place,ok,-,n_home_value_us,households and businesses: property cost
+US,United States,21184,income,place,ok,local,n_housing_burden_us n_income_median_us n_income_ratio_us,households: local affluence; businesses: wage level
+US,United States,21184,unemployment,place,ok,-,n_unemployment_local,households and businesses: labour market
+US,United States,21184,age_structure,place,ok,local,n_age65_us,households: who lives there
+US,United States,21184,births_migration,-,missing,-,,households: momentum
+US,United States,21184,crime,place,ok,-,n_burglary_local n_crime_total_local n_homicide_local n_violent_local,households: safety
+US,United States,21184,schools_childcare,place,ok,national,n_high_school_us,families
+US,United States,21184,doctors_health,place,ok,-,n_gps_100k_us n_life_expectancy_local,households: health care
+US,United States,21184,broadband,place,ok,national,n_broadband_us,remote workers and businesses
+US,United States,21184,local_tax,-,missing,national,,households and businesses: local tax
+US,United States,21184,industry_structure,-,deepen,local,,businesses: industry clusters (GICS mapping)
+US,United States,21184,climate,-,deepen,local,,households: climate normals
+DE,Germany,10978,rent,place,ok,national,n_rent_net_m2 n_rent_net_m2_local,households: what a newcomer pays
+DE,Germany,10978,house_price,-,missing,-,,households and businesses: property cost
+DE,Germany,10978,income,region,deepen,national,n_income_pps_region,households: local affluence; businesses: wage level
+DE,Germany,10978,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+DE,Germany,10978,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+DE,Germany,10978,births_migration,place,ok,-,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+DE,Germany,10978,crime,district,deepen,-,n_assault_region n_burglary_region n_robbery_region n_violent_crime_region,households: safety
+DE,Germany,10978,schools_childcare,-,missing,national,,families
+DE,Germany,10978,doctors_health,region,deepen,-,n_life_expectancy_region,households: health care
+DE,Germany,10978,broadband,-,missing,-,,remote workers and businesses
+DE,Germany,10978,local_tax,place,ok,national,n_gewerbesteuer n_grundsteuer_b n_grundsteuer_b_2025,households and businesses: local tax
+DE,Germany,10978,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+DE,Germany,10978,climate,-,missing,-,,households: climate normals
+ES,Spain,8132,rent,place,ok,national,n_rent_paid_mean,households: what a newcomer pays
+ES,Spain,8132,house_price,place,ok,-,n_home_price_m2_mean n_home_price_mean,households and businesses: property cost
+ES,Spain,8132,income,place,ok,national,n_income_gini n_income_gross_person n_income_median_cu n_income_net_household n_income_net_person n_income_p80p20 n_income_pps_region,households: local affluence; businesses: wage level
+ES,Spain,8132,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+ES,Spain,8132,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+ES,Spain,8132,births_migration,place,ok,-,n_net_migration_region n_pop_change_2019 n_pop_change_region,households: momentum
+ES,Spain,8132,crime,place,ok,-,n_assault_region n_burglary_local n_burglary_region n_crime_total_local n_robbery_region n_violent_crime_region n_violent_local,households: safety
+ES,Spain,8132,schools_childcare,-,missing,national,,families
+ES,Spain,8132,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+ES,Spain,8132,broadband,region,deepen,national,n_internet_region,remote workers and businesses
+ES,Spain,8132,local_tax,-,missing,national,,households and businesses: local tax
+ES,Spain,8132,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+ES,Spain,8132,climate,-,deepen,local,,households: climate normals
+IT,Italy,7924,rent,place,ok,national,n_rent_m2_it,households: what a newcomer pays
+IT,Italy,7924,house_price,place,ok,-,n_house_price_m2_it,households and businesses: property cost
+IT,Italy,7924,income,region,deepen,national,n_income_pps_region,households: local affluence; businesses: wage level
+IT,Italy,7924,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+IT,Italy,7924,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+IT,Italy,7924,births_migration,place,ok,-,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+IT,Italy,7924,crime,district,deepen,-,n_assault_region n_burglary_region n_robbery_region n_violent_crime_region,households: safety
+IT,Italy,7924,schools_childcare,-,missing,national,,families
+IT,Italy,7924,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+IT,Italy,7924,broadband,region,deepen,national,n_internet_region,remote workers and businesses
+IT,Italy,7924,local_tax,-,missing,national,,households and businesses: local tax
+IT,Italy,7924,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+IT,Italy,7924,climate,-,missing,-,,households: climate normals
+CZ,Czechia,6258,rent,-,missing,national,,households: what a newcomer pays
+CZ,Czechia,6258,house_price,-,missing,-,,households and businesses: property cost
+CZ,Czechia,6258,income,region,deepen,national,n_income_pps_region,households: local affluence; businesses: wage level
+CZ,Czechia,6258,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+CZ,Czechia,6258,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+CZ,Czechia,6258,births_migration,place,ok,-,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+CZ,Czechia,6258,crime,district,deepen,-,n_assault_region n_burglary_region n_robbery_region n_violent_crime_region,households: safety
+CZ,Czechia,6258,schools_childcare,-,missing,national,,families
+CZ,Czechia,6258,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+CZ,Czechia,6258,broadband,region,deepen,national,n_internet_region,remote workers and businesses
+CZ,Czechia,6258,local_tax,-,missing,national,,households and businesses: local tax
+CZ,Czechia,6258,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+CZ,Czechia,6258,climate,-,missing,-,,households: climate normals
+EL,Greece,6139,rent,-,missing,national,,households: what a newcomer pays
+EL,Greece,6139,house_price,-,missing,-,,households and businesses: property cost
+EL,Greece,6139,income,region,deepen,national,n_income_pps_region,households: local affluence; businesses: wage level
+EL,Greece,6139,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+EL,Greece,6139,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+EL,Greece,6139,births_migration,place,ok,-,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+EL,Greece,6139,crime,district,deepen,-,n_assault_region n_burglary_region n_robbery_region n_violent_crime_region,households: safety
+EL,Greece,6139,schools_childcare,-,missing,national,,families
+EL,Greece,6139,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+EL,Greece,6139,broadband,-,missing,national,,remote workers and businesses
+EL,Greece,6139,local_tax,-,missing,national,,households and businesses: local tax
+EL,Greece,6139,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+EL,Greece,6139,climate,-,missing,-,,households: climate normals
+RO,Romania,3181,rent,-,missing,national,,households: what a newcomer pays
+RO,Romania,3181,house_price,-,missing,-,,households and businesses: property cost
+RO,Romania,3181,income,region,deepen,national,n_income_pps_region,households: local affluence; businesses: wage level
+RO,Romania,3181,unemployment,region,deepen,local,n_unemployment_region,households and businesses: labour market
+RO,Romania,3181,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+RO,Romania,3181,births_migration,place,ok,-,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+RO,Romania,3181,crime,district,deepen,-,n_assault_region n_burglary_region n_robbery_region n_violent_crime_region,households: safety
+RO,Romania,3181,schools_childcare,-,missing,national,,families
+RO,Romania,3181,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+RO,Romania,3181,broadband,region,deepen,national,n_internet_region,remote workers and businesses
+RO,Romania,3181,local_tax,-,missing,national,,households and businesses: local tax
+RO,Romania,3181,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+RO,Romania,3181,climate,-,missing,-,,households: climate normals
+HU,Hungary,3155,rent,-,missing,national,,households: what a newcomer pays
+HU,Hungary,3155,house_price,-,missing,-,,households and businesses: property cost
+HU,Hungary,3155,income,region,deepen,national,n_income_pps_region,households: local affluence; businesses: wage level
+HU,Hungary,3155,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+HU,Hungary,3155,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+HU,Hungary,3155,births_migration,place,ok,-,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+HU,Hungary,3155,crime,district,deepen,-,n_assault_region n_robbery_region n_violent_crime_region,households: safety
+HU,Hungary,3155,schools_childcare,-,missing,national,,families
+HU,Hungary,3155,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+HU,Hungary,3155,broadband,region,deepen,national,n_internet_region,remote workers and businesses
+HU,Hungary,3155,local_tax,-,missing,national,,households and businesses: local tax
+HU,Hungary,3155,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+HU,Hungary,3155,climate,-,deepen,local,,households: climate normals
+PT,Portugal,3092,rent,-,missing,national,,households: what a newcomer pays
+PT,Portugal,3092,house_price,place,ok,-,n_price_m2_pt,households and businesses: property cost
+PT,Portugal,3092,income,place,ok,national,n_income_pps_region n_income_taxpayer_pt,households: local affluence; businesses: wage level
+PT,Portugal,3092,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+PT,Portugal,3092,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+PT,Portugal,3092,births_migration,place,ok,-,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+PT,Portugal,3092,crime,district,deepen,-,n_assault_region n_burglary_region n_robbery_region n_violent_crime_region,households: safety
+PT,Portugal,3092,schools_childcare,-,missing,national,,families
+PT,Portugal,3092,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+PT,Portugal,3092,broadband,region,deepen,national,n_internet_region,remote workers and businesses
+PT,Portugal,3092,local_tax,place,ok,national,n_income_taxpayer_pt,households and businesses: local tax
+PT,Portugal,3092,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+PT,Portugal,3092,climate,-,missing,-,,households: climate normals
+CA,Canada,2929,rent,place,ok,national,n_rent_ca,households: what a newcomer pays
+CA,Canada,2929,house_price,place,ok,-,n_home_value_ca,households and businesses: property cost
+CA,Canada,2929,income,place,ok,national,n_income_ca,households: local affluence; businesses: wage level
+CA,Canada,2929,unemployment,place,ok,-,n_unemployment_local,households and businesses: labour market
+CA,Canada,2929,age_structure,-,missing,national,,households: who lives there
+CA,Canada,2929,births_migration,-,missing,-,,households: momentum
+CA,Canada,2929,crime,-,missing,-,,households: safety
+CA,Canada,2929,schools_childcare,-,missing,national,,families
+CA,Canada,2929,doctors_health,-,missing,-,,households: health care
+CA,Canada,2929,broadband,-,missing,national,,remote workers and businesses
+CA,Canada,2929,local_tax,-,missing,national,,households and businesses: local tax
+CA,Canada,2929,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+CA,Canada,2929,climate,-,deepen,local,,households: climate normals
+SK,Slovakia,2927,rent,-,missing,national,,households: what a newcomer pays
+SK,Slovakia,2927,house_price,-,missing,-,,households and businesses: property cost
+SK,Slovakia,2927,income,region,deepen,national,n_income_pps_region,households: local affluence; businesses: wage level
+SK,Slovakia,2927,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+SK,Slovakia,2927,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+SK,Slovakia,2927,births_migration,place,ok,-,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+SK,Slovakia,2927,crime,district,deepen,-,n_assault_region n_burglary_region n_robbery_region n_violent_crime_region,households: safety
+SK,Slovakia,2927,schools_childcare,-,missing,national,,families
+SK,Slovakia,2927,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+SK,Slovakia,2927,broadband,region,deepen,national,n_internet_region,remote workers and businesses
+SK,Slovakia,2927,local_tax,-,missing,national,,households and businesses: local tax
+SK,Slovakia,2927,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+SK,Slovakia,2927,climate,-,missing,-,,households: climate normals
+PL,Poland,2478,rent,-,missing,national,,households: what a newcomer pays
+PL,Poland,2478,house_price,place,ok,-,n_price_m2_pl,households and businesses: property cost
+PL,Poland,2478,income,place,ok,national,n_income_pps_region n_pit_revenue_pl n_wage_pl,households: local affluence; businesses: wage level
+PL,Poland,2478,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+PL,Poland,2478,age_structure,place,ok,national,n_median_age_region n_old_age_dep_region n_wage_pl,households: who lives there
+PL,Poland,2478,births_migration,place,ok,-,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+PL,Poland,2478,crime,district,deepen,-,n_assault_region n_burglary_region n_robbery_region n_violent_crime_region,households: safety
+PL,Poland,2478,schools_childcare,-,missing,national,,families
+PL,Poland,2478,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+PL,Poland,2478,broadband,region,deepen,national,n_internet_region,remote workers and businesses
+PL,Poland,2478,local_tax,place,ok,national,n_pit_revenue_pl,households and businesses: local tax
+PL,Poland,2478,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+PL,Poland,2478,climate,-,deepen,local,,households: climate normals
+CH,Switzerland,2172,rent,-,missing,national,,households: what a newcomer pays
+CH,Switzerland,2172,house_price,-,missing,-,,households and businesses: property cost
+CH,Switzerland,2172,income,place,ok,local,family_income_tax_100k single_income_tax_100k single_income_tax_150k,households: local affluence; businesses: wage level
+CH,Switzerland,2172,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+CH,Switzerland,2172,age_structure,place,ok,national,elderly_share_balance n_median_age_region n_old_age_dep_region working_age_share_pct youth_share_pct,households: who lives there
+CH,Switzerland,2172,births_migration,place,ok,-,birth_rate_per_1000 n_net_migration_region n_pop_change_region population_growth_pct,households: momentum
+CH,Switzerland,2172,crime,district,deepen,-,n_assault_region n_burglary_region n_robbery_region n_violent_crime_region,households: safety
+CH,Switzerland,2172,schools_childcare,-,missing,national,,families
+CH,Switzerland,2172,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+CH,Switzerland,2172,broadband,region,deepen,-,n_internet_region,remote workers and businesses
+CH,Switzerland,2172,local_tax,place,ok,local,family_income_tax_100k retiree_tax_100k single_income_tax_100k single_income_tax_150k wealth_tax_1m wealth_tax_5m,households and businesses: local tax
+CH,Switzerland,2172,industry_structure,place,ok,-,workplaces_per_1000_residents,businesses: industry clusters (GICS mapping)
+CH,Switzerland,2172,climate,-,missing,-,,households: climate normals
+AT,Austria,2093,rent,-,missing,national,,households: what a newcomer pays
+AT,Austria,2093,house_price,-,missing,-,,households and businesses: property cost
+AT,Austria,2093,income,region,deepen,national,n_income_pps_region,households: local affluence; businesses: wage level
+AT,Austria,2093,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+AT,Austria,2093,age_structure,place,ok,national,at_elderly_share_balance at_working_age_share at_youth_share n_median_age_region n_old_age_dep_region,households: who lives there
+AT,Austria,2093,births_migration,place,ok,-,at_population_growth_5y at_population_yoy common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+AT,Austria,2093,crime,district,deepen,-,n_assault_region n_burglary_region n_robbery_region n_violent_crime_region,households: safety
+AT,Austria,2093,schools_childcare,-,missing,national,,families
+AT,Austria,2093,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+AT,Austria,2093,broadband,region,deepen,-,n_internet_region,remote workers and businesses
+AT,Austria,2093,local_tax,-,missing,national,,households and businesses: local tax
+AT,Austria,2093,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+AT,Austria,2093,climate,-,deepen,local,,households: climate normals
+AU,Australia,2034,rent,place,ok,national,n_rent_au,households: what a newcomer pays
+AU,Australia,2034,house_price,-,missing,-,,households and businesses: property cost
+AU,Australia,2034,income,place,ok,-,n_income_au,households: local affluence; businesses: wage level
+AU,Australia,2034,unemployment,place,ok,-,n_unemployment_local,households and businesses: labour market
+AU,Australia,2034,age_structure,place,ok,national,n_mortgage_au,households: who lives there
+AU,Australia,2034,births_migration,-,missing,-,,households: momentum
+AU,Australia,2034,crime,-,missing,-,,households: safety
+AU,Australia,2034,schools_childcare,-,missing,national,,families
+AU,Australia,2034,doctors_health,-,missing,-,,households: health care
+AU,Australia,2034,broadband,-,missing,-,,remote workers and businesses
+AU,Australia,2034,local_tax,-,missing,-,,households and businesses: local tax
+AU,Australia,2034,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+AU,Australia,2034,climate,-,deepen,local,,households: climate normals
+JP,Japan,1979,rent,-,missing,national,,households: what a newcomer pays
+JP,Japan,1979,house_price,-,missing,-,,households and businesses: property cost
+JP,Japan,1979,income,place,ok,-,n_income_taxpayer_jp,households: local affluence; businesses: wage level
+JP,Japan,1979,unemployment,place,ok,-,n_unemployment_local,households and businesses: labour market
+JP,Japan,1979,age_structure,-,missing,national,,households: who lives there
+JP,Japan,1979,births_migration,place,ok,-,n_pop_change_jp,households: momentum
+JP,Japan,1979,crime,region,deepen,-,n_crime_pref_jp,households: safety
+JP,Japan,1979,schools_childcare,-,missing,national,,families
+JP,Japan,1979,doctors_health,region,deepen,-,n_doctors_pref_jp,households: health care
+JP,Japan,1979,broadband,-,missing,-,,remote workers and businesses
+JP,Japan,1979,local_tax,place,ok,-,n_income_taxpayer_jp,households and businesses: local tax
+JP,Japan,1979,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+JP,Japan,1979,climate,-,deepen,local,,households: climate normals
+IL,Israel,688,rent,-,missing,national,,households: what a newcomer pays
+IL,Israel,688,house_price,-,missing,-,,households and businesses: property cost
+IL,Israel,688,income,place,ok,-,n_wage_gini_il n_wage_il,households: local affluence; businesses: wage level
+IL,Israel,688,unemployment,place,ok,-,n_unemp_benefit_il,households and businesses: labour market
+IL,Israel,688,age_structure,place,ok,national,n_wage_gini_il n_wage_il,households: who lives there
+IL,Israel,688,births_migration,-,missing,-,,households: momentum
+IL,Israel,688,crime,-,missing,-,,households: safety
+IL,Israel,688,schools_childcare,place,ok,national,n_bagrut_il,families
+IL,Israel,688,doctors_health,place,ok,-,n_life_expectancy_local,households: health care
+IL,Israel,688,broadband,-,missing,national,,remote workers and businesses
+IL,Israel,688,local_tax,-,missing,national,,households and businesses: local tax
+IL,Israel,688,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+IL,Israel,688,climate,-,missing,-,,households: climate normals
+NZ,New Zealand,631,rent,-,missing,national,,households: what a newcomer pays
+NZ,New Zealand,631,house_price,-,missing,-,,households and businesses: property cost
+NZ,New Zealand,631,income,-,missing,-,,households: local affluence; businesses: wage level
+NZ,New Zealand,631,unemployment,-,missing,-,,households and businesses: labour market
+NZ,New Zealand,631,age_structure,-,missing,national,,households: who lives there
+NZ,New Zealand,631,births_migration,-,missing,-,,households: momentum
+NZ,New Zealand,631,crime,-,missing,-,,households: safety
+NZ,New Zealand,631,schools_childcare,-,missing,national,,families
+NZ,New Zealand,631,doctors_health,-,missing,-,,households: health care
+NZ,New Zealand,631,broadband,-,missing,national,,remote workers and businesses
+NZ,New Zealand,631,local_tax,-,missing,national,,households and businesses: local tax
+NZ,New Zealand,631,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+NZ,New Zealand,631,climate,-,deepen,local,,households: climate normals
+CY,Cyprus,615,rent,-,missing,national,,households: what a newcomer pays
+CY,Cyprus,615,house_price,-,missing,-,,households and businesses: property cost
+CY,Cyprus,615,income,region,deepen,national,n_income_pps_region,households: local affluence; businesses: wage level
+CY,Cyprus,615,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+CY,Cyprus,615,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+CY,Cyprus,615,births_migration,place,ok,-,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+CY,Cyprus,615,crime,district,deepen,-,n_robbery_region,households: safety
+CY,Cyprus,615,schools_childcare,-,missing,national,,families
+CY,Cyprus,615,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+CY,Cyprus,615,broadband,region,deepen,national,n_internet_region,remote workers and businesses
+CY,Cyprus,615,local_tax,-,missing,national,,households and businesses: local tax
+CY,Cyprus,615,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+CY,Cyprus,615,climate,-,missing,-,,households: climate normals
+BE,Belgium,581,rent,place,ok,national,n_rent_new_lease,households: what a newcomer pays
+BE,Belgium,581,house_price,place,ok,-,n_flat_price_median n_house_price_median,households and businesses: property cost
+BE,Belgium,581,income,place,ok,local,n_income_pps_region n_municipal_income_tax,households: local affluence; businesses: wage level
+BE,Belgium,581,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+BE,Belgium,581,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+BE,Belgium,581,births_migration,place,ok,-,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+BE,Belgium,581,crime,district,deepen,-,n_assault_region n_burglary_region n_robbery_region n_violent_crime_region,households: safety
+BE,Belgium,581,schools_childcare,-,missing,national,,families
+BE,Belgium,581,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+BE,Belgium,581,broadband,region,deepen,national,n_internet_region,remote workers and businesses
+BE,Belgium,581,local_tax,place,ok,national,n_municipal_income_tax,households and businesses: local tax
+BE,Belgium,581,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+BE,Belgium,581,climate,-,missing,-,,households: climate normals
+HR,Croatia,556,rent,-,missing,national,,households: what a newcomer pays
+HR,Croatia,556,house_price,-,missing,-,,households and businesses: property cost
+HR,Croatia,556,income,region,deepen,national,n_income_pps_region,households: local affluence; businesses: wage level
+HR,Croatia,556,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+HR,Croatia,556,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+HR,Croatia,556,births_migration,place,ok,-,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+HR,Croatia,556,crime,district,deepen,-,n_assault_region n_burglary_region n_robbery_region n_violent_crime_region,households: safety
+HR,Croatia,556,schools_childcare,-,missing,national,,families
+HR,Croatia,556,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+HR,Croatia,556,broadband,region,deepen,national,n_internet_region,remote workers and businesses
+HR,Croatia,556,local_tax,-,missing,national,,households and businesses: local tax
+HR,Croatia,556,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+HR,Croatia,556,climate,-,missing,-,,households: climate normals
+UK,United Kingdom,388,rent,-,missing,national,,households: what a newcomer pays
+UK,United Kingdom,388,house_price,place,ok,-,n_house_price_uk,households and businesses: property cost
+UK,United Kingdom,388,income,place,ok,-,n_gdhi_uk n_pay_week_uk,households: local affluence; businesses: wage level
+UK,United Kingdom,388,unemployment,place,ok,-,n_claimants n_unemployment_uk,households and businesses: labour market
+UK,United Kingdom,388,age_structure,place,ok,national,n_age65_us n_arts_uk,households: who lives there
+UK,United Kingdom,388,births_migration,place,ok,local,n_business_births_uk,households: momentum
+UK,United Kingdom,388,crime,-,missing,-,,households: safety
+UK,United Kingdom,388,schools_childcare,place,ok,national,n_primary_std_uk,families
+UK,United Kingdom,388,doctors_health,place,ok,-,n_life_expectancy_local,households: health care
+UK,United Kingdom,388,broadband,place,ok,local,n_cover_4g_pct n_cover_5g_pct n_gigabit_pct,remote workers and businesses
+UK,United Kingdom,388,local_tax,place,ok,national,n_council_tax_d n_council_tax_d_billing,households and businesses: local tax
+UK,United Kingdom,388,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+UK,United Kingdom,388,climate,-,missing,-,,households: climate normals
+NL,Netherlands,360,rent,-,missing,national,,households: what a newcomer pays
+NL,Netherlands,360,house_price,place,ok,-,n_woz_value,households and businesses: property cost
+NL,Netherlands,360,income,place,ok,national,n_hh_low40 n_hh_top20 n_income_pps_region n_income_std_household,households: local affluence; businesses: wage level
+NL,Netherlands,360,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+NL,Netherlands,360,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+NL,Netherlands,360,births_migration,place,ok,-,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+NL,Netherlands,360,crime,district,deepen,-,n_assault_region n_burglary_region n_robbery_region n_violent_crime_region,households: safety
+NL,Netherlands,360,schools_childcare,place,ok,national,n_school_road_km,families
+NL,Netherlands,360,doctors_health,place,ok,-,n_doctors_region n_gp_road_km n_life_expectancy_region,households: health care
+NL,Netherlands,360,broadband,region,deepen,-,n_internet_region,remote workers and businesses
+NL,Netherlands,360,local_tax,-,missing,national,,households and businesses: local tax
+NL,Netherlands,360,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+NL,Netherlands,360,climate,-,missing,-,,households: climate normals
+NO,Norway,359,rent,-,deepen,local,,households: what a newcomer pays
+NO,Norway,359,house_price,-,missing,-,,households and businesses: property cost
+NO,Norway,359,income,place,ok,national,n_income_hh_no,households: local affluence; businesses: wage level
+NO,Norway,359,unemployment,region,deepen,national,n_unemployment_region,households and businesses: labour market
+NO,Norway,359,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+NO,Norway,359,births_migration,place,ok,local,common_population_growth_5y n_net_migration_region n_pop_change_2019 n_pop_change_region,households: momentum
+NO,Norway,359,crime,place,ok,-,n_crime_dk n_robbery_region,households: safety
+NO,Norway,359,schools_childcare,-,deepen,local,,families
+NO,Norway,359,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+NO,Norway,359,broadband,region,deepen,-,n_internet_region,remote workers and businesses
+NO,Norway,359,local_tax,place,ok,national,n_income_hh_no,households and businesses: local tax
+NO,Norway,359,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+NO,Norway,359,climate,-,deepen,local,,households: climate normals
+FI,Finland,310,rent,place,ok,local,n_renters_fi,households: what a newcomer pays
+FI,Finland,310,house_price,-,deepen,local,,households and businesses: property cost
+FI,Finland,310,income,region,deepen,local,n_income_pps_region,households: local affluence; businesses: wage level
+FI,Finland,310,unemployment,place,ok,local,n_unemployment_fi n_unemployment_region,households and businesses: labour market
+FI,Finland,310,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+FI,Finland,310,births_migration,place,ok,local,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+FI,Finland,310,crime,district,deepen,-,n_assault_region n_burglary_region n_robbery_region n_violent_crime_region,households: safety
+FI,Finland,310,schools_childcare,-,missing,national,,families
+FI,Finland,310,doctors_health,region,deepen,local,n_doctors_region n_life_expectancy_region,households: health care
+FI,Finland,310,broadband,region,deepen,-,n_internet_region,remote workers and businesses
+FI,Finland,310,local_tax,-,deepen,local,,households and businesses: local tax
+FI,Finland,310,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+FI,Finland,310,climate,-,deepen,local,,households: climate normals
+SE,Sweden,290,rent,-,deepen,local,,households: what a newcomer pays
+SE,Sweden,290,house_price,place,ok,-,n_house_price_se,households and businesses: property cost
+SE,Sweden,290,income,place,ok,national,n_income_net_se n_income_pps_region n_municipal_income_tax n_municipal_income_tax_part n_municipal_income_tax_region,households: local affluence; businesses: wage level
+SE,Sweden,290,unemployment,place,ok,-,n_unemployment_local n_unemployment_region,households and businesses: labour market
+SE,Sweden,290,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+SE,Sweden,290,births_migration,place,ok,local,common_population_growth_5y n_births_h1 n_net_migration_h1 n_net_migration_region n_pop_change_h1 n_pop_change_region,households: momentum
+SE,Sweden,290,crime,place,ok,-,n_assault_region n_burglary_region n_crime_se n_robbery_region n_violent_crime_region,households: safety
+SE,Sweden,290,schools_childcare,-,missing,national,,families
+SE,Sweden,290,doctors_health,place,ok,-,n_doctors_region n_life_expectancy_local n_life_expectancy_region,households: health care
+SE,Sweden,290,broadband,region,deepen,national,n_internet_region,remote workers and businesses
+SE,Sweden,290,local_tax,place,ok,national,n_municipal_income_tax n_municipal_income_tax_part n_municipal_income_tax_region,households and businesses: local tax
+SE,Sweden,290,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+SE,Sweden,290,climate,-,missing,-,,households: climate normals
+BG,Bulgaria,265,rent,-,missing,national,,households: what a newcomer pays
+BG,Bulgaria,265,house_price,-,missing,-,,households and businesses: property cost
+BG,Bulgaria,265,income,region,deepen,national,n_income_pps_region,households: local affluence; businesses: wage level
+BG,Bulgaria,265,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+BG,Bulgaria,265,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+BG,Bulgaria,265,births_migration,place,ok,-,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+BG,Bulgaria,265,crime,district,deepen,-,n_assault_region n_burglary_region n_robbery_region n_violent_crime_region,households: safety
+BG,Bulgaria,265,schools_childcare,-,missing,national,,families
+BG,Bulgaria,265,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+BG,Bulgaria,265,broadband,region,deepen,national,n_internet_region,remote workers and businesses
+BG,Bulgaria,265,local_tax,-,missing,national,,households and businesses: local tax
+BG,Bulgaria,265,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+BG,Bulgaria,265,climate,-,missing,-,,households: climate normals
+SI,Slovenia,212,rent,-,missing,national,,households: what a newcomer pays
+SI,Slovenia,212,house_price,-,missing,-,,households and businesses: property cost
+SI,Slovenia,212,income,region,deepen,local,n_income_pps_region,households: local affluence; businesses: wage level
+SI,Slovenia,212,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+SI,Slovenia,212,age_structure,district,deepen,local,n_median_age_region n_old_age_dep_region,households: who lives there
+SI,Slovenia,212,births_migration,place,ok,local,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+SI,Slovenia,212,crime,district,deepen,-,n_assault_region n_burglary_region n_robbery_region n_violent_crime_region,households: safety
+SI,Slovenia,212,schools_childcare,-,deepen,local,,families
+SI,Slovenia,212,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+SI,Slovenia,212,broadband,region,deepen,national,n_internet_region,remote workers and businesses
+SI,Slovenia,212,local_tax,-,missing,national,,households and businesses: local tax
+SI,Slovenia,212,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+SI,Slovenia,212,climate,-,missing,-,,households: climate normals
+RS,Serbia,169,rent,-,missing,national,,households: what a newcomer pays
+RS,Serbia,169,house_price,-,missing,-,,households and businesses: property cost
+RS,Serbia,169,income,-,missing,-,,households: local affluence; businesses: wage level
+RS,Serbia,169,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+RS,Serbia,169,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+RS,Serbia,169,births_migration,district,deepen,-,n_net_migration_region n_pop_change_region,households: momentum
+RS,Serbia,169,crime,-,missing,-,,households: safety
+RS,Serbia,169,schools_childcare,-,missing,national,,families
+RS,Serbia,169,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+RS,Serbia,169,broadband,region,deepen,national,n_internet_region,remote workers and businesses
+RS,Serbia,169,local_tax,-,missing,national,,households and businesses: local tax
+RS,Serbia,169,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+RS,Serbia,169,climate,-,missing,-,,households: climate normals
+IE,Ireland,166,rent,place,ok,national,n_private_rent_share n_social_rent_share,households: what a newcomer pays
+IE,Ireland,166,house_price,-,missing,-,,households and businesses: property cost
+IE,Ireland,166,income,region,deepen,national,n_income_pps_region,households: local affluence; businesses: wage level
+IE,Ireland,166,unemployment,place,ok,-,n_long_unemployed n_unemployment_census n_unemployment_region,households and businesses: labour market
+IE,Ireland,166,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+IE,Ireland,166,births_migration,place,ok,-,common_population_growth_5y n_net_migration_region n_pop_change_2019 n_pop_change_region,households: momentum
+IE,Ireland,166,crime,district,deepen,-,n_assault_region n_robbery_region n_violent_crime_region,households: safety
+IE,Ireland,166,schools_childcare,-,missing,national,,families
+IE,Ireland,166,doctors_health,region,deepen,-,n_life_expectancy_region,households: health care
+IE,Ireland,166,broadband,region,deepen,national,n_internet_region,remote workers and businesses
+IE,Ireland,166,local_tax,-,missing,national,,households and businesses: local tax
+IE,Ireland,166,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+IE,Ireland,166,climate,-,deepen,local,,households: climate normals
+HK,Hong Kong,154,rent,-,missing,national,,households: what a newcomer pays
+HK,Hong Kong,154,house_price,-,missing,-,,households and businesses: property cost
+HK,Hong Kong,154,income,-,missing,-,,households: local affluence; businesses: wage level
+HK,Hong Kong,154,unemployment,-,missing,-,,households and businesses: labour market
+HK,Hong Kong,154,age_structure,-,missing,national,,households: who lives there
+HK,Hong Kong,154,births_migration,-,missing,-,,households: momentum
+HK,Hong Kong,154,crime,-,missing,-,,households: safety
+HK,Hong Kong,154,schools_childcare,-,missing,national,,families
+HK,Hong Kong,154,doctors_health,-,missing,-,,households: health care
+HK,Hong Kong,154,broadband,-,missing,national,,remote workers and businesses
+HK,Hong Kong,154,local_tax,-,missing,national,,households and businesses: local tax
+HK,Hong Kong,154,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+HK,Hong Kong,154,climate,-,deepen,local,,households: climate normals
+KR,South Korea,149,rent,-,missing,national,,households: what a newcomer pays
+KR,South Korea,149,house_price,-,missing,-,,households and businesses: property cost
+KR,South Korea,149,income,-,missing,-,,households: local affluence; businesses: wage level
+KR,South Korea,149,unemployment,-,missing,-,,households and businesses: labour market
+KR,South Korea,149,age_structure,-,missing,national,,households: who lives there
+KR,South Korea,149,births_migration,-,missing,-,,households: momentum
+KR,South Korea,149,crime,-,missing,-,,households: safety
+KR,South Korea,149,schools_childcare,-,missing,national,,families
+KR,South Korea,149,doctors_health,-,missing,-,,households: health care
+KR,South Korea,149,broadband,-,missing,national,,remote workers and businesses
+KR,South Korea,149,local_tax,-,missing,national,,households and businesses: local tax
+KR,South Korea,149,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+KR,South Korea,149,climate,-,deepen,local,,households: climate normals
+SG,Singapore,113,rent,-,missing,national,,households: what a newcomer pays
+SG,Singapore,113,house_price,-,missing,-,,households and businesses: property cost
+SG,Singapore,113,income,-,missing,-,,households: local affluence; businesses: wage level
+SG,Singapore,113,unemployment,-,missing,-,,households and businesses: labour market
+SG,Singapore,113,age_structure,-,missing,national,,households: who lives there
+SG,Singapore,113,births_migration,-,missing,-,,households: momentum
+SG,Singapore,113,crime,-,missing,-,,households: safety
+SG,Singapore,113,schools_childcare,-,missing,national,,families
+SG,Singapore,113,doctors_health,-,missing,-,,households: health care
+SG,Singapore,113,broadband,-,missing,national,,remote workers and businesses
+SG,Singapore,113,local_tax,-,missing,national,,households and businesses: local tax
+SG,Singapore,113,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+SG,Singapore,113,climate,-,missing,-,,households: climate normals
+LV,Latvia,104,rent,-,missing,national,,households: what a newcomer pays
+LV,Latvia,104,house_price,-,missing,-,,households and businesses: property cost
+LV,Latvia,104,income,region,deepen,national,n_income_pps_region,households: local affluence; businesses: wage level
+LV,Latvia,104,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+LV,Latvia,104,age_structure,district,deepen,local,n_median_age_region n_old_age_dep_region,households: who lives there
+LV,Latvia,104,births_migration,place,ok,local,n_net_migration_region n_pop_change_2019 n_pop_change_region,households: momentum
+LV,Latvia,104,crime,district,deepen,-,n_assault_region n_burglary_region n_robbery_region n_violent_crime_region,households: safety
+LV,Latvia,104,schools_childcare,-,missing,national,,families
+LV,Latvia,104,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+LV,Latvia,104,broadband,region,deepen,national,n_internet_region,remote workers and businesses
+LV,Latvia,104,local_tax,-,missing,national,,households and businesses: local tax
+LV,Latvia,104,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+LV,Latvia,104,climate,-,missing,-,,households: climate normals
+LU,Luxembourg,100,rent,-,missing,national,,households: what a newcomer pays
+LU,Luxembourg,100,house_price,-,missing,-,,households and businesses: property cost
+LU,Luxembourg,100,income,region,deepen,national,n_income_pps_region,households: local affluence; businesses: wage level
+LU,Luxembourg,100,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+LU,Luxembourg,100,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+LU,Luxembourg,100,births_migration,place,ok,-,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+LU,Luxembourg,100,crime,district,deepen,-,n_robbery_region,households: safety
+LU,Luxembourg,100,schools_childcare,-,missing,national,,families
+LU,Luxembourg,100,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+LU,Luxembourg,100,broadband,region,deepen,-,n_internet_region,remote workers and businesses
+LU,Luxembourg,100,local_tax,-,missing,national,,households and businesses: local tax
+LU,Luxembourg,100,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+LU,Luxembourg,100,climate,-,deepen,local,,households: climate normals
+DK,Denmark,99,rent,-,missing,national,,households: what a newcomer pays
+DK,Denmark,99,house_price,-,missing,-,,households and businesses: property cost
+DK,Denmark,99,income,place,ok,national,n_income_disp_dk n_income_pps_region n_income_taxable_dk n_municipal_income_tax,households: local affluence; businesses: wage level
+DK,Denmark,99,unemployment,place,ok,-,n_unemployment_local n_unemployment_region,households and businesses: labour market
+DK,Denmark,99,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+DK,Denmark,99,births_migration,place,ok,-,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+DK,Denmark,99,crime,place,ok,-,n_assault_region n_burglary_region n_crime_dk n_crime_dk_count n_robbery_region n_violent_crime_region,households: safety
+DK,Denmark,99,schools_childcare,-,missing,national,,families
+DK,Denmark,99,doctors_health,place,ok,-,n_doctors_region n_life_expectancy_local n_life_expectancy_region,households: health care
+DK,Denmark,99,broadband,region,deepen,-,n_internet_region,remote workers and businesses
+DK,Denmark,99,local_tax,place,ok,national,n_church_tax n_income_taxable_dk n_land_tax n_municipal_income_tax,households and businesses: local tax
+DK,Denmark,99,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+DK,Denmark,99,climate,-,missing,-,,households: climate normals
+MK,North Macedonia,80,rent,-,missing,national,,households: what a newcomer pays
+MK,North Macedonia,80,house_price,-,missing,-,,households and businesses: property cost
+MK,North Macedonia,80,income,-,missing,-,,households: local affluence; businesses: wage level
+MK,North Macedonia,80,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+MK,North Macedonia,80,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+MK,North Macedonia,80,births_migration,place,ok,-,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+MK,North Macedonia,80,crime,-,missing,-,,households: safety
+MK,North Macedonia,80,schools_childcare,-,missing,national,,families
+MK,North Macedonia,80,doctors_health,region,deepen,-,n_doctors_region,households: health care
+MK,North Macedonia,80,broadband,-,missing,national,,remote workers and businesses
+MK,North Macedonia,80,local_tax,-,missing,national,,households and businesses: local tax
+MK,North Macedonia,80,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+MK,North Macedonia,80,climate,-,missing,-,,households: climate normals
+EE,Estonia,79,rent,-,missing,national,,households: what a newcomer pays
+EE,Estonia,79,house_price,-,missing,-,,households and businesses: property cost
+EE,Estonia,79,income,region,deepen,local,n_income_pps_region,households: local affluence; businesses: wage level
+EE,Estonia,79,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+EE,Estonia,79,age_structure,district,deepen,local,n_median_age_region n_old_age_dep_region,households: who lives there
+EE,Estonia,79,births_migration,place,ok,-,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+EE,Estonia,79,crime,district,deepen,-,n_assault_region n_robbery_region n_violent_crime_region,households: safety
+EE,Estonia,79,schools_childcare,-,missing,national,,families
+EE,Estonia,79,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+EE,Estonia,79,broadband,region,deepen,national,n_internet_region,remote workers and businesses
+EE,Estonia,79,local_tax,-,missing,national,,households and businesses: local tax
+EE,Estonia,79,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+EE,Estonia,79,climate,-,missing,-,,households: climate normals
+TW,Taiwan,78,rent,-,missing,national,,households: what a newcomer pays
+TW,Taiwan,78,house_price,-,missing,-,,households and businesses: property cost
+TW,Taiwan,78,income,-,missing,-,,households: local affluence; businesses: wage level
+TW,Taiwan,78,unemployment,-,missing,-,,households and businesses: labour market
+TW,Taiwan,78,age_structure,-,missing,national,,households: who lives there
+TW,Taiwan,78,births_migration,-,missing,-,,households: momentum
+TW,Taiwan,78,crime,-,missing,-,,households: safety
+TW,Taiwan,78,schools_childcare,-,missing,national,,families
+TW,Taiwan,78,doctors_health,-,missing,-,,households: health care
+TW,Taiwan,78,broadband,-,missing,national,,remote workers and businesses
+TW,Taiwan,78,local_tax,-,missing,national,,households and businesses: local tax
+TW,Taiwan,78,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+TW,Taiwan,78,climate,-,missing,-,,households: climate normals
+MT,Malta,68,rent,-,missing,national,,households: what a newcomer pays
+MT,Malta,68,house_price,-,missing,-,,households and businesses: property cost
+MT,Malta,68,income,region,deepen,national,n_income_pps_region,households: local affluence; businesses: wage level
+MT,Malta,68,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+MT,Malta,68,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+MT,Malta,68,births_migration,place,ok,-,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+MT,Malta,68,crime,-,missing,-,,households: safety
+MT,Malta,68,schools_childcare,-,missing,national,,families
+MT,Malta,68,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+MT,Malta,68,broadband,region,deepen,national,n_internet_region,remote workers and businesses
+MT,Malta,68,local_tax,-,missing,national,,households and businesses: local tax
+MT,Malta,68,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+MT,Malta,68,climate,-,missing,-,,households: climate normals
+IS,Iceland,66,rent,-,deepen,local,,households: what a newcomer pays
+IS,Iceland,66,house_price,-,missing,-,,households and businesses: property cost
+IS,Iceland,66,income,-,deepen,local,,households: local affluence; businesses: wage level
+IS,Iceland,66,unemployment,region,deepen,-,n_unemployment_region,households and businesses: labour market
+IS,Iceland,66,age_structure,district,deepen,local,n_median_age_region n_old_age_dep_region,households: who lives there
+IS,Iceland,66,births_migration,district,deepen,-,n_net_migration_region n_pop_change_region,households: momentum
+IS,Iceland,66,crime,-,missing,-,,households: safety
+IS,Iceland,66,schools_childcare,-,deepen,local,,families
+IS,Iceland,66,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+IS,Iceland,66,broadband,-,missing,national,,remote workers and businesses
+IS,Iceland,66,local_tax,-,missing,national,,households and businesses: local tax
+IS,Iceland,66,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+IS,Iceland,66,climate,-,missing,-,,households: climate normals
+AL,Albania,61,rent,-,missing,national,,households: what a newcomer pays
+AL,Albania,61,house_price,-,missing,-,,households and businesses: property cost
+AL,Albania,61,income,-,missing,-,,households: local affluence; businesses: wage level
+AL,Albania,61,unemployment,-,missing,-,,households and businesses: labour market
+AL,Albania,61,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+AL,Albania,61,births_migration,district,deepen,-,n_net_migration_region n_pop_change_region,households: momentum
+AL,Albania,61,crime,district,deepen,-,n_assault_region n_burglary_region n_robbery_region n_violent_crime_region,households: safety
+AL,Albania,61,schools_childcare,-,missing,national,,families
+AL,Albania,61,doctors_health,region,deepen,-,n_life_expectancy_region,households: health care
+AL,Albania,61,broadband,-,missing,-,,remote workers and businesses
+AL,Albania,61,local_tax,-,missing,-,,households and businesses: local tax
+AL,Albania,61,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+AL,Albania,61,climate,-,missing,-,,households: climate normals
+LT,Lithuania,60,rent,-,missing,national,,households: what a newcomer pays
+LT,Lithuania,60,house_price,-,missing,-,,households and businesses: property cost
+LT,Lithuania,60,income,region,deepen,national,n_income_pps_region,households: local affluence; businesses: wage level
+LT,Lithuania,60,unemployment,region,deepen,local,n_unemployment_region,households and businesses: labour market
+LT,Lithuania,60,age_structure,district,deepen,national,n_median_age_region n_old_age_dep_region,households: who lives there
+LT,Lithuania,60,births_migration,place,ok,-,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+LT,Lithuania,60,crime,district,deepen,-,n_assault_region n_burglary_region n_robbery_region n_violent_crime_region,households: safety
+LT,Lithuania,60,schools_childcare,-,missing,national,,families
+LT,Lithuania,60,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+LT,Lithuania,60,broadband,region,deepen,-,n_internet_region,remote workers and businesses
+LT,Lithuania,60,local_tax,-,missing,national,,households and businesses: local tax
+LT,Lithuania,60,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+LT,Lithuania,60,climate,-,missing,-,,households: climate normals
+LI,Liechtenstein,11,rent,-,missing,national,,households: what a newcomer pays
+LI,Liechtenstein,11,house_price,-,missing,-,,households and businesses: property cost
+LI,Liechtenstein,11,income,-,missing,-,,households: local affluence; businesses: wage level
+LI,Liechtenstein,11,unemployment,-,missing,-,,households and businesses: labour market
+LI,Liechtenstein,11,age_structure,district,deepen,-,n_median_age_region n_old_age_dep_region,households: who lives there
+LI,Liechtenstein,11,births_migration,place,ok,-,common_population_growth_5y n_net_migration_region n_pop_change_region,households: momentum
+LI,Liechtenstein,11,crime,-,missing,-,,households: safety
+LI,Liechtenstein,11,schools_childcare,-,missing,-,,families
+LI,Liechtenstein,11,doctors_health,region,deepen,-,n_doctors_region n_life_expectancy_region,households: health care
+LI,Liechtenstein,11,broadband,-,missing,-,,remote workers and businesses
+LI,Liechtenstein,11,local_tax,-,missing,national,,households and businesses: local tax
+LI,Liechtenstein,11,industry_structure,-,missing,-,,businesses: industry clusters (GICS mapping)
+LI,Liechtenstein,11,climate,-,missing,-,,households: climate normals

@@ -1,0 +1,29 @@
+{
+  "beck_kg_v2_1km": {
+    "publisher": "Beck, H.E., McVicar, T.R., Vergopolan, N., Berg, A., Lutsko, N.J., Dufour, A., Zeng, Z., Jiang, X., van Dijk, A.I.J.M., Miralles, D.G. (GloH2O / KAUST / Princeton)",
+    "dataset": "High-resolution (1 km) Koppen-Geiger maps for 1901-2099 based on constrained CMIP6 projections (V2), present-day map 1991-2020",
+    "url_official": "https://doi.org/10.6084/m9.figshare.21789074 (paper: https://doi.org/10.1038/s41597-023-02549-6; code: https://github.com/hylken/Koppen-Geiger_maps)",
+    "url_mirror": "https://github.com/earthlab/firedpy @ f601f83846632f4b885c7442f472042bf1483ad6, path firedpy/data/koppen_geiger_tif/1991_2020/koppen_geiger_0p00833333.tif (git blob 81d57113418cde4cd0e871f5242de4d5cb0c8739). Byte-identical blob also in https://github.com/Yucareux/Tellus @ 8c19ed8e8a06f7c0d34bf0dbb661cd22ed5b8339, src/main/resources/tellus/koppen/koppen_geiger_0p00833333.tif",
+    "licence": "CC BY 4.0",
+    "period": "1991-2020",
+    "notes": "Native resolution 0.00833333 deg (~1 km), uint8, EPSG:4326, LZW; class codes 1-30 decoded with the Beck legend (1 Af ... 30 EF); embedded colour table matches the official legend (1=0,0,255; 14=200,255,80). Folder layout and filename are those of the official koppen_geiger_tif.zip. Sampling: nearest cell (cell containing the point); if that cell is 0 (water) the nearest land cell within +-2 cells (~2 km) is used (444 places). Classes verified for 10 cities against classes computed from met-service normals (see REPORT.md)."
+  },
+  "worldclim21_bio_10m": {
+    "publisher": "WorldClim (Fick, S.E. & Hijmans, R.J., 2017, Int. J. Climatol. 37:4302-4315)",
+    "dataset": "WorldClim 2.1 bioclimatic variables, 10 arc-minute (bio1, bio5, bio6, bio10, bio11, bio12, bio13, bio14)",
+    "url_official": "https://www.worldclim.org/data/worldclim21.html",
+    "url_mirror": "https://github.com/paternogbc/livro_aer @ ca0e0761e01c2a2e51dc4d21bcd64f6b45da86d2, path dados/raster/wc2.1_10m_bio_{1..19}.tif",
+    "licence": "RESTRICTED - WorldClim terms: 'freely available for academic use and other non-commercial use. Redistribution or commercial use is not allowed without prior permission' (https://worldclim.org/about.html). Does NOT meet the brief's licence rule; values are quarantined in restricted_worldclim_values.csv, NOT in values.csv.",
+    "period": "1970-2000",
+    "notes": "Native resolution 10 arc-min (0.1667 deg, ~18 km), float32, global, nodata -3.4e38. Sampling: nearest cell; sea cells -> nearest valid cell within +-2 cells (2 places). Field mapping: bio1 annual_mean_temp_c, bio5 max_temp_warmest_month_c (mean daily max of the warmest month), bio6 min_temp_coldest_month_c (mean daily min of the coldest month), bio10 mean_temp_warmest_quarter_c, bio11 mean_temp_coldest_quarter_c, bio12 annual_precip_mm, bio13 precip_wettest_month_mm, bio14 precip_driest_month_mm. Mirror is an ecology textbook repo; spot checks vs met-service normals are consistent (see REPORT.md)."
+  },
+  "worldclim20_tavg_5m": {
+    "publisher": "WorldClim (Fick, S.E. & Hijmans, R.J., 2017)",
+    "dataset": "WorldClim 2.0 monthly average temperature, 5 arc-minute, January (tavg_01) and July (tavg_07)",
+    "url_official": "https://www.worldclim.org/data/v2.0/",
+    "url_mirror": "https://github.com/rladies/meetup-presentations_freiburg @ e46aa07dd6ceea968156261038b656600a1aa79f, path '2019-08-Visualizing geographical data/data/wc2.0_5m_tavg_01.tif' and '..._tavg_07.tif'",
+    "licence": "RESTRICTED - same WorldClim terms as above (non-commercial, no redistribution without permission). Quarantined in restricted_worldclim_values.csv.",
+    "period": "1970-2000",
+    "notes": "Native resolution 5 arc-min (~9 km), float32, global. Only January and July exist in the mirror, so fields are named jan_mean_temp_c / jul_mean_temp_c (not coldest/warmest month). Nearest-cell sampling, +-2 cell land fallback."
+  }
+}

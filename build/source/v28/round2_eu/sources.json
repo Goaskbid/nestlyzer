@@ -1,0 +1,56 @@
+{
+ "ie_cso_sap2022_t8t1_lea": {
+  "publisher": "Central Statistics Office (CSO) Ireland",
+  "dataset": "SAP2022T8T1LEA22 - Population aged 15 years and over by Principal Economic Status and Sex (Census 2022 SAPS, Local Electoral Areas)",
+  "url_official": "https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T8T1LEA22/JSON-stat/2.0/en",
+  "url_mirror": "none (official API via WebFetch); raw: _raw/round2_eu_cso/SAP2022T8T1LEA22_values.txt + labels_SAP2022T8T1LEA22.txt",
+  "licence": "CC BY 4.0 (CSO open data)",
+  "period": "2022 (Census, April 2022)",
+  "notes": "unemployment_rate_census_pct = (looking for first job + short-term + long-term unemployed) / (at work + those) x100, both sexes. WebFetch body cap truncated the value array after 146 of 167 LEAs: Galway City Central/East, Kerry (6), Kildare (8), Kilkenny (4) missing. Every block passed sum(statuses)=Total and M+F=Both checks."
+ },
+ "ie_cso_sap2022_t6t3_lea": {
+  "publisher": "Central Statistics Office (CSO) Ireland",
+  "dataset": "SAP2022T6T3LEA22 - Permanent private households and persons by type of occupancy (tenure), LEA",
+  "url_official": "https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T6T3LEA22/JSON-stat/2.0/en",
+  "url_mirror": "none (official API via WebFetch); raw: _raw/round2_eu_cso/SAP2022T6T3LEA22_values.txt",
+  "licence": "CC BY 4.0",
+  "period": "2022",
+  "notes": "Shares use households with tenure stated as denominator; avg_household_size = persons / households (all tenures). LEA sums equal the Ireland row for both statistics."
+ },
+ "ie_cso_sap2022_t11t4_lea": {
+  "publisher": "Central Statistics Office (CSO) Ireland",
+  "dataset": "SAP2022T11T4LEA22 - Population aged 15+ by working from home, LEA",
+  "url_official": "https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T11T4LEA22/JSON-stat/2.0/en",
+  "url_mirror": "none; raw: _raw/round2_eu_cso/SAP2022T11T4LEA22_values.txt",
+  "licence": "CC BY 4.0",
+  "period": "2022",
+  "notes": "work_from_home_share = works from home (at least some of the time) / (works from home + never) x100."
+ },
+ "ie_cso_sap2022_t11t3_lea": {
+  "publisher": "Central Statistics Office (CSO) Ireland",
+  "dataset": "SAP2022T11T3LEA22 - Population aged 5+ by journey time to work, school or college, LEA",
+  "url_official": "https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T11T3LEA22/JSON-stat/2.0/en",
+  "url_mirror": "none; raw: _raw/round2_eu_cso/SAP2022T11T3LEA22_values.txt",
+  "licence": "CC BY 4.0",
+  "period": "2022",
+  "notes": "Shares over commuters with journey time stated."
+ },
+ "ie_cso_sap2022_t2t1_lea": {
+  "publisher": "Central Statistics Office (CSO) Ireland",
+  "dataset": "SAP2022T2T1LEA22 - Usually resident population by birthplace or citizenship, LEA",
+  "url_official": "https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T2T1LEA22/JSON-stat/2.0/en",
+  "url_mirror": "none; raw: _raw/round2_eu_cso/SAP2022T2T1LEA22_values.txt",
+  "licence": "CC BY 4.0",
+  "period": "2022",
+  "notes": "born_abroad = (total - born in Ireland)/total; non_irish_citizens = (total - Irish - not stated)/(total - not stated). Dual Irish-other citizens are counted as Irish by CSO. Category sums and LEA totals vs Ireland row checked."
+ },
+ "ie_cso_sap2022_t10t4_lea": {
+  "publisher": "Central Statistics Office (CSO) Ireland",
+  "dataset": "SAP2022T10T4LEA22 - Population aged 15+ by sex and highest level of education completed, LEA",
+  "url_official": "https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T10T4LEA22/JSON-stat/2.0/en",
+  "url_mirror": "none; raw: _raw/round2_eu_cso/SAP2022T10T4LEA22_both_sexes.txt",
+  "licence": "CC BY 4.0",
+  "period": "2022",
+  "notes": "third level = higher certificate, ordinary bachelor/national diploma, honours bachelor/professional, postgraduate, doctorate (NFQ 6-10 excl. advanced certificate/apprenticeship). Universe = persons 15+ whose full-time education has ceased. Only LEA index 0-108 (109 of 166 places): the WebFetch body cap truncates the 6,513-value array; the Both-Sexes rows were extracted per LEA by WebFetch (not a verbatim array) and each row passed sum(categories)=Total; LEA 0 matched a verbatim copy of the first block."
+ }
+}

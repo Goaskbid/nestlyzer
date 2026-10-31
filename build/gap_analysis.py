@@ -1,0 +1,82 @@
+#!/usr/bin/env python3
+"""Data gap analysis for outsourcing acquisition (2.10). For every country and every decision topic, what the build already
+has at place, district, region or national level, and what is missing. Output: docs/gaps/gap_matrix.csv and gap_tasks.md.
+    python3 build/gap_analysis.py"""
+import csv, json, os, re, sys
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, ROOT)
+meta = json.load(open(os.path.join(ROOT, 'data', 'meta.json')))
+TOPICS = [  # (topic, regex on factor id or name, why it matters)
+    ('rent', r'rent', 'households: what a newcomer pays'),
+    ('house_price', r'price_m2|house_price|home_price|flat_price|woz|home_value|dwelling_price', 'households and businesses: property cost'),
+    ('income', r'income|gdhi|pay_week|wage|taxable', 'households: local affluence; businesses: wage level'),
+    ('unemployment', r'unemploy|claimant', 'households and businesses: labour market'),
+    ('age_structure', r'age_|aged|elderly|youth|median_age|old_age', 'households: who lives there'),
+    ('births_migration', r'birth|migration|pop_change|growth', 'households: momentum'),
+    ('crime', r'crime|burglar|assault|robber|homicide_local|violent', 'households: safety'),
+    ('schools_childcare', r'school|kindergarten|childcare|pupil', 'families'),
+    ('doctors_health', r'doctor|gp_|physician|hospital_beds|life_expect', 'households: health care'),
+    ('broadband', r'broadband|gigabit|cover_4g|cover_5g|internet', 'remote workers and businesses'),
+    ('local_tax', r'tax', 'households and businesses: local tax'),
+    ('industry_structure', r'^n_(ind|nace|naics|gics)_|establish', 'businesses: industry clusters (GICS mapping)'),
+    ('climate', r'climate|koppen|temperature|sunshine|precip', 'households: climate normals'),
+]
+LV = {1: 'place', 3: 'district', 2: 'region', 9: 'national'}
+
+
+def levels_for(cc):
+    d = json.load(open(os.path.join(ROOT, 'data', 'c', cc + '.json')))
+    fr = d.get('fr', {}); fl = d.get('fl', {}); rg = d.get('rg', {})
+    have = {}
+    for fid, col in fr.items():
+        if any(v is not None for v in col): have.setdefault(fid, set()).add(1)
+    for fid in fl: have.setdefault(fid, set()).add(3)
+    for fid, t in rg.items():
+        for k in t: have.setdefault(fid, set()).add({'n3': 3, 'n2': 2, 'rc': 2, 'n1': 2, 'cc': 9}.get(k, 2))
+    ctx = {}
+    xp = os.path.join(ROOT, 'data', 'x', cc + '.json')
+    if os.path.exists(xp):
+        cx = json.load(open(xp)).get('ctx') or {}
+        linked = {g for v in (cx.get('places') or {}).values() for g, _ in v} | set((cx.get('regions') or {}))
+        for o in cx.get('records', []):
+            lv = 'national' if o['source_geo_level'] in ('country', 'multicountry_aggregate') else 'local' if o['source_geo_id'] in linked else None
+            if lv: ctx.setdefault(o['indicator_id'] + ' ' + (o.get('label') or ''), set()).add(lv)
+    return have, len(d['rows']), ctx
+
+
+def main():
+    out = os.path.join(ROOT, 'docs', 'gaps'); os.makedirs(out, exist_ok=True)
+    fmeta = {f['id']: f for f in meta['factors']}
+    rows = []
+    for c in sorted(meta['countries'], key=lambda c: -c['n']):
+        cc = c['cc']; have, n, ctx = levels_for(cc)
+        for t, rx, why in TOPICS:
+            fids = [f for f in have if re.search(rx, f, re.I) or re.search(rx, (fmeta.get(f, {}).get('name') or ''), re.I)]
+            best = min((min(have[f]) if min(have[f]) != 3 else 1.5) for f in fids) if fids else None
+            lvl = None if best is None else ('place' if best == 1 else 'district' if best == 1.5 else 'region' if best == 2 else 'national')
+            status = 'ok' if lvl == 'place' else 'deepen' if lvl in ('district', 'region') else 'missing' if lvl is None else 'national only'
+            cl = sorted({x for k, v in ctx.items() if re.search(rx, k, re.I) for x in v})
+            cnow = 'local' if 'local' in cl else 'national' if cl else '-'
+            if status in ('missing', 'national only') and cnow == 'local': status = 'deepen'
+            rows.append({'country': cc, 'country_name': c['name'], 'places': c['n'], 'topic': t, 'best_level_now': lvl or '-', 'status': status,
+                         'context_now': cnow, 'fields_now': ' '.join(sorted(fids))[:300], 'why': why})
+    with open(os.path.join(out, 'gap_matrix.csv'), 'w', newline='', encoding='utf-8') as f:
+        w = csv.DictWriter(f, fieldnames=list(rows[0])); w.writeheader(); w.writerows(rows)
+    # task list: biggest places x missing topics first
+    pri = {'industry_structure': 3, 'rent': 3, 'house_price': 3, 'income': 2, 'unemployment': 2, 'schools_childcare': 2, 'crime': 2, 'age_structure': 1, 'births_migration': 1, 'doctors_health': 1, 'broadband': 1, 'local_tax': 1, 'climate': 1}
+    tasks = [r for r in rows if r['status'] != 'ok']
+    tasks.sort(key=lambda r: -(r['places'] * pri[r['topic']] * (2 if r['status'] in ('missing', 'national only') else 1)))
+    L = ['# Nestlyzer data gaps: tasks for ChatGPT', '', 'Generated by `build/gap_analysis.py` from the current build. `best_level_now` is the most local level the build already has for that topic in that country; `context_now` says whether imported context records (rent/pay release and Master V7) already cover it for some linked places. Status: **missing** (nothing), **national only**, **deepen** (district or region only, place level wanted).', '',
+         '## Delivery format (same for every task)', '', '`values.csv` with `cc,level,code,field,value,unit,period,source_id` (level `place` with the exact Nestlyzer oid; `nuts3`/`county` only when no place level exists), plus `sources.json` (publisher, dataset, URL, licence allowing commercial reuse with attribution, period) and `REPORT.md` (join rate, 3 spot checks, gaps). Official publishers only, latest period, missing stays missing, no normalising of incomplete shares. Industry structure: see `ChatGPT_Task_Industry_Structure.md`.', '',
+         '## Top 60 tasks by impact (places x topic weight)', '', '| # | Country | Places | Topic | Now | Context | Status |', '|---|---|---|---|---|---|---|']
+    for i, r in enumerate(tasks[:60], 1): L.append(f"| {i} | {r['country_name']} ({r['country']}) | {r['places']:,} | {r['topic'].replace('_', ' ')} | {r['best_level_now']} | {r['context_now']} | {r['status']} |")
+    from collections import Counter
+    cnt = Counter((r['topic'], r['status']) for r in rows)
+    L += ['', '## Coverage by topic (countries)', '', '| Topic | place | deepen | national only | missing |', '|---|---|---|---|---|']
+    for t, _, _ in TOPICS: L.append(f"| {t.replace('_', ' ')} | {cnt[(t, 'ok')]} | {cnt[(t, 'deepen')]} | {cnt[(t, 'national only')]} | {cnt[(t, 'missing')]} |")
+    open(os.path.join(out, 'gap_tasks.md'), 'w').write('\n'.join(L) + '\n')
+    print('gap rows', len(rows), 'tasks', len(tasks)); print('\n'.join(L[-16:]))
+
+
+if __name__ == '__main__':
+    main()

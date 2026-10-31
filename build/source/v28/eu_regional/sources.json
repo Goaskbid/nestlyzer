@@ -1,0 +1,184 @@
+{
+ "estat_nama_10r_3gdp_mirror": {
+  "publisher": "Eurostat",
+  "dataset": "nama_10r_3gdp - GDP at current market prices by NUTS 3 region, unit PPS_EU27_2020_HAB",
+  "url_official": "https://ec.europa.eu/eurostat/databrowser/view/nama_10r_3gdp/default/table",
+  "url_mirror": "https://github.com/rahel31/urban-mortality-europe @ 3983eb4d2883411fde1dbb807bd358ee40dcad73 : DATA/Eurostat/nama_10r_3gdp__custom_21799900_spreadsheet.xlsx (Eurostat xlsx download, data extracted 11/06/2026, dataset last updated 10/02/2026)",
+  "licence": "Eurostat copyright notice / Commission Decision 2011/833/EU: reuse (incl. commercial) authorised with acknowledgement of the source (CC BY 4.0-equivalent)",
+  "period": "latest per region: 2024 (707 regions, mostly provisional) or 2023 (756); 2021/2022 for NO/AL/a few",
+  "notes": "Same dataset still current on Eurostat (updated 2026-02-10); 8 values spot-checked against the live API, all equal. Used for NUTS3 and NUTS2 rows. No data for CH/IS/LI/UK in 2015+."
+ },
+ "estat_lfst_r_lfe2emprt_mirror": {
+  "publisher": "Eurostat",
+  "dataset": "lfst_r_lfe2emprt - Employment rates by NUTS 2 region, sex=T, age=Y20-64, unit=PC",
+  "url_official": "https://ec.europa.eu/eurostat/databrowser/view/lfst_r_lfe2emprt/default/table",
+  "url_mirror": "https://github.com/mdruszcz/belgian-macro-pipeline @ 936974ad1c7137d1a0d0aef6a37afdd3a205c318 : data/nuts2/EMPLOYMENT_RATE_NUTS2.csv (Eurostat API pull, vintage 2026-09-15; config/indicators/EMPLOYMENT_RATE_NUTS2.yaml documents filters)",
+  "licence": "Eurostat copyright notice / Commission Decision 2011/833/EU: reuse (incl. commercial) authorised with acknowledgement of the source (CC BY 4.0-equivalent)",
+  "period": "2025 for 263 regions",
+  "notes": "No UK (excluded by that repo). Spot check DE30 2025 = 76.7 on live API."
+ },
+ "estat_lfst_r_lfu3rt_mirror": {
+  "publisher": "Eurostat",
+  "dataset": "lfst_r_lfu3rt - Unemployment rates by NUTS 2 region, isced11=TOTAL, sex=T, age=Y15-74, unit=PC",
+  "url_official": "https://ec.europa.eu/eurostat/databrowser/view/lfst_r_lfu3rt/default/table",
+  "url_mirror": "https://github.com/mdruszcz/belgian-macro-pipeline @ 936974ad1c7137d1a0d0aef6a37afdd3a205c318 : data/nuts2/UNEMPLOYMENT_RATE_NUTS2.csv (vintage 2026-09-14)",
+  "licence": "Eurostat copyright notice / Commission Decision 2011/833/EU: reuse (incl. commercial) authorised with acknowledgement of the source (CC BY 4.0-equivalent)",
+  "period": "2025 for 260 regions",
+  "notes": "Cells withheld by Eurostat (empty + flag u/bu) were stored as \"suppressed\" by the mirror and are excluded here; the region then falls back to its latest published year. Spot check ES61 2025 = 15.2 on live API. NUTS3 unemployment does not exist in Eurostat."
+ },
+ "estat_lfst_r_lfe2emprt_xlsx": {
+  "publisher": "Eurostat",
+  "dataset": "lfst_r_lfe2emprt (UK regions only)",
+  "url_official": "https://ec.europa.eu/eurostat/databrowser/view/lfst_r_lfe2emprt/default/table",
+  "url_mirror": "https://github.com/rahel31/urban-mortality-europe @ 3983eb4d2883411fde1dbb807bd358ee40dcad73 : DATA/Eurostat/lfst_r_lfe2emprt__custom_21890367_spreadsheet.xlsx",
+  "licence": "Eurostat copyright notice / Commission Decision 2011/833/EU: reuse (incl. commercial) authorised with acknowledgement of the source (CC BY 4.0-equivalent)",
+  "period": "2019 (last UK year in Eurostat)",
+  "notes": "Used only for UK NUTS2."
+ },
+ "estat_edat_lfse_04_xlsx": {
+  "publisher": "Eurostat",
+  "dataset": "edat_lfse_04 (UK regions only), tertiary ISCED 5-8, age 25-64",
+  "url_official": "https://ec.europa.eu/eurostat/databrowser/view/edat_lfse_04/default/table",
+  "url_mirror": "https://github.com/rahel31/urban-mortality-europe @ 3983eb4d2883411fde1dbb807bd358ee40dcad73 : DATA/Eurostat/edat_lfse_04__custom_21915116_page_spreadsheet.xlsx",
+  "licence": "Eurostat copyright notice / Commission Decision 2011/833/EU: reuse (incl. commercial) authorised with acknowledgement of the source (CC BY 4.0-equivalent)",
+  "period": "2019 (last UK year)",
+  "notes": "Used only for UK NUTS2; all other regions from the official API pull (2024 values of the mirror equal the API for AT13, BE10, ES61, CH01)."
+ },
+ "estat_nama_10r_2hhinc_mirror": {
+  "publisher": "Eurostat",
+  "dataset": "nama_10r_2hhinc - Income of households by NUTS 2 region, na_item=B6N, unit=PPS_EU27_2020_HAB",
+  "url_official": "https://ec.europa.eu/eurostat/databrowser/view/nama_10r_2hhinc/default/table",
+  "url_mirror": "https://github.com/manujo69/euroVivienda @ 5bf5e4c92642c4b6c279f059a90ca478dd619334 : apps/angular/public/data/income.json (built by packages/etl/sql/model/09_income.sql from the Eurostat CSV, capped at 2023)",
+  "licence": "Eurostat copyright notice / Commission Decision 2011/833/EU: reuse (incl. commercial) authorised with acknowledgement of the source (CC BY 4.0-equivalent)",
+  "period": "2023 (244 EU NUTS2 regions)",
+  "notes": "EU27 only. Spot check ES61 2023 = 16300 (p) on live API. Some countries already publish 2024 - not taken (mirror caps at 2023)."
+ },
+ "eurostat_demo_r_mlifexp": {
+  "publisher": "Eurostat",
+  "dataset": "demo_r_mlifexp - Life expectancy by age, sex and NUTS 2 region; sex=T, age=Y_LT1",
+  "url_official": "https://ec.europa.eu/eurostat/databrowser/view/demo_r_mlifexp/default/table",
+  "url_query": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_r_mlifexp?format=JSON&sinceTimePeriod=2023&sex=T&age=Y_LT1&unit=YR&geoLevel=nuts2",
+  "url_mirror": "none (official API via WebFetch)",
+  "licence": "Eurostat copyright notice / Commission Decision 2011/833/EU: reuse (incl. commercial) authorised with acknowledgement of the source (CC BY 4.0-equivalent)",
+  "period": "2024 (2023 where 2024 missing)",
+  "notes": "Raw response saved: _raw/eurostat_api/demo_r_mlifexp.json. Re-fetch checks BE10, ES61, SE33 equal. No UK, MK."
+ },
+ "eurostat_ilc_peps11n": {
+  "publisher": "Eurostat",
+  "dataset": "ilc_peps11n - Persons at risk of poverty or social exclusion by NUTS region (EU2030 AROPE)",
+  "url_official": "https://ec.europa.eu/eurostat/databrowser/view/ilc_peps11n/default/table",
+  "url_query": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ilc_peps11n?format=JSON&sinceTimePeriod=2024&unit=PC&geoLevel=nuts2",
+  "url_mirror": "none",
+  "licence": "Eurostat copyright notice / Commission Decision 2011/833/EU: reuse (incl. commercial) authorised with acknowledgement of the source (CC BY 4.0-equivalent)",
+  "period": "2025 (2024 fallback)",
+  "notes": "Raw: _raw/eurostat_api/ilc_peps11n.json. Re-fetch checks NO08, ES61 equal. FR mostly NUTS1 only (FR10 present), FI partial."
+ },
+ "eurostat_edat_lfse_16": {
+  "publisher": "Eurostat",
+  "dataset": "edat_lfse_16 - Early leavers from education and training by sex and NUTS 2 region, age 18-24, sex=T",
+  "url_official": "https://ec.europa.eu/eurostat/databrowser/view/edat_lfse_16/default/table",
+  "url_query": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/edat_lfse_16?format=JSON&sinceTimePeriod=2024&sex=T&unit=PC&geoLevel=nuts2",
+  "url_mirror": "none",
+  "licence": "Eurostat copyright notice / Commission Decision 2011/833/EU: reuse (incl. commercial) authorised with acknowledgement of the source (CC BY 4.0-equivalent)",
+  "period": "2025 (2024 fallback)",
+  "notes": "Raw: _raw/eurostat_api/edat_lfse_16.json (status flags fetched in a second call). 77 values carry flag u = low reliability (see flags.csv). Re-fetch checks DE21, CZ01 equal."
+ },
+ "eurostat_edat_lfse_04": {
+  "publisher": "Eurostat",
+  "dataset": "edat_lfse_04 - Population by educational attainment and NUTS 2 region; ISCED 5-8, age 25-64, sex=T",
+  "url_official": "https://ec.europa.eu/eurostat/databrowser/view/edat_lfse_04/default/table",
+  "url_query": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/edat_lfse_04?format=JSON&sinceTimePeriod=2024&sex=T&age=Y25-64&isced11=ED5-8&unit=PC&geoLevel=nuts2",
+  "url_mirror": "none",
+  "licence": "Eurostat copyright notice / Commission Decision 2011/833/EU: reuse (incl. commercial) authorised with acknowledgement of the source (CC BY 4.0-equivalent)",
+  "period": "2025",
+  "notes": "Raw: _raw/eurostat_api/edat_lfse_04.json. AT13 2025 = 46.3 re-fetched; 2024 values equal the independent rahel31 xlsx download."
+ },
+ "eurostat_tgs00064": {
+  "publisher": "Eurostat",
+  "dataset": "tgs00064 - Available beds in hospitals by NUTS 2 region (per 100 000 inhabitants)",
+  "url_official": "https://ec.europa.eu/eurostat/databrowser/view/tgs00064/default/table",
+  "url_query": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tgs00064?format=JSON&sinceTimePeriod=2023&geoLevel=nuts2",
+  "url_mirror": "none",
+  "licence": "Eurostat copyright notice / Commission Decision 2011/833/EU: reuse (incl. commercial) authorised with acknowledgement of the source (CC BY 4.0-equivalent)",
+  "period": "2024 (2023/2025 for some)",
+  "notes": "Raw: _raw/eurostat_api/tgs00064.json (dataset updated 2026-07-13). Replaces the older mirror vintage (Jul 2025) which differed for FR10 (revised). Checks FR10, AT13, ES61, PL91 equal single-region fetches. No 2023+ NUTS2 values for DE, NL, CY, EE, LU, LV, MT, MK, IS, LI and parts of PT."
+ },
+ "eurostat_hlth_rs_physreg": {
+  "publisher": "Eurostat",
+  "dataset": "hlth_rs_physreg - Physicians by NUTS 2 region, per 100 000 inhabitants",
+  "url_official": "https://ec.europa.eu/eurostat/databrowser/view/hlth_rs_physreg/default/table",
+  "url_query": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/hlth_rs_physreg?format=JSON&sinceTimePeriod=2023&unit=P_HTHAB&geoLevel=nuts2",
+  "url_mirror": "none",
+  "licence": "Eurostat copyright notice / Commission Decision 2011/833/EU: reuse (incl. commercial) authorised with acknowledgement of the source (CC BY 4.0-equivalent)",
+  "period": "2024 (2023/2025 for some)",
+  "notes": "Raw: _raw/eurostat_api/hlth_rs_physreg.json. Checks AT13, ES61 equal. Status flags (e.g. e for ES) not captured in the bulk pull. No DE."
+ },
+ "estat_hlth_rs_prsrg_xlsx": {
+  "publisher": "Eurostat",
+  "dataset": "hlth_rs_prsrg - Health personnel by NUTS 2 region, historical data (1993-2021), Medical doctors per 100 000 inhabitants",
+  "url_official": "https://ec.europa.eu/eurostat/databrowser/view/hlth_rs_prsrg/default/table",
+  "url_mirror": "https://github.com/rahel31/urban-mortality-europe @ 3983eb4d2883411fde1dbb807bd358ee40dcad73 : DATA/Eurostat/hlth_rs_prsrg__custom_21799569_spreadsheet.xlsx (sheet 11)",
+  "licence": "Eurostat copyright notice / Commission Decision 2011/833/EU: reuse (incl. commercial) authorised with acknowledgement of the source (CC BY 4.0-equivalent)",
+  "period": "2016-2021",
+  "notes": "Fallback only where hlth_rs_physreg has no 2023+ value (52 rows): single-region countries CY, EE, LU, LV, MT, IS, LI, MK (latest 2016-2021) plus superseded codes (FR 2013 regions, PL11/PL12, PT16-18, NL31/NL33, HR04, HU10, LT00, NO01-05) that do not join to current n3 codes anyway. Discontinued dataset; AT13 2020 = 696.84 equals live API."
+ },
+ "eurostat_isoc_r_iacc_h": {
+  "publisher": "Eurostat",
+  "dataset": "isoc_r_iacc_h - Households with access to the internet at home by NUTS 2 region",
+  "url_official": "https://ec.europa.eu/eurostat/databrowser/view/isoc_r_iacc_h/default/table",
+  "url_query": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_r_iacc_h?format=JSON&lastTimePeriod=2&unit=PC_HH&geoLevel=nuts2",
+  "url_mirror": "none",
+  "licence": "Eurostat copyright notice / Commission Decision 2011/833/EU: reuse (incl. commercial) authorised with acknowledgement of the source (CC BY 4.0-equivalent)",
+  "period": "2025 (2024 fallback)",
+  "notes": "Raw: _raw/eurostat_api/isoc_r_iacc_h.json. Broadband dataset isoc_r_broad_h rejected: discontinued after 2021. Checks BG31, CH01 equal. No DE/EL/UK at NUTS2."
+ },
+ "eurostat_tran_r_acci": {
+  "publisher": "Eurostat",
+  "dataset": "tran_r_acci - Victims in road accidents by NUTS 2 region; victim=KIL, unit=P_MHAB",
+  "url_official": "https://ec.europa.eu/eurostat/databrowser/view/tran_r_acci/default/table",
+  "url_query": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tran_r_acci?format=JSON&sinceTimePeriod=2022&victim=KIL&unit=P_MHAB&geoLevel=nuts2",
+  "url_mirror": "none",
+  "licence": "Eurostat copyright notice / Commission Decision 2011/833/EU: reuse (incl. commercial) authorised with acknowledgement of the source (CC BY 4.0-equivalent)",
+  "period": "2024 (2023 fallback)",
+  "notes": "Raw: _raw/eurostat_api/tran_r_acci.json. Checks BE10, MK00 equal. Small regions are volatile (e.g. LI00 0 in 2023, 73 in 2024)."
+ },
+ "eurostat_tour_occ_nin2": {
+  "publisher": "Eurostat",
+  "dataset": "tour_occ_nin2 - Nights spent at tourist accommodation establishments by NUTS 2 region; nace_r2=I551-I553, c_resid=TOTAL, unit=P_THAB",
+  "url_official": "https://ec.europa.eu/eurostat/databrowser/view/tour_occ_nin2/default/table",
+  "url_query": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?format=JSON&lastTimePeriod=2&unit=P_THAB&nace_r2=I551-I553&c_resid=TOTAL&geoLevel=nuts2",
+  "url_mirror": "none",
+  "licence": "Eurostat copyright notice / Commission Decision 2011/833/EU: reuse (incl. commercial) authorised with acknowledgement of the source (CC BY 4.0-equivalent)",
+  "period": "2025 (2024 fallback)",
+  "notes": "Raw: _raw/eurostat_api/tour_occ_nin2.json. 486/488 values equal the independent euroVivienda mirror; the 2 differences (LT01, LT02 2025) are Eurostat revisions dated 2026-10-12 (confirmed by single fetch)."
+ },
+ "eurostat_demo_r_pjanind3": {
+  "publisher": "Eurostat",
+  "dataset": "demo_r_pjanind3 - Population structure indicators by NUTS 3 region; MEDAGEPOP (unit YR) and OLDDEP1 (unit PC)",
+  "url_official": "https://ec.europa.eu/eurostat/databrowser/view/demo_r_pjanind3/default/table",
+  "url_query": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/demo_r_pjanind3/A.MEDAGEPOP.YR.?startPeriod=2025&endPeriod=2025&format=TSV and A.OLDDEP1.PC. (+ statistics API JSON for the tail RO113-SK)",
+  "url_mirror": "none",
+  "licence": "Eurostat copyright notice / Commission Decision 2011/833/EU: reuse (incl. commercial) authorised with acknowledgement of the source (CC BY 4.0-equivalent)",
+  "period": "2025 (1 January)",
+  "notes": "Raw: _raw/eurostat_api/demo_r_pjanind3_*.tsv. Pulled in prefix sections because WebFetch truncates large bodies; 12 RO values overlapped between TSV and JSON pulls and were identical; 6 independent 3-region re-fetches (DEG0S, RS229, ITC13, NO081, PL911, SE110) identical. No UK."
+ },
+ "eurostat_demo_r_gind3": {
+  "publisher": "Eurostat",
+  "dataset": "demo_r_gind3 - Population change - demographic balance and crude rates at regional level (NUTS 3); GROWRT and CNMIGRATRT",
+  "url_official": "https://ec.europa.eu/eurostat/databrowser/view/demo_r_gind3/default/table",
+  "url_query": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/demo_r_gind3/A.CNMIGRATRT.?startPeriod=2024&endPeriod=2024&format=TSV and A.GROWRT.",
+  "url_mirror": "none",
+  "licence": "Eurostat copyright notice / Commission Decision 2011/833/EU: reuse (incl. commercial) authorised with acknowledgement of the source (CC BY 4.0-equivalent)",
+  "period": "2024",
+  "notes": "Raw: _raw/eurostat_api/demo_r_gind3_*.tsv. Re-fetch checks DEG0S, PT1B0, SE331 (CNMIGRATRT) and EL411, NO084, RS221 (GROWRT) identical; BE100 equals the euroVivienda mirror (BE10). DEG0S (Suhl) -34.8/-45.7 reflects the 2024 boundary change, as published."
+ },
+ "estat_nuts2024_typologies": {
+  "publisher": "Eurostat (GISCO/NUTS)",
+  "dataset": "NUTS2021-NUTS2024 correspondence file, sheets \"NUTS2021- NUTS2024\" and \"NUTS-3 Typologies\"",
+  "url_official": "https://ec.europa.eu/eurostat/web/nuts/correspondence-tables",
+  "url_mirror": "https://github.com/iiasa/pysquirrel @ 12d3454e8631c3445bf8ff5653eb2bcc18018aa0 : pysquirrel/data/NUTS2021-NUTS2024.xlsx (MIT repo, file is the Eurostat release)",
+  "licence": "Eurostat copyright notice / Commission Decision 2011/833/EU: reuse (incl. commercial) authorised with acknowledgement of the source (CC BY 4.0-equivalent)",
+  "period": "NUTS 2024",
+  "notes": "Used for (a) 2021->2024 pure code changes (n3_crosswalk.csv, alias rows) and (b) typologies.csv (categorical; kept out of values.csv)."
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "us_acs5_2023_b25077": {
+  "publisher": "U.S. Census Bureau",
+  "dataset": "American Community Survey 2019-2023 5-year estimates, table B25077 (Median value (dollars), owner-occupied housing units), B25077_001E, counties",
+  "url_official": "https://data.census.gov/api/access/data/table?g=040XX00US{SS}$0500000&id=ACSDT5Y2023.B25077 (one request per state, SS = state FIPS 25-56; GA Worth County via g=0500000US13321); FIPS 01-24 from the earlier all-county request https://data.census.gov/api/access/data/table?g=010XX00US$0500000&id=ACSDT5Y2023.B25077 (world2 agent)",
+  "url_mirror": "none - data.census.gov access API (keyless; api.census.gov needs a key) via WebFetch 2026-10-17; transcriptions in _raw/census_data_api/states/b25077_SS.txt (GEO_ID,estimate) and _raw/census_data_api/b25077_us_p0.txt (FIPS 01-24, earlier agent); verification in _raw/census_data_api/verify/",
+  "licence": "Public domain (US federal government work)",
+  "period": "2019-2023",
+  "notes": "Joined to Nestlyzer US places through world_places/join_methods.csv (matched_unit = 5-digit county FIPS incl. CT planning regions 091xx; point-in-polygon on 2017 counties). Suppressed estimates (-666666666: 15005, 32011, 48261, 48269, 48301, 48385) dropped. West Virginia (FIPS 54) MISSING: every request for WV B25077 returned a server error. Separate re-fetch of NM (35) matched 33/33 exactly; DP04 profile check (DP04_0089E) matched 36061, 48201, 53033."
+ },
+ "us_acs5_2023_b25064": {
+  "publisher": "U.S. Census Bureau",
+  "dataset": "American Community Survey 2019-2023 5-year estimates, table B25064 (Median gross rent (dollars)), B25064_001E, counties",
+  "url_official": "https://data.census.gov/api/access/data/table?g=040XX00US{SS}$0500000&id=ACSDT5Y2023.B25064 (one request per state, SS = 27-56); FIPS 01-26 from the earlier all-county request (world2 agent)",
+  "url_mirror": "none - data.census.gov access API via WebFetch 2026-10-17; transcriptions in _raw/census_data_api/states/b25064_SS.txt and _raw/census_data_api/b25064_us_p0.txt (01-26, earlier agent)",
+  "licence": "Public domain (US federal government work)",
+  "period": "2019-2023",
+  "notes": "Same join as B25077. Suppressed (-666666666) dropped: 06003, 22023, 48033, 48173, 48261, 48269, 48283, 48301, 48311, 48443. MN (27) refetched in full: first 5 rows identical to the earlier partial transcription. Separate re-fetch of OR (41) matched 36/36; DP04_0134E matched 36061 (2132), 48201 (1349), 53033 (2035)."
+ },
+ "pl_gus_bdl_149128": {
+  "publisher": "Statistics Poland (GUS), Bank Danych Lokalnych",
+  "dataset": "BDL variable 149128, subject P2627 'Dochody na 1 mieszkańca' (gminy łącznie z miastami na prawach powiatu): dochody własne - udziały w podatkach stanowiących dochody budżetu państwa, podatek dochodowy od osób fizycznych, zł per inhabitant, unit-level 6 (gmina)",
+  "url_official": "https://bdl.stat.gov.pl/api/v1/data/by-variable/149128?unit-level=6&year=2025&page-size=100&page={0..39}&format=json&lang=pl",
+  "url_mirror": "none - BDL API via WebFetch 2026-10-17; transcriptions in _raw/gus_bdl/v149128/p00..p39.txt (pages 6-39 list only attrId!=0 entries plus a skipped count; every page sums to 100, total 3934 = totalRecords)",
+  "licence": "GUS terms of use: free reuse with attribution (source: GUS) - same basis as central_south PL_GUS_BDL_* sources",
+  "period": "2025",
+  "notes": "3934 records; the 1455 attrId-0 entries are urban/rural parts (types 4/5) of urban-rural gminas and are not gminas. 2479 gmina values (types 1/2/3). Mapping: Nestlyzer PL oid = '10' + first 11 chars of the BDL 12-char unit id (BDL id minus the trailing gmina-type digit); unique for every place; 133 of 134 name-checked units match by name (the one exception, Bratian, is the 2023 renaming of gmina wiejska Nowe Miasto Lubawskie). Kostrzyn (023016121083) is 765.07 zł, far below its neighbours, but confirmed by a separate by-unit request (its whole 2009-2025 series is low); kept as published."
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "au_abs_c21_g02_lga": {
+  "publisher": "Australian Bureau of Statistics (ABS)",
+  "dataset": "Census of Population and Housing 2021, General Community Profile G02 'Selected medians and averages', by Local Government Area (ASGS 2021); MEDAVG 4 = median total household income ($/weekly), 5 = median mortgage repayment ($/monthly), 6 = median rent ($/weekly)",
+  "url_official": "https://data.api.abs.gov.au/rest/data/ABS,C21_G02_LGA,1.0.0/4+5+6..LGA2021.{STATE}?format=structurespecificdata&dimensionAtObservation=AllDimensions  (STATE = 1; 2; 3; 5; 4+6+7+8+9 - one request each)",
+  "url_mirror": "none - fetched directly from the ABS Data API via WebFetch on 2026-10-17; transcriptions saved in _raw/abs_api/g02_lga_state*.txt (+ verify_g02_subset.txt)",
+  "licence": "CC BY 4.0 (ABS)",
+  "period": "2021 (Census night 10 Aug 2021; incomes are 2021 weekly amounts)",
+  "notes": "556 LGA-level areas incl. 'No usual address'/'Migratory' pseudo-areas (codes x9399/x9799, never joined). Places joined by point-in-polygon on ABS ASGS 2016 LGA boundaries (npm which-boundary 0.2.0, data/lga.geobuf, built from ABS 1270055003_lga_2016_aust_shape; coordinates are 1e6-scaled integers) and matched to 2021 data by LGA code; 2016 codes that no longer exist in 2021 (e.g. 18230, 10130, 14200, 13510, 43920) are left missing. A value of 0 (suppressed/not applicable) was dropped."
+ },
+ "ca_statcan_cp2021_cd": {
+  "publisher": "Statistics Canada",
+  "dataset": "Census Profile, 2021 Census of Population, census divisions (dataflow STC_CP:DF_CD). Characteristics: 229 Median total income of household in 2020 ($); 1474 Median value of dwellings ($); 1480 Median monthly shelter costs for rented dwellings ($); 2230 Unemployment rate; 2024 Bachelor's degree or higher (population aged 25-64 in private households), STATISTIC 4 = rate (%)",
+  "url_official": "https://api.statcan.gc.ca/census-recensement/profile/sdmx/rest/data/STC_CP,DF_CD/A5..1.{229|1474|1480|2230}.1?format=structurespecificdata&detail=dataonly ; .../A5..1.2024.4?format=structurespecificdata&detail=dataonly",
+  "url_mirror": "none - fetched directly from the StatCan Census Profile SDMX API via WebFetch on 2026-10-17; transcriptions in _raw/statcan_cp2021/cd_*.txt (+ verify_subset1.txt). Join geometry: StatCan 2016 census division boundaries as packaged in R package mapcan (github.com/mccormackandrew/mapcan data/census_divisions_2016.rda, commit c4dafefa04c6321af479a474ca2a6cafa041aa9f, EPSG:3978, Statistics Canada Open Licence)",
+  "licence": "Statistics Canada Open Licence",
+  "period": "2021 (income reference year 2020)",
+  "notes": "All 293 CDs; 2016 and 2021 CD code sets are identical (293/293). Characteristic ids were identified by querying DF_PR for Ontario (e.g. 229 = 'Median total income of household in 2020 ($)' = 91,000 for Ontario; 2024 rate 36.8 = 2,789,795/7,584,645). Unemployment rate refers to the Census reference week (May 2021, pandemic period)."
+ },
+ "us_acs5_2023_datacensusgov": {
+  "publisher": "U.S. Census Bureau",
+  "dataset": "American Community Survey 2019-2023 5-year estimates: B25077_001E Median value (dollars) of owner-occupied housing units; B25064_001E Median gross rent (dollars), counties",
+  "url_official": "https://data.census.gov/api/access/data/table?g=010XX00US$0500000&id=ACSDT5Y2023.B25077 ; same with id=ACSDT5Y2023.B25064",
+  "url_mirror": "none - data.census.gov access API via WebFetch on 2026-10-17 (api.census.gov now refuses requests without a key); transcriptions in _raw/census_data_api/b25077_us_p0.txt, b25064_us_p0.txt (+ verify_*.txt)",
+  "licence": "Public domain (US federal government work)",
+  "period": "2019-2023",
+  "notes": "PARTIAL: the fetcher truncates the all-county response, so only states FIPS 01-24 (home value; GA 13321 dropped by transcription) and 01-26 (rent) are delivered; later states omitted rather than partially filled. Suppressed values (-666666666) dropped."
+ },
+ "us_acs5_2023_b15001_chr_mirror": {
+  "publisher": "U.S. Census Bureau",
+  "dataset": "American Community Survey 2019-2023 5-year, table B15001 (sex by age by educational attainment), counties; derived share = (B15001_017+018+025+026+058+059+066+067)/(B15001_011+019+052+060) = bachelor's degree or higher among persons 25-44",
+  "url_official": "https://data.census.gov/api/access/data/table?id=ACSDT5Y2023.B15001&g=050XX00US20131 (spot check)",
+  "url_mirror": "https://github.com/countyhealthrankings/county_health_measure_calculations raw_data/ACS/acs_data_2019-2023.zip (acs_data_2019-2023.csv, unmodified ACS API pull), commit e1e1c825059b5b260b4766d75f8449e3c7e7587d",
+  "licence": "Public domain (US federal government work)",
+  "period": "2019-2023",
+  "notes": "Ratio of official counts (no modelling). Age band 25-44 only because the mirror carries B15001 for those ages; not the usual 25+ share. Mirror tied to the official release: B19013_001E in the same file equals the previously verified world_places median household income for all 21,091 joined places."
+ }
+}

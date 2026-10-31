@@ -1,0 +1,42 @@
+{
+ "PT_INE_0012748": {
+  "publisher": "Instituto Nacional de Estatística (INE, Statistics Portugal), based on Autoridade Tributária e Aduaneira data",
+  "dataset": "Indicator 0012748 - Rendimento bruto declarado por sujeito passivo (EUR) por Localização geográfica (NUTS - 2024); Anual (Estatísticas do Rendimento ao nível local)",
+  "url_official": "https://www.ine.pt/xurl/indx/0012748/PT",
+  "url_api": "https://www.ine.pt/ine/json_indicador/pindica.jsp?op=2&varcd=0012748&Dim1=S7A2024&Dim2=<10 municipality geocods per call>&lang=PT (31 calls, 2026-10-17 16:41-16:43; code lists reproducible from work/ptcodes.py)",
+  "url_mirror": null,
+  "licence": "CC BY 4.0 (INE open data, per dados.gov.pt record)",
+  "period": "2024 (last updated 2026-07-24)",
+  "notes": "Mean gross declared income per taxpayer (sujeito passivo) of the MUNICIPALITY (concelho), attached to every freguesia of that municipality (place oid = 6-digit DICOFRE; municipality = first 4 digits). INE also publishes this per freguesia, but the API accepts max ~10 geocodes per request, so freguesia level (3,092 places) was not fetched. Raw: _raw/ine_pt/0012748_S7A2024_municipios.txt"
+ },
+ "PT_INE_0012234": {
+  "publisher": "Instituto Nacional de Estatística (INE, Statistics Portugal)",
+  "dataset": "Indicator 0012234 - Valor mediano das vendas de alojamentos familiares nos últimos 12 meses (Metodologia 2022 - EUR/m2), NUTS 2024, category H1 Total; Trimestral",
+  "url_official": "https://www.ine.pt/bddXplorer/htdocs/minfo.jsp?var_cd=0012234&lingua=PT",
+  "url_api": "https://www.ine.pt/ine/json_indicador/pindica.jsp?op=2&varcd=0012234&Dim1=S5A20261&Dim3=H1&Dim2=<geocods>&lang=PT (one over-limit call returned the whole indicator sorted by value - used for the 247 lowest municipalities; 8 further 10-code calls for the rest)",
+  "url_mirror": null,
+  "licence": "CC BY 4.0 (INE open data, per dados.gov.pt record)",
+  "period": "12 months ending 2026-Q1 (Q2 2025 - Q1 2026), released 2026-07-17",
+  "notes": "Median price per m2 of dwellings sold (Total = new + existing) in the MUNICIPALITY, attached to every freguesia. 4 municipalities suppressed by INE (Castro Verde 0204, Lajes das Flores 4801, Santa Cruz das Flores 4802, Corvo 4901) -> missing. Raw: _raw/ine_pt/0012234_*.txt"
+ },
+ "PL_GUS_BDL_64428": {
+  "publisher": "Główny Urząd Statystyczny (GUS, Statistics Poland) - Bank Danych Lokalnych",
+  "dataset": "BDL variable 64428 - Przeciętne miesięczne wynagrodzenia brutto, ogółem (subject P2497), powiat level",
+  "url_official": "https://bdl.stat.gov.pl/bdl/dane/podgrup/temat",
+  "url_api": "https://bdl.stat.gov.pl/api/v1/data/by-variable/64428?unit-level=5&year=2025&page-size=100&page={0,1,2,3}&format=json&lang=pl",
+  "url_mirror": null,
+  "licence": "GUS terms of use: free reuse with attribution (source: GUS)",
+  "period": "2025",
+  "notes": "Average monthly gross wage (PLN) in the POWIAT containing the gmina (excludes entities with <=9 employees, per GUS methodology). Join: place oid[2:11]+'000' = BDL powiat id (380/380 matched, 2478/2478 gminas). Raw: _raw/gus_bdl/64428_2025_level5.txt"
+ },
+ "PL_GUS_BDL_633692": {
+  "publisher": "Główny Urząd Statystyczny (GUS, Statistics Poland) - Bank Danych Lokalnych",
+  "dataset": "BDL variable 633692 - Średnia cena za 1 m2 lokali mieszkalnych sprzedanych w ramach transakcji rynkowych, ogółem (subject P3788), powiat level",
+  "url_official": "https://bdl.stat.gov.pl/bdl/dane/podgrup/temat",
+  "url_api": "https://bdl.stat.gov.pl/api/v1/data/by-variable/633692?unit-level=5&year=2024&page-size=100&page={0,1,2,3}&format=json&lang=pl",
+  "url_mirror": null,
+  "licence": "GUS terms of use: free reuse with attribution (source: GUS)",
+  "period": "2024 (latest year in BDL)",
+  "notes": "Average price per m2 (PLN) of residential units sold in market transactions (primary + secondary) in the POWIAT. Powiat łańcucki (attrId 91, no data) excluded. Raw: _raw/gus_bdl/633692_2024_level5.txt"
+ }
+}

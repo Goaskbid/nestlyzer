@@ -1,0 +1,31 @@
+{
+ "_note": "Nestlyzer's mapping of official activity classifications (NACE Rev.2 divisions, NAICS 2017 3-digit subsectors) to GICS-style sectors and industry groups. GICS itself classifies listed companies, not places or employment; this is an approximation for location screening, documented on the method page. Codes are prefixes: NACE '10' means division 10; NAICS '3254' overrides '325' where a 4-digit figure exists.",
+ "groups": [
+  {"id": "energy", "sector": "Energy", "name": "Energy", "nace": ["05", "06", "09", "19"], "naics": ["211", "213", "324"]},
+  {"id": "materials", "sector": "Materials", "name": "Materials (chemicals, metals, mining, paper, building materials)", "nace": ["07", "08", "16", "17", "20", "22", "23", "24"], "naics": ["212", "321", "322", "325", "326", "327", "331"], "naics_minus": ["3254"]},
+  {"id": "capital_goods", "sector": "Industrials", "name": "Capital goods (machinery, electrical equipment, aerospace, construction)", "nace": ["25", "27", "28", "30", "33", "41", "42", "43"], "naics": ["332", "333", "335", "236", "237", "238"], "naics_extra": ["3364", "3365", "3366", "3369"]},
+  {"id": "commercial_services", "sector": "Industrials", "name": "Commercial and professional services", "nace": ["69", "70", "71", "73", "74", "77", "78", "80", "81", "82"], "naics": ["541", "561"], "naics_minus": ["5415", "5417"]},
+  {"id": "transportation", "sector": "Industrials", "name": "Transportation and logistics", "nace": ["49", "50", "51", "52", "53"], "naics": ["481", "482", "483", "484", "485", "486", "487", "488", "491", "492", "493"]},
+  {"id": "autos", "sector": "Consumer Discretionary", "name": "Automobiles and components", "nace": ["29"], "naics": ["3361", "3362", "3363"]},
+  {"id": "durables_apparel", "sector": "Consumer Discretionary", "name": "Consumer durables and apparel", "nace": ["13", "14", "15", "31", "32"], "naics": ["313", "314", "315", "316", "337", "339"], "naics_minus": ["3391"]},
+  {"id": "consumer_services", "sector": "Consumer Discretionary", "name": "Consumer services (hotels, restaurants, leisure, education)", "nace": ["55", "56", "85", "90", "91", "92", "93", "96"], "naics": ["611", "711", "712", "713", "721", "722", "812"]},
+  {"id": "retail", "sector": "Consumer Discretionary", "name": "Retail and distribution", "nace": ["45", "47"], "naics": ["441", "442", "443", "444", "446", "447", "448", "451", "452", "453", "454"]},
+  {"id": "food_bev", "sector": "Consumer Staples", "name": "Food, beverage and tobacco", "nace": ["10", "11", "12"], "naics": ["311", "312"]},
+  {"id": "staples_distribution", "sector": "Consumer Staples", "name": "Wholesale and food retail", "nace": ["46"], "naics": ["423", "424", "425", "445"]},
+  {"id": "agriculture", "sector": "Consumer Staples", "name": "Agriculture, forestry and fishing", "nace": ["01", "02", "03"], "naics": ["111", "112", "113", "114", "115"]},
+  {"id": "health_services", "sector": "Health Care", "name": "Health care equipment and services", "nace": ["86", "87", "88"], "naics": ["621", "622", "623", "624", "3391"]},
+  {"id": "pharma_biotech", "sector": "Health Care", "name": "Pharmaceuticals, biotechnology and life sciences", "nace": ["21", "72"], "naics": ["3254", "5417"]},
+  {"id": "financials", "sector": "Financials", "name": "Banks, insurance and financial services", "nace": ["64", "65", "66"], "naics": ["521", "522", "523", "524", "525"]},
+  {"id": "software", "sector": "Information Technology", "name": "Software and IT services", "nace": ["62", "63"], "naics": ["5112", "513", "518", "5415"]},
+  {"id": "hardware_semis", "sector": "Information Technology", "name": "Technology hardware and semiconductors", "nace": ["26"], "naics": ["334"]},
+  {"id": "telecom", "sector": "Communication Services", "name": "Telecommunication services", "nace": ["61"], "naics": ["517"]},
+  {"id": "media", "sector": "Communication Services", "name": "Media and entertainment", "nace": ["58", "59", "60"], "naics": ["511", "512", "515", "516", "519"], "naics_minus": ["5112"]},
+  {"id": "utilities", "sector": "Utilities", "name": "Utilities (power, water, waste)", "nace": ["35", "36", "37", "38", "39"], "naics": ["221", "562"]},
+  {"id": "real_estate", "sector": "Real Estate", "name": "Real estate", "nace": ["68"], "naics": ["531"]},
+  {"id": "public", "sector": "Public sector", "name": "Public administration", "nace": ["84"], "naics": ["921", "922", "923", "924", "925", "926", "927", "928"]}
+ ],
+ "sections": {
+  "_note": "Fallback when only NACE sections (or NAICS 2-digit sectors) exist for a place: the share is assigned to the sector-level key only, never to an industry group.",
+  "A": "Consumer Staples", "B": "Energy", "C": null, "D": "Utilities", "E": "Utilities", "F": "Industrials", "G": null, "H": "Industrials", "I": "Consumer Discretionary", "J": null, "K": "Financials", "L": "Real Estate", "M": "Industrials", "N": "Industrials", "O": "Public sector", "P": "Consumer Discretionary", "Q": "Health Care", "R": "Consumer Discretionary", "S": "Consumer Discretionary"
+ }
+}

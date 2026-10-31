@@ -1,0 +1,8 @@
+source_geo_id,country,level,label
+FI:publisher_label:greater_helsinki,FI,rental_market_zone,Greater Helsinki
+FI:publisher_label:rest_of_finland,FI,rental_market_zone,Rest of Finland
+NO:publisher_label:other_settlements_200_1999_and_sparse_areas,NO,settlement_size_cohort,Other settlements 200-1999 and sparse areas
+NO:publisher_label:other_urban_settlements_2000_19999,NO,settlement_size_cohort,Other urban settlements 2000-19999
+NO:publisher_label:other_urban_settlements_over_20000,NO,settlement_size_cohort,Other urban settlements over 20000
+SE:publisher_label:other_larger_municipalities,SE,municipality_size_cohort,Other larger municipalities
+SE:publisher_label:other_smaller_municipalities,SE,municipality_size_cohort,Other smaller municipalities

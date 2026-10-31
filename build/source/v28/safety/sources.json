@@ -1,0 +1,65 @@
+{
+  "wdi_unodc_homicide": {
+    "publisher": "UNODC (via World Bank World Development Indicators, indicator VC.IHR.PSRC.P5)",
+    "dataset": "Intentional homicides (per 100,000 people)",
+    "url_official": "https://data.worldbank.org/indicator/VC.IHR.PSRC.P5 ; https://dataunodc.un.org/dp-intentional-homicide-victims",
+    "url_mirror": "github.com/open-numbers/ddf--open_numbers--world_development_indicators datapoints/ddf--datapoints--vc_ihr_psrc_p5--by--geo--time.csv @ 5fc3bb251e2f9e0f257db8dff4b629751d66e1ed (commit 2026-10-14)",
+    "licence": "CC BY 4.0 (World Bank WDI)",
+    "period": "latest per country: 2023 (37), 2022 (IL, LU, NZ, PT), 2021 (BE, LI, UK); TW not covered",
+    "notes": "National cross-country anchor. Latest available year per country. Taiwan is not in WDI/UNODC. UNODC has since published some 2024 values (e.g. DE 0.921, FR 1.325) not yet in WDI; we keep the WDI series for one consistent vintage."
+  },
+  "who_gho_road_deaths": {
+    "publisher": "World Health Organization, Global Health Observatory",
+    "dataset": "RS_198 Estimated road traffic death rate (per 100 000 population), both sexes",
+    "url_official": "https://ghoapi.azureedge.net/api/RS_198",
+    "url_mirror": "none: fetched 2026-10-17 from the official GHO OData API via WebFetch (approved by the coordinator); transcription saved at _raw/who_gho_RS_198/RS_198_2023_BTSX.csv",
+    "licence": "CC BY-NC-SA 3.0 IGO (WHO). Check before commercial use",
+    "period": "2023",
+    "notes": "WHO modelled estimates (they can differ from national police counts, e.g. USA 18.4). Not available for HK, LI, TW (not WHO members/areas in GHO). The WDI copy SH.STA.TRAF.P5 (2019, older vintage) was rejected because it no longer matches current GHO values."
+  },
+  "us_ucr_kaplan": {
+    "publisher": "FBI Uniform Crime Reporting Program (Return A, offenses known), concatenated by Jacob Kaplan (Princeton) for crimedatatool.com",
+    "dataset": "UCR Offenses Known and Clearances by Arrest, yearly per agency (1960-2024)",
+    "url_official": "https://cde.ucr.cjis.gov/ (FBI Crime Data Explorer); research version: openICPSR project 100707",
+    "url_mirror": "github.com/jacobkap/crimedatatool_helper data/offenses/*.csv + data/crosswalk.csv @ 47c6b66011f2c4ca915f638c8be609b74b0d1003 (commit 2025-08-11)",
+    "licence": "FBI data: US government work, public domain; Kaplan derived files CC BY 4.0",
+    "period": "2024 (7,545 places), 2023 where an agency has no 2024 row (429 places)",
+    "notes": "Only agencies that reported through December (Kaplan filter last_month_reported=december). Place join: municipal police agencies (sheriffs, state police, universities, transit and similar excluded) matched to Nestlyzer places by normalised census name + state, accepted only if the agency population is 0.5-2x the place population. crime_total = Part I index offences (murder, rape, robbery, aggravated assault, burglary, larceny-theft, motor vehicle theft); violent = murder + rape + robbery + aggravated assault; burglary = all burglary. Rates use the FBI agency population. Comparable within the US only."
+  },
+  "fr_ssmsi_communale": {
+    "publisher": "Ministère de l'Intérieur, Service statistique ministériel de la sécurité intérieure (SSMSI)",
+    "dataset": "Bases statistiques communales de la délinquance enregistrée par la police et la gendarmerie nationales (data behind the SSMSI 'Données territoriales' application)",
+    "url_official": "https://www.data.gouv.fr/datasets/bases-statistiques-communale-departementale-et-regionale-de-la-delinquance-enregistree-par-la-police-et-la-gendarmerie-nationales",
+    "url_mirror": "github.com/ssmsi-diffusion/Application_donnees_territoriales donneesTerritoriales/donneesGrTbCartes.RData + libelles.RData @ b0af30366a9e99fb6a85ea77b1e3ab77192260f4 (SSMSI's own GitHub organisation, commit 2024-04-08)",
+    "licence": "Licence Ouverte / Etalab 2.0",
+    "period": "2021 (newest year in the official GitHub copy; 2022-2025 releases exist on data.gouv.fr, which is blocked from this machine)",
+    "notes": "Metropolitan France only (96 departments, no DOM). Only communes whose figures SSMSI publishes (bool.pub=1) are used. For unpublished communes SSMSI shows a departmental average of unpublished communes, which we drop (no imputation). violent = coups et blessures volontaires + violences sexuelles + vols avec armes + vols violents sans arme; crime_total = sum of the 9 non-overlapping SSMSI indicators (CBV, sexual violence, armed robbery, robbery without weapon, theft without violence, residential burglary, vehicle theft, theft from vehicles, theft of vehicle accessories); burglary = cambriolages de logement per 1,000 DWELLINGS (SSMSI denominator). Population is derived from SSMSI's own rate (faits/taux*1000). Comparable within France only."
+  },
+  "fr_ssmsi_departementale": {
+    "publisher": "SSMSI (as above)",
+    "dataset": "Departmental totals of the same indicators (dDepGrTb)",
+    "url_official": "as fr_ssmsi_communale",
+    "url_mirror": "same file and commit as fr_ssmsi_communale",
+    "licence": "Licence Ouverte / Etalab 2.0",
+    "period": "2021",
+    "notes": "Département = NUTS3 (1:1 mapping, taken from the country file's n3 field). Same definitions as the commune level."
+  },
+  "es_balance_criminalidad": {
+    "publisher": "Ministerio del Interior (Portal Estadístico de Criminalidad, Balance de Criminalidad); population from INE Padrón 1-1-2025",
+    "dataset": "Balance de Criminalidad, municipalities over 20,000 inhabitants and provinces",
+    "url_official": "https://estadisticasdecriminalidad.ses.mir.es/publico/portalestadistico/ ; Q4-2025 PDF https://www.interior.gob.es/opencms/export/sites/default/.galleries/galeria-de-prensa/documentos-y-multimedia/balances-e-informes/2025/Balance-de-Criminalidad_Cuarto_Trimestre_2025.pdf",
+    "url_mirror": "github.com/mwhitex/robosporciudad-datos data/criminalidad-municipios-espana-2026T2.csv @ 28f517f97d38a33c8b6dd909e23f260be884dc65",
+    "licence": "Derived file CC BY 4.0 ('robosporciudad.com con datos del Ministerio del Interior'); Ministry and INE data reusable with attribution",
+    "period": "2025 (calendar year January-December, rebuilt as u12m - H1-2026 + H1-2025, which equals the official Q4-2025 balance)",
+    "notes": "crime_total = total infracciones penales; violent = robos con violencia e intimidación + lesiones y riña tumultuaria + delitos contra la libertad sexual + homicidios dolosos y asesinatos (consumados + tentativa) + secuestro; burglary = robos con fuerza en domicilios. All per 1,000 residents (Padrón 2025). Provinces map to NUTS3 except Illes Balears, Las Palmas and Santa Cruz de Tenerife (several island NUTS3 each), which are left out at province level. Comparable within Spain only."
+  },
+  "eurostat_crim_gen_reg": {
+    "publisher": "Eurostat (from national police and justice authorities)",
+    "dataset": "crim_gen_reg Police-recorded offences by NUTS 3 region (ICCS), unit P_HTHAB",
+    "url_official": "https://ec.europa.eu/eurostat/databrowser/view/crim_gen_reg/default/table ; API https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/crim_gen_reg/",
+    "url_mirror": "none: fetched 2026-10-17 from the official Eurostat SDMX API (TSV) via WebFetch in 16-region chunks, as approved by the coordinator; transcriptions saved at _raw/eurostat_crim_gen_reg/c001..c076.tsv (dataset update 2026-06-29)",
+    "licence": "Eurostat reuse policy, CC BY 4.0",
+    "period": "latest per region: 2024 (most), 2023 (e.g. IT ITH/ITI, NL part, FI part, ITG2D-F), 2022 (PT Centro/Alentejo NUTS3, CY, LU)",
+    "notes": "ICCS02011 assault, ICCS0401 robbery, ICCS05012 burglary of private residential premises, per 100,000 inhabitants. eurostat_violent_crime_per_100k = assault + robbery (same year). Recording practices differ by country, so these are a European regional layer that is comparable WITHIN a country; cross-country comparison is indicative only. Missing: IS, LI, MK, MT, RS, UK (not in dataset or no NUTS3 data); EL Attica (EL30x) and IT ITG2G/ITG2H return no data; burglary not published for CY, EE, HU, IE, LU, NO; assault not published for CY, LU, NO."
+  }
+}

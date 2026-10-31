@@ -1,0 +1,56 @@
+{
+ "us_chr_2025": {
+  "publisher": "County Health Rankings & Roadmaps (University of Wisconsin Population Health Institute); measures compiled from federal sources (NCHS/CDC WONDER, AHRF/HRSA, NPPES/CMS, CDC EPHT, US Census ACS/SAIPE, BLS, Feeding America for food insecurity, BRFSS/PLACES for adult behaviours)",
+  "dataset": "CHR&R 2025 Annual Release, analytic data file (analytic_data2025_v3), county raw values",
+  "url_official": "https://www.countyhealthrankings.org/health-data/methodology-and-sources/data-documentation ; CC BY 4.0 copy: https://zenodo.org/records/18332002",
+  "url_mirror": "https://github.com/countyhealthrankings/snapshot (official CHR&R GitHub org) path parquet/analytic_data2025_v3.parquet + parquet/t_measure_years.parquet, commit 3c456c67fd34dbe49ebb270b25bc842a7cbd4c06",
+  "licence": "CC BY 4.0 for the CHR&R annual release on Zenodo (publisher's own deposit); NOTE the GitHub snapshot repo itself carries CC BY-NC-SA 4.0 - attribute 'County Health Rankings & Roadmaps 2025' and cite the Zenodo CC BY release",
+  "period": "2025 release; per-field data years in values.csv `period` (taken from CHR t_measure_years for release 2025)",
+  "notes": "Raw values only (no ranks/z-scores). Ratios converted: provider rates x100000 -> per 100k; proportions x100 -> %. Joined to Nestlyzer places by county containing the place point. Connecticut uses the 2022 planning regions (091xx). CHR 2025 has no violent-crime measure (dropped by CHR)."
+ },
+ "us_acs5_2023": {
+  "publisher": "U.S. Census Bureau",
+  "dataset": "American Community Survey 2019-2023 5-year estimates, table B19013 (median household income in the past 12 months, 2023 inflation-adjusted dollars), counties and states",
+  "url_official": "https://api.census.gov/data/2023/acs/acs5?get=NAME,B19013_001E&for=county:*",
+  "url_mirror": "https://github.com/countyhealthrankings/county_health_measure_calculations path raw_data/ACS/acs_data_2019-2023.zip (acs_data_2019-2023.csv, unmodified API pull with E/M columns), commit e1e1c825059b5b260b4766d75f8449e3c7e7587d",
+  "licence": "Public domain (US federal government work)",
+  "period": "2019-2023",
+  "notes": "Newer ACS 2020-2024 exists at census.gov but no full-county mirror was found."
+ },
+ "us_saipe_2023": {
+  "publisher": "U.S. Census Bureau, Small Area Income and Poverty Estimates (SAIPE)",
+  "dataset": "2023 Poverty and Median Household Income Estimates - Counties, States (est23all.xls), 'Poverty Percent, All Ages'",
+  "url_official": "https://www2.census.gov/programs-surveys/saipe/datasets/2023/2023-state-and-county/est23all.xls",
+  "url_mirror": "https://github.com/countyhealthrankings/county_health_measure_calculations path raw_data/SAIPE/est23all.xls, commit e1e1c825059b5b260b4766d75f8449e3c7e7587d",
+  "licence": "Public domain (US federal government work)",
+  "period": "2023",
+  "notes": "SAIPE 2024 has since been published (e.g. San Francisco 11.3 vs 11.9 for 2023); not mirrored."
+ },
+ "us_bls_laus_2024": {
+  "publisher": "U.S. Bureau of Labor Statistics, Local Area Unemployment Statistics",
+  "dataset": "Labor Force Data by County, 2024 Annual Averages (laucnty24.xlsx), unemployment rate",
+  "url_official": "https://www.bls.gov/lau/laucnty24.xlsx",
+  "url_mirror": "https://github.com/countyhealthrankings/county_health_measure_calculations path raw_data/BLS/laucnty24.xlsx, commit e1e1c825059b5b260b4766d75f8449e3c7e7587d",
+  "licence": "Public domain (US federal government work)",
+  "period": "2024 (vintage released 18 Apr 2025)",
+  "notes": "BLS later revised some 2024 county rates (e.g. Nemaha KS 2.6 -> 2.5); 2025 annual averages now exist but are not mirrored."
+ },
+ "jp_mic_fiscal_indices_fy2021": {
+  "publisher": "Ministry of Internal Affairs and Communications (総務省), Japan",
+  "dataset": "全市町村の主要財政指標 令和3年度 (MIC main fiscal indicators, FY2021)",
+  "url_official": "https://www.soumu.go.jp/iken/zaisei/R03_chiho.html (index of all years: https://www.soumu.go.jp/iken/shihyo_ichiran.html)",
+  "url_mirror": "https://github.com/passaglia/japandata-sources path indices/indices.tar.gz -> indices/city/R3.xlsx, commit 64c5fa06d1ae8cd4b454d701511ff0499aa37230",
+  "licence": "CC BY 4.0 compatible (MIC government standard terms of use, https://www.soumu.go.jp/menu_kyotsuu/policy/tyosaku.html)",
+  "period": "FY2021",
+  "notes": "MIC has since published FY2022-FY2024 (newest 令和6年度); only FY2021 is mirrored. Join via point-in-polygon on Geoshape municipal boundaries 2021-01-01 (ROIS-DS CODH, CC BY-SA 4.0, same repo maps/20210101/jp_city_dc.i.topojson; used for the join only, not redistributed). Designated cities are one unit (wards merged); Tokyo special wards are separate."
+ },
+ "il_cbs_local_authorities_2021": {
+  "publisher": "Central Bureau of Statistics (CBS / הלשכה המרכזית לסטטיסטיקה), Israel",
+  "dataset": "Local Authorities in Israel 2021 - data file (p_libud_2021.xlsx, sheet 'נתונים פיזיים ונתוני אוכלוסייה', updated 11/12/2023) + Localities file 2021 (bycode2021.xlsx) for coordinates and regional-council membership",
+  "url_official": "https://www.cbs.gov.il/he/publications/Pages/2023/הרשויות-המקומיות-בישראל-2021.aspx ; socio-economic index 2019 release: https://www.cbs.gov.il/he/mediarelease/DocLib/2022/375/24_22_375b.pdf",
+  "url_mirror": "https://github.com/cran/il.cbs.muni (CRAN mirror of R package il.cbs.muni 0.1.0) path inst/extdata/p_libud_2021.xlsx and inst/extdata/bycode2021.xlsx, commit 45f1b5e9a8481b349961db9bf46c13ae58ef4936",
+  "licence": "CBS publications may be reused with source attribution (CBS terms of use); package MIT",
+  "period": "file year 2021; per-field data years in `period` (2017-2021 life expectancy, 2019 wages/SE index, 2020 peripherality, 2020/21-2021/22 education)",
+  "notes": "Values are for the local authority (municipality, local council, or regional council for localities inside regional councils). Life expectancy only for cities 50k+; convictions only for authorities 50k+."
+ }
+}

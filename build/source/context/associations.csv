@@ -1,0 +1,1327 @@
+source_geo_id,country,place_oid,relationship,evidence
+BLS_MSA:12420,US,4671654,principal_city,named principal city of the metropolitan statistical area (title); other member places not associated yet
+BLS_MSA:12420,US,4724129,principal_city,named principal city of the metropolitan statistical area (title); other member places not associated yet
+BLS_MSA:12420,US,4726491,principal_city,named principal city of the metropolitan statistical area (title); other member places not associated yet
+BLS_MSA:14460,US,4930956,principal_city,named principal city of the metropolitan statistical area (title); other member places not associated yet
+BLS_MSA:14460,US,4931972,principal_city,named principal city of the metropolitan statistical area (title); other member places not associated yet
+BLS_MSA:14460,US,4945283,principal_city,named principal city of the metropolitan statistical area (title); other member places not associated yet
+BLS_MSA:16620,US,4801859,principal_city,named principal city of the metropolitan statistical area (title); other member places not associated yet
+BLS_MSA:26420,US,4699066,principal_city,named principal city of the metropolitan statistical area (title); other member places not associated yet
+BLS_MSA:26420,US,4717782,principal_city,named principal city of the metropolitan statistical area (title); other member places not associated yet
+BLS_MSA:26420,US,4736476,principal_city,named principal city of the metropolitan statistical area (title); other member places not associated yet
+BLS_MSA:35620,US,5128581,principal_city,named principal city of the metropolitan statistical area (title); other member places not associated yet
+BLS_MSA:35620,US,5101798,principal_city,named principal city of the metropolitan statistical area (title); other member places not associated yet
+BLS_MSA:35620,US,5099836,principal_city,named principal city of the metropolitan statistical area (title); other member places not associated yet
+BLS_MSA:41940,US,5392171,principal_city,named principal city of the metropolitan statistical area (title); other member places not associated yet
+BLS_MSA:41940,US,5400075,principal_city,named principal city of the metropolitan statistical area (title); other member places not associated yet
+BLS_MSA:41940,US,5393015,principal_city,named principal city of the metropolitan statistical area (title); other member places not associated yet
+BLS_MSA:42660,US,5809844,principal_city,named principal city of the metropolitan statistical area (title); other member places not associated yet
+BLS_MSA:42660,US,5812944,principal_city,named principal city of the metropolitan statistical area (title); other member places not associated yet
+BLS_MSA:42660,US,5786882,principal_city,named principal city of the metropolitan statistical area (title); other member places not associated yet
+EE:publisher_label:alutaguse_rural_municipality,EE,0130,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:anija_rural_municipality,EE,0141,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:antsla_rural_municipality,EE,0145,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:elva_rural_municipality,EE,0171,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:estonia,EE,*,country_context,"national figure, shown as country context on every place"
+EE:publisher_label:haademeeste_rural_municipality,EE,0214,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:haapsalu_city,EE,0184,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:haljala_rural_municipality,EE,0191,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:harju_county,EE,0141,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:harju_county,EE,0198,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:harju_county,EE,0245,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:harju_county,EE,0296,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:harju_county,EE,0305,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:harju_county,EE,0338,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:harju_county,EE,0353,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:harju_county,EE,0424,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:harju_county,EE,0431,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:harju_county,EE,0446,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:harju_county,EE,0651,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:harju_county,EE,0653,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:harju_county,EE,0719,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:harju_county,EE,0726,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:harju_county,EE,0784,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:harju_county,EE,0890,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:harku_rural_municipality,EE,0198,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:hiiu_county,EE,0205,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:hiiumaa_rural_municipality,EE,0205,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:ida_viru_county,EE,0130,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:ida_viru_county,EE,0251,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:ida_viru_county,EE,0321,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:ida_viru_county,EE,0442,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:ida_viru_county,EE,0511,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:ida_viru_county,EE,0515,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:ida_viru_county,EE,0736,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:ida_viru_county,EE,0803,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:jarva_county,EE,0255,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:jarva_county,EE,0567,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:jarva_county,EE,0834,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:jarva_rural_municipality,EE,0255,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:joelahtme_rural_municipality,EE,0245,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:jogeva_county,EE,0247,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:jogeva_county,EE,0486,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:jogeva_county,EE,0618,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:jogeva_rural_municipality,EE,0247,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:johvi_rural_municipality,EE,0251,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:kadrina_rural_municipality,EE,0272,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:kambja_rural_municipality,EE,0283,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:kanepi_rural_municipality,EE,0284,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:kastre_rural_municipality,EE,0291,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:kehtna_rural_municipality,EE,0293,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:keila_city,EE,0296,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:kihnu_rural_municipality,EE,0303,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:kiili_rural_municipality,EE,0305,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:kohila_rural_municipality,EE,0317,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:kohtla_jarve_city,EE,0321,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:kose_rural_municipality,EE,0338,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:kuusalu_rural_municipality,EE,0353,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:laane_county,EE,0184,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:laane_county,EE,0441,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:laane_county,EE,0907,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:laane_harju_rural_municipality,EE,0431,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:laane_nigula_rural_municipality,EE,0441,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:laane_viru_county,EE,0191,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:laane_viru_county,EE,0272,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:laane_viru_county,EE,0661,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:laane_viru_county,EE,0663,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:laane_viru_county,EE,0792,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:laane_viru_county,EE,0901,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:laane_viru_county,EE,0903,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:laane_viru_county,EE,0928,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:laaneranna_rural_municipality,EE,0430,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:loksa_city,EE,0424,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:luganuse_rural_municipality,EE,0442,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:luunja_rural_municipality,EE,0432,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:maardu_city,EE,0446,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:marjamaa_rural_municipality,EE,0503,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:muhu_rural_municipality,EE,0478,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:mulgi_rural_municipality,EE,0480,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:mustvee_rural_municipality,EE,0486,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:narva_city,EE,0511,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:narva_joesuu_city,EE,0515,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:noo_rural_municipality,EE,0528,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:otepaa_rural_municipality,EE,0557,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:paide_city,EE,0567,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:parnu_city,EE,0624,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:parnu_county,EE,0214,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:parnu_county,EE,0303,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:parnu_county,EE,0430,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:parnu_county,EE,0624,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:parnu_county,EE,0638,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:parnu_county,EE,0712,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:parnu_county,EE,0809,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:peipsiaare_rural_municipality,EE,0586,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:pohja_parnumaa_rural_municipality,EE,0638,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:pohja_sakala_rural_municipality,EE,0615,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:poltsamaa_rural_municipality,EE,0618,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:polva_county,EE,0284,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:polva_county,EE,0622,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:polva_county,EE,0708,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:polva_rural_municipality,EE,0622,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:raasiku_rural_municipality,EE,0651,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:rae_rural_municipality,EE,0653,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:rakvere_city,EE,0663,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:rakvere_rural_municipality,EE,0661,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:rapina_rural_municipality,EE,0708,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:rapla_county,EE,0293,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:rapla_county,EE,0317,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:rapla_county,EE,0503,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:rapla_county,EE,0668,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:rapla_rural_municipality,EE,0668,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:rouge_rural_municipality,EE,0698,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:ruhnu_rural_municipality,EE,0689,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:saarde_rural_municipality,EE,0712,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:saare_county,EE,0478,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:saare_county,EE,0689,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:saare_county,EE,0714,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:saaremaa_rural_municipality,EE,0714,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:saku_rural_municipality,EE,0719,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:saue_rural_municipality,EE,0726,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:setomaa_rural_municipality,EE,0732,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:sillamae_city,EE,0736,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:tallinn,EE,0784,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:tapa_rural_municipality,EE,0792,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:tartu_city,EE,0793,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:tartu_county,EE,0171,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:tartu_county,EE,0283,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:tartu_county,EE,0291,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:tartu_county,EE,0432,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:tartu_county,EE,0528,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:tartu_county,EE,0586,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:tartu_county,EE,0793,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:tartu_county,EE,0796,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:tartu_rural_municipality,EE,0796,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:tori_rural_municipality,EE,0809,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:torva_rural_municipality,EE,0824,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:turi_rural_municipality,EE,0834,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:vaike_maarja_rural_municipality,EE,0928,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:valga_county,EE,0557,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:valga_county,EE,0824,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:valga_county,EE,0857,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:valga_rural_municipality,EE,0857,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:viimsi_rural_municipality,EE,0890,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:viljandi_city,EE,0897,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:viljandi_county,EE,0480,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:viljandi_county,EE,0615,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:viljandi_county,EE,0897,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:viljandi_county,EE,0899,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:viljandi_rural_municipality,EE,0899,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:vinni_rural_municipality,EE,0901,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:viru_nigula_rural_municipality,EE,0903,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:vormsi_rural_municipality,EE,0907,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:voru_city,EE,0919,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EE:publisher_label:voru_county,EE,0145,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:voru_county,EE,0698,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:voru_county,EE,0732,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:voru_county,EE,0917,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:voru_county,EE,0919,county,"county = its municipalities after the 2017 reform (all inside one NUTS-3 group, checked)"
+EE:publisher_label:voru_rural_municipality,EE,0917,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+EUROSTAT:EA19,,*,benchmark,"EU/euro-area aggregate, shown as a comparison line only"
+EUROSTAT:EA20,,*,benchmark,"EU/euro-area aggregate, shown as a comparison line only"
+EUROSTAT:EA21,,*,benchmark,"EU/euro-area aggregate, shown as a comparison line only"
+EUROSTAT:EU27_2020,,*,benchmark,"EU/euro-area aggregate, shown as a comparison line only"
+FI:publisher_label:espoo_kauniainen,FI,049,group_member,publisher group of two named municipalities
+FI:publisher_label:espoo_kauniainen,FI,235,group_member,publisher group of two named municipalities
+FI:publisher_label:helsinki,FI,091,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+FI:publisher_label:jyvaskyla,FI,179,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+FI:publisher_label:oulu,FI,564,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+FI:publisher_label:tampere,FI,837,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+FI:publisher_label:turku,FI,853,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+FI:publisher_label:vantaa,FI,092,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+ISO2:AT,AT,*,country_context,"national figure, shown as country context on every place"
+ISO2:BE,BE,*,country_context,"national figure, shown as country context on every place"
+ISO2:BG,BG,*,country_context,"national figure, shown as country context on every place"
+ISO2:CA,CA,*,country_context,"national figure, shown as country context on every place"
+ISO2:CY,CY,*,country_context,"national figure, shown as country context on every place"
+ISO2:CZ,CZ,*,country_context,"national figure, shown as country context on every place"
+ISO2:DE,DE,*,country_context,"national figure, shown as country context on every place"
+ISO2:DK,DK,*,country_context,"national figure, shown as country context on every place"
+ISO2:EE,EE,*,country_context,"national figure, shown as country context on every place"
+ISO2:ES,ES,*,country_context,"national figure, shown as country context on every place"
+ISO2:FI,FI,*,country_context,"national figure, shown as country context on every place"
+ISO2:FR,FR,*,country_context,"national figure, shown as country context on every place"
+ISO2:GR,GR,*,country_context,"national figure, shown as country context on every place"
+ISO2:HR,HR,*,country_context,"national figure, shown as country context on every place"
+ISO2:HU,HU,*,country_context,"national figure, shown as country context on every place"
+ISO2:IE,IE,*,country_context,"national figure, shown as country context on every place"
+ISO2:IS,IS,*,country_context,"national figure, shown as country context on every place"
+ISO2:IT,IT,*,country_context,"national figure, shown as country context on every place"
+ISO2:LT,LT,*,country_context,"national figure, shown as country context on every place"
+ISO2:LU,LU,*,country_context,"national figure, shown as country context on every place"
+ISO2:LV,LV,*,country_context,"national figure, shown as country context on every place"
+ISO2:MT,MT,*,country_context,"national figure, shown as country context on every place"
+ISO2:NL,NL,*,country_context,"national figure, shown as country context on every place"
+ISO2:NO,NO,*,country_context,"national figure, shown as country context on every place"
+ISO2:PL,PL,*,country_context,"national figure, shown as country context on every place"
+ISO2:PT,PT,*,country_context,"national figure, shown as country context on every place"
+ISO2:RO,RO,*,country_context,"national figure, shown as country context on every place"
+ISO2:SE,SE,*,country_context,"national figure, shown as country context on every place"
+ISO2:SI,SI,*,country_context,"national figure, shown as country context on every place"
+ISO2:SK,SK,*,country_context,"national figure, shown as country context on every place"
+ISO2:US,US,*,country_context,"national figure, shown as country context on every place"
+NL:publisher_label:aa_en_hunze,NL,GM1680,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:aalsmeer,NL,GM0358,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:aalten,NL,GM0197,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:achtkarspelen,NL,GM0059,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:alblasserdam,NL,GM0482,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:albrandswaard,NL,GM0613,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:alkmaar,NL,GM0361,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:almelo,NL,GM0141,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:almere,NL,GM0034,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:alphen_aan_den_rijn,NL,GM0484,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:alphen_chaam,NL,GM1723,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:altena,NL,GM1959,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:ameland,NL,GM0060,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:amersfoort,NL,GM0307,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:amstelveen,NL,GM0362,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:amsterdam,NL,GM0363,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:apeldoorn,NL,GM0200,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:arnhem,NL,GM0202,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:assen,NL,GM0106,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:asten,NL,GM0743,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:baarle_nassau,NL,GM0744,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:baarn,NL,GM0308,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:barendrecht,NL,GM0489,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:barneveld,NL,GM0203,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:beek_l,NL,GM0888,is,"CBS publisher label with a province or (gemeente) suffix, bound to its CBS municipality code (reviewed 2.12)"
+NL:publisher_label:beekdaelen,NL,GM1954,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:beesel,NL,GM0889,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:berg_en_dal,NL,GM1945,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:bergeijk,NL,GM1724,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:bergen_l,NL,GM0893,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:bergen_nh,NL,GM0373,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:bergen_op_zoom,NL,GM0748,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:berkelland,NL,GM1859,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:bernheze,NL,GM1721,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:best,NL,GM0753,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:beuningen,NL,GM0209,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:beverwijk,NL,GM0375,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:bladel,NL,GM1728,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:blaricum,NL,GM0376,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:bloemendaal,NL,GM0377,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:bodegraven_reeuwijk,NL,GM1901,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:boekel,NL,GM0755,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:borger_odoorn,NL,GM1681,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:borne,NL,GM0147,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:borsele,NL,GM0654,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:boxtel,NL,GM0757,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:breda,NL,GM0758,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:bronckhorst,NL,GM1876,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:brummen,NL,GM0213,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:brunssum,NL,GM0899,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:bunnik,NL,GM0312,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:bunschoten,NL,GM0313,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:buren,NL,GM0214,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:capelle_aan_den_ijssel,NL,GM0502,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:castricum,NL,GM0383,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:coevorden,NL,GM0109,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:cranendonck,NL,GM1706,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:culemborg,NL,GM0216,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:dalfsen,NL,GM0148,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:dantumadiel,NL,GM1891,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:de_bilt,NL,GM0310,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:de_fryske_marren,NL,GM1940,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:de_ronde_venen,NL,GM0736,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:de_wolden,NL,GM1690,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:delft,NL,GM0503,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:den_helder,NL,GM0400,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:deurne,NL,GM0762,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:deventer,NL,GM0150,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:diemen,NL,GM0384,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:dijk_en_waard,NL,GM1980,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:dinkelland,NL,GM1774,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:doesburg,NL,GM0221,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:doetinchem,NL,GM0222,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:dongen,NL,GM0766,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:dordrecht,NL,GM0505,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:drechterland,NL,GM0498,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:drimmelen,NL,GM1719,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:dronten,NL,GM0303,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:druten,NL,GM0225,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:duiven,NL,GM0226,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:echt_susteren,NL,GM1711,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:edam_volendam,NL,GM0385,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:ede,NL,GM0228,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:eemnes,NL,GM0317,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:eemsdelta,NL,GM1979,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:eersel,NL,GM0770,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:eijsden_margraten,NL,GM1903,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:eindhoven,NL,GM0772,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:elburg,NL,GM0230,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:emmen,NL,GM0114,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:enkhuizen,NL,GM0388,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:enschede,NL,GM0153,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:epe,NL,GM0232,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:ermelo,NL,GM0233,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:etten_leur,NL,GM0777,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:geertruidenberg,NL,GM0779,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:geldrop_mierlo,NL,GM1771,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:gemert_bakel,NL,GM1652,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:gennep,NL,GM0907,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:gilze_en_rijen,NL,GM0784,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:goeree_overflakkee,NL,GM1924,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:goes,NL,GM0664,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:goirle,NL,GM0785,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:gooise_meren,NL,GM1942,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:gorinchem,NL,GM0512,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:gouda,NL,GM0513,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:groningen_gemeente,NL,GM0014,is,"CBS publisher label with a province or (gemeente) suffix, bound to its CBS municipality code (reviewed 2.12)"
+NL:publisher_label:gulpen_wittem,NL,GM1729,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:haaksbergen,NL,GM0158,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:haarlem,NL,GM0392,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:haarlemmermeer,NL,GM0394,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:halderberge,NL,GM1655,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:hardenberg,NL,GM0160,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:harderwijk,NL,GM0243,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:hardinxveld_giessendam,NL,GM0523,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:harlingen,NL,GM0072,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:hattem,NL,GM0244,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:heemskerk,NL,GM0396,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:heemstede,NL,GM0397,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:heerde,NL,GM0246,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:heerenveen,NL,GM0074,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:heerlen,NL,GM0917,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:heeze_leende,NL,GM1658,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:heiloo,NL,GM0399,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:hellendoorn,NL,GM0163,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:helmond,NL,GM0794,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:hendrik_ido_ambacht,NL,GM0531,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:hengelo_o,NL,GM0164,is,"CBS publisher label with a province or (gemeente) suffix, bound to its CBS municipality code (reviewed 2.12)"
+NL:publisher_label:het_hogeland,NL,GM1966,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:heumen,NL,GM0252,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:heusden,NL,GM0797,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:hillegom,NL,GM0534,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:hilvarenbeek,NL,GM0798,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:hilversum,NL,GM0402,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:hoeksche_waard,NL,GM1963,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:hof_van_twente,NL,GM1735,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:hollands_kroon,NL,GM1911,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:hoogeveen,NL,GM0118,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:hoorn,NL,GM0405,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:horst_aan_de_maas,NL,GM1507,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:houten,NL,GM0321,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:huizen,NL,GM0406,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:hulst,NL,GM0677,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:ijsselstein,NL,GM0353,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:kaag_en_braassem,NL,GM1884,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:kampen,NL,GM0166,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:kapelle,NL,GM0678,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:katwijk,NL,GM0537,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:kerkrade,NL,GM0928,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:koggenland,NL,GM1598,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:krimpen_aan_den_ijssel,NL,GM0542,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:krimpenerwaard,NL,GM1931,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:laarbeek,NL,GM1659,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:land_van_cuijk,NL,GM1982,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:landgraaf,NL,GM0882,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:landsmeer,NL,GM0415,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:lansingerland,NL,GM1621,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:laren_nh,NL,GM0417,is,"CBS publisher label with a province or (gemeente) suffix, bound to its CBS municipality code (reviewed 2.12)"
+NL:publisher_label:leeuwarden,NL,GM0080,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:leiden,NL,GM0546,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:leiderdorp,NL,GM0547,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:leidschendam_voorburg,NL,GM1916,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:lelystad,NL,GM0995,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:leudal,NL,GM1640,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:leusden,NL,GM0327,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:lingewaard,NL,GM1705,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:lisse,NL,GM0553,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:lochem,NL,GM0262,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:loon_op_zand,NL,GM0809,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:lopik,NL,GM0331,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:losser,NL,GM0168,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:maasdriel,NL,GM0263,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:maasgouw,NL,GM1641,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:maashorst,NL,GM1991,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:maassluis,NL,GM0556,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:maastricht,NL,GM0935,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:medemblik,NL,GM0420,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:meerssen,NL,GM0938,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:meierijstad,NL,GM1948,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:meppel,NL,GM0119,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:middelburg_z,NL,GM0687,is,"CBS publisher label with a province or (gemeente) suffix, bound to its CBS municipality code (reviewed 2.12)"
+NL:publisher_label:midden_delfland,NL,GM1842,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:midden_drenthe,NL,GM1731,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:midden_groningen,NL,GM1952,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:moerdijk,NL,GM1709,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:molenlanden,NL,GM1978,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:montferland,NL,GM1955,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:montfoort,NL,GM0335,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:mook_en_middelaar,NL,GM0944,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:neder_betuwe,NL,GM1740,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:nederweert,NL,GM0946,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:nieuwegein,NL,GM0356,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:nieuwkoop,NL,GM0569,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:nijkerk,NL,GM0267,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:nijmegen,NL,GM0268,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:nissewaard,NL,GM1930,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:noardeast_fryslan,NL,GM1970,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:noord_beveland,NL,GM1695,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:noordenveld,NL,GM1699,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:noordoostpolder,NL,GM0171,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:noordwijk,NL,GM0575,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:nuenen_gerwen_en_nederwetten,NL,GM0820,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:nunspeet,NL,GM0302,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:oegstgeest,NL,GM0579,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:oirschot,NL,GM0823,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:oisterwijk,NL,GM0824,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:oldambt,NL,GM1895,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:oldebroek,NL,GM0269,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:oldenzaal,NL,GM0173,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:olst_wijhe,NL,GM1773,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:ommen,NL,GM0175,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:oost_gelre,NL,GM1586,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:oosterhout,NL,GM0826,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:ooststellingwerf,NL,GM0085,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:oostzaan,NL,GM0431,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:opmeer,NL,GM0432,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:opsterland,NL,GM0086,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:oss,NL,GM0828,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:oude_ijsselstreek,NL,GM1509,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:ouder_amstel,NL,GM0437,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:oudewater,NL,GM0589,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:overbetuwe,NL,GM1734,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:papendrecht,NL,GM0590,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:peel_en_maas,NL,GM1894,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:pekela,NL,GM0765,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:pijnacker_nootdorp,NL,GM1926,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:purmerend,NL,GM0439,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:putten,NL,GM0273,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:raalte,NL,GM0177,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:reimerswaal,NL,GM0703,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:renkum,NL,GM0274,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:renswoude,NL,GM0339,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:reusel_de_mierden,NL,GM1667,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:rheden,NL,GM0275,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:rhenen,NL,GM0340,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:ridderkerk,NL,GM0597,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:rijssen_holten,NL,GM1742,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:rijswijk_zh,NL,GM0603,is,"CBS publisher label with a province or (gemeente) suffix, bound to its CBS municipality code (reviewed 2.12)"
+NL:publisher_label:roerdalen,NL,GM1669,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:roermond,NL,GM0957,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:roosendaal,NL,GM1674,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:rotterdam,NL,GM0599,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:rozendaal,NL,GM0277,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:rucphen,NL,GM0840,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:s_gravenhage,NL,GM0518,is,"CBS publisher label with a province or (gemeente) suffix, bound to its CBS municipality code (reviewed 2.12)"
+NL:publisher_label:s_hertogenbosch,NL,GM0796,is,"CBS publisher label with a province or (gemeente) suffix, bound to its CBS municipality code (reviewed 2.12)"
+NL:publisher_label:schagen,NL,GM0441,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:scherpenzeel,NL,GM0279,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:schiedam,NL,GM0606,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:schiermonnikoog,NL,GM0088,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:schouwen_duiveland,NL,GM1676,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:simpelveld,NL,GM0965,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:sint_michielsgestel,NL,GM0845,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:sittard_geleen,NL,GM1883,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:sliedrecht,NL,GM0610,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:sluis,NL,GM1714,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:smallingerland,NL,GM0090,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:soest,NL,GM0342,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:someren,NL,GM0847,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:son_en_breugel,NL,GM0848,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:stadskanaal,NL,GM0037,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:staphorst,NL,GM0180,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:stede_broec,NL,GM0532,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:steenbergen,NL,GM0851,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:steenwijkerland,NL,GM1708,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:stein_l,NL,GM0971,is,"CBS publisher label with a province or (gemeente) suffix, bound to its CBS municipality code (reviewed 2.12)"
+NL:publisher_label:stichtse_vecht,NL,GM1904,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:sudwest_fryslan,NL,GM1900,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:terneuzen,NL,GM0715,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:terschelling,NL,GM0093,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:texel,NL,GM0448,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:teylingen,NL,GM1525,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:tholen,NL,GM0716,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:tiel,NL,GM0281,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:tilburg,NL,GM0855,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:tubbergen,NL,GM0183,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:twenterand,NL,GM1700,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:tynaarlo,NL,GM1730,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:tytsjerksteradiel,NL,GM0737,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:uitgeest,NL,GM0450,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:uithoorn,NL,GM0451,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:urk,NL,GM0184,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:utrecht_gemeente,NL,GM0344,is,"CBS publisher label with a province or (gemeente) suffix, bound to its CBS municipality code (reviewed 2.12)"
+NL:publisher_label:utrechtse_heuvelrug,NL,GM1581,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:vaals,NL,GM0981,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:valkenburg_a_d_geul,NL,GM0994,is,"CBS publisher label with a province or (gemeente) suffix, bound to its CBS municipality code (reviewed 2.12)"
+NL:publisher_label:valkenswaard,NL,GM0858,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:veendam,NL,GM0047,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:veenendaal,NL,GM0345,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:veere,NL,GM0717,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:veldhoven,NL,GM0861,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:velsen,NL,GM0453,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:venlo,NL,GM0983,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:venray,NL,GM0984,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:vijfheerenlanden,NL,GM1961,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:vlaardingen,NL,GM0622,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:vlieland,NL,GM0096,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:vlissingen,NL,GM0718,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:voerendaal,NL,GM0986,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:voorne_aan_zee,NL,GM1992,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:voorschoten,NL,GM0626,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:voorst,NL,GM0285,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:vught,NL,GM0865,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:waadhoeke,NL,GM1949,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:waalre,NL,GM0866,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:waalwijk,NL,GM0867,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:waddinxveen,NL,GM0627,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:wageningen,NL,GM0289,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:wassenaar,NL,GM0629,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:waterland,NL,GM0852,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:weert,NL,GM0988,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:west_betuwe,NL,GM1960,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:west_maas_en_waal,NL,GM0668,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:westerkwartier,NL,GM1969,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:westerveld,NL,GM1701,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:westervoort,NL,GM0293,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:westerwolde,NL,GM1950,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:westland,NL,GM1783,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:weststellingwerf,NL,GM0098,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:wierden,NL,GM0189,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:wijchen,NL,GM0296,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:wijdemeren,NL,GM1696,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:wijk_bij_duurstede,NL,GM0352,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:winterswijk,NL,GM0294,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:woensdrecht,NL,GM0873,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:woerden,NL,GM0632,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:wormerland,NL,GM0880,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:woudenberg,NL,GM0351,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:zaanstad,NL,GM0479,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:zaltbommel,NL,GM0297,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:zandvoort,NL,GM0473,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:zeewolde,NL,GM0050,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:zeist,NL,GM0355,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:zevenaar,NL,GM0299,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:zoetermeer,NL,GM0637,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:zoeterwoude,NL,GM0638,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:zuidplas,NL,GM1892,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:zundert,NL,GM0879,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:zutphen,NL,GM0301,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:zwartewaterland,NL,GM1896,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:zwijndrecht,NL,GM0642,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NL:publisher_label:zwolle,NL,GM0193,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NO:publisher_label:akershus_except_baerum,NO,3203,zone_member,"Akershus county (2024 municipality codes 32xx) without Baerum, as the zone name states"
+NO:publisher_label:akershus_except_baerum,NO,3205,zone_member,"Akershus county (2024 municipality codes 32xx) without Baerum, as the zone name states"
+NO:publisher_label:akershus_except_baerum,NO,3207,zone_member,"Akershus county (2024 municipality codes 32xx) without Baerum, as the zone name states"
+NO:publisher_label:akershus_except_baerum,NO,3209,zone_member,"Akershus county (2024 municipality codes 32xx) without Baerum, as the zone name states"
+NO:publisher_label:akershus_except_baerum,NO,3212,zone_member,"Akershus county (2024 municipality codes 32xx) without Baerum, as the zone name states"
+NO:publisher_label:akershus_except_baerum,NO,3214,zone_member,"Akershus county (2024 municipality codes 32xx) without Baerum, as the zone name states"
+NO:publisher_label:akershus_except_baerum,NO,3216,zone_member,"Akershus county (2024 municipality codes 32xx) without Baerum, as the zone name states"
+NO:publisher_label:akershus_except_baerum,NO,3218,zone_member,"Akershus county (2024 municipality codes 32xx) without Baerum, as the zone name states"
+NO:publisher_label:akershus_except_baerum,NO,3220,zone_member,"Akershus county (2024 municipality codes 32xx) without Baerum, as the zone name states"
+NO:publisher_label:akershus_except_baerum,NO,3222,zone_member,"Akershus county (2024 municipality codes 32xx) without Baerum, as the zone name states"
+NO:publisher_label:akershus_except_baerum,NO,3224,zone_member,"Akershus county (2024 municipality codes 32xx) without Baerum, as the zone name states"
+NO:publisher_label:akershus_except_baerum,NO,3226,zone_member,"Akershus county (2024 municipality codes 32xx) without Baerum, as the zone name states"
+NO:publisher_label:akershus_except_baerum,NO,3228,zone_member,"Akershus county (2024 municipality codes 32xx) without Baerum, as the zone name states"
+NO:publisher_label:akershus_except_baerum,NO,3230,zone_member,"Akershus county (2024 municipality codes 32xx) without Baerum, as the zone name states"
+NO:publisher_label:akershus_except_baerum,NO,3232,zone_member,"Akershus county (2024 municipality codes 32xx) without Baerum, as the zone name states"
+NO:publisher_label:akershus_except_baerum,NO,3234,zone_member,"Akershus county (2024 municipality codes 32xx) without Baerum, as the zone name states"
+NO:publisher_label:akershus_except_baerum,NO,3236,zone_member,"Akershus county (2024 municipality codes 32xx) without Baerum, as the zone name states"
+NO:publisher_label:akershus_except_baerum,NO,3238,zone_member,"Akershus county (2024 municipality codes 32xx) without Baerum, as the zone name states"
+NO:publisher_label:akershus_except_baerum,NO,3240,zone_member,"Akershus county (2024 municipality codes 32xx) without Baerum, as the zone name states"
+NO:publisher_label:akershus_except_baerum,NO,3242,zone_member,"Akershus county (2024 municipality codes 32xx) without Baerum, as the zone name states"
+NO:publisher_label:bergen,NO,4601,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NO:publisher_label:oslo_and_baerum,NO,0301,zone_member,rental zone named after its two municipalities
+NO:publisher_label:oslo_and_baerum,NO,3201,zone_member,rental zone named after its two municipalities
+NO:publisher_label:stavanger,NO,1103,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+NO:publisher_label:trondheim,NO,5001,is,"publisher municipality label matched to the official municipality name (exact, accents folded)"
+RS:publisher_label:ada,RS,80012,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:aleksandrovac,RS,70017,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:aleksinac,RS,70025,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:alibunar,RS,80039,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:apatin,RS,80047,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:aranelovac,RS,70033,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:arilje,RS,70041,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:babusnica,RS,70050,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:bac,RS,80055,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:backa_palanka,RS,80063,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:backa_topola,RS,80071,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:backi_petrovac,RS,80080,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:bajina_basta,RS,70068,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:barajevo,RS,70092,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:batocina,RS,70076,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:becej,RS,80110,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:bela_crkva,RS,80098,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:bela_palanka,RS,70084,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:beocin,RS,80101,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:beogradska_oblast,RS,70092,district,statistical area (oblast) = NUTS-3 code RS110 the places carry; seat town inside (checked)
+RS:publisher_label:beogradska_oblast,RS,70106,district,statistical area (oblast) = NUTS-3 code RS110 the places carry; seat town inside (checked)
+RS:publisher_label:beogradska_oblast,RS,70114,district,statistical area (oblast) = NUTS-3 code RS110 the places carry; seat town inside (checked)
+RS:publisher_label:beogradska_oblast,RS,70122,district,statistical area (oblast) = NUTS-3 code RS110 the places carry; seat town inside (checked)
+RS:publisher_label:beogradska_oblast,RS,70149,district,statistical area (oblast) = NUTS-3 code RS110 the places carry; seat town inside (checked)
+RS:publisher_label:beogradska_oblast,RS,70157,district,statistical area (oblast) = NUTS-3 code RS110 the places carry; seat town inside (checked)
+RS:publisher_label:beogradska_oblast,RS,70165,district,statistical area (oblast) = NUTS-3 code RS110 the places carry; seat town inside (checked)
+RS:publisher_label:beogradska_oblast,RS,70173,district,statistical area (oblast) = NUTS-3 code RS110 the places carry; seat town inside (checked)
+RS:publisher_label:beogradska_oblast,RS,70181,district,statistical area (oblast) = NUTS-3 code RS110 the places carry; seat town inside (checked)
+RS:publisher_label:beogradska_oblast,RS,70190,district,statistical area (oblast) = NUTS-3 code RS110 the places carry; seat town inside (checked)
+RS:publisher_label:beogradska_oblast,RS,70203,district,statistical area (oblast) = NUTS-3 code RS110 the places carry; seat town inside (checked)
+RS:publisher_label:beogradska_oblast,RS,70211,district,statistical area (oblast) = NUTS-3 code RS110 the places carry; seat town inside (checked)
+RS:publisher_label:beogradska_oblast,RS,70220,district,statistical area (oblast) = NUTS-3 code RS110 the places carry; seat town inside (checked)
+RS:publisher_label:beogradska_oblast,RS,70238,district,statistical area (oblast) = NUTS-3 code RS110 the places carry; seat town inside (checked)
+RS:publisher_label:beogradska_oblast,RS,70246,district,statistical area (oblast) = NUTS-3 code RS110 the places carry; seat town inside (checked)
+RS:publisher_label:beogradska_oblast,RS,70254,district,statistical area (oblast) = NUTS-3 code RS110 the places carry; seat town inside (checked)
+RS:publisher_label:beogradska_oblast,RS,71293,district,statistical area (oblast) = NUTS-3 code RS110 the places carry; seat town inside (checked)
+RS:publisher_label:beogradski_region,RS,70092,stat_region,statistical region = NUTS code RS11 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:beogradski_region,RS,70106,stat_region,statistical region = NUTS code RS11 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:beogradski_region,RS,70114,stat_region,statistical region = NUTS code RS11 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:beogradski_region,RS,70122,stat_region,statistical region = NUTS code RS11 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:beogradski_region,RS,70149,stat_region,statistical region = NUTS code RS11 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:beogradski_region,RS,70157,stat_region,statistical region = NUTS code RS11 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:beogradski_region,RS,70165,stat_region,statistical region = NUTS code RS11 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:beogradski_region,RS,70173,stat_region,statistical region = NUTS code RS11 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:beogradski_region,RS,70181,stat_region,statistical region = NUTS code RS11 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:beogradski_region,RS,70190,stat_region,statistical region = NUTS code RS11 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:beogradski_region,RS,70203,stat_region,statistical region = NUTS code RS11 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:beogradski_region,RS,70211,stat_region,statistical region = NUTS code RS11 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:beogradski_region,RS,70220,stat_region,statistical region = NUTS code RS11 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:beogradski_region,RS,70238,stat_region,statistical region = NUTS code RS11 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:beogradski_region,RS,70246,stat_region,statistical region = NUTS code RS11 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:beogradski_region,RS,70254,stat_region,statistical region = NUTS code RS11 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:beogradski_region,RS,71293,stat_region,statistical region = NUTS code RS11 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:blace,RS,70262,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:bogatic,RS,70289,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:bojnik,RS,70297,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:boljevac,RS,70319,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:bor,RS,70327,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:borska_oblast,RS,70327,district,statistical area (oblast) = NUTS-3 code RS221 the places carry; seat town inside (checked)
+RS:publisher_label:borska_oblast,RS,70572,district,statistical area (oblast) = NUTS-3 code RS221 the places carry; seat town inside (checked)
+RS:publisher_label:borska_oblast,RS,70785,district,statistical area (oblast) = NUTS-3 code RS221 the places carry; seat town inside (checked)
+RS:publisher_label:borska_oblast,RS,70840,district,statistical area (oblast) = NUTS-3 code RS221 the places carry; seat town inside (checked)
+RS:publisher_label:bosilegrad,RS,70335,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:branicevska_oblast,RS,70394,district,statistical area (oblast) = NUTS-3 code RS222 the places carry; seat town inside (checked)
+RS:publisher_label:branicevska_oblast,RS,70475,district,statistical area (oblast) = NUTS-3 code RS222 the places carry; seat town inside (checked)
+RS:publisher_label:branicevska_oblast,RS,70521,district,statistical area (oblast) = NUTS-3 code RS222 the places carry; seat town inside (checked)
+RS:publisher_label:branicevska_oblast,RS,70530,district,statistical area (oblast) = NUTS-3 code RS222 the places carry; seat town inside (checked)
+RS:publisher_label:branicevska_oblast,RS,70696,district,statistical area (oblast) = NUTS-3 code RS222 the places carry; seat town inside (checked)
+RS:publisher_label:branicevska_oblast,RS,70807,district,statistical area (oblast) = NUTS-3 code RS222 the places carry; seat town inside (checked)
+RS:publisher_label:branicevska_oblast,RS,70912,district,statistical area (oblast) = NUTS-3 code RS222 the places carry; seat town inside (checked)
+RS:publisher_label:branicevska_oblast,RS,70947,district,statistical area (oblast) = NUTS-3 code RS222 the places carry; seat town inside (checked)
+RS:publisher_label:branicevska_oblast,RS,71340,district,statistical area (oblast) = NUTS-3 code RS222 the places carry; seat town inside (checked)
+RS:publisher_label:brus,RS,70343,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:bujanovac,RS,70351,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:cacak,RS,71242,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:cajetina,RS,71234,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:cicevac,RS,71196,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:coka,RS,80489,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:crna_trava,RS,71226,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:crveni_krst,RS,71315,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:cukarica,RS,70254,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:cuprija,RS,71200,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:despotovac,RS,70491,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:dimitrovgrad,RS,70505,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:doljevac,RS,70513,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:gadzin_han,RS,70467,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:golubac,RS,70475,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:gornji_milanovac,RS,70483,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:grad_nis,RS,71285,group_member,"city (grad) made up of its city municipalities, named in the law on territorial organisation"
+RS:publisher_label:grad_nis,RS,71307,group_member,"city (grad) made up of its city municipalities, named in the law on territorial organisation"
+RS:publisher_label:grad_nis,RS,71315,group_member,"city (grad) made up of its city municipalities, named in the law on territorial organisation"
+RS:publisher_label:grad_nis,RS,71323,group_member,"city (grad) made up of its city municipalities, named in the law on territorial organisation"
+RS:publisher_label:grad_nis,RS,71331,group_member,"city (grad) made up of its city municipalities, named in the law on territorial organisation"
+RS:publisher_label:grad_novi_sad,RS,80284,group_member,"city (grad) made up of its city municipalities, named in the law on territorial organisation"
+RS:publisher_label:grad_novi_sad,RS,80519,group_member,"city (grad) made up of its city municipalities, named in the law on territorial organisation"
+RS:publisher_label:grad_pozarevac,RS,70947,group_member,"city (grad) made up of its city municipalities, named in the law on territorial organisation"
+RS:publisher_label:grad_pozarevac,RS,71340,group_member,"city (grad) made up of its city municipalities, named in the law on territorial organisation"
+RS:publisher_label:grad_uzice,RS,71145,group_member,"city (grad) made up of its city municipalities, named in the law on territorial organisation"
+RS:publisher_label:grad_uzice,RS,71366,group_member,"city (grad) made up of its city municipalities, named in the law on territorial organisation"
+RS:publisher_label:grad_vranje,RS,70432,group_member,"city (grad) made up of its city municipalities, named in the law on territorial organisation"
+RS:publisher_label:grad_vranje,RS,71358,group_member,"city (grad) made up of its city municipalities, named in the law on territorial organisation"
+RS:publisher_label:grocka,RS,70122,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:inija,RS,80179,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:irig,RS,80187,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:ivanjica,RS,70564,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:jablanicka_oblast,RS,70297,district,statistical area (oblast) = NUTS-3 code RS224 the places carry; seat town inside (checked)
+RS:publisher_label:jablanicka_oblast,RS,70424,district,statistical area (oblast) = NUTS-3 code RS224 the places carry; seat town inside (checked)
+RS:publisher_label:jablanicka_oblast,RS,70718,district,statistical area (oblast) = NUTS-3 code RS224 the places carry; seat town inside (checked)
+RS:publisher_label:jablanicka_oblast,RS,70726,district,statistical area (oblast) = NUTS-3 code RS224 the places carry; seat town inside (checked)
+RS:publisher_label:jablanicka_oblast,RS,70815,district,statistical area (oblast) = NUTS-3 code RS224 the places carry; seat town inside (checked)
+RS:publisher_label:jablanicka_oblast,RS,71226,district,statistical area (oblast) = NUTS-3 code RS224 the places carry; seat town inside (checked)
+RS:publisher_label:jagodina,RS,71048,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:juznobacka_oblast,RS,80055,district,statistical area (oblast) = NUTS-3 code RS123 the places carry; seat town inside (checked)
+RS:publisher_label:juznobacka_oblast,RS,80063,district,statistical area (oblast) = NUTS-3 code RS123 the places carry; seat town inside (checked)
+RS:publisher_label:juznobacka_oblast,RS,80080,district,statistical area (oblast) = NUTS-3 code RS123 the places carry; seat town inside (checked)
+RS:publisher_label:juznobacka_oblast,RS,80101,district,statistical area (oblast) = NUTS-3 code RS123 the places carry; seat town inside (checked)
+RS:publisher_label:juznobacka_oblast,RS,80110,district,statistical area (oblast) = NUTS-3 code RS123 the places carry; seat town inside (checked)
+RS:publisher_label:juznobacka_oblast,RS,80136,district,statistical area (oblast) = NUTS-3 code RS123 the places carry; seat town inside (checked)
+RS:publisher_label:juznobacka_oblast,RS,80284,district,statistical area (oblast) = NUTS-3 code RS123 the places carry; seat town inside (checked)
+RS:publisher_label:juznobacka_oblast,RS,80390,district,statistical area (oblast) = NUTS-3 code RS123 the places carry; seat town inside (checked)
+RS:publisher_label:juznobacka_oblast,RS,80411,district,statistical area (oblast) = NUTS-3 code RS123 the places carry; seat town inside (checked)
+RS:publisher_label:juznobacka_oblast,RS,80446,district,statistical area (oblast) = NUTS-3 code RS123 the places carry; seat town inside (checked)
+RS:publisher_label:juznobacka_oblast,RS,80454,district,statistical area (oblast) = NUTS-3 code RS123 the places carry; seat town inside (checked)
+RS:publisher_label:juznobacka_oblast,RS,80462,district,statistical area (oblast) = NUTS-3 code RS123 the places carry; seat town inside (checked)
+RS:publisher_label:juznobacka_oblast,RS,80519,district,statistical area (oblast) = NUTS-3 code RS123 the places carry; seat town inside (checked)
+RS:publisher_label:juznobanatska_oblast,RS,80039,district,statistical area (oblast) = NUTS-3 code RS122 the places carry; seat town inside (checked)
+RS:publisher_label:juznobanatska_oblast,RS,80098,district,statistical area (oblast) = NUTS-3 code RS122 the places carry; seat town inside (checked)
+RS:publisher_label:juznobanatska_oblast,RS,80128,district,statistical area (oblast) = NUTS-3 code RS122 the places carry; seat town inside (checked)
+RS:publisher_label:juznobanatska_oblast,RS,80217,district,statistical area (oblast) = NUTS-3 code RS122 the places carry; seat town inside (checked)
+RS:publisher_label:juznobanatska_oblast,RS,80225,district,statistical area (oblast) = NUTS-3 code RS122 the places carry; seat town inside (checked)
+RS:publisher_label:juznobanatska_oblast,RS,80292,district,statistical area (oblast) = NUTS-3 code RS122 the places carry; seat town inside (checked)
+RS:publisher_label:juznobanatska_oblast,RS,80314,district,statistical area (oblast) = NUTS-3 code RS122 the places carry; seat town inside (checked)
+RS:publisher_label:juznobanatska_oblast,RS,80349,district,statistical area (oblast) = NUTS-3 code RS122 the places carry; seat town inside (checked)
+RS:publisher_label:kanjiza,RS,80195,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:kikinda,RS,80209,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:kladovo,RS,70572,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:knic,RS,70599,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:knjazevac,RS,70602,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:koceljeva,RS,70637,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:kolubarska_oblast,RS,70360,district,statistical area (oblast) = NUTS-3 code RS212 the places carry; seat town inside (checked)
+RS:publisher_label:kolubarska_oblast,RS,70700,district,statistical area (oblast) = NUTS-3 code RS212 the places carry; seat town inside (checked)
+RS:publisher_label:kolubarska_oblast,RS,70769,district,statistical area (oblast) = NUTS-3 code RS212 the places carry; seat town inside (checked)
+RS:publisher_label:kolubarska_oblast,RS,70831,district,statistical area (oblast) = NUTS-3 code RS212 the places carry; seat town inside (checked)
+RS:publisher_label:kolubarska_oblast,RS,70882,district,statistical area (oblast) = NUTS-3 code RS212 the places carry; seat town inside (checked)
+RS:publisher_label:kolubarska_oblast,RS,71218,district,statistical area (oblast) = NUTS-3 code RS212 the places carry; seat town inside (checked)
+RS:publisher_label:kosjeric,RS,70629,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:kostolac,RS,71340,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:kovacica,RS,80217,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:kovin,RS,80225,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:kragujevac,RS,70645,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:kraljevo,RS,70653,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:krupanj,RS,70661,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:krusevac,RS,70670,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:kucevo,RS,70696,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:kula,RS,80233,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:kursumlija,RS,70688,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:lajkovac,RS,70700,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:lapovo,RS,71277,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:lazarevac,RS,70165,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:lebane,RS,70718,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:leskovac,RS,70726,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:ljig,RS,70769,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:ljubovija,RS,70777,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:loznica,RS,70734,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:lucani,RS,70742,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:macvanska_oblast,RS,70289,district,statistical area (oblast) = NUTS-3 code RS213 the places carry; seat town inside (checked)
+RS:publisher_label:macvanska_oblast,RS,70408,district,statistical area (oblast) = NUTS-3 code RS213 the places carry; seat town inside (checked)
+RS:publisher_label:macvanska_oblast,RS,70637,district,statistical area (oblast) = NUTS-3 code RS213 the places carry; seat town inside (checked)
+RS:publisher_label:macvanska_oblast,RS,70661,district,statistical area (oblast) = NUTS-3 code RS213 the places carry; seat town inside (checked)
+RS:publisher_label:macvanska_oblast,RS,70734,district,statistical area (oblast) = NUTS-3 code RS213 the places carry; seat town inside (checked)
+RS:publisher_label:macvanska_oblast,RS,70777,district,statistical area (oblast) = NUTS-3 code RS213 the places carry; seat town inside (checked)
+RS:publisher_label:macvanska_oblast,RS,70793,district,statistical area (oblast) = NUTS-3 code RS213 the places carry; seat town inside (checked)
+RS:publisher_label:macvanska_oblast,RS,71269,district,statistical area (oblast) = NUTS-3 code RS213 the places carry; seat town inside (checked)
+RS:publisher_label:majdanpek,RS,70785,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:mali_ios,RS,80241,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:mali_zvornik,RS,70793,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:malo_crnice,RS,70807,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:medijana,RS,71331,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:medvea,RS,70815,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:merosina,RS,70823,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:mionica,RS,70831,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:mladenovac,RS,70173,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:moravicka_oblast,RS,70483,district,statistical area (oblast) = NUTS-3 code RS214 the places carry; seat town inside (checked)
+RS:publisher_label:moravicka_oblast,RS,70564,district,statistical area (oblast) = NUTS-3 code RS214 the places carry; seat town inside (checked)
+RS:publisher_label:moravicka_oblast,RS,70742,district,statistical area (oblast) = NUTS-3 code RS214 the places carry; seat town inside (checked)
+RS:publisher_label:moravicka_oblast,RS,71242,district,statistical area (oblast) = NUTS-3 code RS214 the places carry; seat town inside (checked)
+RS:publisher_label:negotin,RS,70840,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:nisavska_oblast,RS,70025,district,statistical area (oblast) = NUTS-3 code RS225 the places carry; seat town inside (checked)
+RS:publisher_label:nisavska_oblast,RS,70467,district,statistical area (oblast) = NUTS-3 code RS225 the places carry; seat town inside (checked)
+RS:publisher_label:nisavska_oblast,RS,70513,district,statistical area (oblast) = NUTS-3 code RS225 the places carry; seat town inside (checked)
+RS:publisher_label:nisavska_oblast,RS,70823,district,statistical area (oblast) = NUTS-3 code RS225 the places carry; seat town inside (checked)
+RS:publisher_label:nisavska_oblast,RS,71005,district,statistical area (oblast) = NUTS-3 code RS225 the places carry; seat town inside (checked)
+RS:publisher_label:nisavska_oblast,RS,71064,district,statistical area (oblast) = NUTS-3 code RS225 the places carry; seat town inside (checked)
+RS:publisher_label:nisavska_oblast,RS,71285,district,statistical area (oblast) = NUTS-3 code RS225 the places carry; seat town inside (checked)
+RS:publisher_label:nisavska_oblast,RS,71307,district,statistical area (oblast) = NUTS-3 code RS225 the places carry; seat town inside (checked)
+RS:publisher_label:nisavska_oblast,RS,71315,district,statistical area (oblast) = NUTS-3 code RS225 the places carry; seat town inside (checked)
+RS:publisher_label:nisavska_oblast,RS,71323,district,statistical area (oblast) = NUTS-3 code RS225 the places carry; seat town inside (checked)
+RS:publisher_label:nisavska_oblast,RS,71331,district,statistical area (oblast) = NUTS-3 code RS225 the places carry; seat town inside (checked)
+RS:publisher_label:niska_banja,RS,71285,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:nova_crnja,RS,80250,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:nova_varos,RS,70866,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:novi_becej,RS,80268,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:novi_beograd,RS,70181,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:novi_knezevac,RS,80276,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:novi_pazar,RS,70874,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:obrenovac,RS,70190,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:odzaci,RS,80306,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:opovo,RS,80292,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:osecina,RS,70882,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:palilula_beograd,RS,70203,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:palilula_nis,RS,71323,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:pancevo,RS,80314,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:pantelej,RS,71307,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:paracin,RS,70904,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:pcinjska_oblast,RS,70335,district,statistical area (oblast) = NUTS-3 code RS228 the places carry; seat town inside (checked)
+RS:publisher_label:pcinjska_oblast,RS,70351,district,statistical area (oblast) = NUTS-3 code RS228 the places carry; seat town inside (checked)
+RS:publisher_label:pcinjska_oblast,RS,70416,district,statistical area (oblast) = NUTS-3 code RS228 the places carry; seat town inside (checked)
+RS:publisher_label:pcinjska_oblast,RS,70432,district,statistical area (oblast) = NUTS-3 code RS228 the places carry; seat town inside (checked)
+RS:publisher_label:pcinjska_oblast,RS,70963,district,statistical area (oblast) = NUTS-3 code RS228 the places carry; seat town inside (checked)
+RS:publisher_label:pcinjska_oblast,RS,71137,district,statistical area (oblast) = NUTS-3 code RS228 the places carry; seat town inside (checked)
+RS:publisher_label:pcinjska_oblast,RS,71161,district,statistical area (oblast) = NUTS-3 code RS228 the places carry; seat town inside (checked)
+RS:publisher_label:pcinjska_oblast,RS,71358,district,statistical area (oblast) = NUTS-3 code RS228 the places carry; seat town inside (checked)
+RS:publisher_label:pecinci,RS,80322,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:petrovac_na_mlavi,RS,70912,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:pirot,RS,70939,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:pirotska_oblast,RS,70050,district,statistical area (oblast) = NUTS-3 code RS226 the places carry; seat town inside (checked)
+RS:publisher_label:pirotska_oblast,RS,70084,district,statistical area (oblast) = NUTS-3 code RS226 the places carry; seat town inside (checked)
+RS:publisher_label:pirotska_oblast,RS,70505,district,statistical area (oblast) = NUTS-3 code RS226 the places carry; seat town inside (checked)
+RS:publisher_label:pirotska_oblast,RS,70939,district,statistical area (oblast) = NUTS-3 code RS226 the places carry; seat town inside (checked)
+RS:publisher_label:plandiste,RS,80349,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:podunavska_oblast,RS,70386,district,statistical area (oblast) = NUTS-3 code RS227 the places carry; seat town inside (checked)
+RS:publisher_label:podunavska_oblast,RS,71099,district,statistical area (oblast) = NUTS-3 code RS227 the places carry; seat town inside (checked)
+RS:publisher_label:podunavska_oblast,RS,71102,district,statistical area (oblast) = NUTS-3 code RS227 the places carry; seat town inside (checked)
+RS:publisher_label:pomoravska_oblast,RS,70491,district,statistical area (oblast) = NUTS-3 code RS215 the places carry; seat town inside (checked)
+RS:publisher_label:pomoravska_oblast,RS,70904,district,statistical area (oblast) = NUTS-3 code RS215 the places carry; seat town inside (checked)
+RS:publisher_label:pomoravska_oblast,RS,71030,district,statistical area (oblast) = NUTS-3 code RS215 the places carry; seat town inside (checked)
+RS:publisher_label:pomoravska_oblast,RS,71048,district,statistical area (oblast) = NUTS-3 code RS215 the places carry; seat town inside (checked)
+RS:publisher_label:pomoravska_oblast,RS,71056,district,statistical area (oblast) = NUTS-3 code RS215 the places carry; seat town inside (checked)
+RS:publisher_label:pomoravska_oblast,RS,71200,district,statistical area (oblast) = NUTS-3 code RS215 the places carry; seat town inside (checked)
+RS:publisher_label:pozarevac,RS,70947,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:pozega,RS,70955,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:presevo,RS,70963,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:priboj,RS,70971,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:prijepolje,RS,70980,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:prokuplje,RS,70998,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:raca,RS,71013,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:rakovica,RS,70211,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:rasinska_oblast,RS,70017,district,statistical area (oblast) = NUTS-3 code RS216 the places carry; seat town inside (checked)
+RS:publisher_label:rasinska_oblast,RS,70343,district,statistical area (oblast) = NUTS-3 code RS216 the places carry; seat town inside (checked)
+RS:publisher_label:rasinska_oblast,RS,70378,district,statistical area (oblast) = NUTS-3 code RS216 the places carry; seat town inside (checked)
+RS:publisher_label:rasinska_oblast,RS,70670,district,statistical area (oblast) = NUTS-3 code RS216 the places carry; seat town inside (checked)
+RS:publisher_label:rasinska_oblast,RS,71170,district,statistical area (oblast) = NUTS-3 code RS216 the places carry; seat town inside (checked)
+RS:publisher_label:rasinska_oblast,RS,71196,district,statistical area (oblast) = NUTS-3 code RS216 the places carry; seat town inside (checked)
+RS:publisher_label:raska,RS,71021,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:raska_oblast,RS,70459,district,statistical area (oblast) = NUTS-3 code RS217 the places carry; seat town inside (checked)
+RS:publisher_label:raska_oblast,RS,70653,district,statistical area (oblast) = NUTS-3 code RS217 the places carry; seat town inside (checked)
+RS:publisher_label:raska_oblast,RS,70874,district,statistical area (oblast) = NUTS-3 code RS217 the places carry; seat town inside (checked)
+RS:publisher_label:raska_oblast,RS,71021,district,statistical area (oblast) = NUTS-3 code RS217 the places carry; seat town inside (checked)
+RS:publisher_label:raska_oblast,RS,71188,district,statistical area (oblast) = NUTS-3 code RS217 the places carry; seat town inside (checked)
+RS:publisher_label:razanj,RS,71005,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70025,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70050,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70084,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70262,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70297,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70319,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70327,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70335,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70351,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70386,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70394,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70416,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70424,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70432,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70467,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70475,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70505,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70513,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70521,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70530,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70548,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70556,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70572,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70602,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70688,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70696,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70718,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70726,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70785,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70807,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70815,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70823,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70840,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70912,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70939,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70947,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70963,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,70998,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,71005,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,71064,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,71099,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,71102,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,71129,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,71137,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,71161,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,71226,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,71285,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,71307,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,71315,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,71323,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,71331,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,71340,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_juzne_i_istocne_srbije,RS,71358,stat_region,statistical region = NUTS code RS22 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70017,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70033,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70041,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70068,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70076,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70289,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70343,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70360,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70378,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70408,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70459,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70483,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70491,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70564,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70599,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70629,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70637,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70645,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70653,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70661,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70670,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70700,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70734,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70742,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70769,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70777,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70793,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70831,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70866,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70874,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70882,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70904,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70955,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70971,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,70980,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,71013,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,71021,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,71030,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,71048,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,71056,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,71072,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,71145,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,71153,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,71170,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,71188,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,71196,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,71200,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,71218,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,71234,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,71242,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,71269,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,71277,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_sumadije_i_zapadne_srbije,RS,71366,stat_region,statistical region = NUTS code RS21 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80012,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80039,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80047,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80055,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80063,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80071,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80080,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80098,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80101,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80110,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80128,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80136,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80144,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80152,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80179,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80187,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80195,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80209,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80217,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80225,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80233,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80241,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80250,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80268,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80276,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80284,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80292,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80306,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80314,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80322,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80349,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80357,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80365,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80373,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80381,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80390,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80403,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80411,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80420,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80438,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80446,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80454,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80462,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80489,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80497,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:region_vojvodine,RS,80519,stat_region,statistical region = NUTS code RS12 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:rekovac,RS,71030,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:republic_of_serbia,RS,*,country_context,"national figure, shown as country context on every place"
+RS:publisher_label:ruma,RS,80357,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:sabac,RS,71269,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:savski_venac,RS,70220,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:secanj,RS,80373,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:senta,RS,80365,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:severnobacka_oblast,RS,80071,district,statistical area (oblast) = NUTS-3 code RS125 the places carry; seat town inside (checked)
+RS:publisher_label:severnobacka_oblast,RS,80241,district,statistical area (oblast) = NUTS-3 code RS125 the places carry; seat town inside (checked)
+RS:publisher_label:severnobacka_oblast,RS,80438,district,statistical area (oblast) = NUTS-3 code RS125 the places carry; seat town inside (checked)
+RS:publisher_label:severnobanatska_oblast,RS,80012,district,statistical area (oblast) = NUTS-3 code RS124 the places carry; seat town inside (checked)
+RS:publisher_label:severnobanatska_oblast,RS,80195,district,statistical area (oblast) = NUTS-3 code RS124 the places carry; seat town inside (checked)
+RS:publisher_label:severnobanatska_oblast,RS,80209,district,statistical area (oblast) = NUTS-3 code RS124 the places carry; seat town inside (checked)
+RS:publisher_label:severnobanatska_oblast,RS,80276,district,statistical area (oblast) = NUTS-3 code RS124 the places carry; seat town inside (checked)
+RS:publisher_label:severnobanatska_oblast,RS,80365,district,statistical area (oblast) = NUTS-3 code RS124 the places carry; seat town inside (checked)
+RS:publisher_label:severnobanatska_oblast,RS,80489,district,statistical area (oblast) = NUTS-3 code RS124 the places carry; seat town inside (checked)
+RS:publisher_label:sevojno,RS,71366,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:sid,RS,80497,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:sjenica,RS,71072,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:smederevo,RS,71099,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:smederevska_palanka,RS,71102,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:sokobanja,RS,71129,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:sombor,RS,80381,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:sopot,RS,70238,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:srbija_jug,RS,70017,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70025,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70033,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70041,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70050,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70068,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70076,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70084,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70262,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70289,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70297,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70319,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70327,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70335,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70343,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70351,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70360,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70378,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70386,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70394,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70408,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70416,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70424,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70432,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70459,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70467,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70475,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70483,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70491,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70505,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70513,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70521,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70530,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70548,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70556,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70564,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70572,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70599,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70602,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70629,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70637,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70645,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70653,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70661,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70670,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70688,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70696,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70700,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70718,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70726,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70734,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70742,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70769,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70777,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70785,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70793,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70807,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70815,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70823,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70831,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70840,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70866,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70874,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70882,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70904,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70912,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70939,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70947,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70955,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70963,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70971,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70980,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,70998,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71005,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71013,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71021,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71030,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71048,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71056,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71064,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71072,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71099,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71102,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71129,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71137,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71145,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71153,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71161,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71170,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71188,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71196,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71200,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71218,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71226,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71234,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71242,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71269,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71277,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71285,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71307,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71315,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71323,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71331,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71340,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71358,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_jug,RS,71366,stat_region,statistical region = NUTS code RS2 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,70092,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,70106,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,70114,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,70122,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,70149,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,70157,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,70165,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,70173,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,70181,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,70190,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,70203,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,70211,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,70220,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,70238,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,70246,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,70254,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,71293,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80012,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80039,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80047,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80055,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80063,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80071,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80080,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80098,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80101,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80110,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80128,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80136,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80144,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80152,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80179,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80187,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80195,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80209,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80217,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80225,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80233,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80241,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80250,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80268,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80276,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80284,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80292,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80306,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80314,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80322,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80349,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80357,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80365,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80373,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80381,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80390,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80403,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80411,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80420,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80438,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80446,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80454,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80462,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80489,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80497,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbija_sever,RS,80519,stat_region,statistical region = NUTS code RS1 (all places whose NUTS-3 code starts with it)
+RS:publisher_label:srbobran,RS,80390,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:srednjobanatska_oblast,RS,80144,district,statistical area (oblast) = NUTS-3 code RS126 the places carry; seat town inside (checked)
+RS:publisher_label:srednjobanatska_oblast,RS,80152,district,statistical area (oblast) = NUTS-3 code RS126 the places carry; seat town inside (checked)
+RS:publisher_label:srednjobanatska_oblast,RS,80250,district,statistical area (oblast) = NUTS-3 code RS126 the places carry; seat town inside (checked)
+RS:publisher_label:srednjobanatska_oblast,RS,80268,district,statistical area (oblast) = NUTS-3 code RS126 the places carry; seat town inside (checked)
+RS:publisher_label:srednjobanatska_oblast,RS,80373,district,statistical area (oblast) = NUTS-3 code RS126 the places carry; seat town inside (checked)
+RS:publisher_label:sremska_mitrovica,RS,80403,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:sremska_oblast,RS,80179,district,statistical area (oblast) = NUTS-3 code RS127 the places carry; seat town inside (checked)
+RS:publisher_label:sremska_oblast,RS,80187,district,statistical area (oblast) = NUTS-3 code RS127 the places carry; seat town inside (checked)
+RS:publisher_label:sremska_oblast,RS,80322,district,statistical area (oblast) = NUTS-3 code RS127 the places carry; seat town inside (checked)
+RS:publisher_label:sremska_oblast,RS,80357,district,statistical area (oblast) = NUTS-3 code RS127 the places carry; seat town inside (checked)
+RS:publisher_label:sremska_oblast,RS,80403,district,statistical area (oblast) = NUTS-3 code RS127 the places carry; seat town inside (checked)
+RS:publisher_label:sremska_oblast,RS,80420,district,statistical area (oblast) = NUTS-3 code RS127 the places carry; seat town inside (checked)
+RS:publisher_label:sremska_oblast,RS,80497,district,statistical area (oblast) = NUTS-3 code RS127 the places carry; seat town inside (checked)
+RS:publisher_label:sremski_karlovci,RS,80411,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:stara_pazova,RS,80420,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:stari_grad,RS,70246,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:subotica,RS,80438,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:sumadijska_oblast,RS,70033,district,statistical area (oblast) = NUTS-3 code RS218 the places carry; seat town inside (checked)
+RS:publisher_label:sumadijska_oblast,RS,70076,district,statistical area (oblast) = NUTS-3 code RS218 the places carry; seat town inside (checked)
+RS:publisher_label:sumadijska_oblast,RS,70599,district,statistical area (oblast) = NUTS-3 code RS218 the places carry; seat town inside (checked)
+RS:publisher_label:sumadijska_oblast,RS,70645,district,statistical area (oblast) = NUTS-3 code RS218 the places carry; seat town inside (checked)
+RS:publisher_label:sumadijska_oblast,RS,71013,district,statistical area (oblast) = NUTS-3 code RS218 the places carry; seat town inside (checked)
+RS:publisher_label:sumadijska_oblast,RS,71153,district,statistical area (oblast) = NUTS-3 code RS218 the places carry; seat town inside (checked)
+RS:publisher_label:sumadijska_oblast,RS,71277,district,statistical area (oblast) = NUTS-3 code RS218 the places carry; seat town inside (checked)
+RS:publisher_label:surcin,RS,71293,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:surdulica,RS,71137,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:svilajnac,RS,71056,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:svrljig,RS,71064,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:temerin,RS,80446,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:titel,RS,80454,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:toplicka_oblast,RS,70262,district,statistical area (oblast) = NUTS-3 code RS229 the places carry; seat town inside (checked)
+RS:publisher_label:toplicka_oblast,RS,70548,district,statistical area (oblast) = NUTS-3 code RS229 the places carry; seat town inside (checked)
+RS:publisher_label:toplicka_oblast,RS,70688,district,statistical area (oblast) = NUTS-3 code RS229 the places carry; seat town inside (checked)
+RS:publisher_label:toplicka_oblast,RS,70998,district,statistical area (oblast) = NUTS-3 code RS229 the places carry; seat town inside (checked)
+RS:publisher_label:topola,RS,71153,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:trgoviste,RS,71161,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:trstenik,RS,71170,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:tutin,RS,71188,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:ub,RS,71218,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:uzice,RS,71145,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:valjevo,RS,70360,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:varvarin,RS,70378,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:velika_plana,RS,70386,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:veliko_gradiste,RS,70394,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:vladicin_han,RS,70416,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:vladimirci,RS,70408,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:vlasotince,RS,70424,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:vozdovac,RS,70106,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:vracar,RS,70114,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:vranje,RS,70432,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:vranjska_banja,RS,71358,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:vrbas,RS,80462,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:vrnjacka_banja,RS,70459,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:vrsac,RS,80128,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:zabalj,RS,80136,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:zabari,RS,70521,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:zagubica,RS,70530,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:zajecar,RS,70556,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:zajecarska_oblast,RS,70319,district,statistical area (oblast) = NUTS-3 code RS223 the places carry; seat town inside (checked)
+RS:publisher_label:zajecarska_oblast,RS,70556,district,statistical area (oblast) = NUTS-3 code RS223 the places carry; seat town inside (checked)
+RS:publisher_label:zajecarska_oblast,RS,70602,district,statistical area (oblast) = NUTS-3 code RS223 the places carry; seat town inside (checked)
+RS:publisher_label:zajecarska_oblast,RS,71129,district,statistical area (oblast) = NUTS-3 code RS223 the places carry; seat town inside (checked)
+RS:publisher_label:zapadnobacka_oblast,RS,80047,district,statistical area (oblast) = NUTS-3 code RS121 the places carry; seat town inside (checked)
+RS:publisher_label:zapadnobacka_oblast,RS,80233,district,statistical area (oblast) = NUTS-3 code RS121 the places carry; seat town inside (checked)
+RS:publisher_label:zapadnobacka_oblast,RS,80306,district,statistical area (oblast) = NUTS-3 code RS121 the places carry; seat town inside (checked)
+RS:publisher_label:zapadnobacka_oblast,RS,80381,district,statistical area (oblast) = NUTS-3 code RS121 the places carry; seat town inside (checked)
+RS:publisher_label:zemun,RS,70157,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:zitiste,RS,80144,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:zitoraa,RS,70548,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:zlatiborska_oblast,RS,70041,district,statistical area (oblast) = NUTS-3 code RS211 the places carry; seat town inside (checked)
+RS:publisher_label:zlatiborska_oblast,RS,70068,district,statistical area (oblast) = NUTS-3 code RS211 the places carry; seat town inside (checked)
+RS:publisher_label:zlatiborska_oblast,RS,70629,district,statistical area (oblast) = NUTS-3 code RS211 the places carry; seat town inside (checked)
+RS:publisher_label:zlatiborska_oblast,RS,70866,district,statistical area (oblast) = NUTS-3 code RS211 the places carry; seat town inside (checked)
+RS:publisher_label:zlatiborska_oblast,RS,70955,district,statistical area (oblast) = NUTS-3 code RS211 the places carry; seat town inside (checked)
+RS:publisher_label:zlatiborska_oblast,RS,70971,district,statistical area (oblast) = NUTS-3 code RS211 the places carry; seat town inside (checked)
+RS:publisher_label:zlatiborska_oblast,RS,70980,district,statistical area (oblast) = NUTS-3 code RS211 the places carry; seat town inside (checked)
+RS:publisher_label:zlatiborska_oblast,RS,71072,district,statistical area (oblast) = NUTS-3 code RS211 the places carry; seat town inside (checked)
+RS:publisher_label:zlatiborska_oblast,RS,71145,district,statistical area (oblast) = NUTS-3 code RS211 the places carry; seat town inside (checked)
+RS:publisher_label:zlatiborska_oblast,RS,71234,district,statistical area (oblast) = NUTS-3 code RS211 the places carry; seat town inside (checked)
+RS:publisher_label:zlatiborska_oblast,RS,71366,district,statistical area (oblast) = NUTS-3 code RS211 the places carry; seat town inside (checked)
+RS:publisher_label:zrenjanin,RS,80152,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+RS:publisher_label:zvezdara,RS,70149,is,statistics-office municipality label matched to the place list (reviewed suffix and city-municipality rules)
+SE:publisher_label:greater_gothenburg,SE,1384,metro_member,SCB Greater Gothenburg: its 13 member municipalities
+SE:publisher_label:greater_gothenburg,SE,1401,metro_member,SCB Greater Gothenburg: its 13 member municipalities
+SE:publisher_label:greater_gothenburg,SE,1402,metro_member,SCB Greater Gothenburg: its 13 member municipalities
+SE:publisher_label:greater_gothenburg,SE,1407,metro_member,SCB Greater Gothenburg: its 13 member municipalities
+SE:publisher_label:greater_gothenburg,SE,1415,metro_member,SCB Greater Gothenburg: its 13 member municipalities
+SE:publisher_label:greater_gothenburg,SE,1419,metro_member,SCB Greater Gothenburg: its 13 member municipalities
+SE:publisher_label:greater_gothenburg,SE,1440,metro_member,SCB Greater Gothenburg: its 13 member municipalities
+SE:publisher_label:greater_gothenburg,SE,1441,metro_member,SCB Greater Gothenburg: its 13 member municipalities
+SE:publisher_label:greater_gothenburg,SE,1462,metro_member,SCB Greater Gothenburg: its 13 member municipalities
+SE:publisher_label:greater_gothenburg,SE,1480,metro_member,SCB Greater Gothenburg: its 13 member municipalities
+SE:publisher_label:greater_gothenburg,SE,1481,metro_member,SCB Greater Gothenburg: its 13 member municipalities
+SE:publisher_label:greater_gothenburg,SE,1482,metro_member,SCB Greater Gothenburg: its 13 member municipalities
+SE:publisher_label:greater_gothenburg,SE,1489,metro_member,SCB Greater Gothenburg: its 13 member municipalities
+SE:publisher_label:greater_malmo,SE,1230,metro_member,SCB Greater Malmo: its 12 member municipalities
+SE:publisher_label:greater_malmo,SE,1231,metro_member,SCB Greater Malmo: its 12 member municipalities
+SE:publisher_label:greater_malmo,SE,1233,metro_member,SCB Greater Malmo: its 12 member municipalities
+SE:publisher_label:greater_malmo,SE,1261,metro_member,SCB Greater Malmo: its 12 member municipalities
+SE:publisher_label:greater_malmo,SE,1262,metro_member,SCB Greater Malmo: its 12 member municipalities
+SE:publisher_label:greater_malmo,SE,1263,metro_member,SCB Greater Malmo: its 12 member municipalities
+SE:publisher_label:greater_malmo,SE,1264,metro_member,SCB Greater Malmo: its 12 member municipalities
+SE:publisher_label:greater_malmo,SE,1267,metro_member,SCB Greater Malmo: its 12 member municipalities
+SE:publisher_label:greater_malmo,SE,1280,metro_member,SCB Greater Malmo: its 12 member municipalities
+SE:publisher_label:greater_malmo,SE,1281,metro_member,SCB Greater Malmo: its 12 member municipalities
+SE:publisher_label:greater_malmo,SE,1285,metro_member,SCB Greater Malmo: its 12 member municipalities
+SE:publisher_label:greater_malmo,SE,1287,metro_member,SCB Greater Malmo: its 12 member municipalities
+SE:publisher_label:greater_stockholm,SE,0114,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0115,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0117,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0120,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0123,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0125,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0126,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0127,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0128,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0136,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0138,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0139,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0140,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0160,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0162,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0163,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0180,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0181,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0182,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0183,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0184,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0186,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0187,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0188,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0191,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)
+SE:publisher_label:greater_stockholm,SE,0192,metro_member,SCB Greater Stockholm = Stockholm county municipalities (codes 01xx)

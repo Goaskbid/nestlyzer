@@ -1,0 +1,132 @@
+[
+ {
+  "finding": "national",
+  "ok": true,
+  "check": "national level for 54 countries (World Bank WDI, CPI, V-Dem, WBL, ND-GAIN)"
+ },
+ {
+  "finding": "global",
+  "ok": true,
+  "check": "cross-country rankings for 28 business profiles and students (11190 places)"
+ },
+ {
+  "finding": "ties",
+  "ok": true,
+  "check": "young_family: top 10 not one tied region (9 distinct scores)"
+ },
+ {
+  "finding": "ties",
+  "ok": true,
+  "check": "dinks: top 10 not one tied region (10 distinct scores)"
+ },
+ {
+  "finding": "ties",
+  "ok": true,
+  "check": "remote: top 10 not one tied region (10 distinct scores)"
+ },
+ {
+  "finding": "plausible",
+  "ok": true,
+  "check": "Europe, expat professionals: ['M\u00fcnchen', 'Unterf\u00f6hring', 'Versailles', 'Baar', 'Stuttgart', 'Stichtse Vecht', 'Unterhaching', 'Gr\u00e4felfing']"
+ },
+ {
+  "finding": "plausible",
+  "ok": true,
+  "check": "world, port industry: ['Ludwigshafen am Rhein', 'Saint-Fons', 'Venezia', 'Dunkerque', 'Port Arthur', 'Corpus Christi', 'Mannheim', 'Moerdijk', 'V\u00e9nissieux', 'Grande-Synthe']"
+ },
+ {
+  "finding": "benchmark",
+  "ok": true,
+  "check": "reference places: mean percentile 72.6 (old model 54.0), in the top 5%: 43% (old 7%)"
+ },
+ {
+  "finding": "external",
+  "ok": true,
+  "check": "published rankings: Prologis logistics 93.4, fDi cities 92.0, EIU liveability 98.0, Bilanz/IAZI separation (DINKs, expats, wealthy) [91.0, 87.4, 81.2], all profiles 60.7, IMD countries 82.3"
+ },
+ {
+  "finding": "clusters",
+  "ok": true,
+  "check": "US industry clusters from Census CBP 2023: 98.8% of places covered (owner rule 90%), stored once per county and labelled as a county figure"
+ },
+ {
+  "finding": "clusters",
+  "ok": true,
+  "check": "US logistics clusters rank high: {'Memphis': 63.5, 'Louisville': 86.1, 'Joliet': 99.1, 'Ontario': 98.5, 'Edison': 99.9, 'Allentown': 92.1}"
+ },
+ {
+  "finding": "research",
+  "ok": true,
+  "check": "major research institutions on the map include ['Paul Scherrer Institute', 'Swiss Federal Institute for Forest, Snow and Landscape Research', 'European Organization for Nuclear Research', 'Empa']"
+ },
+ {
+  "finding": "catchip",
+  "ok": true,
+  "check": "clicking the \"quiet\" chip on a result card opens the place with that category expanded: \"Fewer nuisances (traffic and aircraft noise, heavy industry, flooding, crowding): 100 of 100\", 5 measures"
+ },
+ {
+  "finding": "bizglobal",
+  "ok": true,
+  "check": "business profile ranked across Europe: ['L\u00fcnen', \"Saint-Ouen-l'Aum\u00f4ne\", 'Waltrop', 'R\u00fcsselsheim am Main', 'Survilliers']; \"Germany \u00b7 top 1% in the country \u00b7 national level 8% of the score\""
+ },
+ {
+  "finding": "bizband",
+  "ok": true,
+  "check": "start page in business mode shows the business world and continental rankings (4 tiles; household band hidden)"
+ },
+ {
+  "finding": "profiles",
+  "ok": true,
+  "check": "CH car_free: the places this group really chooses lead: ['Z\u00fcrich', 'Gen\u00e8ve', 'Basel', 'Bern', 'Luzern', 'Lausanne']"
+ },
+ {
+  "finding": "profiles",
+  "ok": true,
+  "check": "DE urban: the places this group really chooses lead: ['M\u00fcnchen', 'Hamburg', 'Stuttgart', 'Frankfurt am Main', 'K\u00f6ln', 'Berlin']"
+ },
+ {
+  "finding": "profiles",
+  "ok": true,
+  "check": "NL student: the places this group really chooses lead: ['Leiden', 'Enschede', 'Groningen', 'Maastricht', 'Nijmegen', 'Delft']"
+ },
+ {
+  "finding": "profiles",
+  "ok": true,
+  "check": "DE digital_native: the places this group really chooses lead: ['M\u00fcnchen', 'Gelsenkirchen', 'Hamburg', 'Berlin', 'Frankfurt am Main', 'Chemnitz']"
+ },
+ {
+  "finding": "profiles",
+  "ok": true,
+  "check": "CH young families: commute and services count, villages without them no longer lead: ['W\u00e4denswil', 'Kriens', 'Noble-Contr\u00e9e', 'Ebikon', 'Martigny', 'Wolhusen']"
+ },
+ {
+  "finding": "search",
+  "ok": true,
+  "check": "\"Zuirch\" offers a labelled suggestion, applied only on click: ['CH:261 Did you mean  Z\u00fcrich?', 'US:5787316 Did you mean  Birch Bay?']"
+ },
+ {
+  "finding": "search",
+  "ok": true,
+  "check": "\"Zug\" tells municipality and canton apart: [' Zug Switzerland, 31,469', ' Zug Canton in Switzerland, 11 places', ' Zugliano Italy, 6,909']"
+ },
+ {
+  "finding": "context",
+  "ok": true,
+  "check": "key facts are toned for the profile (Z\u00fcrich good/bad/middle: [2, 9, 0]; Oslo, figures that do not count for young families greyed: 9)"
+ },
+ {
+  "finding": "phone",
+  "ok": true,
+  "check": "phone: no horizontal scrolling (0 px), data tables stacked (block)"
+ },
+ {
+  "finding": "bizcolour",
+  "ok": true,
+  "check": "business mode has its own colour scheme (accent #0F7C7A)"
+ },
+ {
+  "finding": "errors",
+  "ok": true,
+  "check": "no script errors ([])"
+ }
+]

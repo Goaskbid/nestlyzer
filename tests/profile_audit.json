@@ -1,0 +1,455 @@
+{
+ "checked": 448,
+ "issues": [
+  {
+   "p": "young_family",
+   "cc": "CH",
+   "kind": "core-mean",
+   "msg": "affordability (16% of the weight) averages 58 in the top 10"
+  },
+  {
+   "p": "young_family",
+   "cc": "CH",
+   "kind": "core-weak",
+   "msg": "affordability: 2 of the top 10 under 40: Ebikon 39, Hochdorf 36"
+  },
+  {
+   "p": "low_income_family",
+   "cc": "CH",
+   "kind": "core-mean",
+   "msg": "family (20% of the weight) averages 59 in the top 10"
+  },
+  {
+   "p": "low_income_family",
+   "cc": "CH",
+   "kind": "core-mean",
+   "msg": "safety (16% of the weight) averages 51 in the top 10"
+  },
+  {
+   "p": "single_parent",
+   "cc": "CH",
+   "kind": "core-mean",
+   "msg": "family (22% of the weight) averages 58 in the top 10"
+  },
+  {
+   "p": "single_parent",
+   "cc": "CH",
+   "kind": "core-mean",
+   "msg": "safety (16% of the weight) averages 55 in the top 10"
+  },
+  {
+   "p": "single_pensioner",
+   "cc": "CH",
+   "kind": "core-mean",
+   "msg": "safety (18% of the weight) averages 53 in the top 10"
+  },
+  {
+   "p": "single",
+   "cc": "CH",
+   "kind": "core-mean",
+   "msg": "city (18% of the weight) averages 47 in the top 10"
+  },
+  {
+   "p": "single",
+   "cc": "CH",
+   "kind": "country-lacks",
+   "msg": "city: no place in the country scores well (90th percentile 39)"
+  },
+  {
+   "p": "young_professional",
+   "cc": "CH",
+   "kind": "core-mean",
+   "msg": "city (18% of the weight) averages 50 in the top 10"
+  },
+  {
+   "p": "young_professional",
+   "cc": "CH",
+   "kind": "country-lacks",
+   "msg": "city: no place in the country scores well (90th percentile 39)"
+  },
+  {
+   "p": "dinks",
+   "cc": "CH",
+   "kind": "core-mean",
+   "msg": "city (16% of the weight) averages 39 in the top 10"
+  },
+  {
+   "p": "dinks",
+   "cc": "CH",
+   "kind": "core-weak",
+   "msg": "city: 5 of the top 10 under 40: Zug 28, Baar 27, Baden 28, Cham 23"
+  },
+  {
+   "p": "car_free",
+   "cc": "CH",
+   "kind": "core-mean",
+   "msg": "city (30% of the weight) averages 54 in the top 10"
+  },
+  {
+   "p": "urban",
+   "cc": "CH",
+   "kind": "core-mean",
+   "msg": "city (30% of the weight) averages 53 in the top 10"
+  },
+  {
+   "p": "healthcare_first",
+   "cc": "CH",
+   "kind": "core-mean",
+   "msg": "safety (18% of the weight) averages 57 in the top 10"
+  },
+  {
+   "p": "digital_native",
+   "cc": "CH",
+   "kind": "core-mean",
+   "msg": "city (22% of the weight) averages 52 in the top 10"
+  },
+  {
+   "p": "digital_native",
+   "cc": "CH",
+   "kind": "country-lacks",
+   "msg": "city: no place in the country scores well (90th percentile 39)"
+  },
+  {
+   "p": "biz_insurer",
+   "cc": "CH",
+   "kind": "thin",
+   "msg": "only 0 places pass"
+  },
+  {
+   "p": "biz_fund",
+   "cc": "CH",
+   "kind": "thin",
+   "msg": "only 0 places pass"
+  },
+  {
+   "p": "cross_border",
+   "cc": "CH",
+   "kind": "thin",
+   "msg": "only 0 places pass"
+  },
+  {
+   "p": "biz_media",
+   "cc": "CH",
+   "kind": "core-mean",
+   "msg": "city (21% of the weight) averages 53 in the top 10"
+  },
+  {
+   "p": "low_income",
+   "cc": "DE",
+   "kind": "core-mean",
+   "msg": "jobs (16% of the weight) averages 48 in the top 10"
+  },
+  {
+   "p": "low_income",
+   "cc": "DE",
+   "kind": "core-weak",
+   "msg": "jobs: 4 of the top 10 under 40: Limbach-Oberfrohna 39, Hohenstein-Ernstthal 40, Glauchau 39, Zwickau 38"
+  },
+  {
+   "p": "low_income_family",
+   "cc": "DE",
+   "kind": "core-mean",
+   "msg": "safety (16% of the weight) averages 60 in the top 10"
+  },
+  {
+   "p": "single_parent",
+   "cc": "DE",
+   "kind": "core-mean",
+   "msg": "safety (16% of the weight) averages 58 in the top 10"
+  },
+  {
+   "p": "biz_wealth",
+   "cc": "DE",
+   "kind": "core-mean",
+   "msg": "wealthhub (35% of the weight) averages 53 in the top 10"
+  },
+  {
+   "p": "biz_commodity",
+   "cc": "DE",
+   "kind": "core-mean",
+   "msg": "commodhub (39% of the weight) averages 57 in the top 10"
+  },
+  {
+   "p": "low_income",
+   "cc": "FR",
+   "kind": "core-mean",
+   "msg": "jobs (16% of the weight) averages 53 in the top 10"
+  },
+  {
+   "p": "low_income_family",
+   "cc": "FR",
+   "kind": "core-mean",
+   "msg": "safety (16% of the weight) averages 59 in the top 10"
+  },
+  {
+   "p": "single_parent",
+   "cc": "FR",
+   "kind": "core-mean",
+   "msg": "safety (16% of the weight) averages 47 in the top 10"
+  },
+  {
+   "p": "single_parent",
+   "cc": "FR",
+   "kind": "core-weak",
+   "msg": "safety: 1 of the top 10 under 40: Saint-Étienne 36"
+  },
+  {
+   "p": "remote",
+   "cc": "FR",
+   "kind": "core-mean",
+   "msg": "affordability (16% of the weight) averages 54 in the top 10"
+  },
+  {
+   "p": "remote",
+   "cc": "FR",
+   "kind": "core-weak",
+   "msg": "affordability: 2 of the top 10 under 40: Paris 6, Marseille 30"
+  },
+  {
+   "p": "biz_crypto",
+   "cc": "FR",
+   "kind": "thin",
+   "msg": "only 0 places pass"
+  },
+  {
+   "p": "biz_clinic",
+   "cc": "FR",
+   "kind": "core-mean",
+   "msg": "demographics (18% of the weight) averages 48 in the top 10"
+  },
+  {
+   "p": "young_family",
+   "cc": "IT",
+   "kind": "core-mean",
+   "msg": "safety (16% of the weight) averages 55 in the top 10"
+  },
+  {
+   "p": "low_income_family",
+   "cc": "IT",
+   "kind": "core-mean",
+   "msg": "safety (16% of the weight) averages 53 in the top 10"
+  },
+  {
+   "p": "single_parent",
+   "cc": "IT",
+   "kind": "core-mean",
+   "msg": "safety (16% of the weight) averages 55 in the top 10"
+  },
+  {
+   "p": "first_home",
+   "cc": "IT",
+   "kind": "core-mean",
+   "msg": "affordability (30% of the weight) averages 56 in the top 10"
+  },
+  {
+   "p": "first_home",
+   "cc": "IT",
+   "kind": "core-weak",
+   "msg": "affordability: 1 of the top 10 under 40: Monza 30"
+  },
+  {
+   "p": "biz_port_industry",
+   "cc": "IT",
+   "kind": "core-weak",
+   "msg": "chempark: 1 of the top 10 under 40: Napoli 0"
+  },
+  {
+   "p": "biz_commodity",
+   "cc": "IT",
+   "kind": "core-mean",
+   "msg": "commodhub (39% of the weight) averages 54 in the top 10"
+  },
+  {
+   "p": "biz_crypto",
+   "cc": "IT",
+   "kind": "thin",
+   "msg": "only 0 places pass"
+  },
+  {
+   "p": "low_income",
+   "cc": "UK",
+   "kind": "core-mean",
+   "msg": "jobs (16% of the weight) averages 53 in the top 10"
+  },
+  {
+   "p": "biz_hq",
+   "cc": "UK",
+   "kind": "core-mean",
+   "msg": "lifestyle (18% of the weight) averages 52 in the top 10"
+  },
+  {
+   "p": "cross_border",
+   "cc": "UK",
+   "kind": "core-mean",
+   "msg": "border (35% of the weight) averages 47 in the top 10"
+  },
+  {
+   "p": "cross_border",
+   "cc": "UK",
+   "kind": "core-weak",
+   "msg": "border: 3 of the top 10 under 40: Armagh City, Banbridge and Craigavon 32, Mid Ulster 32, Causeway Coast and Glens 8"
+  },
+  {
+   "p": "biz_media",
+   "cc": "UK",
+   "kind": "core-mean",
+   "msg": "lifestyle (17% of the weight) averages 53 in the top 10"
+  },
+  {
+   "p": "biz_media",
+   "cc": "UK",
+   "kind": "core-weak",
+   "msg": "lifestyle: 1 of the top 10 under 40: Southwark 37"
+  },
+  {
+   "p": "young_family",
+   "cc": "NL",
+   "kind": "core-mean",
+   "msg": "safety (16% of the weight) averages 60 in the top 10"
+  },
+  {
+   "p": "low_income",
+   "cc": "NL",
+   "kind": "core-mean",
+   "msg": "jobs (16% of the weight) averages 48 in the top 10"
+  },
+  {
+   "p": "low_income",
+   "cc": "NL",
+   "kind": "core-weak",
+   "msg": "jobs: 2 of the top 10 under 40: Enschede 38, Leiden 37"
+  },
+  {
+   "p": "low_income_family",
+   "cc": "NL",
+   "kind": "core-weak",
+   "msg": "family: 1 of the top 10 under 40: Leiden 34"
+  },
+  {
+   "p": "low_income_family",
+   "cc": "NL",
+   "kind": "core-mean",
+   "msg": "safety (16% of the weight) averages 57 in the top 10"
+  },
+  {
+   "p": "low_income_family",
+   "cc": "NL",
+   "kind": "core-weak",
+   "msg": "safety: 1 of the top 10 under 40: Groningen 33"
+  },
+  {
+   "p": "single_parent",
+   "cc": "NL",
+   "kind": "core-weak",
+   "msg": "family: 1 of the top 10 under 40: Leiden 34"
+  },
+  {
+   "p": "healthcare_first",
+   "cc": "NL",
+   "kind": "core-mean",
+   "msg": "safety (18% of the weight) averages 58 in the top 10"
+  },
+  {
+   "p": "biz_wealth",
+   "cc": "NL",
+   "kind": "thin",
+   "msg": "only 0 places pass"
+  },
+  {
+   "p": "biz_insurer",
+   "cc": "NL",
+   "kind": "thin",
+   "msg": "only 1 places pass"
+  },
+  {
+   "p": "outdoor",
+   "cc": "NL",
+   "kind": "core-mean",
+   "msg": "outdoor (35% of the weight) averages 31 in the top 10"
+  },
+  {
+   "p": "outdoor",
+   "cc": "NL",
+   "kind": "country-lacks",
+   "msg": "outdoor: no place in the country scores well (90th percentile 28)"
+  },
+  {
+   "p": "cross_border",
+   "cc": "NL",
+   "kind": "thin",
+   "msg": "only 0 places pass"
+  },
+  {
+   "p": "young_family",
+   "cc": "ES",
+   "kind": "core-mean",
+   "msg": "affordability (16% of the weight) averages 57 in the top 10"
+  },
+  {
+   "p": "low_income",
+   "cc": "ES",
+   "kind": "core-mean",
+   "msg": "jobs (16% of the weight) averages 43 in the top 10"
+  },
+  {
+   "p": "low_income",
+   "cc": "ES",
+   "kind": "core-weak",
+   "msg": "jobs: 3 of the top 10 under 40: San Fulgencio 28, Elda 29, Torrevieja 24"
+  },
+  {
+   "p": "biz_wealth",
+   "cc": "ES",
+   "kind": "thin",
+   "msg": "only 0 places pass"
+  },
+  {
+   "p": "biz_commodity",
+   "cc": "ES",
+   "kind": "thin",
+   "msg": "only 0 places pass"
+  },
+  {
+   "p": "biz_crypto",
+   "cc": "ES",
+   "kind": "thin",
+   "msg": "only 0 places pass"
+  },
+  {
+   "p": "outdoor",
+   "cc": "ES",
+   "kind": "core-mean",
+   "msg": "environment (15% of the weight) averages 43 in the top 10"
+  },
+  {
+   "p": "outdoor",
+   "cc": "ES",
+   "kind": "core-weak",
+   "msg": "environment: 2 of the top 10 under 40: Icod de los Vinos 11, Arico 28"
+  },
+  {
+   "p": "young_family",
+   "cc": "US",
+   "kind": "core-mean",
+   "msg": "affordability (16% of the weight) averages 47 in the top 10"
+  },
+  {
+   "p": "single_parent",
+   "cc": "US",
+   "kind": "core-mean",
+   "msg": "affordability (24% of the weight) averages 57 in the top 10"
+  },
+  {
+   "p": "remote",
+   "cc": "US",
+   "kind": "core-mean",
+   "msg": "affordability (16% of the weight) averages 54 in the top 10"
+  },
+  {
+   "p": "cross_border",
+   "cc": "US",
+   "kind": "thin",
+   "msg": "only 0 places pass"
+  }
+ ]
+}

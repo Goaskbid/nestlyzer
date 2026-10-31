@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+"""Guard against GitHub problems (2.12.2). Fails (exit 1) if the repository tree would break a limit:
+  * any folder with more than 900 files (GitHub's web view truncates folders at 1,000 entries);
+  * any file of 20 MiB or more (GitHub warns at 50 MB and refuses 100 MB; our rule is 20);
+  * more than 25,000 files in total.
+The built site (_site), dist, node_modules and .git are never part of the repository and are skipped.
+    python3 build/check_github_limits.py [root]"""
+import os, sys
+root = sys.argv[1] if len(sys.argv) > 1 else '.'
+SKIP = {'.git', '_site', 'dist', 'node_modules', '__pycache__', '.cache'}
+MAXDIR, MAXFILE, MAXTOTAL = 900, 20 * 2 ** 20, 25000
+bad, total = [], 0
+for d, dirs, files in os.walk(root):
+    dirs[:] = [x for x in dirs if x not in SKIP]
+    if len(files) + len(dirs) > MAXDIR: bad.append(f'folder {d}: {len(files) + len(dirs)} entries (limit {MAXDIR})')
+    for f in files:
+        total += 1; s = os.path.getsize(os.path.join(d, f))
+        if s >= MAXFILE: bad.append(f'file {os.path.join(d, f)}: {s / 2 ** 20:.1f} MiB (limit 20)')
+if total > MAXTOTAL: bad.append(f'{total} files in total (limit {MAXTOTAL})')
+print('\n'.join(bad) or f'GitHub limits OK: {total} files, no folder over {MAXDIR}, no file of 20 MiB or more')
+sys.exit(1 if bad else 0)

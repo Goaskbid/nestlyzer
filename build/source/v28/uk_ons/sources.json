@@ -1,0 +1,19 @@
+{
+ "uk_ons_els": {
+  "publisher": "Office for National Statistics",
+  "dataset": "Explore local statistics (all indicators, latest period per council)",
+  "url_official": "https://www.ons.gov.uk/explore-local-statistics",
+  "url_mirror": "https://github.com/ONSdigital/explore-local-statistics-data @ bb514f908bdf32d074a91d2cb87fa3c6d3fd25ef (ONS's own repository)",
+  "licence": "Open Government Licence v3.0",
+  "period": "latest per indicator (2019-2026)",
+  "notes": "Council level (current 2024 codes incl. Scottish S12 councils). Former districts take their current council's value."
+ },
+ "uk_mhclg_ctr_2026_27": {
+  "publisher": "Ministry of Housing, Communities and Local Government",
+  "dataset": "Council Tax levels set by local authorities in England 2026-27, Table 10 (Band D)",
+  "url_official": "https://www.gov.uk/government/statistics/council-tax-levels-set-by-local-authorities-in-england-2026-to-2027",
+  "licence": "Open Government Licence v3.0",
+  "period": "2026-27",
+  "notes": "Area Band D including county, police, fire and parish precepts."
+ }
+}

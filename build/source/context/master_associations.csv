@@ -1,0 +1,2516 @@
+source_geo_id,country,place_oid,relationship,evidence
+SI:surs_profile:12,SI,012,is,official code
+GSS:E09000016,UK,E09000016,is,official code
+AU,AU,*,country_context,national figure
+country:HU,HU,*,country_context,national figure
+SCB_KOMMUN:0862,SE,0862,is,official code
+GSS:E07000180,UK,E07000180,is,official code
+GSS:E07000147,UK,E07000147,is,official code
+ISO3:LUX,LU,*,country_context,national figure
+US-VA,US,@rc:US45,region,state (GeoNames admin1 code)
+SI:municipality:ig,SI,037,is,exact unique name within the country
+FI:vero_area:kemijarvi,FI,320,is,exact unique name within the country
+JMA:FR:nice,FR,06088,station,weather station named after the place
+US-MS,US,@rc:US25,region,state (GeoNames admin1 code)
+PL,PL,*,country_context,national figure
+ISO3:ALB,AL,*,country_context,national figure
+SCB_KOMMUN:1080,SE,1080,is,official code
+country:TW,TW,*,country_context,national figure
+US-MO,US,@rc:US24,region,state (GeoNames admin1 code)
+GSS:E06000014,UK,E06000014,is,official code
+SI:surs_profile:108,SI,108,is,official code
+ISO3:HKG,HK,*,country_context,national figure
+ISO3:ITA,IT,*,country_context,national figure
+US-TX,US,@rc:US43,region,state (GeoNames admin1 code)
+SCB_KOMMUN:0560,SE,0560,is,official code
+ES:published-municipality:48:basauri,ES,48015,is,exact unique name within the country
+US-OH,US,@rc:US35,region,state (GeoNames admin1 code)
+FI:vero_area:sysma,FI,781,is,exact unique name within the country
+country:IS,IS,*,country_context,national figure
+ISO3:NLD,NL,*,country_context,national figure
+GSS:E07000010,UK,E07000010,is,official code
+country:AL,AL,*,country_context,national figure
+country:RS,RS,*,country_context,national figure
+US-UT,US,@rc:US44,region,state (GeoNames admin1 code)
+NAT:SI,SI,*,country_context,national figure
+IE:MET:belmullet,IE,13150403,station,weather station named after the place
+ISO3166_1_ALPHA2:CZ,CZ,*,country_context,national figure
+SCB_KOMMUN:0580,SE,0580,is,official code
+SI:surs_profile:10,SI,010,is,official code
+country:LT,LT,*,country_context,national figure
+country:CZ,CZ,*,country_context,national figure
+FI:vero_area:pello,FI,854,is,exact unique name within the country
+SCB_KOMMUN:0163,SE,0163,is,official code
+JMA:KR:seoul,KR,1835848,station,weather station named after the place
+country:PL,PL,*,country_context,national figure
+country:MT,MT,*,country_context,national figure
+SCB_KOMMUN:1272,SE,1272,is,official code
+FR:COM:69123,FR,69123,is,official code
+country:PT,PT,*,country_context,national figure
+country:ES,ES,*,country_context,national figure
+GSS:E06000022,UK,E06000022,is,official code
+country:SI,SI,*,country_context,national figure
+SI:surs_profile:187,SI,187,is,official code
+SCB_KOMMUN:2421,SE,2421,is,official code
+LV:city:rezekne,LV,0210000,is,exact unique name within the country
+source-locality:RETAINED_BE:Etterbeek,BE,21005,is,exact unique name within the country
+SCB_KOMMUN:1764,SE,1764,is,official code
+SCB_KOMMUN:0583,SE,0583,is,official code
+country:US,US,*,country_context,national figure
+US-CA,US,@rc:US04,region,state (GeoNames admin1 code)
+SCB_KOMMUN:2463,SE,2463,is,official code
+JMA:IN:newdelhi,IN,1261481,station,weather station named after the place
+country:SE,SE,*,country_context,national figure
+SCB_KOMMUN:1470,SE,1470,is,official code
+RO:ANOFM:tulcea,RO,@n3:RO225,region,NUTS3 region by exact name
+GSS:E06000054,UK,E06000054,is,official code
+SE,SE,*,country_context,national figure
+SCB_KOMMUN:0880,SE,0880,is,official code
+GSS:E09000032,UK,E09000032,is,official code
+SCB_KOMMUN:0180,SE,0180,is,official code
+SI:surs_profile:33,SI,033,is,official code
+GSS:W06000018,UK,W06000018,is,official code
+RO:ANOFM:cluj,RO,@n3:RO113,region,NUTS3 region by exact name
+SCB_KOMMUN:1401,SE,1401,is,official code
+ISO3:CZE,CZ,*,country_context,national figure
+SCB_KOMMUN:2482,SE,2482,is,official code
+FI:vero_area:kuusamo,FI,305,is,exact unique name within the country
+US-NM,US,@rc:US32,region,state (GeoNames admin1 code)
+ES:published-municipality:06:badajoz,ES,06015,is,exact unique name within the country
+SCB_KOMMUN:1762,SE,1762,is,official code
+SCB_KOMMUN:0115,SE,0115,is,official code
+ES:published-municipality:40:segovia,ES,40194,is,exact unique name within the country
+LV:novads:ogres,LV,0040000,is,exact unique name within the country
+INSEE_COM:74010,FR,74010,is,official code
+GSS:E07000221,UK,E07000221,is,official code
+SCB_KOMMUN:1962,SE,1962,is,official code
+country:IN,IN,*,country_context,national figure
+GSS:E07000145,UK,E07000145,is,official code
+GB:E06000023,UK,E06000023,is,official code
+US-AL,US,@rc:US01,region,state (GeoNames admin1 code)
+country:IT,IT,*,country_context,national figure
+LV,LV,*,country_context,national figure
+FI:vero_area:teuva,FI,846,is,exact unique name within the country
+NO,NO,*,country_context,national figure
+US-NC,US,@rc:US27,region,state (GeoNames admin1 code)
+SCB_KOMMUN:1273,SE,1273,is,official code
+SCB_KOMMUN:0617,SE,0617,is,official code
+SI:surs_profile:9,SI,009,is,official code
+country:GR,EL,*,country_context,national figure
+SCB_KOMMUN:1462,SE,1462,is,official code
+US-NJ,US,@rc:US31,region,state (GeoNames admin1 code)
+SCB_KOMMUN:1292,SE,1292,is,official code
+SCB_KOMMUN:1493,SE,1493,is,official code
+country:LV,LV,*,country_context,national figure
+SCB_KOMMUN:1484,SE,1484,is,official code
+SI:surs_profile:23,SI,023,is,official code
+FI:vero_area:somero,FI,761,is,exact unique name within the country
+country:RO,RO,*,country_context,national figure
+GSS:E07000090,UK,E07000090,is,official code
+SCB_KOMMUN:2506,SE,2506,is,official code
+US-GA,US,@rc:US10,region,state (GeoNames admin1 code)
+GB,UK,*,country_context,national figure
+IS:municipality:1000,IS,1000,is,official code
+country:AT,AT,*,country_context,national figure
+ISO3:MKD,MK,*,country_context,national figure
+SI:surs_profile:6,SI,006,is,official code
+ISO3:POL,PL,*,country_context,national figure
+US-AR,US,@rc:US02,region,state (GeoNames admin1 code)
+SCB_KOMMUN:1384,SE,1384,is,official code
+SCB_KOMMUN:0483,SE,0483,is,official code
+ISO3:IRL,IE,*,country_context,national figure
+FI:vero_area:kokemaki,FI,271,is,exact unique name within the country
+US-WY,US,@rc:US50,region,state (GeoNames admin1 code)
+ISO3:ESP,ES,*,country_context,national figure
+SCB_KOMMUN:1486,SE,1486,is,official code
+US-DE,US,@rc:US08,region,state (GeoNames admin1 code)
+US,US,*,country_context,national figure
+SCB_KOMMUN:1489,SE,1489,is,official code
+GSS:E06000044,UK,E06000044,is,official code
+NL:CBS_LABEL:doetinchem,NL,GM0222,is,exact unique name within the country
+SCB_KOMMUN:1280,SE,1280,is,official code
+IT:EC_CITY_LABEL:naples,IT,063049,survey_city,survey city = its core municipality (reviewed 2.12.2)
+JMA:PL:warszawa,PL,1007141286501,station,weather station named after the place
+SCB_KOMMUN:1380,SE,1380,is,official code
+US-ND,US,@rc:US28,region,state (GeoNames admin1 code)
+ES:published-municipality:39:castro-urdiales,ES,39020,is,exact unique name within the country
+JMA:CA:whitehorse,CA,6180550,station,weather station named after the place
+US-IL,US,@rc:US14,region,state (GeoNames admin1 code)
+LV:novads:cesu,LV,0026000,is,exact unique name within the country
+country:HK,HK,*,country_context,national figure
+SI,SI,*,country_context,national figure
+GSS:E06000038,UK,E06000038,is,official code
+LV:novads:bauskas,LV,0025000,is,exact unique name within the country
+GSS:E07000129,UK,E07000129,is,official code
+country:FR,FR,*,country_context,national figure
+SCB_KOMMUN:2031,SE,2031,is,official code
+SCB_KOMMUN:2417,SE,2417,is,official code
+ES:published-municipality:07:manacor,ES,07033,is,exact unique name within the country
+SK,SK,*,country_context,national figure
+SCB_KOMMUN:2305,SE,2305,is,official code
+FI,FI,*,country_context,national figure
+ISO3:ISR,IL,*,country_context,national figure
+SCB_KOMMUN:1499,SE,1499,is,official code
+country:NO,NO,*,country_context,national figure
+GSS:E08000024,UK,E08000024,is,official code
+US-TN,US,@rc:US42,region,state (GeoNames admin1 code)
+US-NV,US,@rc:US33,region,state (GeoNames admin1 code)
+ISO3166_1_ALPHA2:ES,ES,*,country_context,national figure
+KR,KR,*,country_context,national figure
+US-WV,US,@rc:US49,region,state (GeoNames admin1 code)
+country:BR,BR,*,country_context,national figure
+RO:ANOFM:alba,RO,@n3:RO121,region,NUTS3 region by exact name
+SCB_KOMMUN:2583,SE,2583,is,official code
+NL,NL,*,country_context,national figure
+SCB_KOMMUN:1863,SE,1863,is,official code
+SI:surs_profile:4,SI,004,is,official code
+SCB_KOMMUN:2480,SE,2480,is,official code
+country:SG,SG,*,country_context,national figure
+SCB_KOMMUN:1230,SE,1230,is,official code
+SI:surs_profile:94,SI,094,is,official code
+SCB_KOMMUN:0186,SE,0186,is,official code
+SCB_KOMMUN:1402,SE,1402,is,official code
+SCB_KOMMUN:2380,SE,2380,is,official code
+country:BE,BE,*,country_context,national figure
+SCB_KOMMUN:1715,SE,1715,is,official code
+JMA:HU:budapest,HU,13578,station,weather station named after the place
+LV:novads:dienvidkurzemes,LV,0027000,is,exact unique name within the country
+US-OK,US,@rc:US36,region,state (GeoNames admin1 code)
+GSS:S12000033,UK,S30000026,is,exact unique name within the country
+HR:county:zadar,HR,@n3:HR033,region,"county = NUTS-3 HR033 (English county name, reviewed 2.12.2)"
+country:JP,JP,*,country_context,national figure
+US-IA,US,@rc:US12,region,state (GeoNames admin1 code)
+ES:published-municipality:46:quart-de-poblet,ES,46102,is,exact unique name within the country
+SCB_KOMMUN:1494,SE,1494,is,official code
+country:CN,CN,*,country_context,national figure
+country:SK,SK,*,country_context,national figure
+JMA:US:neworleans,US,4335045,station,weather station named after the place
+SCB_KOMMUN:2404,SE,2404,is,official code
+country:ZA,ZA,*,country_context,national figure
+FI:vero_area:hanko,FI,078,is,exact unique name within the country
+US-KS,US,@rc:US16,region,state (GeoNames admin1 code)
+LV:novads:saulkrastu,LV,0047000,is,exact unique name within the country
+SI:municipality:ljubljana,SI,061,is,exact unique name within the country
+GSS:E07000065,UK,E07000065,is,official code
+LV:novads:kuldigas,LV,0033000,is,exact unique name within the country
+FR:COM:13055,FR,13055,is,official code
+US-ID,US,@rc:US13,region,state (GeoNames admin1 code)
+SI:surs_profile:3,SI,003,is,official code
+ISO3:NZL,NZ,*,country_context,national figure
+SCB_KOMMUN:1275,SE,1275,is,official code
+NL:CBS_LABEL:olst_wijhe,NL,GM1773,is,exact unique name within the country
+SCB_KOMMUN:2260,SE,2260,is,official code
+FR:COM:75056,FR,75056,is,official code
+SCB_KOMMUN:0120,SE,0120,is,official code
+country:CY,CY,*,country_context,national figure
+US-RI,US,@rc:US39,region,state (GeoNames admin1 code)
+US-DC,US,@rc:US07,region,state (GeoNames admin1 code)
+DK:EC_CITY_LABEL:aalborg,DK,851,survey_city,survey city = its core municipality (reviewed 2.12.2)
+NL:CBS_LABEL:weert,NL,GM0988,is,exact unique name within the country
+JMA:ES:madrid,ES,28079,station,weather station named after the place
+SCB_KOMMUN:1465,SE,1465,is,official code
+LV:city:daugavpils,LV,0050000,is,exact unique name within the country
+GSS:E07000078,UK,E07000078,is,official code
+IL,IL,*,country_context,national figure
+JMA:AT:wien,AT,90001,station,weather station named after the place
+US-NE,US,@rc:US29,region,state (GeoNames admin1 code)
+NO:EC_CITY_LABEL:oslo,NO,0301,survey_city,survey city = its core municipality (reviewed 2.12.2)
+ISO3:GBR,UK,*,country_context,national figure
+GSS:E07000106,UK,E07000106,is,official code
+country:LU,LU,*,country_context,national figure
+MX,MX,*,country_context,national figure
+IE,IE,*,country_context,national figure
+ISO3:BEL,BE,*,country_context,national figure
+country:NL,NL,*,country_context,national figure
+country:AE,AE,*,country_context,national figure
+GR,EL,*,country_context,national figure
+GSS:W06000002,UK,W06000002,is,official code
+ISO3:HRV,HR,*,country_context,national figure
+ES:published-municipality:30:caravaca-de-la-cruz,ES,30015,is,exact unique name within the country
+RO:ANOFM:braila,RO,@n3:RO221,region,NUTS3 region by exact name
+SCB_KOMMUN:1285,SE,1285,is,official code
+country:MK,MK,*,country_context,national figure
+SCB_KOMMUN:1083,SE,1083,is,official code
+JMA:CN:changchun,CN,2038180,station,weather station named after the place
+IS,IS,*,country_context,national figure
+RO:ANOFM:prahova,RO,@n3:RO316,region,NUTS3 region by exact name
+NL:CBS_LABEL:maashorst,NL,GM1991,is,exact unique name within the country
+country:NZ,NZ,*,country_context,national figure
+NL:CBS_LABEL:waterland,NL,GM0852,is,exact unique name within the country
+SCB_KOMMUN:2409,SE,2409,is,official code
+US-SC,US,@rc:US40,region,state (GeoNames admin1 code)
+SCB_KOMMUN:1497,SE,1497,is,official code
+SCB_KOMMUN:0380,SE,0380,is,official code
+ISO3:SGP,SG,*,country_context,national figure
+ES:published-municipality:17:olot,ES,17114,is,exact unique name within the country
+SCB_KOMMUN:1488,SE,1488,is,official code
+GSS:E08000017,UK,E08000017,is,official code
+NL:CBS_LABEL:middelburg_z,NL,GM0687,is,exact unique name within the country
+SI:surs_profile:13,SI,013,is,official code
+GSS:E06000005,UK,E06000005,is,official code
+LV:novads:siguldas,LV,0048000,is,exact unique name within the country
+ES:published-municipality:11:arcos-de-la-frontera,ES,11006,is,exact unique name within the country
+SCB_KOMMUN:1293,SE,1293,is,official code
+source-locality:RETAINED_BE:Uccle,BE,21016,is,exact unique name within the country
+US-AZ,US,@rc:US03,region,state (GeoNames admin1 code)
+LV:novads:adazu,LV,0023000,is,exact unique name within the country
+US-PA,US,@rc:US38,region,state (GeoNames admin1 code)
+NZ,NZ,*,country_context,national figure
+US-MD,US,@rc:US20,region,state (GeoNames admin1 code)
+NL:CBS_LABEL:vught,NL,GM0865,is,exact unique name within the country
+SCB_KOMMUN:1447,SE,1447,is,official code
+NL:CBS_LABEL:westerwolde,NL,GM1950,is,exact unique name within the country
+HR:county:osijek-baranja,HR,@n3:HR025,region,"county = NUTS-3 HR025 (English county name, reviewed 2.12.2)"
+GSS:E07000197,UK,E07000197,is,official code
+source-locality:RETAINED_BE:Woluwe-Saint-Pierre,BE,21019,is,exact unique name within the country
+SCB_KOMMUN:1760,SE,1760,is,official code
+GSS:E07000034,UK,E07000034,is,official code
+ISO3:LTU,LT,*,country_context,national figure
+AT,AT,*,country_context,national figure
+SCB_KOMMUN:2284,SE,2284,is,official code
+US-CO,US,@rc:US05,region,state (GeoNames admin1 code)
+SCB_KOMMUN:1257,SE,1257,is,official code
+US-HI,US,@rc:US11,region,state (GeoNames admin1 code)
+ISO3166_1_ALPHA2:IS,IS,*,country_context,national figure
+SCB_KOMMUN:2029,SE,2029,is,official code
+country:DE,DE,*,country_context,national figure
+GSS:E07000134,UK,E07000134,is,official code
+FI:vero_area:haapajarvi,FI,069,is,exact unique name within the country
+country:KR,KR,*,country_context,national figure
+LV:novads:preilu,LV,0042000,is,exact unique name within the country
+SI:surs_profile:72,SI,072,is,official code
+country:HR,HR,*,country_context,national figure
+ISO3:SRB,RS,*,country_context,national figure
+SCB_KOMMUN:1491,SE,1491,is,official code
+country:CH,CH,*,country_context,national figure
+SCB_KOMMUN:1884,SE,1884,is,official code
+US-NY,US,@rc:US34,region,state (GeoNames admin1 code)
+ISO3166_1_ALPHA2:PT,PT,*,country_context,national figure
+SCB_KOMMUN:0486,SE,0486,is,official code
+ES:published-municipality:03:torrevieja,ES,03133,is,exact unique name within the country
+SCB_KOMMUN:1983,SE,1983,is,official code
+FI:vero_area:espoo,FI,049,is,exact unique name within the country
+SI:surs_profile:15,SI,015,is,official code
+FR,FR,*,country_context,national figure
+SCB_KOMMUN:1315,SE,1315,is,official code
+SCB_KOMMUN:0461,SE,0461,is,official code
+GSS:E06000066,UK,E07000187,contains,successor authority (2020-2023 reorganisation) that contains this former district
+GSS:E06000066,UK,E07000188,contains,successor authority (2020-2023 reorganisation) that contains this former district
+GSS:E06000066,UK,E07000189,contains,successor authority (2020-2023 reorganisation) that contains this former district
+SCB_KOMMUN:2183,SE,2183,is,official code
+SCB_KOMMUN:0484,SE,0484,is,official code
+US-WA,US,@rc:US47,region,state (GeoNames admin1 code)
+SI:surs_profile:28,SI,028,is,official code
+NL:CBS_LABEL:noardeast_fryslan,NL,GM1970,is,exact unique name within the country
+LV:novads:salaspils,LV,0801200,is,exact unique name within the country
+US-SD,US,@rc:US41,region,state (GeoNames admin1 code)
+SCB_KOMMUN:1443,SE,1443,is,official code
+country:IL,IL,*,country_context,national figure
+CH,CH,*,country_context,national figure
+SCB_KOMMUN:1982,SE,1982,is,official code
+SCB_KOMMUN:2083,SE,2083,is,official code
+SCB_KOMMUN:1860,SE,1860,is,official code
+JMA:BR:portovelho,BR,3662762,station,weather station named after the place
+country:FI,FI,*,country_context,national figure
+SI:surs_profile:17,SI,017,is,official code
+GSS:E07000105,UK,E07000105,is,official code
+SCB_KOMMUN:1265,SE,1265,is,official code
+JMA:FR:nantes,FR,44109,station,weather station named after the place
+SCB_KOMMUN:0685,SE,0685,is,official code
+EUROSTAT:BE,BE,*,country_context,national figure
+FI:vero_area:forssa,FI,061,is,exact unique name within the country
+SI:surs_profile:5,SI,005,is,official code
+ISO3:LVA,LV,*,country_context,national figure
+IT,IT,*,country_context,national figure
+SCB_KOMMUN:0763,SE,0763,is,official code
+SCB_KOMMUN:1960,SE,1960,is,official code
+SCB_KOMMUN:1383,SE,1383,is,official code
+SCB_KOMMUN:0760,SE,0760,is,official code
+FI:vero_area:pukkila,FI,616,is,exact unique name within the country
+US-IN,US,@rc:US15,region,state (GeoNames admin1 code)
+US-WI,US,@rc:US48,region,state (GeoNames admin1 code)
+SCB_KOMMUN:0765,SE,0765,is,official code
+FI:vero_area:kaarina,FI,202,is,exact unique name within the country
+NL:GM0377,NL,GM0377,is,official code
+SCB_KOMMUN:1407,SE,1407,is,official code
+US-CT,US,@rc:US06,region,state (GeoNames admin1 code)
+SCB_KOMMUN:1473,SE,1473,is,official code
+GSS:E08000014,UK,E08000014,is,official code
+SI:surs_profile:190,SI,190,is,official code
+FI:vero_area:suonenjoki,FI,778,is,exact unique name within the country
+JMA:JP:fukuoka,JP,1863967,station,weather station named after the place
+EE,EE,*,country_context,national figure
+CA,CA,*,country_context,national figure
+US-VT,US,@rc:US46,region,state (GeoNames admin1 code)
+ISO3:BGR,BG,*,country_context,national figure
+EE:county:tartu,EE,0171,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:tartu,EE,0283,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:tartu,EE,0291,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:tartu,EE,0432,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:tartu,EE,0528,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:tartu,EE,0586,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:tartu,EE,0793,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:tartu,EE,0796,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+JP,JP,*,country_context,national figure
+ES:published-municipality:35:ingenio,ES,35011,is,exact unique name within the country
+ISO3:DEU,DE,*,country_context,national figure
+SCB_KOMMUN:0114,SE,0114,is,official code
+US-LA,US,@rc:US18,region,state (GeoNames admin1 code)
+NL:CBS_LABEL:echt_susteren,NL,GM1711,is,exact unique name within the country
+JMA:CN:urumqi,CN,1529102,station,weather station named after the place
+SCB_KOMMUN:2084,SE,2084,is,official code
+NL:CBS_LABEL:oost_gelre,NL,GM1586,is,exact unique name within the country
+SCB_KOMMUN:2023,SE,2023,is,official code
+FI:vero_area:vaasa,FI,905,is,exact unique name within the country
+LV:novads:aluksnes,LV,0360200,is,exact unique name within the country
+country:MX,MX,*,country_context,national figure
+ISO3166_1_ALPHA2:CY,CY,*,country_context,national figure
+ISO3166_1_ALPHA2:JP,JP,*,country_context,national figure
+SI:surs_profile:14,SI,014,is,official code
+ES,ES,*,country_context,national figure
+source-locality:RETAINED_ES:Écija,ES,41039,is,exact unique name within the country
+ISO3:CAN,CA,*,country_context,national figure
+LU,LU,*,country_context,national figure
+ISO3166_1_ALPHA2:LI,LI,*,country_context,national figure
+NL:CBS_LABEL:westervoort,NL,GM0293,is,exact unique name within the country
+GSS:E07000095,UK,E07000095,is,official code
+JMA:BR:fortaleza,BR,3399415,station,weather station named after the place
+ISO3166_1_ALPHA2:HR,HR,*,country_context,national figure
+ISO3166_1_ALPHA2:NO,NO,*,country_context,national figure
+GSS:E12000008,UK,@n3:UKJ*,region,English region = NUTS-1 UKJ
+SCB_KOMMUN:0584,SE,0584,is,official code
+LV:novads:smiltenes,LV,0049000,is,exact unique name within the country
+GSS:E08000002,UK,E08000002,is,official code
+GSS:E06000060,UK,E07000004,contains,successor authority (2020-2023 reorganisation) that contains this former district
+GSS:E06000060,UK,E07000005,contains,successor authority (2020-2023 reorganisation) that contains this former district
+GSS:E06000060,UK,E07000006,contains,successor authority (2020-2023 reorganisation) that contains this former district
+GSS:E06000060,UK,E07000007,contains,successor authority (2020-2023 reorganisation) that contains this former district
+US-MT,US,@rc:US26,region,state (GeoNames admin1 code)
+US-MI,US,@rc:US22,region,state (GeoNames admin1 code)
+NL:GM0417,NL,GM0417,is,official code
+SCB_KOMMUN:1883,SE,1883,is,official code
+GSS:E07000121,UK,E07000121,is,official code
+SCB_KOMMUN:2161,SE,2161,is,official code
+SCB_KOMMUN:0330,SE,0330,is,official code
+RO:ANOFM:mures,RO,@n3:RO125,region,NUTS3 region by exact name
+SCB_KOMMUN:1460,SE,1460,is,official code
+HR:county:vukovar-srijem,HR,@n3:HR026,region,"county = NUTS-3 HR026 (English county name, reviewed 2.12.2)"
+SCB_KOMMUN:1284,SE,1284,is,official code
+SCB_KOMMUN:2505,SE,2505,is,official code
+GSS:E06000008,UK,E06000008,is,official code
+source-locality:LI_MUNICIPAL_2024:Schaan,LI,LI00001005,is,exact unique name within the country
+SI:surs_profile:11,SI,011,is,official code
+NL:CBS_LABEL:uithoorn,NL,GM0451,is,exact unique name within the country
+SI:surs_profile:30,SI,030,is,official code
+HU:EC_CITY_LABEL:miskolc,HU,30456,survey_city,survey city = its core municipality (reviewed 2.12.2)
+SCB_KOMMUN:2281,SE,2281,is,official code
+RO:ANOFM:dolj,RO,@n3:RO411,region,NUTS3 region by exact name
+country:EE,EE,*,country_context,national figure
+GSS:E07000099,UK,E07000099,is,official code
+JMA:HK:hongkong,HK,1819609,station,weather station named after the place
+SCB_KOMMUN:2518,SE,2518,is,official code
+JMA:US:sanfrancisco,US,5391959,station,weather station named after the place
+SCB_KOMMUN:2280,SE,2280,is,official code
+ISO3166_1_ALPHA2:GR,EL,*,country_context,national figure
+GSS:E07000035,UK,E07000035,is,official code
+SCB_KOMMUN:0683,SE,0683,is,official code
+country:BG,BG,*,country_context,national figure
+country:CA,CA,*,country_context,national figure
+JMA:CA:princealbert,CA,6113335,station,weather station named after the place
+FI:vero_area:uusikaarlepyy,FI,893,is,exact unique name within the country
+ISO3:CHE,CH,*,country_context,national figure
+SCB_KOMMUN:1496,SE,1496,is,official code
+SCB_KOMMUN:1482,SE,1482,is,official code
+SCB_KOMMUN:1270,SE,1270,is,official code
+EE:county:ida-viru,EE,0130,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:ida-viru,EE,0251,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:ida-viru,EE,0321,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:ida-viru,EE,0442,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:ida-viru,EE,0511,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:ida-viru,EE,0515,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:ida-viru,EE,0736,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:ida-viru,EE,0803,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+SCB_KOMMUN:2513,SE,2513,is,official code
+ES:published-municipality:11:jerez-de-la-frontera,ES,11020,is,exact unique name within the country
+NL:CBS_LABEL:dijk_en_waard,NL,GM1980,is,exact unique name within the country
+GSS:S12000050,UK,S30000023,is,exact unique name within the country
+SCB_KOMMUN:0581,SE,0581,is,official code
+GSS:E07000088,UK,E07000088,is,official code
+country:DK,DK,*,country_context,national figure
+SCB_KOMMUN:1283,SE,1283,is,official code
+LV:city:jelgava,LV,0003000,is,exact unique name within the country
+RO:ANOFM:hunedoara,RO,@n3:RO423,region,NUTS3 region by exact name
+RO:ANOFM:vrancea,RO,@n3:RO226,region,NUTS3 region by exact name
+ISO3:AUT,AT,*,country_context,national figure
+GSS:E06000023,UK,E06000023,is,official code
+ES:EC_CITY_LABEL:barcelona,ES,08019,survey_city,survey city = its core municipality (reviewed 2.12.2)
+SCB_KOMMUN:1262,SE,1262,is,official code
+JMA:AU:darwin,AU,2073124,station,weather station named after the place
+country:MY,MY,*,country_context,national figure
+SCB_KOMMUN:1881,SE,1881,is,official code
+LV:city:ventspils,LV,0270000,is,exact unique name within the country
+SCB_KOMMUN:1471,SE,1471,is,official code
+SCB_KOMMUN:1415,SE,1415,is,official code
+SCB_KOMMUN:1472,SE,1472,is,official code
+LV:novads:saldus,LV,0840200,is,exact unique name within the country
+NL:CBS_LABEL:almere,NL,GM0034,is,exact unique name within the country
+SI:surs_profile:26,SI,026,is,official code
+SCB_KOMMUN:1445,SE,1445,is,official code
+RO:ANOFM:giurgiu,RO,@n3:RO314,region,NUTS3 region by exact name
+SCB_KOMMUN:2425,SE,2425,is,official code
+EUROSTAT:PL,PL,*,country_context,national figure
+FI:vero_area:pieksamaki,FI,593,is,exact unique name within the country
+ISO3166_1_ALPHA2:RO,RO,*,country_context,national figure
+FI:vero_area:lapinlahti,FI,402,is,exact unique name within the country
+FI:EC_CITY_LABEL:helsinki,FI,091,survey_city,survey city = its core municipality (reviewed 2.12.2)
+US-ME,US,@rc:US21,region,state (GeoNames admin1 code)
+FI:vero_area:vesanto,FI,921,is,exact unique name within the country
+SCB_KOMMUN:1782,SE,1782,is,official code
+ES:published-municipality:30:aguilas,ES,30003,is,exact unique name within the country
+FI:vero_area:luumaki,FI,441,is,exact unique name within the country
+LV:city:liepaja,LV,0170000,is,exact unique name within the country
+GSS:E07000038,UK,E07000038,is,official code
+SCB_KOMMUN:1291,SE,1291,is,official code
+RO:ANOFM:arges,RO,@n3:RO311,region,NUTS3 region by exact name
+SCB_KOMMUN:1864,SE,1864,is,official code
+SCB_KOMMUN:2283,SE,2283,is,official code
+ISO3166_1_ALPHA2:SE,SE,*,country_context,national figure
+GSS:E09000007,UK,E09000007,is,official code
+SI:surs_profile:2,SI,002,is,official code
+country:GB,UK,*,country_context,national figure
+LV:novads:ventspils,LV,0980200,is,exact unique name within the country
+FI:vero_area:maalahti,FI,475,is,exact unique name within the country
+GSS:E07000081,UK,E07000081,is,official code
+BE:STATBEL_LABEL:saint_leger,BE,85034,is,exact unique name within the country
+HR:county:slavonski-brod-posavina,HR,@n3:HR024,region,"county = NUTS-3 HR024 (English county name, reviewed 2.12.2)"
+FI:vero_area:kustavi,FI,304,is,exact unique name within the country
+US-KY,US,@rc:US17,region,state (GeoNames admin1 code)
+SCB_KOMMUN:0561,SE,0561,is,official code
+country:MA,MA,*,country_context,national figure
+JMA:NZ:christchurch,NZ,2192362,station,weather station named after the place
+SCB_KOMMUN:0582,SE,0582,is,official code
+SCB_KOMMUN:1419,SE,1419,is,official code
+US-MN,US,@rc:US23,region,state (GeoNames admin1 code)
+GSS:E08000029,UK,E08000029,is,official code
+NL:CBS_LABEL:ermelo,NL,GM0233,is,exact unique name within the country
+SCB_KOMMUN:0331,SE,0331,is,official code
+LV:novads:augsdaugavas,LV,0022000,is,exact unique name within the country
+SCB_KOMMUN:1480,SE,1480,is,official code
+SI:surs_profile:29,SI,029,is,official code
+SCB_KOMMUN:1446,SE,1446,is,official code
+source-locality:RETAINED_ES:Villanueva de la Serena,ES,06153,is,exact unique name within the country
+SCB_KOMMUN:1882,SE,1882,is,official code
+country:IE,IE,*,country_context,national figure
+SI:surs_profile:22,SI,022,is,official code
+country:AU,AU,*,country_context,national figure
+JMA:US:stlouis,US,4407066,station,weather station named after the place
+SCB_KOMMUN:1264,SE,1264,is,official code
+RO:ANOFM:teleorman,RO,@n3:RO317,region,NUTS3 region by exact name
+GSS:E06000041,UK,E06000041,is,official code
+GSS:E06000011,UK,E06000011,is,official code
+SCB_KOMMUN:0686,SE,0686,is,official code
+JMA:AU:canberra,AU,2172517,station,weather station named after the place
+FI:vero_area:rusko,FI,704,is,exact unique name within the country
+US-FL,US,@rc:US09,region,state (GeoNames admin1 code)
+GSS:E08000006,UK,E08000006,is,official code
+SCB_KOMMUN:0684,SE,0684,is,official code
+SCB_KOMMUN:0680,SE,0680,is,official code
+ISO3:USA,US,*,country_context,national figure
+GSS:E07000085,UK,E07000085,is,official code
+FI:vero_area:lappajarvi,FI,403,is,exact unique name within the country
+SCB_KOMMUN:0562,SE,0562,is,official code
+SCB_KOMMUN:2481,SE,2481,is,official code
+RO:ANOFM:romania,RO,*,country_context,national figure
+GSS:E07000110,UK,E07000110,is,official code
+SI:surs_profile:113,SI,113,is,official code
+NL:CBS_LABEL:pijnacker_nootdorp,NL,GM1926,is,exact unique name within the country
+SCB_KOMMUN:0428,SE,0428,is,official code
+GSS:E07000012,UK,E07000012,is,official code
+GSS:E06000017,UK,E06000017,is,official code
+GSS:E07000222,UK,E07000222,is,official code
+SCB_KOMMUN:1281,SE,1281,is,official code
+FI:vero_area:eurajoki,FI,051,is,exact unique name within the country
+NL:CBS_LABEL:heeze_leende,NL,GM1658,is,exact unique name within the country
+FI:vero_area:rautjarvi,FI,689,is,exact unique name within the country
+GSS:E06000055,UK,E06000055,is,official code
+JMA:MA:casablanca,MA,2553604,station,weather station named after the place
+SCB_KOMMUN:1381,SE,1381,is,official code
+INSEE_COM:69123,FR,69123,is,official code
+SCB_KOMMUN:1885,SE,1885,is,official code
+ISO3:SWE,SE,*,country_context,national figure
+JMA:AU:brisbane,AU,2174003,station,weather station named after the place
+SCB_KOMMUN:1730,SE,1730,is,official code
+LV:novads:tukuma,LV,0052000,is,exact unique name within the country
+SCB_KOMMUN:2081,SE,2081,is,official code
+SCB_KOMMUN:0513,SE,0513,is,official code
+ISO3:NOR,NO,*,country_context,national figure
+US-NH,US,@rc:US30,region,state (GeoNames admin1 code)
+SCB_KOMMUN:2326,SE,2326,is,official code
+NL:CBS_LABEL:nederweert,NL,GM0946,is,exact unique name within the country
+FI:vero_area:poytya,FI,636,is,exact unique name within the country
+GSS:E08000001,UK,E08000001,is,official code
+SCB_KOMMUN:0883,SE,0883,is,official code
+SCB_KOMMUN:0181,SE,0181,is,official code
+SCB_KOMMUN:0382,SE,0382,is,official code
+SCB_KOMMUN:1880,SE,1880,is,official code
+SCB_KOMMUN:1452,SE,1452,is,official code
+GSS:E07000103,UK,E07000103,is,official code
+FI:vero_area:kaskinen,FI,231,is,exact unique name within the country
+GSS:E07000072,UK,E07000072,is,official code
+ISO3166_1_ALPHA2:IE,IE,*,country_context,national figure
+SCB_KOMMUN:0885,SE,0885,is,official code
+FI:vero_area:posio,FI,614,is,exact unique name within the country
+SCB_KOMMUN:2062,SE,2062,is,official code
+ISO3166_1_ALPHA2:NZ,NZ,*,country_context,national figure
+SCB_KOMMUN:1492,SE,1492,is,official code
+CH:ZH_CITY_ZURICH,CH,261,is,exact unique name within the country
+BE:STATBEL_LABEL:woluwe_saint_pierre,BE,21019,is,exact unique name within the country
+NL:CBS_LABEL:sint_michielsgestel,NL,GM0845,is,exact unique name within the country
+GSS:E07000098,UK,E07000098,is,official code
+GSS:S12000013,UK,S30000039,is,exact unique name within the country
+SI:surs_profile:32,SI,032,is,official code
+SI:surs_profile:25,SI,025,is,official code
+BE,BE,*,country_context,national figure
+GSS:W06000006,UK,W06000006,is,official code
+SCB_KOMMUN:2584,SE,2584,is,official code
+FI:vero_area:orivesi,FI,562,is,exact unique name within the country
+SCB_KOMMUN:0162,SE,0162,is,official code
+ISO3:DNK,DK,*,country_context,national figure
+SCB_KOMMUN:1440,SE,1440,is,official code
+FI:vero_area:lestijarvi,FI,421,is,exact unique name within the country
+GSS:E07000127,UK,E07000127,is,official code
+SCB_KOMMUN:1277,SE,1277,is,official code
+US-AK,US,@rc:US00,region,state (GeoNames admin1 code)
+SCB_KOMMUN:0191,SE,0191,is,official code
+GSS:S12000026,UK,S30000007,is,exact unique name within the country
+SCB_KOMMUN:0138,SE,0138,is,official code
+SCB_KOMMUN:1435,SE,1435,is,official code
+FI:vero_area:kuopio,FI,297,is,exact unique name within the country
+HU,HU,*,country_context,national figure
+NL:CBS_LABEL:meppel,NL,GM0119,is,exact unique name within the country
+SCB_KOMMUN:2180,SE,2180,is,official code
+NL:CBS_LABEL:stichtse_vecht,NL,GM1904,is,exact unique name within the country
+SCB_KOMMUN:0764,SE,0764,is,official code
+GSS:S12000034,UK,S30000027,is,exact unique name within the country
+SCB_KOMMUN:1783,SE,1783,is,official code
+ISO3166_1_ALPHA2:MT,MT,*,country_context,national figure
+SCB_KOMMUN:0480,SE,0480,is,official code
+SCB_KOMMUN:1287,SE,1287,is,official code
+SCB_KOMMUN:0840,SE,0840,is,official code
+SCB_KOMMUN:1267,SE,1267,is,official code
+FI:vero_area:sauvo,FI,738,is,exact unique name within the country
+SCB_KOMMUN:1082,SE,1082,is,official code
+JMA:NO:oslo,NO,0301,station,weather station named after the place
+GSS:E12000005,UK,@n3:UKG*,region,English region = NUTS-1 UKG
+NL:CBS_LABEL:leusden,NL,GM0327,is,exact unique name within the country
+FI:vero_area:leppavirta,FI,420,is,exact unique name within the country
+SG,SG,*,country_context,national figure
+JMA:MY:kualalumpur,MY,1735161,station,weather station named after the place
+SI:surs_profile:27,SI,027,is,official code
+SCB_KOMMUN:0821,SE,0821,is,official code
+GSS:E07000192,UK,E07000192,is,official code
+JMA:CN:beijing,CN,1816670,station,weather station named after the place
+GB:E06000014,UK,E06000014,is,official code
+SCB_KOMMUN:0642,SE,0642,is,official code
+ES:published-municipality:30:torre-pacheco,ES,30037,is,exact unique name within the country
+GSS:E09000009,UK,E09000009,is,official code
+HR:county:lika-senj,HR,@n3:HR032,region,"county = NUTS-3 HR032 (English county name, reviewed 2.12.2)"
+GSS:E07000096,UK,E07000096,is,official code
+LV:novads:kekavas,LV,0034000,is,exact unique name within the country
+SI:surs_profile:16,SI,016,is,official code
+SCB_KOMMUN:0604,SE,0604,is,official code
+SCB_KOMMUN:0381,SE,0381,is,official code
+JMA:JP:naha,JP,1856035,station,weather station named after the place
+JMA:FI:helsinki,FI,091,station,weather station named after the place
+EUROSTAT:CZ,CZ,*,country_context,national figure
+SCB_KOMMUN:2523,SE,2523,is,official code
+SCB_KOMMUN:0126,SE,0126,is,official code
+FI:vero_area:eckero,FI,043,is,exact unique name within the country
+GSS:E07000208,UK,E07000208,is,official code
+SCB_KOMMUN:1421,SE,1421,is,official code
+DE,DE,*,country_context,national figure
+SCB_KOMMUN:0139,SE,0139,is,official code
+GSS:E07000102,UK,E07000102,is,official code
+GSS:N09000008,UK,N09000008,is,official code
+GSS:E07000115,UK,E07000115,is,official code
+SCB_KOMMUN:0128,SE,0128,is,official code
+SCB_KOMMUN:0305,SE,0305,is,official code
+SCB_KOMMUN:1442,SE,1442,is,official code
+GSS:S12000040,UK,S30000012,is,exact unique name within the country
+US-OR,US,@rc:US37,region,state (GeoNames admin1 code)
+SCB_KOMMUN:0192,SE,0192,is,official code
+JMA:KR:busan,KR,1838524,station,weather station named after the place
+FI:vero_area:kihnio,FI,250,is,exact unique name within the country
+LV:novads:talsu,LV,0051000,is,exact unique name within the country
+RO:ANOFM:timis,RO,@n3:RO424,region,NUTS3 region by exact name
+GSS:E07000123,UK,E07000123,is,official code
+ISO3:HUN,HU,*,country_context,national figure
+SCB_KOMMUN:0834,SE,0834,is,official code
+SCB_KOMMUN:0861,SE,0861,is,official code
+RO:ANOFM:bacau,RO,@n3:RO211,region,NUTS3 region by exact name
+SCB_KOMMUN:0117,SE,0117,is,official code
+LV:city:riga,LV,0010000,is,exact unique name within the country
+SCB_KOMMUN:2514,SE,2514,is,official code
+SCB_KOMMUN:0682,SE,0682,is,official code
+SCB_KOMMUN:1441,SE,1441,is,official code
+PT,PT,*,country_context,national figure
+GSS:E07000138,UK,E07000138,is,official code
+SCB_KOMMUN:1481,SE,1481,is,official code
+GSS:E08000036,UK,E08000036,is,official code
+LT:municipality:72,LT,72,is,official code
+ISO3:FIN,FI,*,country_context,national figure
+GSS:E12000004,UK,@n3:UKF*,region,English region = NUTS-1 UKF
+NL:GM0363,NL,GM0363,is,official code
+JMA:MY:kotakinabalu,MY,1733432,station,weather station named after the place
+SCB_KOMMUN:1266,SE,1266,is,official code
+GSS:E06000015,UK,E06000015,is,official code
+SCB_KOMMUN:2184,SE,2184,is,official code
+SCB_KOMMUN:0687,SE,0687,is,official code
+GSS:E08000016,UK,E08000016,is,official code
+FI:vero_area:pudasjarvi,FI,615,is,exact unique name within the country
+SCB_KOMMUN:1487,SE,1487,is,official code
+HU:EC_CITY_LABEL:budapest,HU,13578,survey_city,survey city = its core municipality (reviewed 2.12.2)
+FI:vero_area:juuka,FI,176,is,exact unique name within the country
+FI:vero_area:raakkyla,FI,707,is,exact unique name within the country
+GSS:E09000025,UK,E09000025,is,official code
+SCB_KOMMUN:0586,SE,0586,is,official code
+LT:municipality:39,LT,39,is,official code
+SCB_KOMMUN:0643,SE,0643,is,official code
+SCB_KOMMUN:0360,SE,0360,is,official code
+SI:surs_profile:21,SI,021,is,official code
+GSS:E07000084,UK,E07000084,is,official code
+NL:CBS_LABEL:venlo,NL,GM0983,is,exact unique name within the country
+JMA:CN:lhasa,CN,1280737,station,weather station named after the place
+ISO3166_1_ALPHA2:IT,IT,*,country_context,national figure
+NL:GM0014,NL,GM0014,is,official code
+FI:vero_area:pyhajarvi,FI,626,is,exact unique name within the country
+RO:ANOFM:bistrita-nasaud,RO,@n3:RO112,region,NUTS3 region by exact name
+SCB_KOMMUN:1984,SE,1984,is,official code
+GSS:E07000067,UK,E07000067,is,official code
+ES:published-municipality:28:colmenar-viejo,ES,28045,is,exact unique name within the country
+NL:CBS_LABEL:alphen_aan_den_rijn,NL,GM0484,is,exact unique name within the country
+FR:EC_CITY_LABEL:strasbourg,FR,67482,survey_city,survey city = its core municipality (reviewed 2.12.2)
+ES:published-municipality:23:linares,ES,23055,is,exact unique name within the country
+FI:municipality:091,FI,091,is,official code
+SCB_KOMMUN:2080,SE,2080,is,official code
+SI:surs_profile:1,SI,001,is,official code
+FI:vero_area:mynamaki,FI,503,is,exact unique name within the country
+FI:vero_area:tampere,FI,837,is,exact unique name within the country
+FI:vero_area:imatra,FI,153,is,exact unique name within the country
+SCB_KOMMUN:1765,SE,1765,is,official code
+SI:surs_profile:31,SI,031,is,official code
+EUROSTAT:EL,EL,*,country_context,national figure
+SCB_KOMMUN:2401,SE,2401,is,official code
+NL:CBS_LABEL:zandvoort,NL,GM0473,is,exact unique name within the country
+ES:published-municipality:03:orihuela,ES,03099,is,exact unique name within the country
+HR:county:sisak-moslavina,HR,@n3:HR028,region,"county = NUTS-3 HR028 (English county name, reviewed 2.12.2)"
+LV:novads:valmieras,LV,0054000,is,exact unique name within the country
+GSS:E06000043,UK,E06000043,is,official code
+GSS:E07000136,UK,E07000136,is,official code
+NAT:ES,ES,*,country_context,national figure
+SI:surs_profile:68,SI,068,is,official code
+SCB_KOMMUN:1961,SE,1961,is,official code
+source-locality:LI_MUNICIPAL_2024:Triesen,LI,LI00001002,is,exact unique name within the country
+GSS:E07000236,UK,E07000236,is,official code
+GSS:N09000010,UK,N09000010,is,official code
+source-locality:RETAINED_ES:Majadahonda,ES,28080,is,exact unique name within the country
+SCB_KOMMUN:0781,SE,0781,is,official code
+GSS:W06000014,UK,W06000014,is,official code
+GSS:E06000042,UK,E06000042,is,official code
+GSS:E06000016,UK,E06000016,is,official code
+FI:vero_area:sund,FI,771,is,exact unique name within the country
+ISO3:CYP,CY,*,country_context,national figure
+GSS:S12000018,UK,S30000022,is,exact unique name within the country
+SCB_KOMMUN:1231,SE,1231,is,official code
+GSS:E07000213,UK,E07000213,is,official code
+SCB_KOMMUN:1766,SE,1766,is,official code
+GSS:E07000241,UK,E07000241,is,official code
+SCB_KOMMUN:0662,SE,0662,is,official code
+NL:CBS_LABEL:wijchen,NL,GM0296,is,exact unique name within the country
+BE:STATBEL_LABEL:galmaarden,BE,23023,is,exact unique name within the country
+LT:municipality:18,LT,18,is,official code
+SI:surs_profile:8,SI,008,is,official code
+SCB_KOMMUN:1904,SE,1904,is,official code
+CH:EC_CITY_LABEL:zurich,CH,261,survey_city,survey city = its core municipality (reviewed 2.12.2)
+SCB_KOMMUN:2181,SE,2181,is,official code
+GSS:S12000038,UK,S30000021,is,exact unique name within the country
+NL:CBS_LABEL:harlingen,NL,GM0072,is,exact unique name within the country
+SCB_KOMMUN:1485,SE,1485,is,official code
+SCB_KOMMUN:1276,SE,1276,is,official code
+SCB_KOMMUN:1263,SE,1263,is,official code
+EUROSTAT:DK,DK,*,country_context,national figure
+NL:CBS_LABEL:eemsdelta,NL,GM1979,is,exact unique name within the country
+SCB_KOMMUN:2321,SE,2321,is,official code
+FI:vero_area:kyyjarvi,FI,312,is,exact unique name within the country
+LV:novads:rezeknes,LV,0780200,is,exact unique name within the country
+ISO3166_1_ALPHA2:FR,FR,*,country_context,national figure
+GSS:E08000030,UK,E08000030,is,official code
+SCB_KOMMUN:0125,SE,0125,is,official code
+GSS:E07000062,UK,E07000062,is,official code
+NL:CBS_LABEL:bronckhorst,NL,GM1876,is,exact unique name within the country
+NL:CBS_LABEL:zwijndrecht,NL,GM0642,is,exact unique name within the country
+EUROSTAT:RO,RO,*,country_context,national figure
+ISO3:SVK,SK,*,country_context,national figure
+FI:vero_area:puumala,FI,623,is,exact unique name within the country
+GSS:E07000092,UK,E07000092,is,official code
+GSS:E06000027,UK,E06000027,is,official code
+NL:CBS_LABEL:zwolle,NL,GM0193,is,exact unique name within the country
+ISO3166_1_ALPHA2:BG,BG,*,country_context,national figure
+GB:E06000011,UK,E06000011,is,official code
+ISO3:ISL,IS,*,country_context,national figure
+source-locality:RETAINED_ES:Pozuelo de Alarcón,ES,28115,is,exact unique name within the country
+LT,LT,*,country_context,national figure
+FI:vero_area:kempele,FI,244,is,exact unique name within the country
+SCB_KOMMUN:2580,SE,2580,is,official code
+ISO3166_1_ALPHA2:DK,DK,*,country_context,national figure
+FI:vero_area:alavus,FI,010,is,exact unique name within the country
+SCB_KOMMUN:2085,SE,2085,is,official code
+SCB_KOMMUN:1439,SE,1439,is,official code
+FI:vero_area:oulainen,FI,563,is,exact unique name within the country
+NL:CBS_LABEL:best,NL,GM0753,is,exact unique name within the country
+GSS:E07000094,UK,E07000094,is,official code
+ISO3:AUS,AU,*,country_context,national figure
+SCB_KOMMUN:0481,SE,0481,is,official code
+GSS:E07000132,UK,E07000132,is,official code
+SCB_KOMMUN:2403,SE,2403,is,official code
+source-locality:RETAINED_BE:Schilde,BE,11039,is,exact unique name within the country
+SCB_KOMMUN:0182,SE,0182,is,official code
+SCB_KOMMUN:1780,SE,1780,is,official code
+ES:published-municipality:08:sitges,ES,08270,is,exact unique name within the country
+EUROSTAT:LV,LV,*,country_context,national figure
+ISO3:GRC,EL,*,country_context,national figure
+SCB_KOMMUN:0160,SE,0160,is,official code
+SCB_KOMMUN:0188,SE,0188,is,official code
+GSS:E08000026,UK,E08000026,is,official code
+ES:published-municipality:08:terrassa,ES,08279,is,exact unique name within the country
+FI:vero_area:ypaja,FI,981,is,exact unique name within the country
+GSS:E06000062,UK,E07000151,contains,successor authority (2020-2023 reorganisation) that contains this former district
+GSS:E06000062,UK,E07000154,contains,successor authority (2020-2023 reorganisation) that contains this former district
+GSS:E06000062,UK,E07000155,contains,successor authority (2020-2023 reorganisation) that contains this former district
+FI:vero_area:myrskyla,FI,504,is,exact unique name within the country
+RO:ANOFM:calarasi,RO,@n3:RO312,region,NUTS3 region by exact name
+JMA:CN:nanjing,CN,1799962,station,weather station named after the place
+US-MA,US,@rc:US19,region,state (GeoNames admin1 code)
+GSS:E07000141,UK,E07000141,is,official code
+FI:vero_area:hausjarvi,FI,086,is,exact unique name within the country
+GSS:E06000050,UK,E06000050,is,official code
+SCB_KOMMUN:1784,SE,1784,is,official code
+JMA:CN:kunming,CN,1804651,station,weather station named after the place
+FI:vero_area:hartola,FI,081,is,exact unique name within the country
+SCB_KOMMUN:1785,SE,1785,is,official code
+SCB_KOMMUN:1290,SE,1290,is,official code
+NL:CBS_LABEL:bloemendaal,NL,GM0377,is,exact unique name within the country
+FI:vero_area:laihia,FI,399,is,exact unique name within the country
+FI:vero_area:tuusniemi,FI,857,is,exact unique name within the country
+SCB_KOMMUN:0980,SE,0980,is,official code
+SCB_KOMMUN:1463,SE,1463,is,official code
+ISO3:EST,EE,*,country_context,national figure
+GSS:E07000225,UK,E07000225,is,official code
+SI:surs_profile:7,SI,007,is,official code
+FI:vero_area:saltvik,FI,736,is,exact unique name within the country
+ISO3166_1_ALPHA2:PL,PL,*,country_context,national figure
+JMA:MX:monterrey,MX,3995465,station,weather station named after the place
+GSS:N09000007,UK,N09000007,is,official code
+SCB_KOMMUN:0136,SE,0136,is,official code
+NAT:LV,LV,*,country_context,national figure
+FI:vero_area:lemi,FI,416,is,exact unique name within the country
+SCB_KOMMUN:1382,SE,1382,is,official code
+SCB_KOMMUN:0123,SE,0123,is,official code
+GSS:E09000017,UK,E09000017,is,official code
+ISO3:PRT,PT,*,country_context,national figure
+GSS:E07000126,UK,E07000126,is,official code
+FI:vero_area:nurmes,FI,541,is,exact unique name within the country
+GSS:E09000002,UK,E09000002,is,official code
+FI:vero_area:simo,FI,751,is,exact unique name within the country
+GSS:E07000195,UK,E07000195,is,official code
+SCB_KOMMUN:0509,SE,0509,is,official code
+source-locality:RETAINED_SI:Ljubljana,SI,061,is,exact unique name within the country
+GSS:E07000198,UK,E07000198,is,official code
+SCB_KOMMUN:1260,SE,1260,is,official code
+GSS:E07000149,UK,E07000149,is,official code
+GSS:E06000031,UK,E06000031,is,official code
+FI:vero_area:luoto,FI,440,is,exact unique name within the country
+GSS:E06000049,UK,E06000049,is,official code
+FI:vero_area:helsinki,FI,091,is,exact unique name within the country
+SCB_KOMMUN:1286,SE,1286,is,official code
+ES:published-municipality:08:mataro,ES,08121,is,exact unique name within the country
+SCB_KOMMUN:2422,SE,2422,is,official code
+NL:CBS_LABEL:noordwijk,NL,GM0575,is,exact unique name within the country
+GSS:E06000019,UK,E06000019,is,official code
+ISO3166_1_ALPHA2:EE,EE,*,country_context,national figure
+RO:ANOFM:arad,RO,@n3:RO421,region,NUTS3 region by exact name
+GSS:E07000131,UK,E07000131,is,official code
+SCB_KOMMUN:0665,SE,0665,is,official code
+GSS:E08000032,UK,E08000032,is,official code
+INSEE_COM:75056,FR,75056,is,official code
+GSS:E06000030,UK,E06000030,is,official code
+GSS:S12000039,UK,S30000014,is,exact unique name within the country
+FI:vero_area:hamina,FI,075,is,exact unique name within the country
+CH:EC_CITY_LABEL:geneva,CH,6621,survey_city,survey city = its core municipality (reviewed 2.12.2)
+EE:county:valga,EE,0557,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:valga,EE,0824,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:valga,EE,0857,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+ES:published-municipality:29:torremolinos,ES,29901,is,exact unique name within the country
+SCB_KOMMUN:1461,SE,1461,is,official code
+SCB_KOMMUN:1430,SE,1430,is,official code
+SCB_KOMMUN:0780,SE,0780,is,official code
+SCB_KOMMUN:0512,SE,0512,is,official code
+NL:CBS_LABEL:aalten,NL,GM0197,is,exact unique name within the country
+GSS:E07000242,UK,E07000242,is,official code
+SCB_KOMMUN:2034,SE,2034,is,official code
+ISO3:ROU,RO,*,country_context,national figure
+FI:vero_area:salo,FI,734,is,exact unique name within the country
+SCB_KOMMUN:2061,SE,2061,is,official code
+JMA:US:honolulu,US,5856195,station,weather station named after the place
+NL:CBS_LABEL:dantumadiel,NL,GM1891,is,exact unique name within the country
+LT:municipality:61,LT,61,is,official code
+ES:published-municipality:35:arrecife,ES,35004,is,exact unique name within the country
+GSS:E09000027,UK,E09000027,is,official code
+NL:CBS_LABEL:hollands_kroon,NL,GM1911,is,exact unique name within the country
+RO:ANOFM:sibiu,RO,@n3:RO126,region,NUTS3 region by exact name
+FI:vero_area:kaavi,FI,204,is,exact unique name within the country
+source-locality:RETAINED_BE:Rixensart,BE,25091,is,exact unique name within the country
+GSS:E08000008,UK,E08000008,is,official code
+FI:vero_area:vantaa,FI,092,is,exact unique name within the country
+SCB_KOMMUN:0482,SE,0482,is,official code
+ISO3:MLT,MT,*,country_context,national figure
+SCB_KOMMUN:2582,SE,2582,is,official code
+SCB_KOMMUN:2460,SE,2460,is,official code
+JMA:JP:tokyo,JP,1850147,station,weather station named after the place
+NL:CBS_LABEL:vlaardingen,NL,GM0622,is,exact unique name within the country
+SCB_KOMMUN:1466,SE,1466,is,official code
+FI:vero_area:huittinen,FI,102,is,exact unique name within the country
+SCB_KOMMUN:1256,SE,1256,is,official code
+FI:vero_area:saarijarvi,FI,729,is,exact unique name within the country
+FI:vero_area:kannonkoski,FI,216,is,exact unique name within the country
+SCB_KOMMUN:2262,SE,2262,is,official code
+HR:county:sibenik-knin,HR,@n3:HR034,region,"county = NUTS-3 HR034 (English county name, reviewed 2.12.2)"
+GSS:E07000168,UK,E07000168,is,official code
+ES:published-municipality:46:valencia,ES,46250,is,exact unique name within the country
+GSS:E06000045,UK,E06000045,is,official code
+GSS:E08000019,UK,E08000019,is,official code
+SCB_KOMMUN:1980,SE,1980,is,official code
+NL:EC_CITY_LABEL:groningen,NL,GM0014,survey_city,survey city = its core municipality (reviewed 2.12.2)
+GSS:E07000036,UK,E07000036,is,official code
+ES:published-municipality:38:arona,ES,38006,is,exact unique name within the country
+GSS:E07000218,UK,E07000218,is,official code
+ISO3:FRA,FR,*,country_context,national figure
+DK,DK,*,country_context,national figure
+ISO3:SVN,SI,*,country_context,national figure
+GSS:E08000003,UK,E08000003,is,official code
+FI:vero_area:ruovesi,FI,702,is,exact unique name within the country
+FI:vero_area:pyhajoki,FI,625,is,exact unique name within the country
+FI:vero_area:nousiainen,FI,538,is,exact unique name within the country
+SCB_KOMMUN:2462,SE,2462,is,official code
+GSS:E06000034,UK,E06000034,is,official code
+SCB_KOMMUN:1498,SE,1498,is,official code
+SCB_KOMMUN:2082,SE,2082,is,official code
+GSS:E07000068,UK,E07000068,is,official code
+HR:county:zagreb-county,HR,@n3:HR065,region,"county = NUTS-3 HR065 (English county name, reviewed 2.12.2)"
+GSS:E07000043,UK,E07000043,is,official code
+GSS:E07000139,UK,E07000139,is,official code
+SCB_KOMMUN:1907,SE,1907,is,official code
+GSS:E07000133,UK,E07000133,is,official code
+NAT:HR,HR,*,country_context,national figure
+ISO3166_1_ALPHA2:HU,HU,*,country_context,national figure
+GSS:E09000011,UK,E09000011,is,official code
+LT:municipality:69,LT,69,is,official code
+LT:municipality:34,LT,34,is,official code
+GSS:E07000200,UK,E07000200,is,official code
+GSS:E07000169,UK,E07000169,is,official code
+GSS:E07000237,UK,E07000237,is,official code
+EE:county:laane-viru,EE,0191,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:laane-viru,EE,0272,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:laane-viru,EE,0661,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:laane-viru,EE,0663,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:laane-viru,EE,0792,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:laane-viru,EE,0901,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:laane-viru,EE,0903,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:laane-viru,EE,0928,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+source-locality:RETAINED_BE:Knokke-Heist,BE,31043,is,exact unique name within the country
+SCB_KOMMUN:1438,SE,1438,is,official code
+source-locality:RETAINED_BE:Molenbeek-Saint-Jean,BE,21012,is,exact unique name within the country
+GSS:E09000023,UK,E09000023,is,official code
+NL:CBS_LABEL:duiven,NL,GM0226,is,exact unique name within the country
+SCB_KOMMUN:0319,SE,0319,is,official code
+GB:E06000010,UK,E06000010,is,official code
+FI:vero_area:kuhmo,FI,290,is,exact unique name within the country
+GSS:E07000061,UK,E07000061,is,official code
+ES:published-municipality:28:getafe,ES,28065,is,exact unique name within the country
+GSS:E07000224,UK,E07000224,is,official code
+NL:CBS_LABEL:maasgouw,NL,GM1641,is,exact unique name within the country
+GSS:E06000021,UK,E06000021,is,official code
+SCB_KOMMUN:1278,SE,1278,is,official code
+GSS:E08000028,UK,E08000028,is,official code
+GSS:E09000012,UK,E09000012,is,official code
+NL:CBS_LABEL:valkenswaard,NL,GM0858,is,exact unique name within the country
+ES:published-municipality:03:novelda,ES,03093,is,exact unique name within the country
+FI:vero_area:brando,FI,035,is,exact unique name within the country
+FI:vero_area:merijarvi,FI,483,is,exact unique name within the country
+NAT:LU,LU,*,country_context,national figure
+GSS:E07000089,UK,E07000089,is,official code
+SCB_KOMMUN:2104,SE,2104,is,official code
+FI:vero_area:raasepori,FI,710,is,exact unique name within the country
+GSS:E06000037,UK,E06000037,is,official code
+FI:vero_area:ylitornio,FI,976,is,exact unique name within the country
+SCB_KOMMUN:1763,SE,1763,is,official code
+NL:CBS_LABEL:wierden,NL,GM0189,is,exact unique name within the country
+SCB_KOMMUN:1981,SE,1981,is,official code
+LV:novads:dobeles,LV,0028000,is,exact unique name within the country
+NL:CBS_LABEL:woensdrecht,NL,GM0873,is,exact unique name within the country
+RO:ANOFM:caras-severin,RO,@n3:RO422,region,NUTS3 region by exact name
+FI:vero_area:palkane,FI,635,is,exact unique name within the country
+LV:novads:aizkraukles,LV,0020000,is,exact unique name within the country
+ES:published-municipality:08:pineda-de-mar,ES,08163,is,exact unique name within the country
+FI:vero_area:mantsala,FI,505,is,exact unique name within the country
+GSS:W06000015,UK,W06000015,is,official code
+ISO3166_1_ALPHA2:AT,AT,*,country_context,national figure
+SCB_KOMMUN:1233,SE,1233,is,official code
+FI:vero_area:ilmajoki,FI,145,is,exact unique name within the country
+GSS:E06000032,UK,E06000032,is,official code
+SCB_KOMMUN:1282,SE,1282,is,official code
+SCB_KOMMUN:2560,SE,2560,is,official code
+GSS:E06000036,UK,E06000036,is,official code
+SCB_KOMMUN:2313,SE,2313,is,official code
+GSS:E07000170,UK,E07000170,is,official code
+FI:vero_area:joroinen,FI,171,is,exact unique name within the country
+FI:vero_area:utsjoki,FI,890,is,exact unique name within the country
+GSS:E07000026,UK,E07000026,is,official code
+ES:published-municipality:33:gijon,ES,33024,is,exact unique name within the country
+SCB_KOMMUN:2418,SE,2418,is,official code
+GSS:W06000008,UK,W06000008,is,official code
+GSS:E08000031,UK,E08000031,is,official code
+SCB_KOMMUN:0187,SE,0187,is,official code
+RO:ANOFM:ialomita,RO,@n3:RO315,region,NUTS3 region by exact name
+FI:vero_area:kiuruvesi,FI,263,is,exact unique name within the country
+JMA:IN:mumbai,IN,1275339,station,weather station named after the place
+SCB_KOMMUN:1444,SE,1444,is,official code
+ES:published-municipality:28:coslada,ES,28049,is,exact unique name within the country
+ISO3:JPN,JP,*,country_context,national figure
+SCB_KOMMUN:0860,SE,0860,is,official code
+SCB_KOMMUN:2039,SE,2039,is,official code
+GSS:E07000243,UK,E07000243,is,official code
+FI:vero_area:tyrnava,FI,859,is,exact unique name within the country
+GSS:E07000196,UK,E07000196,is,official code
+SCB_KOMMUN:0127,SE,0127,is,official code
+GSS:W06000013,UK,W06000013,is,official code
+source-locality:RETAINED_ES:Sant Antoni de Portmany,ES,07046,is,exact unique name within the country
+ES:published-municipality:13:puertollano,ES,13071,is,exact unique name within the country
+NL:CBS_LABEL:schiermonnikoog,NL,GM0088,is,exact unique name within the country
+SCB_KOMMUN:2021,SE,2021,is,official code
+GSS:N09000006,UK,N09000006,is,official code
+source-locality:RETAINED_ES:Almendralejo,ES,06011,is,exact unique name within the country
+FI:vero_area:pyharanta,FI,631,is,exact unique name within the country
+ISO3166_1_ALPHA2:LV,LV,*,country_context,national figure
+LV:novads:jelgavas,LV,0030000,is,exact unique name within the country
+RO:ANOFM:salaj,RO,@n3:RO116,region,NUTS3 region by exact name
+ISO3166_1_ALPHA2:AU,AU,*,country_context,national figure
+NL:CBS_LABEL:aa_en_hunze,NL,GM1680,is,exact unique name within the country
+GSS:E09000019,UK,E09000019,is,official code
+ES:published-municipality:13:tomelloso,ES,13082,is,exact unique name within the country
+SCB_KOMMUN:0882,SE,0882,is,official code
+GSS:E07000117,UK,E07000117,is,official code
+SSB_KOMMUNE:0301,NO,0301,is,official code
+GSS:W06000016,UK,W06000016,is,official code
+GSS:W06000019,UK,W06000019,is,official code
+GB:E06000046,UK,E06000046,is,official code
+GSS:W06000010,UK,W06000010,is,official code
+ES:published-municipality:28:parla,ES,28106,is,exact unique name within the country
+GSS:E07000148,UK,E07000148,is,official code
+LV:novads:valkas,LV,0940200,is,exact unique name within the country
+ES:published-municipality:08:cornella-de-llobregat,ES,08073,is,exact unique name within the country
+GSS:S12000014,UK,S30000009,is,exact unique name within the country
+SCB_KOMMUN:2282,SE,2282,is,official code
+GSS:E06000013,UK,E06000013,is,official code
+RO:ANOFM:maramures,RO,@n3:RO114,region,NUTS3 region by exact name
+EE:county:harju,EE,0141,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:harju,EE,0198,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:harju,EE,0245,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:harju,EE,0296,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:harju,EE,0305,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:harju,EE,0338,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:harju,EE,0353,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:harju,EE,0424,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:harju,EE,0431,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:harju,EE,0446,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:harju,EE,0651,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:harju,EE,0653,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:harju,EE,0719,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:harju,EE,0726,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:harju,EE,0784,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:harju,EE,0890,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+RO:ANOFM:botosani,RO,@n3:RO212,region,NUTS3 region by exact name
+GSS:E07000142,UK,E07000142,is,official code
+ES:published-municipality:20:irun,ES,20045,is,exact unique name within the country
+GSS:E07000042,UK,E07000042,is,official code
+FI:vero_area:janakkala,FI,165,is,exact unique name within the country
+GB:E06000033,UK,E06000033,is,official code
+FI:vero_area:paltamo,FI,578,is,exact unique name within the country
+FI:vero_area:riihimaki,FI,694,is,exact unique name within the country
+GSS:N09000005,UK,N09000005,is,official code
+GSS:E06000061,UK,E07000150,contains,successor authority (2020-2023 reorganisation) that contains this former district
+GSS:E06000061,UK,E07000152,contains,successor authority (2020-2023 reorganisation) that contains this former district
+GSS:E06000061,UK,E07000153,contains,successor authority (2020-2023 reorganisation) that contains this former district
+GSS:E06000061,UK,E07000156,contains,successor authority (2020-2023 reorganisation) that contains this former district
+source-locality:RETAINED_ES:Marbella,ES,29069,is,exact unique name within the country
+NL:CBS_LABEL:emmen,NL,GM0114,is,exact unique name within the country
+BE:STATBEL_LABEL:woluwe_saint_lambert,BE,21018,is,exact unique name within the country
+FI:vero_area:siikajoki,FI,748,is,exact unique name within the country
+SCB_KOMMUN:0563,SE,0563,is,official code
+NAT:IE,IE,*,country_context,national figure
+NL:CBS_LABEL:krimpenerwaard,NL,GM1931,is,exact unique name within the country
+GSS:E07000219,UK,E07000219,is,official code
+GSS:E06000057,UK,E06000057,is,official code
+GSS:W06000003,UK,W06000003,is,official code
+SCB_KOMMUN:1862,SE,1862,is,official code
+ES:published-municipality:08:premia-de-mar,ES,08172,is,exact unique name within the country
+SCB_KOMMUN:0881,SE,0881,is,official code
+NL:CBS_LABEL:rozendaal,NL,GM0277,is,exact unique name within the country
+GSS:S12000041,UK,S30000001,is,exact unique name within the country
+NL:CBS_LABEL:borsele,NL,GM0654,is,exact unique name within the country
+FI:vero_area:joutsa,FI,172,is,exact unique name within the country
+source-locality:LI_MUNICIPAL_2024:Vaduz,LI,LI00001001,is,exact unique name within the country
+FI:vero_area:jamijarvi,FI,181,is,exact unique name within the country
+GSS:E08000015,UK,E08000015,is,official code
+FI:vero_area:keitele,FI,239,is,exact unique name within the country
+FI:vero_area:inari,FI,148,is,exact unique name within the country
+GSS:E07000135,UK,E07000135,is,official code
+GSS:E07000174,UK,E07000174,is,official code
+LT:municipality:12,LT,12,is,official code
+RO:ANOFM:brasov,RO,@n3:RO122,region,NUTS3 region by exact name
+GSS:E07000066,UK,E07000066,is,official code
+RO,RO,*,country_context,national figure
+GSS:E07000175,UK,E07000175,is,official code
+SCB_KOMMUN:1427,SE,1427,is,official code
+GSS:E07000202,UK,E07000202,is,official code
+FI:vero_area:kittila,FI,261,is,exact unique name within the country
+NL:CBS_LABEL:reimerswaal,NL,GM0703,is,exact unique name within the country
+GSS:E08000034,UK,E08000034,is,official code
+NL:CBS_LABEL:hof_van_twente,NL,GM1735,is,exact unique name within the country
+SCB_KOMMUN:0140,SE,0140,is,official code
+FI:vero_area:hailuoto,FI,072,is,exact unique name within the country
+SCB_KOMMUN:2101,SE,2101,is,official code
+SCB_KOMMUN:0488,SE,0488,is,official code
+FI:vero_area:lohja,FI,444,is,exact unique name within the country
+GSS:E07000037,UK,E07000037,is,official code
+SCB_KOMMUN:1081,SE,1081,is,official code
+GSS:E07000107,UK,E07000107,is,official code
+SCB_KOMMUN:2309,SE,2309,is,official code
+GSS:E07000074,UK,E07000074,is,official code
+GSS:N09000003,UK,N09000003,is,official code
+ES:published-municipality:46:paterna,ES,46190,is,exact unique name within the country
+source-locality:RETAINED_BE:Wervik,BE,33029,is,exact unique name within the country
+FI:vero_area:savukoski,FI,742,is,exact unique name within the country
+GSS:E06000009,UK,E06000009,is,official code
+source-locality:RETAINED_BE:Lokeren,BE,46014,is,exact unique name within the country
+HR:county:medimurje,HR,@n3:HR061,region,"county = NUTS-3 HR061 (English county name, reviewed 2.12.2)"
+ISO3166_1_ALPHA2:LT,LT,*,country_context,national figure
+GSS:E07000193,UK,E07000193,is,official code
+FI:vero_area:raisio,FI,680,is,exact unique name within the country
+GSS:E07000228,UK,E07000228,is,official code
+FI:vero_area:ylivieska,FI,977,is,exact unique name within the country
+SCB_KOMMUN:2521,SE,2521,is,official code
+FI:vero_area:keuruu,FI,249,is,exact unique name within the country
+NL:CBS_LABEL:dinkelland,NL,GM1774,is,exact unique name within the country
+IT:EC_CITY_LABEL:palermo,IT,082053,survey_city,survey city = its core municipality (reviewed 2.12.2)
+ISO3166_1_ALPHA2:DE,DE,*,country_context,national figure
+CZ,CZ,*,country_context,national figure
+ISO3166_1_ALPHA2:CA,CA,*,country_context,national figure
+source-locality:LI_MUNICIPAL_2024:Schellenberg,LI,LI00002005,is,exact unique name within the country
+GSS:E07000130,UK,E07000130,is,official code
+FI:vero_area:rautalampi,FI,686,is,exact unique name within the country
+NL:CBS_LABEL:heemskerk,NL,GM0396,is,exact unique name within the country
+SCB_KOMMUN:2361,SE,2361,is,official code
+SCB_KOMMUN:2303,SE,2303,is,official code
+GSS:E08000021,UK,E08000021,is,official code
+GSS:E12000003,UK,@n3:UKE*,region,English region = NUTS-1 UKE
+GSS:E07000203,UK,E07000203,is,official code
+GSS:E08000027,UK,E08000027,is,official code
+LT:municipality:33,LT,33,is,official code
+ISO3:KOR,KR,*,country_context,national figure
+ES:published-municipality:08:santa-perpetua-de-mogoda,ES,08260,is,exact unique name within the country
+NL:CBS_LABEL:hellendoorn,NL,GM0163,is,exact unique name within the country
+ES:published-municipality:28:madrid,ES,28079,is,exact unique name within the country
+source-locality:RETAINED_ES:Santa Eulària des Riu,ES,07054,is,exact unique name within the country
+SCB_KOMMUN:1761,SE,1761,is,official code
+FI:vero_area:geta,FI,065,is,exact unique name within the country
+FR:EC_CITY_LABEL:rennes,FR,35238,survey_city,survey city = its core municipality (reviewed 2.12.2)
+GB:E06000006,UK,E06000006,is,official code
+BE:STATBEL_LABEL:uccle,BE,21016,is,exact unique name within the country
+NAT:NL,NL,*,country_context,national figure
+ISO3166_1_ALPHA2:CH,CH,*,country_context,national figure
+source-locality:RETAINED_BE:Leuven,BE,24062,is,exact unique name within the country
+JMA:JP:sapporo,JP,2128295,station,weather station named after the place
+FI:vero_area:ahtari,FI,989,is,exact unique name within the country
+GSS:E06000010,UK,E06000010,is,official code
+GSS:E07000227,UK,E07000227,is,official code
+FI:vero_area:halsua,FI,074,is,exact unique name within the country
+MK,MK,*,country_context,national figure
+FI:vero_area:sievi,FI,746,is,exact unique name within the country
+GSS:N09000011,UK,N09000011,is,official code
+GSS:E07000080,UK,E07000080,is,official code
+GSS:E08000009,UK,E08000009,is,official code
+source-locality:RETAINED_ES:Sant Cugat del Vallès,ES,08205,is,exact unique name within the country
+FI:vero_area:alajarvi,FI,005,is,exact unique name within the country
+SCB_KOMMUN:1495,SE,1495,is,official code
+source-locality:RETAINED_HR:Udbina,HR,04677,is,exact unique name within the country
+SCB_KOMMUN:0183,SE,0183,is,official code
+ISO3166_1_ALPHA2:SI,SI,*,country_context,national figure
+NL:CBS_LABEL:rucphen,NL,GM0840,is,exact unique name within the country
+ES:published-municipality:46:oliva,ES,46181,is,exact unique name within the country
+SCB_KOMMUN:1781,SE,1781,is,official code
+GSS:E07000235,UK,E07000235,is,official code
+SCB_KOMMUN:2132,SE,2132,is,official code
+ISO3166_1_ALPHA2:BE,BE,*,country_context,national figure
+SCB_KOMMUN:0184,SE,0184,is,official code
+NL:CBS_LABEL:barneveld,NL,GM0203,is,exact unique name within the country
+FI:vero_area:finstrom,FI,060,is,exact unique name within the country
+GSS:E07000199,UK,E07000199,is,official code
+GSS:E07000120,UK,E07000120,is,official code
+EUROSTAT:BG,BG,*,country_context,national figure
+SCB_KOMMUN:0767,SE,0767,is,official code
+RO:ANOFM:olt,RO,@n3:RO414,region,NUTS3 region by exact name
+FI:vero_area:rovaniemi,FI,698,is,exact unique name within the country
+GSS:E07000041,UK,E07000041,is,official code
+RO:ANOFM:iasi,RO,@n3:RO213,region,NUTS3 region by exact name
+FI:vero_area:kauhajoki,FI,232,is,exact unique name within the country
+LV:novads:ludzas,LV,0037000,is,exact unique name within the country
+FI:vero_area:karkola,FI,316,is,exact unique name within the country
+GSS:E08000033,UK,E08000033,is,official code
+ISO3166_1_ALPHA2:FI,FI,*,country_context,national figure
+source-locality:LI_MUNICIPAL_2024:Mauren,LI,LI00002002,is,exact unique name within the country
+EUROSTAT:IE,IE,*,country_context,national figure
+NL:CBS_LABEL:nijmegen,NL,GM0268,is,exact unique name within the country
+SCB_KOMMUN:1737,SE,1737,is,official code
+SCB_KOMMUN:1060,SE,1060,is,official code
+ES:published-municipality:48:portugalete,ES,48078,is,exact unique name within the country
+NL:CBS_LABEL:gilze_en_rijen,NL,GM0784,is,exact unique name within the country
+source-locality:RETAINED_ES:Carcaixent,ES,46083,is,exact unique name within the country
+GSS:E07000109,UK,E07000109,is,official code
+NL:CBS_LABEL:mook_en_middelaar,NL,GM0944,is,exact unique name within the country
+RO:ANOFM:galati,RO,@n3:RO224,region,NUTS3 region by exact name
+GSS:E07000172,UK,E07000172,is,official code
+GSS:E07000009,UK,E07000009,is,official code
+GSS:E06000001,UK,E06000001,is,official code
+GSS:E09000018,UK,E09000018,is,official code
+ES:published-municipality:14:puente-genil,ES,14056,is,exact unique name within the country
+MA,MA,*,country_context,national figure
+GSS:E06000046,UK,E06000046,is,official code
+GSS:E07000028,UK,E07000028,is,official code
+FI:vero_area:pelkosenniemi,FI,583,is,exact unique name within the country
+FI:vero_area:kinnula,FI,256,is,exact unique name within the country
+ES:published-municipality:08:vilanova-i-la-geltru,ES,08307,is,exact unique name within the country
+FI:vero_area:jamsa,FI,182,is,exact unique name within the country
+EUROSTAT:LT,LT,*,country_context,national figure
+NL:CBS_LABEL:vlissingen,NL,GM0718,is,exact unique name within the country
+BG,BG,*,country_context,national figure
+FI:vero_area:oripaa,FI,561,is,exact unique name within the country
+JMA:LU:luxembourg,LU,0304,station,weather station named after the place
+FI:vero_area:jokioinen,FI,169,is,exact unique name within the country
+BE:STATBEL_LABEL:de_pinte,BE,44012,is,exact unique name within the country
+FI:vero_area:enontekio,FI,047,is,exact unique name within the country
+GSS:E07000209,UK,E07000209,is,official code
+source-locality:RETAINED_BE:Middelkerke,BE,35011,is,exact unique name within the country
+GSS:N09000002,UK,N09000002,is,official code
+SCB_KOMMUN:1814,SE,1814,is,official code
+FI:vero_area:karvia,FI,230,is,exact unique name within the country
+GSS:E07000083,UK,E07000083,is,official code
+RO:ANOFM:vaslui,RO,@n3:RO216,region,NUTS3 region by exact name
+FI:vero_area:punkalaidun,FI,619,is,exact unique name within the country
+ES:published-municipality:24:leon,ES,24089,is,exact unique name within the country
+FI:vero_area:turku,FI,853,is,exact unique name within the country
+ES:published-municipality:02:hellin,ES,02037,is,exact unique name within the country
+source-locality:RETAINED_BE:Tervuren,BE,24104,is,exact unique name within the country
+NL:CBS_LABEL:loon_op_zand,NL,GM0809,is,exact unique name within the country
+FI:vero_area:kemi,FI,240,is,exact unique name within the country
+GSS:E06000063,UK,E07000026,contains,successor authority (2020-2023 reorganisation) that contains this former district
+GSS:E06000063,UK,E07000028,contains,successor authority (2020-2023 reorganisation) that contains this former district
+GSS:E06000063,UK,E07000029,contains,successor authority (2020-2023 reorganisation) that contains this former district
+LT:municipality:94,LT,94,is,official code
+LV:novads:olaines,LV,0801000,is,exact unique name within the country
+LT:municipality:84,LT,84,is,official code
+RO:ANOFM:harghita,RO,@n3:RO124,region,NUTS3 region by exact name
+FI:vero_area:raahe,FI,678,is,exact unique name within the country
+GSS:E07000144,UK,E07000144,is,official code
+FI:vero_area:taivassalo,FI,833,is,exact unique name within the country
+NL:CBS_LABEL:buren,NL,GM0214,is,exact unique name within the country
+FI:vero_area:lapua,FI,408,is,exact unique name within the country
+FI:vero_area:loppi,FI,433,is,exact unique name within the country
+EUROSTAT:MT,MT,*,country_context,national figure
+NAT:LT,LT,*,country_context,national figure
+ES:published-municipality:20:errenteria,ES,20067,is,exact unique name within the country
+BE:STATBEL_LABEL:attert,BE,81003,is,exact unique name within the country
+GSS:E07000140,UK,E07000140,is,official code
+GSS:E07000076,UK,E07000076,is,official code
+GSS:E08000018,UK,E08000018,is,official code
+LV:novads:livanu,LV,0761201,is,exact unique name within the country
+FI:vero_area:puolanka,FI,620,is,exact unique name within the country
+NL:CBS_LABEL:drechterland,NL,GM0498,is,exact unique name within the country
+RO:ANOFM:mehedinti,RO,@n3:RO413,region,NUTS3 region by exact name
+GSS:W06000005,UK,W06000005,is,official code
+SCB_KOMMUN:2510,SE,2510,is,official code
+GSS:S12000027,UK,S30000041,is,exact unique name within the country
+BE:STATBEL_LABEL:arlon,BE,81001,is,exact unique name within the country
+FI:vero_area:kokar,FI,318,is,exact unique name within the country
+EE:county:polva,EE,0284,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:polva,EE,0622,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:polva,EE,0708,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+ISO3166_1_ALPHA2:LU,LU,*,country_context,national figure
+PL:EC_CITY_LABEL:gdansk,PL,1004221436101,survey_city,survey city = its core municipality (reviewed 2.12.2)
+SCB_KOMMUN:2026,SE,2026,is,official code
+FI:vero_area:multia,FI,495,is,exact unique name within the country
+GSS:E07000108,UK,E07000108,is,official code
+FI:vero_area:lahti,FI,398,is,exact unique name within the country
+FI:vero_area:hammarland,FI,076,is,exact unique name within the country
+GSS:E07000008,UK,E07000008,is,official code
+ES:published-municipality:41:camas,ES,41021,is,exact unique name within the country
+GSS:S12000008,UK,S30000017,is,exact unique name within the country
+NL:CBS_LABEL:boxtel,NL,GM0757,is,exact unique name within the country
+FI:vero_area:eura,FI,050,is,exact unique name within the country
+AL,AL,*,country_context,national figure
+GSS:E09000026,UK,E09000026,is,official code
+FI:vero_area:nokia,FI,536,is,exact unique name within the country
+FI:vero_area:parikkala,FI,580,is,exact unique name within the country
+LT:municipality:67,LT,67,is,official code
+HR:county:krapina-zagorje,HR,@n3:HR064,region,"county = NUTS-3 HR064 (English county name, reviewed 2.12.2)"
+GSS:S12000011,UK,S30000020,is,exact unique name within the country
+EUROSTAT:DE,DE,*,country_context,national figure
+LT:municipality:87,LT,87,is,official code
+LV:novads:ropazu,LV,0044000,is,exact unique name within the country
+ES:published-municipality:30:totana,ES,30039,is,exact unique name within the country
+ISO3166_1_ALPHA2:US,US,*,country_context,national figure
+SE:EC_CITY_LABEL:stockholm,SE,0180,survey_city,survey city = its core municipality (reviewed 2.12.2)
+FI:vero_area:evijarvi,FI,052,is,exact unique name within the country
+ES:published-municipality:35:oliva-la,ES,35014,is,exact unique name within the country
+GSS:E06000003,UK,E06000003,is,official code
+GB:E06000022,UK,E06000022,is,official code
+FI:vero_area:loimaa,FI,430,is,exact unique name within the country
+GSS:E07000239,UK,E07000239,is,official code
+GSS:E08000013,UK,E08000013,is,official code
+ISO3166_1_ALPHA2:GB,UK,*,country_context,national figure
+SCB_KOMMUN:2182,SE,2182,is,official code
+SCB_KOMMUN:2581,SE,2581,is,official code
+LV:novads:kraslavas,LV,0032000,is,exact unique name within the country
+FI:vero_area:hirvensalmi,FI,097,is,exact unique name within the country
+NL:CBS_LABEL:heerlen,NL,GM0917,is,exact unique name within the country
+BE:STATBEL_LABEL:herne,BE,23032,is,exact unique name within the country
+GSS:E09000006,UK,E09000006,is,official code
+BE:STATBEL_LABEL:charleroi,BE,52011,is,exact unique name within the country
+GSS:E09000022,UK,E09000022,is,official code
+source-locality:RETAINED_ES:Sant Josep de Sa Talaia,ES,07048,is,exact unique name within the country
+GSS:E07000093,UK,E07000093,is,official code
+GSS:E09000015,UK,E09000015,is,official code
+source-locality:RETAINED_ES:Villarrobledo,ES,02081,is,exact unique name within the country
+NL:CBS_LABEL:landsmeer,NL,GM0415,is,exact unique name within the country
+NL:CBS_LABEL:meerssen,NL,GM0938,is,exact unique name within the country
+GSS:E07000011,UK,E07000011,is,official code
+ES:published-municipality:03:villena,ES,03140,is,exact unique name within the country
+NL:CBS_LABEL:oldenzaal,NL,GM0173,is,exact unique name within the country
+source-locality:RETAINED_BE:Liège,BE,62063,is,exact unique name within the country
+FI:vero_area:karijoki,FI,218,is,exact unique name within the country
+GSS:W06000020,UK,W06000020,is,official code
+NAT:NO,NO,*,country_context,national figure
+country:ID,ID,*,country_context,national figure
+GSS:E07000207,UK,E07000207,is,official code
+FI:vero_area:vardo,FI,941,is,exact unique name within the country
+FI:vero_area:nakkila,FI,531,is,exact unique name within the country
+FI:vero_area:ulvila,FI,886,is,exact unique name within the country
+GSS:E07000087,UK,E07000087,is,official code
+GSS:E09000003,UK,E09000003,is,official code
+GSS:E09000021,UK,E09000021,is,official code
+RO:ANOFM:bihor,RO,@n3:RO111,region,NUTS3 region by exact name
+ES:published-municipality:08:sant-andreu-de-la-barca,ES,08196,is,exact unique name within the country
+NL:CBS_LABEL:de_wolden,NL,GM1690,is,exact unique name within the country
+LT:municipality:74,LT,74,is,official code
+FI:vero_area:rautavaara,FI,687,is,exact unique name within the country
+FI:vero_area:harjavalta,FI,079,is,exact unique name within the country
+GSS:E07000223,UK,E07000223,is,official code
+NL:CBS_LABEL:renkum,NL,GM0274,is,exact unique name within the country
+HR:county:bjelovar-bilogora,HR,@n3:HR021,region,"county = NUTS-3 HR021 (English county name, reviewed 2.12.2)"
+ES:published-municipality:08:barcelona,ES,08019,is,exact unique name within the country
+GSS:E09000001,UK,E09000001,is,official code
+FI:vero_area:foglo,FI,062,is,exact unique name within the country
+SCB_KOMMUN:0761,SE,0761,is,official code
+NL:CBS_LABEL:venray,NL,GM0984,is,exact unique name within the country
+NL:CBS_LABEL:barendrecht,NL,GM0489,is,exact unique name within the country
+GSS:E06000035,UK,E06000035,is,official code
+ES:published-municipality:03:san-vicente-del-raspeig,ES,03122,is,exact unique name within the country
+FI:vero_area:sonkajarvi,FI,762,is,exact unique name within the country
+FI:vero_area:aura,FI,019,is,exact unique name within the country
+source-locality:RETAINED_BE:Ans,BE,62003,is,exact unique name within the country
+NL:CBS_LABEL:ede,NL,GM0228,is,exact unique name within the country
+FI:vero_area:pirkkala,FI,604,is,exact unique name within the country
+NL:CBS_LABEL:alkmaar,NL,GM0361,is,exact unique name within the country
+source-locality:RETAINED_ES:Madrid,ES,28079,is,exact unique name within the country
+GB:E06000038,UK,E06000038,is,official code
+NL:CBS_LABEL:den_helder,NL,GM0400,is,exact unique name within the country
+ES:published-municipality:33:siero,ES,33066,is,exact unique name within the country
+FI:vero_area:kuhmoinen,FI,291,is,exact unique name within the country
+FI:vero_area:miehikkala,FI,489,is,exact unique name within the country
+CY,CY,*,country_context,national figure
+FI:vero_area:joensuu,FI,167,is,exact unique name within the country
+FI:vero_area:kalajoki,FI,208,is,exact unique name within the country
+FI:vero_area:kemionsaari,FI,322,is,exact unique name within the country
+GSS:E08000023,UK,E08000023,is,official code
+FI:vero_area:karkkila,FI,224,is,exact unique name within the country
+NL:CBS_LABEL:teylingen,NL,GM1525,is,exact unique name within the country
+NL:CBS_LABEL:koggenland,NL,GM1598,is,exact unique name within the country
+RO:ANOFM:dambovita,RO,@n3:RO313,region,NUTS3 region by exact name
+FI:vero_area:kauhava,FI,233,is,exact unique name within the country
+NL:CBS_LABEL:smallingerland,NL,GM0090,is,exact unique name within the country
+ES:published-municipality:43:cambrils,ES,43038,is,exact unique name within the country
+FI:vero_area:hameenkyro,FI,108,is,exact unique name within the country
+FI:vero_area:sotkamo,FI,765,is,exact unique name within the country
+FI:vero_area:ristijarvi,FI,697,is,exact unique name within the country
+NL:CBS_LABEL:zaanstad,NL,GM0479,is,exact unique name within the country
+FI:vero_area:rauma,FI,684,is,exact unique name within the country
+GSS:E08000007,UK,E08000007,is,official code
+source-locality:RETAINED_BE:Mons,BE,53053,is,exact unique name within the country
+GSS:E07000116,UK,E07000116,is,official code
+GSS:E07000114,UK,E07000114,is,official code
+FI:vero_area:muonio,FI,498,is,exact unique name within the country
+HR:county:split-dalmatia,HR,@n3:HR035,region,"county = NUTS-3 HR035 (English county name, reviewed 2.12.2)"
+RO:ANOFM:gorj,RO,@n3:RO412,region,NUTS3 region by exact name
+SCB_KOMMUN:1861,SE,1861,is,official code
+GSS:W06000022,UK,W06000022,is,official code
+FI:vero_area:karsamaki,FI,317,is,exact unique name within the country
+GSS:E07000173,UK,E07000173,is,official code
+BE:STATBEL_LABEL:habay,BE,85046,is,exact unique name within the country
+HR:county:istria,HR,@n3:HR036,region,"county = NUTS-3 HR036 (English county name, reviewed 2.12.2)"
+NL:CBS_LABEL:purmerend,NL,GM0439,is,exact unique name within the country
+GSS:E07000070,UK,E07000070,is,official code
+ES:published-municipality:41:alcala-de-guadaira,ES,41004,is,exact unique name within the country
+IT:EC_CITY_LABEL:rome,IT,058091,survey_city,survey city = its core municipality (reviewed 2.12.2)
+GSS:E07000071,UK,E07000071,is,official code
+GSS:E07000176,UK,E07000176,is,official code
+GSS:E07000086,UK,E07000086,is,official code
+GSS:E07000044,UK,E07000044,is,official code
+LV:novads:jekabpils,LV,0031000,is,exact unique name within the country
+GSS:S12000019,UK,S30000006,is,exact unique name within the country
+NL:CBS_LABEL:elburg,NL,GM0230,is,exact unique name within the country
+NL:CBS_LABEL:nijkerk,NL,GM0267,is,exact unique name within the country
+LU:EC_CITY_LABEL:luxembourg,LU,0304,survey_city,survey city = its core municipality (reviewed 2.12.2)
+GSS:E09000014,UK,E09000014,is,official code
+ES:EC_CITY_LABEL:oviedo,ES,33044,survey_city,survey city = its core municipality (reviewed 2.12.2)
+GB:E06000021,UK,E06000021,is,official code
+EUROSTAT:CY,CY,*,country_context,national figure
+GSS:E08000004,UK,E08000004,is,official code
+FI:vero_area:taivalkoski,FI,832,is,exact unique name within the country
+ES:published-municipality:07:llucmajor,ES,07031,is,exact unique name within the country
+FI:vero_area:kaustinen,FI,236,is,exact unique name within the country
+GSS:E06000065,UK,E07000163,contains,successor authority (2020-2023 reorganisation) that contains this former district
+GSS:E06000065,UK,E07000164,contains,successor authority (2020-2023 reorganisation) that contains this former district
+GSS:E06000065,UK,E07000165,contains,successor authority (2020-2023 reorganisation) that contains this former district
+GSS:E06000065,UK,E07000166,contains,successor authority (2020-2023 reorganisation) that contains this former district
+GSS:E06000065,UK,E07000167,contains,successor authority (2020-2023 reorganisation) that contains this former district
+GSS:E06000065,UK,E07000168,contains,successor authority (2020-2023 reorganisation) that contains this former district
+GSS:E06000065,UK,E07000169,contains,successor authority (2020-2023 reorganisation) that contains this former district
+FI:vero_area:kurikka,FI,301,is,exact unique name within the country
+GSS:E06000004,UK,E06000004,is,official code
+GSS:E07000240,UK,E07000240,is,official code
+GSS:E06000052,UK,E06000052,is,official code
+NL:CBS_LABEL:wijdemeren,NL,GM1696,is,exact unique name within the country
+ISO3166_1_ALPHA2:NL,NL,*,country_context,national figure
+GSS:E07000128,UK,E07000128,is,official code
+GSS:E09000004,UK,E09000004,is,official code
+source-locality:RETAINED_ES:Almansa,ES,02009,is,exact unique name within the country
+ES:published-municipality:17:salt,ES,17155,is,exact unique name within the country
+GSS:S12000028,UK,S30000024,is,exact unique name within the country
+SCB_KOMMUN:1490,SE,1490,is,official code
+source-locality:RETAINED_BE:Anderlecht,BE,21001,is,exact unique name within the country
+GSS:E08000011,UK,E08000011,is,official code
+ISO3166_1_ALPHA2:KR,KR,*,country_context,national figure
+FI:vero_area:merikarvia,FI,484,is,exact unique name within the country
+NL:CBS_LABEL:breda,NL,GM0758,is,exact unique name within the country
+ES:published-municipality:03:santa-pola,ES,03121,is,exact unique name within the country
+FI:vero_area:savitaipale,FI,739,is,exact unique name within the country
+ES:published-municipality:30:cartagena,ES,30016,is,exact unique name within the country
+NL:CBS_LABEL:albrandswaard,NL,GM0613,is,exact unique name within the country
+LT:municipality:65,LT,65,is,official code
+FI:vero_area:pielavesi,FI,595,is,exact unique name within the country
+MT,MT,*,country_context,national figure
+source-locality:RETAINED_ES:Elda,ES,03066,is,exact unique name within the country
+GSS:W06000023,UK,W06000023,is,official code
+NL:CBS_LABEL:bunnik,NL,GM0312,is,exact unique name within the country
+NL:CBS_LABEL:ijsselstein,NL,GM0353,is,exact unique name within the country
+GSS:E12000001,UK,@n3:UKC*,region,English region = NUTS-1 UKC
+NL:EC_CITY_LABEL:rotterdam,NL,GM0599,survey_city,survey city = its core municipality (reviewed 2.12.2)
+NL:CBS_LABEL:midden_delfland,NL,GM1842,is,exact unique name within the country
+FI:vero_area:polvijarvi,FI,607,is,exact unique name within the country
+NL:CBS_LABEL:bunschoten,NL,GM0313,is,exact unique name within the country
+GSS:E09000010,UK,E09000010,is,official code
+GSS:E07000226,UK,E07000226,is,official code
+ES:published-municipality:23:ubeda,ES,23092,is,exact unique name within the country
+GSS:E07000178,UK,E07000178,is,official code
+GSS:E07000212,UK,E07000212,is,official code
+source-locality:RETAINED_BE:Menen,BE,34027,is,exact unique name within the country
+RO:ANOFM:valcea,RO,@n3:RO415,region,NUTS3 region by exact name
+FI:vero_area:luhanka,FI,435,is,exact unique name within the country
+HR:county:koprivnica-krizevci,HR,@n3:HR063,region,"county = NUTS-3 HR063 (English county name, reviewed 2.12.2)"
+FI:vero_area:isojoki,FI,151,is,exact unique name within the country
+ES:published-municipality:43:tortosa,ES,43155,is,exact unique name within the country
+GSS:E06000056,UK,E06000056,is,official code
+RO:ANOFM:satu-mare,RO,@n3:RO115,region,NUTS3 region by exact name
+FI:vero_area:tohmajarvi,FI,848,is,exact unique name within the country
+GSS:E07000238,UK,E07000238,is,official code
+FI:vero_area:tervola,FI,845,is,exact unique name within the country
+FI:vero_area:alavieska,FI,009,is,exact unique name within the country
+NL:CBS_LABEL:asten,NL,GM0743,is,exact unique name within the country
+HR:county:karlovac,HR,@n3:HR027,region,"county = NUTS-3 HR027 (English county name, reviewed 2.12.2)"
+GSS:S12000005,UK,S30000003,is,exact unique name within the country
+LV:novads:limbazu,LV,0035000,is,exact unique name within the country
+LV:novads:madonas,LV,0038000,is,exact unique name within the country
+FI:vero_area:naantali,FI,529,is,exact unique name within the country
+NL:CBS_LABEL:brummen,NL,GM0213,is,exact unique name within the country
+NL:CBS_LABEL:zevenaar,NL,GM0299,is,exact unique name within the country
+FI:vero_area:virolahti,FI,935,is,exact unique name within the country
+FI:vero_area:varkaus,FI,915,is,exact unique name within the country
+ES:published-municipality:48:durango,ES,48027,is,exact unique name within the country
+GSS:E06000002,UK,E06000002,is,official code
+RO:ANOFM:ilfov,RO,@n3:RO322,region,NUTS3 region by exact name
+ES:published-municipality:28:arganda-del-rey,ES,28014,is,exact unique name within the country
+GSS:E09000024,UK,E09000024,is,official code
+GSS:E06000064,UK,E07000027,contains,successor authority (2020-2023 reorganisation) that contains this former district
+GSS:E06000064,UK,E07000030,contains,successor authority (2020-2023 reorganisation) that contains this former district
+GSS:E06000064,UK,E07000031,contains,successor authority (2020-2023 reorganisation) that contains this former district
+GSS:E07000091,UK,E07000091,is,official code
+ES:published-municipality:28:valdemoro,ES,28161,is,exact unique name within the country
+EUROSTAT:HR,HR,*,country_context,national figure
+GSS:E09000028,UK,E09000028,is,official code
+FI:vero_area:sakyla,FI,783,is,exact unique name within the country
+SCB_KOMMUN:2121,SE,2121,is,official code
+GSS:E06000007,UK,E06000007,is,official code
+GSS:E07000119,UK,E07000119,is,official code
+NL:CBS_LABEL:lochem,NL,GM0262,is,exact unique name within the country
+NL:CBS_LABEL:de_fryske_marren,NL,GM1940,is,exact unique name within the country
+country:LI,LI,*,country_context,national figure
+NL:CBS_LABEL:boekel,NL,GM0755,is,exact unique name within the country
+FI:vero_area:humppila,FI,103,is,exact unique name within the country
+SCB_KOMMUN:1214,SE,1214,is,official code
+ES:published-municipality:11:algeciras,ES,11004,is,exact unique name within the country
+GSS:E07000229,UK,E07000229,is,official code
+source-locality:RETAINED_ES:Sitges,ES,08270,is,exact unique name within the country
+FI:vero_area:aanekoski,FI,992,is,exact unique name within the country
+FI:vero_area:enonkoski,FI,046,is,exact unique name within the country
+ES:published-municipality:45:illescas,ES,45081,is,exact unique name within the country
+FI:vero_area:sulkava,FI,768,is,exact unique name within the country
+HR:county:pozega-slavonia,HR,@n3:HR023,region,"county = NUTS-3 HR023 (English county name, reviewed 2.12.2)"
+EE:county:jarva,EE,0255,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:jarva,EE,0567,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:jarva,EE,0834,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+FI:vero_area:hyvinkaa,FI,106,is,exact unique name within the country
+FI:vero_area:ii,FI,139,is,exact unique name within the country
+source-locality:RETAINED_BE:Brasschaat,BE,11008,is,exact unique name within the country
+RO:ANOFM:covasna,RO,@n3:RO123,region,NUTS3 region by exact name
+ES:published-municipality:46:alzira,ES,46017,is,exact unique name within the country
+GSS:E08000005,UK,E08000005,is,official code
+GSS:E07000040,UK,E07000040,is,official code
+ES:published-municipality:08:sant-vicenc-dels-horts,ES,08263,is,exact unique name within the country
+FI:vero_area:iitti,FI,142,is,exact unique name within the country
+HR:county:primorje-gorski-kotar,HR,@n3:HR031,region,"county = NUTS-3 HR031 (English county name, reviewed 2.12.2)"
+GSS:E07000069,UK,E07000069,is,official code
+FI:vero_area:tornio,FI,851,is,exact unique name within the country
+GSS:S12000045,UK,S30000015,is,exact unique name within the country
+GSS:E07000082,UK,E07000082,is,official code
+NL:CBS_LABEL:eindhoven,NL,GM0772,is,exact unique name within the country
+source-locality:RETAINED_ES:Zarautz,ES,20079,is,exact unique name within the country
+NL:CBS_LABEL:nissewaard,NL,GM1930,is,exact unique name within the country
+GSS:E09000005,UK,E09000005,is,official code
+GB:E06000004,UK,E06000004,is,official code
+FI:vero_area:kruunupyy,FI,288,is,exact unique name within the country
+GSS:E07000079,UK,E07000079,is,official code
+EUROSTAT:LU,LU,*,country_context,national figure
+FI:vero_area:hattula,FI,082,is,exact unique name within the country
+GSS:E06000033,UK,E06000033,is,official code
+EE:municipality:tallinn,EE,0784,is,exact unique name within the country
+ES:published-municipality:07:marratxi,ES,07036,is,exact unique name within the country
+GB:E06000024,UK,E06000024,is,official code
+NL:CBS_LABEL:gulpen_wittem,NL,GM1729,is,exact unique name within the country
+source-locality:RETAINED_BE:Ath,BE,51004,is,exact unique name within the country
+GSS:E08000012,UK,E08000012,is,official code
+GSS:E07000217,UK,E07000217,is,official code
+source-locality:RETAINED_ES:Loja,ES,18122,is,exact unique name within the country
+GSS:E07000216,UK,E07000216,is,official code
+ISO3:LIE,LI,*,country_context,national figure
+GSS:E07000214,UK,E07000214,is,official code
+FI:vero_area:sodankyla,FI,758,is,exact unique name within the country
+RO:ANOFM:constanta,RO,@n3:RO223,region,NUTS3 region by exact name
+GSS:E12000009,UK,@n3:UKK*,region,English region = NUTS-1 UKK
+ES:published-municipality:08:sant-feliu-de-llobregat,ES,08211,is,exact unique name within the country
+ES:published-municipality:48:sestao,ES,48084,is,exact unique name within the country
+HR:county:dubrovnik-neretva,HR,@n3:HR037,region,"county = NUTS-3 HR037 (English county name, reviewed 2.12.2)"
+ES:published-municipality:29:velez-malaga,ES,29094,is,exact unique name within the country
+NL:CBS_LABEL:eersel,NL,GM0770,is,exact unique name within the country
+ES:published-municipality:04:nijar,ES,04066,is,exact unique name within the country
+LV:novads:gulbenes,LV,0500200,is,exact unique name within the country
+GSS:E07000045,UK,E07000045,is,official code
+FI:vero_area:vehmaa,FI,918,is,exact unique name within the country
+FI:vero_area:laukaa,FI,410,is,exact unique name within the country
+MT:EC_CITY_LABEL:valletta,MT,MT01101,survey_city,survey city = its core municipality (reviewed 2.12.2)
+GSS:E07000118,UK,E07000118,is,official code
+source-locality:RETAINED_BE:Herstal,BE,62051,is,exact unique name within the country
+FI:vero_area:lumijoki,FI,436,is,exact unique name within the country
+GSS:E06000024,UK,E06000024,is,official code
+RO:ANOFM:suceava,RO,@n3:RO215,region,NUTS3 region by exact name
+GSS:E09000013,UK,E09000013,is,official code
+GSS:E07000146,UK,E07000146,is,official code
+FI:vero_area:juupajoki,FI,177,is,exact unique name within the country
+source-locality:LI_MUNICIPAL_2024:Planken,LI,LI00001006,is,exact unique name within the country
+ES:published-municipality:17:girona,ES,17079,is,exact unique name within the country
+GB:EC_CITY_LABEL:cardiff,UK,W06000015,survey_city,survey city = its core municipality (reviewed 2.12.2)
+RS,RS,*,country_context,national figure
+FI:vero_area:utajarvi,FI,889,is,exact unique name within the country
+FI:vero_area:kankaanpaa,FI,214,is,exact unique name within the country
+FI:vero_area:oulu,FI,564,is,exact unique name within the country
+ES:published-municipality:14:cordoba,ES,14021,is,exact unique name within the country
+GSS:S12000023,UK,S30000040,is,exact unique name within the country
+GSS:S12000048,UK,S30000010,is,exact unique name within the country
+GSS:E09000030,UK,E09000030,is,official code
+NL:CBS_LABEL:zoeterwoude,NL,GM0638,is,exact unique name within the country
+ES:published-municipality:41:utrera,ES,41095,is,exact unique name within the country
+GSS:E07000077,UK,E07000077,is,official code
+FI:vero_area:keminmaa,FI,241,is,exact unique name within the country
+source-locality:RETAINED_BE:Tournai,BE,57081,is,exact unique name within the country
+GSS:E06000058,UK,E06000058,is,official code
+SCB_KOMMUN:1261,SE,1261,is,official code
+NAT:EL,EL,*,country_context,national figure
+EE:EC_CITY_LABEL:tallinn,EE,0784,survey_city,survey city = its core municipality (reviewed 2.12.2)
+FI:vero_area:orimattila,FI,560,is,exact unique name within the country
+FI:vero_area:kitee,FI,260,is,exact unique name within the country
+NL:CBS_LABEL:staphorst,NL,GM0180,is,exact unique name within the country
+LT:municipality:53,LT,53,is,official code
+NL:GM0928,NL,GM0928,is,official code
+EE:county:voru,EE,0145,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:voru,EE,0698,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:voru,EE,0732,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:voru,EE,0917,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:voru,EE,0919,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+NL:EC_CITY_LABEL:amsterdam,NL,GM0363,survey_city,survey city = its core municipality (reviewed 2.12.2)
+GSS:E07000111,UK,E07000111,is,official code
+GSS:N09000009,UK,N09000009,is,official code
+GSS:E07000234,UK,E07000234,is,official code
+NL:CBS_LABEL:beuningen,NL,GM0209,is,exact unique name within the country
+SE:EC_CITY_LABEL:malmo,SE,1280,survey_city,survey city = its core municipality (reviewed 2.12.2)
+ISO3166_1_ALPHA2:SK,SK,*,country_context,national figure
+NL:CBS_LABEL:utrechtse_heuvelrug,NL,GM1581,is,exact unique name within the country
+source-locality:RETAINED_BE:Tubize,BE,25105,is,exact unique name within the country
+FI:vero_area:siilinjarvi,FI,749,is,exact unique name within the country
+GSS:E07000215,UK,E07000215,is,official code
+GB:E06000007,UK,E06000007,is,official code
+FI:vero_area:suomussalmi,FI,777,is,exact unique name within the country
+source-locality:RETAINED_BE:Dilbeek,BE,23016,is,exact unique name within the country
+FI:vero_area:parainen,FI,445,is,exact unique name within the country
+GSS:E07000122,UK,E07000122,is,official code
+ES:published-municipality:08:cerdanyola-del-valles,ES,08266,is,exact unique name within the country
+GSS:E09000008,UK,E09000008,is,official code
+FI:vero_area:tuusula,FI,858,is,exact unique name within the country
+PL:EC_CITY_LABEL:bialystok,PL,1006201376101,survey_city,survey city = its core municipality (reviewed 2.12.2)
+ES:published-municipality:46:xativa,ES,46145,is,exact unique name within the country
+GSS:E12000002,UK,@n3:UKD*,region,English region = NUTS-1 UKD
+source-locality:RETAINED_BE:Wezembeek-Oppem,BE,23103,is,exact unique name within the country
+BE:STATBEL_LABEL:blankenberge,BE,31004,is,exact unique name within the country
+source-locality:RETAINED_BE:Frameries,BE,53028,is,exact unique name within the country
+ES:published-municipality:43:tarragona,ES,43148,is,exact unique name within the country
+ES:published-municipality:32:ourense,ES,32054,is,exact unique name within the country
+GSS:E07000177,UK,E07000177,is,official code
+NL:CBS_LABEL:westerkwartier,NL,GM1969,is,exact unique name within the country
+ES:published-municipality:27:lugo,ES,27028,is,exact unique name within the country
+FI:vero_area:seinajoki,FI,743,is,exact unique name within the country
+ES:published-municipality:15:arteixo,ES,15005,is,exact unique name within the country
+GSS:N09000001,UK,N09000001,is,official code
+GB:E06000017,UK,E06000017,is,official code
+NL:CBS_LABEL:doesburg,NL,GM0221,is,exact unique name within the country
+FI:vero_area:korsnas,FI,280,is,exact unique name within the country
+ES:published-municipality:48:getxo,ES,48044,is,exact unique name within the country
+ES:published-municipality:11:rota,ES,11030,is,exact unique name within the country
+LT:municipality:75,LT,75,is,official code
+ES:published-municipality:29:alhaurin-de-la-torre,ES,29007,is,exact unique name within the country
+GSS:E07000210,UK,E07000210,is,official code
+GB:E06000005,UK,E06000005,is,official code
+NL:GM0981,NL,GM0981,is,official code
+EUROSTAT:SE,SE,*,country_context,national figure
+GSS:E06000020,UK,E06000020,is,official code
+source-locality:RETAINED_ES:Sant Josep de sa Talaia,ES,07048,is,exact unique name within the country
+FI:vero_area:sastamala,FI,790,is,exact unique name within the country
+FI:vero_area:mantyharju,FI,507,is,exact unique name within the country
+FI:vero_area:nivala,FI,535,is,exact unique name within the country
+ES:published-municipality:11:puerto-real,ES,11028,is,exact unique name within the country
+ES:published-municipality:48:leioa,ES,48054,is,exact unique name within the country
+GSS:E07000125,UK,E07000125,is,official code
+GSS:S12000029,UK,S30000025,is,exact unique name within the country
+NL:CBS_LABEL:vlieland,NL,GM0096,is,exact unique name within the country
+GSS:E07000171,UK,E07000171,is,official code
+BE:EC_CITY_LABEL:antwerp,BE,11002,survey_city,survey city = its core municipality (reviewed 2.12.2)
+LV:novads:marupes,LV,0039000,is,exact unique name within the country
+FI:vero_area:pori,FI,609,is,exact unique name within the country
+FI:vero_area:marttila,FI,480,is,exact unique name within the country
+NL:CBS_LABEL:midden_drenthe,NL,GM1731,is,exact unique name within the country
+GSS:S12000036,UK,S30000008,is,exact unique name within the country
+GSS:E07000194,UK,E07000194,is,official code
+NL:CBS_LABEL:gouda,NL,GM0513,is,exact unique name within the country
+ES:published-municipality:17:figueres,ES,17066,is,exact unique name within the country
+NL:CBS_LABEL:hilversum,NL,GM0402,is,exact unique name within the country
+NL:CBS_LABEL:maastricht,NL,GM0935,is,exact unique name within the country
+FI:vero_area:reisjarvi,FI,691,is,exact unique name within the country
+NL:CBS_LABEL:vaals,NL,GM0981,is,exact unique name within the country
+FI:vero_area:salla,FI,732,is,exact unique name within the country
+LV:novads:balvu,LV,0024000,is,exact unique name within the country
+GSS:E07000163,UK,E07000163,is,official code
+GSS:W06000011,UK,W06000011,is,official code
+NL:CBS_LABEL:houten,NL,GM0321,is,exact unique name within the country
+NL:CBS_LABEL:beesel,NL,GM0889,is,exact unique name within the country
+FI:vero_area:siuntio,FI,755,is,exact unique name within the country
+GSS:S12000049,UK,S30000019,is,exact unique name within the country
+GSS:E12000006,UK,@n3:UKH*,region,English region = NUTS-1 UKH
+NL:CBS_LABEL:cranendonck,NL,GM1706,is,exact unique name within the country
+source-locality:RETAINED_ES:Andújar,ES,23005,is,exact unique name within the country
+GSS:E07000029,UK,E07000029,is,official code
+FI:vero_area:soini,FI,759,is,exact unique name within the country
+GSS:S12000010,UK,S30000005,is,exact unique name within the country
+source-locality:RETAINED_HR:Rijeka,HR,03735,is,exact unique name within the country
+source-locality:RETAINED_ES:Medina del Campo,ES,47085,is,exact unique name within the country
+ES:published-municipality:46:aldaia,ES,46021,is,exact unique name within the country
+FI:vero_area:isokyro,FI,152,is,exact unique name within the country
+NL:CBS_LABEL:ameland,NL,GM0060,is,exact unique name within the country
+ES:published-municipality:09:miranda-de-ebro,ES,09219,is,exact unique name within the country
+FI:vero_area:vaala,FI,785,is,exact unique name within the country
+GB:EC_CITY_LABEL:belfast,UK,N09000003,survey_city,survey city = its core municipality (reviewed 2.12.2)
+NL:CBS_LABEL:medemblik,NL,GM0420,is,exact unique name within the country
+GSS:E07000047,UK,E07000047,is,official code
+ES:published-municipality:28:aranjuez,ES,28013,is,exact unique name within the country
+FI:vero_area:padasjoki,FI,576,is,exact unique name within the country
+FI:vero_area:hollola,FI,098,is,exact unique name within the country
+RO:ANOFM:buzau,RO,@n3:RO222,region,NUTS3 region by exact name
+NL:CBS_LABEL:wassenaar,NL,GM0629,is,exact unique name within the country
+FI:vero_area:veteli,FI,924,is,exact unique name within the country
+FI:vero_area:hankasalmi,FI,077,is,exact unique name within the country
+FI:vero_area:kouvola,FI,286,is,exact unique name within the country
+source-locality:RETAINED_ES:Villena,ES,03140,is,exact unique name within the country
+ES:published-municipality:23:jaen,ES,23050,is,exact unique name within the country
+NAT:CZ,CZ,*,country_context,national figure
+NL:CBS_LABEL:lopik,NL,GM0331,is,exact unique name within the country
+source-locality:RETAINED_BE:Hastière,BE,91142,is,exact unique name within the country
+NL:CBS_LABEL:waalwijk,NL,GM0867,is,exact unique name within the country
+FI:vero_area:ikaalinen,FI,143,is,exact unique name within the country
+NL:CBS_LABEL:waalre,NL,GM0866,is,exact unique name within the country
+FI:vero_area:vihti,FI,927,is,exact unique name within the country
+GSS:E07000220,UK,E07000220,is,official code
+GSS:E07000063,UK,E07000063,is,official code
+EE:county:saare,EE,0478,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:saare,EE,0689,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:saare,EE,0714,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+NL:GM0599,NL,GM0599,is,official code
+GSS:E09000029,UK,E09000029,is,official code
+FI:vero_area:lieto,FI,423,is,exact unique name within the country
+FI:vero_area:kangasniemi,FI,213,is,exact unique name within the country
+NL:CBS_LABEL:midden_groningen,NL,GM1952,is,exact unique name within the country
+FI:vero_area:pyhanta,FI,630,is,exact unique name within the country
+GSS:E07000033,UK,E07000033,is,official code
+RO:ANOFM:neamt,RO,@n3:RO214,region,NUTS3 region by exact name
+GSS:W06000001,UK,W06000001,is,official code
+NL:CBS_LABEL:eijsden_margraten,NL,GM1903,is,exact unique name within the country
+BE:STATBEL_LABEL:zemst,BE,23096,is,exact unique name within the country
+FI:vero_area:tammela,FI,834,is,exact unique name within the country
+ES:published-municipality:41:moron-de-la-frontera,ES,41065,is,exact unique name within the country
+GSS:E06000051,UK,E06000051,is,official code
+GSS:E08000022,UK,E08000022,is,official code
+LT:municipality:62,LT,62,is,official code
+FI:vero_area:kivijarvi,FI,265,is,exact unique name within the country
+FI:vero_area:lappeenranta,FI,405,is,exact unique name within the country
+ES:published-municipality:06:almendralejo,ES,06011,is,exact unique name within the country
+GSS:E07000179,UK,E07000179,is,official code
+NAT:UK,UK,*,country_context,national figure
+source-locality:RETAINED_BE:Sint-Pieters-Leeuw,BE,23077,is,exact unique name within the country
+NL:CBS_LABEL:het_hogeland,NL,GM1966,is,exact unique name within the country
+FI:vero_area:outokumpu,FI,309,is,exact unique name within the country
+FI:vero_area:pyhtaa,FI,624,is,exact unique name within the country
+FI:vero_area:narpio,FI,545,is,exact unique name within the country
+FI:vero_area:kangasala,FI,211,is,exact unique name within the country
+GSS:E07000113,UK,E07000113,is,official code
+BE:STATBEL_LABEL:schaerbeek,BE,21015,is,exact unique name within the country
+FI:vero_area:inkoo,FI,149,is,exact unique name within the country
+ES:published-municipality:45:toledo,ES,45168,is,exact unique name within the country
+GSS:E09000033,UK,E09000033,is,official code
+FI:vero_area:valkeakoski,FI,908,is,exact unique name within the country
+NL:CBS_LABEL:alphen_chaam,NL,GM1723,is,exact unique name within the country
+FI:vero_area:voyri,FI,946,is,exact unique name within the country
+source-locality:RETAINED_ES:Yecla,ES,30043,is,exact unique name within the country
+FI:vero_area:koskitl,FI,284,is,exact unique name within the country
+CN,CN,*,country_context,national figure
+LT:municipality:46,LT,46,is,official code
+NL:CBS_LABEL:hilvarenbeek,NL,GM0798,is,exact unique name within the country
+ES:published-municipality:28:mostoles,ES,28092,is,exact unique name within the country
+source-locality:RETAINED_BE:Jette,BE,21010,is,exact unique name within the country
+FI:vero_area:haapavesi,FI,071,is,exact unique name within the country
+ES:published-municipality:15:ribeira,ES,15073,is,exact unique name within the country
+NL:CBS_LABEL:gooise_meren,NL,GM1942,is,exact unique name within the country
+FI:vero_area:lumparland,FI,438,is,exact unique name within the country
+FI:vero_area:iisalmi,FI,140,is,exact unique name within the country
+ES:published-municipality:08:badalona,ES,08015,is,exact unique name within the country
+FI:vero_area:sottunga,FI,766,is,exact unique name within the country
+ES:published-municipality:35:arucas,ES,35006,is,exact unique name within the country
+FI:vero_area:uurainen,FI,892,is,exact unique name within the country
+source-locality:RETAINED_ES:Alcobendas,ES,28006,is,exact unique name within the country
+FI:vero_area:kotka,FI,285,is,exact unique name within the country
+NL:CBS_LABEL:zuidplas,NL,GM1892,is,exact unique name within the country
+BE:STATBEL_LABEL:watermael_boitsfort,BE,21017,is,exact unique name within the country
+PL:EC_CITY_LABEL:warsaw,PL,1007141286501,survey_city,survey city = its core municipality (reviewed 2.12.2)
+GSS:E08000025,UK,E08000025,is,official code
+ES:published-municipality:30:lorca,ES,30024,is,exact unique name within the country
+NL:CBS_LABEL:sudwest_fryslan,NL,GM1900,is,exact unique name within the country
+source-locality:RETAINED_HR:Lanišće,HR,02232,is,exact unique name within the country
+LT:municipality:30,LT,30,is,official code
+NL:CBS_LABEL:heusden,NL,GM0797,is,exact unique name within the country
+NL:CBS_LABEL:halderberge,NL,GM1655,is,exact unique name within the country
+GSS:W06000021,UK,W06000021,is,official code
+SCB_KOMMUN:0884,SE,0884,is,official code
+NL:CBS_LABEL:opsterland,NL,GM0086,is,exact unique name within the country
+ES:published-municipality:17:lloret-de-mar,ES,17095,is,exact unique name within the country
+GSS:E08000035,UK,E08000035,is,official code
+GSS:E09000031,UK,E09000031,is,official code
+NL:CBS_LABEL:pekela,NL,GM0765,is,exact unique name within the country
+FI:vero_area:savonlinna,FI,740,is,exact unique name within the country
+GB:E06000036,UK,E06000036,is,official code
+BE:STATBEL_LABEL:colfontaine,BE,53082,is,exact unique name within the country
+FI:vero_area:lapinjarvi,FI,407,is,exact unique name within the country
+FI:vero_area:paimio,FI,577,is,exact unique name within the country
+GB:E06000037,UK,E06000037,is,official code
+GSS:E07000039,UK,E07000039,is,official code
+GB:E06000044,UK,E06000044,is,official code
+GSS:W06000009,UK,W06000009,is,official code
+NAT:FR,FR,*,country_context,national figure
+ES:published-municipality:38:candelaria,ES,38011,is,exact unique name within the country
+FI:vero_area:sipoo,FI,753,is,exact unique name within the country
+LT:municipality:45,LT,45,is,official code
+GSS:E08000039,UK,E08000019,is,exact unique name within the country
+source-locality:LI_MUNICIPAL_2024:Gamprin,LI,LI00002003,is,exact unique name within the country
+NL:CBS_LABEL:schouwen_duiveland,NL,GM1676,is,exact unique name within the country
+GSS:E06000006,UK,E06000006,is,official code
+ES:published-municipality:29:mijas,ES,29070,is,exact unique name within the country
+NL:CBS_LABEL:drimmelen,NL,GM1719,is,exact unique name within the country
+NL:CBS_LABEL:kaag_en_braassem,NL,GM1884,is,exact unique name within the country
+NL:CBS_LABEL:delft,NL,GM0503,is,exact unique name within the country
+GSS:W06000024,UK,W06000024,is,official code
+FI:vero_area:akaa,FI,020,is,exact unique name within the country
+NL:CBS_LABEL:kampen,NL,GM0166,is,exact unique name within the country
+source-locality:RETAINED_ES:Langreo,ES,33031,is,exact unique name within the country
+GSS:E07000073,UK,E07000073,is,official code
+GSS:E06000047,UK,E06000047,is,official code
+ES:published-municipality:13:ciudad-real,ES,13034,is,exact unique name within the country
+GSS:E07000211,UK,E07000211,is,official code
+FI:vero_area:parkano,FI,581,is,exact unique name within the country
+GSS:S12000042,UK,S30000002,is,exact unique name within the country
+NL:CBS_LABEL:eemnes,NL,GM0317,is,exact unique name within the country
+ES:published-municipality:28:pinto,ES,28113,is,exact unique name within the country
+GSS:E08000010,UK,E08000010,is,official code
+NL:CBS_LABEL:lansingerland,NL,GM1621,is,exact unique name within the country
+NL:CBS_LABEL:leiden,NL,GM0546,is,exact unique name within the country
+source-locality:RETAINED_BE:Asse,BE,23002,is,exact unique name within the country
+ES:published-municipality:31:tudela,ES,31232,is,exact unique name within the country
+ES:published-municipality:46:sueca,ES,46235,is,exact unique name within the country
+FI:vero_area:lempaala,FI,418,is,exact unique name within the country
+source-locality:RETAINED_BE:Waterloo,BE,25110,is,exact unique name within the country
+EUROSTAT:FI,FI,*,country_context,national figure
+GSS:E07000137,UK,E07000137,is,official code
+GB:E06000035,UK,E06000035,is,official code
+FI:vero_area:kolari,FI,273,is,exact unique name within the country
+source-locality:LI_MUNICIPAL_2024:Eschen,LI,LI00002001,is,exact unique name within the country
+GSS:N09000004,UK,N09000004,is,official code
+source-locality:RETAINED_ES:Torrelodones,ES,28152,is,exact unique name within the country
+FI:vero_area:toivakka,FI,850,is,exact unique name within the country
+source-locality:RETAINED_BE:Viroinval,BE,93090,is,exact unique name within the country
+ES:published-municipality:19:azuqueca-de-henares,ES,19046,is,exact unique name within the country
+NL:CBS_LABEL:leudal,NL,GM1640,is,exact unique name within the country
+ES:published-municipality:28:alcorcon,ES,28007,is,exact unique name within the country
+FI:vero_area:ruokolahti,FI,700,is,exact unique name within the country
+NL:CBS_LABEL:meierijstad,NL,GM1948,is,exact unique name within the country
+NL:CBS_LABEL:neder_betuwe,NL,GM1740,is,exact unique name within the country
+source-locality:LI_MUNICIPAL_2024:Balzers,LI,LI00001003,is,exact unique name within the country
+source-locality:RETAINED_BE:Heist-op-den-Berg,BE,12014,is,exact unique name within the country
+GSS:E07000124,UK,E07000124,is,official code
+ES:published-municipality:46:gandia,ES,46131,is,exact unique name within the country
+ES:published-municipality:08:vic,ES,08298,is,exact unique name within the country
+GSS:E06000025,UK,E06000025,is,official code
+FI:vero_area:jomala,FI,170,is,exact unique name within the country
+NL:CBS_LABEL:coevorden,NL,GM0109,is,exact unique name within the country
+ES:published-municipality:12:onda,ES,12084,is,exact unique name within the country
+source-locality:RETAINED_ES:Villaviciosa de Odón,ES,28181,is,exact unique name within the country
+ES:published-municipality:33:oviedo,ES,33044,is,exact unique name within the country
+source-locality:RETAINED_BE:Gingelom,BE,71017,is,exact unique name within the country
+NL:CBS_LABEL:sittard_geleen,NL,GM1883,is,exact unique name within the country
+ES:published-municipality:28:tres-cantos,ES,28903,is,exact unique name within the country
+ES:published-municipality:34:palencia,ES,34120,is,exact unique name within the country
+GSS:E06000059,UK,E06000059,is,official code
+LT:municipality:29,LT,29,is,official code
+ES:published-municipality:46:manises,ES,46159,is,exact unique name within the country
+source-locality:RETAINED_BE:Namur,BE,92094,is,exact unique name within the country
+NL:CBS_LABEL:weststellingwerf,NL,GM0098,is,exact unique name within the country
+GSS:E06000039,UK,E06000039,is,official code
+FI:vero_area:ylojarvi,FI,980,is,exact unique name within the country
+ES:published-municipality:24:san-andres-del-rabanedo,ES,24142,is,exact unique name within the country
+source-locality:LI_MUNICIPAL_2024:Ruggell,LI,LI00002004,is,exact unique name within the country
+GSS:E07000075,UK,E07000075,is,official code
+FI:vero_area:juva,FI,178,is,exact unique name within the country
+NL:CBS_LABEL:stede_broec,NL,GM0532,is,exact unique name within the country
+LV:city:jurmala,LV,0130000,is,exact unique name within the country
+FI:vero_area:heinavesi,FI,090,is,exact unique name within the country
+GSS:E07000046,UK,E07000046,is,official code
+NL:CBS_LABEL:bergen_op_zoom,NL,GM0748,is,exact unique name within the country
+GB:E06000018,UK,E06000018,is,official code
+GB:E06000008,UK,E06000008,is,official code
+FI:vero_area:pietarsaari,FI,598,is,exact unique name within the country
+ES:published-municipality:50:zaragoza,ES,50297,is,exact unique name within the country
+ES:published-municipality:08:vilafranca-del-penedes,ES,08305,is,exact unique name within the country
+BE:STATBEL_LABEL:saint_josse_ten_noode,BE,21014,is,exact unique name within the country
+NL:CBS_LABEL:zaltbommel,NL,GM0297,is,exact unique name within the country
+ES:published-municipality:21:lepe,ES,21044,is,exact unique name within the country
+NL:CBS_LABEL:epe,NL,GM0232,is,exact unique name within the country
+FI:vero_area:hyrynsalmi,FI,105,is,exact unique name within the country
+NL:CBS_LABEL:heerde,NL,GM0246,is,exact unique name within the country
+FI:vero_area:masku,FI,481,is,exact unique name within the country
+HR:county:varazdin,HR,@n3:HR062,region,"county = NUTS-3 HR062 (English county name, reviewed 2.12.2)"
+ES:published-municipality:29:malaga,ES,29067,is,exact unique name within the country
+FI:EC_CITY_LABEL:oulu,FI,564,survey_city,survey city = its core municipality (reviewed 2.12.2)
+ES:published-municipality:43:reus,ES,43123,is,exact unique name within the country
+ES:published-municipality:28:villaviciosa-de-odon,ES,28181,is,exact unique name within the country
+ES:published-municipality:03:denia,ES,03063,is,exact unique name within the country
+HR:county:virovitica-podravina,HR,@n3:HR022,region,"county = NUTS-3 HR022 (English county name, reviewed 2.12.2)"
+ES:published-municipality:18:motril,ES,18140,is,exact unique name within the country
+ES:published-municipality:02:villarrobledo,ES,02081,is,exact unique name within the country
+LT:municipality:49,LT,49,is,official code
+FI:vero_area:urjala,FI,887,is,exact unique name within the country
+source-locality:RETAINED_BE:Harelbeke,BE,34013,is,exact unique name within the country
+GSS:E07000181,UK,E07000181,is,official code
+source-locality:RETAINED_BE:Geraardsbergen,BE,41018,is,exact unique name within the country
+FI:vero_area:kerava,FI,245,is,exact unique name within the country
+LT:municipality:21,LT,21,is,official code
+FI:vero_area:nurmijarvi,FI,543,is,exact unique name within the country
+FI:vero_area:kontiolahti,FI,276,is,exact unique name within the country
+FI:vero_area:pomarkku,FI,608,is,exact unique name within the country
+FI:vero_area:lemland,FI,417,is,exact unique name within the country
+GSS:E06000053,UK,E06000053,is,official code
+ES:published-municipality:14:lucena,ES,14038,is,exact unique name within the country
+NL:CBS_LABEL:zutphen,NL,GM0301,is,exact unique name within the country
+NL:CBS_LABEL:etten_leur,NL,GM0777,is,exact unique name within the country
+NL:CBS_LABEL:utrecht,NL,GM0344,is,exact unique name within the country
+FI:vero_area:loviisa,FI,434,is,exact unique name within the country
+GSS:W06000004,UK,W06000004,is,official code
+ES:published-municipality:29:marbella,ES,29069,is,exact unique name within the country
+FI:vero_area:pedersorenkunta,FI,599,is,exact unique name within the country
+LT:municipality:68,LT,68,is,official code
+BE:STATBEL_LABEL:molenbeek_saint_jean,BE,21012,is,exact unique name within the country
+GB:E06000013,UK,E06000013,is,official code
+source-locality:RETAINED_BE:Kraainem,BE,23099,is,exact unique name within the country
+DK:EC_CITY_LABEL:copenhagen,DK,101,survey_city,survey city = its core municipality (reviewed 2.12.2)
+GSS:E06000026,UK,E06000026,is,official code
+FI:vero_area:viitasaari,FI,931,is,exact unique name within the country
+NL:CBS_LABEL:goes,NL,GM0664,is,exact unique name within the country
+FI:vero_area:askola,FI,018,is,exact unique name within the country
+ES:published-municipality:28:pozuelo-de-alarcon,ES,28115,is,exact unique name within the country
+ES:published-municipality:03:benidorm,ES,03031,is,exact unique name within the country
+ES:published-municipality:08:gava,ES,08089,is,exact unique name within the country
+NL:CBS_LABEL:achtkarspelen,NL,GM0059,is,exact unique name within the country
+NL:CBS_LABEL:edam_volendam,NL,GM0385,is,exact unique name within the country
+GB:E06000027,UK,E06000027,is,official code
+ES:published-municipality:16:cuenca,ES,16078,is,exact unique name within the country
+LT:municipality:36,LT,36,is,official code
+source-locality:RETAINED_BE:Colfontaine,BE,53082,is,exact unique name within the country
+FI:vero_area:porvoo,FI,638,is,exact unique name within the country
+ES:published-municipality:28:torrejon-de-ardoz,ES,28148,is,exact unique name within the country
+ES:published-municipality:48:galdakao,ES,48036,is,exact unique name within the country
+FI:vero_area:pihtipudas,FI,601,is,exact unique name within the country
+ES:published-municipality:12:vinaros,ES,12138,is,exact unique name within the country
+NL:CBS_LABEL:twenterand,NL,GM1700,is,exact unique name within the country
+ES:published-municipality:46:algemesi,ES,46029,is,exact unique name within the country
+NL:CBS_LABEL:rhenen,NL,GM0340,is,exact unique name within the country
+AT:EC_CITY_LABEL:vienna,AT,90001,survey_city,survey city = its core municipality (reviewed 2.12.2)
+ES:published-municipality:35:puerto-del-rosario,ES,35017,is,exact unique name within the country
+ES:published-municipality:02:almansa,ES,02009,is,exact unique name within the country
+ES:published-municipality:36:marin,ES,36026,is,exact unique name within the country
+GSS:E08000038,UK,E08000016,is,exact unique name within the country
+source-locality:RETAINED_ES:Lalín,ES,36024,is,exact unique name within the country
+NL:CBS_LABEL:losser,NL,GM0168,is,exact unique name within the country
+NL:CBS_LABEL:leiderdorp,NL,GM0547,is,exact unique name within the country
+NL:CBS_LABEL:alblasserdam,NL,GM0482,is,exact unique name within the country
+ES:published-municipality:46:mislata,ES,46169,is,exact unique name within the country
+LI,LI,*,country_context,national figure
+source-locality:RETAINED_BE:Sint-Martens-Latem,BE,44064,is,exact unique name within the country
+LT:municipality:52,LT,52,is,official code
+BE:STATBEL_LABEL:auderghem,BE,21002,is,exact unique name within the country
+source-locality:RETAINED_BE:Ciney,BE,91030,is,exact unique name within the country
+GB:E06000002,UK,E06000002,is,official code
+FI:vero_area:siikainen,FI,747,is,exact unique name within the country
+ES:published-municipality:36:cangas,ES,36008,is,exact unique name within the country
+ES:published-municipality:28:alcala-de-henares,ES,28005,is,exact unique name within the country
+FI:vero_area:kokkola,FI,272,is,exact unique name within the country
+NL:CBS_LABEL:krimpen_aan_den_ijssel,NL,GM0542,is,exact unique name within the country
+GSS:E07000112,UK,E07000112,is,official code
+NL:CBS_LABEL:oldambt,NL,GM1895,is,exact unique name within the country
+NL:CBS_LABEL:deurne,NL,GM0762,is,exact unique name within the country
+GSS:E08000037,UK,E08000037,is,official code
+BE:STATBEL_LABEL:horebeke,BE,45062,is,exact unique name within the country
+FI:vero_area:manttavilppula,FI,508,is,exact unique name within the country
+FI:vero_area:heinola,FI,111,is,exact unique name within the country
+EE:county:laane,EE,0184,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:laane,EE,0441,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:laane,EE,0907,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:viljandi,EE,0480,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:viljandi,EE,0615,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:viljandi,EE,0897,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:viljandi,EE,0899,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+NL:CBS_LABEL:velsen,NL,GM0453,is,exact unique name within the country
+FI:vero_area:siikalatva,FI,791,is,exact unique name within the country
+NAT:FI,FI,*,country_context,national figure
+LT:municipality:78,LT,78,is,official code
+GSS:E12000007,UK,@n3:UKI*,region,English region = NUTS-1 UKI
+GSS:E06000040,UK,E06000040,is,official code
+NL:CBS_LABEL:lisse,NL,GM0553,is,exact unique name within the country
+NL:CBS_LABEL:haaksbergen,NL,GM0158,is,exact unique name within the country
+ES:published-municipality:13:alcazar-de-san-juan,ES,13005,is,exact unique name within the country
+ES:published-municipality:15:oleiros,ES,15058,is,exact unique name within the country
+ES:published-municipality:06:don-benito,ES,06044,is,exact unique name within the country
+LT:municipality:41,LT,41,is,official code
+GB:E06000030,UK,E06000030,is,official code
+FI:vero_area:karstula,FI,226,is,exact unique name within the country
+source-locality:RETAINED_BE:Evere,BE,21006,is,exact unique name within the country
+NL:CBS_LABEL:ooststellingwerf,NL,GM0085,is,exact unique name within the country
+NL:CBS_LABEL:voerendaal,NL,GM0986,is,exact unique name within the country
+BE:STATBEL_LABEL:liege,BE,62063,is,exact unique name within the country
+source-locality:RETAINED_ES:Castelldefels,ES,08056,is,exact unique name within the country
+BR,BR,*,country_context,national figure
+NL:CBS_LABEL:bernheze,NL,GM1721,is,exact unique name within the country
+GB:E06000041,UK,E06000041,is,official code
+NL:CBS_LABEL:hulst,NL,GM0677,is,exact unique name within the country
+NL:CBS_LABEL:montferland,NL,GM1955,is,exact unique name within the country
+AT:EC_CITY_LABEL:graz,AT,60101,survey_city,survey city = its core municipality (reviewed 2.12.2)
+ES:published-municipality:41:mairena-del-aljarafe,ES,41059,is,exact unique name within the country
+ES:published-municipality:08:sabadell,ES,08187,is,exact unique name within the country
+LT:municipality:79,LT,79,is,official code
+ES:published-municipality:44:teruel,ES,44216,is,exact unique name within the country
+FI:vero_area:jarvenpaa,FI,186,is,exact unique name within the country
+GSS:W06000012,UK,W06000012,is,official code
+FI:vero_area:ilomantsi,FI,146,is,exact unique name within the country
+FI:vero_area:ranua,FI,683,is,exact unique name within the country
+NL:CBS_LABEL:schiedam,NL,GM0606,is,exact unique name within the country
+ES:published-municipality:11:san-fernando,ES,11031,is,exact unique name within the country
+SI:EC_CITY_LABEL:ljubljana,SI,061,survey_city,survey city = its core municipality (reviewed 2.12.2)
+NL:CBS_LABEL:druten,NL,GM0225,is,exact unique name within the country
+BE:STATBEL_LABEL:oud_heverlee,BE,24086,is,exact unique name within the country
+GSS:S12000030,UK,S30000011,is,exact unique name within the country
+NL:CBS_LABEL:waddinxveen,NL,GM0627,is,exact unique name within the country
+FI:vero_area:uusikaupunki,FI,895,is,exact unique name within the country
+NL:CBS_LABEL:voorst,NL,GM0285,is,exact unique name within the country
+EUROSTAT:IT,IT,*,country_context,national figure
+ES:published-municipality:30:murcia,ES,30030,is,exact unique name within the country
+GSS:E09000020,UK,E09000020,is,official code
+NL:CBS_LABEL:beverwijk,NL,GM0375,is,exact unique name within the country
+NL:CBS_LABEL:overbetuwe,NL,GM1734,is,exact unique name within the country
+ES:published-municipality:21:huelva,ES,21041,is,exact unique name within the country
+GSS:E07000143,UK,E07000143,is,official code
+NL:CBS_LABEL:noordoostpolder,NL,GM0171,is,exact unique name within the country
+NL:CBS_LABEL:west_maas_en_waal,NL,GM0668,is,exact unique name within the country
+HR,HR,*,country_context,national figure
+NL:CBS_LABEL:hardenberg,NL,GM0160,is,exact unique name within the country
+ES:published-municipality:28:leganes,ES,28074,is,exact unique name within the country
+FI:vero_area:kuortane,FI,300,is,exact unique name within the country
+NL:CBS_LABEL:dalfsen,NL,GM0148,is,exact unique name within the country
+source-locality:RETAINED_BE:Izegem,BE,36008,is,exact unique name within the country
+source-locality:LI_MUNICIPAL_2024:Triesenberg,LI,LI00001004,is,exact unique name within the country
+NL:CBS_LABEL:beekdaelen,NL,GM1954,is,exact unique name within the country
+FI:vero_area:konnevesi,FI,275,is,exact unique name within the country
+FI:vero_area:vesilahti,FI,922,is,exact unique name within the country
+NL:CBS_LABEL:peel_en_maas,NL,GM1894,is,exact unique name within the country
+source-locality:RETAINED_ES:Linares,ES,23055,is,exact unique name within the country
+NL:CBS_LABEL:leidschendam_voorburg,NL,GM1916,is,exact unique name within the country
+ES:published-municipality:28:galapagar,ES,28061,is,exact unique name within the country
+LT:municipality:43,LT,43,is,official code
+NL:CBS_LABEL:nunspeet,NL,GM0302,is,exact unique name within the country
+source-locality:RETAINED_BE:Edegem,BE,11013,is,exact unique name within the country
+BE:STATBEL_LABEL:koekelberg,BE,21011,is,exact unique name within the country
+ES:published-municipality:03:petrer,ES,03104,is,exact unique name within the country
+NL:CBS_LABEL:winterswijk,NL,GM0294,is,exact unique name within the country
+source-locality:RETAINED_BE:Berchem-Sainte-Agathe,BE,21003,is,exact unique name within the country
+ES:published-municipality:11:cadiz,ES,11012,is,exact unique name within the country
+AE,AE,*,country_context,national figure
+FI:vero_area:kirkkonummi,FI,257,is,exact unique name within the country
+FI:vero_area:taipalsaari,FI,831,is,exact unique name within the country
+GB:E06000012,UK,E06000012,is,official code
+NL:CBS_LABEL:noord_beveland,NL,GM1695,is,exact unique name within the country
+NL:CBS_LABEL:almelo,NL,GM0141,is,exact unique name within the country
+FI:vero_area:hameenlinna,FI,109,is,exact unique name within the country
+NL:CBS_LABEL:gennep,NL,GM0907,is,exact unique name within the country
+ES:published-municipality:03:crevillent,ES,03059,is,exact unique name within the country
+NL:CBS_LABEL:waadhoeke,NL,GM1949,is,exact unique name within the country
+FI:vero_area:lieksa,FI,422,is,exact unique name within the country
+CZ:EC_CITY_LABEL:prague,CZ,554782,survey_city,survey city = its core municipality (reviewed 2.12.2)
+NL:CBS_LABEL:roerdalen,NL,GM1669,is,exact unique name within the country
+GSS:S12000047,UK,S30000004,is,exact unique name within the country
+NL:CBS_LABEL:deventer,NL,GM0150,is,exact unique name within the country
+BE:STATBEL_LABEL:messancy,BE,81015,is,exact unique name within the country
+FI:vero_area:asikkala,FI,016,is,exact unique name within the country
+ES:published-municipality:10:plasencia,ES,10148,is,exact unique name within the country
+ES:published-municipality:35:santa-lucia-de-tirajana,ES,35022,is,exact unique name within the country
+source-locality:RETAINED_ES:Tomelloso,ES,13082,is,exact unique name within the country
+FI:vero_area:virrat,FI,936,is,exact unique name within the country
+NL:CBS_LABEL:someren,NL,GM0847,is,exact unique name within the country
+NL:CBS_LABEL:heumen,NL,GM0252,is,exact unique name within the country
+NL:CBS_LABEL:diemen,NL,GM0384,is,exact unique name within the country
+FI:vero_area:mikkeli,FI,491,is,exact unique name within the country
+BE:STATBEL_LABEL:dison,BE,63020,is,exact unique name within the country
+NL:CBS_LABEL:bodegraven_reeuwijk,NL,GM1901,is,exact unique name within the country
+EUROSTAT:NL,NL,*,country_context,national figure
+GSS:E07000032,UK,E07000032,is,official code
+NL:CBS_LABEL:terneuzen,NL,GM0715,is,exact unique name within the country
+source-locality:RETAINED_BE:Nivelles,BE,25072,is,exact unique name within the country
+FI:vero_area:rantasalmi,FI,681,is,exact unique name within the country
+NL:CBS_LABEL:texel,NL,GM0448,is,exact unique name within the country
+LT:municipality:91,LT,91,is,official code
+LT:municipality:77,LT,77,is,official code
+BE:STATBEL_LABEL:anderlecht,BE,21001,is,exact unique name within the country
+EE:county:rapla,EE,0293,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:rapla,EE,0317,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:rapla,EE,0503,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:rapla,EE,0668,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+BE:STATBEL_LABEL:farciennes,BE,52018,is,exact unique name within the country
+NL:CBS_LABEL:dronten,NL,GM0303,is,exact unique name within the country
+LT:municipality:57,LT,57,is,official code
+ES:published-municipality:38:puerto-de-la-cruz,ES,38028,is,exact unique name within the country
+ES:published-municipality:08:castelldefels,ES,08056,is,exact unique name within the country
+NL:CBS_LABEL:laarbeek,NL,GM1659,is,exact unique name within the country
+ES:published-municipality:33:aviles,ES,33004,is,exact unique name within the country
+NL:CBS_LABEL:tiel,NL,GM0281,is,exact unique name within the country
+ES:published-municipality:15:ferrol,ES,15036,is,exact unique name within the country
+NL:CBS_LABEL:rheden,NL,GM0275,is,exact unique name within the country
+ES:published-municipality:08:viladecans,ES,08301,is,exact unique name within the country
+ES:published-municipality:02:albacete,ES,02003,is,exact unique name within the country
+ES:published-municipality:29:fuengirola,ES,29054,is,exact unique name within the country
+ES:published-municipality:04:roquetas-de-mar,ES,04079,is,exact unique name within the country
+source-locality:RETAINED_ES:Cabra,ES,14013,is,exact unique name within the country
+NL:CBS_LABEL:horst_aan_de_maas,NL,GM1507,is,exact unique name within the country
+GSS:E07000064,UK,E07000064,is,official code
+ES:published-municipality:46:alaquas,ES,46005,is,exact unique name within the country
+FI:vero_area:toholampi,FI,849,is,exact unique name within the country
+NL:CBS_LABEL:katwijk,NL,GM0537,is,exact unique name within the country
+NL:CBS_LABEL:kapelle,NL,GM0678,is,exact unique name within the country
+MY,MY,*,country_context,national figure
+NL:CBS_LABEL:hoorn,NL,GM0405,is,exact unique name within the country
+NL:CBS_LABEL:assen,NL,GM0106,is,exact unique name within the country
+FI:vero_area:mustasaari,FI,499,is,exact unique name within the country
+NL:CBS_LABEL:beek_l,NL,GM0888,is,exact unique name within the country
+GB:E06000020,UK,E06000020,is,official code
+source-locality:RETAINED_BE:Sint-Genesius-Rode,BE,23101,is,exact unique name within the country
+GSS:E06000018,UK,E06000018,is,official code
+source-locality:RETAINED_ES:Esplugues de Llobregat,ES,08077,is,exact unique name within the country
+source-locality:RETAINED_ES:Calvià,ES,07011,is,exact unique name within the country
+ES:published-municipality:28:majadahonda,ES,28080,is,exact unique name within the country
+ES:published-municipality:30:jumilla,ES,30022,is,exact unique name within the country
+source-locality:RETAINED_ES:Boadilla del Monte,ES,28022,is,exact unique name within the country
+ES:published-municipality:39:santander,ES,39075,is,exact unique name within the country
+NL:CBS_LABEL:laren_nh,NL,GM0417,is,exact unique name within the country
+source-locality:RETAINED_BE:Wijnegem,BE,11050,is,exact unique name within the country
+FI:vero_area:muhos,FI,494,is,exact unique name within the country
+FI:vero_area:vimpeli,FI,934,is,exact unique name within the country
+NL:CBS_LABEL:de_bilt,NL,GM0310,is,exact unique name within the country
+BE:STATBEL_LABEL:kraainem,BE,23099,is,exact unique name within the country
+LT:municipality:54,LT,54,is,official code
+LT:municipality:86,LT,86,is,official code
+NL:CBS_LABEL:ommen,NL,GM0175,is,exact unique name within the country
+source-locality:RETAINED_ES:Archena,ES,30009,is,exact unique name within the country
+GSS:E07000166,UK,E07000166,is,official code
+NL:CBS_LABEL:castricum,NL,GM0383,is,exact unique name within the country
+GSS:S12000006,UK,S30000016,is,exact unique name within the country
+NL:CBS_LABEL:haarlem,NL,GM0392,is,exact unique name within the country
+FI:vero_area:kauniainen,FI,235,is,exact unique name within the country
+ES:published-municipality:28:navalcarnero,ES,28096,is,exact unique name within the country
+source-locality:RETAINED_BE:Andenne,BE,92003,is,exact unique name within the country
+GB:E06000016,UK,E06000016,is,official code
+LT:municipality:32,LT,32,is,official code
+GB:E06000019,UK,E06000019,is,official code
+NAT:BG,BG,*,country_context,national figure
+NL:CBS_LABEL:zundert,NL,GM0879,is,exact unique name within the country
+NL:CBS_LABEL:harderwijk,NL,GM0243,is,exact unique name within the country
+ES:published-municipality:25:lleida,ES,25120,is,exact unique name within the country
+ES:published-municipality:28:fuenlabrada,ES,28058,is,exact unique name within the country
+ES:published-municipality:08:manresa,ES,08113,is,exact unique name within the country
+ES:published-municipality:15:carballo,ES,15019,is,exact unique name within the country
+source-locality:RETAINED_BE:Keerbergen,BE,24048,is,exact unique name within the country
+GB:E06000032,UK,E06000032,is,official code
+NL:CBS_LABEL:valkenburg_aan_de_geul,NL,GM0994,is,exact unique name within the country
+NL:CBS_LABEL:dongen,NL,GM0766,is,exact unique name within the country
+ES:published-municipality:08:igualada,ES,08102,is,exact unique name within the country
+NL:CBS_LABEL:haarlemmermeer,NL,GM0394,is,exact unique name within the country
+ES:published-municipality:08:montcada-i-reixac,ES,08125,is,exact unique name within the country
+ES:published-municipality:39:torrelavega,ES,39087,is,exact unique name within the country
+ES:published-municipality:28:alcobendas,ES,28006,is,exact unique name within the country
+NL:CBS_LABEL:west_betuwe,NL,GM1960,is,exact unique name within the country
+NL:CBS_LABEL:stein_l,NL,GM0971,is,exact unique name within the country
+source-locality:RETAINED_ES:Puertollano,ES,13071,is,exact unique name within the country
+source-locality:RETAINED_BE:Verviers,BE,63079,is,exact unique name within the country
+NL:CBS_LABEL:urk,NL,GM0184,is,exact unique name within the country
+NL:CBS_LABEL:zeewolde,NL,GM0050,is,exact unique name within the country
+GSS:E07000189,UK,E07000189,is,official code
+ES:published-municipality:22:huesca,ES,22125,is,exact unique name within the country
+ES:published-municipality:46:catarroja,ES,46094,is,exact unique name within the country
+source-locality:RETAINED_BE:Chaumont-Gistoux,BE,25018,is,exact unique name within the country
+source-locality:RETAINED_BE:Zottegem,BE,41081,is,exact unique name within the country
+ES:published-municipality:38:granadilla-de-abona,ES,38017,is,exact unique name within the country
+FI:vero_area:kristiinankaupunki,FI,287,is,exact unique name within the country
+source-locality:RETAINED_BE:Arlon,BE,81001,is,exact unique name within the country
+ES:published-municipality:36:vigo,ES,36057,is,exact unique name within the country
+NL:CBS_LABEL:raalte,NL,GM0177,is,exact unique name within the country
+ES:published-municipality:29:estepona,ES,29051,is,exact unique name within the country
+source-locality:RETAINED_BE:Quaregnon,BE,53065,is,exact unique name within the country
+NAT:MT,MT,*,country_context,national figure
+ES:published-municipality:52:melilla,ES,52001,is,exact unique name within the country
+ES:published-municipality:28:collado-villalba,ES,28047,is,exact unique name within the country
+GB:E06000031,UK,E06000031,is,official code
+ES:published-municipality:33:langreo,ES,33031,is,exact unique name within the country
+NL:CBS_LABEL:landgraaf,NL,GM0882,is,exact unique name within the country
+NL:CBS_LABEL:wormerland,NL,GM0880,is,exact unique name within the country
+FI:vero_area:vierema,FI,925,is,exact unique name within the country
+ES:published-municipality:08:sant-boi-de-llobregat,ES,08200,is,exact unique name within the country
+FI:vero_area:perho,FI,584,is,exact unique name within the country
+NL:CBS_LABEL:oudewater,NL,GM0589,is,exact unique name within the country
+ES:published-municipality:09:burgos,ES,09059,is,exact unique name within the country
+EE:county:jogeva,EE,0247,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:jogeva,EE,0486,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:jogeva,EE,0618,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+GB:E06000040,UK,E06000040,is,official code
+NL:CBS_LABEL:arnhem,NL,GM0202,is,exact unique name within the country
+ES:published-municipality:29:ronda,ES,29084,is,exact unique name within the country
+ES:published-municipality:30:mazarron,ES,30026,is,exact unique name within the country
+ES:published-municipality:06:villanueva-de-la-serena,ES,06153,is,exact unique name within the country
+NL:CBS_LABEL:ridderkerk,NL,GM0597,is,exact unique name within the country
+NL:CBS_LABEL:veere,NL,GM0717,is,exact unique name within the country
+NL:CBS_LABEL:moerdijk,NL,GM1709,is,exact unique name within the country
+GSS:E06000012,UK,E06000012,is,official code
+FI:vero_area:pornainen,FI,611,is,exact unique name within the country
+source-locality:RETAINED_BE:Braine-le-Château,BE,25015,is,exact unique name within the country
+FI:vero_area:petajavesi,FI,592,is,exact unique name within the country
+ES:published-municipality:19:guadalajara,ES,19130,is,exact unique name within the country
+ES:published-municipality:03:campello-el,ES,03050,is,exact unique name within the country
+NAT:SE,SE,*,country_context,national figure
+ES:published-municipality:41:coria-del-rio,ES,41034,is,exact unique name within the country
+ES:published-municipality:36:pontevedra,ES,36038,is,exact unique name within the country
+GB:E06000039,UK,E06000039,is,official code
+ES:published-municipality:28:rivas-vaciamadrid,ES,28123,is,exact unique name within the country
+source-locality:RETAINED_BE:Erquelinnes,BE,56022,is,exact unique name within the country
+LT:municipality:11,LT,11,is,official code
+GSS:E07000031,UK,E07000031,is,official code
+NL:CBS_LABEL:baarle_nassau,NL,GM0744,is,exact unique name within the country
+ES:published-municipality:08:granollers,ES,08096,is,exact unique name within the country
+ES:published-municipality:41:dos-hermanas,ES,41038,is,exact unique name within the country
+ES:published-municipality:46:ontinyent,ES,46184,is,exact unique name within the country
+GB:E06000026,UK,E06000026,is,official code
+NL:CBS_LABEL:tholen,NL,GM0716,is,exact unique name within the country
+source-locality:RETAINED_HR:Split,HR,04090,is,exact unique name within the country
+ES:published-municipality:12:benicarlo,ES,12027,is,exact unique name within the country
+GSS:E07000164,UK,E07000164,is,official code
+source-locality:RETAINED_ES:Amposta,ES,43014,is,exact unique name within the country
+NL:CBS_LABEL:veendam,NL,GM0047,is,exact unique name within the country
+NL:CBS_LABEL:wageningen,NL,GM0289,is,exact unique name within the country
+NL:CBS_LABEL:oldebroek,NL,GM0269,is,exact unique name within the country
+LT:municipality:23,LT,23,is,official code
+ES:published-municipality:30:san-javier,ES,30035,is,exact unique name within the country
+ES:published-municipality:17:blanes,ES,17023,is,exact unique name within the country
+source-locality:RETAINED_BE:Quiévrain,BE,53068,is,exact unique name within the country
+FI:vero_area:liperi,FI,426,is,exact unique name within the country
+source-locality:RETAINED_ES:Eivissa,ES,07026,is,exact unique name within the country
+FI:vero_area:muurame,FI,500,is,exact unique name within the country
+source-locality:RETAINED_BE:Farciennes,BE,52018,is,exact unique name within the country
+source-locality:RETAINED_HR:Civljane,HR,00515,is,exact unique name within the country
+BE:EC_CITY_LABEL:liege,BE,62063,survey_city,survey city = its core municipality (reviewed 2.12.2)
+LT:municipality:59,LT,59,is,official code
+LT:municipality:25,LT,25,is,official code
+NL:CBS_LABEL:geertruidenberg,NL,GM0779,is,exact unique name within the country
+ES:published-municipality:06:merida,ES,06083,is,exact unique name within the country
+BE:STATBEL_LABEL:fauvillers,BE,82009,is,exact unique name within the country
+NL:CBS_LABEL:rijswijk_zh,NL,GM0603,is,exact unique name within the country
+LT:municipality:66,LT,66,is,official code
+NL:CBS_LABEL:brunssum,NL,GM0899,is,exact unique name within the country
+source-locality:RETAINED_BE:Dour,BE,53020,is,exact unique name within the country
+ID,ID,*,country_context,national figure
+GSS:E07000188,UK,E07000188,is,official code
+ES:published-municipality:48:barakaldo,ES,48013,is,exact unique name within the country
+EE:county:hiiu,EE,0205,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+NL:CBS_LABEL:son_en_breugel,NL,GM0848,is,exact unique name within the country
+ES:published-municipality:37:salamanca,ES,37274,is,exact unique name within the country
+NL:CBS_LABEL:goeree_overflakkee,NL,GM1924,is,exact unique name within the country
+GB:E06000025,UK,E06000025,is,official code
+LT:municipality:81,LT,81,is,official code
+NL:CBS_LABEL:voorne_aan_zee,NL,GM1992,is,exact unique name within the country
+ES:published-municipality:41:carmona,ES,41024,is,exact unique name within the country
+NL:CBS_LABEL:ouder_amstel,NL,GM0437,is,exact unique name within the country
+ES:published-municipality:08:ripollet,ES,08180,is,exact unique name within the country
+source-locality:RETAINED_BE:Ganshoren,BE,21008,is,exact unique name within the country
+ES:published-municipality:47:valladolid,ES,47186,is,exact unique name within the country
+FR:EC_CITY_LABEL:paris,FR,75056,survey_city,survey city = its core municipality (reviewed 2.12.2)
+NL:CBS_LABEL:molenlanden,NL,GM1978,is,exact unique name within the country
+source-locality:RETAINED_BE:Torhout,BE,31033,is,exact unique name within the country
+NL:CBS_LABEL:rotterdam,NL,GM0599,is,exact unique name within the country
+source-locality:RETAINED_ES:Sant Just Desvern,ES,08221,is,exact unique name within the country
+NL:CBS_LABEL:berg_en_dal,NL,GM1945,is,exact unique name within the country
+NL:CBS_LABEL:s_gravenhage,NL,GM0518,is,exact unique name within the country
+ES:published-municipality:07:ciutadella-de-menorca,ES,07015,is,exact unique name within the country
+LT:municipality:38,LT,38,is,official code
+NL:CBS_LABEL:blaricum,NL,GM0376,is,exact unique name within the country
+source-locality:RETAINED_BE:Eeklo,BE,43005,is,exact unique name within the country
+source-locality:RETAINED_BE:Ottignies-Louvain-la-Neuve,BE,25121,is,exact unique name within the country
+ES:EC_CITY_LABEL:malaga,ES,29067,survey_city,survey city = its core municipality (reviewed 2.12.2)
+NL:CBS_LABEL:oosterhout,NL,GM0826,is,exact unique name within the country
+ES:EC_CITY_LABEL:madrid,ES,28079,survey_city,survey city = its core municipality (reviewed 2.12.2)
+NL:CBS_LABEL:uitgeest,NL,GM0450,is,exact unique name within the country
+EUROSTAT:SK,SK,*,country_context,national figure
+ES:published-municipality:43:salou,ES,43905,is,exact unique name within the country
+NL:CBS_LABEL:westland,NL,GM1783,is,exact unique name within the country
+NL:CBS_LABEL:westerveld,NL,GM1701,is,exact unique name within the country
+ES:published-municipality:49:zamora,ES,49275,is,exact unique name within the country
+LT:municipality:82,LT,82,is,official code
+source-locality:RETAINED_BE:Wavre,BE,25112,is,exact unique name within the country
+NL:CBS_LABEL:hengelo_o,NL,GM0164,is,exact unique name within the country
+NL:CBS_LABEL:heemstede,NL,GM0397,is,exact unique name within the country
+NL:CBS_LABEL:veldhoven,NL,GM0861,is,exact unique name within the country
+NL:CBS_LABEL:steenwijkerland,NL,GM1708,is,exact unique name within the country
+ES:published-municipality:46:burjassot,ES,46078,is,exact unique name within the country
+BE:STATBEL_LABEL:mesen,BE,33016,is,exact unique name within the country
+NL:CBS_LABEL:lingewaard,NL,GM1705,is,exact unique name within the country
+NL:CBS_LABEL:schagen,NL,GM0441,is,exact unique name within the country
+NL:CBS_LABEL:woudenberg,NL,GM0351,is,exact unique name within the country
+NL:CBS_LABEL:de_ronde_venen,NL,GM0736,is,exact unique name within the country
+NL:CBS_LABEL:oirschot,NL,GM0823,is,exact unique name within the country
+NL:CBS_LABEL:tilburg,NL,GM0855,is,exact unique name within the country
+NL:CBS_LABEL:roosendaal,NL,GM1674,is,exact unique name within the country
+source-locality:RETAINED_BE:Ixelles,BE,21009,is,exact unique name within the country
+NL:CBS_LABEL:hattem,NL,GM0244,is,exact unique name within the country
+NL:CBS_LABEL:capelle_aan_den_ijssel,NL,GM0502,is,exact unique name within the country
+FI:vero_area:kajaani,FI,205,is,exact unique name within the country
+NL:CBS_LABEL:helmond,NL,GM0794,is,exact unique name within the country
+source-locality:RETAINED_ES:Almoradí,ES,03015,is,exact unique name within the country
+FI:vero_area:kumlinge,FI,295,is,exact unique name within the country
+source-locality:RETAINED_ES:Valdepeñas,ES,13087,is,exact unique name within the country
+FI:vero_area:tervo,FI,844,is,exact unique name within the country
+NL:CBS_LABEL:wijk_bij_duurstede,NL,GM0352,is,exact unique name within the country
+EE:county:parnu,EE,0214,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:parnu,EE,0303,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:parnu,EE,0430,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:parnu,EE,0624,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:parnu,EE,0638,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:parnu,EE,0712,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county:parnu,EE,0809,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+ES:published-municipality:38:santa-cruz-de-tenerife,ES,38038,is,exact unique name within the country
+source-locality:RETAINED_ES:Hellín,ES,02037,is,exact unique name within the country
+ES:published-municipality:26:logrono,ES,26089,is,exact unique name within the country
+NL:CBS_LABEL:zeist,NL,GM0355,is,exact unique name within the country
+NL:CBS_LABEL:terschelling,NL,GM0093,is,exact unique name within the country
+BE:STATBEL_LABEL:ronse,BE,45041,is,exact unique name within the country
+GB:E06000003,UK,E06000003,is,official code
+NL:CBS_LABEL:noordenveld,NL,GM1699,is,exact unique name within the country
+NL:CBS_LABEL:heerenveen,NL,GM0074,is,exact unique name within the country
+NL:CBS_LABEL:heiloo,NL,GM0399,is,exact unique name within the country
+LT:municipality:56,LT,56,is,official code
+ES:published-municipality:41:lebrija,ES,41053,is,exact unique name within the country
+ES:published-municipality:36:redondela,ES,36045,is,exact unique name within the country
+ES:published-municipality:08:rubi,ES,08184,is,exact unique name within the country
+LT:municipality:19,LT,19,is,official code
+BE:STATBEL_LABEL:rotselaar,BE,24094,is,exact unique name within the country
+NL:CBS_LABEL:maassluis,NL,GM0556,is,exact unique name within the country
+NL:CBS_LABEL:baarn,NL,GM0308,is,exact unique name within the country
+ES:published-municipality:46:xirivella,ES,46110,is,exact unique name within the country
+source-locality:RETAINED_ES:Priego de Córdoba,ES,14055,is,exact unique name within the country
+NL:CBS_LABEL:nieuwegein,NL,GM0356,is,exact unique name within the country
+FI:vero_area:kannus,FI,217,is,exact unique name within the country
+NL:CBS_LABEL:hoogeveen,NL,GM0118,is,exact unique name within the country
+NAT:HU,HU,*,country_context,national figure
+NL:CBS_LABEL:sluis,NL,GM1714,is,exact unique name within the country
+LT:municipality:48,LT,48,is,official code
+ES:published-municipality:36:vilagarcia-de-arousa,ES,36060,is,exact unique name within the country
+NL:CBS_LABEL:berkelland,NL,GM1859,is,exact unique name within the country
+ES:published-municipality:41:sevilla,ES,41091,is,exact unique name within the country
+NL:CBS_LABEL:altena,NL,GM1959,is,exact unique name within the country
+NL:CBS_LABEL:oude_ijsselstreek,NL,GM1509,is,exact unique name within the country
+NL:CBS_LABEL:bergeijk,NL,GM1724,is,exact unique name within the country
+NL:CBS_LABEL:soest,NL,GM0342,is,exact unique name within the country
+source-locality:RETAINED_BE:Wemmel,BE,23102,is,exact unique name within the country
+NL:CBS_LABEL:hillegom,NL,GM0534,is,exact unique name within the country
+"source-locality:RETAINED_ES:Estrada, A",ES,36017,is,exact unique name within the country
+EUROSTAT:ES,ES,*,country_context,national figure
+source-locality:RETAINED_BE:Seraing,BE,62096,is,exact unique name within the country
+IT:EC_CITY_LABEL:turin,IT,001272,survey_city,survey city = its core municipality (reviewed 2.12.2)
+source-locality:RETAINED_ES:Carballo,ES,15019,is,exact unique name within the country
+source-locality:RETAINED_BE:Lasne,BE,25119,is,exact unique name within the country
+ES:published-municipality:08:sant-adria-de-besos,ES,08194,is,exact unique name within the country
+ES:published-municipality:29:antequera,ES,29015,is,exact unique name within the country
+ES:published-municipality:29:rincon-de-la-victoria,ES,29082,is,exact unique name within the country
+ES:published-municipality:30:yecla,ES,30043,is,exact unique name within the country
+NL:CBS_LABEL:steenbergen,NL,GM0851,is,exact unique name within the country
+NL:CBS_LABEL:veenendaal,NL,GM0345,is,exact unique name within the country
+ES:published-municipality:03:elda,ES,03066,is,exact unique name within the country
+source-locality:RETAINED_BE:Charleroi,BE,52011,is,exact unique name within the country
+IN,IN,*,country_context,national figure
+NL:CBS_LABEL:voorschoten,NL,GM0626,is,exact unique name within the country
+GSS:E07000030,UK,E07000030,is,official code
+ES:published-municipality:15:culleredo,ES,15031,is,exact unique name within the country
+source-locality:RETAINED_ES:Getxo,ES,48044,is,exact unique name within the country
+NL:CBS_LABEL:borger_odoorn,NL,GM1681,is,exact unique name within the country
+LT:municipality:42,LT,42,is,official code
+LT:municipality:63,LT,63,is,official code
+ES:published-municipality:38:adeje,ES,38001,is,exact unique name within the country
+source-locality:RETAINED_ES:Tres Cantos,ES,28903,is,exact unique name within the country
+ES:published-municipality:24:ponferrada,ES,24115,is,exact unique name within the country
+NL:CBS_LABEL:bladel,NL,GM1728,is,exact unique name within the country
+ES:published-municipality:07:inca,ES,07027,is,exact unique name within the country
+source-locality:RETAINED_ES:Caravaca de la Cruz,ES,30015,is,exact unique name within the country
+NL:CBS_LABEL:enkhuizen,NL,GM0388,is,exact unique name within the country
+NL:CBS_LABEL:renswoude,NL,GM0339,is,exact unique name within the country
+NL:CBS_LABEL:nuenen_gerwen_en_nederwetten,NL,GM0820,is,exact unique name within the country
+source-locality:RETAINED_BE:Woluwe-Saint-Lambert,BE,21018,is,exact unique name within the country
+NL:CBS_LABEL:roermond,NL,GM0957,is,exact unique name within the country
+FI:vero_area:liminka,FI,425,is,exact unique name within the country
+NL:CBS_LABEL:culemborg,NL,GM0216,is,exact unique name within the country
+source-locality:RETAINED_BE:Boortmeerbeek,BE,24014,is,exact unique name within the country
+GSS:E07000165,UK,E07000165,is,official code
+LT:municipality:27,LT,27,is,official code
+source-locality:RETAINED_ES:San Roque,ES,11033,is,exact unique name within the country
+ES:published-municipality:04:almeria,ES,04013,is,exact unique name within the country
+EE:county_excluding_city:harju-excluding-tallinn,EE,0141,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county_excluding_city:harju-excluding-tallinn,EE,0198,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county_excluding_city:harju-excluding-tallinn,EE,0245,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county_excluding_city:harju-excluding-tallinn,EE,0296,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county_excluding_city:harju-excluding-tallinn,EE,0305,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county_excluding_city:harju-excluding-tallinn,EE,0338,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county_excluding_city:harju-excluding-tallinn,EE,0353,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county_excluding_city:harju-excluding-tallinn,EE,0424,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county_excluding_city:harju-excluding-tallinn,EE,0431,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county_excluding_city:harju-excluding-tallinn,EE,0446,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county_excluding_city:harju-excluding-tallinn,EE,0651,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county_excluding_city:harju-excluding-tallinn,EE,0653,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county_excluding_city:harju-excluding-tallinn,EE,0719,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county_excluding_city:harju-excluding-tallinn,EE,0726,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+EE:county_excluding_city:harju-excluding-tallinn,EE,0890,county,county = its municipalities after the 2017 reform (reviewed 2.12.2)
+ES:published-municipality:35:telde,ES,35026,is,exact unique name within the country
+NL:CBS_LABEL:geldrop_mierlo,NL,GM1771,is,exact unique name within the country
+GB:E06000009,UK,E06000009,is,official code
+ES:published-municipality:41:ecija,ES,41039,is,exact unique name within the country
+NL:CBS_LABEL:putten,NL,GM0273,is,exact unique name within the country
+FI:vero_area:jyvaskyla,FI,179,is,exact unique name within the country
+GSS:E07000027,UK,E07000027,is,official code
+source-locality:RETAINED_ES:Barcelona,ES,08019,is,exact unique name within the country
+NL:CBS_LABEL:leeuwarden,NL,GM0080,is,exact unique name within the country
+ES:published-municipality:11:sanlucar-de-barrameda,ES,11032,is,exact unique name within the country
+NL:CBS_LABEL:nieuwkoop,NL,GM0569,is,exact unique name within the country
+NL:CBS_LABEL:land_van_cuijk,NL,GM1982,is,exact unique name within the country
+ES:published-municipality:28:boadilla-del-monte,ES,28022,is,exact unique name within the country
+source-locality:RETAINED_BE:Bernissart,BE,51009,is,exact unique name within the country
+LT:municipality:73,LT,73,is,official code
+source-locality:RETAINED_ES:Arcos de la Frontera,ES,11006,is,exact unique name within the country
+FI:vero_area:laitila,FI,400,is,exact unique name within the country
+NL:CBS_LABEL:gorinchem,NL,GM0512,is,exact unique name within the country
+NL:CBS_LABEL:borne,NL,GM0147,is,exact unique name within the country
+NL:CBS_LABEL:oostzaan,NL,GM0431,is,exact unique name within the country
+NL:CBS_LABEL:dordrecht,NL,GM0505,is,exact unique name within the country
+ES:published-municipality:08:sant-joan-despi,ES,08217,is,exact unique name within the country
+NL:CBS_LABEL:lelystad,NL,GM0995,is,exact unique name within the country
+NL:CBS_LABEL:tynaarlo,NL,GM1730,is,exact unique name within the country
+source-locality:RETAINED_BE:Avelgem,BE,34003,is,exact unique name within the country
+LT:municipality:47,LT,47,is,official code
+source-locality:RETAINED_BE:Ronse,BE,45041,is,exact unique name within the country
+ES:published-municipality:15:naron,ES,15054,is,exact unique name within the country
+GB:E06000043,UK,E06000043,is,official code
+LT:municipality:88,LT,88,is,official code
+ES:published-municipality:30:molina-de-segura,ES,30027,is,exact unique name within the country
+NL:CBS_LABEL:aalsmeer,NL,GM0358,is,exact unique name within the country
+NL:CBS_LABEL:papendrecht,NL,GM0590,is,exact unique name within the country
+LT:municipality:58,LT,58,is,official code
+GB:E06000034,UK,E06000034,is,official code
+GB:E06000001,UK,E06000001,is,official code
+NL:CBS_LABEL:huizen,NL,GM0406,is,exact unique name within the country
+NL:CBS_LABEL:reusel_de_mierden,NL,GM1667,is,exact unique name within the country
+NL:CBS_LABEL:woerden,NL,GM0632,is,exact unique name within the country
+NL:CBS_LABEL:tubbergen,NL,GM0183,is,exact unique name within the country
+NL:CBS_LABEL:montfoort,NL,GM0335,is,exact unique name within the country
+NL:CBS_LABEL:oegstgeest,NL,GM0579,is,exact unique name within the country
+ES:published-municipality:18:granada,ES,18087,is,exact unique name within the country
+NL:CBS_LABEL:gemert_bakel,NL,GM1652,is,exact unique name within the country
+BE:EC_CITY_LABEL:brussels,BE,21004,survey_city,survey city = its core municipality (reviewed 2.12.2)
+source-locality:RETAINED_BE:Mouscron,BE,57096,is,exact unique name within the country
+source-locality:RETAINED_BE:Staden,BE,36019,is,exact unique name within the country
+NL:CBS_LABEL:rijssen_holten,NL,GM1742,is,exact unique name within the country
+ES:published-municipality:08:sant-cugat-del-valles,ES,08205,is,exact unique name within the country
+NL:CBS_LABEL:groningen,NL,GM0014,is,exact unique name within the country
+NL:CBS_LABEL:sliedrecht,NL,GM0610,is,exact unique name within the country
+NL:CBS_LABEL:oss,NL,GM0828,is,exact unique name within the country
+ES:published-municipality:08:mollet-del-valles,ES,08124,is,exact unique name within the country
+ES:published-municipality:05:avila,ES,05019,is,exact unique name within the country
+ES:published-municipality:48:bilbao,ES,48020,is,exact unique name within the country
+source-locality:RETAINED_BE:Roeselare,BE,36015,is,exact unique name within the country
+BE:STATBEL_LABEL:tervuren,BE,24104,is,exact unique name within the country
+NAT:BE,BE,*,country_context,national figure
+ES:published-municipality:30:alcantarilla,ES,30005,is,exact unique name within the country
+NL:CBS_LABEL:zoetermeer,NL,GM0637,is,exact unique name within the country
+NL:CBS_LABEL:amstelveen,NL,GM0362,is,exact unique name within the country
+ES:published-municipality:35:san-bartolome-de-tirajana,ES,35019,is,exact unique name within the country
+ES:published-municipality:42:soria,ES,42173,is,exact unique name within the country
+GB:E06000042,UK,E06000042,is,official code
+NL:CBS_LABEL:vijfheerenlanden,NL,GM1961,is,exact unique name within the country
+ES:published-municipality:08:sant-pere-de-ribes,ES,08231,is,exact unique name within the country
+ES:published-municipality:29:benalmadena,ES,29025,is,exact unique name within the country
+NL:CBS_LABEL:simpelveld,NL,GM0965,is,exact unique name within the country
+NL:CBS_LABEL:amsterdam,NL,GM0363,is,exact unique name within the country
+NL:CBS_LABEL:tytsjerksteradiel,NL,GM0737,is,exact unique name within the country
+NL:CBS_LABEL:scherpenzeel,NL,GM0279,is,exact unique name within the country
+source-locality:RETAINED_BE:La Louvière,BE,58001,is,exact unique name within the country
+NL:CBS_LABEL:hardinxveld_giessendam,NL,GM0523,is,exact unique name within the country
+NL:CBS_LABEL:apeldoorn,NL,GM0200,is,exact unique name within the country
+ES:published-municipality:13:valdepenas,ES,13087,is,exact unique name within the country
+LT:municipality:13,LT,13,is,official code
+ES:published-municipality:20:eibar,ES,20030,is,exact unique name within the country
+NL:CBS_LABEL:maasdriel,NL,GM0263,is,exact unique name within the country
+ES:published-municipality:23:andujar,ES,23005,is,exact unique name within the country
+ZA,ZA,*,country_context,national figure
+ES:published-municipality:15:ames,ES,15002,is,exact unique name within the country
+ES:published-municipality:08:martorell,ES,08114,is,exact unique name within the country
+ES:published-municipality:07:eivissa,ES,07026,is,exact unique name within the country
+GSS:E07000167,UK,E07000167,is,official code
+NL:CBS_LABEL:opmeer,NL,GM0432,is,exact unique name within the country
+ES:published-municipality:07:calvia,ES,07011,is,exact unique name within the country
+ES:published-municipality:48:santurtzi,ES,48082,is,exact unique name within the country
+LT:municipality:89,LT,89,is,official code
+LT:municipality:15,LT,15,is,official code
+NL:CBS_LABEL:goirle,NL,GM0785,is,exact unique name within the country
+ES:published-municipality:08:esplugues-de-llobregat,ES,08077,is,exact unique name within the country
+LT:municipality:55,LT,55,is,official code
+BE:STATBEL_LABEL:etalle,BE,85009,is,exact unique name within the country
+NL:CBS_LABEL:amersfoort,NL,GM0307,is,exact unique name within the country
+ES:published-municipality:11:san-roque,ES,11033,is,exact unique name within the country
+EUROSTAT:HU,HU,*,country_context,national figure
+ES:published-municipality:18:almunecar,ES,18017,is,exact unique name within the country
+NL:CBS_LABEL:hoeksche_waard,NL,GM1963,is,exact unique name within the country
+NL:CBS_LABEL:kerkrade,NL,GM0928,is,exact unique name within the country
+LT:municipality:85,LT,85,is,official code
+ES:published-municipality:35:aguimes,ES,35002,is,exact unique name within the country
+ES:published-municipality:51:ceuta,ES,51001,is,exact unique name within the country
+NL:CBS_LABEL:enschede,NL,GM0153,is,exact unique name within the country
+GSS:E07000187,UK,E07000187,is,official code
+ES:published-municipality:45:talavera-de-la-reina,ES,45165,is,exact unique name within the country
+source-locality:RETAINED_BE:Genappe,BE,25031,is,exact unique name within the country
+ES:published-municipality:09:aranda-de-duero,ES,09018,is,exact unique name within the country
+ES:published-municipality:28:san-fernando-de-henares,ES,28130,is,exact unique name within the country
+ES:published-municipality:08:barbera-del-valles,ES,08252,is,exact unique name within the country
+ES:published-municipality:39:camargo,ES,39016,is,exact unique name within the country
+ES:published-municipality:10:caceres,ES,10037,is,exact unique name within the country
+ES:published-municipality:15:santiago-de-compostela,ES,15078,is,exact unique name within the country
+LT:municipality:71,LT,71,is,official code
+ES:published-municipality:28:san-sebastian-de-los-reyes,ES,28134,is,exact unique name within the country
+NL:CBS_LABEL:s_hertogenbosch,NL,GM0796,is,exact unique name within the country
+NL:CBS_LABEL:stadskanaal,NL,GM0037,is,exact unique name within the country
+GB:E06000015,UK,E06000015,is,official code
+ES:published-municipality:11:chiclana-de-la-frontera,ES,11015,is,exact unique name within the country
+GB:E06000045,UK,E06000045,is,official code
+NL:CBS_LABEL:oisterwijk,NL,GM0824,is,exact unique name within the country
+NL:CBS_LABEL:zwartewaterland,NL,GM1896,is,exact unique name within the country
+NAT:DE,DE,*,country_context,national figure
+source-locality:RETAINED_BE:Waremme,BE,64074,is,exact unique name within the country
+source-locality:RETAINED_BE:Sint-Niklaas,BE,46021,is,exact unique name within the country
+source-locality:RETAINED_BE:La Hulpe,BE,25050,is,exact unique name within the country
+BE:STATBEL_LABEL:wezembeek_oppem,BE,23103,is,exact unique name within the country
+NL:CBS_LABEL:hendrik_ido_ambacht,NL,GM0531,is,exact unique name within the country

@@ -1,0 +1,362 @@
+{
+ "AL": {
+  "places": 55,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Librazhd",
+  "old_no1": "Librazhd"
+ },
+ "AT": {
+  "places": 1670,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Hainburg a.d. Donau",
+  "old_no1": "Hainburg a.d. Donau"
+ },
+ "AU": {
+  "places": 438,
+  "top10_same": 10,
+  "places_moved": 19,
+  "mean_rank_shift": 0.1,
+  "new_no1": "Bagdad",
+  "old_no1": "Bagdad"
+ },
+ "BE": {
+  "places": 580,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Tienen / Tirlemont",
+  "old_no1": "Tienen / Tirlemont"
+ },
+ "BG": {
+  "places": 239,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Столична",
+  "old_no1": "Столична"
+ },
+ "CA": {
+  "places": 1766,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Rivière-des-Prairies–Pointe-aux-Trembles",
+  "old_no1": "Rivière-des-Prairies–Pointe-aux-Trembles"
+ },
+ "CH": {
+  "places": 677,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Othmarsingen",
+  "old_no1": "Othmarsingen"
+ },
+ "CY": {
+  "places": 101,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Αγλαντζιά ή Αγλαγγιά",
+  "old_no1": "Αγλαντζιά ή Αγλαγγιά"
+ },
+ "CZ": {
+  "places": 1533,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Praha",
+  "old_no1": "Praha"
+ },
+ "DE": {
+  "places": 6993,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Traunstein",
+  "old_no1": "Traunstein"
+ },
+ "DK": {
+  "places": 91,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Rudersdal",
+  "old_no1": "Rudersdal"
+ },
+ "EE": {
+  "places": 43,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Maardu linn",
+  "old_no1": "Maardu linn"
+ },
+ "EL": {
+  "places": 823,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Άνω Λιοσίων",
+  "old_no1": "Άνω Λιοσίων"
+ },
+ "ES": {
+  "places": 2778,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Vitoria-Gasteiz",
+  "old_no1": "Vitoria-Gasteiz"
+ },
+ "FI": {
+  "places": 117,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Kerava / Kervo",
+  "old_no1": "Kerava / Kervo"
+ },
+ "FR": {
+  "places": 9816,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Annonay",
+  "old_no1": "Annonay"
+ },
+ "HK": {
+  "places": 154,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "San Tung Chung Hang (新東涌坑)",
+  "old_no1": "San Tung Chung Hang (新東涌坑)"
+ },
+ "HR": {
+  "places": 453,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Grad Zagreb",
+  "old_no1": "Grad Zagreb"
+ },
+ "HU": {
+  "places": 1320,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Budapest",
+  "old_no1": "Budapest"
+ },
+ "IE": {
+  "places": 156,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Cork City South West",
+  "old_no1": "Cork City South West"
+ },
+ "IL": {
+  "places": 407,
+  "top10_same": 10,
+  "places_moved": 8,
+  "mean_rank_shift": 0,
+  "new_no1": "Mazkeret Batya (מזכרת בתיה)",
+  "old_no1": "Mazkeret Batya (מזכרת בתיה)"
+ },
+ "IS": {
+  "places": 8,
+  "top10_same": 8,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Reykjavíkurborg",
+  "old_no1": "Reykjavíkurborg"
+ },
+ "IT": {
+  "places": 5856,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Fabriano",
+  "old_no1": "Fabriano"
+ },
+ "JP": {
+  "places": 1819,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Ōmura (大村)",
+  "old_no1": "Ōmura (大村)"
+ },
+ "KR": {
+  "places": 141,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Sintansin (신탄진)",
+  "old_no1": "Sintansin (신탄진)"
+ },
+ "LI": {
+  "places": 10,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Triesen",
+  "old_no1": "Triesen"
+ },
+ "LT": {
+  "places": 35,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Vilniaus miesto savivaldybė",
+  "old_no1": "Vilniaus miesto savivaldybė"
+ },
+ "LU": {
+  "places": 99,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Dudelange",
+  "old_no1": "Dudelange"
+ },
+ "LV": {
+  "places": 65,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Jūrmala",
+  "old_no1": "Jūrmala"
+ },
+ "MK": {
+  "places": 76,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Гази Баба",
+  "old_no1": "Гази Баба"
+ },
+ "MT": {
+  "places": 65,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Ir-Rabat / Rabat (Malta)",
+  "old_no1": "Ir-Rabat / Rabat (Malta)"
+ },
+ "NL": {
+  "places": 358,
+  "top10_same": 10,
+  "places_moved": 88,
+  "mean_rank_shift": 0.4,
+  "new_no1": "Alkmaar",
+  "old_no1": "Alkmaar"
+ },
+ "NO": {
+  "places": 124,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Bærum",
+  "old_no1": "Bærum"
+ },
+ "NZ": {
+  "places": 424,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Piha",
+  "old_no1": "Piha"
+ },
+ "PL": {
+  "places": 2462,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Piaseczno",
+  "old_no1": "Piaseczno"
+ },
+ "PT": {
+  "places": 1505,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Aguiar da Beira e Coruche",
+  "old_no1": "Aguiar da Beira e Coruche"
+ },
+ "RO": {
+  "places": 3017,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Oraş Popeşti Leordeni",
+  "old_no1": "Oraş Popeşti Leordeni"
+ },
+ "RS": {
+  "places": 164,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Belgrade - Čukarica",
+  "old_no1": "Belgrade - Čukarica"
+ },
+ "SE": {
+  "places": 187,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Täby",
+  "old_no1": "Täby"
+ },
+ "SG": {
+  "places": 108,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Boon Lay",
+  "old_no1": "Boon Lay"
+ },
+ "SI": {
+  "places": 205,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Kranj",
+  "old_no1": "Kranj"
+ },
+ "SK": {
+  "places": 1070,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Bratislava - mestská časť Rača",
+  "old_no1": "Bratislava - mestská časť Rača"
+ },
+ "TW": {
+  "places": 73,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Wulai (烏來區)",
+  "old_no1": "Wulai (烏來區)"
+ },
+ "UK": {
+  "places": 378,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Wokingham",
+  "old_no1": "Wokingham"
+ },
+ "US": {
+  "places": 11915,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Overland Park",
+  "old_no1": "Overland Park"
+ }
+}

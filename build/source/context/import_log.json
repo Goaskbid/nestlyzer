@@ -1,0 +1,50 @@
+[
+ {
+  "release": "verified-rent-pay-2026-10-21",
+  "file_sha256": "66e07abcb69dfd2669d981bcce6b782bac2d7f0e4f634227fa4b3d34a63d8d3e",
+  "added": 1146,
+  "identical": 0
+ },
+ {
+  "release": "2026-10-21-master-v7",
+  "file_sha256": "954ce0148a40784db3caa7c602b03a72b2077798d3424894a49ff5280c3325e1",
+  "added": 33108,
+  "identical": 0
+ },
+ {
+  "release": "delivery-2026-10-24",
+  "file_sha256": "0cafd1a336248ab8092b5c9635da481ea7a420f2e2111016aa6d14d749c2acca",
+  "added": 948,
+  "identical": 0
+ },
+ {
+  "release": "wdi-2026-10",
+  "file_sha256": "fe03263fd3d4edcd877e112bd2c3ad7c3be696a6823474138ae0b2b87b890eaa",
+  "added": 812,
+  "identical": 0
+ },
+ {
+  "release": "tables-2026-10-25",
+  "file_sha256": "16548b7f67b3933e298c3b18bc95d361f06c0544a199ed39fae0bded722ff6c9",
+  "added": 26,
+  "identical": 0
+ },
+ {
+  "release": "verified-rent-pay-2026-10-21",
+  "file_sha256": "a8f4be88958a3976e4a884ade49cf97d1f5059a38e1c76a680bcf2d6e8df2d42",
+  "added": 462,
+  "identical": 0
+ },
+ {
+  "release": "verified-rent-pay-2026-10-21",
+  "file_sha256": "6b414efca2e6febe425c597e4b0eeef45acb1ca6a7124b42aca92370d53cc8d8",
+  "added": 1731,
+  "identical": 0
+ },
+ {
+  "release": "verified-rent-pay-2026-10-21",
+  "file_sha256": "dd62cd95d663449ba37761309dcffcaff49e529593c18b042549a863fc2cc035",
+  "added": 68,
+  "identical": 0
+ }
+]

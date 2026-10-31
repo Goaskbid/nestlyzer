@@ -1,0 +1,218 @@
+{
+ "es_ine_adrh": {
+  "publisher": "Instituto Nacional de Estadística (INE)",
+  "dataset": "Atlas de Distribución de Renta de los Hogares (ADRH), municipality level, 2015-2023",
+  "url_official": "https://www.ine.es/dynt3/inebase/es/index.htm?padre=12385&capsel=12384",
+  "url_mirror": "https://github.com/pablogguz/ineAtlas.data @ 241cdcd752822f0241fa8e1f388160a6d1576e51 : data/income/income_municipality.zip; data/gini_p80p20/gini_p80p20_municipality.zip",
+  "licence": "INE terms of use (reuse with attribution); mirror CC BY 4.0",
+  "period": "2023 (older year only where 2023 is suppressed)",
+  "notes": "Latest non-missing year per municipality. 8/8 municipal values matched INE press release ADRH 2023 (https://ine.es/dyngs/Prensa/ADRH2023.htm)."
+ },
+ "de_rdb_71231_03_hebesatz_b_2024": {
+  "publisher": "Statistische Ämter des Bundes und der Länder (Regionaldatenbank Deutschland)",
+  "dataset": "Tabelle 71231-03-01-5 Hebesatz Grundsteuer B, Gemeinden, Stand 31.12.2024",
+  "url_official": "https://www.regionalstatistik.de/genesis/online?operation=table&code=71231-03-01-5",
+  "url_mirror": "https://github.com/tbco-ship-it/hebesatz @ dd5302044de29b47682cfd003add22eab7517655 : data/raw/hebesatz_B_20241231.json",
+  "licence": "Datenlizenz Deutschland – Namensnennung – Version 2.0 (dl-de/by-2-0)",
+  "period": "2024-12-31",
+  "notes": "Pre-reform Grundsteuer B rates (old assessment base, last year before the 2025 Grundsteuer reform)."
+ },
+ "de_rdb_71231_02_hebesaetze_2025": {
+  "publisher": "Statistische Ämter des Bundes und der Länder (Regionaldatenbank Deutschland)",
+  "dataset": "Tabelle 71231-02-01-5 Hebesätze der Realsteuern, Gemeinden, Stichtag 30.06.2025",
+  "url_official": "https://www.regionalstatistik.de/genesis/online?operation=table&code=71231-02-01-5",
+  "url_mirror": "https://github.com/tbco-ship-it/hebesatz @ dd5302044de29b47682cfd003add22eab7517655 : data/raw/hebesatz_changes_20250630.json",
+  "licence": "dl-de/by-2-0",
+  "period": "2025-06-30",
+  "notes": "Columns A,B,C,Gewerbesteuer; a '-' means no value reported. Grundsteuer B 2025 is post-reform; NRW municipalities with split residential/non-residential rates are missing or carry the residential rate (e.g. Köln 475). Gewerbesteuer taken from here when reported, otherwise from the 2022 Destatis publication."
+ },
+ "de_destatis_hebesaetze_2022": {
+  "publisher": "Statistische Ämter des Bundes und der Länder (prepared by IT.NRW)",
+  "dataset": "Hebesätze der Realsteuern 2022 (all Gemeinden, Gebietsstand 31.12.2022)",
+  "url_official": "https://www.statistikportal.de/de/veroeffentlichungen/hebesaetze-der-realsteuern-deutschland",
+  "url_mirror": "https://github.com/tbco-ship-it/hebesatz @ dd5302044de29b47682cfd003add22eab7517655 : data/raw/hebesaetze-realsteuern.xlsx",
+  "licence": "dl-de/by-2-0",
+  "period": "2022",
+  "notes": "Original publisher xlsx (title, Impressum sheets intact). Used for Gewerbesteuer where the 2025 table reports no value."
+ },
+ "fr_insee_filosofi_2021": {
+  "publisher": "INSEE",
+  "dataset": "Filosofi 2021 – revenus disponibles par commune (via data.gouv.fr 'Revenu des français à la commune')",
+  "url_official": "https://www.data.gouv.fr/datasets/revenu-des-francais-a-la-commune",
+  "url_mirror": "https://github.com/bpineau/gazetteer @ 3ce8c5f9251a27e5cd07bf1b716c01d39b9517f4 : sources/filosofi/data/filosofi_communes.json",
+  "licence": "Licence Ouverte / Etalab 2.0",
+  "period": "2021",
+  "notes": "Median disposable income per consumption unit ([DISP] Médiane) and share of social minima in disposable income; communes under statistical secrecy absent. Paris/Lyon/Marseille only exist by arrondissement in the source, so the commune codes 75056/69123/13055 get no income value (not aggregated)."
+ },
+ "fr_dgfip_fiscalite_locale_2025": {
+  "publisher": "DGFiP (Ministère de l'Économie)",
+  "dataset": "Fiscalité locale des particuliers – exercice 2025 (taux_global_tfb, taux_plein_teom)",
+  "url_official": "https://data.economie.gouv.fr/explore/dataset/fiscalite-locale-des-particuliers/",
+  "url_mirror": "https://github.com/bpineau/gazetteer @ 3ce8c5f9251a27e5cd07bf1b716c01d39b9517f4 : sources/taxefonciere/data/fiscalite_locale.json.gz",
+  "licence": "Licence Ouverte / Etalab 2.0",
+  "period": "2025",
+  "notes": "Global TFPB rate = commune + EPCI + syndicates + special levies. The mirror dropped values above 100%. TEOM only where the commune levies it."
+ },
+ "fr_dhup_carte_loyers_2025": {
+  "publisher": "Ministère chargé du Logement (DHUP) with ANIL / Cerema / INRAE model",
+  "dataset": "Carte des loyers – indicateurs de loyers d'annonce par commune en 2025 (pred-app, pred-app12, pred-app3, pred-mai)",
+  "url_official": "https://static.data.gouv.fr/resources/carte-des-loyers-indicateurs-de-loyers-dannonce-par-commune-en-2025/20251211-145010/pred-app-mef-dhup.csv",
+  "url_mirror": "https://github.com/bpineau/gazetteer @ 3ce8c5f9251a27e5cd07bf1b716c01d39b9517f4 : sources/carteloyers/data/carte_loyers_{appartement,app12,app3,maison}.csv.gz",
+  "licence": "Licence Ouverte / Etalab 2.0",
+  "period": "2025",
+  "notes": "loypredm2 = predicted advertised rent incl. charges, EUR/m2/month. Most communes are estimated on a grouped mesh (TYPPRED=maille: about 86% for apartments) rather than their own listings. PLM published by arrondissement only."
+ },
+ "nl_cbs_kwb_2024": {
+  "publisher": "CBS (Statistics Netherlands)",
+  "dataset": "Kerncijfers wijken en buurten 2024 (85984NED), gemeente rows",
+  "url_official": "https://opendata.cbs.nl/ODataApi/OData/85984NED",
+  "url_mirror": "https://github.com/TjebbeHB/Synthetic-Pandemic-Sim @ 155beb36ba55077270912516389b8e6e826201de : PDPC-project/gensynthpop-rotterdam/datasources/kerncijfers_all_buurten_85984NED.csv",
+  "licence": "CC BY 4.0",
+  "period": "2024",
+  "notes": "The mirror is a column subset: there is no WOZ value or personal income in this file. Income figures are values ×1000 EUR, converted to EUR."
+ },
+ "nl_cbs_kwb_2025": {
+  "publisher": "CBS (Statistics Netherlands)",
+  "dataset": "Kerncijfers wijken en buurten 2025 (86165NED) – export for NL and big cities",
+  "url_official": "https://opendata.cbs.nl/ODataApi/OData/86165NED",
+  "url_mirror": "https://github.com/TjebbeHB/Synthetic-Pandemic-Sim @ 155beb36ba55077270912516389b8e6e826201de : PDPC-project/CSV-kerncijfers/Kerncijfers_wijken_en_buurten_NL_and_Big_Cities.csv",
+  "licence": "CC BY 4.0",
+  "period": "2025",
+  "notes": "Only 7 gemeenten in the export (GM0014 Groningen, GM0080 Leeuwarden, GM0202 Arnhem, GM0344 Utrecht, GM0363 Amsterdam, GM0599 Rotterdam, GM0772 Eindhoven); income columns are still empty in the 2025 edition."
+ },
+ "uk_mhclg_ctr_2026_27": {
+  "publisher": "Ministry of Housing, Communities and Local Government (MHCLG)",
+  "dataset": "Council Tax levels: Local Authority Level data 2026-27 (CTR returns), sheet Data_Billing, lines 8 and 17",
+  "url_official": "https://www.gov.uk/government/collections/council-tax-statistics",
+  "url_mirror": "https://github.com/FinnTech3/band-d @ 6a30493d8da18186c511ac646982826d0e94fb6c : data/sources/Table_10_2026-27.ods",
+  "licence": "Open Government Licence v3.0",
+  "period": "2026-27",
+  "notes": "England only (296 billing authorities). Line 17 = average Band D incl. county, police, fire, combined-authority and parish precepts; line 8 = billing authority incl. parish precepts. Converted ODS->XLSX with LibreOffice for parsing; values unaltered."
+ },
+ "uk_ons_els_average_house_price": {
+  "publisher": "Office for National Statistics – Explore Local Statistics (compiling HM)",
+  "dataset": "HM Land Registry / ONS UK House Price Index",
+  "url_official": "https://www.ons.gov.uk/explore-local-statistics/indicators/average-house-price (underlying: https://www.gov.uk/government/collections/uk-house-price-index-reports)",
+  "url_mirror": "https://github.com/ONSdigital/explore-local-statistics-data @ bb514f908bdf32d074a91d2cb87fa3c6d3fd25ef : average-house-price/average-house-price.csv",
+  "licence": "Open Government Licence v3.0",
+  "period": "2026-07",
+  "notes": "ONS's own GitHub repository (publisher-owned, not a third-party mirror). LAD rows only; latest period per area code; abolished pre-2023 districts keep their last published value only where ONS still carries the old code."
+ },
+ "uk_ons_els_housing_affordability_ratio": {
+  "publisher": "Office for National Statistics – Explore Local Statistics (compiling ONS)",
+  "dataset": "ONS House price to residence-based earnings ratio",
+  "url_official": "https://www.ons.gov.uk/explore-local-statistics/indicators/housing-affordability-ratio (underlying: https://www.ons.gov.uk/peoplepopulationandcommunity/housing/datasets/ratioofhousepricetoresidencebasedearningslowerquartileandmedian)",
+  "url_mirror": "https://github.com/ONSdigital/explore-local-statistics-data @ bb514f908bdf32d074a91d2cb87fa3c6d3fd25ef : housing-affordability-ratio/housing-affordability-ratio.csv",
+  "licence": "Open Government Licence v3.0",
+  "period": "2025",
+  "notes": "ONS's own GitHub repository (publisher-owned, not a third-party mirror). LAD rows only; latest period per area code; abolished pre-2023 districts keep their last published value only where ONS still carries the old code."
+ },
+ "uk_ons_els_gross_median_weekly_pay": {
+  "publisher": "Office for National Statistics – Explore Local Statistics (compiling ONS/NISRA)",
+  "dataset": "ONS/NISRA Annual Survey of Hours and Earnings (residence-based, all employee jobs)",
+  "url_official": "https://www.ons.gov.uk/explore-local-statistics/indicators/gross-median-weekly-pay (underlying: https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/annualsurveyofhoursandearnings/previousreleases)",
+  "url_mirror": "https://github.com/ONSdigital/explore-local-statistics-data @ bb514f908bdf32d074a91d2cb87fa3c6d3fd25ef : gross-median-weekly-pay/gross-median-weekly-pay.csv",
+  "licence": "Open Government Licence v3.0",
+  "period": "2025",
+  "notes": "ONS's own GitHub repository (publisher-owned, not a third-party mirror). LAD rows only; latest period per area code; abolished pre-2023 districts keep their last published value only where ONS still carries the old code."
+ },
+ "uk_ons_els_gross_disposable_household_income_per_head": {
+  "publisher": "Office for National Statistics – Explore Local Statistics (compiling ONS)",
+  "dataset": "ONS Regional gross disposable household income",
+  "url_official": "https://www.ons.gov.uk/explore-local-statistics/indicators/gross-disposable-household-income-per-head (underlying: https://www.ons.gov.uk/economy/regionalaccounts/grossdisposablehouseholdincome)",
+  "url_mirror": "https://github.com/ONSdigital/explore-local-statistics-data @ bb514f908bdf32d074a91d2cb87fa3c6d3fd25ef : gross-disposable-household-income-per-head/gross-disposable-household-income-per-head.csv",
+  "licence": "Open Government Licence v3.0",
+  "period": "2024",
+  "notes": "ONS's own GitHub repository (publisher-owned, not a third-party mirror). LAD rows only; latest period per area code; abolished pre-2023 districts keep their last published value only where ONS still carries the old code."
+ },
+ "uk_ons_els_children_in_relative_poverty": {
+  "publisher": "Office for National Statistics – Explore Local Statistics (compiling DWP/HMRC)",
+  "dataset": "DWP/HMRC Children in low income families: local area statistics",
+  "url_official": "https://www.ons.gov.uk/explore-local-statistics/indicators/children-in-relative-poverty (underlying: https://www.gov.uk/government/collections/children-in-low-income-families-local-area-statistics)",
+  "url_mirror": "https://github.com/ONSdigital/explore-local-statistics-data @ bb514f908bdf32d074a91d2cb87fa3c6d3fd25ef : children-in-relative-poverty/children-in-relative-poverty.csv",
+  "licence": "Open Government Licence v3.0",
+  "period": "2024-25",
+  "notes": "ONS's own GitHub repository (publisher-owned, not a third-party mirror). LAD rows only; latest period per area code; abolished pre-2023 districts keep their last published value only where ONS still carries the old code."
+ },
+ "uk_ons_els_fuel_poverty": {
+  "publisher": "Office for National Statistics – Explore Local Statistics (compiling DESNZ)",
+  "dataset": "DESNZ Sub-regional fuel poverty (LILEE)",
+  "url_official": "https://www.ons.gov.uk/explore-local-statistics/indicators/fuel-poverty (underlying: https://www.gov.uk/government/collections/fuel-poverty-statistics)",
+  "url_mirror": "https://github.com/ONSdigital/explore-local-statistics-data @ bb514f908bdf32d074a91d2cb87fa3c6d3fd25ef : fuel-poverty/fuel-poverty.csv",
+  "licence": "Open Government Licence v3.0",
+  "period": "2024",
+  "notes": "ONS's own GitHub repository (publisher-owned, not a third-party mirror). LAD rows only; latest period per area code; abolished pre-2023 districts keep their last published value only where ONS still carries the old code."
+ },
+ "uk_ons_els_employment_rate": {
+  "publisher": "Office for National Statistics – Explore Local Statistics (compiling ONS)",
+  "dataset": "ONS Annual Population Survey (LI01 local indicators)",
+  "url_official": "https://www.ons.gov.uk/explore-local-statistics/indicators/employment-rate (underlying: https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/datasets/li01regionallabourmarketlocalindicatorsforcountieslocalandunitaryauthorities)",
+  "url_mirror": "https://github.com/ONSdigital/explore-local-statistics-data @ bb514f908bdf32d074a91d2cb87fa3c6d3fd25ef : employment-rate/employment-rate.csv",
+  "licence": "Open Government Licence v3.0",
+  "period": "2023",
+  "notes": "ONS's own GitHub repository (publisher-owned, not a third-party mirror). LAD rows only; latest period per area code; abolished pre-2023 districts keep their last published value only where ONS still carries the old code."
+ },
+ "uk_ons_els_modelled_unemployment": {
+  "publisher": "Office for National Statistics – Explore Local Statistics (compiling ONS)",
+  "dataset": "ONS Model-based unemployment estimates",
+  "url_official": "https://www.ons.gov.uk/explore-local-statistics/indicators/modelled-unemployment (underlying: https://www.ons.gov.uk/employmentandlabourmarket/peoplenotinwork/unemployment)",
+  "url_mirror": "https://github.com/ONSdigital/explore-local-statistics-data @ bb514f908bdf32d074a91d2cb87fa3c6d3fd25ef : modelled-unemployment/modelled-unemployment.csv",
+  "licence": "Open Government Licence v3.0",
+  "period": "2023",
+  "notes": "ONS's own GitHub repository (publisher-owned, not a third-party mirror). LAD rows only; latest period per area code; abolished pre-2023 districts keep their last published value only where ONS still carries the old code."
+ },
+ "uk_ons_els_claimant_count": {
+  "publisher": "Office for National Statistics – Explore Local Statistics (compiling ONS)",
+  "dataset": "ONS Claimant Count (official statistics in development)",
+  "url_official": "https://www.ons.gov.uk/explore-local-statistics/indicators/claimant-count (underlying: https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/bulletins/regionallabourmarket/previousreleases)",
+  "url_mirror": "https://github.com/ONSdigital/explore-local-statistics-data @ bb514f908bdf32d074a91d2cb87fa3c6d3fd25ef : claimant-count/claimant-count.csv",
+  "licence": "Open Government Licence v3.0",
+  "period": "2025",
+  "notes": "ONS's own GitHub repository (publisher-owned, not a third-party mirror). LAD rows only; latest period per area code; abolished pre-2023 districts keep their last published value only where ONS still carries the old code."
+ },
+ "uk_ons_els_gdp_per_head": {
+  "publisher": "Office for National Statistics – Explore Local Statistics (compiling ONS)",
+  "dataset": "ONS Regional economic activity by GDP, current market prices",
+  "url_official": "https://www.ons.gov.uk/explore-local-statistics/indicators/gdp-per-head (underlying: https://www.ons.gov.uk/economy/grossdomesticproductgdp/bulletins/regionaleconomicactivitybygrossdomesticproductuk/previousreleases)",
+  "url_mirror": "https://github.com/ONSdigital/explore-local-statistics-data @ bb514f908bdf32d074a91d2cb87fa3c6d3fd25ef : gdp-per-head/gdp-per-head.csv",
+  "licence": "Open Government Licence v3.0",
+  "period": "2024",
+  "notes": "ONS's own GitHub repository (publisher-owned, not a third-party mirror). LAD rows only; latest period per area code; abolished pre-2023 districts keep their last published value only where ONS still carries the old code."
+ },
+ "be_statbel_immo": {
+  "publisher": "Statbel",
+  "dataset": "Vastgoedprijzen per gemeente – mediaanprijs huizen (excl. appartementen), per kwartaal",
+  "url_official": "https://statbel.fgov.be/sites/default/files/files/documents/Bouwen%20%26%20wonen/2.1%20Vastgoedprijzen/NM/FR_immo_statbel_trimestre_par_commune.xlsx",
+  "url_mirror": "https://github.com/mdruszcz/belgian-macro-pipeline @ 936974ad1c7137d1a0d0aef6a37afdd3a205c318 : public/data/explorer/municipal/MEDIAN_HOUSE_PRICE.json",
+  "licence": "CC BY 4.0 / Statbel Licentie open data",
+  "period": "2026-Q1 (latest quarter with a value per commune)",
+  "notes": "Grade A (agency figure unchanged) in the mirror. Single-quarter medians; small communes can be noisy or old."
+ },
+ "be_spf_fin_leases": {
+  "publisher": "SPF Finances / FOD Financiën (AGDP – registered leases)",
+  "dataset": "Median monthly rent of newly registered housing leases per commune, quarterly",
+  "url_official": "https://finances.belgium.be/fr/opendata",
+  "url_mirror": "https://github.com/mdruszcz/belgian-macro-pipeline @ 936974ad1c7137d1a0d0aef6a37afdd3a205c318 : public/data/explorer/municipal/MUN_LEASE_RENT_MEDIAN_HOUSING.json",
+  "licence": "SPF Finances open-data licence (CC BY based)",
+  "period": "2026-Q2",
+  "notes": "Grade A in mirror. Not independently spot-checked (see REPORT)."
+ },
+ "be_spf_fin_ipp_rate": {
+  "publisher": "SPF Finances / FOD Financiën",
+  "dataset": "Taux de la taxe communale additionnelle à l'IPP / aanvullende gemeentebelasting, aanslagjaar 2026",
+  "url_official": "https://fin.belgium.be/sites/default/files/media/documents/tarieven-gemeentebelasting-2026.pdf",
+  "url_mirror": "https://github.com/mdruszcz/belgian-macro-pipeline @ 936974ad1c7137d1a0d0aef6a37afdd3a205c318 : public/data/explorer/municipal/MUN_IPP_ADDITIONAL_RATE.json",
+  "licence": "SPF Finances open-data licence (CC BY based)",
+  "period": "2026",
+  "notes": "Grade A in mirror."
+ },
+ "fi_statfin_kuntien_avainluvut": {
+  "publisher": "Statistics Finland (Tilastokeskus)",
+  "dataset": "Kuntien avainluvut (municipal key figures), PxWeb export, 2024/2023 columns",
+  "url_official": "https://pxdata.stat.fi/PxWeb/api/v1/en/Kuntien_avainluvut/Kuntien_avainluvut__uusin/kuntien_avainluvut_viimeisin.px",
+  "url_mirror": "https://github.com/tuopouk/suomenavainalueet @ d37c19cac2ae9969674d27d2b9bbdc25fc0e5887 : assets/kunnat.csv",
+  "licence": "CC BY 4.0",
+  "period": "2024 (housing) / 2023 (labour)",
+  "notes": "Export keyed by municipality name; joined to kuntanumero by exact Finnish name (bilingual names split on ' / '); 308/309 rows matched. Official table has since moved to 2025/2024 columns."
+ }
+}

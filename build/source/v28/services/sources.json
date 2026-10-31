@@ -1,0 +1,47 @@
+{
+  "eurostat_gisco_healthcare_2020": {
+    "publisher": "Eurostat / GISCO (European Commission), compiled from national health ministries and statistical offices",
+    "dataset": "Healthcare services in Europe - hospitals (all.csv), 2020 release",
+    "url_official": "https://ec.europa.eu/eurostat/web/gisco/geodata/basic-services (files: https://gisco-services.ec.europa.eu/pub/healthcare/)",
+    "url_mirror": "https://github.com/eurostat/healthcare-services (Eurostat's own GitHub org) path data/healthcare/csv/all.csv, commit f200d0ce0af43a0353ea0f229e1e770a2be26f8d (2023-01-18)",
+    "licence": "Eurostat/EC reuse policy (Commission Decision 2011/833/EU), reuse with attribution: (c) EuroGeographics / Eurostat / national sources",
+    "period": "reference dates 2017-2020 depending on country (per-row period = latest ref_date year of that country)",
+    "notes": "Used for AT BE CH CY CZ DE DK ES FI FR(+DOM) HR HU IE IT LT LU LV MT NL NO SI SK (PT only for the general/acute field). Rejected: PL, RO (incomplete), EL (wrong coordinates, e.g. both Larisa hospitals placed 33 km away), BG (ref 2012, 98% records share settlement-centroid coordinates), SE (hospitals geocoded to municipality/county centres). Newer 2023 GISCO release (pub 2026-04) exists on gisco-services but is not mirrored on GitHub and is unreachable from the shell; it drops DE."
+  },
+  "hifld_hospitals_2020": {
+    "publisher": "HIFLD (Homeland Infrastructure Foundation-Level Data, US DHS) - records sourced from state licensing agencies",
+    "dataset": "HIFLD Open Hospitals (US, incl. PR/GU/VI), snapshot used by CovidCareMap (April 2020)",
+    "url_official": "https://hifld-geoplatform.opendata.arcgis.com/datasets/hospitals (HIFLD Open; metadata copy: https://www.datacommons.psu.edu/metadata/Hospitals-metadata.html)",
+    "url_mirror": "https://github.com/covidcaremap/covid19-healthsystemcapacity path data/external/hifld-hospitals.csv, commit 26ba89bf99d295f6befc6e6cbd83f4a706ee5660",
+    "licence": "Public domain ('None (Public Domain Information)' per HIFLD metadata)",
+    "period": "2018 (SOURCEDATE of 94% of records); snapshot 2020",
+    "notes": "STATUS=OPEN only (7,146). General/acute = TYPE in {GENERAL ACUTE CARE, CRITICAL ACCESS} (5,236). Newer HIFLD releases not reachable (HIFLD Open retired 2025; no newer GitHub mirror found)."
+  },
+  "ror_v2_14": {
+    "publisher": "Research Organization Registry (ROR), community registry operated by California Digital Library, Crossref and DataCite",
+    "dataset": "ROR data dump v2.14 (2026-10-06), CSV",
+    "url_official": "https://ror.org/ ; https://zenodo.org/communities/ror-data",
+    "url_mirror": "https://github.com/ror-community/ror-data path v2.14-2026-10-06-ror-data.zip, commit 519a139e9a045b600c1430d312f063ed6bfccbdc",
+    "licence": "CC0 1.0",
+    "period": "2026-10",
+    "notes": "status=active, types contains 'education', AND name/label/alias matches university-level keywords (univers*, Hochschule, polytechnic, hogeschool, hogskola, institute of technology, 大学, 대학 ...). Coordinates are the GeoNames point of the institution's SEAT CITY, not the campus, so the fields are named nearest_university_seat_km / university_seats_within_25km. Branch campuses in other cities are not counted. Country codes mapped GB->UK, GR->EL, RE/GP/MQ/GF/YT/PM->FR, PR/GU/VI/AS/MP->US."
+  },
+  "db_stada_stations_2022": {
+    "publisher": "Deutsche Bahn AG (DB Station&Service / DB InfraGO), StaDa station master data",
+    "dataset": "DB passenger stations (5,388 stations with IBNR), packaged as npm db-stations 5.0.2",
+    "url_official": "https://data.deutschebahn.com/dataset/data-stationsdaten (DB Open Data, StaDa API)",
+    "url_mirror": "npm db-stations@5.0.2 (https://registry.npmjs.org/db-stations/-/db-stations-5.0.2.tgz, sha256 ad5b6cb1d718f82c286e6a4af058b9f92f3c7cbf376bb2c3c25e2f84e6a91833), file full.ndjson; source repo https://github.com/derhuerst/db-stations",
+    "licence": "CC BY 4.0 (Deutsche Bahn)",
+    "period": "2022 (package published 2022-12-27)",
+    "notes": "Germany only. Non-DB stations without IBNR (e.g. some private/AKN lines) are not included; DB states ~5,400 stations (deutschebahn.com), file has 5,387 after 150 m dedupe."
+  },
+  "trainline_stations_2026": {
+    "publisher": "Trainline SAS, open station list compiled from operator data (SNCF, DB, Renfe, Trenitalia, ATOC/National Rail, SNCB/Benerail, NS, Entur, OBB, ...)",
+    "dataset": "trainline-eu/stations stations.csv",
+    "url_official": "https://github.com/trainline-eu/stations",
+    "url_mirror": "https://github.com/trainline-eu/stations path stations.csv, commit a14472af05b36077e14c3d1f4247ddf15e959e05 (2026-10-13)",
+    "licence": "ODbL 1.0",
+    "period": "2026-10",
+    "notes": "Not a government register; used because it carries operator station codes that let rail stations be separated from coach stops. Per-country filters: FR sncf_tvs_id present (SNCF passenger stations); UK atoc_id (National Rail CRS); BE UIC 88*; NL UIC 84*; LU UIC 82*; ES UIC 71*; IT UIC 83*; FI UIC 10*; DK any rail-operator id; NO entur_id and name 'stasjon'; AT obb_id. Bus-like names removed; meta 'city' rows kept only if they have no child stations and carry a UIC code. Points within 150 m merged. Rejected for CH (cff ids cover all public-transport stops), SE, PL, CZ, HU, RO, BG, HR, SK, SI, PT, IE, EL, LT, LV, EE (station sets far below official counts)."
+  }
+}

@@ -1,0 +1,15 @@
+{
+ "version": "2.12.2",
+ "places_ranked": 139004,
+ "countries": 54,
+ "residents": 2580910444,
+ "official_measures": 210,
+ "all_measures": 279,
+ "household_profiles": 29,
+ "business_profiles": 20,
+ "by_depth": {
+  "detailed": 34,
+  "partial": 6,
+  "foundation": 14
+ }
+}

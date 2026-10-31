@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nestlyzer facility fetcher</title>
+<style>
+  :root{--bg:#F2F4F0;--card:#fff;--ink:#132238;--ink2:#465467;--line:#DCE1DA;--ok:#1D7A55;--bad:#B23A3A;--acc:#0B2E5C}
+  @media (prefers-color-scheme:dark){:root{--bg:#0E1621;--card:#15202D;--ink:#E7EDF3;--ink2:#B2BDC9;--line:#26333F;--ok:#5FD39B;--bad:#FF8C80;--acc:#9CC3F5}}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  main{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+  h1{font-size:24px;margin:0 0 6px}
+  p{color:var(--ink2);margin:6px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:16px 0}
+  button{font:inherit;font-weight:650;border:0;border-radius:10px;padding:10px 18px;background:var(--acc);color:var(--bg);cursor:pointer}
+  button[disabled]{opacity:.45;cursor:default}
+  button.sec{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .bar{height:10px;border-radius:5px;background:var(--line);overflow:hidden;margin:12px 0 6px}
+  .bar i{display:block;height:100%;width:0;background:var(--ok);transition:width .3s}
+  ul{list-style:none;padding:0;margin:8px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:6px}
+  li{border:1px solid var(--line);border-radius:8px;padding:4px 8px;font-size:13px}
+  li.done{border-color:var(--ok);color:var(--ok)} li.run{border-color:var(--acc);font-weight:650} li.err{border-color:var(--bad);color:var(--bad)}
+  #log{font-size:12.5px;color:var(--ink2);max-height:160px;overflow:auto;white-space:pre-wrap}
+</style>
+</head>
+<body>
+<main>
+  <h1>Schools, childcare and everyday facilities</h1>
+  <p>This page fetches schools, kindergartens, playgrounds, doctors, pharmacies, supermarkets and hospitals from OpenStreetMap for the 45 Nestlyzer countries. It runs in your browser; nothing to install.</p>
+  <div class="card">
+    <p><b>1.</b> Press <b>Start</b> and leave this tab open. It takes about one to three hours.</p>
+    <p><b>2.</b> You can close the tab at any time: progress is saved, and <b>Start</b> continues where it stopped.</p>
+    <p><b>3.</b> When all countries are green, press <b>Download</b> and attach the file <code>osm_facilities.csv.gz</code> in the chat.</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+      <button id="go">Start</button><button id="dl" class="sec" disabled>Download</button><button id="reset" class="sec">Start over</button>
+    </div>
+    <div class="bar"><i id="bar"></i></div>
+    <p id="status">Ready.</p>
+    <ul id="list"></ul>
+  </div>
+  <div class="card"><p id="log"></p></div>
+  <p style="font-size:12.5px">Data © OpenStreetMap contributors, ODbL 1.0. The page asks the public Overpass service one question at a time and waits between requests, as its rules ask.</p>
+</main>
+<script>
+(function () {
+  var SERVERS = ['https://overpass-api.de/api/interpreter', 'https://overpass.kumi.systems/api/interpreter', 'https://maps.mail.ru/osm/tools/overpass/api/interpreter'];
+  // ISO codes as used in OpenStreetMap (Nestlyzer writes UK for GB and EL for GR)
+  var COUNTRIES = ['CH','LI','AT','DE','FR','IT','ES','PT','NL','BE','LU','GB','IE','DK','SE','NO','FI','IS','EE','LV','LT','PL','CZ','SK','HU','SI','HR','RS','MK','AL','GR','BG','RO','CY','MT','US','CA','JP','KR','TW','HK','SG','AU','NZ','IL'];
+  var KINDS = { school: '["amenity"="school"]', kindergarten: '["amenity"~"^(kindergarten|childcare)$"]', playground: '["leisure"="playground"]', doctor: '["amenity"~"^(doctors|clinic)$"]', pharmacy: '["amenity"="pharmacy"]', supermarket: '["shop"~"^(supermarket|convenience)$"]', hospital: '["amenity"="hospital"]' };
+  var SPLIT = { US: 4, CA: 4, AU: 4, JP: 4, DE: 4, FR: 4, IT: 4, ES: 4, GB: 4 };   // large countries: state by state
+  var $ = function (id) { return document.getElementById(id); };
+  var running = false;
+
+  // progress store (IndexedDB): one record per country with its rows, so a closed tab loses nothing
+  var dbp = new Promise(function (ok, no) { var r = indexedDB.open('nz-osm', 1); r.onupgradeneeded = function () { r.result.createObjectStore('c'); }; r.onsuccess = function () { ok(r.result); }; r.onerror = function () { no(r.error); }; });
+  function db(mode, fn) { return dbp.then(function (d) { return new Promise(function (ok, no) { var t = d.transaction('c', mode), s = t.objectStore('c'), out = fn(s); t.oncomplete = function () { ok(out && out.result !== undefined ? out.result : out); }; t.onerror = function () { no(t.error); }; }); }); }
+  function getAll() { return dbp.then(function (d) { return new Promise(function (ok) { var o = {}, t = d.transaction('c', 'readonly'), cur = t.objectStore('c').openCursor(); cur.onsuccess = function () { var c = cur.result; if (c) { o[c.key] = c.value; c.continue(); } else ok(o); }; }); }); }
+
+  function log(t) { var l = $('log'); l.textContent = new Date().toLocaleTimeString() + '  ' + t + '\n' + l.textContent.slice(0, 4000); }
+  function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  function overpass(q, tries) {
+    tries = tries || 0;
+    var url = SERVERS[tries % SERVERS.length];
+    return fetch(url, { method: 'POST', body: 'data=' + encodeURIComponent(q), headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
+      .then(function (r) { if (!r.ok) throw new Error('server answered ' + r.status); return r.json(); })
+      .catch(function (e) { if (tries >= 7) throw e; var w = 20 * (tries + 1); log('busy (' + e.message + '), trying again in ' + w + ' s'); return sleep(w * 1000).then(function () { return overpass(q, tries + 1); }); });
+  }
+  function areas(cc) {
+    if (!SPLIT[cc]) return Promise.resolve(['area["ISO3166-1"="' + cc + '"][admin_level=2]']);
+    var q = '[out:json][timeout:300];area["ISO3166-1"="' + cc + '"][admin_level=2]->.c;rel(area.c)["ISO3166-2"~"^' + cc + '-"][admin_level=' + SPLIT[cc] + '];out tags;';
+    return overpass(q).then(function (j) {
+      var codes = {}; (j.elements || []).forEach(function (e) { var c = (e.tags || {})['ISO3166-2']; if (c) codes[c] = 1; });
+      var list = Object.keys(codes).sort(); log(cc + ': ' + list.length + ' states or regions');
+      return list.length ? list.map(function (c) { return 'area["ISO3166-2"="' + c + '"]'; }) : ['area["ISO3166-1"="' + cc + '"][admin_level=2]'];
+    });
+  }
+  function country(cc) {
+    var rows = {}, n = 0;
+    return areas(cc).then(function (as) {
+      var jobs = []; as.forEach(function (a) { Object.keys(KINDS).forEach(function (k) { jobs.push([a, k]); }); });
+      var i = 0;
+      function next() {
+        if (i >= jobs.length) return Promise.resolve();
+        var a = jobs[i][0], k = jobs[i][1], f = KINDS[k]; i++;
+        $('status').textContent = cc + ': ' + k + ' (' + i + ' of ' + jobs.length + ')';
+        var q = '[out:json][timeout:600];' + a + '->.a;(node' + f + '(area.a);way' + f + '(area.a);relation' + f + '(area.a););out center qt;';
+        return overpass(q).then(function (j) {
+          (j.elements || []).forEach(function (e) { var lat = e.lat != null ? e.lat : (e.center || {}).lat, lon = e.lon != null ? e.lon : (e.center || {}).lon; if (lat == null) return; var key = k + ',' + lat.toFixed(5) + ',' + lon.toFixed(5); if (!rows[key]) { rows[key] = 1; n++; } });
+          return sleep(4000).then(next);
+        });
+      }
+      return next();
+    }).then(function () { return db('readwrite', function (s) { return s.put(Object.keys(rows).join('\n'), cc); }).then(function () { log(cc + ' done: ' + n + ' facilities'); }); });
+  }
+  function paint(done, cur, err) {
+    $('list').innerHTML = COUNTRIES.map(function (c) { return '<li class="' + (done[c] != null ? 'done' : c === cur ? 'run' : err[c] ? 'err' : '') + '">' + c + (done[c] != null ? ' ✓' : '') + '</li>'; }).join('');
+    var k = COUNTRIES.filter(function (c) { return done[c] != null; }).length;
+    $('bar').style.width = (100 * k / COUNTRIES.length) + '%';
+    $('dl').disabled = k === 0;
+    return k;
+  }
+  function run() {
+    if (running) return; running = true; $('go').disabled = true;
+    var err = {};
+    getAll().then(function (done) {
+      var todo = COUNTRIES.filter(function (c) { return done[c] == null; });
+      paint(done, todo[0], err);
+      function step() {
+        if (!todo.length) { running = false; $('go').disabled = false; $('status').textContent = 'All countries done. Press Download and attach the file in the chat.'; return; }
+        var cc = todo.shift(); paint(done, cc, err);
+        return country(cc).then(function () { return getAll(); }).then(function (d) { done = d; paint(done, todo[0], err); return step(); })
+          .catch(function (e) { err[cc] = 1; log(cc + ' failed: ' + e.message + ' (it will be tried again next time you press Start)'); paint(done, todo[0], err); return step(); });
+      }
+      return step();
+    });
+  }
+  function download() {
+    getAll().then(function (done) {
+      var parts = ['cc,kind,lat,lon\n'];
+      Object.keys(done).sort().forEach(function (cc) { var t = done[cc]; if (t) parts.push(t.split('\n').map(function (l) { return cc + ',' + l; }).join('\n') + '\n'); });
+      var blob = new Blob(parts, { type: 'text/csv' }), name = 'osm_facilities.csv';
+      var save = function (b, nm) { var a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = nm; document.body.appendChild(a); a.click(); a.remove(); };
+      if (window.CompressionStream) new Response(blob.stream().pipeThrough(new CompressionStream('gzip'))).blob().then(function (gz) { save(gz, name + '.gz'); });
+      else save(blob, name);
+      log('downloaded ' + Object.keys(done).length + ' countries');
+    });
+  }
+  $('go').onclick = run; $('dl').onclick = download;
+  $('reset').onclick = function () { if (running || !confirm('Delete the saved progress and start from zero?')) return; db('readwrite', function (s) { return s.clear(); }).then(function () { getAll().then(function (d) { paint(d, null, {}); }); log('progress cleared'); }); };
+  getAll().then(function (d) { var k = paint(d, null, {}); if (k) $('status').textContent = k + ' of ' + COUNTRIES.length + ' countries saved. Press Start to continue.'; });
+})();
+</script>
+</body>
+</html>

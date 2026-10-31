@@ -1,0 +1,92 @@
+[
+ {
+  "finding": "import",
+  "ok": true,
+  "check": "all 948 delivered rows stored, none score-eligible"
+ },
+ {
+  "finding": "overlap",
+  "ok": true,
+  "check": "18 overlap decisions recorded (17 repeats, 1 precision conflict), matching the supplier count"
+ },
+ {
+  "finding": "overlap",
+  "ok": true,
+  "check": "no repeated figure shown twice (0 left); Paris poverty rate shown once: [16.8]"
+ },
+ {
+  "finding": "ports",
+  "ok": true,
+  "check": "400 BTS port rows kept out of the place list and used as port size instead"
+ },
+ {
+  "finding": "ports",
+  "ok": true,
+  "check": "port size for 50 US sea and inland ports (Houston 309.53 million short tons, 2023)"
+ },
+ {
+  "finding": "ports",
+  "ok": true,
+  "check": "Lake Charles now measured to its own port (Lake Charles, 4.4 km), not to Beaumont"
+ },
+ {
+  "finding": "industry",
+  "ok": true,
+  "check": "Paris, business: industry structure by employee positions and by establishments kept apart ([('share of employee positions', 4), ('share of employer establishments', 5), ('share of active local units', 9)])"
+ },
+ {
+  "finding": "industry",
+  "ok": true,
+  "check": "Paris, business: establishments by size band (5 rows)"
+ },
+ {
+  "finding": "facilities",
+  "ok": true,
+  "check": "Lyon, household: 13 facility counts for the municipality (supermarkets, GPs, schools ...)"
+ },
+ {
+  "finding": "facilities",
+  "ok": true,
+  "check": "household page does not show the business industry tables"
+ },
+ {
+  "finding": "eurostat",
+  "ok": true,
+  "check": "Greece: 4 national housing figures (overcrowding, heating, arrears), labelled national"
+ },
+ {
+  "finding": "ports",
+  "ok": true,
+  "check": "Baytown, port industry: the port breakdown shows the size of the Port of Houston (cargo, containers, cranes; BTS)"
+ },
+ {
+  "finding": "chempark",
+  "ok": true,
+  "check": "Baytown, port industry: the new chemical-park criterion opens with the nearest park (Houston Ship Channel) and its distance"
+ },
+ {
+  "finding": "ranking",
+  "ok": true,
+  "check": "US biz_port_industry: top 6 are where this industry already operates: ['Port Arthur', 'Deer Park (Texas)', 'Corpus Christi', 'Lake Charles', 'Channelview', 'Groves']"
+ },
+ {
+  "finding": "ranking",
+  "ok": true,
+  "check": "US biz_energy_intensive: top 6 are where this industry already operates: ['Corpus Christi', 'Jacinto City', 'Pasadena (Texas)', 'Galena Park', 'Cloverleaf', 'South Houston']"
+ },
+ {
+  "finding": "ranking",
+  "ok": true,
+  "check": "DE biz_port_industry: top 6 are where this industry already operates: ['Ludwigshafen am Rhein', 'Mannheim', 'Krefeld', 'Frankenthal (Pfalz)', 'Duisburg', 'K\u00f6ln']"
+ },
+ {
+  "finding": "ranking",
+  "ok": true,
+  "check": "CH biz_energy_intensive: top 6 are where this industry already operates: ['Pratteln', 'Kaiseraugst', 'Muttenz', 'M\u00fcnchenstein', 'Frenkendorf', 'Liestal']"
+ },
+ {
+  "finding": "errors",
+  "ok": true,
+  "check": "no script errors ([])"
+ }
+]

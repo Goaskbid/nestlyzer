@@ -1,0 +1,398 @@
+[
+ {
+  "id": "NZ-GLOBAL-001",
+  "priority": "P0",
+  "title": "Other-profile fit scores crowd the raw-data view",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-002",
+  "priority": "P0",
+  "title": "Missing raw data can fall back to a normalized score",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-003",
+  "priority": "P1",
+  "title": "Deep-data opening order prioritises 45 model figures over evidence",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-004",
+  "priority": "P1",
+  "title": "Language-area leaders can carry a high overall rank on the map",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-005",
+  "priority": "P1",
+  "title": "Parameter colours and profile-rank labels can describe different things",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-006",
+  "priority": "P1",
+  "title": "Add an explicit lowest-fit map view",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-007",
+  "priority": "P0",
+  "title": "Household and business are separate application states in inspected baselines",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-008",
+  "priority": "P1",
+  "title": "Business data is not aligned with the residential market roster",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-009",
+  "priority": "P1",
+  "title": "Industry-and-energy screen is US-specific",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-010",
+  "priority": "P1",
+  "title": "Business operating models need actual ranking contracts",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-011",
+  "priority": "P1",
+  "title": "First-visit introduction reportedly disappeared",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-012",
+  "priority": "P2",
+  "title": "First visit exposes a large profile and country menu",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-013",
+  "priority": "P1",
+  "title": "DINKS default hard filters leave only ten Swiss places",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-014",
+  "priority": "P0",
+  "title": "Country-normalized fit scores are not global utilities",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-015",
+  "priority": "P0",
+  "title": "National context must not become thousands of municipal observations",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-016",
+  "priority": "P1",
+  "title": "Proxy factors need explicit caveats and correlation control",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-017",
+  "priority": "P1",
+  "title": "Confidence can be mistaken for a probability",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-018",
+  "priority": "P0",
+  "title": "Energy prices require compatible cost cohorts",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-019",
+  "priority": "P0",
+  "title": "An energy index is useful only with its denominator",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-020",
+  "priority": "P0",
+  "title": "Two Iceland water-cost values must be quarantined",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-021",
+  "priority": "P1",
+  "title": "Chart-read electricity values need visible approximation",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-022",
+  "priority": "P0",
+  "title": "Property and gender-rights indices have limited legal scope",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-023",
+  "priority": "P1",
+  "title": "Index components can overwhelm rankings",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-024",
+  "priority": "P0",
+  "title": "Missing, uncollected and unavailable are different states",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-025",
+  "priority": "P1",
+  "title": "Release dates and observation years differ",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-026",
+  "priority": "P1",
+  "title": "Source-area energy quotes are not country averages",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-027",
+  "priority": "P1",
+  "title": "Keep aliases and geographic hierarchy explicit",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-028",
+  "priority": "P1",
+  "title": "Mobile business entry is dominated by metadata cards",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-029",
+  "priority": "P1",
+  "title": "Business screening stops short of premises and operating feasibility",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-030",
+  "priority": "P1",
+  "title": "Founder interview needs business-purpose context",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-031",
+  "priority": "P1",
+  "title": "State migration and offline operation need current-origin testing",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-032",
+  "priority": "P1",
+  "title": "Map failure, slow responses and empty results need useful fallbacks",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-033",
+  "priority": "P1",
+  "title": "Accessibility requires interaction-level checks",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-034",
+  "priority": "P1",
+  "title": "Performance claims need the deployed asset graph",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-035",
+  "priority": "P0",
+  "title": "A public index is not automatically licensed for commercial redistribution",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-036",
+  "priority": "P1",
+  "title": "Product counts and claims need one manifest",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-037",
+  "priority": "P0",
+  "title": "NASA climate payload and Ireland completeness remain open",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-038",
+  "priority": "P1",
+  "title": "Relocation needs household eligibility and actual lived costs",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-039",
+  "priority": "P1",
+  "title": "Business costs require scenario inputs beyond tax indices",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-040",
+  "priority": "P1",
+  "title": "Tests must distinguish data helpers from repaired website behavior",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-041",
+  "priority": "P1",
+  "title": "Consent and network disclosures must survive new data loaders",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-042",
+  "priority": "P1",
+  "title": "Location shortlist needs an evidence export, not just a rank",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-043",
+  "priority": "P1",
+  "title": "Reopening the profile builder discards manually edited weights",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-044",
+  "priority": "P1",
+  "title": "An unmatched language choice is removed automatically",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-045",
+  "priority": "P1",
+  "title": "Shared links omit the active name filter and reproduce different results",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-046",
+  "priority": "P2",
+  "title": "An Overview link can retain the previous All data tab",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-047",
+  "priority": "P1",
+  "title": "Opening a comparison link adds places to the shortlist without asking",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-048",
+  "priority": "P1",
+  "title": "Malformed shared weights produce scores far above 100",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-049",
+  "priority": "P0",
+  "title": "Displayed coverage is inflated above available selected-profile weight",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-050",
+  "priority": "P1",
+  "title": "Keyboard focus escapes modal search; mobile filter sheet has no dialog contract",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-051",
+  "priority": "P1",
+  "title": "Blank or invalid business quantities become zero-cost or zero-demand assumptions",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "NZ-GLOBAL-052",
+  "priority": "P1",
+  "title": "Business screening and the exported brief use different unlinked assumptions",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "R6-001",
+  "priority": "P0",
+  "title": "Tax bills versus multipliers",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "R6-002",
+  "priority": "P0",
+  "title": "Disposable-income double deduction",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "R6-003",
+  "priority": "P1",
+  "title": "Mean and median wealth are different",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "R6-004",
+  "priority": "P0",
+  "title": "Local context is not personal income",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "R6-005",
+  "priority": "P0",
+  "title": "Gewerbesteuer applicability",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "R6-006",
+  "priority": "P0",
+  "title": "Inheritance is an event",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "R6-007",
+  "priority": "P0",
+  "title": "Wealth valuation and liquidity",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "R6-008",
+  "priority": "P1",
+  "title": "Employer growth versus job growth",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "R6-009",
+  "priority": "P1",
+  "title": "Household formation versus family counts",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "R6-010",
+  "priority": "P0",
+  "title": "Divorce as safety proxy",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "R6-011",
+  "priority": "P1",
+  "title": "Survey-city selection bias",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "R6-012",
+  "priority": "P1",
+  "title": "Amenities presence versus access",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "R6-013",
+  "priority": "P0",
+  "title": "National context versus local completeness",
+  "status": "not_retested_in_master_consolidation"
+ },
+ {
+  "id": "R6-014",
+  "priority": "P1",
+  "title": "Latest observation versus latest page date",
+  "status": "not_retested_in_master_consolidation"
+ }
+]

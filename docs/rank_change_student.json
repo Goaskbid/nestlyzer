@@ -1,0 +1,356 @@
+{
+ "AL": {
+  "places": 17,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Tiranë",
+  "old_no1": "Tiranë"
+ },
+ "AT": {
+  "places": 86,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Linz",
+  "old_no1": "Linz"
+ },
+ "AU": {
+  "places": 62,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Logan City",
+  "old_no1": "Logan City"
+ },
+ "BE": {
+  "places": 262,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Brugge / Bruges",
+  "old_no1": "Brugge / Bruges"
+ },
+ "BG": {
+  "places": 17,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Столична",
+  "old_no1": "Столична"
+ },
+ "CA": {
+  "places": 718,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Laval",
+  "old_no1": "Laval"
+ },
+ "CH": {
+  "places": 49,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Lugano",
+  "old_no1": "Lugano"
+ },
+ "CY": {
+  "places": 12,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Κάτω Πολεμίδια",
+  "old_no1": "Κάτω Πολεμίδια"
+ },
+ "CZ": {
+  "places": 63,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Praha",
+  "old_no1": "Praha"
+ },
+ "DE": {
+  "places": 1071,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Chemnitz",
+  "old_no1": "Chemnitz"
+ },
+ "DK": {
+  "places": 37,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Aarhus",
+  "old_no1": "Aarhus"
+ },
+ "EE": {
+  "places": 10,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Tallinn",
+  "old_no1": "Tallinn"
+ },
+ "EL": {
+  "places": 117,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Αχαρνών",
+  "old_no1": "Αχαρνών"
+ },
+ "ES": {
+  "places": 541,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "San Sebastián de los Reyes",
+  "old_no1": "San Sebastián de los Reyes"
+ },
+ "FI": {
+  "places": 27,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Espoo / Esbo",
+  "old_no1": "Espoo / Esbo"
+ },
+ "FR": {
+  "places": 1008,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Marseille",
+  "old_no1": "Marseille"
+ },
+ "HK": {
+  "places": 145,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Fanling",
+  "old_no1": "Fanling"
+ },
+ "HR": {
+  "places": 18,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Grad Zagreb",
+  "old_no1": "Grad Zagreb"
+ },
+ "HU": {
+  "places": 64,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Budapest",
+  "old_no1": "Budapest"
+ },
+ "IE": {
+  "places": 17,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Cork City South West",
+  "old_no1": "Cork City South West"
+ },
+ "IL": {
+  "places": 75,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Tel Aviv (תל אביב)",
+  "old_no1": "Tel Aviv (תל אביב)"
+ },
+ "IS": {
+  "places": 6,
+  "top10_same": 6,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Reykjavíkurborg",
+  "old_no1": "Reykjavíkurborg"
+ },
+ "IT": {
+  "places": 826,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Monza",
+  "old_no1": "Monza"
+ },
+ "JP": {
+  "places": 778,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Fujisawa (藤沢市)",
+  "old_no1": "Fujisawa (藤沢市)"
+ },
+ "KR": {
+  "places": 87,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Seongnam-si (성남시)",
+  "old_no1": "Seongnam-si (성남시)"
+ },
+ "LI": {
+  "places": 0,
+  "top10_same": 0,
+  "places_moved": 0,
+  "mean_rank_shift": 0
+ },
+ "LT": {
+  "places": 8,
+  "top10_same": 8,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Vilniaus miesto savivaldybė",
+  "old_no1": "Vilniaus miesto savivaldybė"
+ },
+ "LU": {
+  "places": 28,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Luxembourg",
+  "old_no1": "Luxembourg"
+ },
+ "LV": {
+  "places": 8,
+  "top10_same": 8,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Rīga",
+  "old_no1": "Rīga"
+ },
+ "MK": {
+  "places": 0,
+  "top10_same": 0,
+  "places_moved": 0,
+  "mean_rank_shift": 0
+ },
+ "MT": {
+  "places": 0,
+  "top10_same": 0,
+  "places_moved": 0,
+  "mean_rank_shift": 0
+ },
+ "NL": {
+  "places": 287,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Westland",
+  "old_no1": "Westland"
+ },
+ "NO": {
+  "places": 23,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Bærum",
+  "old_no1": "Bærum"
+ },
+ "NZ": {
+  "places": 107,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Manukau City",
+  "old_no1": "Manukau City"
+ },
+ "PL": {
+  "places": 313,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Bytom",
+  "old_no1": "Bytom"
+ },
+ "PT": {
+  "places": 124,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Santo António dos Olivais",
+  "old_no1": "Santo António dos Olivais"
+ },
+ "RO": {
+  "places": 180,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Oraş Popeşti Leordeni",
+  "old_no1": "Oraş Popeşti Leordeni"
+ },
+ "RS": {
+  "places": 37,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Belgrade - Čukarica",
+  "old_no1": "Belgrade - Čukarica"
+ },
+ "SE": {
+  "places": 56,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Nacka",
+  "old_no1": "Nacka"
+ },
+ "SG": {
+  "places": 96,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Woodlands",
+  "old_no1": "Woodlands"
+ },
+ "SI": {
+  "places": 25,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Ljubljana",
+  "old_no1": "Ljubljana"
+ },
+ "SK": {
+  "places": 18,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Bratislava - mestská časť Ružinov",
+  "old_no1": "Bratislava - mestská časť Ružinov"
+ },
+ "TW": {
+  "places": 44,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Keelung (基隆市)",
+  "old_no1": "Keelung (基隆市)"
+ },
+ "UK": {
+  "places": 355,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Aberdeen City",
+  "old_no1": "Aberdeen City"
+ },
+ "US": {
+  "places": 2808,
+  "top10_same": 10,
+  "places_moved": 0,
+  "mean_rank_shift": 0,
+  "new_no1": "Lakeville (Minnesota)",
+  "old_no1": "Lakeville (Minnesota)"
+ }
+}

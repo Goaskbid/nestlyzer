@@ -1,0 +1,817 @@
+[
+  {
+    "id": "NZ-GLOBAL-001",
+    "priority": "P0",
+    "evidence_status": "reproduced_saved_app",
+    "title": "Other-profile fit scores crowd the raw-data view",
+    "evidence": "05-dinks-all-data.png; saved assets/more.js adRows; selected profile DINKS. Score and ranking group contains 45 figures.",
+    "impact": "A first-time user cannot distinguish input evidence from Nestlyzer model outputs. Pensioner fit under DINKS looks like an explanatory parameter.",
+    "repair": "Split Observed facts, External country indices, Estimated proxies and Explain this fit. Move all prof: and profile/rank outputs to an opt-in Compare profiles view. Never feed a profile score back into another profile.",
+    "acceptance": "DINKS default facts contains no pensioner or other-profile score. Observed station distance remains available. Explain fit retains the selected profile score. Compare profiles can show other outputs deliberately.",
+    "category": "data_semantics",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-002",
+    "priority": "P0",
+    "evidence_status": "source_confirmed_saved_app",
+    "title": "Missing raw data can fall back to a normalized score",
+    "evidence": "saved assets/more.js adRows includes a score-labelled fallback when a raw value is not available.",
+    "impact": "A unitless model score can appear where a measured value is expected.",
+    "repair": "Require typed field descriptors. Missing raw values stay missing. Show a proxy or normalized score in its own group with input source and transformation.",
+    "acceptance": "A fixture with absent fr but present fs displays No raw observation, not a fabricated raw number.",
+    "category": "data_semantics",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-003",
+    "priority": "P1",
+    "evidence_status": "reproduced_saved_app",
+    "title": "Deep-data opening order prioritises 45 model figures over evidence",
+    "evidence": "05-dinks-all-data.png; groups include People 15, Mobility 8, Land/water/climate 16 after Score/ranking 45.",
+    "impact": "Long irrelevant rows obscure the factors that motivated the selected profile.",
+    "repair": "Default to 6-12 relevant observed/context facts, group by user decision, allow search and Show all, keep compact source details expandable. Preserve full data export.",
+    "acceptance": "Default panel fits useful factors into the first viewport, with unit/date/geography on expansion. Keyboard search and Show all reveal every retained field.",
+    "category": "information_architecture",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-004",
+    "priority": "P1",
+    "evidence_status": "source_confirmed_public_repository",
+    "title": "Language-area leaders can carry a high overall rank on the map",
+    "evidence": "20-map.js leaderSet selects up to five leaders per language area when multiple language areas exist; marker displays x.rank.",
+    "impact": "A legitimate language-area leader may look like an inexplicable poor overall recommendation.",
+    "repair": "Default to best assessed eligible places in the current scope. Keep language leaders as an explicit mode. Label both within-language and overall-scope ranks when enabled.",
+    "acceptance": "Language leader fixture shows #2 French / #147 current scope, never an unexplained 147. A top-10 mode shows only the best ten assessed eligible results.",
+    "category": "map",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-005",
+    "priority": "P1",
+    "evidence_status": "source_confirmed_public_repository",
+    "title": "Parameter colours and profile-rank labels can describe different things",
+    "evidence": "20-map.js marker rank and parameter display paths inspected on public main; live map could not be rendered.",
+    "impact": "Users may interpret a profile rank as a rank for the selected raw parameter.",
+    "repair": "Couple marker semantics to active layer. Use a legend saying Profile fit, Parameter value with units, or Cluster count. Do not reuse rank badges for all layers.",
+    "acceptance": "Switch from fit to rail distance: markers and tooltip identify km or parameter rank, while fit rank is separately labelled.",
+    "category": "map",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-006",
+    "priority": "P1",
+    "evidence_status": "requested_improvement",
+    "title": "Add an explicit lowest-fit map view",
+    "evidence": "Owner request; no verified live worst-view test.",
+    "impact": "A worst view is useful, but missing or ineligible places must not be presented as bad places.",
+    "repair": "Add Best / Lowest assessed fit / Selected / Language leaders. Exclude unassessed data and failed eligibility from both best and lowest rankings. Explain all exclusions.",
+    "acceptance": "A null score never becomes the worst place; ties use the same competition rank and denominator as the table.",
+    "category": "map",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-007",
+    "priority": "P0",
+    "evidence_status": "baseline_architecture_gap",
+    "title": "Household and business are separate application states in inspected baselines",
+    "evidence": "15 October residential app has no integrated business switch; 16 October business beta has a ../index.html backlink.",
+    "impact": "A label change alone cannot switch ranking criteria, filters, explanations, briefs and persisted choices.",
+    "repair": "One explicit purpose state must control profile registry, weights, hard gates, copy, icons, filters, map semantics, sources, comparison and export. Keep independent per-mode memories and stable shared place IDs.",
+    "acceptance": "Household DINKS -> Business manufacturing -> Household restores DINKS choices. No family/retirement category appears in manufacturing explanations. Back and deep links reproduce purpose.",
+    "category": "mode_switch",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-008",
+    "priority": "P1",
+    "evidence_status": "reproduced_saved_business_beta",
+    "title": "Business data is not aligned with the residential market roster",
+    "evidence": "Business Global economies view contains 219 external jurisdictions; residential roster is 45 markets; sources tab reports 45 native markets.",
+    "impact": "A user can compare a country that the residential map cannot open, without a shared scope contract.",
+    "repair": "Default business context to the same 45 markets. Offer a clearly labelled extended-country research view. Disable unsupported local drill-down rather than fabricate place records.",
+    "acceptance": "Each of the 45 market selectors has a business context card. Countries outside the native roster never imply municipal coverage.",
+    "category": "mode_switch",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-009",
+    "priority": "P1",
+    "evidence_status": "reproduced_saved_business_beta",
+    "title": "Industry-and-energy screen is US-specific",
+    "evidence": "biz-01.png and business-results.json. Tab label is US industries & costs.",
+    "impact": "Switching purpose leaves most supported markets without a comparable business-cost context.",
+    "repair": "Integrate supplied country context, retaining existing US state detail. Expose geographic coverage per field and do not turn national indices into municipal values.",
+    "acceptance": "Non-US business pages show available electricity, connection/reliability and business-environment evidence, with an explicit local-data gap. US state prices remain intact.",
+    "category": "data_coverage",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-010",
+    "priority": "P1",
+    "evidence_status": "implementation_gap_not_live_verified",
+    "title": "Business operating models need actual ranking contracts",
+    "evidence": "biz-05.png: five operating-model choices in brief. Brief choices alone do not establish a model-specific ranking in inspected beta.",
+    "impact": "Selecting manufacturing versus an office should change relevant costs and constraints, not just exported text.",
+    "repair": "Implement separately versioned office/HQ, research/software, manufacturing and logistics profiles with disclosed proposed weights, coverage minima and hard-condition checks. Do not claim empirical calibration.",
+    "acceptance": "Same candidates with adequate data produce explainably different ordering when energy sensitivity or logistics need changes; model terms match brief and export.",
+    "category": "business",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-011",
+    "priority": "P1",
+    "evidence_status": "user_report_not_reproduced",
+    "title": "First-visit introduction reportedly disappeared",
+    "evidence": "Owner report; 01-fresh-desktop.png proves the 15 October saved baseline still has an introduction and 3 steps.",
+    "impact": "Treating this as confirmed in every version risks adding a second intro or resetting returning users.",
+    "repair": "On current deployment test fresh storage, legacy storage, consent denied, deep link and returning visit. Restore only the missing path. Add optional purpose-first introduction, Skip and reopen Help.",
+    "acceptance": "Fresh visitor can understand purpose and reach a first result without an account. Returning user retains choices. Intro can be reopened. No duplicate overlays.",
+    "category": "onboarding",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-012",
+    "priority": "P2",
+    "evidence_status": "reproduced_saved_app",
+    "title": "First visit exposes a large profile and country menu",
+    "evidence": "01-fresh-desktop.png and 02-profile-picker.png; 27 profile choices and 45 country choices are available.",
+    "impact": "A new visitor must understand many labels before seeing whether the tool is useful.",
+    "repair": "Start with Household or Business, then a few plain-language profile families and one or more target markets. Keep all advanced presets available under More profiles.",
+    "acceptance": "A first-time visitor reaches an initial result in at most three meaningful choices and can still find every existing preset.",
+    "category": "onboarding",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-013",
+    "priority": "P1",
+    "evidence_status": "reproduced_saved_app",
+    "title": "DINKS default hard filters leave only ten Swiss places",
+    "evidence": "03/04-dinks-workspace text: 10 of 2,172 places fit. Existing Why not the other 2,162? explanation must be retained.",
+    "impact": "The preset can feel unexpectedly restrictive, particularly when a user has not chosen a hard minimum population.",
+    "repair": "Expose hard requirements separately from preferences, preview remaining count and allow explicit relaxation. Keep actual failure reasons and never silently override the user.",
+    "acceptance": "Before applying a restrictive preset, show count and gates. Relaxing one named gate changes the count and explanation consistently.",
+    "category": "ranking",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-014",
+    "priority": "P0",
+    "evidence_status": "methodology_risk_from_metadata",
+    "title": "Country-normalized fit scores are not global utilities",
+    "evidence": "native_factor_metadata.json describes within-country winsorized percentile scoring.",
+    "impact": "A score of 85 in two countries does not establish equal living or business conditions.",
+    "repair": "Use global country screening and then local ranking, or show within-country ranks side by side. Never sort the world by uncalibrated national percentiles.",
+    "acceptance": "Global results disclose the score universe and normalization. Tests reject cross-country sorting of country-relative scores without an explicit valid comparison contract.",
+    "category": "ranking",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-015",
+    "priority": "P0",
+    "evidence_status": "data_contract_requirement",
+    "title": "National context must not become thousands of municipal observations",
+    "evidence": "Recovered native place roster plus new country and source-area records.",
+    "impact": "Copying a national electricity or legal score into every town inflates apparent local evidence and can distort completeness.",
+    "repair": "Store country context once, reference it from a place view and label Same national context for every place in this market. Preserve true local facts separately.",
+    "acceptance": "New observation count remains 3,015 after joining 129,508 active places. Country context never contributes to local-data coverage numerator.",
+    "category": "data_semantics",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-016",
+    "priority": "P1",
+    "evidence_status": "methodology_risk_from_metadata",
+    "title": "Proxy factors need explicit caveats and correlation control",
+    "evidence": "Native factor metadata includes geographic/demographic proxies and normalized factors.",
+    "impact": "Age structure is not healthcare quality, birth rates are not school quality, density is not measured culture or transport service.",
+    "repair": "Publish a proxy register and remove unsupported causal labels. Group correlated proxy inputs; audit whether density and access are counted repeatedly. Do not silently reweight in this data import.",
+    "acceptance": "Every modeled proxy has raw inputs, formula, scope and limitation. A contribution chart does not disguise repeated inputs as independent evidence.",
+    "category": "ranking",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-017",
+    "priority": "P1",
+    "evidence_status": "reproduced_saved_app",
+    "title": "Confidence can be mistaken for a probability",
+    "evidence": "DINKS Zug view displays confidence 71% in 04-dinks-workspace.png.",
+    "impact": "A heuristic completeness or evidence score is not a calibrated 71% probability that the location suits the user.",
+    "repair": "Rename to evidence coverage/quality if appropriate, expose calculation and show missing critical factors separately. Keep fit and evidence distinct.",
+    "acceptance": "Tooltip gives numerator/denominator or scoring method and says it is not a prediction probability.",
+    "category": "data_semantics",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-018",
+    "priority": "P0",
+    "evidence_status": "new_data_integration_requirement",
+    "title": "Energy prices require compatible cost cohorts",
+    "evidence": "New tariff records contain consumer bands, currencies, taxes, fixed charges, service areas and time periods.",
+    "impact": "A small household tariff cannot represent a factory and a base tariff cannot represent the full bill.",
+    "repair": "Separate household/business, price-level/statistical-average/regulated-reference/case-index, one-off/monthly/annual, unit/fixed/all-in and tax treatments. Block incompatible bill calculations.",
+    "acceptance": "Tests cover Swiss meter double counting, UK fixed charge, Australian annual-bill supply charge, Albanian all-units threshold and missing TEPCO fuel/levy.",
+    "category": "energy",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-019",
+    "priority": "P0",
+    "evidence_status": "new_data_integration_requirement",
+    "title": "An energy index is useful only with its denominator",
+    "evidence": "B-READY 34,560 kWh monthly case is percent of GNI per capita; own-base CPI is a change index.",
+    "impact": "A cost-to-income index and a currency/kWh price answer different questions. An own-base CPI index cannot rank cheapness across countries.",
+    "repair": "Retain index type and reference population/basket. Use B-READY as indicative country cost context; never multiply it by user kWh. Permit cross-country price comparison only for a common comparable basket/cohort.",
+    "acceptance": "The API and UI reject conversion of %GNI or own-country-base CPI into a power bill.",
+    "category": "energy",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-020",
+    "priority": "P0",
+    "evidence_status": "source_anomaly_detected",
+    "title": "Two Iceland water-cost values must be quarantined",
+    "evidence": "B-READY Iceland 2025 profile page 20 reports 4,490,000,000 and 4,488 percent of GNI per capita for water cases.",
+    "impact": "Blind ingestion would dominate rankings and imply an impossible business cost.",
+    "repair": "Keep source strings in quarantine, exclude from all numeric payloads and request correction. Do not guess the decimal position.",
+    "acceptance": "Both records are absent from numeric observations, SQLite observation table, country display and scoring; quarantine preserves evidence and reason.",
+    "category": "data_quality",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-021",
+    "priority": "P1",
+    "evidence_status": "new_data_integration_requirement",
+    "title": "Chart-read electricity values need visible approximation",
+    "evidence": "Twenty-six Eurostat business values were visually read to EUR 0.01/kWh, with a EUR 0.01 reading allowance.",
+    "impact": "Displaying four decimals would create precision the capture does not support.",
+    "repair": "Prefix approximate values, retain reading method and no more than two decimals. Treat the reading allowance as transcription uncertainty, not a statistical confidence interval. Replace with raw API values when acquired.",
+    "acceptance": "Every chart-read value is visibly approximate, never ranked as a precise near-tie. Five exact business table values remain exact as published.",
+    "category": "data_quality",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-022",
+    "priority": "P0",
+    "evidence_status": "new_data_integration_requirement",
+    "title": "Property and gender-rights indices have limited legal scope",
+    "evidence": "B-READY selected property restrictions; WBL assets/inheritance and economic-opportunity dimensions.",
+    "impact": "These do not establish that a particular person or foreign company may acquire a particular plot or operate a regulated activity.",
+    "repair": "Present as country-level screening evidence. Add separate Unknown/Verified/Not eligible statuses for residency, work permission, land ownership, zoning and sector rules, tied to official case evidence.",
+    "acceptance": "No country score produces a green visa, land purchase, grid-capacity or incorporation approval.",
+    "category": "legal_scope",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-023",
+    "priority": "P1",
+    "evidence_status": "new_data_integration_requirement",
+    "title": "Index components can overwhelm rankings",
+    "evidence": "WBL contributes 1,293 values; B-READY pillar/topic/raw indicators overlap; HDI includes its own components.",
+    "impact": "Counting rows as independent factors gives the largest source family excessive influence.",
+    "repair": "Use a concept graph and one bounded contribution per agreed decision domain. Keep other measures as drill-down context until model review.",
+    "acceptance": "Adding a duplicate sub-index changes neither ranking nor evidence count. Profile-weight summary is by concept, not number of source rows.",
+    "category": "ranking",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-024",
+    "priority": "P0",
+    "evidence_status": "new_data_integration_requirement",
+    "title": "Missing, uncollected and unavailable are different states",
+    "evidence": "Release has numeric values, 152 source-missing rows, 150 not-captured cells and two quarantined anomalies.",
+    "impact": "Missing values represented as zero would reward empty cost records or penalize unmeasured services.",
+    "repair": "Use typed statuses. Source missing, not captured, not applicable, suppressed, unverified and source anomaly must remain distinguishable. Do not substitute a neutral score without a disclosed method.",
+    "acceptance": "Null values never reach numeric sort or bill arithmetic. Missing essential business inputs produce an incomplete-assessment state.",
+    "category": "data_quality",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-025",
+    "priority": "P1",
+    "evidence_status": "new_data_integration_requirement",
+    "title": "Release dates and observation years differ",
+    "evidence": "HDR 2025 uses 2023 data; WBL 2026 legal cutoff is 2025-10-01; B-READY contains varying legal/survey periods.",
+    "impact": "A current fetch date can make older inputs look like current local conditions.",
+    "repair": "Show observation/reference period, edition and last checked date separately. Apply freshness policy per domain; never update observation year on a successful no-change fetch.",
+    "acceptance": "An HDR life-expectancy cell says 2023, not 2026. A legal-source update does not silently refresh old survey measures.",
+    "category": "data_quality",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-026",
+    "priority": "P1",
+    "evidence_status": "new_data_integration_requirement",
+    "title": "Source-area energy quotes are not country averages",
+    "evidence": "Australia five utility service areas, TEPCO Kanto, UK default tariff scope.",
+    "impact": "A national flag alone could suggest full territorial and customer coverage.",
+    "repair": "Show area/provider and default plan, never fill unsupported regions. For map overlays, require a verified area join rather than country-wide copy.",
+    "acceptance": "Northern Ireland cannot inherit the GB cap. Victoria cannot inherit an NSW DMO tariff. TEPCO is never displayed as a Japanese national mean.",
+    "category": "geography",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-027",
+    "priority": "P1",
+    "evidence_status": "data_contract_requirement",
+    "title": "Keep aliases and geographic hierarchy explicit",
+    "evidence": "Native country keys EL and UK; source keys GR and GB. Native places include multiple types of geographies.",
+    "impact": "Unreviewed joins can duplicate countries or assign regional observations to the wrong places.",
+    "repair": "Canonical alias map and source-geography identifiers are mandatory. Use authoritative boundary crosswalks; allow overlapping geographies but never sum them into population totals.",
+    "acceptance": "GR loads EL and GB loads UK exactly once. Joins preserve original IDs and do not use fuzzy names as silent matches.",
+    "category": "geography",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-028",
+    "priority": "P1",
+    "evidence_status": "reproduced_saved_business_beta",
+    "title": "Mobile business entry is dominated by metadata cards",
+    "evidence": "biz-mobile.png at 390 px: coverage cards and seven tabs precede the actual comparison; no horizontal document overflow.",
+    "impact": "A mobile visitor sees product counts before being able to start a location decision.",
+    "repair": "Place purpose, operating model and target market first. Collapse data provenance cards, use a compact tab overflow pattern and preserve accessible labels.",
+    "acceptance": "At 390 px the first screen contains a meaningful action and selected purpose. Counts remain accessible and no horizontal page overflow appears.",
+    "category": "mobile",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-029",
+    "priority": "P1",
+    "evidence_status": "coverage_gap_confirmed_in_artifacts",
+    "title": "Business screening stops short of premises and operating feasibility",
+    "evidence": "biz-05.png already labels unresolved premises, power, skills, incentives and tax checks.",
+    "impact": "Country attractiveness does not establish a usable site or a deliverable power connection.",
+    "repair": "Retain the existing unresolved-site checklist. Add evidence owner, valid date, entity/contact, document URL and status. Separate incorporation domicile, HQ and operating site.",
+    "acceptance": "Every shortlisted factory has explicit statuses for zoning, floor space, grid demand, water and freight access, including Unknown.",
+    "category": "business",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-030",
+    "priority": "P1",
+    "evidence_status": "requested_improvement",
+    "title": "Founder interview needs business-purpose context",
+    "evidence": "Owner requests a business-side addition; no attributed new quotation has been approved.",
+    "impact": "The original residential story does not explain why the product evaluates operating locations.",
+    "repair": "Use proposed owner-review copy in the Claude brief. Add a business-mode paragraph without replacing the residential account or inventing an interview answer as already approved.",
+    "acceptance": "Owner-approved wording appears only in the intended context; switching back restores the residential version.",
+    "category": "content",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-031",
+    "priority": "P1",
+    "evidence_status": "not_retested",
+    "title": "State migration and offline operation need current-origin testing",
+    "evidence": "Saved app rendered using browser set_content; real-origin localStorage, service worker and deep-link navigation were not certified.",
+    "impact": "A mode upgrade can erase favourites, profile settings or consent, even when helper functions pass.",
+    "repair": "Version state schema, migrate old keys without destructive reset, save household/business choices separately, offer reset only with confirmation, test offline after one visit.",
+    "acceptance": "Current-origin tests preserve favourites and custom profiles across upgrade, reload, back navigation and offline reopen.",
+    "category": "persistence",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-032",
+    "priority": "P1",
+    "evidence_status": "not_retested",
+    "title": "Map failure, slow responses and empty results need useful fallbacks",
+    "evidence": "Live map/CDN could not be tested here. Public source contains a basemap fallback; offline audit map was not a production failure test.",
+    "impact": "A spinner or empty map can prevent first-time use even when rankings exist.",
+    "repair": "Keep an accessible result list usable without tiles. Make retry and failure reason explicit, abort stale country requests and prevent old-country results overwriting current selection.",
+    "acceptance": "Block tiles/network, switch countries quickly, and confirm no stale results, no infinite spinner and a usable list with source status.",
+    "category": "resilience",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-033",
+    "priority": "P1",
+    "evidence_status": "not_retested",
+    "title": "Accessibility requires interaction-level checks",
+    "evidence": "Seven business tabs passed click/state smoke tests; keyboard focus, screen-reader names and map equivalence were not fully audited.",
+    "impact": "A visually functional panel can still be inaccessible by keyboard or assistive technology.",
+    "repair": "Test tab arrow keys, focus return from dialogs, Escape, visible focus, 200% zoom, reduced motion, text contrast and table headers. Ensure map content has a equivalent list.",
+    "acceptance": "Keyboard-only flow can complete onboarding, compare places, inspect sources and export. Automated axe checks plus manual focus checks pass.",
+    "category": "accessibility",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-034",
+    "priority": "P1",
+    "evidence_status": "not_retested",
+    "title": "Performance claims need the deployed asset graph",
+    "evidence": "Standalone saved file is roughly 22 MB; that is not evidence of production network payload.",
+    "impact": "Bundling every country and the global context at startup could slow mobile first use.",
+    "repair": "Measure current production first, then lazy-load country shards and large tables. Keep an offline export separate. Add explicit network and render budgets after baseline measurement.",
+    "acceptance": "Report cold/warm mobile timings, transferred bytes and longest tasks on named hardware/network conditions; no claimed improvement without same-state comparison.",
+    "category": "performance",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-035",
+    "priority": "P0",
+    "evidence_status": "source_reuse_requirement",
+    "title": "A public index is not automatically licensed for commercial redistribution",
+    "evidence": "CPI ND restrictions; IPRI terms restrict commercial reuse; other providers have source-specific conditions.",
+    "impact": "Scraping a visible ranking and publishing a modified derivative can breach source terms.",
+    "repair": "Keep per-source attribution and reuse policy. Do not ingest permission-required families until permission. CPI raw scores remain unchanged; derived use requires review. Never publish credentials or licensed bulk originals.",
+    "acceptance": "Publication manifest lists approved source subsets and exact attribution. Permission-required sources have zero published observations.",
+    "category": "licensing",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-036",
+    "priority": "P1",
+    "evidence_status": "source_confirmed_public_repository",
+    "title": "Product counts and claims need one manifest",
+    "evidence": "Public README describes a smaller country/place scope than the recovered 45-market app.",
+    "impact": "Different counts on landing, About and repository undermine trust and confuse deployment checks.",
+    "repair": "Generate copy counts from one versioned manifest, distinguishing active places, all rows, source observations, missing fields and supported drill-down levels.",
+    "acceptance": "Landing, About, methodology, export and README use matching released counts, with no conversion of old baseline rows into new data claims.",
+    "category": "release",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-037",
+    "priority": "P0",
+    "evidence_status": "carried_forward_open",
+    "title": "NASA climate payload and Ireland completeness remain open",
+    "evidence": "18 October missing-data handoff. Neither climate payload nor complete Ireland source CSV was added in this release.",
+    "impact": "A new global pack must not silently close earlier acquisition gaps.",
+    "repair": "Carry both items forward unchanged, retain existing collectors/parsers and merge real newly downloaded data only after source and geography validation.",
+    "acceptance": "Release ledger shows these as open until payload, period, row count, source proof and exact native ID matches are supplied.",
+    "category": "data_coverage",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-038",
+    "priority": "P1",
+    "evidence_status": "coverage_gap_confirmed",
+    "title": "Relocation needs household eligibility and actual lived costs",
+    "evidence": "New context does not supply local rents, housing availability, taxes per household, insurance entitlement or commuting travel times in all markets.",
+    "impact": "A broad score may still miss the practical reason a move is affordable or possible.",
+    "repair": "Create a relocation checklist and source plan for rents/availability, net budget, healthcare access, school language, residence/work status, internet and travel time. Mark unmet inputs unknown.",
+    "acceptance": "Household summary distinguishes comparable measured costs, indicative indices and unresolved personal checks. It does not claim complete affordability.",
+    "category": "household",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-039",
+    "priority": "P1",
+    "evidence_status": "coverage_gap_confirmed",
+    "title": "Business costs require scenario inputs beyond tax indices",
+    "evidence": "B-READY taxation is an administration score, not an effective tax rate. Prior corporate-tax references cover only a subset.",
+    "impact": "A low tax-friction score does not determine the net tax burden for an operating structure.",
+    "repair": "Separate corporate taxes, payroll/social charges, indirect taxes, incentives and non-tax costs. Tie estimates to legal entity, profit, employees, energy and premises assumptions; avoid individualized legal conclusions.",
+    "acceptance": "Business cost table never labels B-READY tax score as percent tax. Missing tax inputs do not become zero.",
+    "category": "business",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-040",
+    "priority": "P1",
+    "evidence_status": "release_requirement",
+    "title": "Tests must distinguish data helpers from repaired website behavior",
+    "evidence": "This release includes data-build and helper tests, not a patched production deployment.",
+    "impact": "A passing utility test or changed build ID can be mistaken for repaired user-visible defects.",
+    "repair": "Require exact build hashes, a cumulative issue ledger and same-state before/after screenshots. Repaired/reverified, still failing, new, reopened and not retested must be separate.",
+    "acceptance": "Claude final report has a row for every issue, actual browser evidence for every closed visible defect and no average completion percentage replacing failures.",
+    "category": "release",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-041",
+    "priority": "P1",
+    "evidence_status": "not_retested",
+    "title": "Consent and network disclosures must survive new data loaders",
+    "evidence": "Global context can be shipped locally; real-origin consent paths were not tested.",
+    "impact": "Adding client-side external API calls can leak queries/location and break offline promises.",
+    "repair": "Fetch refresh data server-side/build-time. Ship approved static shards. No third-party requests before the relevant consent. Document external maps/media and offer list-only use.",
+    "acceptance": "Network log for a fresh consent-denied session contains no unapproved third-party requests; local context and results still work.",
+    "category": "privacy",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-042",
+    "priority": "P1",
+    "evidence_status": "requested_improvement",
+    "title": "Location shortlist needs an evidence export, not just a rank",
+    "evidence": "Existing beta exports a company requirements brief; a joined comparable-evidence export is not established.",
+    "impact": "Users cannot take the reasoning to a family, adviser or site-selection team.",
+    "repair": "Export chosen places with purpose, assumptions, rank scope, measured facts, country context, dates, unknowns and source links. Keep raw scores and derived estimates typed.",
+    "acceptance": "Export matches current filters and country, includes unassessed critical fields, and reopens without silently substituting newer values.",
+    "category": "decision_support",
+    "production_status": "not_retested_on_live_deployment",
+    "resolution": "open"
+  },
+  {
+    "id": "NZ-GLOBAL-043",
+    "title": "Reopening the profile builder discards manually edited weights",
+    "priority": "P1",
+    "category": "incremental_reaudit",
+    "evidence_status": "reproduced_saved_application",
+    "evidence": "In the original saved app, change affordability from 8 to 1, apply, and reopen the builder. It displays 8. Applying again writes 8. The hash-guarded candidate keeps 1.",
+    "impact": "An edit can silently change the model and its recommendations. A user cannot reliably revisit a custom profile.",
+    "repair": "In current builder source, restore persisted manual overrides separately from questionnaire-derived defaults. Preserve them when reopening; make Reset and the effect of changing questionnaire answers explicit. The reference repair changes the reviewed openBuilder initialization only.",
+    "acceptance": [
+      "Edit one and multiple weights, apply, reopen and apply unchanged; exact values survive.",
+      "Test zero weights, questionnaire edits, Reset, reload and purpose roundtrip.",
+      "Do not clear an existing custom profile on a route parse error."
+    ],
+    "evidence_files": [
+      "evidence/scenario_builder_manual_weights_roundtrip.json",
+      "evidence/reference/original-manual_weight_roundtrip-browser-results.json",
+      "evidence/reference/candidate-manual_weight_roundtrip-browser-results.json"
+    ],
+    "related_prior_findings": [
+      "NZ-GLOBAL-031"
+    ],
+    "reference_patch_status": "fixed and browser-reverified in saved-build experiment only",
+    "production_status": "not tested on current deployment",
+    "resolution": "open pending current-source port and real-origin revalidation"
+  },
+  {
+    "id": "NZ-GLOBAL-044",
+    "title": "An unmatched language choice is removed automatically",
+    "priority": "P1",
+    "category": "incremental_reaudit",
+    "evidence_status": "reproduced_saved_application",
+    "evidence": "Select Italian in the builder and Singapore as first target. The original clears state.lang and ranks 96 places, while the custom description still states Italian language. It calls this a preference but adds no corresponding language preference weight. The reference candidate keeps Italian and reports zero matching classified places.",
+    "impact": "The result silently stops matching the user choice. The same pattern would be unsafe for business must-have requirements.",
+    "repair": "Retain the selected constraint; show source-classification uncertainty and an explicit Edit/Relax action. Model hard requirements, preferences and unknown evidence separately. Never infer that no residents speak a language from a coarse place classification.",
+    "acceptance": [
+      "Original Italian/Singapore reproduction stays coherent: selected choice, counts, description and exported state agree.",
+      "Any relaxation requires an explicit action and is recorded.",
+      "For a soft language preference, implement and explain the preference; do not merely remove the filter."
+    ],
+    "evidence_files": [
+      "evidence/scenario_required_language_in_singapore.json",
+      "evidence/reference/original-language_is_not_silently_removed-browser-results.json",
+      "evidence/reference/candidate-language_is_not_silently_removed-browser-results.json"
+    ],
+    "related_prior_findings": [
+      "NZ-GLOBAL-010",
+      "NZ-GLOBAL-038"
+    ],
+    "reference_patch_status": "fixed and browser-reverified in saved-build experiment only",
+    "production_status": "not tested on current deployment",
+    "resolution": "open pending current-source port and real-origin revalidation"
+  },
+  {
+    "id": "NZ-GLOBAL-045",
+    "title": "Shared links omit the active name filter and reproduce different results",
+    "priority": "P1",
+    "category": "incremental_reaudit",
+    "evidence_status": "reproduced_saved_application",
+    "evidence": "Young family, Switzerland, name/region text Zurich: sender has 96 fit places out of 162; generated route omits q. A clean recipient has 480 fit places out of 2,172. The candidate serializes q and reproduces 96.",
+    "impact": "A shared shortlist context or recommendation is not reproducible even with the same data and model.",
+    "repair": "Use a versioned route codec with explicit serialization/defaulting of the active search, scope, purpose, profile, filters and selected panel. Exclude personal notes deliberately. Validate legacy routes.",
+    "acceptance": [
+      "The same route in a clean context reproduces IDs, counts and order.",
+      "Back/Forward and a second link clear the old search when the incoming link has no q.",
+      "Test Unicode place names and reserved characters."
+    ],
+    "evidence_files": [
+      "evidence/case_shared_name_filter.json",
+      "evidence/reference/original-shared_name_filter_reproduces_scope-browser-results.json",
+      "evidence/reference/candidate-shared_name_filter_reproduces_scope-browser-results.json"
+    ],
+    "related_prior_findings": [
+      "NZ-GLOBAL-042"
+    ],
+    "reference_patch_status": "fixed and browser-reverified in saved-build experiment only",
+    "production_status": "not tested on current deployment",
+    "resolution": "open pending current-source port and real-origin revalidation"
+  },
+  {
+    "id": "NZ-GLOBAL-046",
+    "title": "An Overview link can retain the previous All data tab",
+    "priority": "P2",
+    "category": "incremental_reaudit",
+    "evidence_status": "reproduced_saved_application",
+    "evidence": "Open All data, then follow a different place route without pt, or with pt=overview. Both leave state.ptab=data. The original decoder recognizes other tabs but never resets this field. The reference candidate resets it to overview.",
+    "impact": "The same link opens different content depending on earlier activity; a first-time or returning user receives an unexpected screen.",
+    "repair": "Decode into a fresh, versioned route state with defaults rather than partially mutating the current state. Treat overview as a valid explicit route value.",
+    "acceptance": [
+      "All data -> Overview route produces Overview for the requested place.",
+      "Omitted and invalid pt have documented default behavior.",
+      "Back/Forward restores the actual historical panel."
+    ],
+    "evidence_files": [
+      "evidence/case_shared_tab_state.json",
+      "evidence/reference/original-overview_route_clears_old_data_tab-browser-results.json",
+      "evidence/reference/candidate-overview_route_clears_old_data_tab-browser-results.json"
+    ],
+    "related_prior_findings": [
+      "NZ-GLOBAL-031"
+    ],
+    "reference_patch_status": "fixed and browser-reverified in saved-build experiment only",
+    "production_status": "not tested on current deployment",
+    "resolution": "open pending current-source port and real-origin revalidation"
+  },
+  {
+    "id": "NZ-GLOBAL-047",
+    "title": "Opening a comparison link adds places to the shortlist without asking",
+    "priority": "P1",
+    "category": "incremental_reaudit",
+    "evidence_status": "reproduced_saved_application",
+    "evidence": "Fresh saved-app session: shortlist count is 0. Open a comparison route for CH:4911 and CH:4196; the count becomes 2. The source pushes both into the saved list before rendering. Persistent storage was not verified on a real origin; the in-memory mutation was reproduced. The candidate opens the comparison with count 0.",
+    "impact": "A read/share action changes the user collection. This also confuses whether a place was deliberately selected or merely viewed.",
+    "repair": "Keep comparison preview separate from saved places. Add an explicit Save these places action and deduplicate by native ID. Never write a shortlist as an effect of route parsing.",
+    "acceptance": [
+      "Opening or refreshing a comparison changes no existing shortlist entries or notes.",
+      "Explicit Save adds only the intended IDs and reports added/already-saved counts.",
+      "Invalid and mixed-country comparison IDs fail safely without mutations."
+    ],
+    "evidence_files": [
+      "evidence/case_compare_link_saves.json",
+      "evidence/reference/original-comparison_link_has_no_shortlist_side_effect-browser-results.json",
+      "evidence/reference/candidate-comparison_link_has_no_shortlist_side_effect-browser-results.json"
+    ],
+    "related_prior_findings": [
+      "NZ-GLOBAL-031"
+    ],
+    "reference_patch_status": "fixed and browser-reverified in saved-build experiment only",
+    "production_status": "not tested on current deployment",
+    "resolution": "open pending current-source port and real-origin revalidation"
+  },
+  {
+    "id": "NZ-GLOBAL-048",
+    "title": "Malformed shared weights produce scores far above 100",
+    "priority": "P1",
+    "category": "incremental_reaudit",
+    "evidence_status": "reproduced_saved_application",
+    "evidence": "A boundary-test route with jobs:100 and affordability:-99 produces a leading score of 8,137.5 on a 0-100 interface. The original decoder accepts negative weights. It also turns an explicit mp=0 into 1,200. These are shared-input defects, not proof of the cause of the owner-reported map numbers. All 3,496,716 standard-profile engine evaluations stayed in range.",
+    "impact": "An unvalidated link creates nonsensical scores and weakens trust in all results.",
+    "repair": "Validate known factor keys, finite numeric nonnegative weights, bounds, duplicate keys and positive total before committing route state. Preserve an explicit zero minimum. Reject the invalid profile visibly; never compute it and then merely clamp its output.",
+    "acceptance": [
+      "Reject negative, NaN, infinite, duplicate, unknown and all-zero weights.",
+      "A valid explicit mp=0 survives roundtrip.",
+      "Valid shared custom profiles reproduce their scores exactly."
+    ],
+    "evidence_files": [
+      "evidence/case_extreme_shared_weights.json",
+      "evidence/reference/original-invalid_weights_are_rejected-browser-results.json",
+      "evidence/reference/candidate-invalid_weights_are_rejected-browser-results.json",
+      "evidence/engine_population_audit.json"
+    ],
+    "related_prior_findings": [
+      "NZ-GLOBAL-004",
+      "NZ-GLOBAL-031"
+    ],
+    "reference_patch_status": "fixed and browser-reverified in saved-build experiment only",
+    "production_status": "not tested on current deployment",
+    "resolution": "open pending current-source port and real-origin revalidation"
+  },
+  {
+    "id": "NZ-GLOBAL-049",
+    "title": "Displayed coverage is inflated above available selected-profile weight",
+    "priority": "P0",
+    "category": "incremental_reaudit",
+    "evidence_status": "reproduced_original_engine_population_audit",
+    "evidence": "The unchanged saved engine was evaluated across 129,508 active places and 27 standard profiles. For young family, 17,277 ranked results in ten markets report coverage above the share of weight with available category values. Example Sydney: 95.6 fit, 78% coverage, but available Basics/Mobility/Jobs represent only 22% of profile weight. Family, Safety, Costs, Health and Green space are unavailable. The scoreRaw function raises coverage using a count-based floor.",
+    "impact": "The interface can make weakly supported recommendations appear well assessed. Adding country indices does not repair missing local evidence.",
+    "repair": "Separate available weighted support, direct local observations, country context, proxy contribution and decision readiness. Remove the factor-count floor from any field labeled coverage. Preserve raw scores as versioned legacy outputs while a revised model is approved; do not silently rerank every country. Incomplete cases remain explorable but must not be called fully assessed recommendations.",
+    "acceptance": [
+      "The captured 22%-weight example reports 22% weighted availability, never 78%.",
+      "Country context and duplicate proxy inputs never increase local observed coverage.",
+      "Missing essential evidence yields needs-verification, not false certainty or a zero value.",
+      "Compare rankings before and after the separately versioned model decision."
+    ],
+    "evidence_files": [
+      "evidence/engine_population_audit.json",
+      "reports/decision_contract_tests.tap"
+    ],
+    "related_prior_findings": [
+      "NZ-GLOBAL-014",
+      "NZ-GLOBAL-015",
+      "NZ-GLOBAL-017"
+    ],
+    "reference_patch_status": "reference contract tested; actual engine/display migration not integrated",
+    "production_status": "not tested on current deployment",
+    "resolution": "open pending current-source port and real-origin revalidation"
+  },
+  {
+    "id": "NZ-GLOBAL-050",
+    "title": "Keyboard focus escapes modal search; mobile filter sheet has no dialog contract",
+    "priority": "P1",
+    "category": "incremental_reaudit",
+    "evidence_status": "reproduced_saved_application",
+    "evidence": "The search palette declares role=dialog and aria-modal=true, yet the sixth Tab after the result input leaves the palette and reaches background UI. The mobile filter sheet likewise permits background focus and has no dialog role. The reference patch fixes search focus containment; the mobile sheet remains open work.",
+    "impact": "Keyboard and screen-reader users can interact with obscured content and lose their place.",
+    "repair": "Use one overlay controller with initial focus, inert background, wraparound focus, Escape, close and focus return. Distinguish the desktop non-modal filter panel from the mobile modal sheet. Respect nested tools/dialog states.",
+    "acceptance": [
+      "Tab and Shift+Tab remain inside the topmost modal; Escape restores the invoking control.",
+      "A mobile filter sheet has a programmatic name, appropriate dialog semantics and inert background.",
+      "Resize across the mobile breakpoint while open; do not leave the page inert after closing."
+    ],
+    "evidence_files": [
+      "evidence/case_search_focus_escape.json",
+      "evidence/case_mobile_filters_focus.json",
+      "evidence/reference/candidate-modal_search_contains_keyboard_focus-browser-results.json"
+    ],
+    "related_prior_findings": [
+      "NZ-GLOBAL-033"
+    ],
+    "reference_patch_status": "search fixed and browser-reverified in saved experiment; mobile filter sheet not repaired",
+    "production_status": "not tested on current deployment",
+    "resolution": "open pending current-source port and real-origin revalidation"
+  },
+  {
+    "id": "NZ-GLOBAL-051",
+    "title": "Blank or invalid business quantities become zero-cost or zero-demand assumptions",
+    "priority": "P1",
+    "category": "incremental_reaudit",
+    "evidence_status": "reproduced_saved_business_beta",
+    "evidence": "In the saved separate business beta, clearing annual kWh shows illustrative annual electricity USD 0 for Texas and North Carolina. A negative input is invalid under the HTML field rules but still produces 0. Blank headcount, space, peak power and annual kWh export as numeric zeros.",
+    "impact": "Unknown requirements can look like a zero-cost operation or a company needing no staff, space or power.",
+    "repair": "Use typed quantity states: known, unknown, invalid and not-applicable. Explicit zero remains zero; a blank becomes null with status unknown. Block calculations for invalid quantities and preserve units, tariff completeness and fixed charges.",
+    "acceptance": [
+      "Blank annual kWh yields Not specified, not USD 0.",
+      "Negative and out-of-range values surface a field error and do not compute.",
+      "An explicit zero stays zero; a complete tariff still includes applicable fixed charges.",
+      "Brief exports preserve null and status rather than inventing zeros."
+    ],
+    "evidence_files": [
+      "evidence/business_boundary_cases.json",
+      "evidence/business-01-blank-energy.png",
+      "reports/decision_contract_tests.tap"
+    ],
+    "related_prior_findings": [
+      "NZ-GLOBAL-018",
+      "NZ-GLOBAL-024"
+    ],
+    "reference_patch_status": "reference quantity/bill helpers tested; actual business beta not patched",
+    "production_status": "not tested on current deployment",
+    "resolution": "open pending current-source port and real-origin revalidation"
+  },
+  {
+    "id": "NZ-GLOBAL-052",
+    "title": "Business screening and the exported brief use different unlinked assumptions",
+    "priority": "P1",
+    "category": "incremental_reaudit",
+    "evidence_status": "reproduced_saved_business_beta",
+    "evidence": "After setting the state screen to manufacturing, minimum 250,000 jobs and 2,000,000 annual kWh, getBrief exports 1,000,000 annual kWh from a separate default form. It omits the selected states, screening weights and filters. The two views are independent but their scenario relationship is not explicit.",
+    "impact": "A company can send a brief that does not describe the scenario it just evaluated. Another reader cannot reproduce the analysis.",
+    "repair": "Create one named project/scenario state and derive screening, comparison, assumptions and export from it. Support intentionally different scenarios only with explicit names. Include purpose, market, native IDs, model/data versions, units, exact assumptions, exclusions and verification gaps. Migrate old briefs without overwriting user-entered values.",
+    "acceptance": [
+      "Changing annual kWh updates all views for the same named scenario.",
+      "The exported brief reproduces industry, countries/states, filters, weights and assumptions.",
+      "Unrelated named scenarios remain independent and identifiable.",
+      "Import/export roundtrip is lossless for known values, unknowns and source references."
+    ],
+    "evidence_files": [
+      "evidence/business_boundary_cases.json",
+      "reports/decision_contract_tests.tap"
+    ],
+    "related_prior_findings": [
+      "NZ-GLOBAL-007",
+      "NZ-GLOBAL-010",
+      "NZ-GLOBAL-042"
+    ],
+    "reference_patch_status": "reference snapshot/state helpers tested; current application integration not done",
+    "production_status": "not tested on current deployment",
+    "resolution": "open pending current-source port and real-origin revalidation"
+  }
+]

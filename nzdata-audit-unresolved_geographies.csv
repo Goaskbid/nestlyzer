@@ -1,0 +1,556 @@
+source_geo_id,country,level,name
+AL:EC_CITY_LABEL:tirana,AL,survey_city,Tirana
+AT:EC_CITY_LABEL:graz,AT,survey_city,Graz
+AT:EC_CITY_LABEL:vienna,AT,survey_city,Vienna
+AT:state:1,AT,state,Burgenland
+AT:state:2,AT,state,Kaernten
+AT:state:3,AT,state,Niederoesterreich
+AT:state:4,AT,state,Oberoesterreich
+AT:state:5,AT,state,Salzburg
+AT:state:6,AT,state,Steiermark
+AT:state:7,AT,state,Tirol
+AT:state:8,AT,state,Vorarlberg
+AT:state:9,AT,state,Wien
+AU:Ausgrid_NSW,AU,utility_service_area,
+AU:Endeavour_NSW,AU,utility_service_area,
+AU:Energex_SE_Queensland,AU,utility_service_area,
+AU:Essential_NSW,AU,utility_service_area,
+AU:SA_Power_Networks,AU,utility_service_area,
+BE:EC_CITY_LABEL:antwerp,BE,survey_city,Antwerp
+BE:EC_CITY_LABEL:brussels,BE,survey_city,Brussels
+BE:EC_CITY_LABEL:liege,BE,survey_city,Liege
+BE:STATBEL_LABEL:antwerp,BE,municipality,Antwerp
+BE:STATBEL_LABEL:brussels,BE,municipality,Brussels
+BE:STATBEL_LABEL:ostend,BE,municipality,Ostend
+BG:EC_CITY_LABEL:sofia,BG,survey_city,Sofia
+CH:EC_CITY_LABEL:geneva,CH,survey_city,Geneva
+CH:EC_CITY_LABEL:zurich,CH,survey_city,Zurich
+CY:EC_CITY_LABEL:nicosia,CY,survey_city,Nicosia
+CZ:EC_CITY_LABEL:prague,CZ,survey_city,Prague
+CZ:district:benesov,CZ,district,Benesov
+CZ:district:beroun,CZ,district,Beroun
+CZ:district:blansko,CZ,district,Blansko
+CZ:district:breclav,CZ,district,Breclav
+CZ:district:brno-mesto,CZ,district,Brno-mesto
+CZ:district:brno-venkov,CZ,district,Brno-venkov
+CZ:district:bruntal,CZ,district,Bruntal
+CZ:district:ceska-lipa,CZ,district,Ceska Lipa
+CZ:district:ceske-budejovice,CZ,district,Ceske Budejovice
+CZ:district:cesky-krumlov,CZ,district,Cesky Krumlov
+CZ:district:cheb,CZ,district,Cheb
+CZ:district:chomutov,CZ,district,Chomutov
+CZ:district:chrudim,CZ,district,Chrudim
+CZ:district:decin,CZ,district,Decin
+CZ:district:domazlice,CZ,district,Domazlice
+CZ:district:frydek-mistek,CZ,district,Frydek-Mistek
+CZ:district:havlickuv-brod,CZ,district,Havlickuv Brod
+CZ:district:hodonin,CZ,district,Hodonin
+CZ:district:hradec-kralove,CZ,district,Hradec Kralove
+CZ:district:jablonec-nad-nisou,CZ,district,Jablonec nad Nisou
+CZ:district:jesenik,CZ,district,Jesenik
+CZ:district:jicin,CZ,district,Jicin
+CZ:district:jihlava,CZ,district,Jihlava
+CZ:district:jindrichuv-hradec,CZ,district,Jindrichuv Hradec
+CZ:district:karlovy-vary,CZ,district,Karlovy Vary
+CZ:district:karvina,CZ,district,Karvina
+CZ:district:kladno,CZ,district,Kladno
+CZ:district:klatovy,CZ,district,Klatovy
+CZ:district:kolin,CZ,district,Kolin
+CZ:district:kromeriz,CZ,district,Kromeriz
+CZ:district:kutna-hora,CZ,district,Kutna Hora
+CZ:district:liberec,CZ,district,Liberec
+CZ:district:litomerice,CZ,district,Litomerice
+CZ:district:louny,CZ,district,Louny
+CZ:district:melnik,CZ,district,Melnik
+CZ:district:mlada-boleslav,CZ,district,Mlada Boleslav
+CZ:district:most,CZ,district,Most
+CZ:district:nachod,CZ,district,Nachod
+CZ:district:novy-jicin,CZ,district,Novy Jicin
+CZ:district:nymburk,CZ,district,Nymburk
+CZ:district:olomouc,CZ,district,Olomouc
+CZ:district:opava,CZ,district,Opava
+CZ:district:ostrava-mesto,CZ,district,Ostrava-mesto
+CZ:district:pardubice,CZ,district,Pardubice
+CZ:district:pelhrimov,CZ,district,Pelhrimov
+CZ:district:pisek,CZ,district,Pisek
+CZ:district:plzen-jih,CZ,district,Plzen-jih
+CZ:district:plzen-mesto,CZ,district,Plzen-mesto
+CZ:district:plzen-sever,CZ,district,Plzen-sever
+CZ:district:prachatice,CZ,district,Prachatice
+CZ:district:praha,CZ,district,Praha
+CZ:district:praha-vychod,CZ,district,Praha-vychod
+CZ:district:praha-zapad,CZ,district,Praha-zapad
+CZ:district:prerov,CZ,district,Prerov
+CZ:district:pribram,CZ,district,Pribram
+CZ:district:prostejov,CZ,district,Prostejov
+CZ:district:rakovnik,CZ,district,Rakovnik
+CZ:district:rokycany,CZ,district,Rokycany
+CZ:district:rychnov-nad-kneznou,CZ,district,Rychnov nad Kneznou
+CZ:district:semily,CZ,district,Semily
+CZ:district:sokolov,CZ,district,Sokolov
+CZ:district:strakonice,CZ,district,Strakonice
+CZ:district:sumperk,CZ,district,Sumperk
+CZ:district:svitavy,CZ,district,Svitavy
+CZ:district:tabor,CZ,district,Tabor
+CZ:district:tachov,CZ,district,Tachov
+CZ:district:teplice,CZ,district,Teplice
+CZ:district:trebic,CZ,district,Trebic
+CZ:district:trutnov,CZ,district,Trutnov
+CZ:district:uherske-hradiste,CZ,district,Uherske Hradiste
+CZ:district:usti-nad-labem,CZ,district,Usti nad Labem
+CZ:district:usti-nad-orlici,CZ,district,Usti nad Orlici
+CZ:district:vsetin,CZ,district,Vsetin
+CZ:district:vyskov,CZ,district,Vyskov
+CZ:district:zdar-nad-sazavou,CZ,district,Zdar nad Sazavou
+CZ:district:zlin,CZ,district,Zlin
+CZ:district:znojmo,CZ,district,Znojmo
+DE:EC_CITY_LABEL:hamburg,DE,survey_city,Hamburg
+DE:EC_CITY_LABEL:leipzig,DE,survey_city,Leipzig
+DE:EC_CITY_LABEL:munich,DE,survey_city,Munich
+DE:EC_CITY_LABEL:rostock,DE,survey_city,Rostock
+DE:LAUPHEIM_PUBLISHER_LABEL,DE,municipality,Laupheim
+DK:EC_CITY_LABEL:aalborg,DK,survey_city,Aalborg
+DK:EC_CITY_LABEL:copenhagen,DK,survey_city,Copenhagen
+EE:EC_CITY_LABEL:tallinn,EE,survey_city,Tallinn
+EE:county:harju,EE,county,Harju
+EE:county:hiiu,EE,county,Hiiu
+EE:county:ida-viru,EE,county,Ida-Viru
+EE:county:jarva,EE,county,Jarva
+EE:county:jogeva,EE,county,Jogeva
+EE:county:laane-viru,EE,county,Laane-Viru
+EE:county:parnu,EE,county,Parnu
+EE:county:polva,EE,county,Polva
+EE:county:rapla,EE,county,Rapla
+EE:county:saare,EE,county,Saare
+EE:county:tartu,EE,county,Tartu
+EE:county:valga,EE,county,Valga
+EE:county:viljandi,EE,county,Viljandi
+EE:county:voru,EE,county,Voru
+EE:county_excluding_city:harju-excluding-tallinn,EE,county_excluding_city,Harju excluding Tallinn
+EIA:east_north_central,US,multi_state_region,
+EIA:east_south_central,US,multi_state_region,
+EIA:middle_atlantic,US,multi_state_region,
+EIA:mountain,US,multi_state_region,
+EIA:new_england,US,multi_state_region,
+EIA:pacific_contiguous,US,multi_state_region,
+EIA:pacific_noncontiguous,US,multi_state_region,
+EIA:south_atlantic,US,multi_state_region,
+EIA:west_north_central,US,multi_state_region,
+EIA:west_south_central,US,multi_state_region,
+ES:EC_CITY_LABEL:barcelona,ES,survey_city,Barcelona
+ES:EC_CITY_LABEL:madrid,ES,survey_city,Madrid
+ES:EC_CITY_LABEL:malaga,ES,survey_city,Malaga
+ES:EC_CITY_LABEL:oviedo,ES,survey_city,Oviedo
+ES:published-municipality:01:vitoria,ES,municipality,Vitoria
+ES:published-municipality:03:alcoy-alcoi,ES,municipality,Alcoy/Alcoi
+ES:published-municipality:03:alicante-alacant,ES,municipality,Alicante/Alacant
+ES:published-municipality:03:calpe-calp,ES,municipality,Calpe/Calp
+ES:published-municipality:03:elche-elx,ES,municipality,Elche/Elx
+ES:published-municipality:03:javea-xabia,ES,municipality,Javea/Xabia
+ES:published-municipality:03:villajoyosa-vila-joiosa-la,ES,municipality,Villajoyosa/Vila Joiosa (La)
+ES:published-municipality:04:ejido-el,ES,municipality,Ejido (El)
+ES:published-municipality:07:mahon,ES,municipality,Mahon
+ES:published-municipality:07:palma-de-mallorca,ES,municipality,Palma de Mallorca
+ES:published-municipality:07:santa-eulalia-del-rio,ES,municipality,Santa Eulalia del Rio
+ES:published-municipality:08:hospitalet-de-llobregat-l,ES,municipality,Hospitalet de Llobregat (L')
+ES:published-municipality:08:prat-de-llobregat-el,ES,municipality,Prat de Llobregat (El)
+ES:published-municipality:08:santa-coloma-gramanet,ES,municipality,Santa Coloma Gramanet
+ES:published-municipality:11:linea-de-la-concepcion-la,ES,municipality,Linea de la Concepcion (La)
+ES:published-municipality:11:puerto-de-santa-maria,ES,municipality,Puerto de Santa Maria
+ES:published-municipality:12:almazora-almassora,ES,municipality,Almazora/Almassora
+ES:published-municipality:12:burriana,ES,municipality,Burriana
+ES:published-municipality:12:castellon-de-la-plana,ES,municipality,Castellon de la Plana
+ES:published-municipality:12:vall-d-uixo-la,ES,municipality,Vall d'Uixo (la)
+ES:published-municipality:12:villarreal-vila-real,ES,municipality,Villarreal/Vila-real
+ES:published-municipality:15:coruna-a,ES,municipality,Coruna (A)
+ES:published-municipality:20:san-sebastian-donostia,ES,municipality,San Sebastian/Donostia
+ES:published-municipality:28:rozas-de-madrid-las,ES,municipality,Rozas de Madrid (Las)
+ES:published-municipality:30:cieza,ES,municipality,Cieza
+ES:published-municipality:31:pamplona-iruna,ES,municipality,Pamplona/Iruna
+ES:published-municipality:33:mieres,ES,municipality,Mieres
+ES:published-municipality:35:palmas-de-gran-canaria-las,ES,municipality,Palmas de Gran Canaria (Las)
+ES:published-municipality:38:orotava-la,ES,municipality,Orotava (La)
+ES:published-municipality:38:realejos-los,ES,municipality,Realejos (Los)
+ES:published-municipality:38:san-cristobal-laguna,ES,municipality,San Cristobal Laguna
+ES:published-municipality:41:palacios-y-villafranca-los,ES,municipality,Palacios y Villafranca (Los)
+ES:published-municipality:41:rinconada-la,ES,municipality,Rinconada (La)
+ES:published-municipality:43:vendrell-el,ES,municipality,Vendrell (El)
+ES:published-municipality:46:sagunto-sagunt,ES,municipality,Sagunto/Sagunt
+ES:published-municipality:46:torrent,ES,municipality,Torrent
+FI:EC_CITY_LABEL:helsinki,FI,survey_city,Helsinki
+FI:EC_CITY_LABEL:oulu,FI,survey_city,Oulu
+FI:vero_area:maarianhamina,FI,municipality,Maarianhamina
+FR:EC_CITY_LABEL:paris,FR,survey_city,Paris
+FR:EC_CITY_LABEL:rennes,FR,survey_city,Rennes
+FR:EC_CITY_LABEL:strasbourg,FR,survey_city,Strasbourg
+GB:EC_CITY_LABEL:belfast,UK,survey_city,Belfast
+GB:EC_CITY_LABEL:cardiff,UK,survey_city,Cardiff
+GB:EC_CITY_LABEL:tyneside_conurbation,UK,survey_city,Tyneside conurbation
+GR:EC_CITY_LABEL:athens,EL,survey_city,Athens
+GR:EC_CITY_LABEL:heraklion,EL,survey_city,Heraklion
+GSS:E06000060,UK,local_authority,Buckinghamshire
+GSS:E06000061,UK,local_authority,North Northamptonshire
+GSS:E06000062,UK,local_authority,West Northamptonshire
+GSS:E06000063,UK,local_authority,Cumberland
+GSS:E06000064,UK,local_authority,Westmorland and Furness
+GSS:E06000065,UK,local_authority,North Yorkshire
+GSS:E06000066,UK,local_authority,Somerset
+GSS:E07000244,UK,local_authority,East Suffolk
+GSS:E07000245,UK,local_authority,West Suffolk
+GSS:E07000246,UK,local_authority,Somerset West and Taunton
+GSS:E10000003,UK,upper_tier_county,Cambridgeshire
+GSS:E10000007,UK,upper_tier_county,Derbyshire
+GSS:E10000008,UK,upper_tier_county,Devon
+GSS:E10000011,UK,upper_tier_county,East Sussex
+GSS:E10000012,UK,upper_tier_county,Essex
+GSS:E10000013,UK,upper_tier_county,Gloucestershire
+GSS:E10000014,UK,upper_tier_county,Hampshire
+GSS:E10000015,UK,upper_tier_county,Hertfordshire
+GSS:E10000016,UK,upper_tier_county,Kent
+GSS:E10000017,UK,upper_tier_county,Lancashire
+GSS:E10000018,UK,upper_tier_county,Leicestershire
+GSS:E10000019,UK,upper_tier_county,Lincolnshire
+GSS:E10000020,UK,upper_tier_county,Norfolk
+GSS:E10000024,UK,upper_tier_county,Nottinghamshire
+GSS:E10000025,UK,upper_tier_county,Oxfordshire
+GSS:E10000028,UK,upper_tier_county,Staffordshire
+GSS:E10000029,UK,upper_tier_county,Suffolk
+GSS:E10000030,UK,upper_tier_county,Surrey
+GSS:E10000031,UK,upper_tier_county,Warwickshire
+GSS:E10000032,UK,upper_tier_county,West Sussex
+GSS:E10000034,UK,upper_tier_county,Worcestershire
+GSS:E12000001,UK,region,North East
+GSS:E12000002,UK,region,North West
+GSS:E12000003,UK,region,Yorkshire and The Humber
+GSS:E12000004,UK,region,East Midlands
+GSS:E12000005,UK,region,West Midlands
+GSS:E12000006,UK,region,East of England
+GSS:E12000007,UK,region,London
+GSS:E12000008,UK,region,South East
+GSS:E12000009,UK,region,South West
+GSS:E47000001,UK,combined_authority,Greater Manchester
+GSS:E47000002,UK,combined_authority,South Yorkshire
+GSS:E47000003,UK,combined_authority,West Yorkshire
+GSS:E47000004,UK,combined_authority,Liverpool City Region
+GSS:E47000006,UK,combined_authority,Tees Valley
+GSS:E47000007,UK,combined_authority,West Midlands
+GSS:E47000008,UK,combined_authority,Cambridgeshire and Peterborough
+GSS:E47000009,UK,combined_authority,West of England
+GSS:E47000012,UK,combined_authority,York and North Yorkshire
+GSS:E47000013,UK,combined_authority,East Midlands
+GSS:E47000014,UK,combined_authority,North East
+GSS:E47000015,UK,combined_authority,Devon and Torbay
+GSS:E47000016,UK,combined_authority,Hull and East Yorkshire
+GSS:E47000017,UK,combined_authority,Greater Lincolnshire
+GSS:E47000018,UK,combined_authority,Lancashire
+GSS:E92000001,UK,country_or_country_group,England
+GSS:K02000001,UK,country_or_country_group,United Kingdom
+GSS:K03000001,UK,country_or_country_group,Great Britain
+GSS:K04000001,UK,country_or_country_group,England and Wales
+GSS:N92000002,UK,country_or_country_group,Northern Ireland
+GSS:S12000017,UK,local_authority,Highland
+GSS:S12000020,UK,local_authority,Moray
+GSS:S12000021,UK,local_authority,North Ayrshire
+GSS:S12000035,UK,local_authority,Argyll and Bute
+GSS:S92000003,UK,country_or_country_group,Scotland
+GSS:W92000004,UK,country_or_country_group,Wales
+HK:DCD:central-and-western,HK,district,Central and Western
+HK:DCD:eastern,HK,district,Eastern
+HK:DCD:islands,HK,district,Islands
+HK:DCD:kowloon-city,HK,district,Kowloon City
+HK:DCD:kwai-tsing,HK,district,Kwai Tsing
+HK:DCD:kwun-tong,HK,district,Kwun Tong
+HK:DCD:north,HK,district,North
+HK:DCD:sai-kung,HK,district,Sai Kung
+HK:DCD:sha-tin,HK,district,Sha Tin
+HK:DCD:sham-shui-po,HK,district,Sham Shui Po
+HK:DCD:southern,HK,district,Southern
+HK:DCD:tai-po,HK,district,Tai Po
+HK:DCD:tsuen-wan,HK,district,Tsuen Wan
+HK:DCD:tuen-mun,HK,district,Tuen Mun
+HK:DCD:wan-chai,HK,district,Wan Chai
+HK:DCD:whole-territory,HK,territory,Whole Territory
+HK:DCD:wong-tai-sin,HK,district,Wong Tai Sin
+HK:DCD:yau-tsim-mong,HK,district,Yau Tsim Mong
+HK:DCD:yuen-long,HK,district,Yuen Long
+HR:county:bjelovar-bilogora,HR,county,Bjelovar-Bilogora
+HR:county:dubrovnik-neretva,HR,county,Dubrovnik-Neretva
+HR:county:istria,HR,county,Istria
+HR:county:karlovac,HR,county,Karlovac
+HR:county:koprivnica-krizevci,HR,county,Koprivnica-Krizevci
+HR:county:krapina-zagorje,HR,county,Krapina-Zagorje
+HR:county:lika-senj,HR,county,Lika-Senj
+HR:county:medimurje,HR,county,Medimurje
+HR:county:osijek-baranja,HR,county,Osijek-Baranja
+HR:county:pozega-slavonia,HR,county,Pozega-Slavonia
+HR:county:primorje-gorski-kotar,HR,county,Primorje-Gorski Kotar
+HR:county:sibenik-knin,HR,county,Sibenik-Knin
+HR:county:sisak-moslavina,HR,county,Sisak-Moslavina
+HR:county:slavonski-brod-posavina,HR,county,Slavonski Brod-Posavina
+HR:county:split-dalmatia,HR,county,Split-Dalmatia
+HR:county:varazdin,HR,county,Varazdin
+HR:county:virovitica-podravina,HR,county,Virovitica-Podravina
+HR:county:vukovar-srijem,HR,county,Vukovar-Srijem
+HR:county:zadar,HR,county,Zadar
+HR:county:zagreb-county,HR,county,Zagreb County
+HR:municipality:city-of-zagreb,HR,municipality,City of Zagreb
+HU:EC_CITY_LABEL:budapest,HU,survey_city,Budapest
+HU:EC_CITY_LABEL:miskolc,HU,survey_city,Miskolc
+IE:MET:casement,IE,climate_station,Casement
+IE:MET:dublinairport,IE,climate_station,Dublin Airport
+IE:MET:malinhead,IE,climate_station,Malin Head
+IE:MET:shannonairport,IE,climate_station,Shannon Airport
+IE:MET:valentia,IE,climate_station,Valentia
+IS:EC_CITY_LABEL:reykjavik,IS,survey_city,Reykjavik
+IT:EC_CITY_LABEL:naples,IT,survey_city,Naples
+IT:EC_CITY_LABEL:palermo,IT,survey_city,Palermo
+IT:EC_CITY_LABEL:rome,IT,survey_city,Rome
+IT:EC_CITY_LABEL:turin,IT,survey_city,Turin
+JMA:AU:perth,AU,climate_station,Perth
+JMA:BG:sofia,BG,climate_station,Sofia
+JMA:CA:goose,CA,climate_station,Goose
+JMA:CH:genevecointrin,CH,climate_station,Geneve-Cointrin
+JMA:DE:berlin,DE,climate_station,Berlin
+JMA:IE:cork,IE,climate_station,Cork
+JMA:IS:reykjavik,IS,climate_station,Reykjavik
+JMA:JP:chichijima,JP,climate_station,Chichijima
+JMA:PT:lisbon,PT,climate_station,Lisbon
+JMA:PT:santamariaazores,PT,climate_station,Santa Maria (Azores)
+JMA:RO:bucuresti,RO,climate_station,Bucuresti
+JMA:RS:beograd,RS,climate_station,Beograd
+JMA:US:anchorage,US,climate_station,Anchorage
+JMA:US:atlanta,US,climate_station,Atlanta
+JMA:US:miami,US,climate_station,Miami
+JMA:US:minneapolis,US,climate_station,Minneapolis
+JMA:US:newyork,US,climate_station,New York
+JMA:US:nome,US,climate_station,Nome
+JMA:US:portland,US,climate_station,Portland
+KR:Seoul,KR,metropolitan_city,Seoul
+KR:Seoul:district:dobong-gu,KR,city_district,Dobong-gu
+KR:Seoul:district:dongdaemun-gu,KR,city_district,Dongdaemun-gu
+KR:Seoul:district:dongjak-gu,KR,city_district,Dongjak-gu
+KR:Seoul:district:eunpyeong-gu,KR,city_district,Eunpyeong-gu
+KR:Seoul:district:gangbuk-gu,KR,city_district,Gangbuk-gu
+KR:Seoul:district:gangdong-gu,KR,city_district,Gangdong-gu
+KR:Seoul:district:gangnam-gu,KR,city_district,Gangnam-gu
+KR:Seoul:district:gangseo-gu,KR,city_district,Gangseo-gu
+KR:Seoul:district:geumcheon-gu,KR,city_district,Geumcheon-gu
+KR:Seoul:district:guro-gu,KR,city_district,Guro-gu
+KR:Seoul:district:gwanak-gu,KR,city_district,Gwanak-gu
+KR:Seoul:district:gwangjin-gu,KR,city_district,Gwangjin-gu
+KR:Seoul:district:jongno-gu,KR,city_district,Jongno-gu
+KR:Seoul:district:jung-gu,KR,city_district,Jung-gu
+KR:Seoul:district:jungnang-gu,KR,city_district,Jungnang-gu
+KR:Seoul:district:mapo-gu,KR,city_district,Mapo-gu
+KR:Seoul:district:nowon-gu,KR,city_district,Nowon-gu
+KR:Seoul:district:seocho-gu,KR,city_district,Seocho-gu
+KR:Seoul:district:seodaemun-gu,KR,city_district,Seodaemun-gu
+KR:Seoul:district:seongbuk-gu,KR,city_district,Seongbuk-gu
+KR:Seoul:district:seongdong-gu,KR,city_district,Seongdong-gu
+KR:Seoul:district:songpa-gu,KR,city_district,Songpa-gu
+KR:Seoul:district:yangcheon-gu,KR,city_district,Yangcheon-gu
+KR:Seoul:district:yeongdeungpo-gu,KR,city_district,Yeongdeungpo-gu
+KR:Seoul:district:yongsan-gu,KR,city_district,Yongsan-gu
+LU:EC_CITY_LABEL:luxembourg,LU,survey_city,Luxembourg
+LV:city_component:jekabpils,LV,urban_component,Jekabpils
+LV:city_component:ogre,LV,urban_component,Ogre
+LV:city_component:valmiera,LV,urban_component,Valmiera
+MK:EC_CITY_LABEL:skopje,MK,survey_city,Skopje
+MT:EC_CITY_LABEL:valletta,MT,survey_city,Valletta
+NL:CBS_LABEL:bergen_l,NL,municipality,Bergen (L.)
+NL:CBS_LABEL:bergen_nh,NL,municipality,Bergen (NH.)
+NL:EC_CITY_LABEL:amsterdam,NL,survey_city,Amsterdam
+NL:EC_CITY_LABEL:groningen,NL,survey_city,Groningen
+NL:EC_CITY_LABEL:rotterdam,NL,survey_city,Rotterdam
+NL:PV20,NL,province,Groningen province
+NL:PV21,NL,province,Fryslan province
+NO:EC_CITY_LABEL:oslo,NO,survey_city,Oslo
+NZ:region:auckland,NZ,region,Auckland
+NZ:region:bay-of-plenty,NZ,region,Bay of Plenty
+NZ:region:canterbury,NZ,region,Canterbury
+NZ:region:gisborne,NZ,region,Gisborne
+NZ:region:hawkes-bay,NZ,region,Hawkes Bay
+NZ:region:manawatu-whanganui,NZ,region,Manawatu-Whanganui
+NZ:region:marlborough,NZ,region,Marlborough
+NZ:region:nelson,NZ,region,Nelson
+NZ:region:northland,NZ,region,Northland
+NZ:region:otago,NZ,region,Otago
+NZ:region:southland,NZ,region,Southland
+NZ:region:taranaki,NZ,region,Taranaki
+NZ:region:tasman,NZ,region,Tasman
+NZ:region:waikato,NZ,region,Waikato
+NZ:region:wellington,NZ,region,Wellington
+NZ:region:west-coast,NZ,region,West Coast
+PL:EC_CITY_LABEL:bialystok,PL,survey_city,Bialystok
+PL:EC_CITY_LABEL:gdansk,PL,survey_city,Gdansk
+PL:EC_CITY_LABEL:warsaw,PL,survey_city,Warsaw
+PT:EC_CITY_LABEL:braga,PT,survey_city,Braga
+PT:EC_CITY_LABEL:lisbon,PT,survey_city,Lisbon
+RO:ANOFM:mun-buc,RO,county_or_Bucharest,MUN. BUC.
+RO:EC_CITY_LABEL:bucharest,RO,survey_city,Bucharest
+RO:EC_CITY_LABEL:cluj_napoca,RO,survey_city,Cluj-Napoca
+RO:EC_CITY_LABEL:piatra_neamt,RO,survey_city,Piatra Neamt
+RS:EC_CITY_LABEL:belgrade,RS,survey_city,Belgrade
+SE:EC_CITY_LABEL:malmo,SE,survey_city,Malmo
+SE:EC_CITY_LABEL:stockholm,SE,survey_city,Stockholm
+SG:HDB:ang-mo-kio,SG,HDB_town,Ang Mo Kio
+SG:HDB:bedok,SG,HDB_town,Bedok
+SG:HDB:bishan,SG,HDB_town,Bishan
+SG:HDB:bukit-batok,SG,HDB_town,Bukit Batok
+SG:HDB:bukit-merah,SG,HDB_town,Bukit Merah
+SG:HDB:bukit-panjang,SG,HDB_town,Bukit Panjang
+SG:HDB:central-area,SG,HDB_town,Central Area
+SG:HDB:choa-chu-kang,SG,HDB_town,Choa Chu Kang
+SG:HDB:clementi,SG,HDB_town,Clementi
+SG:HDB:geylang,SG,HDB_town,Geylang
+SG:HDB:hougang,SG,HDB_town,Hougang
+SG:HDB:jurong-east,SG,HDB_town,Jurong East
+SG:HDB:jurong-west,SG,HDB_town,Jurong West
+SG:HDB:kallang-whampoa,SG,HDB_town,Kallang/Whampoa
+SG:HDB:pasir-ris,SG,HDB_town,Pasir Ris
+SG:HDB:punggol,SG,HDB_town,Punggol
+SG:HDB:queenstown,SG,HDB_town,Queenstown
+SG:HDB:sembawang,SG,HDB_town,Sembawang
+SG:HDB:sengkang,SG,HDB_town,Sengkang
+SG:HDB:serangoon,SG,HDB_town,Serangoon
+SG:HDB:tampines,SG,HDB_town,Tampines
+SG:HDB:toa-payoh,SG,HDB_town,Toa Payoh
+SG:HDB:woodlands,SG,HDB_town,Woodlands
+SG:HDB:yishun,SG,HDB_town,Yishun
+SI:EC_CITY_LABEL:ljubljana,SI,survey_city,Ljubljana
+SK:EC_CITY_LABEL:bratislava,SK,survey_city,Bratislava
+TW:county_city:changhua-county,TW,county,Changhua County
+TW:county_city:chiayi-city,TW,administrative_city,Chiayi City
+TW:county_city:chiayi-county,TW,county,Chiayi County
+TW:county_city:hsinchu-city,TW,administrative_city,Hsinchu City
+TW:county_city:hsinchu-county,TW,county,Hsinchu County
+TW:county_city:hualien-county,TW,county,Hualien County
+TW:county_city:kaohsiung-city,TW,administrative_city,Kaohsiung City
+TW:county_city:keelung-city,TW,administrative_city,Keelung City
+TW:county_city:kinmen-county,TW,county,Kinmen County
+TW:county_city:lienchiang-county,TW,county,Lienchiang County
+TW:county_city:miaoli-county,TW,county,Miaoli County
+TW:county_city:nantou-county,TW,county,Nantou County
+TW:county_city:new-taipei-city,TW,administrative_city,New Taipei City
+TW:county_city:penghu-county,TW,county,Penghu County
+TW:county_city:pingtung-county,TW,county,Pingtung County
+TW:county_city:taichung-city,TW,administrative_city,Taichung City
+TW:county_city:tainan-city,TW,administrative_city,Tainan City
+TW:county_city:taipei-city,TW,administrative_city,Taipei City
+TW:county_city:taitung-county,TW,county,Taitung County
+TW:county_city:taoyuan-city,TW,administrative_city,Taoyuan City
+TW:county_city:yilan-county,TW,county,Yilan County
+TW:county_city:yunlin-county,TW,county,Yunlin County
+US-PR,US,territory,Puerto Rico
+US-VI,US,territory,U.S. Virgin Islands
+US-WV:county:barbour,US,county,Barbour
+US-WV:county:berkeley,US,county,Berkeley
+US-WV:county:boone,US,county,Boone
+US-WV:county:braxton,US,county,Braxton
+US-WV:county:brooke,US,county,Brooke
+US-WV:county:cabell,US,county,Cabell
+US-WV:county:calhoun,US,county,Calhoun
+US-WV:county:clay,US,county,Clay
+US-WV:county:doddridge,US,county,Doddridge
+US-WV:county:fayette,US,county,Fayette
+US-WV:county:gilmer,US,county,Gilmer
+US-WV:county:grant,US,county,Grant
+US-WV:county:greenbrier,US,county,Greenbrier
+US-WV:county:hampshire,US,county,Hampshire
+US-WV:county:hancock,US,county,Hancock
+US-WV:county:hardy,US,county,Hardy
+US-WV:county:harrison,US,county,Harrison
+US-WV:county:jackson,US,county,Jackson
+US-WV:county:jefferson,US,county,Jefferson
+US-WV:county:kanawha,US,county,Kanawha
+US-WV:county:lewis,US,county,Lewis
+US-WV:county:lincoln,US,county,Lincoln
+US-WV:county:logan,US,county,Logan
+US-WV:county:marion,US,county,Marion
+US-WV:county:marshall,US,county,Marshall
+US-WV:county:mason,US,county,Mason
+US-WV:county:mcdowell,US,county,McDowell
+US-WV:county:mercer,US,county,Mercer
+US-WV:county:mineral,US,county,Mineral
+US-WV:county:mingo,US,county,Mingo
+US-WV:county:monongalia,US,county,Monongalia
+US-WV:county:monroe,US,county,Monroe
+US-WV:county:morgan,US,county,Morgan
+US-WV:county:nicholas,US,county,Nicholas
+US-WV:county:ohio,US,county,Ohio
+US-WV:county:pendleton,US,county,Pendleton
+US-WV:county:pleasants,US,county,Pleasants
+US-WV:county:pocahontas,US,county,Pocahontas
+US-WV:county:preston,US,county,Preston
+US-WV:county:putnam,US,county,Putnam
+US-WV:county:raleigh,US,county,Raleigh
+US-WV:county:randolph,US,county,Randolph
+US-WV:county:ritchie,US,county,Ritchie
+US-WV:county:roane,US,county,Roane
+US-WV:county:summers,US,county,Summers
+US-WV:county:taylor,US,county,Taylor
+US-WV:county:tucker,US,county,Tucker
+US-WV:county:tyler,US,county,Tyler
+US-WV:county:upshur,US,county,Upshur
+US-WV:county:wayne,US,county,Wayne
+US-WV:county:webster,US,county,Webster
+US-WV:county:wetzel,US,county,Wetzel
+US-WV:county:wirt,US,county,Wirt
+US-WV:county:wood,US,county,Wood
+US-WV:county:wyoming,US,county,Wyoming
+US:CensusPlace:5414600,US,incorporated_place,"Charleston, West Virginia"
+US:CensusPlace:5439460,US,incorporated_place,"Huntington, West Virginia"
+US:WV:county:barbour,US,county,"Barbour County, West Virginia"
+US:WV:county:berkeley,US,county,"Berkeley County, West Virginia"
+US:WV:county:boone,US,county,"Boone County, West Virginia"
+US:WV:county:braxton,US,county,"Braxton County, West Virginia"
+US:WV:county:brooke,US,county,"Brooke County, West Virginia"
+US:WV:county:cabell,US,county,"Cabell County, West Virginia"
+US:WV:county:calhoun,US,county,"Calhoun County, West Virginia"
+US:WV:county:clay,US,county,"Clay County, West Virginia"
+US:WV:county:kanawha,US,county,"Kanawha County, West Virginia"
+WIPO26_BOSTON_CAMBRIDGE,US,functional_innovation_cluster,
+WIPO26_CAMBRIDGE,UK,functional_innovation_cluster,
+WIPO26_DAEJEON,KR,functional_innovation_cluster,
+WIPO26_LONDON,UK,functional_innovation_cluster,
+WIPO26_MIAMI,US,functional_innovation_cluster,
+WIPO26_MUNICH,DE,functional_innovation_cluster,
+WIPO26_NEW_YORK_CITY,US,functional_innovation_cluster,
+WIPO26_OSAKA_KOBE_KYOTO,JP,functional_innovation_cluster,
+WIPO26_OXFORD,UK,functional_innovation_cluster,
+WIPO26_PARIS,FR,functional_innovation_cluster,
+WIPO26_SAN_JOSE_SAN_FRANCISCO,US,functional_innovation_cluster,
+WIPO26_SEOUL,KR,functional_innovation_cluster,
+WIPO26_STOCKHOLM,SE,functional_innovation_cluster,
+WIPO26_TOKYO_YOKOHAMA,JP,functional_innovation_cluster,
+source-locality:NZ_DISTRICT_RENTS:Christchurch City,NZ,territorial_authority,Christchurch City
+source-locality:NZ_DISTRICT_RENTS:Kapiti Coast District,NZ,territorial_authority,Kapiti Coast District
+source-locality:NZ_DISTRICT_RENTS:Southland District,NZ,territorial_authority,Southland District
+source-locality:NZ_DISTRICT_RENTS:Tasman District,NZ,territorial_authority,Tasman District
+source-locality:NZ_DISTRICT_RENTS:Whangarei District,NZ,territorial_authority,Whangarei District
+source-locality:NZ_REGION_RENTS:Auckland,NZ,region,Auckland
+source-locality:NZ_REGION_RENTS:Bay of Plenty,NZ,region,Bay of Plenty
+source-locality:NZ_REGION_RENTS:Canterbury,NZ,region,Canterbury
+source-locality:NZ_REGION_RENTS:Gisborne,NZ,region,Gisborne
+source-locality:NZ_REGION_RENTS:Hawke's Bay,NZ,region,Hawke's Bay
+source-locality:NZ_REGION_RENTS:Manawatu-Wanganui,NZ,region,Manawatu-Wanganui
+source-locality:NZ_REGION_RENTS:Marlborough,NZ,region,Marlborough
+source-locality:NZ_REGION_RENTS:Nelson,NZ,region,Nelson
+source-locality:NZ_REGION_RENTS:Northland,NZ,region,Northland
+source-locality:NZ_REGION_RENTS:Otago,NZ,region,Otago
+source-locality:NZ_REGION_RENTS:Southland,NZ,region,Southland
+source-locality:NZ_REGION_RENTS:Taranaki,NZ,region,Taranaki
+source-locality:NZ_REGION_RENTS:Tasman,NZ,region,Tasman
+source-locality:NZ_REGION_RENTS:Waikato,NZ,region,Waikato
+source-locality:NZ_REGION_RENTS:Wellington,NZ,region,Wellington
+source-locality:NZ_REGION_RENTS:West Coast,NZ,region,West Coast
+source-locality:RETAINED_BE:Braine-l’Alleud,BE,municipality,Braine-l’Alleud
+source-locality:RETAINED_BE:Brussels,BE,municipality,Brussels
+source-locality:RETAINED_BE:Merelbeke-Melle,BE,municipality,Merelbeke-Melle
+source-locality:RETAINED_BE:Ostend,BE,municipality,Ostend
+source-locality:RETAINED_BE:Tongeren-Borgloon,BE,municipality,Tongeren-Borgloon
+source-locality:RETAINED_ES:Alcoi/Alcoy,ES,municipality,Alcoi/Alcoy
+source-locality:RETAINED_ES:Cieza,ES,municipality,Cieza
+source-locality:RETAINED_ES:Donostia/San Sebastián,ES,municipality,Donostia/San Sebastián
+source-locality:RETAINED_ES:Mieres,ES,municipality,Mieres
+source-locality:RETAINED_HR:Zagreb,HR,municipality,Zagreb

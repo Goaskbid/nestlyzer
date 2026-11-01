@@ -764,7 +764,7 @@ function evidenceCSV() {
    rent trends, pay by occupation, employer labour costs. They describe the place, its zone or metro, or the country, and
    say which; they are never place factors, never change a score and never count as measured local data. */
 var NACE_NAME = { A: 'agriculture, forestry, fishing', 'B-E': 'industry incl. energy', C: 'manufacturing', F: 'construction', 'G-I': 'trade, transport, hotels and restaurants', G: 'trade', H: 'transport and storage', I: 'hotels and restaurants', J: 'information and communication', K: 'finance and insurance', L: 'real estate', 'M-N': 'professional, scientific and support services', 'O-Q': 'public administration, education, health', 'R-U': 'other services', 'G-N_R-U': 'market services (trade, transport, hotels, information, finance, real estate, business and other services)', 'GZ-IZ': 'trade, transport, hotels and restaurants', 'OZ-QZ': 'public administration, education, health' };
-var CX_REL = { is: '', group_member: 'municipality group', zone_member: 'rental zone', metro_member: 'metropolitan area', principal_city: 'metropolitan area (principal city)', state: 'state', region: 'county', station: 'weather station', district: 'district', county: 'county', stat_region: 'statistical region', contains: 'county or region' };
+var CX_REL = { is: '', group_member: 'municipality group', zone_member: 'rental zone', metro_member: 'metropolitan area', principal_city: 'metropolitan area (principal city)', state: 'state', region: 'county', station: 'weather station', district: 'district', municipality: 'municipality', county: 'county', stat_region: 'statistical region', contains: 'county or region' };
 function cxDim(r) {
   var d = r.dimensions || {}, b = [];
   if (d.occupation) b.push(d.occupation);
@@ -1143,7 +1143,7 @@ function globalRankHTML(box) {
   GRANK = GRANK || {};
   (GRANK[sc] = GRANK[sc] || fetch('/data/rank/' + sc + '.json?v=__VERSION__').then(function (r) { if (!r.ok) throw new Error('rank ' + r.status); return r.json(); })).then(function (G) {
     if (S.gscope !== sc || S.profile !== key) return;
-    var pr = G.profiles[key], nm = { europe: 'Europe', americas: 'the Americas', asia_pacific: 'Asia-Pacific', world: 'all 45 countries' }[sc];
+    var pr = G.profiles[key], nm = { europe: 'Europe', americas: 'the Americas', asia_pacific: 'Asia-Pacific', world: 'all 54 countries' }[sc];
     if (!pr || !pr.top.length) { box.innerHTML = '<div class="empty"><h3>' + esc(profileName(key)) + ' is ranked country by country</h3><p>Its criteria rely on figures that each country defines in its own way, so a fair ranking across ' + esc(nm) + ' is not possible yet. Pick a country to see its ranking.</p></div>'; return; }
     var biz = isBizKey(key), floor = biz ? '' : ' of 10,000+ residents';
     box.innerHTML = '<p class="small muted" style="padding:8px 16px 0">Top ' + pr.top.length + ' of ' + fmtInt(pr.ranked) + ' ' + (biz ? 'sites' : 'towns and cities' + floor) + ' in ' + esc(nm) + ' for ' + esc(profileName(key)) + '. Each score combines how the country stands on comparable national figures (World Bank, Transparency International, V-Dem' + (biz ? ', Logistics Performance Index' : '') + '), measures that mean the same everywhere (' + (biz ? 'distance to port, chemical park and airport, residents within 100 km, terrain' : 'climate, services nearby, sea') + ') and how high the place ranks in its own country. <button class="chip" type="button" data-def="grank">How this works</button></p><ol class="list grank">' +
@@ -1214,7 +1214,7 @@ function catDetailHTML(r, k) {
   } else if (k === 'services') {
     if (fin(x.pop10)) add('People within 10 km', fmtInt(x.pop10), v, 'this place', 'stand-in for shops, doctors, cafés and transport in reach; 3,000 = 0, 60,000+ = 100 (log scale)');
   } else if (k === 'reach') {
-    if (fin(x.reach100k)) add('Residents within 100 km (all countries)', fmtInt(x.reach100k * 1000), x.reach_pct, 'this place', 'straight line; population of all places in the 45 countries (Eurostat GISCO, national censuses, GeoNames); percentile within ' + countryName(r.country));
+    if (fin(x.reach100k)) add('Residents within 100 km (all countries)', fmtInt(x.reach100k * 1000), x.reach_pct, 'this place', 'straight line; population of all places in the 54 countries (Eurostat GISCO, national censuses, GeoNames); percentile within ' + countryName(r.country));
     note = 'Network centrality: how many customers and workers a site here reaches, across borders.';
   } else if (k === 'flatland') {
     if (fin(x.relief)) add('Terrain relief around the place', fmt(x.relief, 0) + ' m', x.flat_pct, 'this place', 'height range within about 15 km; flatter = higher score; percentile within ' + countryName(r.country));

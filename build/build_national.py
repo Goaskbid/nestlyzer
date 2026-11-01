@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """National level for cross-country rankings (2.11). Every Nestlyzer country gets comparable national figures and, from
-them, a national score per category (0-100 across the 45 countries). The global and continental rankings combine this
+them, a national score per category (0-100 across the 54 countries). The global and continental rankings combine this
 national level with each place's own score inside its country (build_global_rank.js).
 
 Sources:
@@ -129,7 +129,7 @@ for cc in CC:
         tot = sum(w for _, w in parts)
         if den >= tot * 0.5: cats[k] = round(num / den, 1)
     nat[cc] = {'cats': cats, 'values': val[cc]}
-out = {'version': 1, 'method': 'Each measure scored 0-100 across the 45 countries between its 5th and 95th percentile (direction applied); a category is the weighted mean of its measures and needs at least half of its measure weight.',
+out = {'version': 1, 'method': 'Each measure scored 0-100 across the 54 countries between its 5th and 95th percentile (direction applied); a category is the weighted mean of its measures and needs at least half of its measure weight.',
        'measures': info, 'categories': {k: [[m, w] for m, w in v] for k, v in CATS.items()}, 'proxies': {'LI': {'from': 'CH', 'measures': proxy.get('LI', [])}}, 'countries': nat}
 json.dump(out, open(os.path.join(ROOT, 'data', 'national.json'), 'w'), separators=(',', ':'), ensure_ascii=False)
 miss = {cc: [k for k in CATS if k not in nat[cc]['cats']] for cc in CC}

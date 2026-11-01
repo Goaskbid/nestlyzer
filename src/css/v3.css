@@ -479,8 +479,6 @@ html.bizmode,body.bizmode{--navy:#0B4D4C;--blue:#0F7C7A;--cyan:#2AA59F;--r0:#E5E
   .ptabs button{padding:9px 4px;font-size:12.5px;text-align:center;overflow:hidden;text-overflow:ellipsis}
   /* the start button sits right under the question, not at the bottom where Safari's address bar is */
   .cine-card{display:flex;flex-direction:column}
-  .cine-card .cine-q{order:-2}
-  .cine-card .go{order:-1;margin:4px 0 14px}
   #place td,#place th{overflow-wrap:anywhere}
 }
 /* 2.11.4 layout: tabs fit instead of hiding off-screen; sections clearly apart */

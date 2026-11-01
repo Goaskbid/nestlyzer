@@ -1,6 +1,41 @@
 source_geo_id,country,level,label
+01002,MX,municipality,Asientos
+01004,MX,municipality,Cosio
+01008,MX,municipality,San Jose de Gracia
+01009,MX,municipality,Tepezala
+01010,MX,municipality,El Llano
+3121001,BR,municipality,Datas
+3218,ID,district,Kabupaten Pangandaran
+3279,ID,municipality,Kota Banjar
+3304,ID,district,Kabupaten Banjarnegara
+3323,ID,district,Kabupaten Temanggung
+3325,ID,district,Kabupaten Batang
+3501,ID,district,Kabupaten Pacitan
+3505,ID,district,Kabupaten Blitar
+3519,ID,district,Kabupaten Madiun
+3520,ID,district,Kabupaten Magetan
 FI:publisher_label:greater_helsinki,FI,rental_market_zone,Greater Helsinki
 FI:publisher_label:rest_of_finland,FI,rental_market_zone,Rest of Finland
+MY:dosm:11_6,MY,district,Hulu Terengganu
+MY:dosm:11_7,MY,district,Setiu
+MY:dosm:12_10,MY,district,Tuaran
+MY:dosm:12_15,MY,district,Pitas
+MY:dosm:12_20,MY,district,Nabawan
+MY:dosm:12_24,MY,district,Tongod
+MY:dosm:12_26,MY,district,Telupid
+MY:dosm:12_27,MY,district,Kalabakan
+MY:dosm:12_6,MY,district,Beluran
+MY:dosm:13_29,MY,district,Asajaya
+MY:dosm:13_35,MY,district,Tanjung Manis
+MY:dosm:13_37,MY,district,Bukit Mabong
+MY:dosm:14_1,MY,district,W.P. Kuala Lumpur
+MY:dosm:15_1,MY,district,W.P. Labuan
+MY:dosm:16_1,MY,district,W.P. Putrajaya
+MY:dosm:1_10,MY,district,Tangkak
+MY:dosm:1_9,MY,district,Kulai
+MY:dosm:3_1,MY,district,Bachok
+MY:dosm:3_11,MY,district,Kecil Lojing
+MY:dosm:3_3,MY,district,Machang
 NO:publisher_label:other_settlements_200_1999_and_sparse_areas,NO,settlement_size_cohort,Other settlements 200-1999 and sparse areas
 NO:publisher_label:other_urban_settlements_2000_19999,NO,settlement_size_cohort,Other urban settlements 2000-19999
 NO:publisher_label:other_urban_settlements_over_20000,NO,settlement_size_cohort,Other urban settlements over 20000

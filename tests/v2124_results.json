@@ -1,0 +1,42 @@
+[
+ {
+  "id": "fact-ID",
+  "ok": true,
+  "check": "Semarang: \"Open unemployment rate (August)\t5.7% average for a young family \u00b7 higher than 54% of the 62 areas with this fi\""
+ },
+ {
+  "id": "fact-HK",
+  "ok": true,
+  "check": "Sha Tin: \"income median active\t42,100 HKD/month higher than 59% of the 18 areas with this figure district: Sha Tin \u00b7 med\""
+ },
+ {
+  "id": "fact-MX",
+  "ok": true,
+  "check": "Aguascalientes: \"Census population, both sexes\t948,990 people higher than 99% of the 11 areas with this figure this municipalit\""
+ },
+ {
+  "id": "fact-BR",
+  "ok": true,
+  "check": "Florian\u00f3polis: \"GDP per person, current prices\t58,059 BRL/person a local figure without a published comparison; shown for cont\""
+ },
+ {
+  "id": "fact-MY",
+  "ok": true,
+  "check": "Johor Bahru: \"Census population\t1,711,191 people higher than 99% of the 10 areas with this figure this municipality  Childre\""
+ },
+ {
+  "id": "start",
+  "ok": true,
+  "check": "country and start button above the profiles"
+ },
+ {
+  "id": "sitemap",
+  "ok": true,
+  "check": "sitemap index with 5 files by page type, 15553 URLs"
+ },
+ {
+  "id": "titles",
+  "ok": true,
+  "check": "every page title at most 65 characters (0 longer)"
+ }
+]

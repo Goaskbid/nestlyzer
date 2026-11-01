@@ -1,0 +1,19 @@
+source_geo_id,dc_code,area_label,code_source
+HK:DCD:central-and-western,A,Central and Western,https://www.censtatd.gov.hk/api/get.php?id=110-02001&lang=en&full_series=1
+HK:DCD:eastern,C,Eastern,https://www.censtatd.gov.hk/api/get.php?id=110-02001&lang=en&full_series=1
+HK:DCD:islands,T,Islands,https://www.censtatd.gov.hk/api/get.php?id=110-02001&lang=en&full_series=1
+HK:DCD:kowloon-city,G,Kowloon City,https://www.censtatd.gov.hk/api/get.php?id=110-02001&lang=en&full_series=1
+HK:DCD:kwai-tsing,S,Kwai Tsing,https://www.censtatd.gov.hk/api/get.php?id=110-02001&lang=en&full_series=1
+HK:DCD:kwun-tong,J,Kwun Tong,https://www.censtatd.gov.hk/api/get.php?id=110-02001&lang=en&full_series=1
+HK:DCD:north,N,North,https://www.censtatd.gov.hk/api/get.php?id=110-02001&lang=en&full_series=1
+HK:DCD:sai-kung,Q,Sai Kung,https://www.censtatd.gov.hk/api/get.php?id=110-02001&lang=en&full_series=1
+HK:DCD:sha-tin,R,Sha Tin,https://www.censtatd.gov.hk/api/get.php?id=110-02001&lang=en&full_series=1
+HK:DCD:sham-shui-po,F,Sham Shui Po,https://www.censtatd.gov.hk/api/get.php?id=110-02001&lang=en&full_series=1
+HK:DCD:southern,D,Southern,https://www.censtatd.gov.hk/api/get.php?id=110-02001&lang=en&full_series=1
+HK:DCD:tai-po,P,Tai Po,https://www.censtatd.gov.hk/api/get.php?id=110-02001&lang=en&full_series=1
+HK:DCD:tsuen-wan,K,Tsuen Wan,https://www.censtatd.gov.hk/api/get.php?id=110-02001&lang=en&full_series=1
+HK:DCD:tuen-mun,L,Tuen Mun,https://www.censtatd.gov.hk/api/get.php?id=110-02001&lang=en&full_series=1
+HK:DCD:wan-chai,B,Wan Chai,https://www.censtatd.gov.hk/api/get.php?id=110-02001&lang=en&full_series=1
+HK:DCD:wong-tai-sin,H,Wong Tai Sin,https://www.censtatd.gov.hk/api/get.php?id=110-02001&lang=en&full_series=1
+HK:DCD:yau-tsim-mong,E,Yau Tsim Mong,https://www.censtatd.gov.hk/api/get.php?id=110-02001&lang=en&full_series=1
+HK:DCD:yuen-long,M,Yuen Long,https://www.censtatd.gov.hk/api/get.php?id=110-02001&lang=en&full_series=1

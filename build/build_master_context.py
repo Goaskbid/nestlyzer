@@ -116,6 +116,13 @@ def uk_live():
     return uk_live.v
 
 
+def hk_dcd():
+    if not hasattr(hk_dcd, 'm'):
+        f = os.path.join(ROOT, 'build', 'source', 'context', 'hk_dcd_codes.csv')
+        hk_dcd.m = {r['source_geo_id']: r['dc_code'] for r in csv.DictReader(open(f, encoding='utf-8'))} if os.path.exists(f) else {}
+    return hk_dcd.m
+
+
 UK_REGION = {'E12000001': 'UKC', 'E12000002': 'UKD', 'E12000003': 'UKE', 'E12000004': 'UKF', 'E12000005': 'UKG', 'E12000006': 'UKH', 'E12000007': 'UKI', 'E12000008': 'UKJ', 'E12000009': 'UKK'}
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_context_records import EE_COUNTY, ee_county   # one reviewed county list for both stores
@@ -184,6 +191,11 @@ def associate(recs):
             if live: kinds['place:UK successor'] += 1; continue
         if not hit and cc == 'UK' and gid[4:] in UK_REGION:
             assoc.append((gid, cc, '@n3:' + UK_REGION[gid[4:]] + '*', 'region', 'English region = NUTS-1 ' + UK_REGION[gid[4:]])); kinds['region:UK region'] += 1; continue
+        if not hit and cc == 'HK' and gid in hk_dcd():
+            from build_context_records import world_hits
+            pl, rr = world_hits('HK', hk_dcd()[gid], '')
+            for p in pl: assoc.append((gid, cc, p[0], 'district', 'C&SD district code ' + hk_dcd()[gid] + ' (supplier alias, 1 Nov 2026); ' + rr[1]))
+            if pl: kinds['place:HK district'] += 1; continue
         if not hit and cc == 'HR' and gid.startswith('HR:county:') and gid[10:] in HR_COUNTY:
             assoc.append((gid, cc, '@n3:' + HR_COUNTY[gid[10:]], 'region', 'county = NUTS-3 ' + HR_COUNTY[gid[10:]] + ' (English county name, reviewed 2.12.2)')); kinds['region:HR county'] += 1; continue
         if not hit and cc == 'EE' and gid.startswith('EE:county'):

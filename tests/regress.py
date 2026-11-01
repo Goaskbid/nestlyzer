@@ -441,7 +441,7 @@ async def main():
                 res[path] = (r.status if r else None, h1[:40], ld, canon == 'https://nestlyzer.com' + path)
             r404 = await q.goto(BASE + '/no-such-page/', wait_until='domcontentloaded')
             sm = open(os.path.join(ROOT, 'sitemap.xml')).read()
-            n_urls = sm.count('<loc>') if '<urlset' in sm else sum(open(os.path.join(ROOT, f)).read().count('<loc>') for f in os.listdir(ROOT) if re.match(r'sitemap-\d+\.xml', f))
+            n_urls = sm.count('<loc>') if '<urlset' in sm else sum(open(os.path.join(ROOT, f)).read().count('<loc>') for f in os.listdir(ROOT) if re.match(r'sitemap-[\w-]+\.xml', f))
             ok = all(v[0] == 200 and v[1] and v[3] for v in res.values()) and r404.status == 404 and n_urls > 5000
             rec('R28', 'SEO: static pages (municipality, canton, country, profile, method, legal) with canonical + JSON-LD, sitemap, 404', ok, f'{[(k, v) for k, v in res.items() if not (v[0] == 200 and v[1] and v[3])]} bad; 404={r404.status}, sitemap urls={n_urls}')
             await ctx6.close()
@@ -880,7 +880,7 @@ async def main():
             okp = 'Good to know about Meilen' in pl and cta is not None and 'swiss_lottery' not in cta.group(1) and 'hnw' not in cta.group(1) and 'Greater Zurich' in pl
             okd = 'href="/#/explore?cc=DE&amp;p=young_family"' in de or 'href="/#/explore?cc=DE&p=young_family"' in de
             okl = all(k in lg for k in ['id="terms"', 'id="report"', 'id="accessibility"', 'Representative in the EU', 'nz:cmp', 'Eurostat'])
-            sm = get('/sitemap.xml'); oksm = '/germany/greater-hamburg/' in sm
+            sm = get('/sitemap.xml'); sm += ''.join(get('/' + n) for n in re.findall(r'/(sitemap-[\w-]+\.xml)</loc>', sm)); oksm = '/germany/greater-hamburg/' in sm   # 2.12.4: sitemap index by page type
             rec('R62', 'SEO and legal: greater-area pages with lists and structured data, place highlights, country-aware Explore links, terms of use, reporting, accessibility, EU/UK representative section, full storage list', okm and okp and okd and okl and oksm, f'metro page={okm}, place page={okp}, country explore link={okd}, legal sections={okl}, in sitemap={oksm}')
         await check('R62', 'SEO + legal', r62)
 
@@ -1057,7 +1057,7 @@ async def main():
             await q.goto(BASE + '/germany/', wait_until='domcontentloaded')
             foot = await q.locator('.site-footer a[href="/about/"]').count(); nav = await q.locator('.site-header a[href="/about/"]').count()
             await ctx.close()
-            sm = urllib.request.urlopen(BASE + '/sitemap.xml').read().decode()
+            sm = urllib.request.urlopen(BASE + '/sitemap.xml').read().decode(); sm += ''.join(urllib.request.urlopen(BASE + '/' + n).read().decode() for n in re.findall(r'/(sitemap-[\w-]+\.xml)</loc>', sm))
             ok = info[0] == 20 and info[1] == 4 and 'priorities change' in info[2] and not info[3] and not info[4] and foot == 1 and nav == 0 and '/about/' in sm
             rec('R73', 'About page: the founder interview (20 questions: 18 approved 26 Oct, 2 added 31 Oct, 4 photos), linked quietly from the footer only, listed in the sitemap, no draft notes left', ok, f'questions={info[0]}, photos loaded={info[1]}, footer link={foot}, header link={nav}, in sitemap={"/about/" in sm}, draft notes left={info[3] or info[4]}')
         await check('R73', 'About page', r73)

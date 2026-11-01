@@ -115,6 +115,32 @@ def ee_county(key):
     return hits
 
 
+# 2.12.4: towns outside Europe sit in official areas (build/build_world_areas.py, point-in-polygon on open boundaries)
+WORLD_BIND = os.path.join(CTX, 'world_area_bindings.csv')
+BR_UF = {'11': 'rondonia', '12': 'acre', '13': 'amazonas', '14': 'roraima', '15': 'para', '16': 'amapa', '17': 'tocantins', '21': 'maranhao', '22': 'piaui', '23': 'ceara',
+         '24': 'rio grande do norte', '25': 'paraiba', '26': 'pernambuco', '27': 'alagoas', '28': 'sergipe', '29': 'bahia', '31': 'minas gerais', '32': 'espirito santo',
+         '33': 'rio de janeiro', '35': 'sao paulo', '41': 'parana', '42': 'santa catarina', '43': 'rio grande do sul', '50': 'mato grosso do sul', '51': 'mato grosso', '52': 'goias', '53': 'distrito federal'}
+MX_STATE = {'01': 'aguascalientes', '09': 'distrito federal', '14': 'jalisco', '19': 'nuevo leon', '15': 'mexico'}
+
+
+def world_hits(cc, gid, lab):
+    if not os.path.exists(WORLD_BIND): return [], None
+    if not hasattr(world_hits, 'rows'): world_hits.rows = list(csv.DictReader(open(WORLD_BIND, encoding='utf-8')))
+    B = [r for r in world_hits.rows if r['country'] == cc]
+    sim = lambda a, b: fold(a).replace('rio de jeneiro', 'rio de janeiro') == fold(b)
+    if cc == 'HK':
+        return [(r['place_oid'], r['place_name']) for r in B if r['parent_or_code'] == gid], ('district', 'C&SD district (letter code); town placed in the district with the nearest official centre')
+    if cc == 'MY':
+        return [(r['place_oid'], r['place_name']) for r in B if sim(r['area_name'], lab)], ('district', 'DOSM census district; town inside its boundary (geoBoundaries MYS ADM2, same 160 districts, point in polygon)')
+    if cc == 'ID':
+        t = lab[len('Kabupaten '):] if lab.startswith('Kabupaten ') else lab
+        return [(r['place_oid'], r['place_name']) for r in B if sim(r['area_name'], t)], ('district', 'BPS regency/city code; town inside its boundary (geoBoundaries IDN ADM2, point in polygon)')
+    st = (MX_STATE if cc == 'MX' else BR_UF).get(gid[:2])
+    if not st: return [], None
+    hit = [(r['place_oid'], r['place_name']) for r in B if sim(r['area_name'], lab) and (not r['parent_or_code'] or sim(r['parent_or_code'], st))]
+    return hit, ('municipality', ('INEGI CVEGEO' if cc == 'MX' else 'IBGE') + ' municipality code; town inside its boundary (geoBoundaries ADM2, point in polygon)')
+
+
 def associate(recs):
     geos = {}
     for r in recs: geos.setdefault(r['source_geo_id'], r)
@@ -130,6 +156,12 @@ def associate(recs):
         if lvl == 'multicountry_aggregate':
             out.append((gid, '', '*', 'benchmark', 'EU/euro-area aggregate, shown as a comparison line only')); continue
         hits = []
+        if cc in ('ID', 'MX', 'BR', 'HK') and ':' not in gid or gid.startswith('MY:dosm:'):
+            hits, rr = world_hits(cc, gid, lab)
+            if hits:
+                for p in hits: out.append((gid, cc, p[0], 'is' if fold(p[1]).split(' (')[0] == fold(lab) else rr[0], rr[1]))
+            else: unresolved.append((gid, cc, lvl, lab))
+            continue
         if lvl == 'municipality' and cc == 'NL' and lab in NL_LABEL:
             hits = [p for p in P('NL') if p[0] == NL_LABEL[lab]]
             rel, ev = 'is', 'CBS publisher label with a province or (gemeente) suffix, bound to its CBS municipality code (reviewed 2.12)'
@@ -270,7 +302,7 @@ def cmd_build():
                 else:
                     pl = bound.get((cc, r['source_geo_id']), set()); n = len(pl - {'*'})
                     geo = 'bound' if n else ('area_wide' if '*' in pl else 'unresolved')
-                    if geo == 'unresolved': codes = codes + (['BOUNDARY_INCOMPATIBLE'] if re.search('cohort|market_zone', r['source_geo_level']) else ['GEOGRAPHY_UNRESOLVED'])
+                    if geo == 'unresolved': codes = codes + (['BOUNDARY_INCOMPATIBLE'] if re.search('cohort|market_zone', r['source_geo_level']) else ['NO_RANKED_PLACE_IN_AREA'] if cc in ('ID', 'MX', 'BR', 'HK', 'MY') and (':' not in r['source_geo_id'] or r['source_geo_id'].startswith('MY:dosm:')) else ['GEOGRAPHY_UNRESOLVED'])
                 if not os.path.exists(os.path.join(ROOT, 'data', 'x', CC_ALIAS.get(cc, cc) + '.json')) and r['source_geo_level'] != 'multicountry_aggregate': codes = codes + ['NOT_IN_RELEASE']
             else: geo, n = '', ''
             w.writerow([r['record_id'], r['source_id'], cc, r['source_geo_id'], r['indicator_id'], r.get('publication_approved', ''), ';'.join(holds_of(r)), why, did, st == 'published', geo, n, 'context_not_scored', ';'.join(codes)])

@@ -201,25 +201,7 @@ GSS:S12000021,UK,local_authority,North Ayrshire
 GSS:S12000035,UK,local_authority,Argyll and Bute
 GSS:S92000003,UK,country_or_country_group,Scotland
 GSS:W92000004,UK,country_or_country_group,Wales
-HK:DCD:central-and-western,HK,district,Central and Western
-HK:DCD:eastern,HK,district,Eastern
-HK:DCD:islands,HK,district,Islands
-HK:DCD:kowloon-city,HK,district,Kowloon City
-HK:DCD:kwai-tsing,HK,district,Kwai Tsing
-HK:DCD:kwun-tong,HK,district,Kwun Tong
-HK:DCD:north,HK,district,North
-HK:DCD:sai-kung,HK,district,Sai Kung
-HK:DCD:sha-tin,HK,district,Sha Tin
-HK:DCD:sham-shui-po,HK,district,Sham Shui Po
-HK:DCD:southern,HK,district,Southern
-HK:DCD:tai-po,HK,district,Tai Po
-HK:DCD:tsuen-wan,HK,district,Tsuen Wan
-HK:DCD:tuen-mun,HK,district,Tuen Mun
-HK:DCD:wan-chai,HK,district,Wan Chai
 HK:DCD:whole-territory,HK,territory,Whole Territory
-HK:DCD:wong-tai-sin,HK,district,Wong Tai Sin
-HK:DCD:yau-tsim-mong,HK,district,Yau Tsim Mong
-HK:DCD:yuen-long,HK,district,Yuen Long
 HR:municipality:city-of-zagreb,HR,municipality,City of Zagreb
 IE:MET:casement,IE,climate_station,Casement
 IE:MET:dublinairport,IE,climate_station,Dublin Airport

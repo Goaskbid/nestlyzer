@@ -72,6 +72,8 @@ SI:surs_profile:33,SI,033,is,official code
 GSS:W06000018,UK,W06000018,is,official code
 RO:ANOFM:cluj,RO,@n3:RO113,region,NUTS3 region by exact name
 SCB_KOMMUN:1401,SE,1401,is,official code
+HK:DCD:tuen-mun,HK,1818446,district,"C&SD district code L (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:tuen-mun,HK,1818771,district,"C&SD district code L (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
 ISO3:CZE,CZ,*,country_context,national figure
 SCB_KOMMUN:2482,SE,2482,is,official code
 FI:vero_area:kuusamo,FI,305,is,exact unique name within the country
@@ -119,6 +121,20 @@ US-AR,US,@rc:US02,region,state (GeoNames admin1 code)
 SCB_KOMMUN:1384,SE,1384,is,official code
 SCB_KOMMUN:0483,SE,0483,is,official code
 ISO3:IRL,IE,*,country_context,national figure
+HK:DCD:southern,HK,1819757,district,"C&SD district code D (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:southern,HK,12719432,district,"C&SD district code D (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:southern,HK,12719787,district,"C&SD district code D (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:southern,HK,9172583,district,"C&SD district code D (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:southern,HK,1818880,district,"C&SD district code D (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:southern,HK,12719431,district,"C&SD district code D (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:southern,HK,12719790,district,"C&SD district code D (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:southern,HK,12719798,district,"C&SD district code D (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:southern,HK,1818775,district,"C&SD district code D (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:southern,HK,12719794,district,"C&SD district code D (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:southern,HK,12719799,district,"C&SD district code D (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:southern,HK,12719789,district,"C&SD district code D (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:southern,HK,1818236,district,"C&SD district code D (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:southern,HK,1818818,district,"C&SD district code D (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
 FI:vero_area:kokemaki,FI,271,is,exact unique name within the country
 US-WY,US,@rc:US50,region,state (GeoNames admin1 code)
 ISO3:ESP,ES,*,country_context,national figure
@@ -166,6 +182,14 @@ SCB_KOMMUN:1863,SE,1863,is,official code
 SI:surs_profile:4,SI,004,is,official code
 SCB_KOMMUN:2480,SE,2480,is,official code
 country:SG,SG,*,country_context,national figure
+HK:DCD:tai-po,HK,1818673,district,"C&SD district code P (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:tai-po,HK,1818817,district,"C&SD district code P (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:tai-po,HK,1819726,district,"C&SD district code P (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:tai-po,HK,1818695,district,"C&SD district code P (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:tai-po,HK,6691573,district,"C&SD district code P (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:tai-po,HK,1818616,district,"C&SD district code P (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:tai-po,HK,1819142,district,"C&SD district code P (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:tai-po,HK,1818573,district,"C&SD district code P (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
 SCB_KOMMUN:1230,SE,1230,is,official code
 SI:surs_profile:94,SI,094,is,official code
 SCB_KOMMUN:0186,SE,0186,is,official code
@@ -192,6 +216,7 @@ US-KS,US,@rc:US16,region,state (GeoNames admin1 code)
 LV:novads:saulkrastu,LV,0047000,is,exact unique name within the country
 SI:municipality:ljubljana,SI,061,is,exact unique name within the country
 GSS:E07000065,UK,E07000065,is,official code
+HK:DCD:wong-tai-sin,HK,1818304,district,"C&SD district code H (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
 LV:novads:kuldigas,LV,0033000,is,exact unique name within the country
 FR:COM:13055,FR,13055,is,official code
 US-ID,US,@rc:US13,region,state (GeoNames admin1 code)
@@ -234,6 +259,11 @@ SCB_KOMMUN:1083,SE,1083,is,official code
 JMA:CN:changchun,CN,2038180,station,weather station named after the place
 IS,IS,*,country_context,national figure
 RO:ANOFM:prahova,RO,@n3:RO316,region,NUTS3 region by exact name
+HK:DCD:tsuen-wan,HK,12747063,district,"C&SD district code K (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:tsuen-wan,HK,1818209,district,"C&SD district code K (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:tsuen-wan,HK,1818950,district,"C&SD district code K (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:tsuen-wan,HK,1818574,district,"C&SD district code K (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:tsuen-wan,HK,1819374,district,"C&SD district code K (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
 NL:CBS_LABEL:maashorst,NL,GM1991,is,exact unique name within the country
 country:NZ,NZ,*,country_context,national figure
 NL:CBS_LABEL:waterland,NL,GM0852,is,exact unique name within the country
@@ -269,6 +299,10 @@ ISO3:LTU,LT,*,country_context,national figure
 AT,AT,*,country_context,national figure
 SCB_KOMMUN:2284,SE,2284,is,official code
 US-CO,US,@rc:US05,region,state (GeoNames admin1 code)
+HK:DCD:kwun-tong,HK,1818506,district,"C&SD district code J (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:kwun-tong,HK,1818972,district,"C&SD district code J (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:kwun-tong,HK,1818550,district,"C&SD district code J (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:kwun-tong,HK,1818789,district,"C&SD district code J (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
 SCB_KOMMUN:1257,SE,1257,is,official code
 US-HI,US,@rc:US11,region,state (GeoNames admin1 code)
 ISO3166_1_ALPHA2:IS,IS,*,country_context,national figure
@@ -314,8 +348,16 @@ JMA:BR:portovelho,BR,3662762,station,weather station named after the place
 country:FI,FI,*,country_context,national figure
 SI:surs_profile:17,SI,017,is,official code
 GSS:E07000105,UK,E07000105,is,official code
+HK:DCD:yau-tsim-mong,HK,1819353,district,"C&SD district code E (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
 SCB_KOMMUN:1265,SE,1265,is,official code
 JMA:FR:nantes,FR,44109,station,weather station named after the place
+HK:DCD:sha-tin,HK,1818920,district,"C&SD district code R (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:sha-tin,HK,1819400,district,"C&SD district code R (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:sha-tin,HK,1818916,district,"C&SD district code R (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:sha-tin,HK,1818781,district,"C&SD district code R (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:sha-tin,HK,12719443,district,"C&SD district code R (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:sha-tin,HK,12719445,district,"C&SD district code R (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:sha-tin,HK,12719444,district,"C&SD district code R (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
 SCB_KOMMUN:0685,SE,0685,is,official code
 EUROSTAT:BE,BE,*,country_context,national figure
 FI:vero_area:forssa,FI,061,is,exact unique name within the country
@@ -365,6 +407,10 @@ FI:vero_area:vaasa,FI,905,is,exact unique name within the country
 LV:novads:aluksnes,LV,0360200,is,exact unique name within the country
 country:MX,MX,*,country_context,national figure
 ISO3166_1_ALPHA2:CY,CY,*,country_context,national figure
+HK:DCD:kowloon-city,HK,1819609,district,"C&SD district code G (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:kowloon-city,HK,1819607,district,"C&SD district code G (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:kowloon-city,HK,13308632,district,"C&SD district code G (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:kowloon-city,HK,12640684,district,"C&SD district code G (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
 ISO3166_1_ALPHA2:JP,JP,*,country_context,national figure
 SI:surs_profile:14,SI,014,is,official code
 ES,ES,*,country_context,national figure
@@ -538,6 +584,8 @@ SCB_KOMMUN:1381,SE,1381,is,official code
 INSEE_COM:69123,FR,69123,is,official code
 SCB_KOMMUN:1885,SE,1885,is,official code
 ISO3:SWE,SE,*,country_context,national figure
+HK:DCD:kwai-tsing,HK,1819595,district,"C&SD district code S (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:kwai-tsing,HK,1818483,district,"C&SD district code S (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
 JMA:AU:brisbane,AU,2174003,station,weather station named after the place
 SCB_KOMMUN:1730,SE,1730,is,official code
 LV:novads:tukuma,LV,0052000,is,exact unique name within the country
@@ -619,6 +667,9 @@ GSS:E07000096,UK,E07000096,is,official code
 LV:novads:kekavas,LV,0034000,is,exact unique name within the country
 SI:surs_profile:16,SI,016,is,official code
 SCB_KOMMUN:0604,SE,0604,is,official code
+HK:DCD:sham-shui-po,HK,1818953,district,"C&SD district code F (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:sham-shui-po,HK,12689055,district,"C&SD district code F (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:sham-shui-po,HK,12640681,district,"C&SD district code F (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
 SCB_KOMMUN:0381,SE,0381,is,official code
 JMA:JP:naha,JP,1856035,station,weather station named after the place
 JMA:FI:helsinki,FI,091,station,weather station named after the place
@@ -654,6 +705,20 @@ SCB_KOMMUN:2514,SE,2514,is,official code
 SCB_KOMMUN:0682,SE,0682,is,official code
 SCB_KOMMUN:1441,SE,1441,is,official code
 PT,PT,*,country_context,national figure
+HK:DCD:wan-chai,HK,12747064,district,"C&SD district code B (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:wan-chai,HK,1818379,district,"C&SD district code B (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:wan-chai,HK,1819529,district,"C&SD district code B (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:wan-chai,HK,12719438,district,"C&SD district code B (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:wan-chai,HK,12719544,district,"C&SD district code B (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:wan-chai,HK,1819706,district,"C&SD district code B (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:wan-chai,HK,1819783,district,"C&SD district code B (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:wan-chai,HK,1818428,district,"C&SD district code B (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:wan-chai,HK,1818734,district,"C&SD district code B (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:wan-chai,HK,12719586,district,"C&SD district code B (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:wan-chai,HK,12719595,district,"C&SD district code B (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:wan-chai,HK,12719615,district,"C&SD district code B (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:wan-chai,HK,12719631,district,"C&SD district code B (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:wan-chai,HK,12719619,district,"C&SD district code B (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
 GSS:E07000138,UK,E07000138,is,official code
 SCB_KOMMUN:1481,SE,1481,is,official code
 GSS:E08000036,UK,E08000036,is,official code
@@ -720,6 +785,16 @@ GSS:E06000042,UK,E06000042,is,official code
 GSS:E06000016,UK,E06000016,is,official code
 FI:vero_area:sund,FI,771,is,exact unique name within the country
 ISO3:CYP,CY,*,country_context,national figure
+HK:DCD:islands,HK,1819283,district,"C&SD district code T (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:islands,HK,11101593,district,"C&SD district code T (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:islands,HK,1819968,district,"C&SD district code T (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:islands,HK,1819894,district,"C&SD district code T (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:islands,HK,1819112,district,"C&SD district code T (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:islands,HK,1819333,district,"C&SD district code T (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:islands,HK,1819072,district,"C&SD district code T (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:islands,HK,1819230,district,"C&SD district code T (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:islands,HK,1818684,district,"C&SD district code T (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:islands,HK,1819535,district,"C&SD district code T (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
 GSS:S12000018,UK,S30000022,is,exact unique name within the country
 SCB_KOMMUN:1231,SE,1231,is,official code
 GSS:E07000213,UK,E07000213,is,official code
@@ -794,6 +869,41 @@ US-MA,US,@rc:US19,region,state (GeoNames admin1 code)
 GSS:E07000141,UK,E07000141,is,official code
 FI:vero_area:hausjarvi,FI,086,is,exact unique name within the country
 GSS:E06000050,UK,E06000050,is,official code
+HK:DCD:eastern,HK,12719433,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,10170102,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,1818266,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,1818883,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,1819029,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719542,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,1818911,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719543,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719437,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,1819064,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719630,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719614,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719632,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719617,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719623,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719603,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719613,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719634,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719624,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719610,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719627,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719609,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719612,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719596,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719598,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719622,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719590,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719621,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719591,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719606,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719601,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719594,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719604,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719602,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:eastern,HK,12719607,district,"C&SD district code C (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
 SCB_KOMMUN:1784,SE,1784,is,official code
 JMA:CN:kunming,CN,1804651,station,weather station named after the place
 FI:vero_area:hartola,FI,081,is,exact unique name within the country
@@ -860,6 +970,11 @@ GSS:E07000242,UK,E07000242,is,official code
 SCB_KOMMUN:2034,SE,2034,is,official code
 ISO3:ROU,RO,*,country_context,national figure
 FI:vero_area:salo,FI,734,is,exact unique name within the country
+HK:DCD:north,HK,1819873,district,"C&SD district code N (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:north,HK,12689063,district,"C&SD district code N (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:north,HK,1818845,district,"C&SD district code N (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:north,HK,1818996,district,"C&SD district code N (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:north,HK,1818923,district,"C&SD district code N (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
 SCB_KOMMUN:2061,SE,2061,is,official code
 JMA:US:honolulu,US,5856195,station,weather station named after the place
 NL:CBS_LABEL:dantumadiel,NL,GM1891,is,exact unique name within the country
@@ -930,6 +1045,17 @@ EE:county:laane-viru,EE,0928,county,county = its municipalities after the 2017 r
 source-locality:RETAINED_BE:Knokke-Heist,BE,31043,is,exact unique name within the country
 SCB_KOMMUN:1438,SE,1438,is,official code
 source-locality:RETAINED_BE:Molenbeek-Saint-Jean,BE,21012,is,exact unique name within the country
+HK:DCD:yuen-long,HK,1818558,district,"C&SD district code M (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:yuen-long,HK,1818222,district,"C&SD district code M (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:yuen-long,HK,1818223,district,"C&SD district code M (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:yuen-long,HK,12719430,district,"C&SD district code M (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:yuen-long,HK,1819101,district,"C&SD district code M (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:yuen-long,HK,1819685,district,"C&SD district code M (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:yuen-long,HK,1819775,district,"C&SD district code M (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:yuen-long,HK,12689069,district,"C&SD district code M (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:yuen-long,HK,1818259,district,"C&SD district code M (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:yuen-long,HK,1818413,district,"C&SD district code M (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:yuen-long,HK,12640694,district,"C&SD district code M (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
 GSS:E09000023,UK,E09000023,is,official code
 NL:CBS_LABEL:duiven,NL,GM0226,is,exact unique name within the country
 SCB_KOMMUN:0319,SE,0319,is,official code
@@ -1001,6 +1127,30 @@ SCB_KOMMUN:2021,SE,2021,is,official code
 GSS:N09000006,UK,N09000006,is,official code
 source-locality:RETAINED_ES:Almendralejo,ES,06011,is,exact unique name within the country
 FI:vero_area:pyharanta,FI,631,is,exact unique name within the country
+HK:DCD:central-and-western,HK,1931681,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,1819091,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,1819638,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,1818385,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,12640687,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,1818557,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,1819339,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,1819361,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,1819031,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,1819026,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,12719541,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,8223932,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,12719795,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,12719793,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,12719788,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,12719785,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,12719584,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,12719585,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,1818211,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,12719800,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,8223931,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,12719796,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,12719583,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:central-and-western,HK,12719582,district,"C&SD district code A (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
 ISO3166_1_ALPHA2:LV,LV,*,country_context,national figure
 LV:novads:jelgavas,LV,0030000,is,exact unique name within the country
 RO:ANOFM:salaj,RO,@n3:RO116,region,NUTS3 region by exact name
@@ -1128,6 +1278,10 @@ GSS:E07000203,UK,E07000203,is,official code
 GSS:E08000027,UK,E08000027,is,official code
 LT:municipality:33,LT,33,is,official code
 ISO3:KOR,KR,*,country_context,national figure
+HK:DCD:sai-kung,HK,1819050,district,"C&SD district code Q (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:sai-kung,HK,1819983,district,"C&SD district code Q (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:sai-kung,HK,1818692,district,"C&SD district code Q (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
+HK:DCD:sai-kung,HK,1819326,district,"C&SD district code Q (supplier alias, 1 Nov 2026); C&SD district (letter code); town placed in the district with the nearest official centre"
 ES:published-municipality:08:santa-perpetua-de-mogoda,ES,08260,is,exact unique name within the country
 NL:CBS_LABEL:hellendoorn,NL,GM0163,is,exact unique name within the country
 ES:published-municipality:28:madrid,ES,28079,is,exact unique name within the country

@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Nestlyzer release from GitHub Codespaces (2.12.3).
+# Nestlyzer release from GitHub Codespaces (2.12.4).
 #
 # 1. Open the repository on github.com, press "Code", "Codespaces", "Create codespace on main".
 # 2. Drag nestlyzer-codespaces-<version>.zip from your computer into the file list on the left.
 # 3. In the terminal at the bottom, paste:
-#      unzip -oq nestlyzer-codespaces-*.zip -d /tmp/nz && bash /tmp/nz/tools/codespaces_release.sh
+#      unzip -oq "$(find /workspaces -name 'nestlyzer-codespaces-*.zip' | head -1)" -d /tmp/nz && bash /tmp/nz/tools/codespaces_release.sh
 #
 # What it does: checks the release against GitHub's limits, replaces every file of the repository with the release
 # (old leftovers go), keeps .git and the workflow file exactly as they are, removes the uploaded zip, shows what changes,

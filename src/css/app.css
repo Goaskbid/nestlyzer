@@ -400,3 +400,7 @@ body.bizmode .modeseg button[aria-pressed="true"]{background:#0F7C7A;color:#fff}
 
 /* 2.12.3: the further business types open in place, in the same grid as the first eight */
 .who-biz-more:not([hidden]){display:contents}
+/* 2.12.4: on every screen the country and the start button come first, the profiles to choose from below them */
+.cine-card{display:flex;flex-direction:column}
+.cine-card .go{order:-2;margin:0 0 14px}
+.cine-card .cine-q{order:-1}

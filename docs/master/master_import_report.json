@@ -3,7 +3,7 @@
  "stored": 34894,
  "held_excluded": 1490,
  "review_candidates_numeric": 32986,
- "already_present_same_place_value": 2141,
+ "already_present_same_place_value": 2142,
  "overlap_decisions_applied": {
   "repeat": 17,
   "precision_conflict": 1
@@ -29,7 +29,7 @@
   "ES": 499,
   "FI": 1281,
   "FR": 719,
-  "HK": 118,
+  "HK": 459,
   "HR": 283,
   "HU": 230,
   "ID": 22,
@@ -85,7 +85,7 @@
   "ES": 286,
   "FI": 307,
   "FR": 8,
-  "HK": 1,
+  "HK": 154,
   "HR": 5,
   "HU": 2,
   "ID": 0,
@@ -133,8 +133,9 @@
   "unresolved:administrative_city": 9,
   "unresolved:upper_tier_county": 21,
   "unresolved:territorial_authority": 5,
-  "unresolved:district": 95,
+  "unresolved:district": 77,
   "region:NUTS3 region by exact name": 41,
+  "place:HK district": 18,
   "unresolved:functional_innovation_cluster": 42,
   "unresolved:survey_city": 19,
   "unresolved:combined_authority": 15,
@@ -159,7 +160,7 @@
   "unresolved:province": 2,
   "unresolved:metropolitan_city": 1
  },
- "unresolved_geographies": 499,
- "distinct_fields_loaded": 562,
+ "unresolved_geographies": 481,
+ "distinct_fields_loaded": 581,
  "score_eligible": 0
 }

@@ -1,6 +1,7 @@
 // Nestlyzer static site build: bundles the app shell and renders the SEO pages.
 //   node build/build_site.mjs
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
@@ -12,7 +13,7 @@ const topojson = require('topojson-client');
 const Engine = require(path.join(ROOT, 'src/engine.js'));
 const NestData = require(path.join(ROOT, 'src/data.js'));
 
-const VERSION = process.env.NZ_VERSION || '2.12.3';
+const VERSION = process.env.NZ_VERSION || '2.12.4';
 const SITE = 'https://nestlyzer.com';
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
 /* Static pages: emoji in text become our inline line icons at build time (2.10.1); the app swaps the rest at run time. */
@@ -258,7 +259,10 @@ if(/^\\/(data|assets|vendor)\\//.test(u.pathname)&&u.search.indexOf('v=')>=0){e.
 `;
 const ADS_TXT = `google.com, ${ADS_CLIENT.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n`;
 const trimDesc = (d) => { d = String(d); if (d.length <= 158) return d; const c = d.slice(0, 155); return c.slice(0, c.lastIndexOf(' ')).replace(/[,;:]$/, '') + '…'; };
-const fitTitle = (parts) => { let t = parts[0].replace(/ \/ [^,(|]+/, ''); if (t.length > 58) t = t.slice(0, 56).replace(/\s+\S*$/, '') + '…'; for (const x of parts.slice(1)) if ((t + x).length <= 58) t += x; return t + ' | Nestlyzer'; };
+const fitTitle = (parts) => { let t = parts[0].replace(/ \/ [^,(|]+/, ''); if (t.length > 53) t = t.slice(0, 51).replace(/\s+\S*$/, '') + '…'; for (const x of parts.slice(1)) if ((t + x).length <= 53) t += x; return t + ' | Nestlyzer'; };   // 2.12.4: at most 65 characters, the length search results show
+const aan = (name) => { const n = String(name).toLowerCase(); return (/^[aeiou]/.test(n) && !/^(uni|eu|one)/.test(n) ? 'an ' : 'a ') + n; };
+/* any title still longer than 65 characters drops the site name first, then shortens at a word (same words, same order) */
+const cutTitle = (t) => { if (t.length <= 65) return t; t = t.replace(/ \| Nestlyzer$/, ''); return t.length <= 65 ? t : t.slice(0, 63).replace(/[\s,;:–-]+\S*$/, '') + '…'; };
 /* tables that stack on phones keep their column names: each cell gets its heading as a label (2.11.2) */
 function stackLabels(html) {
   return html.replace(/<table class="table stack">([\s\S]*?)<\/table>/g, (t, inner) => {
@@ -269,7 +273,14 @@ function stackLabels(html) {
   });
 }
 function page({ p, title, desc, body, jsonld = [], crumbs = [], cc = null, appHref = null }) {
-  desc = trimDesc(desc);
+  desc = trimDesc(desc); title = cutTitle(title);
+  // 5. structured data: a ranking page describes its first ranking as an ItemList (the places and their pages)
+  if (!jsonld.some((j) => j['@type'] === 'ItemList')) {
+    const ol = /<ol class="rank-list">([\s\S]*?)<\/ol>/.exec(body);
+    const items = ol ? [...ol[1].matchAll(/<a href="([^"]+)"[^>]*>([^<]+)<\/a>/g)].slice(0, 20) : [];
+    if (items.length >= 3) jsonld = jsonld.concat([{ '@context': 'https://schema.org', '@type': 'ItemList', name: title.replace(/ \| Nestlyzer$/, ''), itemListOrder: 'https://schema.org/ItemListOrderDescending', numberOfItems: items.length, itemListElement: items.map((m, i) => ({ '@type': 'ListItem', position: i + 1, name: m[2].replace(/&amp;/g, '&'), url: (m[1].startsWith('http') ? '' : SITE) + m[1] })) }]);
+  }
+  LASTMOD_SEEN[p] = hashContent(title + desc + body);
   body = stackLabels(body);
   const ld = jsonld.concat(crumbs.length ? [{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c[0], item: SITE + c[1] })) }] : []);
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -283,6 +294,12 @@ ${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld.length ===
   SITEMAP.push(p);
 }
 const SITEMAP = [];
+/* 2.12.4: a page's <lastmod> is the day its content last changed (title, description and body hashed and kept in
+   build/source/seo/lastmod.json), not the build date */
+const LASTMOD_FILE = path.join(ROOT, 'build', 'source', 'seo', 'lastmod.json');
+const LASTMOD_OLD = fs.existsSync(LASTMOD_FILE) ? JSON.parse(fs.readFileSync(LASTMOD_FILE, 'utf8')) : {};
+const LASTMOD_SEEN = {};
+const hashContent = (t) => crypto.createHash('sha1').update(String(t).replace(/\?v=[\w.]+/g, '')).digest('hex').slice(0, 16);
 
 // ------------------------------------------------------------------ helpers for content
 /* start-page depth dots follow the 2.8 data depth (rich/good = measured, regional = regional figures, basic) */
@@ -548,7 +565,7 @@ function bestIndexPage() {
   const body = `<h1>Best places to live, by household</h1><p class="lede">${profiles.length} household profiles, each a transparent set of weights. Pick yours to see its best places in Switzerland and across ${countries.length - 1} more countries in Europe, North America, Asia and Oceania.</p>
 <div class="tiles">${profiles.map((k) => `<a class="tile" href="${profilePath(k)}" style="--tone:${cfg.tones[k] || '#0e7490'}"><span class="ico">${ico(k, 20)}</span><span><b>${esc(engine.profiles[k].name)}</b><small>${esc(TILE_BLURB[k] || (engine.profiles[k].intro || '').split('.')[0])}</small></span></a>`).join('')}</div>
 <div class="cta-band"><h2>Or build your own profile</h2><a class="btn" href="${appLink({ cc: 'CH', p: 'young_family' })}">Open the map</a></div>`;
-  page({ p: '/best/', title: 'Best places to live for every kind of household, in 45 countries | Nestlyzer', desc: `Rankings for ${profiles.length} household profiles: families, retirees, students, commuters, remote workers and more, across ${countries.length} countries in Europe, North America, Asia and Oceania.`, body, crumbs: [['Home', '/'], ['Profiles', '/best/']] });
+  page({ p: '/best/', title: `Best places to live for every household, ${countries.length} countries | Nestlyzer`, desc: `Rankings for ${profiles.length} household profiles: families, retirees, students, commuters, remote workers and more, across ${countries.length} countries in Europe, North America, Asia and Oceania.`, body, crumbs: [['Home', '/'], ['Profiles', '/best/']] });
 }
 /* country tax facts, shared with the lazy module (src/more/more.js is the single source) */
 const TAXF = (() => { const src = read('src/more/more.js'), grab = (n) => new Function(src.match(new RegExp('var ' + n + ' = \\{[\\s\\S]*?\\n?\\};'))[0] + '; return ' + n + ';')(); return { CIT: grab('CIT'), CF: grab('CFACTS'), WF: grab('WFACTS') }; })();
@@ -574,7 +591,7 @@ ${(KPI.byProfile[p] || []).length ? `<section class="card"><h2 style="font-size:
 <section class="card"><h2 style="font-size:var(--step-2)">Across all countries</h2><p class="small muted">Best match per country among places with at least 5,000 residents (overseas territories such as French Guiana or Réunion are left out here). How much is measured differs by country: see the data depth on each country page.</p><table class="table"><tbody>${others.map(([c, R]) => { const eu = (r) => WORLD.includes(r.country) || (r.lat > 27 && r.lat < 72 && r.lon > -32 && r.lon < 45); const x = R.list.find((y) => y.r.popNow >= 5000 && eu(y.r)) || R.list.find((y) => eu(y.r)) || R.list[0]; return `<tr><td>${flagImg(c.cc)} <a href="${countryPath(c.cc)}">${esc(c.name)}</a></td><td>${placeLink(x.r, p)}</td><td class="num">${scoreCell(x.overall)}</td></tr>`; }).join('')}</tbody></table></section></div>
 ${p === 'business_owner' ? businessClimate() : ''}
 <section style="margin-top:28px"><h2 style="font-size:var(--step-2);margin-bottom:10px">Other profiles</h2><ul class="linklist">${profiles.filter((k) => k !== p).map((k) => `<li><a href="${profilePath(k)}">${esc(engine.profiles[k].name)}</a></li>`).join('')}</ul></section>`;
-  page({ p: profilePath(p), title: fitTitle([`Best places for ${AUDIENCE[p]}`, ' in 45 countries']), desc: `Where should ${AUDIENCE[p]} live? Rankings across Switzerland, Europe, North America, Asia and Oceania with the weights shown, from public data.`, body, crumbs: [['Home', '/'], ['Profiles', '/#profiles'], [P.name, profilePath(p)]] });
+  page({ p: profilePath(p), title: fitTitle([`Best places for ${AUDIENCE[p]}`, ` in ${countries.length} countries`]), desc: `Where should ${AUDIENCE[p]} live? Rankings across Switzerland, Europe, North America, Asia and Oceania with the weights shown, from public data.`, body, crumbs: [['Home', '/'], ['Profiles', '/#profiles'], [P.name, profilePath(p)]] });
 }
 
 
@@ -606,14 +623,14 @@ function bizPage(p) {
   const kp = kpiList(P, p);
   const grp = (cfg.bizGroups || []).find((g) => g[1].includes(p));
   const lists = countries.map((c) => [c, (BRANK[c.cc] || {})[p]]).filter(([, R]) => R && R.n).sort((a, b) => b[0].n - a[0].n);
-  const body = `<h1>Best locations for a ${esc(P.name.toLowerCase())}</h1><p class="lede">${esc((P.intro || '') + ' ' + P.desc)}</p>
+  const body = `<h1>Best locations for ${esc(aan(P.name))}</h1><p class="lede">${esc((P.intro || '') + ' ' + P.desc)}</p>
 <section class="card"><p class="small">Ranked on freight and travel access, the labour pool, land and wage costs and the town's own pull, with the must-haves below. Each place page adds the key figures for this kind of site (pay by occupation, employer labour cost, energy prices, grid connection, local taxes, industry mix) with their period, area and source.</p></section>
 <div class="grid-2"><section class="card"><h2 style="font-size:var(--step-2);margin-bottom:8px">What this profile weighs</h2><div style="display:flex;flex-wrap:wrap;gap:6px">${w.map(([k, v]) => `<span class="chip">${esc(catName(k))} <b>${v}</b></span>`).join('')}</div>${must ? `<h3 style="margin-top:14px">Must-haves</h3><ul>${must}</ul>` : ''}${P.minPop ? `<p class="small muted">Places with at least ${fmtInt(P.minPop)} residents.</p>` : ''}${P.gics ? `<p class="small muted">Sector: ${esc(P.gics)}${grp ? ' · group: ' + esc(grp[0]) : ''}.</p>` : ''}</section>
 <section class="card"><h2 style="font-size:var(--step-2);margin-bottom:8px">Key figures a planner compares</h2>${kp ? `<ul>${kp}</ul>` : ''}<p class="small muted">Shown on each place page with period, area and source where the official figure exists. They inform, they do not change the score.</p></section></div>
-<div class="cta-band"><h2>Rank any country for a ${esc(P.name.toLowerCase())}</h2><a class="btn" href="${appLink({ cc: 'DE', p })}">Open the map</a></div>
+<div class="cta-band"><h2>Rank any country for ${esc(aan(P.name))}</h2><a class="btn" href="${appLink({ cc: 'DE', p })}">Open the map</a></div>
 <div class="grid-2">${lists.slice(0, 16).map(([c, R]) => `<section class="card"><h2 style="font-size:var(--step-2)">${flagImg(c.cc, 18)} ${esc(c.name)}, top 5</h2><p class="small muted">${fmtInt(R.n)} places compared.</p>${topList(R.list.slice(0, 5).map((x, i) => ({ r: x.r, rank: i + 1, overall: x.overall })), c.cc, p)}</section>`).join('')}</div>
 <section style="margin-top:28px"><h2 style="font-size:var(--step-2);margin-bottom:10px">Other business sites</h2><ul class="linklist">${BIZ.filter((k) => k !== p).map((k) => `<li><a href="${bizPath(k)}">${esc(engine.profiles[k].name)}</a></li>`).join('')}</ul><p class="small"><a href="/#profiles">Profiles for households</a></p></section>`;
-  page({ p: bizPath(p), title: fitTitle([`Best locations for a ${P.name.toLowerCase()}`, ' in 45 countries']), desc: `Where to put a ${P.name.toLowerCase()}: places across 45 countries ranked on access, labour pool, costs and local pull, with the weights, must-haves and key figures shown.`, body, crumbs: [['Home', '/'], ['Business sites', '/#business-sites'], [P.name, bizPath(p)]] });
+  page({ p: bizPath(p), title: fitTitle([`Best locations for ${aan(P.name)}`, ` in ${countries.length} countries`]), desc: `Where to put ${aan(P.name)}: places across ${countries.length} countries ranked on access, labour pool, costs and local pull, with the weights, must-haves and key figures shown.`, body, crumbs: [['Home', '/'], ['Business sites', '/#business-sites'], [P.name, bizPath(p)]] });
 }
 // ------------------------------------------------------------------ method + legal
 function methodPage() {
@@ -640,7 +657,7 @@ function methodPage() {
 ${v28html}<h2 id="kpis" style="font-size:var(--step-2);margin:28px 0 10px">Key figures by profile (${Object.keys(KPI.kpis).length})</h2><p>Every profile lists the figures people in that situation, or a location planner, compare. The list follows the dimensions used by established comparisons (OECD regional well-being, EIU and Mercer liveability, the Eurostat survey on quality of life in European cities, Swiss and German municipality ratings, fDi Benchmark, Kearney, Cushman &amp; Wakefield, IMD, the World Bank and the EU Regional Innovation Scoreboard); no data is taken from those publications. Where an official figure exists it is shown on the place page with its period, area and source; it does not change the score. Different concepts stay apart: a price per kWh is never mixed with an annual bill or a share of income, employee pay never with employer cost, a level never with a growth rate.</p><div style="overflow-x:auto"><table class="table stack"><thead><tr><th>Key figure</th><th>Area</th><th>For</th><th>Unit</th><th>Level wanted</th><th class="num">Profiles</th></tr></thead><tbody>${Object.entries(KPI.kpis).map(([k, v]) => `<tr><td>${esc(v.name)}</td><td>${esc(v.domain)}</td><td>${v.audience === 'business' ? 'Business' : 'Households'}</td><td>${esc(v.unit)}</td><td>${esc(v.level)}</td><td class="num">${Object.values(KPI.byProfile).filter((l) => l.includes(k)).length}</td></tr>`).join('')}</tbody></table></div>
 <h2 id="audit" style="font-size:var(--step-2);margin:28px 0 10px">Data coverage audit (downloads)</h2><p>Generated from the published data with local scripts at every release (version ${VERSION}). Open them in any spreadsheet.</p><ul><li><a href="/nzdata-audit-coverage.csv" download>Coverage by country and indicator</a>: source geography, unique source areas, mapped, displayed and scored places, periods and why places are missing.</li><li><a href="/nzdata-audit-kpi_coverage.csv" download>Business key figures by country</a>: available or not, and at which level.</li><li><a href="/nzdata-audit-industry_coverage.csv" download>Industry classification by country</a>.</li><li><a href="/nzdata-audit-unresolved_geographies.csv" download>Collected source areas not yet linked to a place</a>.</li><li><a href="/nzdata-audit-README.md">What the columns mean</a>.</li><li>What is still being collected: <a href="/nzdata-downloads-nestlyzer-data-gaps.pdf">data gap overview (PDF)</a>, <a href="/nzdata-downloads-gap_matrix.csv" download>gap matrix</a>, and the collection briefs for <a href="/nzdata-downloads-brief-kpis.md">key figures for households and businesses</a>, <a href="/nzdata-downloads-brief-industry-structure.md">industry structure</a> and <a href="/nzdata-downloads-brief-geography-mapping.md">geography mapping</a>, the <a href="/nzdata-downloads-brief-next-delivery.md">next delivery</a> (with the <a href="/nzdata-downloads-places_lookup_for_mapping.csv" download>place list</a>).</li></ul>
 <h2 style="font-size:var(--step-2);margin:28px 0 10px">Known limits</h2><ul class="prose"><li>Distances are straight lines from population-weighted centres, not travel times.</li><li>Local data still differs by country: the table above shows which measures exist where. Italy, Austria, Czechia and most of Central and South-Eastern Europe have regional (district) figures but few municipal ones; East Asia and New Zealand have the fewest local figures.</li><li>Police-recorded crime depends on how often people report and how police record offences; it is compared within a country only.</li><li>Swiss tax burden figures are from ESTV 2018 and are relative comparisons, not personal tax advice.</li><li>Municipalities abolished or merged before 2025 are kept out of rankings (2.8 roster repair from official change records); five Greek communities created after 2020 still have no point location.</li></ul>`;
-  page({ p: '/method/', title: 'Methodology: how Nestlyzer ranks places to live | Nestlyzer', desc: 'Every factor, weight, source and rule behind Nestlyzer rankings, including data depth by country and known limits.', body, crumbs: [['Home', '/'], ['Method', '/method/']] });
+  page({ p: '/method/', title: 'Methodology: how Nestlyzer ranks places to live | Nestlyzer', desc: 'Every factor, weight, source and rule behind Nestlyzer rankings, including data depth by country and known limits.', body, crumbs: [['Home', '/'], ['Method', '/method/']], jsonld: [{ '@context': 'https://schema.org', '@type': 'Dataset', name: 'Nestlyzer place rankings', description: `Rankings and official local figures for ${fmtInt(countries.reduce((a, c) => a + c.n, 0))} places in ${countries.length} countries, for households and business sites, with every factor, weight and source.`, url: SITE + '/method/', creator: { '@type': 'Organization', name: 'Nestlyzer', url: SITE + '/' }, spatialCoverage: countries.map((c) => c.name).join(', '), isAccessibleForFree: true, license: SITE + '/legal/' }] });
 }
 function legalPage() {
   const body = `<h1>Imprint and policies</h1><p class="lede">Last updated: 11 October 2026</p><div class="prose">
@@ -824,7 +841,7 @@ function landing() {
 </div></section>
 <section class="band home-only"><h2>From “where?” to a shortlist in three moves</h2><ol class="steps"><li>${ico('ui_users', 26)}<h3>Say who is moving</h3><p>Pick one of ${profiles.length} profiles or answer a few questions to build your own. The weights stay visible, so you always know why a place ranks.</p></li><li>${ico('ui_map', 26)}<h3>Choose where to look</h3><p>A whole country, a region or a single canton or département. Narrow it by size, airport, big-city or sea distance.</p></li><li>${ico('ui_scale', 26)}<h3>Compare and decide</h3><p>Every place gets a scorecard, trends, close alternatives and local context. Save favourites, compare side by side and print a booklet for the visit.</p></li></ol></section>
 <section class="band feature home-only"><div class="feature-copy"><h2>Switzerland, down to the last commune</h2><p class="lede">2,172 municipalities with 28 official factors, including the municipal tax burden for singles, families, retirees and wealth. This is the young family fit, right now:</p><ol class="rank-list">${CH.map((x) => `<li><span class="n">${x.rank}</span><span><a href="${PAGES[x.r.id] || '#'}">${esc(x.r.name)}</a><br><span class="small muted">${esc(x.r.cantonName)}, ${fmtInt(x.r.popNow)} residents</span></span><span class="chip tone-good"><b>${fmt(x.overall)}</b></span></li>`).join('')}</ol><a class="btn btn-primary" href="/#/explore?cc=CH&p=young_family">Open Switzerland</a></div><figure class="feature-map"><img src="/assets/hero-ch.svg?v=${VERSION}" alt="Swiss municipalities coloured by fit for young families" width="1000" height="652" loading="lazy" decoding="async"><figcaption>Young family fit, municipality by municipality</figcaption></figure></section>
-<section class="band home-only" id="profiles"><h2>A profile for every kind of move</h2><p class="small muted" style="margin-top:-6px">For households. Company sites and small businesses have <a href="#business-sites">their own profiles</a>.</p><p class="lede">Each profile is a transparent set of weights. Open one to see its best places across all 45 countries.</p><div class="tiles">${profiles.map((k) => `<a class="tile" href="${profilePath(k)}" style="--tone:${cfg.tones[k] || '#0e7490'}"><span class="ico">${`<i data-pico="${k}"></i>`}</span><span><b>${esc(engine.profiles[k].name)}</b><small>${esc(TILE_BLURB[k] || (engine.profiles[k].intro || '').split('.')[0])}</small></span></a>`).join('')}</div></section>
+<section class="band home-only" id="profiles"><h2>A profile for every kind of move</h2><p class="small muted" style="margin-top:-6px">For households. Company sites and small businesses have <a href="#business-sites">their own profiles</a>.</p><p class="lede">Each profile is a transparent set of weights. Open one to see its best places across all ${countries.length} countries.</p><div class="tiles">${profiles.map((k) => `<a class="tile" href="${profilePath(k)}" style="--tone:${cfg.tones[k] || '#0e7490'}"><span class="ico">${`<i data-pico="${k}"></i>`}</span><span><b>${esc(engine.profiles[k].name)}</b><small>${esc(TILE_BLURB[k] || (engine.profiles[k].intro || '').split('.')[0])}</small></span></a>`).join('')}</div></section>
 <section class="band biz-only" id="business-sites" hidden><h2>Locations for a business</h2><p class="lede">Separate from the household profiles: ${BIZ.length} kinds of company sites, each with its own weights, must-haves and the key figures a planner compares.</p>${(cfg.bizGroups || []).map((g) => `<h3 style="margin:16px 0 8px">${esc(g[0])}</h3><div style="display:flex;flex-wrap:wrap;gap:8px">${g[1].filter((k) => engine.profiles[k]).map((k) => `<a class="chip" href="${bizPath(k)}">${esc(engine.profiles[k].name)}</a>`).join('')}</div>`).join('')}</section>
 <section class="band home-only" id="rankings"><h2>World and continental rankings</h2><p class="lede">Places compared across borders: national standing, comparable measures and rank in the country.</p>${rankTiles('young_family', 'towns and cities')}</section>
 <div id="biz-extra" class="biz-only" hidden></div>
@@ -932,7 +949,8 @@ a{color:#0b6d6b}button:focus-visible,a:focus-visible,input:focus,select:focus{ou
   h = h.replace('</body>', '<script>window.NZB_HEX=' + hex + ';</script><script>' + gjs + '</script><script>' + ctaJs + '</script></body>');
   h = h.replace('</style>\n</head>', '</style></head>').replace('<style id="nz-business-theme">', '<style id="nz-business-theme">.intro{grid-template-columns:1fr minmax(220px,300px)!important;align-items:start;grid-template-rows:auto auto auto 1fr;row-gap:14px}.intro>div:first-child{grid-column:1}.nzb-cta{grid-column:1;margin:4px 0 0}.nzb-cta .button{background:#0F7C7A;color:#fff;border-color:#0F7C7A;font-weight:700}.intro>.pill{grid-column:1;justify-self:start}.nzb-globe{grid-column:2;grid-row:1 / span 4;align-self:start}.nzb-globe canvas{display:block;width:100%;aspect-ratio:1}.nzb-key{margin:6px 0 0;font-size:12px;color:var(--muted);text-align:center}.nzb-key span{white-space:nowrap}.nzb-key i{display:inline-block;width:10px;height:10px;border-radius:2px;margin:0 4px 0 10px;vertical-align:-1px}.nzb-key .ka{background:#e08b3c}.nzb-key .kb{background:#5fd0c4}.nzb-key .kd{background:rgba(95,208,196,.55)}@media (max-width:760px){.intro{grid-template-columns:1fr!important}.nzb-globe{grid-column:1;grid-row:auto;max-width:260px;margin:0 auto;order:-1}}\n');
   if (!h.includes('nz-business-theme') || !h.includes('nzb-brand')) throw new Error('business page: theme or header not applied');
-  write('business/index.html', h);
+  if (!/rel="canonical"/.test(h)) h = h.replace('</head>', `<link rel="canonical" href="${SITE}/business/"></head>`);   // 2.12.4: self-referencing canonical
+  write('business/index.html', h); SITEMAP.push('/business/');
 }
 
 // ------------------------------------------------------------------ run
@@ -979,15 +997,19 @@ write('ads.txt', ADS_TXT);
 write('assets/consent.js', CONSENT_SRC);
 write('404.html', `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page not found | Nestlyzer</title><meta name="robots" content="noindex"><meta name="google-adsense-account" content="${ADS_CLIENT}"><link rel="stylesheet" href="/assets/site.css?v=${VERSION}"><script>${STATIC_JS}</script></head><body>${header(false)}<main class="page"><h1>This page moved or never existed</h1><p class="lede">Search every place on the map instead, or start from a country.</p><p><a class="btn btn-primary" href="/#/explore?cc=CH&p=young_family">Open the map</a> <a class="btn" href="/">Home</a></p></main>${footer()}</body></html>`);
 if (!FAST) {
-const chunks = []; for (let i = 0; i < SITEMAP.length; i += 45000) chunks.push(SITEMAP.slice(i, i + 45000));
-const urlset = (list) => `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${list.map((u) => `<url><loc>${SITE}${u}</loc><lastmod>${TODAY}</lastmod></url>`).join('\n')}\n</urlset>\n`;
-if (chunks.length === 1) write('sitemap.xml', urlset(chunks[0]));
-else { chunks.forEach((c, i) => write(`sitemap-${i + 1}.xml`, urlset(c))); write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${chunks.map((_, i) => `<sitemap><loc>${SITE}/sitemap-${i + 1}.xml</loc><lastmod>${TODAY}</lastmod></sitemap>`).join('')}</sitemapindex>\n`); }
+const LM = {}; for (const u of SITEMAP) { const h = LASTMOD_SEEN[u], o = LASTMOD_OLD[u]; LM[u] = [h || (o && o[0]) || '', o && o[0] === h ? o[1] : TODAY]; }
+fs.mkdirSync(path.dirname(LASTMOD_FILE), { recursive: true }); fs.writeFileSync(LASTMOD_FILE, JSON.stringify(LM));
+// one sitemap per kind of page, listed in the sitemap index (only canonical, indexable pages; at most 45,000 URLs per file)
+const kindOf = (u) => u === '/' || /^\/(method|legal|about|business)\/$/.test(u) ? 'static' : /^\/(best|business)\//.test(u) ? 'profiles' : (u.match(/\//g) || []).length === 2 ? 'countries' : (u.match(/\//g) || []).length === 3 ? 'regions' : 'places';
+const groups = {}; for (const u of SITEMAP) (groups[kindOf(u)] = groups[kindOf(u)] || []).push(u);
+const urlset = (list) => `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${list.map((u) => `<url><loc>${SITE}${u}</loc><lastmod>${LM[u][1]}</lastmod></url>`).join('\n')}\n</urlset>\n`;
+const files = []; for (const k of ['static', 'profiles', 'countries', 'regions', 'places']) { const L = groups[k] || []; for (let i = 0; i < L.length; i += 45000) { const part = L.slice(i, i + 45000), name = `sitemap-${k}${i ? '-' + (i / 45000 + 1) : ''}.xml`; write(name, urlset(part)); files.push([name, part.reduce((m, u) => LM[u][1] > m ? LM[u][1] : m, '')]); } }
+write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${files.map(([n, d]) => `<sitemap><loc>${SITE}/${n}</loc><lastmod>${d}</lastmod></sitemap>`).join('\n')}\n</sitemapindex>\n`);
 }
 write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
 write('sw.js', SW_SRC.replace(/__VERSION__/g, VERSION));
 write('offline.html', `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Offline | Nestlyzer</title><meta name="robots" content="noindex"><link rel="stylesheet" href="/assets/site.css?v=${VERSION}"></head><body><main class="page"><h1>You are offline</h1><p class="lede">Nestlyzer needs a connection for the first visit to each country. Places you have opened before still work. Check your connection and <a href="/">try again</a>.</p></main></body></html>`);
-write('site.webmanifest', JSON.stringify({ id: '/', name: 'Nestlyzer: find where you fit', short_name: 'Nestlyzer', description: 'Find where you fit: rank places in 45 countries for your household.', lang: 'en', dir: 'ltr', scope: '/', start_url: '/#/explore?cc=CH&p=young_family', display: 'standalone', display_override: ['standalone', 'minimal-ui'], orientation: 'any', categories: ['lifestyle', 'travel', 'utilities'], background_color: '#F2F4F0', theme_color: '#0B2E5C',
+write('site.webmanifest', JSON.stringify({ id: '/', name: 'Nestlyzer: find where you fit', short_name: 'Nestlyzer', description: `Find where you fit: rank places in ${countries.length} countries for your household.`, lang: 'en', dir: 'ltr', scope: '/', start_url: '/#/explore?cc=CH&p=young_family', display: 'standalone', display_override: ['standalone', 'minimal-ui'], orientation: 'any', categories: ['lifestyle', 'travel', 'utilities'], background_color: '#F2F4F0', theme_color: '#0B2E5C',
   shortcuts: [{ name: 'Explore the map', short_name: 'Map', url: '/#/explore?cc=CH&p=young_family' }, { name: 'My shortlist', short_name: 'Shortlist', url: '/#/explore?cc=CH&p=young_family&lt=saved' }, { name: 'Best places for families', short_name: 'Families', url: profilePath('young_family') }],
   icons: [{ src: '/assets/icon-192.png', sizes: '192x192', type: 'image/png' }, { src: '/assets/icon-512.png', sizes: '512x512', type: 'image/png' }, { src: '/assets/icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' }] }, null, 1));
 write('CNAME', 'nestlyzer.com\n');

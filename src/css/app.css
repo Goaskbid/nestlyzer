@@ -404,3 +404,8 @@ body.bizmode .modeseg button[aria-pressed="true"]{background:#0F7C7A;color:#fff}
 .cine-card{display:flex;flex-direction:column}
 .cine-card .go{order:-2;margin:0 0 14px}
 .cine-card .cine-q{order:-1}
+.medal{display:inline-grid;place-items:center;width:1.3em;height:1.3em;border-radius:50%;font-size:.78em;font-weight:800;color:#fff;margin-right:4px;vertical-align:.08em;line-height:1}.medal.m1{background:#d4a017}.medal.m2{background:#8f99a3}.medal.m3{background:#b87333}.medal svg{width:.9em;height:.9em}
+.trend{font-size:.82em;font-weight:650;white-space:nowrap;margin-left:4px;color:var(--muted)}.trend.up-good{color:var(--good)}.trend.up-bad{color:var(--bad)}
+.ins-band{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:22px;align-items:center;border:1px solid var(--line);border-radius:18px;padding:22px 24px;background:linear-gradient(135deg,rgba(42,156,150,.09),rgba(224,178,58,.08))}
+.ins-podium{display:flex;flex-wrap:wrap;gap:8px 16px;font-weight:650}.ins-band-links{display:grid;gap:8px}.ins-band-links a{display:block;padding:10px 14px;border-radius:12px;background:var(--surface,#fff);border:1px solid var(--line);font-weight:600;text-decoration:none;color:inherit}.ins-band-links a:hover{border-color:#2a9c96}
+@media(max-width:760px){.ins-band{grid-template-columns:1fr;padding:18px 16px}}

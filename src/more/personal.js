@@ -51,6 +51,7 @@ function scorecardHTML(r) {
   var pos = sv.map(function (o) { return o.id; }).indexOf(r.id);
   return '<div data-scslot="' + esc(r.id) + '" class="ptcard">' +
     '<div class="pthead"><div><span class="ptbig">' + Math.round(s.score) + '</span><span class="muted"> of 100 for ' + esc(p.name || key) + '</span></div><div class="small muted">' + esc(rankTxt) + '<br>' + esc(evidenceLine(s)) + ' · ' + esc(assessKind(s)[1]) + ' · ' + fmt(r.sourceConfidence) + '% source confidence</div></div>' +
+    (isBizKey(key) ? '<p class="small ptscreen"><b>Preliminary location screening, not a site approval.</b> The score compares places on public data; grid capacity, plots, permits and staff for your project are checked on site (list below).</p>' : '') +
     ptMustRows(s.must) + (isBizKey(key) ? '' : ptMoveSteps(r)) +
     '<h4>Your criteria</h4><table class="pttable"><thead><tr><th>Criterion</th><th class="num">Weight</th><th>Score</th><th class="num">Rank</th></tr></thead><tbody>' +
     cats.map(function (c) { var rk = RES && RES.categoryRanks[c.k] && RES.categoryRanks[c.k][r.id]; return '<tr><td>' + esc(shortCat(c.k)) + '</td><td class="num">' + Math.round(c.share * 100) + '%</td><td>' + ptBar(c.v) + (c.v != null ? ' ' + Math.round(c.v) : '') + '</td><td class="num">' + (rk ? '#' + rk : '–') + '</td></tr>'; }).join('') + '</tbody></table>' +

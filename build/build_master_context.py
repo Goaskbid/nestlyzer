@@ -246,18 +246,32 @@ def cmd_build():
     for g, cc, p, rel, ev in assoc:
         if p == '*' or p.startswith('@'): cmap[g].add(cc)
         else: placemap[g].append((cc, p))
+    # 2.13 (audit NZ-R05): a record counts as already shown only when the same place has the same value in a field that
+    # measures the same thing (shared subject words between the record's indicator and the field), not merely any equal number
     present = set(); shard = {}
+    FMETA = {f['id']: f for f in json.load(open(os.path.join(ROOT, 'data', 'meta.json')))['factors']}
+    STOP = {'rate', 'share', 'total', 'number', 'people', 'persons', 'percent', 'index', 'local', 'region', 'regional', 'national',
+            'level', 'value', 'count', 'with', 'from', 'year', 'years', 'place', 'municipality', 'area', 'average', 'mean', 'median',
+            'ratio', 'score', 'balance', 'proxy', 'common', 'per', 'the', 'and', 'of', 'in', 'km2', 'residents', 'inhabitants'}
+    def toks(t):
+        return {w for w in re.split(r'[^a-z0-9]+', unicodedata.normalize('NFKD', str(t or '')).lower()) if len(w) >= 4 and w not in STOP and not w.isdigit()}
     def raws(cc):
         if cc not in shard:
-            d = json.load(open(os.path.join(ROOT, 'data', 'c', cc + '.json'))); vals = defaultdict(set)
+            d = json.load(open(os.path.join(ROOT, 'data', 'c', cc + '.json'))); vals = defaultdict(lambda: defaultdict(set))
             for fid, col in d['fr'].items():
+                ft = toks(fid.replace('_', ' ')) | toks((FMETA.get(fid) or {}).get('name'))
                 for i, v in enumerate(col):
-                    if v is not None: vals[d['rows'][i][0]].add(round(float(v), 2))
+                    if v is not None: vals[d['rows'][i][0]][round(float(v), 2)] |= ft
             shard[cc] = vals
         return shard[cc]
+    value_only = 0
     for r in cand:
+        rt = toks((r.get('indicator_id') or '').replace('_', ' ')) | toks(r.get('label'))
         for cc, p in placemap.get(r['source_geo_id'], []):
-            if round(num(r['value']), 2) in raws(cc).get(p, ()): present.add(r['record_id'])
+            ft = raws(cc).get(p, {}).get(round(num(r['value']), 2))
+            if ft is None: continue
+            if ft & rt: present.add(r['record_id'])
+            else: value_only += 1
     KEEP = ['record_id', 'source_geo_id', 'source_geo_name', 'source_geo_level', 'indicator_id', 'label', 'value', 'unit', 'period', 'statistic', 'dimensions', 'source_id', 'source_url', 'source_release', 'quality_flags', 'purpose_tags']
     per = defaultdict(list)
     for r in cand:
@@ -306,7 +320,7 @@ def cmd_build():
         loaded[cc] = len(rows); places_ctx[cc] = len({pl for g, c2, pl, rel, ev in assoc if c2 == cc and pl != '*' and not pl.startswith('@')})
     fields = Counter((r['source_geo_level'], r['indicator_id']) for cc in per for r in per[cc])
     rep = {'release': '2026-10-21-master-v7', 'stored': len(recs), 'held_excluded': len(held), 'review_candidates_numeric': len(cand),
-           'already_present_same_place_value': len(present), 'overlap_decisions_applied': dict(Counter(drop.values())), 'port_records_routed_to_port_stats': sum(1 for r in recs if r['source_geo_level'] == 'port'), 'loaded_records_by_country': dict(sorted(loaded.items())), 'places_with_master_context': dict(sorted(places_ctx.items())),
+           'already_present_same_place_value': len(present), 'equal_value_other_concept_kept': value_only, 'overlap_decisions_applied': dict(Counter(drop.values())), 'port_records_routed_to_port_stats': sum(1 for r in recs if r['source_geo_level'] == 'port'), 'loaded_records_by_country': dict(sorted(loaded.items())), 'places_with_master_context': dict(sorted(places_ctx.items())),
            'geographies': dict(kinds), 'unresolved_geographies': len(unresolved), 'distinct_fields_loaded': len({k[1] for k in fields}), 'score_eligible': 0}
     json.dump(rep, open(os.path.join(REP, 'master_import_report.json'), 'w'), indent=1)
     with open(os.path.join(REP, 'field_coverage.csv'), 'w', newline='', encoding='utf-8') as f:

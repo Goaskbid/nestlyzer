@@ -29,7 +29,7 @@ with sync_playwright() as pw:
     br.close()
 sm = open(os.path.join(ROOT, 'sitemap.xml')).read()
 parts = re.findall(r'/(sitemap-[\w-]+\.xml)</loc>', sm); n = sum(open(os.path.join(ROOT, p)).read().count('<loc>') for p in parts)
-check('sitemap', '<sitemapindex' in sm and len(parts) == 5 and n > 15000, f'sitemap index with {len(parts)} files by page type, {n} URLs')
+check('sitemap', '<sitemapindex' in sm and len(parts) >= 5 and n > 15000, f'sitemap index with {len(parts)} files by page type, {n} URLs')
 long = []
 for d, _, fs in os.walk(ROOT):
     if 'index.html' in fs and not re.search(r'/(node_modules|dist|_site|tests|src|build|vendor|assets|data|docs|tools)(/|$)', d):

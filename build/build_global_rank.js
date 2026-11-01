@@ -26,6 +26,13 @@ const TALENT = { biz_tech: 1, biz_lab: 1, biz_hq: 1, biz_services: 1, biz_pharma
 const ALPHA = { focus: 0.5,  safety: 0.6, health: 0.6, governance: 0.6, jobs: 0.5, affordability: 0.5, environment: 0.4, family: 0.4, foundation: 0.35, mobility: 0.25, freight: 0.25 };
 // a country without a national figure for a category gets the median country (no gain from a gap, no penalty)
 const MED = {}; for (const ck of Object.keys(ALPHA)) { const v = Object.values(NAT.countries).map((c) => c.cats[ck]).filter((x) => x != null).sort((a, b) => a - b); if (v.length) MED[ck] = v[Math.floor(v.length / 2)]; }
+/* 2.13 business climate: what companies weigh between countries (owner's list, 1 Nov 2026) as national levels from
+   data/national.json, mixed per kind of site. Key drivers carry the larger weights (★ in the method page). It is a
+   quarter of a business site's cross-country score; inside a country it is the same for every place. */
+const BCF = JSON.parse(fs.readFileSync(path.join(ROOT, 'build/source/bizclimate_mix.json')));   // 2.13: one source for the mixes (also the app and the insights pages)
+const BC_KEYS = BCF.keys, BC_DEFAULT = BCF.default, BC_MIX = BCF.mix, BC_SHARE = BCF.share;
+const BC_MED = {}; for (const ck of BC_KEYS) { const v = Object.values(NAT.countries).map((c) => c.cats[ck]).filter((x) => x != null).sort((a, b) => a - b); if (v.length) BC_MED[ck] = v[Math.floor(v.length / 2)]; }
+function bizClimate(cc, k) { const mix = BC_MIX[k] || BC_DEFAULT, C = (NAT.countries[cc] || {}).cats || {}; let n = 0, d = 0; for (const ck in mix) { const v = C[ck] != null ? C[ck] : BC_MED[ck]; if (v != null) { n += mix[ck] * v; d += mix[ck]; } } return d ? n / d : null; }
 const ABS = { reach: 'reach100k', reach300: 'reach300k', flatland: 'relief' };   // within-country percentiles replaced by the absolute measure, re-scored across the scope
 const NM = { kg: 1, lake: 1, river: 1, port: 1, iport: 1, mport: 1, chem: 1, fin: 1, border: 1, metro: 1, land: 1, sea: 1, tz: 1, shore: 1 };
 const GMIN_HOME = 10000;
@@ -68,7 +75,7 @@ function pctMap(list, get) {   // mean-rank percentile across the scope
   return out;
 }
 const SC = { world: () => true, europe: (p) => p.cont === 'europe', americas: (p) => p.cont === 'americas', asia_pacific: (p) => p.cont === 'asia_pacific' };
-const res = { version: 2, method: 'Two levels per category: the country\'s standing on comparable national figures (alpha) and the place\'s own score inside its country (1 - alpha); absolute measures (residents within 100 km, terrain) re-scored across the scope. Only places that meet the profile\'s requirements in their own country; at least 60% of the profile weight scored.',
+const res = { bizClimate: { keys: BC_KEYS, mix: BC_MIX, default: BC_DEFAULT, share: BC_SHARE }, version: 2, method: 'Two levels per category: the country\'s standing on comparable national figures (alpha) and the place\'s own score inside its country (1 - alpha); absolute measures (residents within 100 km, terrain) re-scored across the scope. Only places that meet the profile\'s requirements in their own country; at least 60% of the profile weight scored.',
   alpha: ALPHA, national: Object.fromEntries(Object.entries(NAT.countries).map(([cc, v]) => [cc, v.cats])), scopes: {} };
 const full = {};
 for (const [sk, inScope] of Object.entries(SC)) {
@@ -90,7 +97,8 @@ for (const [sk, inScope] of Object.entries(SC)) {
       }
       const alpha = aEff / tot, beta = gD / tot, N = nD ? nN / nD : null, A = gD ? gN / gD : null;
       if (p.P == null) continue;
-      const score = (N != null ? alpha * N : 0) + (A != null ? beta * A : 0) + (1 - (N != null ? alpha : 0) - (A != null ? beta : 0)) * p.L;
+      let score = (N != null ? alpha * N : 0) + (A != null ? beta * A : 0) + (1 - (N != null ? alpha : 0) - (A != null ? beta : 0)) * p.L;
+      const BC = pr.business ? bizClimate(p.cc, k) : null; if (BC != null) score = (1 - BC_SHARE) * score + BC_SHARE * BC;
       out.push([p.id, p.name, Math.round(score * 10) / 10, Math.round(p.P), Math.round((N != null ? alpha : 0) * 100), Math.round((A != null ? beta : 0) * 100)]);
     }
     out.sort((a, b) => b[2] - a[2] || b[3] - a[3]);   // row: id, name, score, in-country percentile, national share %, absolute-measure share %

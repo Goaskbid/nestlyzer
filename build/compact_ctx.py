@@ -1,19 +1,17 @@
 #!/usr/bin/env python3
 """Compacts the context records in data/x/{CC}.json (2.10.2) so every country file stays under GitHub's 20 MB upload
-advice: empty fields go, source URLs keep only the publisher's host (all the page shows), and long constant
-classification notes in 'dimensions' are dropped (occupation, rooms, cohort, tenancy, sex and bands stay).
+advice: empty fields go. 2.13 (audit NZ-R02): the exact source address and every statistical dimension are kept,
+because they define what a figure measures; only empty fields are removed.
 Run after build_master_context.py.    python3 build/compact_ctx.py"""
 import glob, json, os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DROP_DIM = {'classification', 'classification_detail', 'employment_universe', 'industry_scope', 'occupation_key'}
+DROP_DIM = set()   # 2.13: nothing that defines a figure is dropped
 saved = 0
 for p in glob.glob(os.path.join(ROOT, 'data', 'x', '*.json')):
     raw = open(p).read(); x = json.loads(raw); cx = x.get('ctx')
     if not cx: continue
     for o in cx.get('records', []):
         for k in [k for k, v in o.items() if v in ('', None, [], {})]: o.pop(k)
-        u = o.get('source_url')
-        if u and '://' in u: o['source_url'] = 'https://' + u.split('://', 1)[1].split('/', 1)[0]
         d = o.get('dimensions')
         if isinstance(d, dict):
             for k in DROP_DIM & set(d): d.pop(k)
@@ -24,7 +22,7 @@ print('context records compacted, saved', round(saved / 1e6, 2), 'MB')
 # 2.11.2: every national figure gets its position among the countries that publish the same indicator (same unit and
 # breakdown, latest period per country, at least 6 countries): o['xc'] = [share of those countries with a lower value, n]
 from collections import defaultdict
-def key(o): return (o.get('indicator_id'), o.get('unit'), json.dumps(o.get('dimensions') or {}, sort_keys=True))
+def key(o): return (o.get('indicator_id'), o.get('unit'), o.get('statistic'), json.dumps(o.get('dimensions') or {}, sort_keys=True))   # 2.13: same statistic too
 latest = defaultdict(dict)
 files = {}
 for p in glob.glob(os.path.join(ROOT, 'data', 'x', '*.json')):

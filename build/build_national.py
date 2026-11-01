@@ -33,14 +33,46 @@ WDI = {  # file -> (id, label, unit, direction)
     'si.pov.gini': ('gini', 'Income inequality (Gini)', 'index', -1),
     'lp.lpi.ovrl.xq': ('lpi', 'Logistics Performance Index', '1-5', 1),
     'gc.tax.totl.gd.zs': ('tax_revenue', 'Tax revenue', '% of GDP', -1),
+    # 2.13 business climate (owner's list of what companies weigh): red tape, legal certainty, taxes, cost of capital
+    'ic.reg.durs': ('startup_days', 'Days to start a business (Doing Business)', 'days', -1),
+    'ic.reg.proc': ('startup_procedures', 'Procedures to start a business (Doing Business)', 'number', -1),
+    'ic.bus.ease.xq': ('ease_rank', 'Ease of doing business rank (Doing Business, 1 = easiest of 190)', 'rank', -1),
+    'ic.lgl.cred.xq': ('legal_rights', 'Strength of legal rights for borrowers and lenders', '0-12', 1),
+    'ic.tax.totl.cp.zs': ('total_tax_rate', 'Total tax and contribution rate on commercial profits', '% of profit', -1),
+    'fr.inr.lend': ('lending_rate', 'Bank lending interest rate', '%', -1),
+    'fr.inr.rinr': ('real_interest', 'Real interest rate', '%', -1),
 }
 CTX = {  # context indicator -> (id, label, unit, direction)
+    'bready_regulatory': ('bready_regulatory', 'Regulatory framework (World Bank B-READY 2025)', '0-100', 1),
+    'bready_entry': ('bready_entry', 'Business entry (B-READY)', '0-100', 1),
+    'bready_services': ('bready_services', 'Public services for business (B-READY)', '0-100', 1),
+    'bready_disputes': ('bready_disputes', 'Dispute resolution (B-READY)', '0-100', 1),
+    'bready_finance': ('bready_finance', 'Access to finance (B-READY)', '0-100', 1),
+    'bready_tax': ('bready_tax', 'Taxation administration (B-READY)', '0-100', 1),
+    'electricity_business_eur_kwh': ('power_price_business', 'Business electricity price (Eurostat, 500-1,999 MWh a year)', 'EUR/kWh', -1),
+    'wb_fdi_net_inflows_pct_gdp': ('fdi_inflows', 'Foreign direct investment, net inflows', '% of GDP', 1),
     'cpi_2025': ('corruption_perception', 'Corruption perceptions score (higher = cleaner)', '0-100', 1),
     'vdem_ldi': ('liberal_democracy', 'Liberal democracy (V-Dem)', '0-1', 1),
     'wbl_childcare_support': ('childcare_support', 'Childcare support (Women, Business and the Law)', '0-100', 1),
     'wbl_parenthood_support': ('parenthood_support', 'Parenthood support (Women, Business and the Law)', '0-100', 1),
     'nd_gain_index': ('climate_readiness', 'Climate adaptation readiness (ND-GAIN)', '0-100', 1),
 }
+# 2.13: growth momentum (real GDP growth, average of the last five years) and its change against 2015-2019: an energy
+# shock or a war shows as a falling trend (competitiveness deterioration)
+def growth_series():
+    p = os.path.join(ROOT, 'build', 'source', 'wdi', 'ny.gdp.mktp.kd.zg.csv'); out = {}
+    if not os.path.exists(p): return out
+    for r in csv.DictReader(open(p, encoding='utf-8')):
+        try: out.setdefault(r['Country Code'], {})[int(r['Year'])] = float(r['Value'])
+        except Exception: pass
+    return out
+# statutory corporate income tax (headline rate incl. typical local taxes), the same table the place pages show
+CIT = {}
+try:
+    import re as _re
+    _m = _re.search(r'var CIT = (\{[^}]*\})', open(os.path.join(ROOT, 'src', 'more', 'more.js'), encoding='utf-8').read())
+    CIT = {k: float(v) for k, v in _re.findall(r'([A-Z]{2}): ([\d.]+)', _m.group(1))} if _m else {}
+except Exception: CIT = {}
 # category -> [(measure, weight)]; how much of a place's global category score is national (alpha) is set in build_global_rank.js
 CATS = {
     'jobs': [('gni_pc_ppp', 2), ('unemployment', 1), ('female_lfp', 0.5)],
@@ -55,6 +87,13 @@ CATS = {
     'governance': [('corruption_perception', 1), ('liberal_democracy', 1)],
     'focus_cost': [('wage_level', 3), ('corruption_perception', 0.5)],      # site fit, cost-driven company sites
     'focus_talent': [('tertiary', 1), ('gni_pc_ppp', 1), ('corruption_perception', 0.5)],  # site fit, skills-driven company sites
+    # 2.13 business climate: each a national level that companies compare across countries
+    'red_tape': [('bready_regulatory', 1), ('bready_entry', 1), ('bready_services', 0.5), ('startup_days', 1), ('startup_procedures', 0.5), ('ease_rank', 1)],
+    'rule_of_law': [('liberal_democracy', 1), ('corruption_perception', 1), ('legal_rights', 0.5), ('bready_disputes', 0.5)],
+    'biz_tax': [('cit_rate', 1), ('total_tax_rate', 1), ('bready_tax', 0.5)],
+    'capital_cost': [('real_interest', 1), ('lending_rate', 1), ('bready_finance', 0.5)],
+    'energy_cost': [('power_price_business', 1)],
+    'momentum': [('growth_5y', 1), ('growth_change', 0.5), ('fdi_inflows', 0.5)],
 }
 
 
@@ -95,8 +134,20 @@ for f in meta['factors']:
             if cc in val and 'homicide' not in val[cc] and b.get('value') is not None: val[cc]['homicide'] = [b['value'], b.get('period')]
 
 
+info['cit_rate'] = {'label': 'Corporate income tax rate (headline)', 'unit': '%', 'dir': -1, 'source': 'Nestlyzer country tax table (OECD, national tax authorities)'}
+info['growth_5y'] = {'label': 'Real GDP growth, average of the last five years', 'unit': '% a year', 'dir': 1, 'source': 'World Bank WDI NY.GDP.MKTP.KD.ZG (CC BY 4.0)'}
+info['growth_change'] = {'label': 'Growth trend: last three years against 2015-2019', 'unit': 'percentage points', 'dir': 1, 'source': 'World Bank WDI NY.GDP.MKTP.KD.ZG (CC BY 4.0)'}
+GS = growth_series()
+for cc in CC:
+    if cc in CIT: val[cc]['cit_rate'] = [CIT[cc], '2026']
+    g = GS.get(ISO3.get(cc, ''), {})
+    ys = sorted(y for y in g if y >= 2015)
+    if len(ys) >= 6:
+        last = ys[-1]; recent5 = [g[y] for y in ys if y > last - 5]; recent3 = [g[y] for y in ys if y > last - 3]; base = [g[y] for y in ys if 2015 <= y <= 2019]
+        val[cc]['growth_5y'] = [round(sum(recent5) / len(recent5), 2), last]
+        if base: val[cc]['growth_change'] = [round(sum(recent3) / len(recent3) - sum(base) / len(base), 2), last]
 # labour cost level: income per person at market prices (PPP income x price level), lower = cheaper to employ people
-info['wage_level'] = {'label': 'Labour cost level (income per person at market prices)', 'unit': 'US $', 'dir': -1, 'source': 'World Bank WDI NY.GNP.PCAP.PP.CD x PA.NUS.PPPC.RF (CC BY 4.0)'}
+info['wage_level'] = {'label': 'Income per person at market prices (national proxy for labour cost, not a wage)', 'unit': 'US $', 'dir': -1, 'source': 'World Bank WDI NY.GNP.PCAP.PP.CD x PA.NUS.PPPC.RF (CC BY 4.0)'}
 for cc in CC:
     v = val[cc]
     if 'gni_pc_ppp' in v and 'price_level' in v: v['wage_level'] = [round(v['gni_pc_ppp'][0] * v['price_level'][0]), v['gni_pc_ppp'][1]]
@@ -132,6 +183,26 @@ for cc in CC:
 out = {'version': 1, 'method': 'Each measure scored 0-100 across the 54 countries between its 5th and 95th percentile (direction applied); a category is the weighted mean of its measures and needs at least half of its measure weight.',
        'measures': info, 'categories': {k: [[m, w] for m, w in v] for k, v in CATS.items()}, 'proxies': {'LI': {'from': 'CH', 'measures': proxy.get('LI', [])}}, 'countries': nat}
 json.dump(out, open(os.path.join(ROOT, 'data', 'national.json'), 'w'), separators=(',', ':'), ensure_ascii=False)
+# 2.13: business climate for the app and the insights pages: the six drivers per country, its rank among the countries
+# with a figure, the measures behind them with their years, and the per-site mixes (build/source/bizclimate_mix.json)
+BCF = json.load(open(os.path.join(ROOT, 'build', 'source', 'bizclimate_mix.json')))
+BCM = sorted({m for k in BCF['keys'] for m, _ in CATS[k]})
+bc = {'keys': BCF['keys'], 'labels': BCF['labels'], 'short': BCF['short'], 'mix': BCF['mix'], 'default': BCF['default'], 'share': BCF['share'],
+      'measures': {m: info[m] for m in BCM if m in info}, 'parts': {k: [[m, w] for m, w in CATS[k]] for k in BCF['keys']}, 'countries': {}}
+for k in BCF['keys']:
+    have = sorted((cc for cc in CC if k in nat[cc]['cats']), key=lambda cc: -nat[cc]['cats'][k])
+    for i, cc in enumerate(have): bc['countries'].setdefault(cc, {'cats': {}, 'ranks': {}, 'n': {}, 'values': {}})['ranks'][k] = i + 1
+    for cc in have: bc['countries'][cc]['cats'][k] = nat[cc]['cats'][k]; bc['countries'][cc]['n'][k] = len(have)
+for cc in CC:
+    e = bc['countries'].setdefault(cc, {'cats': {}, 'ranks': {}, 'n': {}, 'values': {}})
+    e['values'] = {m: val[cc][m] for m in BCM if m in val[cc]}
+    for m in ('wage_level', 'tertiary', 'gni_pc_ppp'):
+        if m in val[cc]: e['values'][m] = val[cc][m]
+    e['focus'] = {k: nat[cc]['cats'].get(k) for k in ('focus_cost', 'focus_talent')}
+    g = GS.get(ISO3.get(cc, ''), {}); e['growth'] = [[y, round(g[y], 2)] for y in sorted(g) if y >= 2010]
+for m in ('wage_level', 'tertiary', 'gni_pc_ppp'): bc['measures'][m] = info[m]
+json.dump(bc, open(os.path.join(ROOT, 'data', 'bizclimate.json'), 'w'), separators=(',', ':'), ensure_ascii=False)
+print('business climate:', {k: sum(1 for c in bc['countries'].values() if k in c['cats']) for k in BCF['keys']})
 miss = {cc: [k for k in CATS if k not in nat[cc]['cats']] for cc in CC}
 print('national level for', len(CC), 'countries;', len(info), 'measures; categories missing:', {k: v for k, v in miss.items() if v})
 for cc in ('CH', 'DE', 'HU', 'PL', 'PT', 'KR', 'US', 'JP', 'LT', 'TW'): print(cc, nat[cc]['cats'])

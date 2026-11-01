@@ -1,0 +1,67 @@
+[
+ {
+  "id": "pages",
+  "ok": true,
+  "check": "hub and 10 analyses: title, canonical, chart, breadcrumbs (all fine)"
+ },
+ {
+  "id": "countries",
+  "ok": true,
+  "check": "54 country business-climate pages"
+ },
+ {
+  "id": "annotation",
+  "ok": true,
+  "check": "the scatter is explained with the countries it shows: The sweet spot. Albania, Cyprus, China, Latvia, Croatia and Poland combine below-median labour costs with above-median enrolment. At the oth"
+ },
+ {
+  "id": "sitemap",
+  "ok": true,
+  "check": "insights sitemap with 65 URLs"
+ },
+ {
+  "id": "published",
+  "ok": true,
+  "check": "published folder: 6 sitemap files, 15618 addresses, 0 missing []"
+ },
+ {
+  "id": "percentile-words",
+  "ok": true,
+  "check": "\"better than X% of places\" is computed from the places themselves, not from the 0-100 model score"
+ },
+ {
+  "id": "rank-blend",
+  "ok": true,
+  "check": "business profiles ranked worldwide with the climate blend"
+ },
+ {
+  "id": "start-band",
+  "ok": true,
+  "check": "Compare business locations band on the start page with links"
+ },
+ {
+  "id": "scatter",
+  "ok": true,
+  "check": "scatter draws 52 countries"
+ },
+ {
+  "id": "print",
+  "ok": true,
+  "check": "print view hides the site chrome (Save as PDF)"
+ },
+ {
+  "id": "panel",
+  "ok": true,
+  "check": "business-climate panel on a Singapore place (headquarters): Business climate in Singapore  What companies compare between countries, scored 0\u2013100 across the 54 countries Nestlyzer covers.   marks the key drivers for a re"
+ },
+ {
+  "id": "medals",
+  "ok": true,
+  "check": "3 crowns or medals in the business-climate panel, 5 on the whole place page"
+ },
+ {
+  "id": "history",
+  "ok": true,
+  "check": "country history on a German place page: 22 series, 22 trend lines, 47 coloured changes"
+ }
+]

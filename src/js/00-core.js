@@ -156,6 +156,19 @@ var CITY_GROUPS = [
 function cityGroup(cc, name) { return CITY_GROUPS.filter(function (g) { return g.cc === cc && g.name === name; })[0] || null; }
 function metroLabel(name) { var m = metroList().filter(function (x) { return x[0] === name; })[0]; return 'Greater ' + name + (m && m[3] === false ? ' (part in ' + countryName(S.cc) + ')' : ''); }
 function metroList() { var x = SHARD && SHARD.extra; return x && x.metros ? x.metros.filter(function (m) { return m[2] >= 3; }) : []; }
+/* 2.13: the true share of a country's places this place beats on one factor (ties count half). A factor score is a
+   0-100 model scale, not a percentile, so "better than X% of places" is computed from the loaded places themselves. */
+var PCTC = {};
+function truePct(r, fid, get) {
+  var sh = SHARDS[r.country]; if (!sh || !sh.records) return null;
+  get = get || function (x) { return (x.factorScores || {})[fid]; };
+  var k = r.country + '|' + fid + '|' + sh.records.length, a = PCTC[k];
+  if (!a) { a = []; sh.records.forEach(function (x) { var v = get(x); if (fin(v)) a.push(v); }); a.sort(function (p, q) { return p - q; }); PCTC[k] = a; }
+  var v = get(r); if (!fin(v) || a.length < 20) return null;
+  var lo = 0, hi = a.length, m; while (lo < hi) { m = (lo + hi) >> 1; if (a[m] < v) lo = m + 1; else hi = m; } var below = lo;
+  hi = a.length; while (lo < hi) { m = (lo + hi) >> 1; if (a[m] <= v) lo = m + 1; else hi = m; }
+  return Math.round((below + (lo - below - 1) / 2) / Math.max(1, a.length - 1) * 100);
+}
 function nearCenter(sp) { var c = BYID[sp.id]; return c && fin(c.lat) ? c : null; }
 function regionOptions() {
   var cc = S.cc, out = [];

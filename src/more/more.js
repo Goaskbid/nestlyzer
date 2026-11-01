@@ -707,7 +707,7 @@ function keyFactsHTML(r) {
     if (fin(xx.alt)) xf('x_alt', 'Altitude', fmtInt(xx.alt) + ' m', 'terrain model');
     if (fin(xx.reach100k)) xf('x_reach', 'Residents within 100 km', fmtInt(xx.reach100k * 1000), 'Nestlyzer, all countries');
   }
-  if (!cand.length || bizk && cand.length < 3) return housingWorkHTML(r);
+  if (!cand.length || bizk && cand.length < 3) return (bizk ? bizClimHTML(r) : '') + housingWorkHTML(r) + histHTML(r);
   cand.sort(function (a, b) { return ((a.lv === 3 ? 1.5 : a.lv) - (b.lv === 3 ? 1.5 : b.lv)) || (b.w - a.w) || a.f.name.localeCompare(b.f.name); });
   var seen = {}, pick = [];
   cand.forEach(function (c) { var k = c.f.name.toLowerCase(); if (seen[k] || pick.length >= 12) return; seen[k] = 1; pick.push(c); });
@@ -720,11 +720,11 @@ function keyFactsHTML(r) {
       // tone for the profile in focus (2.11.2): green helps, red hurts, grey does not count for this profile
       var sc = (r.factorScores || {})[c.f.id], rel = !c.f.not_scored && (w[c.f.category] || 0) > 0 || (bizk && ((META.config.profiles[S.profile] || {}).focus || {})[c.f.id]);
       var tn = !rel ? 'dim' : !fin(sc) ? '' : sc >= 60 ? 'good' : sc <= 40 ? 'bad' : 'mid';
-      var vd = fin(sc) && rel ? (sc >= 50 ? 'better than ' + Math.round(sc) + '% of places in ' : 'weaker than ' + Math.round(100 - sc) + '% of places in ') + countryName(r.country) : !rel ? 'does not count for ' + profileName(S.profile).toLowerCase() : 'counts for this profile; no comparison with other places';
+      var tq = fin(sc) && rel ? truePct(r, c.f.id) : null, vd = fin(sc) && rel ? (tq == null ? 'model score ' + Math.round(sc) + ' of 100 in ' : tq >= 50 ? 'better than ' + tq + '% of places in ' : 'weaker than ' + (100 - tq) + '% of places in ') + countryName(r.country) : !rel ? 'does not count for ' + profileName(S.profile).toLowerCase() : 'counts for this profile; no comparison with other places';
       var st = [c.f.description || c.f.name, [yr, tag ? tag + ' value' : '', c.src ? 'Source: ' + c.src : ''].filter(Boolean).join(' · ')].join(' ');
       return '<div class="kf ' + tn + '" data-src="' + esc(st) + '" title="' + esc(st) + '"><b>' + esc(c.val) + '</b><span>' + esc(c.f.name) + '</span>' + (vd || tag ? '<em>' + esc([vd, tag ? tag + ' figure' : ''].filter(Boolean).join(' · ')) + '</em>' : '') + '</div>';
     }).join('') + '</div></section>';
-  return fitHTML(r) + econHTML(r) + needsHTML(r) + (bizk ? housingWorkHTML(r) + kfHTML.replace(/^<section class="sec keyfacts"><h3>Key facts for /, '<section class="sec keyfacts"><h3>Site facts for ') : kfHTML + housingWorkHTML(r));
+  return fitHTML(r) + (bizk ? bizClimHTML(r) : '') + econHTML(r) + needsHTML(r) + (bizk ? housingWorkHTML(r) + kfHTML.replace(/^<section class="sec keyfacts"><h3>Key facts for /, '<section class="sec keyfacts"><h3>Site facts for ') : kfHTML + housingWorkHTML(r)) + histHTML(r);
 }
 (function () { var st = document.createElement('style'); st.textContent = ".keyfacts .kfgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}.keyfacts .kf{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--surface)}.keyfacts .kf b{display:block;font:700 1.15rem/1.2 var(--font-display);color:var(--ink)}.keyfacts .kf span{display:block;font-size:13px;line-height:1.3;margin-top:2px}.keyfacts .kf small{display:block;color:var(--ink-3);font-size:11px;margin-top:4px;line-height:1.3}"; document.head.appendChild(st); })();
 
@@ -924,6 +924,11 @@ function housingWorkHTML(r, traceOnly) {
   var pn = profFor();
   var rowHTML = function (g, b, quart) {
     var o = b.last, tr = g[2] && b.first !== b.last ? ' <span class="muted small">(' + esc(String(b.first.reference_period)) + ': ' + esc(cxVal(b.first)) + ')</span>' : '';
+    // 2.13: a trend arrow wherever the same series has an earlier period (since ...), coloured by what the change means here
+    if (b.first !== b.last && fin(b.first.value) && fin(o.value) && b.first.value !== 0 && !/_change|_growth|annual_change/.test(o.indicator_id)) {
+      var ch = (o.value - b.first.value) / Math.abs(b.first.value) * 100, dir0 = cxDir(o.indicator_id, biz), dir0 = dir0 === 'pay' ? (biz ? -1 : 1) : dir0, good = dir0 ? (ch > 0) === (dir0 > 0) : null;
+      if (Math.abs(ch) >= 0.5) tr += ' <span class="trend ' + (good == null ? '' : good ? 'up-good' : 'up-bad') + '" title="Change since ' + esc(String(b.first.reference_period)) + '">' + (ch > 0 ? '▲' : '▼') + ' ' + (ch > 0 ? '+' : '') + fmt(ch, 1) + '% since ' + esc(String(b.first.reference_period).slice(0, 4)) + '</span>';
+    }
     var d = cxDim(o), tq = cxTone(o, sh0, biz), vd = cxVerdict(tq[0], pn);
     var srcT = [cxExplain(o, biz, pn), 'Source: ' + [String(o.reference_period), cxGeo(o, c.rel), cxNote(o), cxSrc(o)].filter(Boolean).join(' · ')].filter(Boolean).join(' '), what = [cxGeo(o, c.rel), cxNote(o)].filter(Boolean).join(' · ');
     var lab = cxLabel(o), val = cxVal(o), bar = '';
@@ -1421,3 +1426,67 @@ window.NZ_CXTRACE = function (oid, profile) {
   try { return housingWorkHTML(r, true); } finally { S.profile = keep; }
 };
 window.NZ_CXENV = function () { return { SHARDS: SHARDS, ENGINE: ENGINE, KPIX: KPIX, BYID: BYID }; };
+
+/* 2.13 business climate: the six things companies compare between countries (red tape, rule of law, business taxes,
+   cost of capital, energy prices, growth momentum), the country's rank among the countries with a figure (crown and
+   medals for the top three), the growth trend as an arrow and the mix this kind of site uses (★ = key driver) */
+var BIZC = null;
+
+/* 2.13: country history. Yearly national series since 2010 (World Bank WDI), with exact 3-, 5- and 10-year changes.
+   Country context only: the same for every place in the country and never part of a score. One small file per country. */
+var HISTC = {};
+function histHTML(r) {
+  var cc = r.country;
+  if (!HISTC[cc]) HISTC[cc] = getJSON('/data/h/' + cc + '.json?v=__VERSION__').catch(function () { return null; });
+  HISTC[cc].then(function (H) { var el = document.querySelector('#place [data-hist="' + cc + '"]'); if (el) el.innerHTML = histBody(H, cc); });
+  return '<section class="sec hist" data-hist="' + esc(cc) + '"><h3>How ' + esc(countryName(cc)) + ' has changed</h3><p class="muted small">Loading the country history…</p></section>';
+}
+function histSpark(y) {
+  var v = y.map(function (p) { return p[1]; }), lo = Math.min.apply(null, v), hi = Math.max.apply(null, v), W = 96, H = 24, n = y.length;
+  var pts = y.map(function (p, i) { return (n > 1 ? i / (n - 1) * W : 0).toFixed(1) + ',' + (hi > lo ? H - 2 - (p[1] - lo) / (hi - lo) * (H - 4) : H / 2).toFixed(1); }).join(' ');
+  return '<svg class="hspark" viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" aria-hidden="true"><polyline points="' + pts + '" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>';
+}
+function histBody(H, cc) {
+  var head = '<h3>How ' + esc(countryName(cc)) + ' has changed</h3>';
+  if (!H || !H.series || !H.series.length) return head + '<p class="small muted">' + esc((H && H.note) || 'No national history is available for this economy.') + '</p>';
+  var groups = [];
+  H.series.forEach(function (s) { var g = groups.filter(function (x) { return x[0] === s.group; })[0]; if (!g) groups.push(g = [s.group, []]); g[1].push(s); });
+  var chg = function (s, k) {
+    var c = s.change && s.change[k]; if (!fin(c)) return '<td class="num muted">–</td>';
+    var good = s.better === 0 || Math.abs(c) < (s.kind === 'pct' ? 0.5 : 0.05) ? '' : (c > 0) === (s.better > 0) ? 'up-good' : 'up-bad';
+    var u = s.kind === 'pct' ? '%' : '';
+    return '<td class="num"><span class="trend ' + good + '">' + (c > 0 ? '▲ +' : c < 0 ? '▼ ' : '► ') + fmt(c, Math.abs(c) < 10 ? 1 : 0) + u + '</span></td>';
+  };
+  return head + '<p class="sub">National figures, the same for every place in ' + esc(countryName(cc)) + ' and not part of any score. Changes compare the latest year with exactly 3, 5 and 10 years earlier; changes in rates are in percentage points, changes in levels in %. Green means better for residents and firms, red worse, grey neither.</p>' +
+    groups.map(function (g, gi) {
+      return '<details class="adg"><summary><b>' + esc(g[0]) + '</b> <span class="muted small">' + g[1].length + ' series</span></summary><div class="tablewrap"><table class="table hist-t"><thead><tr><th>Measure</th><th>Latest</th><th>Since 2010</th><th class="num">3 yrs</th><th class="num">5 yrs</th><th class="num">10 yrs</th></tr></thead><tbody>' +
+        g[1].map(function (s) { var l = s.y[s.y.length - 1]; return '<tr title="' + esc(s.code + ', ' + s.y[0][0] + '–' + l[0]) + '"><th scope="row">' + esc(s.label) + '<small>' + esc(s.unit) + '</small></th><td><b>' + fmt(l[1], Math.abs(l[1]) < 10 ? 2 : Math.abs(l[1]) < 1000 ? 1 : 0) + '</b> <span class="muted small">' + l[0] + '</span></td><td>' + histSpark(s.y) + '</td>' + chg(s, '3') + chg(s, '5') + chg(s, '10') + '</tr>'; }).join('') +
+        '</tbody></table></div></details>';
+    }).join('') + '<p class="small muted">Source: ' + esc(H.source) + '. Latest year per series as published; a dash means one of the two years is not published.</p>';
+}
+(function () { var st = document.createElement('style'); st.textContent = ".hist{min-width:0;max-width:100%}.hist .tablewrap{overflow-x:auto;max-width:100%}.hist .hist-t{min-width:0;width:100%;table-layout:fixed}.hist .hist-t thead th:first-child{width:30%}.hist .hist-t th{overflow-wrap:anywhere}.hist .hist-t td b,.hist .hist-t .trend{white-space:nowrap}.hist .hist-t .trend{font-size:11.5px}.hist .hist-t .hspark{width:100%;max-width:96px;height:auto}@media (max-width:640px){.hist .hist-t td:nth-child(3),.hist .hist-t th:nth-child(3),.hist .hist-t td:nth-child(4),.hist .hist-t th:nth-child(4){display:none}.hist .hist-t td,.hist .hist-t th{padding:6px 4px}}.hist .hspark{color:var(--blue,#3b6fb6);vertical-align:middle}.hist .hist-t th small{display:block;font-weight:400;font-size:11px;color:var(--ink-3)}.hist .hist-t td{white-space:normal;font-size:12.5px}"; document.head.appendChild(st); })();
+function bizClimLoad() { if (!BIZC) BIZC = getJSON('/data/bizclimate.json?v=__VERSION__').catch(function () { BIZC = null; return null; }); return BIZC; }
+(function () { var st = document.createElement('style'); st.textContent = ".bizclim .cxt tr[class^=tone-]{background:none}.bizclim .cxt tr.tone-good>th{box-shadow:inset 3px 0 var(--good);padding-left:9px}.bizclim .cxt tr.tone-mid>th{box-shadow:inset 3px 0 var(--amber);padding-left:9px}.bizclim .cxt tr.tone-bad>th{box-shadow:inset 3px 0 var(--bad);padding-left:9px}.bizclim .cxt th{width:34%}.bizclim .cxt th small{display:block;font-weight:400;font-size:11px;color:var(--ink-3);margin-top:2px}.bizclim .bcover{font-size:15px;margin:8px 0 2px}.bizclim .cxt td em{text-align:left}"; document.head.appendChild(st); })();
+function bizClimHTML(r) {
+  var cc = r.country; bizClimLoad().then(function (B) { var el = document.querySelector('#place [data-bizclim="' + cc + '"]'); if (el && B) el.innerHTML = bizClimBody(B, cc, S.profile); });
+  return '<section class="sec bizclim" data-bizclim="' + esc(cc) + '"><h3>Business climate in ' + esc(countryName(cc)) + '</h3><p class="muted small">Loading the country comparison…</p></section>';
+}
+function bizClimBody(B, cc, pk) {
+  var C = B.countries[cc] || { cats: {}, ranks: {}, n: {}, values: {} }, mix = B.mix[pk] || B['default'], keys = B.keys.slice().sort(function (a, b) { return (mix[b] || 0) - (mix[a] || 0); });
+  var top = Math.max.apply(null, keys.map(function (k) { return mix[k] || 0; }));
+  var md = function (rk) { return rk >= 1 && rk <= 3 ? '<span class="medal m' + rk + '" title="' + ['Leader', 'Second', 'Third'][rk - 1] + ' among the countries">' + (rk === 1 ? '<svg viewBox=\"0 0 24 24\" width=\"1em\" height=\"1em\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M3 18h18l-1.6-10-4.9 4L12 5l-2.5 7-4.9-4z\"/></svg>' : rk) + '</span>' : ''; };
+  // overall: this site's mix over the drivers with a figure; the rank among the countries is computed here from the same data
+  var score = function (c) { var n = 0, d = 0; keys.forEach(function (k) { var v = (B.countries[c] || {}).cats || {}; if (fin(v[k]) && mix[k]) { n += mix[k] * v[k]; d += mix[k]; } }); return d ? n / d : null; };
+  var all = Object.keys(B.countries).map(function (c) { return [c, score(c)]; }).filter(function (x) { return fin(x[1]); }).sort(function (a, b) { return b[1] - a[1]; });
+  var me = all.findIndex(function (x) { return x[0] === cc; }), ov = me >= 0 ? all[me][1] : null;
+  var g = C.growth || [], last = g.length ? g[g.length - 1] : null, gv = C.values.growth_change;
+  var arrow = fin(gv && gv[0]) ? (gv[0] > 0.3 ? '<span class="trend up-good">▲ growth faster than in 2015–2019 (' + (gv[0] > 0 ? '+' : '') + fmt(gv[0], 1) + ' pts)</span>' : gv[0] < -0.3 ? '<span class="trend up-bad">▼ growth slower than in 2015–2019 (' + fmt(gv[0], 1) + ' pts)</span>' : '<span class="trend">► growth as in 2015–2019</span>') : '';
+  var rows = keys.map(function (k) {
+    var v = C.cats[k], rk = C.ranks[k], n = C.n[k], star = mix[k] && mix[k] >= top * 0.75 ? ' ★' : '';
+    var parts = (B.parts[k] || []).filter(function (p) { return C.values[p[0]]; }).map(function (p) { var m = B.measures[p[0]] || {}, x = C.values[p[0]]; return esc(m.label || p[0]) + ': ' + esc(fmt(x[0], Math.abs(x[0]) < 10 ? 1 : 0)) + (m.unit && !/^(rank|number|index)$|^0-/.test(m.unit) ? (m.unit === '%' || /^% /.test(m.unit) ? '' : ' ') + esc(m.unit) : '') + ' (' + esc(String(x[1]).slice(0, 4)) + ')'; }).join('; ');
+    return '<tr class="' + (fin(v) ? tone(v) : 'dim') + '" title="' + esc(parts || 'no comparable figure for this country yet') + '"><th scope="row">' + esc(B.short[k]) + '<small>' + (mix[k] ? mix[k] + '% of the climate score' + star : 'not weighed for this site') + '</small></th><td>' + (fin(v) ? '<b>' + fmt(v) + '</b> of 100' : '<span class="muted">no comparable figure yet</span>') + (rk ? ' <span class="muted small">' + md(rk) + ' #' + rk + ' of ' + n + ' countries</span>' : '') + '<em>' + esc(parts) + '</em></td></tr>';
+  }).join('');
+  return '<h3>Business climate in ' + esc(countryName(cc)) + '</h3><p class="sub">What companies compare between countries, scored 0–100 across the ' + all.length + ' countries Nestlyzer covers. ★ marks the key drivers for ' + esc(profFor()) + '. In world and continental rankings it counts for a quarter of a site’s score; inside a country every place shares it.</p>' +
+    (fin(ov) ? '<p class="bcover"><b>' + md(me + 1) + ' #' + (me + 1) + ' of ' + all.length + '</b> for ' + esc(profFor()) + ' · climate score <b>' + fmt(ov) + '</b> ' + arrow + '</p>' : '') +
+    '<table class="table facts cxt"><tbody>' + rows + '</tbody></table><p class="small muted">Sources: World Bank B-READY 2025 and Doing Business, World Bank WDI (interest rates, growth, FDI), Transparency International, V-Dem, Eurostat business electricity prices, national tax rates. Municipal investment flows are not published as open data; the place’s own pull (people, firms nearby, access) is in its score. <a href="/insights/business-climate/">Compare all countries</a></p>';
+}

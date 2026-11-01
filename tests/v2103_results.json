@@ -32,7 +32,7 @@
  {
   "finding": "industry",
   "ok": true,
-  "check": "Paris, business: industry structure by employee positions and by establishments kept apart ([('share of employee positions', 4), ('share of employer establishments', 5), ('share of active local units', 9)])"
+  "check": "Paris, business: industry structure by employee positions and by establishments kept apart ([('share of employee positions', 5), ('share of employer establishments', 5), ('share of active local units', 9)])"
  },
  {
   "finding": "industry",
@@ -42,7 +42,7 @@
  {
   "finding": "facilities",
   "ok": true,
-  "check": "Lyon, household: 13 facility counts for the municipality (supermarkets, GPs, schools ...)"
+  "check": "Lyon, household: 15 facility counts for the municipality (supermarkets, GPs, schools ...)"
  },
  {
   "finding": "facilities",

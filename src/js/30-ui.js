@@ -164,8 +164,10 @@ function renderResultsHead() {
   var lg = $('#rlegend'); if (lg) lg.innerHTML = '<i class="tone-good"></i>70+ strong <i class="tone-mid"></i>50–69 <i class="tone-bad"></i>under 50, for ' + esc(profileName(S.profile).toLowerCase()) + ' · #12 = rank on that criterion';
   $('#scopename').innerHTML = esc(scopeName()) + (S.lang ? ' <button class="chip langchip" type="button" data-droplang title="Remove the language filter">' + esc(LANG_NAMES[S.lang]) + '-speaking only ✕</button>' : '');
 }
+/* 2.13: the leader on a criterion wears the crown, second and third a medal (rank inside the scope in view) */
+function medal(rk) { return rk >= 1 && rk <= 3 ? '<span class="medal m' + rk + '" title="' + ['Leader', 'Second', 'Third'][rk - 1] + ' on this criterion here">' + (rk === 1 ? '<svg viewBox=\"0 0 24 24\" width=\"1em\" height=\"1em\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M3 18h18l-1.6-10-4.9 4L12 5l-2.5 7-4.9-4z\"/></svg>' : rk) + '</span>' : ''; }
 function chipHTML(label, score, rank, def) {
-  return '<span class="chip ' + tone(score) + '"' + (def ? ' data-def="' + esc(def) + '" role="button" tabindex="0"' : '') + '>' + esc(label) + ' <b>' + fmt(score) + '</b>' + (rank ? ' <small>#' + rank + '</small>' : '') + '</span>';
+  return '<span class="chip ' + tone(score) + '"' + (def ? ' data-def="' + esc(def) + '" role="button" tabindex="0"' : '') + '>' + medal(rank) + esc(label) + ' <b>' + fmt(score) + '</b>' + (rank ? ' <small>#' + rank + '</small>' : '') + '</span>';
 }
 function nestBars(x, big) {
   var w = ENGINE.weightsFor(x.r || x, S.profile);

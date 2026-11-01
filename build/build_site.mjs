@@ -5,6 +5,7 @@ import crypto from 'node:crypto';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
+import { buildInsights } from './insights.mjs';
 const require = createRequire(import.meta.url);
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const terser = require('terser');
@@ -13,7 +14,7 @@ const topojson = require('topojson-client');
 const Engine = require(path.join(ROOT, 'src/engine.js'));
 const NestData = require(path.join(ROOT, 'src/data.js'));
 
-const VERSION = process.env.NZ_VERSION || '2.12.4';
+const VERSION = process.env.NZ_VERSION || '2.13.0';
 const SITE = 'https://nestlyzer.com';
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
 /* Static pages: emoji in text become our inline line icons at build time (2.10.1); the app swaps the rest at run time. */
@@ -208,8 +209,8 @@ const MARK_INLINE = '<svg class="mark" viewBox="0 0 64 64" width="34" height="34
 function header(isApp, cc, appHref) {
   const ex = appHref || appLink({ cc: cc || 'CH', p: 'young_family' });
   return `<header class="site-header"><a class="brand" href="/" data-home aria-label="Nestlyzer home">${MARK_INLINE}<b>Nestlyzer</b></a>
-<nav class="nav" aria-label="Main"><a href="${ex}">Explore</a><a href="${appLink({ cc: cc || 'DE', p: 'young_family' })}&g=world" data-nav-rank>Rankings</a><a href="/#countries">Countries</a><a href="/#profiles">Profiles</a><a href="/method/">Method</a></nav>
-<div class="header-tools">${isApp ? `<button class="btn btn-sm sl-btn" type="button" data-lt="saved" aria-label="Your shortlist">${ICON_X.heart}<span>Shortlist</span><span class="sl-n badge" hidden>0</span></button>` : ''}${isApp ? `<button class="search-trigger" type="button" data-search aria-label="Search places">${ICON.search}<span>Search ${TOTAL} places</span><kbd>/</kbd></button>` : `<a class="btn btn-sm btn-primary" href="${ex}">${ICON.map}Open the map</a>`}<button class="icon-btn" type="button" data-theme-toggle aria-label="Switch light or dark theme">${ICON.moon}</button><details class="menu"><summary class="icon-btn" aria-label="Menu"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary><nav class="menu-panel" aria-label="Menu"><a href="${ex}">Explore the map</a><a href="/#countries">Countries</a><a href="/#profiles">Profiles</a><a href="/method/">Method</a><a href="/legal/">Imprint and privacy</a></nav></details></div></header>`;
+<nav class="nav" aria-label="Main"><a href="${ex}">Explore</a><a href="${appLink({ cc: cc || 'DE', p: 'young_family' })}&g=world" data-nav-rank>Rankings</a><a href="/#countries">Countries</a><a href="/#profiles">Profiles</a><a href="/insights/">Insights</a><a href="/method/">Method</a></nav>
+<div class="header-tools">${isApp ? `<button class="btn btn-sm sl-btn" type="button" data-lt="saved" aria-label="Your shortlist">${ICON_X.heart}<span>Shortlist</span><span class="sl-n badge" hidden>0</span></button>` : ''}${isApp ? `<button class="search-trigger" type="button" data-search aria-label="Search places">${ICON.search}<span>Search ${TOTAL} places</span><kbd>/</kbd></button>` : `<a class="btn btn-sm btn-primary" href="${ex}">${ICON.map}Open the map</a>`}<button class="icon-btn" type="button" data-theme-toggle aria-label="Switch light or dark theme">${ICON.moon}</button><details class="menu"><summary class="icon-btn" aria-label="Menu"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary><nav class="menu-panel" aria-label="Menu"><a href="${ex}">Explore the map</a><a href="/#countries">Countries</a><a href="/#profiles">Profiles</a><a href="/insights/">Insights</a><a href="/method/">Method</a><a href="/legal/">Imprint and privacy</a></nav></details></div></header>`;
 }
 function footer() {
   return `<footer class="site-footer"><div class="footer-grid">
@@ -831,6 +832,8 @@ function landing() {
 <p class="cine-legend" aria-live="polite"><span>Each light is one of ${fmtInt(totalN)} places. The brightest are each country's best fit for a <b id="cine-prof">young family</b>.</span><span class="ramp"><em>weaker fit</em><i style="background:#1b4565"></i><i style="background:#21868f"></i><i style="background:#5cc29c"></i><i style="background:#cde79a"></i><i style="background:#f7cf74"></i><i style="background:#fff4d6"></i><em>best fit</em></span></p>
 </section>
 <div class="stats"><div>${ico('ui_map', 22)}<b data-count="${totalN}">${fmtInt(totalN)}</b><span>places ranked</span></div><div>${ico('ui_globe', 22)}<b>${countries.length}</b><span>countries, one method</span></div><div>${ico('ui_users', 22)}<b>${profiles.length}</b><span>household profiles, or build your own</span></div><div>${ico('ui_database', 22)}<b>${fmt(totalPop / 1e6, 0)} million</b><span>residents covered by public data</span></div></div>
+${(() => { const B = JSON.parse(read('data/bizclimate.json')), cl = (cc) => { let n = 0, d = 0; for (const k of B.keys) { const v = (B.countries[cc].cats || {})[k]; if (Number.isFinite(v)) { n += B.default[k] * v; d += B.default[k]; } } return d ? n / d : -1; }; const top = Object.keys(B.countries).sort((a, b) => cl(b) - cl(a)).slice(0, 3), nm = (cc) => countries.find((c) => c.cc === cc).name;
+  return `<section class="band ins-band" id="insights"><div class="ins-band-copy"><h2>Compare business locations</h2><p class="lede">Red tape, courts, taxes, credit, power and growth in ${Object.keys(B.countries).length} countries, as charts you can print.</p><p class="ins-podium">${top.map((cc, i) => `<span><span class="medal m${i + 1}">${i === 0 ? '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M3 18h18l-1.6-10-4.9 4L12 5l-2.5 7-4.9-4z"/></svg>' : i + 1}</span> ${flagImg(cc, 14)} ${esc(nm(cc))}</span>`).join('')}</p><p><a class="btn btn-primary" href="/insights/">Explore the insights</a> <a class="btn" href="/insights/business-climate/">Business climate table</a></p></div><div class="ins-band-links"><a href="/insights/labour-cost-vs-talent/">Labour cost against talent</a><a href="/insights/growth-momentum/">Who speeds up, who slows down</a><a href="/insights/tax-vs-rule-of-law/">Low tax, firm law</a><a href="/insights/red-tape/">Days to open a company</a><a href="/insights/best-business-locations/">Best sites by kind of business</a><a href="/insights/best-places-to-live/">Best places to live, by household</a></div></section>`; })()}
 <section class="band"><h2>More than a ranking</h2><p class="lede">Every place comes with the numbers, the photos and the story behind them.</p><div class="ftiles">
 <div class="ftile"><span>📸</span><b>Photos from the street</b><p>Openly licensed pictures taken in and around each place, with credits.</p></div>
 <div class="ftile"><span>👍</span><b>The good and the not-so-good</b><p>Plain-language highlights, watch-outs and the unusual, written from the data.</p></div>
@@ -992,6 +995,9 @@ ROUTES['/best/'] = appLink({ cc: 'CH', p: 'young_family' });
 for (const [id, pth] of Object.entries(PAGES)) ROUTES[pth] = appLink({ cc: id.split(':')[0], p: 'young_family', sel: id });
 write('data/routes.json', JSON.stringify(ROUTES));
 }
+// 2.13: Insights, business-location analyses with charts
+const INSIGHTS_N = buildInsights({ ROOT, page, esc, fmt, fmtInt, countries, flagImg, appLink, cslug, bizPath, profilePath, PAGES, SITE });
+console.log('insights pages', INSIGHTS_N);
 // 404, sitemap(s), robots, manifest
 write('ads.txt', ADS_TXT);
 write('assets/consent.js', CONSENT_SRC);
@@ -1000,10 +1006,10 @@ if (!FAST) {
 const LM = {}; for (const u of SITEMAP) { const h = LASTMOD_SEEN[u], o = LASTMOD_OLD[u]; LM[u] = [h || (o && o[0]) || '', o && o[0] === h ? o[1] : TODAY]; }
 fs.mkdirSync(path.dirname(LASTMOD_FILE), { recursive: true }); fs.writeFileSync(LASTMOD_FILE, JSON.stringify(LM));
 // one sitemap per kind of page, listed in the sitemap index (only canonical, indexable pages; at most 45,000 URLs per file)
-const kindOf = (u) => u === '/' || /^\/(method|legal|about|business)\/$/.test(u) ? 'static' : /^\/(best|business)\//.test(u) ? 'profiles' : (u.match(/\//g) || []).length === 2 ? 'countries' : (u.match(/\//g) || []).length === 3 ? 'regions' : 'places';
+const kindOf = (u) => u.startsWith('/insights/') ? 'insights' : u === '/' || /^\/(method|legal|about|business)\/$/.test(u) ? 'static' : /^\/(best|business)\//.test(u) ? 'profiles' : (u.match(/\//g) || []).length === 2 ? 'countries' : (u.match(/\//g) || []).length === 3 ? 'regions' : 'places';
 const groups = {}; for (const u of SITEMAP) (groups[kindOf(u)] = groups[kindOf(u)] || []).push(u);
 const urlset = (list) => `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${list.map((u) => `<url><loc>${SITE}${u}</loc><lastmod>${LM[u][1]}</lastmod></url>`).join('\n')}\n</urlset>\n`;
-const files = []; for (const k of ['static', 'profiles', 'countries', 'regions', 'places']) { const L = groups[k] || []; for (let i = 0; i < L.length; i += 45000) { const part = L.slice(i, i + 45000), name = `sitemap-${k}${i ? '-' + (i / 45000 + 1) : ''}.xml`; write(name, urlset(part)); files.push([name, part.reduce((m, u) => LM[u][1] > m ? LM[u][1] : m, '')]); } }
+const files = []; for (const k of ['static', 'insights', 'profiles', 'countries', 'regions', 'places']) { const L = groups[k] || []; for (let i = 0; i < L.length; i += 45000) { const part = L.slice(i, i + 45000), name = `sitemap-${k}${i ? '-' + (i / 45000 + 1) : ''}.xml`; write(name, urlset(part)); files.push([name, part.reduce((m, u) => LM[u][1] > m ? LM[u][1] : m, '')]); } }
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${files.map(([n, d]) => `<sitemap><loc>${SITE}/${n}</loc><lastmod>${d}</lastmod></sitemap>`).join('\n')}\n</sitemapindex>\n`);
 }
 write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);

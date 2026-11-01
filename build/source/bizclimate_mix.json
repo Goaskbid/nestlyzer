@@ -1,0 +1,132 @@
+{
+ "share": 0.25,
+ "keys": [
+  "red_tape",
+  "rule_of_law",
+  "biz_tax",
+  "capital_cost",
+  "energy_cost",
+  "momentum"
+ ],
+ "labels": {
+  "red_tape": "Red tape and ease of doing business",
+  "rule_of_law": "Rule of law and legal certainty",
+  "biz_tax": "Taxes on business",
+  "capital_cost": "Cost of capital",
+  "energy_cost": "Energy prices for business",
+  "momentum": "Growth momentum and investment trend"
+ },
+ "short": {
+  "red_tape": "Red tape",
+  "rule_of_law": "Rule of law",
+  "biz_tax": "Business taxes",
+  "capital_cost": "Cost of capital",
+  "energy_cost": "Energy prices",
+  "momentum": "Momentum"
+ },
+ "default": {
+  "red_tape": 20,
+  "rule_of_law": 25,
+  "biz_tax": 20,
+  "capital_cost": 10,
+  "energy_cost": 10,
+  "momentum": 15
+ },
+ "mix": {
+  "biz_energy_intensive": {
+   "energy_cost": 35,
+   "rule_of_law": 20,
+   "red_tape": 15,
+   "biz_tax": 10,
+   "capital_cost": 10,
+   "momentum": 10
+  },
+  "biz_cleantech": {
+   "energy_cost": 30,
+   "capital_cost": 20,
+   "rule_of_law": 20,
+   "red_tape": 15,
+   "biz_tax": 5,
+   "momentum": 10
+  },
+  "biz_datacenter": {
+   "energy_cost": 35,
+   "rule_of_law": 25,
+   "red_tape": 15,
+   "capital_cost": 15,
+   "biz_tax": 5,
+   "momentum": 5
+  },
+  "biz_semis": {
+   "energy_cost": 20,
+   "rule_of_law": 25,
+   "capital_cost": 20,
+   "red_tape": 15,
+   "biz_tax": 10,
+   "momentum": 10
+  },
+  "biz_manufacturing": {
+   "energy_cost": 20,
+   "red_tape": 20,
+   "rule_of_law": 20,
+   "biz_tax": 15,
+   "capital_cost": 10,
+   "momentum": 15
+  },
+  "biz_auto": {
+   "energy_cost": 20,
+   "red_tape": 20,
+   "rule_of_law": 20,
+   "biz_tax": 15,
+   "capital_cost": 10,
+   "momentum": 15
+  },
+  "biz_port_industry": {
+   "energy_cost": 25,
+   "red_tape": 20,
+   "rule_of_law": 20,
+   "biz_tax": 15,
+   "capital_cost": 10,
+   "momentum": 10
+  },
+  "biz_finance": {
+   "rule_of_law": 35,
+   "biz_tax": 30,
+   "red_tape": 20,
+   "momentum": 15
+  },
+  "biz_hq": {
+   "biz_tax": 30,
+   "rule_of_law": 30,
+   "red_tape": 25,
+   "momentum": 15
+  },
+  "biz_services": {
+   "red_tape": 25,
+   "rule_of_law": 25,
+   "biz_tax": 25,
+   "momentum": 25
+  },
+  "biz_tech": {
+   "rule_of_law": 25,
+   "red_tape": 25,
+   "biz_tax": 20,
+   "capital_cost": 15,
+   "momentum": 15
+  },
+  "biz_logistics": {
+   "red_tape": 30,
+   "rule_of_law": 20,
+   "biz_tax": 15,
+   "momentum": 20,
+   "energy_cost": 15
+  },
+  "biz_fulfilment": {
+   "red_tape": 30,
+   "rule_of_law": 20,
+   "biz_tax": 15,
+   "momentum": 20,
+   "energy_cost": 15
+  }
+ }
+}

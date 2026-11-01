@@ -32,7 +32,7 @@
  {
   "finding": "plausible",
   "ok": true,
-  "check": "world, port industry: ['Ludwigshafen am Rhein', 'Saint-Fons', 'Venezia', 'Dunkerque', 'Port Arthur', 'Corpus Christi', 'Mannheim', 'Moerdijk', 'V\u00e9nissieux', 'Grande-Synthe']"
+  "check": "world, port industry: ['Port Arthur', 'Saint-Fons', 'Bukit Merah Estate', 'Corpus Christi', 'Dunkerque', 'Deer Park (Texas)', 'Southampton', 'Ludwigshafen am Rhein', 'V\u00e9nissieux', 'Queenstown Estate']"
  },
  {
   "finding": "benchmark",
@@ -42,7 +42,7 @@
  {
   "finding": "external",
   "ok": true,
-  "check": "published rankings: Prologis logistics 93.4, fDi cities 92.0, EIU liveability 98.0, Bilanz/IAZI separation (DINKs, expats, wealthy) [91.0, 87.4, 81.2], all profiles 60.7, IMD countries 82.3"
+  "check": "published rankings: Prologis logistics 93.2, fDi cities 95.0, EIU liveability 98.0, Bilanz/IAZI separation (DINKs, expats, wealthy) [91.0, 87.4, 81.2], all profiles 60.7, IMD countries 82.3"
  },
  {
   "finding": "clusters",
@@ -67,7 +67,7 @@
  {
   "finding": "bizglobal",
   "ok": true,
-  "check": "business profile ranked across Europe: ['L\u00fcnen', \"Saint-Ouen-l'Aum\u00f4ne\", 'Waltrop', 'R\u00fcsselsheim am Main', 'Survilliers']; \"Germany \u00b7 top 1% in the country \u00b7 national level 8% of the score\""
+  "check": "business profile ranked across Europe: [\"Saint-Ouen-l'Aum\u00f4ne\", 'L\u00fcnen', 'Survilliers', 'Welwyn Hatfield', 'Waltrop']; \"France \u00b7 top 1% in the country \u00b7 national level 8% of the score\""
  },
  {
   "finding": "bizband",

@@ -115,7 +115,9 @@ function catEvidence(r, cat, good) {
   var u = best.f.unit && !/score/.test(best.f.unit) ? best.f.unit : '';
   var rawTxt = fin(best.raw) && u === 'km' && best.raw < 0.5 ? ' (in the place itself)' : fin(best.raw) ? ' (' + fmt(best.raw, Math.abs(best.raw) < 100 ? 1 : 0) + (u ? (u.charAt(0) === '%' || u.charAt(0) === '‰' ? '' : ' ') + u : '') + ')' : '';
   if ((best.lv === 2 || best.lv === 1) && !/region|district/i.test(name)) rawTxt += ' in the region'; else if (best.lv === 9 && !/national/i.test(name)) rawTxt += ' nationally';
-  return name + rawTxt + (best.v >= 50 ? ', better than about ' + pctTxt(p) : ', weaker than about ' + pctTxt(100 - p)) + '% of ' + demonym(r.country) + ' ' + unitWord(r.country);
+  var tp = truePct(r, best.f.id, function (x) { return ENGINE.factorValue(x, best.f); });
+  if (tp == null) return name + rawTxt + ' (model score ' + p + ' of 100)';
+  return name + rawTxt + (tp >= 50 ? ', better than about ' + pctTxt(tp) : ', weaker than about ' + pctTxt(100 - tp)) + '% of ' + demonym(r.country) + ' ' + unitWord(r.country);
 }
 function geoEvidence(r, cat) {
   var fr = r.factorRaw || {}, x = r.x || {};

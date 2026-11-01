@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Nestlyzer release from GitHub Codespaces (2.12.2).
+# Nestlyzer release from GitHub Codespaces (2.12.3).
 #
 # 1. Open the repository on github.com, press "Code", "Codespaces", "Create codespace on main".
 # 2. Drag nestlyzer-codespaces-<version>.zip from your computer into the file list on the left.
@@ -18,6 +18,8 @@ cd "$REPO"
 [ -f "$REL/package.json" ] && grep -q '"name": "nestlyzer"' "$REL/package.json" || { echo "No unpacked Nestlyzer release in $REL. Run the unzip command first."; exit 1; }
 VER=$(python3 -c "import json;print(json.load(open('$REL/package.json'))['version'])")
 echo "Nestlyzer $VER"
+# the repository holds sources only; without the build workflow nothing would be built and the live site would break
+[ -f .github/workflows/site.yml ] || { echo "Stopped: the repository has no build workflow (.github/workflows/site.yml). Create it on github.com first"; echo "(Add file, Create new file, paste site.yml from the release, Commit), set Settings > Pages > Source to GitHub Actions, then run this again."; exit 1; }
 echo "1/4 GitHub limits"
 python3 "$REL/build/check_github_limits.py" "$REL"
 echo "2/4 Replacing the repository files with the release"

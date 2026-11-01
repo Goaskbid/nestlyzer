@@ -278,7 +278,7 @@
       var ms = this.mustStatus(r, p), mi;
       for (mi = 0; mi < ms.length; mi++) if (ms[mi].status === 'fail') return 'must-have: ' + ms[mi].label;
       // 'none' requirements have no open data anywhere: always shown as unknown, never a reason to drop a place
-      if (p.unknownMust === 'exclude') for (mi = 0; mi < ms.length; mi++) if (ms[mi].status === 'unknown' && ms[mi].k !== 'none') return 'unknown must-have: ' + ms[mi].label;
+      if (p.unknownMust === 'exclude') for (mi = 0; mi < ms.length; mi++) if (ms[mi].status === 'unknown' && ms[mi].k !== 'none' && !ms[mi].nonet) return 'unknown must-have: ' + ms[mi].label;
       if (p.business) return '';
     }
     if (r.country !== 'CH') {
@@ -318,9 +318,14 @@
   };
 
   Engine.prototype.mustStatus = function (r, p) {
+    var self = this;
     return (p.must || []).map(function (m) {
       var g = MUST_GET[m.k], v = g ? g(r) : /^f:/.test(m.k) ? (r.factorRaw || {})[m.k.slice(2)] : null;
       var st = !fin(v) ? 'unknown' : (m.op === '<=' ? v <= m.v : v >= m.v) ? 'pass' : 'fail';
+      // 2.12.3: a country without any motorway or railway in the source map (Iceland, Malta, Cyprus, the Baltics' motorways)
+      // cannot meet that must-have anywhere; it is not applied there and the place says to check the main roads on site
+      var nn = (self.cfg.noNetwork || {})[m.k];
+      if (nn && nn.indexOf(r.country) >= 0) return { k: m.k, label: m.label + ' (not applied: no such network in this country)', op: m.op, v: m.v, unit: m.unit || '', val: fin(v) ? v : null, status: 'unknown', nonet: true };
       return { k: m.k, label: m.label, op: m.op, v: m.v, unit: m.unit || '', val: fin(v) ? v : null, status: st };
     });
   };

@@ -288,6 +288,18 @@ def main():
     # small-business profiles are dormant (owner decision 24 Oct): kept in the config so links keep working, not offered
     cfg['bizDormant'] = small
     cfg['bizOrder'] = [k for k in cfg['bizOrder'] if k not in small]
+    # the site types companies relocate or open most often (fDi Markets project counts by activity, CBRE/JLL industrial and
+    # office demand): offered first on the start card; the others stay one click away under "More business types"
+    # countries without any motorway / railway in the source map (nearest one more than 40 km from every place)
+    nonet = {'mway_km': [], 'rail_km': []}
+    for fx in sorted(os.listdir(os.path.join(ROOT, 'data', 'x'))):
+        if fx.startswith('_') or not fx.endswith('.json'): continue
+        xc = json.load(open(os.path.join(ROOT, 'data', 'x', fx))).get('cols', {})
+        for kk in nonet:
+            vals = [v for v in xc.get(kk) or [] if v is not None]
+            if vals and min(vals) > 40: nonet[kk].append(fx[:-5])
+    cfg['noNetwork'] = nonet
+    cfg['bizTop'] = ['biz_logistics', 'biz_manufacturing', 'biz_tech', 'biz_hq', 'biz_services', 'biz_lab', 'biz_datacenter', 'biz_finance']
     cfg['bizGroups'] = [['Industry and materials', ['biz_manufacturing', 'biz_auto', 'biz_aero', 'biz_semis', 'biz_cleantech', 'biz_energy_intensive', 'biz_port_industry', 'biz_food_processing', 'biz_pharma_production']],
                         ['Logistics', ['biz_logistics', 'biz_fulfilment']],
                         ['Offices and technology', ['biz_tech', 'biz_media', 'biz_datacenter', 'biz_lab', 'biz_hq', 'biz_services', 'biz_contact_center']],

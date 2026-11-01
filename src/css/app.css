@@ -397,3 +397,6 @@ body.has-tray .rail .scroll,body.has-tray #placescroll{padding-bottom:76px}
 body.bizmode .modeseg button[aria-pressed="true"]{background:#0F7C7A;color:#fff}
 [data-alldata] svg{max-width:100%;height:auto}
 .modeseg-wide{display:flex;width:100%;margin:0 0 12px}.modeseg-wide button{flex:1;padding:10px 8px;font-size:14px}
+
+/* 2.12.3: the further business types open in place, in the same grid as the first eight */
+.who-biz-more:not([hidden]){display:contents}

@@ -52,7 +52,7 @@
  {
   "finding": "clusters",
   "ok": true,
-  "check": "US logistics clusters rank high: {'Memphis': 63.5, 'Louisville': 86.1, 'Joliet': 99.1, 'Ontario': 98.5, 'Edison': 99.9, 'Allentown': 92.1}"
+  "check": "US logistics clusters rank high: {'Memphis': 63.4, 'Louisville': 86.1, 'Joliet': 99.1, 'Ontario': 98.5, 'Edison': 99.9, 'Allentown': 92.1}"
  },
  {
   "finding": "research",

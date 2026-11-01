@@ -145,7 +145,8 @@ function setHomeMode(m, user) {
   $$('.home-only').forEach(function (x) { x.hidden = biz; }); $$('.biz-only').forEach(function (x) { x.hidden = !biz; });
   var bx = $('#biz-extra'); if (biz && bx && !bx.dataset.loaded) { bx.dataset.loaded = 1; fetch(assetURL('/data/start_biz.html?v=' + VERSION)).then(function (r) { return r.ok ? r.text() : ''; }).then(function (h) { bx.innerHTML = h; }, function () { bx.dataset.loaded = ''; }); }
   var grp = biz ? wb : $('.who:not(.who-biz):not(.who-more)');
-  if (grp && !grp.querySelector('[aria-pressed="true"]')) { var last = store(biz ? 'lastbiz' : 'lasthome'); var pick = (last && grp.querySelector('[data-who="' + last + '"]')) || grp.querySelector('[data-who]'); $$('.who [data-who]').forEach(function (x) { x.setAttribute('aria-pressed', x === pick); }); if (!biz && pick) heroSetProfile(pick.dataset.who); }
+  if (grp && !grp.querySelector('[aria-pressed="true"]')) { var last = store(biz ? 'lastbiz' : 'lasthome'); if (biz && last && !grp.querySelector('[data-who="' + last + '"]')) bizMoreFill(); var pick = (last && grp.querySelector('[data-who="' + last + '"]')) || grp.querySelector('[data-who]'); $$('.who [data-who]').forEach(function (x) { x.setAttribute('aria-pressed', x === pick); }); if (!biz && pick) heroSetProfile(pick.dataset.who); }
+  var bmo = $('#who-biz-more'), bmb = $('[data-bizmore]'); if (biz && bmo && bmo.hidden && bmo.querySelector('[aria-pressed="true"]')) { bmo.hidden = false; if (bmb) { bmb.setAttribute('aria-expanded', 'true'); bmb.querySelector('span').textContent = 'Fewer business types'; } }
   var go = $('[data-start="go"]'); if (go) go.textContent = biz ? go.dataset.goBiz : go.dataset.goHome;
   if (user) store('homemode', HMODE);
   if (biz) loadBizGlobe();
@@ -297,6 +298,7 @@ function headerTone() {
 }
 function landingReady() {
   heroInit(); headerTone();
+  $$('[data-pico]').forEach(function (e) { e.outerHTML = profileIcon(e.dataset.pico, 20); });   // profile cards: icons from the one icon table (start page budget, 2.12.3)
   window.addEventListener('scroll', headerTone, { passive: true });
   $$('.who [data-who]').forEach(function (b) { b.addEventListener('mouseenter', function () { if (matchMedia('(hover: hover)').matches) heroSetProfile(b.dataset.hero || b.dataset.who); }); b.addEventListener('focus', function () { heroSetProfile(b.dataset.hero || b.dataset.who); }); });
   var who = $('.who'); if (who) who.addEventListener('mouseleave', function () { var p = $('.who [aria-pressed="true"]'); if (p) heroSetProfile(p.dataset.who); });

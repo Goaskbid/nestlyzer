@@ -30,6 +30,8 @@ def norm_rec(r):
     v = float(r['value']); r['value'] = v
     if r['score_eligible'].strip().lower() not in ('false', '0', ''): raise SystemExit('score_eligible must be false: ' + r['record_id'])
     r['score_eligible'] = False
+    # 2.12.3: anything imported from now on needs a reviewed decision before it is shown (no flag = not approved)
+    if 'publication_approved' not in r or str(r['publication_approved']).strip().lower() not in ('true', '1'): r['publication_approved'] = False
     for k in ('dimensions', 'quality_flags'):
         r[k] = json.loads(r[k]) if r.get(k) else ({} if k == 'dimensions' else [])
     return r

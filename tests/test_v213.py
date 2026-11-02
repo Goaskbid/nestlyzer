@@ -9,7 +9,7 @@ B = sys.argv[1] if len(sys.argv) > 1 else 'http://localhost:8787'
 res = []
 def check(fid, ok, msg): res.append({'id': fid, 'ok': bool(ok), 'check': msg}); print(('PASS ' if ok else 'FAIL ') + fid + '  ' + msg)
 rd = lambda p: open(os.path.join(ROOT, p), encoding='utf-8').read()
-MAIN = ['business-climate', 'labour-cost-vs-talent', 'tax-vs-rule-of-law', 'growth-momentum', 'red-tape', 'energy-prices', 'cost-of-capital', 'best-business-locations', 'best-places-to-live', 'ten-years-of-change']
+MAIN = ['business-climate', 'labour-cost-vs-talent', 'tax-vs-rule-of-law', 'growth-momentum', 'red-tape', 'energy-prices', 'cost-of-capital', 'best-business-locations', 'best-places-to-live', 'ten-years-of-change', 'quality-of-life', 'cost-of-living', 'safety', 'health-and-longevity', 'clean-air', 'jobs-and-pay', 'ageing-and-growth', 'family-friendly-countries', 'france-rent-vs-income', 'italy-rental-yields', 'us-income-and-life-expectancy', 'uk-house-prices-vs-pay', 'switzerland-income-tax-by-commune', 'sweden-tax-and-income', 'spain-income-and-inequality', 'germany-rents-and-property-tax']
 bad = []
 for k in [''] + MAIN:
     p = f'insights/{k}/index.html'.replace('//', '/')
@@ -17,8 +17,9 @@ for k in [''] + MAIN:
     h = rd(p); t = re.findall(r'<title>(.*?)</title>', h)[0]
     if len(t) > 65: bad.append(k + ' title')
     if f'<link rel="canonical" href="https://nestlyzer.com/insights/{k + "/" if k else ""}">' not in h: bad.append(k + ' canonical')
-    if k and k not in ('best-business-locations', 'best-places-to-live', 'business-climate') and h.count('<svg viewBox="0 0 760') < 1: bad.append(k + ' chart')
-    if re.search(r'<svg viewBox="0 0 760[^>]*>(?:(?!</svg>).)*<span', h, re.S): bad.append(k + ' html inside chart')
+    if k and h.count('class="ins-fig"') < 1: bad.append(k + ' chart')
+    if re.search(r'<svg viewBox="0 0 (760|380)[^>]*>(?:(?!</svg>).)*<span', h, re.S): bad.append(k + ' html inside chart')
+    if h.count('class="v-d"') != h.count('class="v-m"'): bad.append(k + ' phone chart missing')
     if 'BreadcrumbList' not in h: bad.append(k + ' breadcrumbs')
 check('pages', not bad, f'hub and {len(MAIN)} analyses: title, canonical, chart, breadcrumbs ({bad or "all fine"})')
 cdir = os.path.join(ROOT, 'insights/country'); nc = len(os.listdir(cdir)) if os.path.isdir(cdir) else 0
@@ -40,11 +41,21 @@ check('rank-blend', any(k.startswith('biz_') for k in W['profiles']), 'business 
 with sync_playwright() as pw:
     br = pw.chromium.launch(); pg = br.new_page(viewport={'width': 1400, 'height': 900})
     pg.goto(B + '/', wait_until='load'); pg.wait_for_timeout(800)
-    band = pg.query_selector('#insights')
-    check('start-band', band and band.is_visible() and pg.evaluate("document.querySelectorAll('#insights a[href^=\"/insights/\"]').length") >= 5, 'Compare business locations band on the start page with links')
+    hb = pg.evaluate("(()=>{const e=document.querySelector('#insights');return e&&!e.hidden&&e.offsetHeight>0?e.querySelectorAll('a[href^=\"/insights/\"]').length:0})()")
+    pg.click('[data-hmode="biz"]'); pg.wait_for_timeout(500)
+    bb = pg.evaluate("(()=>{const e=document.querySelector('#insights-biz');return e&&!e.hidden&&e.offsetHeight>0&&document.querySelector('#insights').hidden?e.querySelectorAll('a[href^=\"/insights/\"]').length:0})()")
+    check('start-band', hb >= 5 and bb >= 5, f'start page: households band ({hb} links) and, after switching to business, the business band ({bb} links)')
     pg.goto(B + '/insights/labour-cost-vs-talent/', wait_until='load')
-    n = pg.evaluate("document.querySelectorAll('.ins-pt').length")
+    n = pg.evaluate("document.querySelectorAll('.v-d .pt').length")
     check('scatter', n >= 40, f'scatter draws {n} countries')
+    mob = br.new_page(viewport={'width': 390, 'height': 844}); over = []
+    allp = [''] + MAIN + ['country/' + c for c in sorted(os.listdir(cdir))]
+    for k in allp:
+        mob.goto(B + '/insights/' + (k + '/' if k else ''), wait_until='load')
+        o = mob.evaluate("[document.documentElement.scrollWidth > innerWidth, [...document.querySelectorAll('main .ins-fig, main table, main svg')].filter(e=>e.offsetParent&&e.getBoundingClientRect().right>innerWidth+1).length]")
+        if o[0] or o[1]: over.append(k or 'hub')
+    check('phone', not over, f'{len(allp)} Insights pages on a 390 px phone: nothing wider than the screen ({over[:5]})')
+    mob.close()
     pg.emulate_media(media='print'); hid = pg.evaluate("getComputedStyle(document.querySelector('.site-header')||document.querySelector('header')).display"); pg.emulate_media(media='screen')
     check('print', hid == 'none', 'print view hides the site chrome (Save as PDF)')
     pg.goto(B + '/#/explore?cc=SG&p=biz_hq', wait_until='load')

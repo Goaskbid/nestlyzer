@@ -2,7 +2,7 @@
  {
   "id": "pages",
   "ok": true,
-  "check": "hub and 10 analyses: title, canonical, chart, breadcrumbs (all fine)"
+  "check": "hub and 26 analyses: title, canonical, chart, breadcrumbs (all fine)"
  },
  {
   "id": "countries",
@@ -12,17 +12,17 @@
  {
   "id": "annotation",
   "ok": true,
-  "check": "the scatter is explained with the countries it shows: The sweet spot. Albania, Cyprus, China, Latvia, Croatia and Poland combine below-median labour costs with above-median enrolment. At the oth"
+  "check": "the scatter is explained with the countries it shows: The sweet spot. Albania, Cyprus, China, Latvia, Croatia and Poland combine below-median labour costs with above-median enrolment. Switzerlan"
  },
  {
   "id": "sitemap",
   "ok": true,
-  "check": "insights sitemap with 65 URLs"
+  "check": "insights sitemap with 81 URLs"
  },
  {
   "id": "published",
   "ok": true,
-  "check": "published folder: 6 sitemap files, 15618 addresses, 0 missing []"
+  "check": "published folder: 6 sitemap files, 15634 addresses, 0 missing []"
  },
  {
   "id": "percentile-words",
@@ -37,12 +37,17 @@
  {
   "id": "start-band",
   "ok": true,
-  "check": "Compare business locations band on the start page with links"
+  "check": "start page: households band (6 links) and, after switching to business, the business band (6 links)"
  },
  {
   "id": "scatter",
   "ok": true,
   "check": "scatter draws 52 countries"
+ },
+ {
+  "id": "phone",
+  "ok": true,
+  "check": "81 Insights pages on a 390 px phone: nothing wider than the screen ([])"
  },
  {
   "id": "print",

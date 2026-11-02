@@ -1831,7 +1831,9 @@ FR,municipality,retained:population_density,3
 FR,municipality,retained:population_growth_annual,3
 FR,municipality,retained:population_growth_migration_annual,3
 FR,municipality,retained:population_growth_natural_annual,3
+FR,municipality,retained:poverty_rate_fr,2
 FR,municipality,retained:secondary_residence_share,3
+FR,municipality,retained:unemployment_census_15_64,3
 FR,municipality,retained:vacant_dwelling_share,2
 FR,municipality,self_employment_share,1
 FR,municipality,single_parent_households,1
@@ -5133,9 +5135,10 @@ UK,country_scenario,OECD_TW2026:net_personal_average_tax_rate,8
 UK,country_scenario,OECD_TW2026:personal_income_tax_rate,8
 UK,country_scenario,OECD_TW2026:personal_tax_plus_employee_ssc,8
 UK,local_authority,GB_ONS_HIGH_GROWTH2024:high_growth_business_share,44
-UK,local_authority,retained:gigabit_premises_pct,2
-UK,local_authority,retained:outdoor_4g_area_pct,2
-UK,local_authority,retained:outdoor_5g_area_pct,2
+UK,local_authority,retained:gigabit_premises_pct,355
+UK,local_authority,retained:outdoor_4g_area_pct,355
+UK,local_authority,retained:outdoor_5g_area_pct,355
+UK,local_authority,retained:residents_rail_30min_walk_pct,311
 UK,local_authority,retained:supermarkets_per_10000,3
 UK,region,retained:gigabit_premises_pct,9
 UK,region,retained:outdoor_4g_area_pct,9

@@ -127,7 +127,7 @@ function geoEvidence(r, cat) {
   if (cat === 'jobs' && fin(fr.geo_catchment_30km)) return fmtInt(fr.geo_catchment_30km) + ' people live within 30 km';
   var d10 = fr.geo_density10_km2;
   if ((cat === 'environment' || cat === 'affordability') && fin(d10) && !fin(r.density)) return 'about ' + fmtInt(d10) + ' people per km² live within 10 km' + (cat === 'affordability' ? ', a good guide to land and housing pressure' : '');
-  if (cat === 'foundation') { var g = growth5(r); if (g == null && !fin(r.density)) return 'it has ' + fmtInt(r.population) + ' residents' + (fin(d10) ? ' and about ' + fmtInt(d10) + ' people per km² within 10 km' : ''); return (g == null ? 'it has ' + fmtInt(r.population) + ' residents' : 'the population ') + (g == null ? '' : g >= 0 ? 'grew ' + fmt(g, 1) + '% in five years' : 'shrank ' + fmt(-g, 1) + '% in five years') + (fin(r.density) ? ', with ' + fmtInt(r.density) + ' residents per km²' : ''); }
+  if (cat === 'foundation') { var g = growth5(r); if (g == null && !fin(r.density)) return 'it has ' + fmtInt(r.popNow) + ' residents' + (r.popYear ? ' (' + r.popYear + ')' : '') + (fin(d10) ? ' and about ' + fmtInt(d10) + ' people per km² within 10 km' : ''); return (g == null ? 'it has ' + fmtInt(r.popNow) + ' residents' + (r.popYear ? ' (' + r.popYear + ')' : '') : 'the population ') + (g == null ? '' : g >= 0 ? 'grew ' + fmt(g, 1) + '% in five years' : 'shrank ' + fmt(-g, 1) + '% in five years') + (fin(r.density) ? ', with ' + fmtInt(r.density) + ' residents per km²' : ''); }
   return null;
 }
 function storyFor(r, xr) {

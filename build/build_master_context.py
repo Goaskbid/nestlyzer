@@ -257,20 +257,31 @@ def cmd_build():
         return {w for w in re.split(r'[^a-z0-9]+', unicodedata.normalize('NFKD', str(t or '')).lower()) if len(w) >= 4 and w not in STOP and not w.isdigit()}
     def raws(cc):
         if cc not in shard:
-            d = json.load(open(os.path.join(ROOT, 'data', 'c', cc + '.json'))); vals = defaultdict(lambda: defaultdict(set))
+            d = json.load(open(os.path.join(ROOT, 'data', 'c', cc + '.json'))); vals = defaultdict(lambda: defaultdict(set))   # place -> value -> field ids
             for fid, col in d['fr'].items():
-                ft = toks(fid.replace('_', ' ')) | toks((FMETA.get(fid) or {}).get('name'))
                 for i, v in enumerate(col):
-                    if v is not None: vals[d['rows'][i][0]][round(float(v), 2)] |= ft
+                    if v is not None: vals[d['rows'][i][0]][round(float(v), 2)].add(fid)
             shard[cc] = vals
         return shard[cc]
+    # 2.13.1 (audit): same subject words AND compatible unit AND the same reference year when both are known;
+    # anything uncertain is kept (shown twice at worst), never silently dropped
+    YR = lambda t: (re.findall(r'(?:19|20)\d\d', str(t or '')) or [None])[-1]
+    UN = lambda u: re.sub(r'[^a-z0-9%]+', '', unicodedata.normalize('NFKD', str(u or '')).lower())
+    def same_concept(fid, r, rt):
+        f = FMETA.get(fid) or {}
+        if not (toks(fid.replace('_', ' ')) | toks(f.get('name'))) & rt: return False
+        uf, ur = UN(f.get('unit')), UN(r.get('unit'))
+        if uf and ur and uf != ur and not (uf in ur or ur in uf): return False
+        yf, yr = YR(f.get('source_period')), YR(r.get('period'))
+        if yf and yr and yf != yr: return False
+        return True
     value_only = 0
     for r in cand:
         rt = toks((r.get('indicator_id') or '').replace('_', ' ')) | toks(r.get('label'))
         for cc, p in placemap.get(r['source_geo_id'], []):
-            ft = raws(cc).get(p, {}).get(round(num(r['value']), 2))
-            if ft is None: continue
-            if ft & rt: present.add(r['record_id'])
+            fids = raws(cc).get(p, {}).get(round(num(r['value']), 2))
+            if not fids: continue
+            if any(same_concept(fid, r, rt) for fid in fids): present.add(r['record_id'])
             else: value_only += 1
     KEEP = ['record_id', 'source_geo_id', 'source_geo_name', 'source_geo_level', 'indicator_id', 'label', 'value', 'unit', 'period', 'statistic', 'dimensions', 'source_id', 'source_url', 'source_release', 'quality_flags', 'purpose_tags']
     per = defaultdict(list)

@@ -3,8 +3,8 @@
  "stored": 34894,
  "held_excluded": 1490,
  "review_candidates_numeric": 32986,
- "already_present_same_place_value": 552,
- "equal_value_other_concept_kept": 1670,
+ "already_present_same_place_value": 28,
+ "equal_value_other_concept_kept": 2202,
  "overlap_decisions_applied": {
   "repeat": 17,
   "precision_conflict": 1
@@ -15,7 +15,7 @@
   "AL": 75,
   "AT": 191,
   "AU": 191,
-  "BE": 216,
+  "BE": 310,
   "BG": 171,
   "BR": 71,
   "CA": 199,
@@ -27,9 +27,9 @@
   "DK": 173,
   "EE": 218,
   "EL": 208,
-  "ES": 499,
+  "ES": 556,
   "FI": 1314,
-  "FR": 746,
+  "FR": 749,
   "HK": 461,
   "HR": 283,
   "HU": 232,
@@ -62,7 +62,7 @@
   "SI": 1736,
   "SK": 202,
   "TW": 73,
-  "UK": 1625,
+  "UK": 1995,
   "US": 3235,
   "ZA": 22
  },
@@ -162,6 +162,6 @@
   "unresolved:metropolitan_city": 1
  },
  "unresolved_geographies": 481,
- "distinct_fields_loaded": 583,
+ "distinct_fields_loaded": 588,
  "score_eligible": 0
 }

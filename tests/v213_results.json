@@ -12,7 +12,7 @@
  {
   "id": "annotation",
   "ok": true,
-  "check": "the scatter is explained with the countries it shows: The sweet spot. Albania, Cyprus, China, Latvia, Croatia and Poland combine below-median labour costs with above-median enrolment. Switzerlan"
+  "check": "the scatter is explained with the countries it shows: The sweet spot. Albania, Cyprus, China, Latvia, Croatia and Poland combine below-median income per person (the labour-cost proxy) with above"
  },
  {
   "id": "sitemap",
@@ -28,6 +28,31 @@
   "id": "percentile-words",
   "ok": true,
   "check": "\"better than X% of places\" is computed from the places themselves, not from the 0-100 model score"
+ },
+ {
+  "id": "ch-population",
+  "ok": true,
+  "check": "Swiss core population = latest year of its own series in all but 1 place (boundary change kept)"
+ },
+ {
+  "id": "evidence-rule",
+  "ok": true,
+  "check": "one evidence rule in every country: thin places flagged and ranked after the others (method v2)"
+ },
+ {
+  "id": "dated",
+  "ok": true,
+  "check": "historical analyses carry the year in the heading; Swiss tax components match the source"
+ },
+ {
+  "id": "review-queue",
+  "ok": true,
+  "check": "publication review queue written, nothing hidden"
+ },
+ {
+  "id": "wrong-codespace",
+  "ok": true,
+  "check": "release script stops with a clear message in another repository's codespace"
  },
  {
   "id": "rank-blend",
@@ -62,7 +87,7 @@
  {
   "id": "medals",
   "ok": true,
-  "check": "3 crowns or medals in the business-climate panel, 5 on the whole place page"
+  "check": "4 crowns or medals in the business-climate panel, 6 on the whole place page"
  },
  {
   "id": "history",

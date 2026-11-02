@@ -29,13 +29,13 @@
    "p": "single_parent",
    "cc": "CH",
    "kind": "core-mean",
-   "msg": "family (22% of the weight) averages 58 in the top 10"
+   "msg": "family (22% of the weight) averages 59 in the top 10"
   },
   {
    "p": "single_parent",
    "cc": "CH",
    "kind": "core-mean",
-   "msg": "safety (16% of the weight) averages 55 in the top 10"
+   "msg": "safety (16% of the weight) averages 52 in the top 10"
   },
   {
    "p": "single_pensioner",
@@ -59,7 +59,7 @@
    "p": "young_professional",
    "cc": "CH",
    "kind": "core-mean",
-   "msg": "city (18% of the weight) averages 50 in the top 10"
+   "msg": "city (18% of the weight) averages 51 in the top 10"
   },
   {
    "p": "young_professional",
@@ -77,7 +77,7 @@
    "p": "dinks",
    "cc": "CH",
    "kind": "core-weak",
-   "msg": "city: 5 of the top 10 under 40: Zug 28, Baar 27, Baden 28, Cham 23"
+   "msg": "city: 5 of the top 10 under 40: Zug 29, Baar 27, Baden 28, Cham 23"
   },
   {
    "p": "car_free",
@@ -89,7 +89,7 @@
    "p": "urban",
    "cc": "CH",
    "kind": "core-mean",
-   "msg": "city (30% of the weight) averages 53 in the top 10"
+   "msg": "city (30% of the weight) averages 54 in the top 10"
   },
   {
    "p": "healthcare_first",
@@ -108,18 +108,6 @@
    "cc": "CH",
    "kind": "country-lacks",
    "msg": "city: no place in the country scores well (90th percentile 39)"
-  },
-  {
-   "p": "biz_insurer",
-   "cc": "CH",
-   "kind": "thin",
-   "msg": "only 0 places pass"
-  },
-  {
-   "p": "biz_fund",
-   "cc": "CH",
-   "kind": "thin",
-   "msg": "only 0 places pass"
   },
   {
    "p": "cross_border",

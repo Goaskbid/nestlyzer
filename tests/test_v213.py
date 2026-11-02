@@ -36,6 +36,19 @@ if os.path.isdir(S):
     check('published', len(kids) >= 6 and not miss and any(u.startswith('insights/') for u in urls), f'published folder: {len(kids)} sitemap files, {len(urls)} addresses, {len(miss)} missing {miss[:3]}')
 src = open(os.path.join(ROOT, 'src/js/45-story.js')).read() + open(os.path.join(ROOT, 'src/more/more.js')).read()
 check('percentile-words', "better than ' + Math.round(sc)" not in src and 'truePct(' in src, '"better than X% of places" is computed from the places themselves, not from the 0-100 model score')
+# 2.13.2: one population everywhere, one evidence rule, dated historical analyses, review queue, wrong-codespace guard
+import subprocess
+ch = json.load(open(os.path.join(ROOT, 'data/c/CH.json'))); ci = ch['cols'].index('pop')
+mism = sum(1 for i, r in enumerate(ch['rows']) if (ch['trend'][i] or {}).get('annual_population') and r[ci] != ch['trend'][i]['annual_population'][-1]['population'])
+check('ch-population', mism <= 1, f'Swiss core population = latest year of its own series in all but {mism} place (boundary change kept)')
+eng = open(os.path.join(ROOT, 'src/engine.js')).read()
+check('evidence-rule', "thin: this.method !== 'v1' && (measured < 50 || strictCov < 55)" in eng and '(a.thin - b.thin)' in eng, 'one evidence rule in every country: thin places flagged and ranked after the others (method v2)')
+ht = rd('insights/switzerland-income-tax-by-commune/index.html'); hi = rd('insights/italy-rental-yields/index.html')
+check('dated', '2018</h1>' in ht and 'direct federal tax is not included' in ht and '2018</h1>' in hi, 'historical analyses carry the year in the heading; Swiss tax components match the source')
+q = os.path.join(ROOT, 'docs/audit/publication_review_queue.csv')
+check('review-queue', os.path.exists(q) and sum(1 for _ in open(q)) > 10, 'publication review queue written, nothing hidden')
+r = subprocess.run('cd $(mktemp -d) && git init -q && git remote add origin https://github.com/Goaskbid/curvescout-com && git checkout -q -b main && mkdir -p /tmp/nzt && cp ' + os.path.join(ROOT, 'package.json') + ' /tmp/nzt/ && sed "s#REL=/tmp/nz#REL=/tmp/nzt#" ' + os.path.join(ROOT, 'tools/codespaces_release.sh') + ' | bash; echo rc=$?', shell=True, capture_output=True, text=True)
+check('wrong-codespace', 'not Nestlyzer' in r.stdout and 'rc=1' in r.stdout, 'release script stops with a clear message in another repository\'s codespace')
 W = json.load(open(os.path.join(ROOT, 'data/rank/world.json')))
 check('rank-blend', any(k.startswith('biz_') for k in W['profiles']), 'business profiles ranked worldwide with the climate blend')
 with sync_playwright() as pw:

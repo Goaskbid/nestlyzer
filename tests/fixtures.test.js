@@ -3,7 +3,7 @@ const fs = require('fs'), path = require('path');
 const Engine = require('../src/engine.js'), D = require('../src/data.js');
 const root = path.join(__dirname, '..');
 const meta = JSON.parse(fs.readFileSync(path.join(root, 'data/meta.json')));
-if (meta.population && (meta.population.updated_countries || []).length) { console.log(`legacy fixtures: skipped (population refreshed to GISCO LAU ${meta.population.year}; the fixtures describe the ${2024} release)`); process.exit(0); }
+const UPD = (meta.population && meta.population.updated_countries) || [];   // 2.13.2: skip only the countries whose population was refreshed
 const fx = JSON.parse(fs.readFileSync(path.join(root, 'build/source/legacy_score_fixtures.json')));
 function load(cc) { return D.hydrate(JSON.parse(fs.readFileSync(path.join(root, `data/c/${cc}.json`)))); }
 let fail = 0, pass = 0;
@@ -16,7 +16,7 @@ function check(label, recs, key, exp, eng, country) {
 }
 const v1 = new Engine(meta, { method: 'v1' });
 const ch = load('CH');
-for (const [k, exp] of Object.entries(fx.CH)) check('CH', ch, k, exp, v1, 'CH');
+if (UPD.includes('CH')) console.log('legacy fixtures CH: skipped (Swiss population refreshed to ' + meta.population.year + '; the v86 fixtures describe the 2021 population)'); else for (const [k, exp] of Object.entries(fx.CH)) check('CH', ch, k, exp, v1, 'CH');
 const at = load('AT');
 // self_fit is excluded: the legacy custom profile depended on transient builder state; the builder itself is verified in builder.test.js (60/60)
 for (const [k, exp] of Object.entries(fx.AT_no_geometry || {})) if (exp && exp.top && k !== 'self_fit') check('AT', at, k, exp, v1, 'AT');

@@ -98,11 +98,14 @@ CATS = {
 
 
 def wdi(path):
+    # 2.13.2: a figure counts only if it is reasonably current: from 2018 on. The discontinued Doing Business series (ic.*,
+    # last edition 2019/2020 with values dated back to 2017) keep their own window and are labelled historical on the pages.
+    since = 2015 if os.path.basename(path).startswith('ic.') else 2018
     best = {}
     for r in csv.DictReader(open(path, encoding='utf-8')):
         try: y, v = int(r['Year']), float(r['Value'])
         except Exception: continue
-        if y >= 2015 and (r['Country Code'] not in best or y > best[r['Country Code']][0]): best[r['Country Code']] = (y, v)
+        if y >= since and (r['Country Code'] not in best or y > best[r['Country Code']][0]): best[r['Country Code']] = (y, v)
     return best
 
 

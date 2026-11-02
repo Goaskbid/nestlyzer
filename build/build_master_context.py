@@ -270,10 +270,11 @@ def cmd_build():
     def same_concept(fid, r, rt):
         f = FMETA.get(fid) or {}
         if not (toks(fid.replace('_', ' ')) | toks(f.get('name'))) & rt: return False
+        # 2.13.2 (review): positive identity only. Unit and year must both be known and equal; anything unknown is kept
         uf, ur = UN(f.get('unit')), UN(r.get('unit'))
-        if uf and ur and uf != ur and not (uf in ur or ur in uf): return False
+        if not uf or not ur or uf != ur: return False
         yf, yr = YR(f.get('source_period')), YR(r.get('period'))
-        if yf and yr and yf != yr: return False
+        if not yf or not yr or yf != yr: return False
         return True
     value_only = 0
     for r in cand:

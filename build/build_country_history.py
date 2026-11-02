@@ -64,6 +64,8 @@ def main():
             s = (data[sid].get(iso) or {}) if iso else {}
             if len(s) < 3: continue
             ys = sorted(s); last = ys[-1]
+            if last < 2018:   # 2.13.2: a series that stopped long ago is not shown as a trend (e.g. Liechtenstein GDP, last 2009)
+                out.setdefault('stale', []).append({'id': sid, 'label': label, 'last_year': last}); continue
             ch = {}
             for k in (3, 5, 10):
                 if last - k in s:

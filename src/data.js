@@ -60,9 +60,8 @@
       else r.region_code = row[C.rc];
       var ap = r.trend && r.trend.annual_population, lastp = ap && ap[ap.length - 1];
       r.popNow = lastp ? lastp.population : r.population; r.popYear = lastp ? lastp.year : null;
-      // 2.13.1 (audit): one resident count on screen. The displayed population figure follows the latest year; the
-      // score keeps its baseline (r.population) until the population refresh is approved, and says so in the method notes
-      if (lastp && r.factorRaw && Number.isFinite(r.factorRaw.common_population_scale) && r.factorRaw.common_population_scale !== r.popNow) { r.popBase = r.factorRaw.common_population_scale; r.factorRaw.common_population_scale = r.popNow; }
+      // 2.13.2: the Swiss core population now is the latest year of its own series (build/refresh_ch_population.py),
+      // so the displayed and the scored population are the same observation; no display-only override any more
       out[i] = r;
     }
     return out;

@@ -20,6 +20,7 @@ function km(a, b) { var R = 6371, la1 = a[1] * Math.PI / 180, la2 = b[1] * Math.
 function assessKind(x) {
   var w = x && fin(x.weighted) ? x.weighted : null, m = x && fin(x.measured) ? x.measured : null;
   if (w == null) return ['unknown', 'Not scored', 'This place has no score for the profile.'];
+  if (x.thin) return ['screening', 'Thin evidence', 'Less than half of what this profile weighs is measured for this place; the rest is estimated from population and location. The same rule applies in every country: such places are ranked after those with stronger evidence.'];
   if (m >= 60 && w >= 80) return ['assessed', 'Detailed local data', 'Most of what this profile weighs comes from official figures for this place or its region.'];
   if (m >= 30) return ['partial', 'Local and modelled data', 'Part of what this profile weighs comes from official figures for this place or its region; the rest is modelled from population and location.'];
   return ['screening', 'Regional overview', 'This score combines official regional figures with indicators modelled from population and location: a good first comparison.'];

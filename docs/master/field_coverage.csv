@@ -375,7 +375,8 @@ BE,country_scenario,OECD_TW2026:personal_income_tax_rate,8
 BE,country_scenario,OECD_TW2026:personal_tax_plus_employee_ssc,8
 BE,municipality,BE_STATBEL_ADI2023:median_equivalised_disposable,30
 BE,municipality,BE_STATBEL_ADI2023:poverty_risk,10
-BE,municipality,retained:median_apartment_sale_price,2
+BE,municipality,retained:median_apartment_sale_price,48
+BE,municipality,retained:median_house_sale_price,48
 BE,survey_city,EC_CITY_QOL2023:financial_satisfaction,1
 BE,survey_city,EC_CITY_QOL2023:healthcare_satisfaction,3
 BG,country,agriculture_va_pct_gdp,2
@@ -1539,6 +1540,8 @@ ES,country_scenario,OECD_TW2026:net_personal_average_tax_rate,8
 ES,country_scenario,OECD_TW2026:personal_income_tax_rate,8
 ES,country_scenario,OECD_TW2026:personal_tax_plus_employee_ssc,8
 ES,municipality,housing_appraised_value_mean,270
+ES,municipality,retained:mean_home_sale_price,28
+ES,municipality,retained:mean_paid_rent_monthly,29
 ES,survey_city,EC_CITY_QOL2023:financial_satisfaction,1
 ES,survey_city,EC_CITY_QOL2023:housing_availability_perception,1
 ES,survey_city,EC_CITY_QOL2023:job_opportunities_perception,4
@@ -1772,6 +1775,7 @@ FR,municipality,context:single_parent_household_count,1
 FR,municipality,context:single_person_household_count,1
 FR,municipality,context:tenant_main_residences,1
 FR,municipality,cycling:commute_share,1
+FR,municipality,disposable_income:equivalised_median,1
 FR,municipality,elderly_living_alone,2
 FR,municipality,establishment_births:count,30
 FR,municipality,establishments_size:count,18
@@ -1825,6 +1829,7 @@ FR,municipality,retained:establishment_share_trade_transport_services,1
 FR,municipality,retained:households,2
 FR,municipality,retained:jobs_at_workplace,3
 FR,municipality,retained:main_residence_share,3
+FR,municipality,retained:median_equivalised_disposable_income,2
 FR,municipality,retained:owner_occupier_household_share,2
 FR,municipality,retained:population,2
 FR,municipality,retained:population_density,3
@@ -5139,7 +5144,7 @@ UK,local_authority,retained:gigabit_premises_pct,355
 UK,local_authority,retained:outdoor_4g_area_pct,355
 UK,local_authority,retained:outdoor_5g_area_pct,355
 UK,local_authority,retained:residents_rail_30min_walk_pct,311
-UK,local_authority,retained:supermarkets_per_10000,3
+UK,local_authority,retained:supermarkets_per_10000,373
 UK,region,retained:gigabit_premises_pct,9
 UK,region,retained:outdoor_4g_area_pct,9
 UK,region,retained:outdoor_5g_area_pct,9

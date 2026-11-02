@@ -232,6 +232,7 @@
     var score = num / den;
     total = total || den;
     var coverage = Math.round((den / total) * 100);
+    var strictCov = coverage;   // 2.13.2: the same measure in every country, before the country-specific adjustments below
     if (key === LOTTERY) score = this.softLotteryPenalty(score, cats, r);
     else { var m = p.min || {}; for (c in m) if (fin(cats[c]) && cats[c] < m[c]) score = Math.min(score, 55 + cats[c] * 0.45); }
     /* a weak core need is not made up for by strengths elsewhere (2.11.3): every category that carries 15% or more of the
@@ -245,13 +246,18 @@
       if (this.evidence !== 'weighted') coverage = Math.max(coverage, Math.min(78, Math.round(sourceCount * 9 + accessBonus)));
       score = score * (0.8 + 0.2 * (coverage / 100));
     }
-    var floor = key === LOTTERY ? (r.country === 'CH' ? 12 : 6) : (r.country === 'CH' ? minCoverage : 8);
+    /* 2.13.2 (owner decision 2 Nov 2026): one evidence rule for every country. Method v2 ranks a place when it reaches the
+       common floor (8; 6 for the lottery profile) and marks it `thin` when less than half of the profile's weight rests on
+       measured data or less than 55% is covered once estimates count half. Thin places stay ranked, after the others.
+       Method v1 keeps the legacy rule (Switzerland 55, elsewhere 8) so the legacy fixtures stay reproducible. */
+    var floor = this.method === 'v1' ? (key === LOTTERY ? (r.country === 'CH' ? 12 : 6) : (r.country === 'CH' ? minCoverage : 8)) : (r.country === 'CH' && minCoverage === 0 ? 0 : key === LOTTERY ? 6 : 8);
     if (coverage < floor) return null;
     /* coverage above is the legacy ranking input (count-based floor outside Switzerland, kept so rankings do not change
        silently). What users see is `weighted`: the share of this profile's weight whose category has a value, and
        `measured`: the part of it backed by measured data rather than an estimate (NZ-GLOBAL-049). */
     var tw = 0; for (c in w) tw += w[c];
-    return { score: score, coverage: coverage, weighted: tw ? Math.round(have / tw * 100) : 0, measured: tw ? Math.round(meas / tw * 100) : 0, cats: cats };
+    var measured = tw ? Math.round(meas / tw * 100) : 0;
+    return { score: score, coverage: coverage, weighted: tw ? Math.round(have / tw * 100) : 0, measured: measured, cats: cats, thin: this.method !== 'v1' && (measured < 50 || strictCov < 55) };
   };
 
   Engine.prototype.shortCat = function (k) {
@@ -366,9 +372,9 @@
       if (!s) { reasons['coverage'] = (reasons['coverage'] || 0) + 1; continue; }
       var why = this.eligibilityFail(r, key, country);
       if (why) { reasons[why] = (reasons[why] || 0) + 1; continue; }
-      out.push({ r: r, id: r.id, overall: s.score, coverage: s.coverage, weighted: s.weighted, measured: s.measured, catScores: s.cats, sourceConfidence: r.sourceConfidence, _i: i, must: this.profiles[key].must ? this.mustStatus(r, this.profiles[key]) : null });
+      out.push({ r: r, id: r.id, overall: s.score, coverage: s.coverage, weighted: s.weighted, measured: s.measured, thin: !!s.thin, catScores: s.cats, sourceConfidence: r.sourceConfidence, _i: i, must: this.profiles[key].must ? this.mustStatus(r, this.profiles[key]) : null });
     }
-    out.sort(function (a, b) { return (b.overall - a.overall) || (b.sourceConfidence - a.sourceConfidence) || (a._i - b._i); });
+    out.sort(function (a, b) { return (a.thin - b.thin) || (b.overall - a.overall) || (b.sourceConfidence - a.sourceConfidence) || (a._i - b._i); });
     out.forEach(function (x, i) { x.rank = i + 1; });
     var res = { scored: out, reasons: reasons, categoryRanks: {}, factorRanks: {} };
     if (opts.subRanks !== false) this.computeRanks(res);

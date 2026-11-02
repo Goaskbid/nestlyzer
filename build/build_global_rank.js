@@ -64,7 +64,7 @@ for (const c of meta.countries) {
       const r = s.r, pop = r.population || r.popNow || 0;
       if (!pr.business && pop < GMIN_HOME) continue;
       const cats = Object.assign({}, eng.categoriesFor(r, k));
-      list.push({ id: r.id, name: r.name, cc: c.cc, cont: contOf(c.cc), pop, cats, P: s._pct, L: s._L, ax: { reach300: r.x && r.x.reach300k, reach: r.x && r.x.reach100k, flatland: r.x && r.x.relief != null ? -r.x.relief : null } });
+      list.push({ id: r.id, name: r.name, cc: c.cc, cont: contOf(c.cc), pop, cats, P: s._pct, L: s._L, thin: s.thin ? 1 : 0, ax: { reach300: r.x && r.x.reach300k, reach: r.x && r.x.reach100k, flatland: r.x && r.x.relief != null ? -r.x.relief : null } });
     }
   }
   process.stdout.write(c.cc + ' ');
@@ -99,9 +99,9 @@ for (const [sk, inScope] of Object.entries(SC)) {
       if (p.P == null) continue;
       let score = (N != null ? alpha * N : 0) + (A != null ? beta * A : 0) + (1 - (N != null ? alpha : 0) - (A != null ? beta : 0)) * p.L;
       const BC = pr.business ? bizClimate(p.cc, k) : null; if (BC != null) score = (1 - BC_SHARE) * score + BC_SHARE * BC;
-      out.push([p.id, p.name, Math.round(score * 10) / 10, Math.round(p.P), Math.round((N != null ? alpha : 0) * 100), Math.round((A != null ? beta : 0) * 100)]);
+      out.push([p.id, p.name, Math.round(score * 10) / 10, Math.round(p.P), Math.round((N != null ? alpha : 0) * 100), Math.round((A != null ? beta : 0) * 100), p.thin || 0]);
     }
-    out.sort((a, b) => b[2] - a[2] || b[3] - a[3]);   // row: id, name, score, in-country percentile, national share %, absolute-measure share %
+    out.sort((a, b) => a[6] - b[6] || b[2] - a[2] || b[3] - a[3]);   // row: id, name, score, in-country percentile, national share %, absolute-measure share %, thin evidence (2.13.2: same rule everywhere, thin places after the others)
     res.scopes[sk].profiles[k] = { ranked: out.length, top: out.slice(0, 100) };
     res.scopes[sk].places = Math.max(res.scopes[sk].places || 0, out.length);
     res.scopes[sk].countries = [...new Set(list.map((p) => p.cc))].length;

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Nestlyzer release from GitHub Codespaces (2.13.1).
+# Nestlyzer release from GitHub Codespaces (2.13.2).
 #
 # 1. Open the repository on github.com, press "Code", "Codespaces", "Create codespace on main".
 # 2. Drag nestlyzer-codespaces-<version>.zip from your computer into the file list on the left.
@@ -14,6 +14,14 @@ set -euo pipefail
 REL=/tmp/nz
 REPO=$(git rev-parse --show-toplevel 2>/dev/null) || { echo "Run this inside the codespace terminal (the repository folder)."; exit 1; }
 cd "$REPO"
+# 2.13.2: refuse clearly in any other repository's codespace (e.g. curvescout-com)
+case "$(git remote get-url origin 2>/dev/null)" in
+  *[Nn]estlyzer*) ;;
+  *) echo "Stopped: this is the codespace of $(basename "$REPO"), not Nestlyzer. Nothing was changed."
+     echo "Open github.com/Goaskbid/nestlyzer, press Code > Codespaces, open its codespace and run the command there."
+     echo "To remove the zip from this codespace: rm -f \"$REPO\"/nestlyzer-codespaces-*.zip; rm -rf /tmp/nz"
+     exit 1;;
+esac
 [ "$(git rev-parse --abbrev-ref HEAD)" = main ] || { echo "The codespace is not on the main branch. Run: git checkout main   then this script again."; exit 1; }
 [ -f "$REL/package.json" ] && grep -q '"name": "nestlyzer"' "$REL/package.json" || { echo "No unpacked Nestlyzer release in $REL. Run the unzip command first."; exit 1; }
 VER=$(python3 -c "import json;print(json.load(open('$REL/package.json'))['version'])")

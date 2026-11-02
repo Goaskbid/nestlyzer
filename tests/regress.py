@@ -144,10 +144,14 @@ async def main():
         await check('R02', 'Ranking list', r02)
 
         async def r03():
-            fx = json.load(open(os.path.join(ROOT, 'build/source/legacy_score_fixtures.json')))['CH']
-            ok_all, ev = True, []
-            for prof in ['young_family', 'hnw', 'swiss_lottery', 'pensioner', 'student']:
-                await explore(pg, f'#/explore?cc=CH&p={prof}&method=v1')
+            # 2.13.2: the Swiss population was refreshed to 2024 (owner decision), so the v86 fixtures no longer describe
+            # Switzerland; v1 parity is then proven on the Austrian fixtures, as in tests/fixtures.test.js
+            FX = json.load(open(os.path.join(ROOT, 'build/source/legacy_score_fixtures.json')))
+            upd = (json.load(open(os.path.join(ROOT, 'data/meta.json'))).get('population') or {}).get('updated_countries') or []
+            cc0, fx, profs = ('AT', FX['AT_no_geometry'], ['young_family', 'pensioner', 'budget', 'expat_professional', 'remote']) if 'CH' in upd else ('CH', FX['CH'], ['young_family', 'hnw', 'swiss_lottery', 'pensioner', 'student'])
+            ok_all, ev = True, [cc0]
+            for prof in profs:
+                await explore(pg, f'#/explore?cc={cc0}&p={prof}&method=v1')
                 got = await nz(pg, 'NZ.res.scored.slice(0,3).map(x=>[x.id,+x.overall.toFixed(4)]).concat([[NZ.res.scored.length]])')
                 exp = fx[prof]
                 ok = got[-1][0] == exp['n'] and all(g[0] == e[0] and abs(g[1] - e[2]) < 0.0002 for g, e in zip(got[:3], exp['top'][:3]))

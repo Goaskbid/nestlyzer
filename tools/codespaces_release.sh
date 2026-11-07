@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Nestlyzer release from GitHub Codespaces (2.14.0).
+# Nestlyzer release from GitHub Codespaces (2.15.1).
 #
 # 1. Open the repository on github.com, press "Code", "Codespaces", "Create codespace on main".
 # 2. Drag nestlyzer-codespaces-<version>.zip from your computer into the file list on the left.
@@ -32,29 +32,27 @@ echo "Nestlyzer $VER"
 CUR=$(python3 -c "import json;print(json.load(open('package.json'))['version'])" 2>/dev/null || echo 0)
 if [ "$CUR" != "0" ] && python3 -c "import sys;a=[int(x) for x in sys.argv[1].split('.')];b=[int(x) for x in sys.argv[2].split('.')];sys.exit(0 if a<b else 1)" "$VER" "$CUR"; then
   echo "Stopped: the repository already holds Nestlyzer $CUR, newer than this release ($VER). Nothing was changed."; exit 1; fi
-BK="backup-before-$VER-$(date +%Y%m%d-%H%M)"; git tag "$BK" && echo "   Backup of the current state: tag $BK (undo with: git reset --hard $BK)"
+# 2.15 (audit 2): stop on unsaved work in the codespace, and on a same-numbered release with different sources
+DIRTY=$(git status --porcelain | grep -v 'nestlyzer-codespaces-.*\.zip' || true)
+if [ -n "$DIRTY" ]; then echo "Stopped: the codespace has unsaved changes (below). Nothing was changed."; echo "$DIRTY" | head -20 | sed 's/^/   /'; echo "   Keep them: commit them first. Drop them: git checkout -- . && git clean -fd   then run this again."; exit 1; fi
+if [ "$CUR" = "$VER" ] && [ -n "$(diff -rq -x .git -x .github -x node_modules -x 'nestlyzer-codespaces-*.zip' src "$REL/src" 2>/dev/null)" ]; then
+  echo "Stopped: the repository already holds Nestlyzer $VER, with different sources. A new release needs a new version number. Nothing was changed."; exit 1; fi
 echo "1/4 GitHub limits"
 python3 "$REL/build/check_github_limits.py" "$REL"
-echo "2/4 Replacing the repository files with the release"
+echo "2/4 What would change"
+D=$(diff -rq -x .git -x .github -x node_modules -x 'nestlyzer-codespaces-*.zip' . "$REL" 2>/dev/null || true)
+CH=$(echo "$D" | grep -c '^Files .* differ$' || true); AD=$(echo "$D" | grep -c "^Only in $REL" || true); RM=$(echo "$D" | grep '^Only in ' | grep -vc "^Only in $REL" || true)
+echo "   $CH files changed, $AD added, $RM removed (Nestlyzer $CUR -> $VER)"
+echo "$D" | head -12 | sed "s#$REL#release#g; s/^/   /"
+if [ -f .github/workflows/site.yml ] && ! cmp -s "$REL/.github/workflows/site.yml" .github/workflows/site.yml; then echo "   Note: the release has a newer build workflow. A codespace may not change it; it is kept. To update it, edit .github/workflows/site.yml on github.com and paste the release's site.yml."; fi
+read -r -p "3/4 Replace the files, commit and push Nestlyzer $VER now? [y/N] " ok
+if [ "${ok,,}" != "y" ]; then echo "Nothing was changed."; exit 0; fi
+BK="backup-before-$VER-$(date +%Y%m%d-%H%M)"; git tag "$BK" && echo "   Backup of the current state: tag $BK (undo with: git reset --hard $BK)"
 find . -mindepth 1 -maxdepth 1 ! -name .git ! -name .github -exec rm -rf {} +
 ( cd "$REL" && find . -mindepth 1 -maxdepth 1 ! -name .github -exec cp -a {} "$REPO"/ \; )
-if [ ! -f .github/workflows/site.yml ]; then
-  echo "   Note: the repository has no build workflow yet. Create it once on github.com (Add file, Create new file,"
-  echo "   name .github/workflows/site.yml, paste the file site.yml from the release, Commit); a codespace may not add it."
-elif ! cmp -s "$REL/.github/workflows/site.yml" .github/workflows/site.yml; then
-  echo "   Note: your workflow file differs from this release's. It is kept as it is (a codespace may not change it);"
-  echo "   to update it, edit .github/workflows/site.yml on github.com and paste the release's site.yml."
-fi
 python3 build/check_github_limits.py .
-echo "3/4 Changes"
+echo "4/4 Commit and push"
 git add -A
-git status --short | awk '{print $1}' | sort | uniq -c | sed 's/^/   /'
-echo "   (A = added, M = changed, D = removed)"
-git diff --cached --stat | tail -1 | sed 's/^/   /'
-if git diff --cached --name-only | grep -q '^src/\|^build/'; then echo "   Source and build files change: the site is rebuilt from them by the workflow."; fi
-if [ -f .github/workflows/site.yml ] && ! cmp -s "$REL/.github/workflows/site.yml" .github/workflows/site.yml; then echo "   Warning: the build workflow on GitHub differs from this release's. The site will still build from _site; update the workflow on github.com when convenient."; fi
-read -r -p "4/4 Commit and push Nestlyzer $VER now? [y/N] " ok
-if [ "${ok,,}" != "y" ]; then git reset -q; echo "Nothing pushed. The files are still changed in the codespace; run 'git checkout -- . && git clean -fd' to undo."; exit 0; fi
 git -c user.name="${GIT_AUTHOR_NAME:-$(git config user.name || echo nestlyzer)}" commit -qm "Nestlyzer $VER"
 git push -q origin main || { echo "Push refused (message above). Nothing was published; the commit stays in the codespace."; exit 1; }
 git push -q origin "$BK" 2>/dev/null && echo "   Backup tag $BK saved on GitHub too." || true

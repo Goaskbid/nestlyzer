@@ -170,13 +170,34 @@ function bizRankSync() {
   var hit = sets.some(function (x) { return x.dataset.rankp === p; });
   sets.forEach(function (x, i) { x.hidden = hit ? x.dataset.rankp !== p : i > 0; });
 }
+var LANG_CC = { de: 'DE', fr: 'FR', it: 'IT', es: 'ES', pt: 'PT', nl: 'NL', pl: 'PL', ja: 'JP', ko: 'KR', zh: 'CN', en: 'US' };
+/* 2.15: the start country follows the visitor (last choice, then browser region, then language), never a fixed country */
+function homeCountry(sc) { var has = function (c) { return c && sc.querySelector('option[value="' + c + '"]') ? c : null; }, last = store('homecc'); if (has(last)) return last; var L = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en']); for (var i = 0; i < L.length; i++) { var m = String(L[i]).match(/^([a-z]{2})(?:-([A-Z]{2}))?/i); if (!m) continue; var r = m[2] && m[2].toUpperCase(); if (r === 'GB') r = 'UK'; if (r === 'GR') r = 'EL'; if (has(r)) return r; } for (var j = 0; j < L.length; j++) { var c = LANG_CC[String(L[j]).slice(0, 2).toLowerCase()]; if (has(c)) return c; } return has('US') || sc.value; }
+/* 2.15: the band under the globe shows the same country as the selector above */
+var FEAT = {};
+function featureSync(cc, k) {
+  var h = $('#feat-h'); if (!h || !cc) return;
+  (FEAT[cc] || (FEAT[cc] = getJSON('/data/feature/' + cc + '.json?v=' + VERSION).catch(function () { delete FEAT[cc]; return null; }))).then(function (d) {
+    if (!d || $('#start-country').value !== cc) return;
+    var p = d.top[k] ? k : 'young_family', list = d.top[p] || [], pn = ENGINE && ENGINE.profiles[p] ? ENGINE.profiles[p].name.toLowerCase() : 'young family';
+    h.textContent = d.name + ', down to the last ' + d.unit1;
+    $('#feat-l').textContent = d.units + ', with about ' + d.nf + ' local measures each. This is the ' + pn + ' fit, right now:';
+    $('#feat-ol').innerHTML = list.map(function (x, i) { return '<li><span class="n">' + (i + 1) + '</span><span><a href="' + (x[5] || '/#/explore?cc=' + cc + '&p=' + p + '&sel=' + encodeURIComponent(x[0])) + '">' + esc(x[1]) + '</a><br><span class="small muted">' + (x[2] ? esc(x[2]) + ', ' : '') + fmtInt(x[3]) + ' residents</span></span><span class="chip tone-good"><b>' + fmt(x[4]) + '</b></span></li>'; }).join('');
+    var a = $('#feat-a'); a.textContent = 'Open ' + d.name; a.setAttribute('href', '/#/explore?cc=' + cc + '&p=' + p);
+    var f = $('#feat-fig'); if (f) f.hidden = cc !== 'CH';
+    var il = $('#ins-local'); if (il && d.ins) { il.hidden = false; il.href = '/insights/' + d.ins[0] + '/'; il.textContent = d.ins[1]; }
+  });
+}
 function syncStartHref() {
   bizRankSync();
+  var sc0 = $('#start-country'); if (sc0 && !sc0.dataset.picked) { sc0.dataset.picked = '1'; sc0.value = homeCountry(sc0); if (window.NZB_FOCUS) window.NZB_FOCUS(sc0.value); }
   var a = $('[data-start="go"]'), who = $('.who:not([hidden]) [aria-pressed="true"]') || $('.who [aria-pressed="true"]'), sc = $('#start-country');
   if (a && sc) a.setAttribute('href', '/#/explore?cc=' + sc.value + '&p=' + (who ? who.dataset.who : 'young_family'));
   var bz = $('[data-bizlink]'); if (bz && sc) bz.setAttribute('href', '/business/?cc=' + sc.value);
   // 2.14 (owner audit): the chosen profile stays named next to the button, also on phones where the chips sit below it
   var gf = $('#go-for'); if (gf && who) gf.textContent = 'For: ' + (who.textContent || '').trim();
+  var il = $('#ins-local'); if (il) il.hidden = true;
+  if (sc && (!who || !isBizKey(who.dataset.who))) featureSync(sc.value, who ? who.dataset.who : 'young_family');
 }
 function startFromLanding(kind) {
   var who = $('.who [aria-pressed="true"]');
@@ -190,7 +211,7 @@ function startFromLanding(kind) {
 }
 function onChange(ev) {
   var t = ev.target;
-  if (t.id === 'start-country') return syncStartHref();
+  if (t.id === 'start-country') { store('homecc', t.value); return syncStartHref(); }
   if (/^f-(country|region|area|sort)$/.test(t.id) && window.innerWidth < 900) { var rl = $('.rail'); if (rl) { rl.classList.remove('scope-open'); var tg = $('[data-scopetoggle]'); if (tg) tg.setAttribute('aria-expanded', 'false'); } }
   if (t.id === 'f-country') { S.region = 'ALL'; S.area = 'ALL'; return switchCountry(t.value); }
   if (t.id === 'f-region') { S.region = t.value; S.area = 'ALL'; S.selected = null; return update({ fit: true, autoSelect: true, push: true }); }
@@ -289,6 +310,7 @@ function route() {
       else { S.selected = null; if (window.innerWidth < 900 && S.tab === 'place') S.tab = 'list'; renderPlace(); renderTabs(); if (MAP) { paintSelection(); paintMarkers(); if (window.innerWidth >= 900) MAP.easeTo({ padding: { right: 0, left: 0, top: 0, bottom: 0 }, duration: 400 }); } }
       return;
     }
+    if (!ENGINE) return;
     if (ENGINE.method !== S.method) { ENGINE = new NestEngine(META, { method: S.method }); Object.keys(SHARDS).forEach(function (k) { SHARDS[k].records.forEach(function (r) { delete r._cats; }); }); }
     if (!ENGINE.profiles[S.profile] && S.profile !== 'self_fit') { toast('Profile not found', 'That link names a profile that does not exist (' + S.profile + '). Showing Young family instead.'); S.profile = 'young_family'; }
     if (S.profile === 'self_fit' && !S.custom) S.profile = 'young_family';
@@ -315,8 +337,14 @@ function landingReady() {
   var who = $('.who'); if (who) who.addEventListener('mouseleave', function () { var p = $('.who [aria-pressed="true"]'); if (p) heroSetProfile(p.dataset.who); });
   try { if (/[?&]mode=biz/.test(location.search) || store('homemode') === 'biz') setHomeMode('biz'); } catch (e) {}
   var sel = $('#start-country');
-  setTimeout(syncStartHref, 0);
-  if (sel && !sel.options.length) sel.innerHTML = META.countries.slice().sort(function (a, b) { return a.cc === 'CH' ? -1 : b.cc === 'CH' ? 1 : a.name.localeCompare(b.name); }).map(function (c) { return '<option value="' + c.cc + '">' + esc(c.name) + '</option>'; }).join('');
+  setTimeout(syncStartHref, 0); countryTiles();
+  if (sel && !sel.options.length) sel.innerHTML = META.countries.slice().sort(function (a, b) { return a.name.localeCompare(b.name); }).map(function (c) { return '<option value="' + c.cc + '">' + esc(c.name) + '</option>'; }).join('');
+}
+/* 2.15: country tiles load near the viewport (start page budget) */
+function countryTiles() {
+  var box = $('#country-tiles'); if (!box || box.dataset.loaded || window.NZ_STANDALONE) return;
+  var go = function () { if (box.dataset.loaded) return; box.dataset.loaded = 1; fetch(assetURL('/data/start_countries.html?v=' + VERSION)).then(function (r) { return r.ok ? r.text() : ''; }).then(function (h) { if (h) box.innerHTML = h; }, function () { box.dataset.loaded = ''; }); };
+  if ('IntersectionObserver' in window) { var io = new IntersectionObserver(function (e) { if (e.some(function (x) { return x.isIntersecting; })) { io.disconnect(); go(); } }, { rootMargin: '800px' }); io.observe(box); } else go();
 }
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 /* 2.13.3: small feedback layer (motion, optional sounds, vibration), loaded once idle so first paint is unchanged */

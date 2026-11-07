@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# Nestlyzer small update from GitHub Codespaces (2.15.1). Carries only the changed files (a few MB instead of 76 MB).
+#   unzip -oq "$(find /workspaces -name 'nestlyzer-update-*.zip' | head -1)" -d /tmp/nzu && bash /tmp/nzu/tools/codespaces_update.sh
+# Copies the files listed in UPDATE_FILES.txt over the repository, shows the change, asks once, commits ONLY those files
+# and pushes. Other files in the codespace (stray zips, a changed package-lock.json) are left alone and never committed.
+set -euo pipefail
+REL=/tmp/nzu
+REPO=$(git rev-parse --show-toplevel 2>/dev/null) || { echo "Run this inside the codespace terminal (the repository folder)."; exit 1; }
+cd "$REPO"
+case "$(git remote get-url origin 2>/dev/null)" in *[Nn]estlyzer*) ;; *) echo "Stopped: this is not the Nestlyzer codespace. Nothing was changed."; exit 1;; esac
+[ "$(git rev-parse --abbrev-ref HEAD)" = main ] || { echo "Not on main. Run: git checkout main   then this again."; exit 1; }
+[ -f "$REL/UPDATE_FILES.txt" ] || { echo "No unpacked update in $REL. Run the unzip command first."; exit 1; }
+git pull -q --ff-only origin main 2>/dev/null || true
+VER=$(python3 -c "import json;print(json.load(open('$REL/package.json'))['version'])")
+CUR=$(python3 -c "import json;print(json.load(open('package.json'))['version'])")
+BASE=$(cat "$REL/UPDATE_BASE.txt")
+if [ "$CUR" = "$VER" ]; then echo "Nestlyzer $VER is already in the repository. Nothing to do."; exit 0; fi
+[ "$CUR" = "$BASE" ] || { echo "Stopped: this update needs Nestlyzer $BASE in the repository, found $CUR. Nothing was changed."; exit 1; }
+N=$(grep -c . "$REL/UPDATE_FILES.txt")
+echo "Nestlyzer $CUR -> $VER: $N files"
+read -r -p "Copy them, commit and push now? [y/N] " ok
+[ "${ok,,}" = y ] || { echo "Nothing was changed."; exit 0; }
+BK="backup-before-$VER-$(date +%Y%m%d-%H%M)"; git tag "$BK"
+while IFS= read -r f; do [ -n "$f" ] || continue; mkdir -p "$(dirname "$f")"; cp -a "$REL/$f" "$f"; done < "$REL/UPDATE_FILES.txt"
+python3 build/check_github_limits.py . >/dev/null || { echo "Stopped: GitHub limits check failed. Undo with: git checkout -- . "; exit 1; }
+git reset -q
+git check-ignore --stdin < "$REL/UPDATE_FILES.txt" > /tmp/nzu_ign.txt || true
+grep -v -x -F -f /tmp/nzu_ign.txt "$REL/UPDATE_FILES.txt" | grep . | xargs -d '\n' git add --
+git -c user.name="${GIT_AUTHOR_NAME:-$(git config user.name || echo nestlyzer)}" commit -qm "Nestlyzer $VER"
+git push -q origin main || { echo "Push refused (message above). Nothing was published."; exit 1; }
+git push -q origin "$BK" 2>/dev/null || true
+rm -rf "$REL"
+echo "Done. Nestlyzer $VER is pushed. The Actions tab turns green in about 10 minutes."

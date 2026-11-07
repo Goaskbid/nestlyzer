@@ -56,6 +56,17 @@ with sync_playwright() as pw:
         check(tag + '-open', href.startswith('/#/explore?') and 'sel=' in href and 'cc=' + pick in href, f'{tag}: each place opens in the app at its own page ({href[:60]}…)')
         check(tag + '-errors', not errs, f'{tag}: no script errors {errs[:2]}')
         ctx.close()
+    # 2.15: infrastructure and industry nearby (data/facilities.json) on a place's 'Around' tab
+    pg = br.new_page(); pg.add_init_script("try{localStorage.setItem('nz:consent2', JSON.stringify({v:2,a:false,d:false,t:1}));localStorage.setItem('nz:toured','1')}catch(e){}")
+    pg.goto(B + '/#/explore?cc=DE&p=young_family&sel=DE:07314000', wait_until='load'); pg.wait_for_selector('#place [data-ptab="around"]', timeout=40000)
+    pg.click('#place [data-ptab="around"][role="tab"]'); pg.wait_for_function("(document.querySelector('#place [data-fac]')||{}).textContent && document.querySelector('#place [data-fac] .fac')", timeout=30000)
+    t = pg.evaluate("document.querySelector('#place [data-fac]').textContent")
+    check('facilities', 'BASF' in t and 'km' in t, 'Ludwigshafen, Around tab: infrastructure and industry nearby lists BASF Ludwigshafen with its distance')
+    nf = json.load(open(os.path.join(ROOT, 'data/facilities.json')))['counts']
+    pg.goto(B + '/world/', wait_until='load'); pg.wait_for_selector('[data-wl="seaport"]'); pg.click('[data-wl="seaport"]'); pg.wait_for_function("document.querySelectorAll('#wx-fac rect').length>50", timeout=20000)
+    n = pg.evaluate("[document.querySelectorAll('#wx-fac rect').length, document.querySelectorAll('#wx-charts figure').length]")
+    check('layers', n[0] == nf['seaport'] and n[1] == 3, f'world map layer: {n[0]} seaports drawn, 3 charts under the evidence boxes')
+    pg.close()
     # entry points: the header and the start page link to the module
     pg = br.new_page(); pg.goto(B + '/', wait_until='load')
     e = pg.evaluate("[!!document.querySelector('.nav a[href=\"/world/\"]'), !!document.querySelector('.menu-panel a[href=\"/world/\"]'), !!document.querySelector('.wx-entry a[href=\"/world/\"]')]")

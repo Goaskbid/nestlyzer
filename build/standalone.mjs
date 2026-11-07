@@ -14,7 +14,7 @@ const LIVE = SPLIT || process.env.NZ_SINGLE_LIVE === '1';
 const OUT = SPLIT ? path.join(ROOT, 'dist', 'site', 'index.html') : LIVE ? path.join(ROOT, 'dist', 'live', 'index.html') : path.join(ROOT, 'dist', 'nestlyzer.html');
 // every file of the website sits in ONE folder (no subfolders), so a single drag-and-drop upload can't miss anything
 const FLAT = (p) => 'nzdata-' + p.replace(/^data\//, '').replace(/\//g, '-');
-const EXTERNAL = (p) => SPLIT && /^data\/(c|x|geo)\/|^data\/(search|pages|icons|anchors|anchors_ror|kpis|ports|national)\.json$|^data\/rank\/|^data\/audit\/|^data\/downloads\/|^data\/start_biz\.html$|^data\/hero\.bin$/.test(p);
+const EXTERNAL = (p) => SPLIT && /^data\/(c|x|geo)\/|^data\/(search|pages|icons|anchors|anchors_ror|kpis|ports|national)\.json$|^data\/rank\/|^data\/audit\/|^data\/downloads\/|^data\/start_biz\.html$|^data\/start_countries\.html$|^data\/hero\.bin$/.test(p);
 const rd = (p) => fs.readFileSync(path.join(ROOT, p));
 const MIME = { '.json': 'application/json', '.js': 'text/javascript', '.css': 'text/css', '.png': 'image/png', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.bin': 'application/octet-stream' };
 const dataURI = (p) => `data:${MIME[path.extname(p)]};base64,${rd(p).toString('base64')}`;

@@ -47,12 +47,15 @@ function openCompare(ids) {
       row('Terrain', xs.map(function (x) { var t = terrainOf(x.r); return t ? t.name : '–'; }), function (v) { return esc(v); }) +
       prow('alt', 'Surrounding terrain height') +
       row('Climate', xs.map(function (x) { var c = climateOf(x.r); return c ? c.name : '–'; }), function (v) { return esc(v); }) +
-      (allFar('coast', 150) ? '' : prow('coast', 'Sea', 'min', 'the sea')) + (allFar('lake', 40) ? '' : prow('lake', 'Large lake', 'min', 'lakes')) +
+      (allFar('coast', 150) && allFar('lake', 40) ? '' : row('Water (sea or large lake)', xs.map(function (x) { var a = pval(x.r, 'coast'), b = pval(x.r, 'lake'), v = [a, b].filter(fin); return v.length ? Math.min.apply(null, v) : null; }), function (v) { return esc(pfmt('coast', v)); }, 'min', 'water')) +   // 2.15: water shown once
       '</tbody>';
     var verdict = (mixed ? '<p class="small cmp-note">These places are in different countries. Scores and category values are measured against each place\'s own country, so they are not compared here; distances, sizes and the setting are.</p>' : '') + '<div class="verdicts">' + xs.map(function (x, i) { var wl = wins[i].filter(function (v, j, a) { return a.indexOf(v) === j; }), tl = ties[i].filter(function (v, j, a) { return a.indexOf(v) === j && wl.indexOf(v) < 0; }); return '<div class="verdict"><b>' + esc(x.r.name) + '</b> ' + (wl.length ? 'wins on ' + esc(wl.slice(0, 5).join(', ')) + (tl.length ? '; ties on ' + esc(tl.slice(0, 3).join(', ')) : '') + '.' : tl.length ? 'ties on ' + esc(tl.slice(0, 3).join(', ')) + '.' : 'wins no single row, but check the details.') + '</div>'; }).join('') + '</div>';
     var nzNotice = '<p class="nz-note" role="note"><b>General location information, no individual advice.</b> Fixed standard profiles; not tax, legal, financial, investment or immigration advice. <a href="/legal/#disclaimer">Limits</a></p>';
     openModal('Compare places', nzNotice + verdict + '<div class="tablewrap"><table class="cmp">' + head + body + '</table></div>' + I.cmpAllHTML(list) + '<div class="actions" style="margin-top:12px"><button class="btn btn-sm" type="button" data-savecmp="' + esc(ids.join(',')) + '">♡ Save these places</button><button class="btn btn-sm" type="button" data-share-cmp="' + esc(ids.join(',')) + '">' + ICON.share + 'Share this comparison</button><button class="btn btn-sm" type="button" data-cmppdf="' + esc(ids.join(',')) + '">' + ICON.doc + 'PDF</button></div><p class="small muted" style="margin-top:12px">Green marks the best value in a row when the places differ. Scores use the ' + esc(profileName(nzProfile)) + ' profile; places in other countries are scored with their own country\'s data depth.</p>');
     hydratePostcards($('#modal')); hydratePhotos($('#modal'));
+    // The native modal is reused by other tools. Do not mount into a different or closed modal.
+    var nzModalRoot = $('#modal'), nzCompareTable = nzModalRoot.querySelector('table.cmp');
+    var nzMountCurrent = function () { return nzCurrent() && nzModalRoot.classList.contains('open') && nzModalRoot.querySelector('table.cmp') === nzCompareTable; };
     // 2.14 (owner audit A1): the comparison upgrade (/assets/nzx.js) mounts here through an explicit host, because the
     // app's state lives inside its closure. A missing or failing upgrade leaves the native comparison as it is.
     var nzHost = { version: '__VERSION__', method: S.method, profile: nzProfile, profileName: profileName(nzProfile), methodURL: 'https://nestlyzer.com/method/',
@@ -60,8 +63,8 @@ function openCompare(ids) {
       overallOf: function (r) { var x = RES && RES.byId[r.id]; return x ? x.overall : (ENGINE.scoreRaw(r, nzProfile, 0, r.country) || {}).score; },
       ranked: function (n) { return ((RES && RES.scored) || []).slice(0, n).map(function (x) { return { r: x.r, overall: x.overall }; }); } };
     loadUpgrade().then(function () {
-      if (!nzCurrent() || !window.NZUpgrade || typeof window.NZUpgrade.mountCompare !== 'function') return;
-      try { window.NZUpgrade.mountCompare({ root: $('#modal'), host: nzHost, ids: ids.slice(), profile: nzProfile, country: S.cc, modelVersion: S.method, releaseVersion: (window.NZ && window.NZ.version) || '__VERSION__', dataVersion: window.NZ_DATA_VERSION || null, nativeRows: list.slice(), isCurrent: nzCurrent }); }
+      if (!nzMountCurrent() || !window.NZUpgrade || typeof window.NZUpgrade.mountCompare !== 'function') return;
+      try { window.NZUpgrade.mountCompare({ root: nzModalRoot, host: nzHost, ids: ids.slice(), profile: nzProfile, country: S.cc, modelVersion: S.method, releaseVersion: (window.NZ && window.NZ.version) || '__VERSION__', dataVersion: window.NZ_DATA_VERSION || null, nativeRows: list.slice(), isCurrent: nzMountCurrent }); }
       catch (e) { if (window.console) console.warn('Nestlyzer comparison upgrade unavailable.', e); }
     }, function () { /* offline or blocked: the native comparison stays complete */ });
   });

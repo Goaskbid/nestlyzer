@@ -211,6 +211,7 @@ function renderPlace() {
     photos: '<section class="sec"><h3>Photos in and around ' + esc(r.name) + '</h3><p class="sub">Taken within a few kilometres, from Wikimedia Commons. ' + TAP + ' a photo for the author and licence.</p><div class="pgrid" data-pgrid="' + esc(r.id) + '"><div class="skeleton"><i></i><i></i></div></div></section><div data-gallery="' + esc(r.id) + '"></div>',
     facts: factsTableHTML(r) + '<section class="sec"><h3>The wider region at a glance</h3><div data-regstat="' + esc(r.id) + '"><div class="skeleton"><i></i></div></div></section>' + accessHTML(r) + '<div data-radar="' + esc(r.id) + '"></div>' + trendsHTML(r) + companyHTML(r) + breakdownHTML(x),
     around: '<section class="sec"><h3>Everyday life within walking distance</h3><div data-amen="' + esc(r.id) + '"><div class="skeleton"><i></i></div></div></section>' +
+      '<section class="sec"><h3>Infrastructure and industry nearby</h3><p class="sub">Seaports, rail-road terminals, chemical parks and refineries, nuclear power stations and learning cities within 60 km (straight line).</p><div data-fac="' + esc(r.id) + '"><div class="skeleton"><i></i></div></div></section>' +
       '<section class="sec"><h3>Worth a look nearby</h3><p class="sub">Well-known places within about 12 km, from Wikidata, most famous first.</p><div class="nearby" data-nearby="' + esc(r.id) + '"><div class="skeleton"><i></i><i></i></div></div></section>' +
       '<section class="sec"><h3>Weather through the year</h3><div data-clim="' + esc(r.id) + '"><div class="skeleton"><i></i></div></div></section>' +
       neighboursHTML(r) + crossBorderHTML(r) + '<div data-contact="' + esc(r.id) + '"></div>',
@@ -260,6 +261,8 @@ function setPlaceTab(t) {
   var tabs = $('#place .ptabs'); if (tabs && $('#placescroll')) { var top = tabs.offsetTop - 8; if ($('#placescroll').scrollTop > top) $('#placescroll').scrollTop = top; }
 }
 function hydratePlaceMore(r) {
+  // 2.15: own reference list (no third-party request), so it also loads when external content is off
+  moreLoad().then(function (X) { X.facilitiesHTML(r).then(function (h) { if (S.selected !== r.id) return; var el = $('#place [data-fac]'); if (el) el.innerHTML = h; }); }, function () {});
   if (!extOn()) { ['[data-pgrid]', '[data-nearby]', '#place [data-clim]', '#place [data-amen]', '#place [data-regstat]'].forEach(function (q) { var el = $(q); if (el) el.innerHTML = EXT_OFF_HTML; }); var st = $('[data-pstrip]'); if (st) st.remove(); return; }
   var id = r.id; function still() { return S.selected === id; }
   photosFor(r).then(function (list) {

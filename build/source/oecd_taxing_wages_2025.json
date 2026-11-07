@@ -1,0 +1,198 @@
+{
+"source": "OECD, Taxing Wages 2026 (tax year 2025), effective tax rates on labour income, single worker at the average wage, no children",
+"licence": "CC BY 4.0",
+"url": "https://www.oecd.org/en/publications/taxing-wages-2026_3a5169ef-en/full-report/effective-tax-rates-on-labour-income-in-2025_b7bb1854.html",
+"period": "2025",
+"countries": {
+"AU": {
+"income_tax_plus_employee_ssc_average_single": 23.5,
+"income_tax_average_single": 23.5,
+"employee_ssc_average_single": 0.0
+},
+"AT": {
+"income_tax_plus_employee_ssc_average_single": 32.5,
+"income_tax_average_single": 14.6,
+"employee_ssc_average_single": 17.9
+},
+"BE": {
+"income_tax_plus_employee_ssc_average_single": 39.5,
+"income_tax_average_single": 25.6,
+"employee_ssc_average_single": 14.0
+},
+"CA": {
+"income_tax_plus_employee_ssc_average_single": 25.6,
+"income_tax_average_single": 18.8,
+"employee_ssc_average_single": 6.8
+},
+"CL": {
+"income_tax_plus_employee_ssc_average_single": 7.1,
+"income_tax_average_single": 0.1,
+"employee_ssc_average_single": 7.0
+},
+"CO": {
+"income_tax_plus_employee_ssc_average_single": 0.0,
+"income_tax_average_single": 0.0,
+"employee_ssc_average_single": 0.0
+},
+"CR": {
+"income_tax_plus_employee_ssc_average_single": 9.8,
+"income_tax_average_single": 0.0,
+"employee_ssc_average_single": 9.8
+},
+"CZ": {
+"income_tax_plus_employee_ssc_average_single": 21.3,
+"income_tax_average_single": 9.7,
+"employee_ssc_average_single": 11.6
+},
+"DK": {
+"income_tax_plus_employee_ssc_average_single": 35.3,
+"income_tax_average_single": 35.3,
+"employee_ssc_average_single": 0.0
+},
+"EE": {
+"income_tax_plus_employee_ssc_average_single": 23.2,
+"income_tax_average_single": 21.6,
+"employee_ssc_average_single": 1.6
+},
+"FI": {
+"income_tax_plus_employee_ssc_average_single": 30.7,
+"income_tax_average_single": 21.2,
+"employee_ssc_average_single": 9.5
+},
+"FR": {
+"income_tax_plus_employee_ssc_average_single": 28.0,
+"income_tax_average_single": 16.7,
+"employee_ssc_average_single": 11.3
+},
+"DE": {
+"income_tax_plus_employee_ssc_average_single": 38.7,
+"income_tax_average_single": 17.2,
+"employee_ssc_average_single": 21.5
+},
+"EL": {
+"income_tax_plus_employee_ssc_average_single": 26.1,
+"income_tax_average_single": 12.7,
+"employee_ssc_average_single": 13.4
+},
+"HU": {
+"income_tax_plus_employee_ssc_average_single": 33.5,
+"income_tax_average_single": 15.0,
+"employee_ssc_average_single": 18.5
+},
+"IS": {
+"income_tax_plus_employee_ssc_average_single": 27.2,
+"income_tax_average_single": 27.1,
+"employee_ssc_average_single": 0.1
+},
+"IE": {
+"income_tax_plus_employee_ssc_average_single": 25.1,
+"income_tax_average_single": 21.0,
+"employee_ssc_average_single": 4.1
+},
+"IL": {
+"income_tax_plus_employee_ssc_average_single": 21.4,
+"income_tax_average_single": 12.7,
+"employee_ssc_average_single": 8.8
+},
+"IT": {
+"income_tax_plus_employee_ssc_average_single": 28.6,
+"income_tax_average_single": 19.1,
+"employee_ssc_average_single": 9.5
+},
+"JP": {
+"income_tax_plus_employee_ssc_average_single": 22.6,
+"income_tax_average_single": 7.9,
+"employee_ssc_average_single": 14.7
+},
+"KR": {
+"income_tax_plus_employee_ssc_average_single": 16.5,
+"income_tax_average_single": 7.1,
+"employee_ssc_average_single": 9.4
+},
+"LV": {
+"income_tax_plus_employee_ssc_average_single": 26.0,
+"income_tax_average_single": 15.5,
+"employee_ssc_average_single": 10.5
+},
+"LT": {
+"income_tax_plus_employee_ssc_average_single": 38.7,
+"income_tax_average_single": 19.2,
+"employee_ssc_average_single": 19.5
+},
+"LU": {
+"income_tax_plus_employee_ssc_average_single": 32.0,
+"income_tax_average_single": 19.7,
+"employee_ssc_average_single": 12.3
+},
+"MX": {
+"income_tax_plus_employee_ssc_average_single": 13.2,
+"income_tax_average_single": 11.8,
+"employee_ssc_average_single": 1.4
+},
+"NL": {
+"income_tax_plus_employee_ssc_average_single": 27.9,
+"income_tax_average_single": 17.8,
+"employee_ssc_average_single": 10.0
+},
+"NZ": {
+"income_tax_plus_employee_ssc_average_single": 20.8,
+"income_tax_average_single": 20.8,
+"employee_ssc_average_single": 0.0
+},
+"NO": {
+"income_tax_plus_employee_ssc_average_single": 28.1,
+"income_tax_average_single": 20.4,
+"employee_ssc_average_single": 7.7
+},
+"PL": {
+"income_tax_plus_employee_ssc_average_single": 24.4,
+"income_tax_average_single": 6.6,
+"employee_ssc_average_single": 17.8
+},
+"PT": {
+"income_tax_plus_employee_ssc_average_single": 24.9,
+"income_tax_average_single": 13.9,
+"employee_ssc_average_single": 11.0
+},
+"SK": {
+"income_tax_plus_employee_ssc_average_single": 24.3,
+"income_tax_average_single": 10.9,
+"employee_ssc_average_single": 13.4
+},
+"SI": {
+"income_tax_plus_employee_ssc_average_single": 36.2,
+"income_tax_average_single": 12.1,
+"employee_ssc_average_single": 24.1
+},
+"ES": {
+"income_tax_plus_employee_ssc_average_single": 23.5,
+"income_tax_average_single": 17.1,
+"employee_ssc_average_single": 6.5
+},
+"SE": {
+"income_tax_plus_employee_ssc_average_single": 22.6,
+"income_tax_average_single": 15.6,
+"employee_ssc_average_single": 7.0
+},
+"CH": {
+"income_tax_plus_employee_ssc_average_single": 18.1,
+"income_tax_average_single": 11.7,
+"employee_ssc_average_single": 6.4
+},
+"TR": {
+"income_tax_plus_employee_ssc_average_single": 29.3,
+"income_tax_average_single": 14.3,
+"employee_ssc_average_single": 15.0
+},
+"UK": {
+"income_tax_plus_employee_ssc_average_single": 23.1,
+"income_tax_average_single": 17.6,
+"employee_ssc_average_single": 5.6
+},
+"US": {
+"income_tax_plus_employee_ssc_average_single": 24.3,
+"income_tax_average_single": 16.7,
+"employee_ssc_average_single": 7.7
+}
+}
+}

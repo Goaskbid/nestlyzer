@@ -1,0 +1,1261 @@
+{
+ "held_sources": [
+  "IN_SEZ_OPERATIONAL_20250630"
+ ],
+ "unresolved": [
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Abuja",
+   "cc": "NG",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Adrar",
+   "cc": "DZ",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Al Daayen",
+   "cc": "QA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Al Madinah Al Munawwarah",
+   "cc": "SA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Al Rayyan",
+   "cc": "QA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Al Wakra",
+   "cc": "QA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Al-Ahsa",
+   "cc": "SA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Al-Khor and Al-Thakhira",
+   "cc": "QA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Al-Mansoura",
+   "cc": "EG",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Al-Muwaqqar",
+   "cc": "JO",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Al-Ramtha",
+   "cc": "JO",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Al-Shahaniya",
+   "cc": "QA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Al-Shamal",
+   "cc": "QA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "AlUla",
+   "cc": "SA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Alcobaça",
+   "cc": "PT",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Alger Centre",
+   "cc": "DZ",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Amman",
+   "cc": "JO",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Anadia",
+   "cc": "PT",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Andahuaylillas",
+   "cc": "PE",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Arequipa",
+   "cc": "PE",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Arrondissement Communal Niamey 1",
+   "cc": "NE",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Arrondissement Communal Niamey 2",
+   "cc": "NE",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Ashgabat",
+   "cc": "TM",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Azogues",
+   "cc": "EC",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Baku",
+   "cc": "AZ",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Balikesir",
+   "cc": "TR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Bamiyan",
+   "cc": "AF",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Bandar Khamir",
+   "cc": "IR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Barranco",
+   "cc": "PE",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Batumi",
+   "cc": "GE",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Bayan-Undur",
+   "cc": "MN",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Bayangol",
+   "cc": "MN",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Benguerir",
+   "cc": "MA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Bethlehem",
+   "cc": "PS",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Bikok",
+   "cc": "CM",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Bissau",
+   "cc": "GW",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Bluefields",
+   "cc": "NI",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Bouaké",
+   "cc": "CI",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Boundiali",
+   "cc": "CI",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Buffalo City",
+   "cc": "ZA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Cahul",
+   "cc": "MD",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Canning",
+   "cc": "AU",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Cantanhede",
+   "cc": "PT",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Cantarranas",
+   "cc": "HN",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Caracas",
+   "cc": "VE",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Chachapoyas (San Juan de la Frontera de los)",
+   "cc": "PE",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Chinhoyi",
+   "cc": "ZW",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Chipata",
+   "cc": "ZM",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Chisinau",
+   "cc": "MD",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Circular Head",
+   "cc": "AU",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Corinth",
+   "cc": "EL",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Cuenca",
+   "cc": "EC",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Cugir",
+   "cc": "RO",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Daedeok-gu",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Dakar",
+   "cc": "SN",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Dangjin",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Dimbokro",
+   "cc": "CI",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Dobong-gu",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Doha",
+   "cc": "QA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Dongducheon",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Dublin",
+   "cc": "IE",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Durham",
+   "cc": "UK",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Elefsina",
+   "cc": "EL",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Escazu",
+   "cc": "CR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Estelí",
+   "cc": "NI",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Eunpyeong-gu",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Farghona",
+   "cc": "UZ",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Fatick",
+   "cc": "SN",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Fayoum",
+   "cc": "EG",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Fundão",
+   "cc": "PT",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Gabala",
+   "cc": "AZ",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Gagnoa",
+   "cc": "CI",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Galati",
+   "cc": "RO",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Gangdong-gu",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Gangnam-gu",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "General Escobedo",
+   "cc": "MX",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Granada",
+   "cc": "NI",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Gulu",
+   "cc": "UG",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Guédiawaye",
+   "cc": "SN",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Gwanak-gu",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Gyumri",
+   "cc": "AM",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Hamedan",
+   "cc": "IR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Hashtgerd Newtown",
+   "cc": "IR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Hatay",
+   "cc": "TR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Helao Nafidi Town Council",
+   "cc": "NA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Heraklion",
+   "cc": "EL",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Hina",
+   "cc": "CM",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Ibadan",
+   "cc": "NG",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Ica",
+   "cc": "PE",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Inje-gun",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Isfahan",
+   "cc": "IR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Jesús María",
+   "cc": "PE",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Jincheon-Gun",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Jinja City",
+   "cc": "UG",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Jubail Industrial City",
+   "cc": "SA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Juigalpa",
+   "cc": "NI",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Kara (Commune de Kozah 1)",
+   "cc": "TG",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Kashan",
+   "cc": "IR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Kermanshah",
+   "cc": "IR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Kharkiv",
+   "cc": "UA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Kilifi County",
+   "cc": "KE",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "King Abdullah Economic City",
+   "cc": "SA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Kourion",
+   "cc": "CY",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Kuno Consortium",
+   "cc": "KE",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Kwekwe",
+   "cc": "ZW",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "L'Alcora",
+   "cc": "ES",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "La Matanza",
+   "cc": "AR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Laikipia Consortium",
+   "cc": "KE",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Larissa",
+   "cc": "EL",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Legazpi City",
+   "cc": "PH",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "León Santiago de los Caballeros",
+   "cc": "NI",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Libreville",
+   "cc": "GA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Lira",
+   "cc": "UG",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Lisbon",
+   "cc": "PT",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Loja",
+   "cc": "EC",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Lusaka",
+   "cc": "ZM",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Lviv",
+   "cc": "UA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Makokou",
+   "cc": "GA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Makueni County",
+   "cc": "KE",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Maragheh",
+   "cc": "IR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Maroua 1er",
+   "cc": "CM",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Marrakech",
+   "cc": "MA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Masaka",
+   "cc": "UG",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Masaya",
+   "cc": "NI",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Mashhad",
+   "cc": "IR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Mayo-Baléo",
+   "cc": "CM",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Mação",
+   "cc": "PT",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Melitopol",
+   "cc": "UA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Melton",
+   "cc": "AU",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Midlands Ireland Region (Laois County Council)",
+   "cc": "IE",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Mineral de la Reforma",
+   "cc": "MX",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Miraflores",
+   "cc": "PE",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Modi’in-Maccabim-Re’ut",
+   "cc": "IL",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Muharraq",
+   "cc": "BH",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Muscat",
+   "cc": "OM",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Nabeul",
+   "cc": "TN",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Nairobi",
+   "cc": "KE",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Nasiriyah",
+   "cc": "IQ",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Nea Smyrni",
+   "cc": "EL",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Netishyn",
+   "cc": "UA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Niamtougou (Commune de Doufelgou 1)",
+   "cc": "TG",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Nikopol",
+   "cc": "UA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Nizwa",
+   "cc": "OM",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Novoyavorivsk",
+   "cc": "UA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Nukus",
+   "cc": "UZ",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "N’Zérékoré",
+   "cc": "GN",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Ocotal",
+   "cc": "NI",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Olamze",
+   "cc": "CM",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Ourém",
+   "cc": "PT",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Pallini",
+   "cc": "EL",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Pikine",
+   "cc": "SN",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Poltava",
+   "cc": "UA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Porto-Novo",
+   "cc": "BJ",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Pya (Commune de Kozah 2)",
+   "cc": "TG",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Querétaro",
+   "cc": "MX",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Quito",
+   "cc": "EC",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Reggio Calabria",
+   "cc": "IT",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Renca",
+   "cc": "CL",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Reșița",
+   "cc": "RO",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Saha-gu",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Sakarya",
+   "cc": "TR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Samarkand",
+   "cc": "UZ",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "San José",
+   "cc": "CR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "San Nicolás",
+   "cc": "CL",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Santiago de Surco",
+   "cc": "PE",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Sasang-gu",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Senaki",
+   "cc": "GE",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Seo-gu (Gwangju)",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Seodaemun-gu",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Seogu (in Busan)",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Seongdong-gu",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Sevan",
+   "cc": "AM",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Sharkia",
+   "cc": "EG",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Shebin El-Kom",
+   "cc": "EG",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Shiraz",
+   "cc": "IR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Siheung",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Sisian",
+   "cc": "AM",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Songpa-Gu",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Sousse",
+   "cc": "TN",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Sumy",
+   "cc": "UA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Sur",
+   "cc": "OM",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Suseong",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "São Filipe",
+   "cc": "CV",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Tashkent",
+   "cc": "UZ",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Tehran",
+   "cc": "IR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Tenkodogo",
+   "cc": "BF",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Ternopil",
+   "cc": "UA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Thermi",
+   "cc": "EL",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Tunis",
+   "cc": "TN",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Umm Salal",
+   "cc": "QA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Valmiera",
+   "cc": "LV",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Vinnytsia",
+   "cc": "UA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Vitebsk",
+   "cc": "BY",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Yaoundé 1er",
+   "cc": "CM",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Ybycuí",
+   "cc": "PY",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Yeoncheon",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Yeongwol",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Yeonje",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Yeonsu",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Yongsan-gu",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Yuseong-gu",
+   "cc": "KR",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Zivinice",
+   "cc": "BA",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Šiauliai",
+   "cc": "LT",
+   "location": null
+  },
+  {
+   "source": "UNESCO_GNLC_20261105",
+   "name": "Kyiv",
+   "cc": "UA",
+   "location": null
+  },
+  {
+   "source": "NRC_POWER_ROSTER_20260219",
+   "name": "Beaver Valley 1",
+   "cc": "US",
+   "location": "17 miles W of McCandless, PA"
+  },
+  {
+   "source": "NRC_POWER_ROSTER_20260219",
+   "name": "Beaver Valley 2",
+   "cc": "US",
+   "location": "17 miles W of McCandless, PA"
+  },
+  {
+   "source": "NRC_POWER_ROSTER_20260219",
+   "name": "Robinson 2",
+   "cc": "US",
+   "location": "26 miles NW of Florence, SC"
+  },
+  {
+   "source": "AGTC_TRB2026_40",
+   "name": "Sofija",
+   "cc": "BG",
+   "location": null
+  },
+  {
+   "source": "AGTC_TRB2026_40",
+   "name": "Rivalta Scrivia - Interporto",
+   "cc": "IT",
+   "location": null
+  }
+ ]
+}

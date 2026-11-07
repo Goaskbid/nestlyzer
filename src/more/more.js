@@ -1506,3 +1506,18 @@ function bizClimBody(B, cc, pk) {
     (fin(ov) ? '<p class="bcover"><b>' + md(me + 1) + ' #' + (me + 1) + ' of ' + all.length + '</b> for ' + esc(profFor()) + ' · climate score <b>' + fmt(ov) + '</b> ' + arrow + '</p>' : '') +
     '<table class="table facts cxt"><tbody>' + rows + '</tbody></table><p class="small muted">Sources: World Bank B-READY 2025 and Doing Business, World Bank WDI (interest rates, growth, FDI), Transparency International, V-Dem, Eurostat business electricity prices, national tax rates. Municipal investment flows are not published as open data; the place’s own pull (people, firms nearby, access) is in its score. <a href="/insights/business-climate/">Compare all countries</a></p>';
 }
+
+/* 2.15: infrastructure and industry within 60 km (data/facilities.json: public lists, points of reference only) */
+var FAC = null;
+function facKm(a, b, c, d) { var R = 6371, x = (c - a) * Math.PI / 180, y = (d - b) * Math.PI / 180, h = Math.sin(x / 2) * Math.sin(x / 2) + Math.cos(a * Math.PI / 180) * Math.cos(c * Math.PI / 180) * Math.sin(y / 2) * Math.sin(y / 2); return 2 * R * Math.asin(Math.sqrt(h)); }
+function facilitiesHTML(r) {
+  if (!document.getElementById('fac-css')) { var st = document.createElement('style'); st.id = 'fac-css'; st.textContent = '.fac{list-style:none;margin:0;padding:0;display:grid;gap:6px}.fac li{display:grid;grid-template-columns:30px 1fr auto;gap:10px;align-items:center;padding:8px 10px;border:1px solid var(--line,#e2e8f0);border-radius:10px;background:var(--card,#fff)}.fac .fi{font-size:18px;line-height:1;text-align:center}.fac b{display:block;font-weight:600}.fac small{color:var(--muted,#64748b)}.fac .km{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}.fac li.k-nuclear{border-left:3px solid #d97706}.fac li.k-chemical{border-left:3px solid #b91c1c}.fac li.k-seaport{border-left:3px solid #0369a1}.fac li.k-terminal{border-left:3px solid #4d7c0f}.fac li.k-learning{border-left:3px solid #7c3aed}'; document.head.appendChild(st); }
+  if (!Number.isFinite(r.lat)) return Promise.resolve('<p class="small muted">No location recorded for this place.</p>');
+  FAC = FAC || getJSON('/data/facilities.json?v=__VERSION__').catch(function () { FAC = null; return { items: [] }; });
+  return FAC.then(function (d) {
+    var IC = { nuclear: '⚡', chemical: '🏭', seaport: '⚓', terminal: '🚆', learning: '🎓' };
+    var near = d.items.map(function (f) { return [facKm(r.lat, r.lon, f.lat, f.lon), f]; }).filter(function (x) { return x[0] <= 60; }).sort(function (a, b) { return a[0] - b[0]; }).slice(0, 12);
+    if (!near.length) return '<p class="small muted">None of the listed seaports, terminals, chemical parks, refineries, nuclear power stations or learning cities lies within 60 km.</p>';
+    return '<ul class="fac">' + near.map(function (x) { var f = x[1]; return '<li class="k-' + f.kind + '"><span class="fi" aria-hidden="true">' + (IC[f.kind] || '•') + '</span><span><b>' + esc(f.name) + '</b><small>' + esc(f.label + (f.detail ? ', ' + f.detail : '')) + '. ' + (f.source ? '<a href="' + esc(f.source) + '" target="_blank" rel="noopener">' + esc(f.by) + '</a>' : esc(f.by)) + (f.period ? ' (' + esc(f.period) + ')' : '') + '</small></span><span class="km">' + fmt(x[0]) + ' km</span></li>'; }).join('') + '</ul><p class="small muted">' + esc(d.note || '') + ' Nuclear stations: so far the US operating list only; worldwide lists are being added.</p>';
+  });
+}

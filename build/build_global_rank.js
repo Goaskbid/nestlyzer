@@ -138,7 +138,9 @@ for (const [sk, inScope] of Object.entries(SC)) {
       if (p.P == null) continue;
       let score = (N != null ? alpha * N : 0) + (A != null ? beta * A : 0) + (1 - (N != null ? alpha : 0) - (A != null ? beta : 0)) * p.L;
       const BC = pr.business ? bizClimate(p.cc, k) : null; if (BC != null) score = (1 - BC_SHARE) * score + BC_SHARE * BC;
-      out.push([p.id, p.name, Math.round(BOUND(score) * 10) / 10, score, Math.round(p.P), Math.round((N != null ? alpha : 0) * 100), Math.round((A != null ? beta : 0) * 100), p.thin || 0]); XY[p.id] = [p.lat, p.lon];
+      // 2.15 (audit 2): shown shares include the business-climate part, so national + local-absolute + local-relative add up to 100
+      const sB = BC != null ? BC_SHARE : 0, shN = ((N != null ? alpha : 0) * (1 - sB) + sB) * 100, shA = ((A != null ? beta : 0) * (1 - sB)) * 100;
+      out.push([p.id, p.name, Math.round(BOUND(score) * 10) / 10, score, Math.round(p.P), Math.round(shN * 10) / 10, Math.round(shA * 10) / 10, p.thin || 0]); XY[p.id] = [p.lat, p.lon];
     }
     out.sort((a, b) => a[7] - b[7] || b[3] - a[3] || b[4] - a[4]); out.forEach((o) => o.splice(3, 1));   // exact score only for the order, then dropped   // row: id, name, score, in-country percentile, national share %, absolute-measure share %, thin evidence (2.13.2: same rule everywhere, thin places after the others)
     // 2.14 (world-4): one entry per metro area (25 km). A world list of ten New Jersey suburbs says less than ten cities;

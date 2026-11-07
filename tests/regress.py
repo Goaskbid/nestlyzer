@@ -126,7 +126,7 @@ async def main():
             banner_s = round(time.time() - t0, 1)
             dbg = await q.evaluate("[document.getElementById('consent').className, typeof NZConsent, localStorage.getItem('nz:consent2'), typeof __tcfapi, !!document.querySelector('script[src*=\"consent.js\"]')]")
             h1 = await q.inner_text('h1')
-            tiles = await q.locator('#profiles .tile').count(); ctiles = await q.locator('#countries .tile').count()
+            tiles = await q.locator('#profiles .tile').count(); ctiles = await q.locator('#countries a[href]').count()   # 2.15: plain links first, tiles load near the viewport
             faq = await q.locator('.faq details').count()
             legal = await q.inner_text('.site-footer')
             consent = await q.is_visible('#consent')
@@ -512,6 +512,7 @@ async def main():
             menu = await q.is_visible('summary[aria-label="Menu"]')
             await q.click('summary[aria-label="Menu"]'); links = await q.locator('.menu-panel a').count()
             await q.click('summary[aria-label="Menu"]'); await q.evaluate('window.scrollTo(0, 0)'); await q.wait_for_timeout(200)
+            await q.select_option('#start-country', 'CH')   # 2.15: the start country follows the visitor; pin a landlocked one for this check
             await q.click('[data-who="coastal"]'); cc = await q.eval_on_selector('#start-country', 'e=>e.value')
             await ctx9.close()
             rec('R34', 'Mobile: header turns solid on scroll, menu with links; Coastal on a landlocked default switches to a coastal country', top and not scrolled and menu and links >= 4 and cc == 'PT', f'transparent at top={top}, solid when scrolled={not scrolled}, menu links={links}, coastal country={cc}')

@@ -451,6 +451,7 @@ def main():
                     'weights': {'outdoor': 35, 'environment': 15, 'quiet': 10, 'safety': 10, 'health': 8, 'services': 8, 'affordability': 8, 'mobility': 6},
                     'avoid': ['mway', 'air', 'chem', 'crowd'], 'minPop': 1000,
                     'needs': [['Mountains, lakes or the sea close by', ['outdoor']], ['Green and open land', ['environment']], ['Quiet surroundings', ['quiet']], ['Safe streets', ['safety']], ['A doctor and shops', ['services']]]},
+        'sun_retiree': {'name': 'Retiring abroad (sun and coast)', 'icon': '🌅', 'desc': 'Retiring to a mild, sunny coast: a warm climate and the sea first, then health care, safety, costs, services and an airport for visits home.', 'intro': 'Sun and sea first, then health care, safety, costs and an airport.', 'weights': {'climate': 28, 'coast': 18, 'health': 16, 'safety': 12, 'affordability': 10, 'services': 8, 'mobility': 8}, 'minPop': 1000, 'needs': [['A mild, sunny climate', ['climate']], ['The sea nearby', ['coast']], ['Health care', ['health']], ['Safe streets', ['safety']], ['Costs', ['affordability']], ['An airport for visits home', ['mobility']]]},
         'cross_border': {'name': 'Cross-border commuter', 'icon': '🛂',
                          'desc': 'Living near a national border to work on the other side: a short way to the border, lower housing costs than the job side, everyday services and safety.',
                          'intro': 'A border close by and lower costs first, then services, safety and connections.',
@@ -465,7 +466,7 @@ def main():
     # 2.14 evidence audit (docs/audit/evidence_audit_2.13.3.json): for these profiles the top 30 places of a country were
     # losing residents in most countries (rural value 0 of 18, budget and low income 0-1 of 7): low prices alone point to
     # places people leave. They now also weigh whether people move to a place (population change and net migration).
-    VITALITY = {'rural_value': 10, 'nature': 8, 'budget': 8, 'low_income': 8, 'outdoor': 8, 'coastal': 8, 'remote': 8, 'climate': 8}
+    VITALITY = {'rural_value': 10, 'nature': 8, 'budget': 8, 'low_income': 8, 'outdoor': 8, 'coastal': 8, 'remote': 8, 'climate': 8, 'sun_retiree': 8}
     for k, wv in VITALITY.items():
         pr = cfg['profiles'].get(k)
         if not pr or (pr.get('weights', {}).get('demographics') or 0) >= wv: continue

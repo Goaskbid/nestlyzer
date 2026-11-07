@@ -29,6 +29,12 @@ def metros(lst):   # one entry per 25 km area, best place first (the published l
         if near: continue
         kept.append((i, n, p)); cells.setdefault((gx, gy), []).append(p)
     return kept
+PUBW = json.load(open(os.path.join(ROOT, 'data/rank/world.json')))['profiles']   # 2.15: 'in the top 100' counts on the published list
+def in_pub(k, ref):
+    top = (PUBW.get(k) or {}).get('top') or []; cc, oid = ref.split(':', 1)
+    if oid == '*': return any(t[0].startswith(cc + ':') for t in top)
+    p = XY.get(ref)
+    return bool(p) and any(t[8] is not None and km(p, (t[8], t[9])) < R for t in top)
 out, lines = {}, []
 for k, spec in REF['profiles'].items():
     lst = full.get(k)
@@ -42,10 +48,10 @@ for k, spec in REF['profiles'].items():
             p = XY.get(ref)
             if not p: res.append({'ref': ref, 'rank': None}); continue
             pos = next((j for j, m in enumerate(M) if km(p, m[2]) < R), None)
-        res.append({'ref': ref, 'rank': None if pos is None else pos + 1, 'as': None if pos is None else M[pos][1]})
+        res.append({'ref': ref, 'rank': None if pos is None else pos + 1, 'as': None if pos is None else M[pos][1], 'published': in_pub(k, ref)})
     rk = [r['rank'] for r in res if r['rank']]
-    top100 = sum(1 for r in rk if r <= 100); pct = [100 * r / n for r in rk]
+    top100 = sum(1 for r in res if r.get('published')); pct = [100 * r / n for r in rk]
     out[k] = {'metros': n, 'references': len(res), 'found_ranked': len(rk), 'in_top_100': top100, 'median_percentile': round(statistics.median(pct), 1) if pct else None, 'places': res, 'top10': [m[1] + ' ' + m[0][:2] for m in M[:10]]}
-    lines.append(f"{k:20s} {top100:2d}/{len(res):2d} in top 100 metros   median position: top {out[k]['median_percentile']}%  of {n}")
+    lines.append(f"{k:20s} {top100:2d}/{len(res):2d} in the published top 100   median position: top {out[k]['median_percentile']}%  of {n}")
 os.makedirs(os.path.dirname(OUT), exist_ok=True); json.dump(out, open(OUT, 'w'), ensure_ascii=False, indent=1)
 print('\n'.join(lines))

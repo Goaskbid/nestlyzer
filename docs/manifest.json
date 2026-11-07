@@ -1,15 +1,15 @@
 {
- "version": "2.14.0",
+ "version": "2.15.1",
  "places_ranked": 145595,
  "countries": 63,
  "residents": 3043063477,
  "official_measures": 210,
  "all_measures": 279,
- "household_profiles": 29,
+ "household_profiles": 30,
  "business_profiles": 20,
  "by_depth": {
-  "detailed": 34,
   "partial": 6,
-  "foundation": 23
+  "foundation": 23,
+  "detailed": 34
  }
 }

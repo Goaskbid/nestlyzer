@@ -6,6 +6,7 @@
    a failure leaves the native comparison as it is. */
 import { answerShortlist, compareFacts, scatterRows, formatFact, safeURL, VERSION as UTIL_VERSION } from './vendor/11_utility.mjs';
 
+const ff = (f) => (f && !f.unit ? formatFact({ ...f, unit: '' }) : formatFact(f)).trim();
 const LV = { 0: 'this place', 3: 'district', 2: 'region', 1: 'large region', 9: 'country' };
 const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const CSS = `.cx{margin-top:18px;border-top:1px solid var(--line);padding-top:14px;display:grid;gap:12px}.cx h3{margin:0;font-size:var(--step-1)}
@@ -18,13 +19,15 @@ const CSS = `.cx{margin-top:18px;border-top:1px solid var(--line);padding-top:14
 // one fact per place and measure, with the basis the utilities need to refuse unfair comparisons
 function factFor(h, r, f) {
   const v = r.factorRaw && r.factorRaw[f.id]; if (typeof v !== 'number' || !Number.isFinite(v)) return null;
-  const b = (f.by_country && f.by_country[r.country]) || {}, lv = (r.factorLevel && r.factorLevel[f.id]) || 0;
-  const src = safeURL(b.source_url || f.source_url || '') || safeURL(h.methodURL);
-  return { value: v, unit: f.unit || 'value', metric: f.id, definitionId: f.id, geographicSupport: LV[lv] || 'this place', statistic: 'value', scenario: 'observed',
-    methodVersion: 'nestlyzer-' + h.version, source: src, sourceName: b.source_name || f.source_name || 'Nestlyzer', period: String(b.period || f.source_period || h.version), status: 'value', level: lv };
+  const bc = f.by_country && f.by_country[r.country], lv = (r.factorLevel && r.factorLevel[f.id]) || 0;
+  // 2.15 (audit 2): no invented metadata. A missing source, period or unit stays missing and is shown as such.
+  const srcURL = bc ? bc.source_url : f.source_url, srcName = bc ? bc.source_name : f.source_name, per0 = bc ? (bc.period || f.source_period) : f.source_period;
+  const period = per0 && !/var(y|ies)|unknown/i.test(String(per0)) ? String(per0) : null;
+  return { value: v, unit: f.unit || null, metric: f.id, definitionId: f.id, geographicSupport: LV[lv] || 'this place', statistic: 'value as published', scenario: 'as published',
+    methodVersion: 'nestlyzer-' + h.version, source: safeURL(srcURL || ''), sourceName: srcName || 'source not recorded', period, status: /suppress|withdraw|held|censor/i.test(String((bc && bc.status) || f.status || '')) ? 'suppressed' : 'value', level: lv };
 }
 function scoreFact(h, x) {
-  return Number.isFinite(x.overall) ? { value: Math.round(x.overall * 10) / 10, unit: 'points', metric: 'score', definitionId: 'score:' + h.profile, geographicSupport: 'this place', statistic: 'model score', scenario: 'model',
+  return Number.isFinite(x.overall) ? { value: Math.round(x.overall * 10) / 10, unit: 'points', metric: 'score', definitionId: 'score:' + h.profile, geographicSupport: 'this place', statistic: 'model score', scenario: 'within-country:' + ((x.r || x).country || 'unknown'),
     methodVersion: 'nestlyzer-' + h.version + '-' + h.method, source: safeURL(h.methodURL), sourceName: 'Nestlyzer model, ' + h.profileName, period: h.version, status: 'value', level: 0 } : null;
 }
 function rowsFor(h, list, measures) {
@@ -34,12 +37,12 @@ function highest(rows, metric) {
   const base = rows.find((r) => r.facts[metric]); if (!base) return { text: 'No usable values for this measure.', claims: [], type: 'gap' };
   if (rows.some((r) => !compareFacts(r.facts[metric], base.facts[metric]).ok)) return { text: 'Read these values separately. Their definitions, levels, dates or sources do not support one numerical comparison.', claims: [], type: 'gap' };
   const max = Math.max(...rows.map((r) => r.facts[metric].value)), win = rows.filter((r) => r.facts[metric].value === max);
-  return { text: `${win.map((r) => r.name).join(' and ')} ${win.length === 1 ? 'has' : 'have'} the highest value: ${formatFact(win[0].facts[metric])}. This compares this measure only, not overall fit.`, claims: rows.map((r) => ({ entity: r.id })), type: 'sourced' };
+  return { text: `${win.map((r) => r.name).join(' and ')} ${win.length === 1 ? 'has' : 'have'} the highest value: ${ff(win[0].facts[metric])}. This compares this measure only, not overall fit.`, claims: rows.map((r) => ({ entity: r.id })), type: 'sourced' };
 }
 
 export function mountCompare(ctx) {
   const root = ctx.root, h = ctx.host; if (!root || !h) return;
-  const box = root.querySelector('.modal-body') || root; if (box.querySelector('.cx')) return;
+  const box = root.querySelector('.modal-b') || root.querySelector('.modal-body') || root; if (box.querySelector('.cx')) return;
   if (!document.getElementById('cx-css')) { const st = document.createElement('style'); st.id = 'cx-css'; st.textContent = CSS; document.head.appendChild(st); }
   const native = ctx.nativeRows.map((r) => ({ r, overall: h.overallOf(r) }));
   // measures at least two compared places have, grouped by category, most weighted first
@@ -48,7 +51,8 @@ export function mountCompare(ctx) {
   if (!measures.length) return;
   const rows = rowsFor(h, native, measures);
   // start on a measure every compared place has for the place itself (not a regional or national value)
-  const local = measures.find((f) => rows.every((r) => r.facts[f.id] && r.facts[f.id].level === 0)) || measures[0];
+  const ok = (ft) => ft && ft.level === 0 && ft.period && ft.source && ft.unit;
+  const local = measures.find((f) => rows.every((r) => ok(r.facts[f.id]))) || measures.find((f) => rows.every((r) => r.facts[f.id] && r.facts[f.id].level === 0)) || measures[0];
   let ref = rows[0].id, metric = local.id, axisX = local.id, axisY = 'score';
   const opt = (sel) => measures.map((f) => `<option value="${esc(f.id)}"${f.id === sel ? ' selected' : ''}>${esc(f.name)}${f.unit ? ' (' + esc(f.unit) + ')' : ''}</option>`).join('');
   const sec = document.createElement('section'); sec.className = 'cx'; sec.setAttribute('aria-label', 'Ask about these places');
@@ -63,7 +67,7 @@ export function mountCompare(ctx) {
   box.appendChild(sec);
   const $ = (s) => sec.querySelector(s);
   const stale = () => { if (ctx.isCurrent && !ctx.isCurrent()) { $('#cx-ans').innerHTML = '<p>The profile or country changed. Close and reopen the comparison to ask again.</p>'; sec.querySelectorAll('button,select').forEach((b) => { b.disabled = true; }); return true; } return false; };
-  const sources = (ids) => '<ol class="cx-src">' + rows.filter((r) => !ids || ids.includes(r.id)).map((r) => { const f = r.facts[metric]; return `<li>${esc(r.name)}: ${f ? esc(formatFact(f)) + ', ' + (f.level ? esc(f.geographicSupport) + ' value' : 'value for the place itself') + ', ' + esc(f.period) + ', <a href="' + esc(f.source) + '" target="_blank" rel="noopener">' + esc(f.sourceName) + '</a>' : 'no value'}</li>`; }).join('') + '</ol>';
+  const sources = (ids) => '<ol class="cx-src">' + rows.filter((r) => !ids || ids.includes(r.id)).map((r) => { const f = r.facts[metric]; return `<li>${esc(r.name)}: ${f ? esc(ff(f)) + ', ' + (f.level ? esc(f.geographicSupport) + ' value' : 'value for the place itself') + ', ' + (f.period ? esc(f.period) : 'period not recorded') + ', ' + (f.source ? '<a href="' + esc(f.source) + '" target="_blank" rel="noopener">' + esc(f.sourceName) + '</a>' : esc(f.sourceName)) : 'no value'}</li>`; }).join('') + '</ol>';
   const ask = (q) => {
     if (stale()) return;
     const a = q === 'highest' ? highest(rows, metric) : answerShortlist(q, rows, metric, { baselineId: ref });

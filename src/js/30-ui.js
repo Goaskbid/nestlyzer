@@ -99,7 +99,7 @@ function openProfilePicker() {
 /* countries by continent; Switzerland first in Europe */
 var CONTINENTS = [['North America', ['CA', 'MX', 'US']], ['Central America', ['CR', 'PA']], ['South America', ['AR', 'BR', 'CL', 'CO', 'UY']], ['Asia', ['CN', 'HK', 'IN', 'ID', 'JP', 'KZ', 'MY', 'PH', 'KR', 'SG', 'TW', 'TH', 'VN']], ['Oceania', ['AU', 'NZ']], ['Middle East', ['IL', 'QA', 'SA', 'AE']], ['Africa', ['EG', 'MA', 'ZA']]];
 function countryGroups() {
-  var all = META.countries.slice().sort(function (a, b) { return a.cc === 'CH' ? -1 : b.cc === 'CH' ? 1 : a.name.localeCompare(b.name); }), used = {};
+  var all = META.countries.slice().sort(function (a, b) { return a.name.localeCompare(b.name); }), used = {};   // (2.15: no country pinned first)
   var out = CONTINENTS.map(function (g) { return [g[0], all.filter(function (c) { if (g[1].indexOf(c.cc) < 0) return false; used[c.cc] = 1; return true; })]; }).filter(function (g) { return g[1].length; });
   out.unshift(['Europe', all.filter(function (c) { return !used[c.cc]; })]);
   return out;

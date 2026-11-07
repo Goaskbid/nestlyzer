@@ -170,6 +170,7 @@ button.chip:hover{border-color:var(--line-2)}
   body:has(.consent.open) .landing{padding-bottom:210px}
 }
 .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.ctry-links{grid-column:1/-1;line-height:2;columns:4 160px;margin:0}.ctry-links a{display:block}
 .tile{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);text-decoration:none;color:var(--ink);transition:transform .15s ease,box-shadow .15s ease,border-color .15s}
 .tile:hover{border-color:var(--line-2);box-shadow:var(--shadow);transform:translateY(-1px)}
 .tile .ico{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:color-mix(in srgb,var(--tone,#1E6FD9) 14%,var(--surface));color:var(--tone,var(--blue));flex:none}

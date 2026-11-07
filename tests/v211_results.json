@@ -67,7 +67,7 @@
  {
   "finding": "bizglobal",
   "ok": true,
-  "check": "business profile ranked across Europe: ['Welwyn Hatfield', 'Sursee', 'Spelthorne', \"Saint-Ouen-l'Aum\u00f4ne\", 'Wokingham']; \"United Kingdom \u00b7 top 1% in the country \u00b7 national level 8% of the score \u00b7 stands for 7 more ranked places within 25 km\""
+  "check": "business profile ranked across Europe: ['Welwyn Hatfield', 'Sursee', 'Spelthorne', \"Saint-Ouen-l'Aum\u00f4ne\", 'Wokingham']; \"United Kingdom \u00b7 top 1% in the country \u00b7 national level 30.8% of the score \u00b7 stands for 7 more ranked places within 25 km\""
  },
  {
   "finding": "bizband",

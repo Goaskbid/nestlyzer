@@ -52,7 +52,9 @@ export function buildInsights(H) {
   /* 2.13.2: every analysis ends with a direct way into a decision: the map with a fitting profile, the profiles or the business sites */
   const CTA = { living: `<div class="cta-band"><h2>Turn this into a shortlist</h2><p>Pick who is moving and Nestlyzer ranks every place in a country for you, with the figures behind each score.</p><a class="btn" href="/#profiles">Choose a household profile</a> <a class="btn" href="${appLink({ cc: 'CH', p: 'young_family' })}">Open the map</a></div>`,
     business: `<div class="cta-band"><h2>Find sites for your business</h2><p>Pick the kind of site and Nestlyzer ranks every place in a country, with must-haves checked and the business climate included.</p><a class="btn" href="/business/">Choose a kind of site</a> <a class="btn" href="${appLink({ cc: 'DE', p: 'biz_manufacturing' })}">Open the map</a></div>` };
-  const pageIns = (p, title, desc, body, sec, extraLd) => { body = body + (CTA[sec] || ''); page({ p, title: title + ' | Nestlyzer', desc, body: CSS + body, crumbs: [['Home', '/'], ['Insights', '/insights/'], ...(p === '/insights/' ? [] : [[title.split(':')[0], p]])], jsonld: extraLd || [] }); OUT.push({ p, title, desc, sec }); };
+  // 2.14 (owner audit, SEO): the country count follows the national data set the charts use, never a fixed 54
+  const NCN = String(Object.keys(N.countries).length), nc = (t) => String(t).replace(/__NCN__/g, NCN);
+  const pageIns = (p, title, desc, body, sec, extraLd) => { title = nc(title); desc = nc(desc); body = nc(body) + (CTA[sec] || ''); page({ p, title: title + ' | Nestlyzer', desc, body: CSS + body, crumbs: [['Home', '/'], ['Insights', '/insights/'], ...(p === '/insights/' ? [] : [[title.split(':')[0], p]])], jsonld: extraLd || [] }); OUT.push({ p, title, desc, sec }); };
   const FOOT = (src) => `<p class="ins-note" style="margin-top:22px">${src} Scores run 0–100 between the 5th and 95th percentile of the countries covered; a dash means the figure is not published. <a href="/method/">How Nestlyzer works</a>.</p>`;
   const ld = (name, rows) => [{ '@context': 'https://schema.org', '@type': 'ItemList', name, itemListOrder: 'https://schema.org/ItemListOrderDescending', numberOfItems: rows.length, itemListElement: rows.slice(0, 20).map((cc, i) => ({ '@type': 'ListItem', position: i + 1, name: nm(cc), url: H.SITE + cpath(cc) })) }];
 
@@ -112,7 +114,7 @@ ${C.bars(cum.map((r) => ({ label: cl(r.cc), v: r.v, note: `${r.from}–${r.to}` 
       caption: `Yearly inflation rates chained from 2020 to the latest year. Prices rose least in ${esc(list(cum.slice(0, 3).map((r) => `${nm(r.cc)} (+${fmt(r.v, 0)}%)`)))} and most in ${esc(list(cum.slice(-3).reverse().map((r) => `${nm(r.cc)} (+${fmt(r.v, 0)}%)`)))}. Wages did not rise equally everywhere, so the same increase hurts more where pay stood still.` })}
 ${C.multiples(big.map((cc) => { const s = SER(cc, 'inflation'); return { label: `${flagImg(cc, 11)} ${esc(nm(cc))}`, y: s.y.filter(([y]) => y >= 2012), tone: s.y[s.y.length - 1][1] > 4 ? 'b' : '' }; }), { title: 'Inflation by year since 2012, same scale for every country', fmt: (v) => fmt(v, 1) + '%', shared: true, zeroLine: true, caption: 'Each panel uses the same vertical scale, so the height of the 2022 peak can be compared directly. Red lines: inflation still above 4% in the latest year.' })}
 ${FOOT('Sources: World Bank WDI (CC BY 4.0): PA.NUS.PPPC.RF, NY.GNP.PCAP.PP.CD, FP.CPI.TOTL.ZG.')}`;
-    pageIns('/insights/cost-of-living/', 'Cost of living: where money goes furthest', 'How expensive is daily life in 54 countries, how far do incomes stretch, and how much have prices risen since 2020? Charts and rankings from official data.', body, 'living');
+    pageIns('/insights/cost-of-living/', 'Cost of living: where money goes furthest', 'How expensive is daily life in __NCN__ countries, how far do incomes stretch, and how much have prices risen since 2020? Charts and rankings from official data.', body, 'living');
   }
 
   /* H3. safety */
@@ -130,7 +132,7 @@ ${C.scatter(pts, { title: 'Violence against road danger' + ytag('homicide', 'roa
 ${ch.length ? C.arrows(ch.map((r) => ({ label: cl(r.cc), a: r.a, b: r.b })), { title: 'Homicides per 100,000 people, about ten years ago and now', fmt: (v) => fmt(v, v < 10 ? 2 : 1), better: -1, aLabel: 'about ten years ago', bLabel: 'latest year', caption: `Sorted from the biggest fall to the biggest rise. Violence fell most in ${esc(list(ch.slice(0, 3).map((r) => nm(r.cc))))}${ch[ch.length - 1].b > ch[ch.length - 1].a ? ` and rose most in ${esc(list(ch.filter((r) => r.b > r.a).slice(-3).reverse().map((r) => nm(r.cc))))}` : ''}.` }) : ''}
 <p>Recorded crime by type differs too much in definitions between countries to compare fairly; the place pages show local crime figures where statistics offices publish them, always compared within the same country.</p>
 ${FOOT('Sources: World Bank WDI (CC BY 4.0): VC.IHR.PSRC.P5 (UNODC), SH.STA.TRAF.P5 (WHO).')}`;
-    pageIns('/insights/safety/', 'Safety: homicides and road deaths in 54 countries', 'Which countries are safest? Homicide and road-death rates for every Nestlyzer country, how they relate and how they changed over ten years.', body, 'living');
+    pageIns('/insights/safety/', 'Safety: homicides and road deaths in __NCN__ countries', 'Which countries are safest? Homicide and road-death rates for every Nestlyzer country, how they relate and how they changed over ten years.', body, 'living');
   }
 
   /* H4. health and longevity */
@@ -147,7 +149,7 @@ ${C.scatter(pts, { title: 'Life expectancy against income per person' + ytag('li
 ${C.arrows(le.map((r) => ({ label: cl(r.cc), a: r.a, b: r.b })), { title: 'Life expectancy at birth: ten years ago and now (longest first)', fmt: (v) => fmt(v, 1), better: 1, aLabel: 'ten years earlier', bLabel: 'latest year', caption: `Most countries gained years despite the pandemic dip of 2020–2021. Gains over the decade were largest in ${esc(list(le.slice().sort((a, b) => (b.b - b.a) - (a.b - a.a)).slice(0, 3).map((r) => `${nm(r.cc)} (${sgn(r.b - r.a, 1)} years)`)))}.` })}
 ${C.bars(im.map((r) => ({ label: cl(r.cc), v: r.v, note: NY(r.cc, 'infant_mortality') })), { title: 'Infant mortality per 1,000 live births (lowest first)' + ytag('infant_mortality'), fmt: (v) => fmt(v, 1), tone: (v) => v < 3 ? 'g' : v > 10 ? 'b' : '', caption: 'The most sensitive single measure of a health system: deaths before the first birthday per 1,000 live births.' })}
 ${FOOT('Sources: World Bank WDI (CC BY 4.0): SP.DYN.LE00.IN, NY.GNP.PCAP.PP.CD, SP.DYN.IMRT.IN.')}`;
-    pageIns('/insights/health-and-longevity/', 'Health and longevity: who lives longest', 'Life expectancy against income for 54 countries: who lives longer than their wealth predicts, ten-year gains and infant mortality, from official data.', body, 'living');
+    pageIns('/insights/health-and-longevity/', 'Health and longevity: who lives longest', 'Life expectancy against income for __NCN__ countries: who lives longer than their wealth predicts, ten-year gains and infant mortality, from official data.', body, 'living');
   }
 
   /* H5. clean air */
@@ -156,7 +158,7 @@ ${FOOT('Sources: World Bank WDI (CC BY 4.0): SP.DYN.LE00.IN, NY.GNP.PCAP.PP.CD, 
     const pts = CC.map((cc) => ({ key: cc, name: nm(cc), href: cpath(cc), x: NV(cc, 'renewable_power'), y: NV(cc, 'pm25') })).filter((p) => fin(p.x) && fin(p.y));
     const ch = CC.map((cc) => { const s = SER(cc, 'pm25'); if (!s) return null; const l = s.y[s.y.length - 1], a = s.y.find(([y]) => y === l[0] - 10) || s.y[0]; return l[0] - a[0] >= 6 ? { cc, a: a[1], b: l[1] } : null; }).filter(Boolean).sort((a, b) => a.b - b.b);
     const under5 = pm.filter((r) => r.v <= 5).map((r) => nm(r.cc));
-    const body = `${kick('living')}${printBtn}<h1>Clean air: fine-particle pollution in 54 countries</h1>
+    const body = `${kick('living')}${printBtn}<h1>Clean air: fine-particle pollution in __NCN__ countries</h1>
 <p class="lede">Fine particles (PM2.5) are the air pollutant that harms health most. The World Health Organization's guideline is an annual average of 5 micrograms per cubic metre. Here is where people breathe the cleanest and the dirtiest air, and how it changed.</p>
 ${C.bars(pm.map((r) => ({ label: cl(r.cc), v: r.v, note: NY(r.cc, 'pm25') })), { title: 'Average exposure to PM2.5, µg/m³ (cleanest first)' + ytag('pm25'), fmt: (v) => fmt(v, 1), tone: (v) => v <= 5 ? 'g' : v > 15 ? 'b' : 'n',
       caption: `Green: within the WHO guideline of 5 µg/m³${under5.length ? ` (${esc(list(under5))})` : ''}. Red: more than three times the guideline. Population-weighted national averages; cities can be far worse than the national figure.` })}
@@ -164,7 +166,7 @@ ${C.scatter(pts, { title: 'Air pollution against the renewable share of electric
       caption: `Clean power helps, but the link is ${strength(corr(pts.map((p) => p.x), pts.map((p) => p.y))).replace(/^a /, '')}: traffic, heating with wood or coal, farming and dust from deserts matter as much as the power plants.` })}
 ${C.arrows(ch.map((r) => ({ label: cl(r.cc), a: r.a, b: r.b })), { title: 'PM2.5 exposure: about ten years ago and now (cleanest first)', fmt: (v) => fmt(v, 1), better: -1, aLabel: 'about ten years earlier', bLabel: 'latest year', caption: `Air got cleaner in ${ch.filter((r) => r.b < r.a).length} of ${ch.length} countries.` })}
 ${FOOT('Sources: World Bank WDI (CC BY 4.0): EN.ATM.PM25.MC.M3 (Global Burden of Disease / WHO), EG.ELC.RNEW.ZS. WHO global air quality guidelines 2021.')}`;
-    pageIns('/insights/clean-air/', 'Clean air: fine-particle pollution by country', 'Where is the air cleanest? PM2.5 exposure in 54 countries against the WHO guideline, its link to renewable power and the ten-year trend.', body, 'living');
+    pageIns('/insights/clean-air/', 'Clean air: fine-particle pollution by country', 'Where is the air cleanest? PM2.5 exposure in __NCN__ countries against the WHO guideline, its link to renewable power and the ten-year trend.', body, 'living');
   }
 
   /* H6. jobs and pay */
@@ -180,7 +182,7 @@ ${C.scatter(pts, { title: 'Income per person against unemployment' + ytag('unemp
 ${C.bars(fl.map((r) => ({ label: cl(r.cc), v: r.v })), { title: "Women in the labour force, % of women aged 15+ (highest first)" + ytag('female_lfp'), fmt: (v) => fmt(v, 0) + '%', tone: (v) => v >= 60 ? 'g' : v < 45 ? 'b' : '', caption: 'A high share of women in work usually goes with good childcare, flexible jobs and two-income households; it also widens the pool of staff for employers.' })}
 ${C.multiples(big.map((cc) => { const s = SER(cc, 'unemployment'), l = s.y[s.y.length - 1], c = s.change['10']; return { label: `${flagImg(cc, 11)} ${esc(nm(cc))}`, y: s.y, tone: fin(c) ? (c < -0.5 ? 'g' : c > 0.5 ? 'b' : '') : '', note: fin(c) ? sgn(c, 1, ' pts') + ' in 10 yrs' : '' }; }), { title: 'Unemployment since 2010, highest today first (same scale)', fmt: (v) => fmt(v, 1) + '%', shared: true, caption: 'Green: lower than ten years ago, red: higher. Same vertical scale in every panel.' })}
 ${FOOT('Sources: World Bank WDI (CC BY 4.0): SL.UEM.TOTL.ZS (ILO modelled estimates), NY.GNP.PCAP.PP.CD, SL.TLF.CACT.FE.ZS.')}`;
-    pageIns('/insights/jobs-and-pay/', 'Jobs and pay: work that is easy to find and pays', 'Unemployment against income for 54 countries, women in the workforce and unemployment trends since 2010, from official data.', body, 'living');
+    pageIns('/insights/jobs-and-pay/', 'Jobs and pay: work that is easy to find and pays', 'Unemployment against income for __NCN__ countries, women in the workforce and unemployment trends since 2010, from official data.', body, 'living');
   }
 
   /* H7. ageing and population growth */
@@ -195,7 +197,7 @@ ${C.scatter(pts, { title: 'Population growth over ten years against the share ag
       caption: `Top left: young and growing — ${esc(list(young.slice(0, 5).map((p) => `${p.name} (${sgn(p.y, 0, '%')})`)))}. ${shrink.length ? `Shrinking over the decade: ${esc(list(shrink.slice(0, 5).map((p) => `${p.name} (${sgn(p.y, 1, '%')})`)))}.` : ''}` })}
 ${C.multiples(ag.map((cc) => { const s = SER(cc, 'age65'), c = s.change['10']; return { label: `${flagImg(cc, 11)} ${esc(nm(cc))}`, y: s.y, note: fin(c) ? sgn(c, 1, ' pts') + ' in 10 yrs' : '' }; }), { title: 'Share of residents aged 65+ since 2010, oldest first (same scale)', fmt: (v) => fmt(v, 1) + '%', shared: true, caption: 'Almost every line rises: the question is how fast. Same vertical scale in every panel.' })}
 ${FOOT('Sources: World Bank WDI (CC BY 4.0): SP.POP.65UP.TO.ZS, SP.POP.TOTL.')}`;
-    pageIns('/insights/ageing-and-growth/', 'Ageing and growth: young and shrinking countries', 'Population growth against ageing for 54 countries: who is young and growing, who is shrinking, and how fast the share of over-65s rises.', body, 'living');
+    pageIns('/insights/ageing-and-growth/', 'Ageing and growth: young and shrinking countries', 'Population growth against ageing for __NCN__ countries: who is young and growing, who is shrinking, and how fast the share of over-65s rises.', body, 'living');
   }
 
   /* H8. families */
@@ -212,7 +214,7 @@ ${C.league(['Country', 'Family score', 'Childcare support', 'Parenthood support'
 <p class="ins-note">Childcare and parenthood support are World Bank Women, Business and the Law scores (0–100, from the laws on leave, benefits and childcare). Infant mortality per 1,000 live births; women in the labour force and tertiary enrolment in %.</p>
 <p>The place pages add what differs inside a country: other families nearby, schools and childcare where they are published, safe streets and homes a family can afford. <a href="/insights/best-places-to-live/">See the best places for families</a>.</p>
 ${FOOT('Sources: World Bank Women, Business and the Law 2026; World Bank WDI (CC BY 4.0).')}`;
-    pageIns('/insights/family-friendly-countries/', 'Family-friendly countries: childcare, leave and health', 'Which countries support families best? Childcare and parental-leave law, women in work and infant health for 54 countries, ranked with crowns and medals.', body, 'living', ld('Family-friendly countries', fam.map((r) => r.cc)));
+    pageIns('/insights/family-friendly-countries/', 'Family-friendly countries: childcare, leave and health', 'Which countries support families best? Childcare and parental-leave law, women in work and infant health for __NCN__ countries, ranked with crowns and medals.', body, 'living', ld('Family-friendly countries', fam.map((r) => r.cc)));
   }
 
   /* =================================================================== INSIDE THE COUNTRIES (place level) */
@@ -260,7 +262,7 @@ ${C.density(pts, { title: 'Gross rental yield against the home price per m², se
 <div class="ins-two"><div><h2>Highest yields</h2>${placeTable(hi, [['Comune (20,000+ residents)'], ['Gross yield', (o) => `<b>${fmt(o.yld, 1)}%</b>`], ['Price €/m²', (o) => fmtInt(o.n_house_price_m2_it)], ['Rent €/m²/month', (o) => fmt(o.n_rent_m2_it, 2)]])}</div>
 <div><h2>Lowest yields</h2>${placeTable(lo, [['Comune (20,000+ residents)'], ['Gross yield', (o) => `<b>${fmt(o.yld, 1)}%</b>`], ['Price €/m²', (o) => fmtInt(o.n_house_price_m2_it)], ['Rent €/m²/month', (o) => fmt(o.n_rent_m2_it, 2)]])}</div></div>
 <p class="ins-note">Medians across each comune's zones of the mid quotation for ordinary homes, second half of 2018, the most recent complete set in Nestlyzer. These are historical quotations: prices and rents have moved since, and the gaps between towns may have changed too. Gross yield ignores vacancy, maintenance, agency fees and taxes. Not investment advice.</p>
-${FOOT('Source: Agenzia delle Entrate, Osservatorio del Mercato Immobiliare (OMI) quotations (CC BY 4.0).')}`);
+${FOOT('Source: Agenzia delle Entrate – OMI quotations, 2nd half 2018, as republished by Comune di Milano open data (CC BY 4.0).')}`);
   }
 
   /* P3 United States: income and life expectancy (counties) */

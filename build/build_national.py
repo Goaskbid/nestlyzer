@@ -12,7 +12,7 @@ Taiwan is not in the World Bank tables: its WDI-based measures stay empty and th
     python3 build/build_national.py      -> data/national.json"""
 import csv, glob, json, os, statistics
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ISO3 = {'AL': 'ALB', 'AT': 'AUT', 'AU': 'AUS', 'BE': 'BEL', 'BG': 'BGR', 'CA': 'CAN', 'CH': 'CHE', 'CY': 'CYP', 'CZ': 'CZE', 'DE': 'DEU', 'DK': 'DNK',
+ISO3 = {'RU': 'RUS', 'TR': 'TUR', 'VN': 'VNM', 'TH': 'THA', 'CL': 'CHL', 'SA': 'SAU', 'QA': 'QAT', 'KZ': 'KAZ', 'PH': 'PHL', 'AR': 'ARG', 'CO': 'COL', 'UY': 'URY', 'CR': 'CRI', 'PA': 'PAN', 'GE': 'GEO', 'EG': 'EGY', 'AL': 'ALB', 'AT': 'AUT', 'AU': 'AUS', 'BE': 'BEL', 'BG': 'BGR', 'CA': 'CAN', 'CH': 'CHE', 'CY': 'CYP', 'CZ': 'CZE', 'DE': 'DEU', 'DK': 'DNK',
         'EE': 'EST', 'EL': 'GRC', 'ES': 'ESP', 'FI': 'FIN', 'FR': 'FRA', 'HK': 'HKG', 'HR': 'HRV', 'HU': 'HUN', 'IE': 'IRL', 'IL': 'ISR', 'IS': 'ISL', 'IT': 'ITA',
         'JP': 'JPN', 'KR': 'KOR', 'LI': 'LIE', 'LT': 'LTU', 'LU': 'LUX', 'LV': 'LVA', 'MK': 'MKD', 'MT': 'MLT', 'NL': 'NLD', 'NO': 'NOR', 'NZ': 'NZL', 'PL': 'POL',
         'PT': 'PRT', 'RO': 'ROU', 'RS': 'SRB', 'SE': 'SWE', 'SG': 'SGP', 'SI': 'SVN', 'SK': 'SVK', 'TW': 'TWN', 'UK': 'GBR', 'US': 'USA', 'BR': 'BRA', 'MX': 'MEX', 'MY': 'MYS', 'ID': 'IDN', 'MA': 'MAR', 'ZA': 'ZAF', 'IN': 'IND', 'CN': 'CHN', 'AE': 'ARE'}

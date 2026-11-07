@@ -3,7 +3,7 @@
 
 GitHub safety: every file under 20 MiB (GitHub warns at 50 MB, refuses 100 MB, browser upload stops at 25 MB),
 at most 90 files per upload, no databases, archives, keys or tokens, only the expected folders.
-Behaviour: home page, all 54 countries rank, a place page opens, the Business page loads, no JavaScript errors,
+Behaviour: home page, all 63 countries rank, a place page opens, the Business page loads, no JavaScript errors,
 and the first visit downloads only index.html and the start-page globe (not the country data).
     python3 tests/split_test.py [dist/site]
 """
@@ -35,13 +35,17 @@ for r in rel:
         if re.search(r'(AKIA[0-9A-Z]{16}|ghp_[0-9A-Za-z]{36}|sk-[A-Za-z0-9]{32,}|AIza[0-9A-Za-z_-]{35})', t):
             check(False, 'possible key or token in ' + r)
 check(open(os.path.join(SITE, 'CNAME')).read().strip() == 'nestlyzer.com', 'CNAME is nestlyzer.com')
-meta_cc = sorted(r[len('nzdata-p-'):len('nzdata-p-')+2] for r in rel if r.startswith('nzdata-p-'))
-check(len(meta_cc) == 54, f'{len(meta_cc)} country data files')
+meta_cc, ngrp = [], 0
 for r in rel:
     if r.startswith('nzdata-p-'):
         d = json.load(open(os.path.join(SITE, r)))
-        if not (d.get('c') and d['c'].get('rows')):
-            check(False, 'country file without places: ' + r)
+        parts = d['g'] if 'g' in d else {r[len('nzdata-p-'):len('nzdata-p-')+2]: d}
+        ngrp += 'g' in d
+        for cc, v in parts.items():
+            meta_cc.append(cc)
+            if not (v.get('c') and v['c'].get('rows')):
+                check(False, 'country data without places: ' + cc)
+check(len(meta_cc) == 63 and len(set(meta_cc)) == 63, f'{len(set(meta_cc))} countries in {sum(r.startswith("nzdata-p-") for r in rel)} data files ({ngrp} group packs for the small countries)')
 
 
 class Q(http.server.SimpleHTTPRequestHandler):

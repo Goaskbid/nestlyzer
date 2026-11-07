@@ -2,17 +2,17 @@
  {
   "finding": "national",
   "ok": true,
-  "check": "national level for 54 countries (World Bank WDI, CPI, V-Dem, WBL, ND-GAIN)"
+  "check": "national level for 63 countries (World Bank WDI, CPI, V-Dem, WBL, ND-GAIN)"
  },
  {
   "finding": "global",
   "ok": true,
-  "check": "cross-country rankings for 28 business profiles and students (11195 places)"
+  "check": "cross-country rankings for 28 business profiles and students (5101 places)"
  },
  {
   "finding": "ties",
   "ok": true,
-  "check": "young_family: top 10 not one tied region (9 distinct scores)"
+  "check": "young_family: top 10 not one tied region (7 distinct scores)"
  },
  {
   "finding": "ties",
@@ -22,27 +22,27 @@
  {
   "finding": "ties",
   "ok": true,
-  "check": "remote: top 10 not one tied region (10 distinct scores)"
+  "check": "remote: top 10 not one tied region (7 distinct scores)"
  },
  {
   "finding": "plausible",
   "ok": true,
-  "check": "Europe, expat professionals: ['M\u00fcnchen', 'Unterf\u00f6hring', 'Versailles', 'Baar', 'Stuttgart', 'Stichtse Vecht', 'Unterhaching', 'Gr\u00e4felfing']"
+  "check": "Europe, expat professionals: ['M\u00fcnchen', 'Stichtse Vecht', 'Z\u00fcrich', 'Bergen', 'Amsterdam', 'Stuttgart', 'Stavanger', 'Luxembourg']"
  },
  {
   "finding": "plausible",
   "ok": true,
-  "check": "world, port industry: ['Port Arthur', 'Corpus Christi', 'Bukit Merah Estate', 'Saint-Fons', 'Dunkerque', 'Deer Park (Texas)', 'Southampton', 'Queenstown Estate', 'Telok Blangah', 'Ludwigshafen am Rhein']"
+  "check": "world, port industry: ['Corpus Christi', 'Port Arthur', 'Deer Park (Texas)', 'Dunkerque', 'Telok Blangah', 'Saint-Fons', 'Lake Charles', 'Southampton', 'Punta Umbr\u00eda', '\u0411\u0443\u0440\u0433\u0430\u0441', 'Moerdijk', 'Cartagena']"
  },
  {
   "finding": "benchmark",
   "ok": true,
-  "check": "reference places: mean percentile 71.8 (old model 54.0), in the top 5%: 43% (old 7%)"
+  "check": "reference places: mean percentile 71.9 (old model 54.0), in the top 5%: 43% (old 7%)"
  },
  {
   "finding": "external",
   "ok": true,
-  "check": "published rankings: Prologis logistics 93.2, fDi cities 94.9, EIU liveability 98.0, Bilanz/IAZI separation (DINKs, expats, wealthy) [91.5, 84.9, 81.4], all profiles 60.4, IMD countries 82.3"
+  "check": "published rankings: Prologis logistics 94.7, fDi cities 84.6, EIU liveability 85.0, Bilanz/IAZI separation (DINKs, expats, wealthy) [91.5, 84.9, 81.4], all profiles 60.4, IMD countries 84.5"
  },
  {
   "finding": "clusters",
@@ -52,7 +52,7 @@
  {
   "finding": "clusters",
   "ok": true,
-  "check": "US logistics clusters rank high: {'Memphis': 63.4, 'Louisville': 86.1, 'Joliet': 99.1, 'Ontario': 98.5, 'Edison': 99.9, 'Allentown': 92.1}"
+  "check": "US logistics clusters rank high: {'Memphis': 63.5, 'Louisville': 86.1, 'Joliet': 99.1, 'Ontario': 98.5, 'Edison': 99.9, 'Allentown': 92.1}"
  },
  {
   "finding": "research",
@@ -67,7 +67,7 @@
  {
   "finding": "bizglobal",
   "ok": true,
-  "check": "business profile ranked across Europe: [\"Saint-Ouen-l'Aum\u00f4ne\", 'L\u00fcnen', 'Survilliers', 'Welwyn Hatfield', 'Waltrop']; \"France \u00b7 top 1% in the country \u00b7 national level 8% of the score\""
+  "check": "business profile ranked across Europe: ['Welwyn Hatfield', 'Sursee', 'Spelthorne', \"Saint-Ouen-l'Aum\u00f4ne\", 'Wokingham']; \"United Kingdom \u00b7 top 1% in the country \u00b7 national level 8% of the score \u00b7 stands for 7 more ranked places within 25 km\""
  },
  {
   "finding": "bizband",

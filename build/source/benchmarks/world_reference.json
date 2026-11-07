@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "purpose": "Plausibility benchmark for the world and continental rankings (2.14). Each list names places that independent, widely documented evidence associates with the profile. It is NEVER used in a score; it only measures whether the model, built from public data, finds them on its own. A place counts as found when the best-ranked Nestlyzer place within 25 km of it (its metro area) is found.",
+  "radius_km": 25,
+  "profiles": {
+    "biz_hq": {"why": "Where the largest companies keep their head offices: the cities with the most Fortune Global 500 / Forbes Global 2000 headquarters and the regional-HQ hubs named by national investment agencies.",
+      "places": ["US:5128581", "UK:E09000001", "FR:75056", "JP:1850147", "KR:1835848", "HK:12747064", "SG:*", "CH:261", "CH:6621", "NL:GM0363", "US:4887398", "DE:09162000", "DE:06412000", "CA:6167865", "AU:2147714", "AE:292223", "LU:0304"]},
+    "biz_tech": {"why": "The software and technology clusters with the largest tech workforces and venture investment: Silicon Valley and San Francisco, Seattle, Boston, New York, London, Berlin, Paris, Stockholm, Tel Aviv, Bengaluru, Toronto, Singapore, Tokyo, Seoul, Zurich.",
+      "places": ["US:5391959", "US:5392171", "US:5809844", "US:4931972", "US:5128581", "UK:E09000007", "DE:11000000", "FR:75056", "SE:0180", "IL:293397", "IN:1277333", "CA:6167865", "SG:*", "JP:1850147", "KR:1835848", "CH:261", "NL:GM0363", "US:4671654"]},
+    "expat_professional": {"why": "The cities with the largest internationally mobile professional workforces and international schools (foreign-born residents in high-skill jobs): London, New York, Singapore, Hong Kong, Dubai, Zurich, Geneva, Amsterdam, Munich, Luxembourg, Brussels, Toronto, Sydney, Tokyo.",
+      "places": ["UK:E09000033", "US:5128581", "SG:*", "HK:12747064", "AE:292223", "CH:261", "CH:6621", "NL:GM0363", "DE:09162000", "LU:0304", "BE:21004", "CA:6167865", "AU:2147714", "JP:1850147", "DE:06412000"]},
+    "student": {"why": "Cities that recent editions of the QS Best Student Cities ranking place in their top 20, plus the classic university towns: London, Tokyo, Seoul, Munich, Melbourne, Paris, Sydney, Zurich, Berlin, Montreal, Boston, Vienna, Edinburgh, Toronto, Vancouver, Cambridge.",
+      "places": ["UK:E09000007", "JP:1850147", "KR:1835848", "DE:09162000", "AU:2158177", "FR:75056", "AU:2147714", "CH:261", "DE:11000000", "CA:6077243", "US:4930956", "AT:90001", "UK:S30000008", "CA:6167865", "CA:6173331", "UK:E07000008"]},
+    "pensioner": {"why": "The best-documented retirement destinations: the Algarve, the Costa del Sol and Costa Blanca, the Côte d'Azur, Florida's Gulf coast and Arizona, Cyprus, Malta.",
+      "places": ["PT:080508", "PT:080808", "PT:080106", "ES:29069", "ES:29067", "ES:03133", "ES:03031", "ES:03014", "FR:06088", "FR:06029", "FR:06083", "US:4172131", "US:4165565", "US:4155995", "US:5313457", "CY:5000", "MT:*"]},
+    "remote": {"why": "The cities that host the most remote workers and digital nomads and that run dedicated programmes for them: Lisbon, Porto, Barcelona, Valencia, Madrid, Las Palmas, Berlin, Tallinn, Split, Mexico City, Medellín, Buenos Aires, Bangkok, Chiang Mai, Kuala Lumpur, Dubai.",
+      "places": ["PT:110657", "PT:131217", "ES:08019", "ES:46250", "ES:28079", "ES:35016", "DE:11000000", "EE:0784", "HR:04090", "MX:3530597", "CO:3674962", "AR:3435910", "TH:1609350", "TH:1153671", "MY:1735161", "AE:292223"]},
+    "hnw": {"why": "Where wealthy households settle, by the concentration of millionaires and of low-tax wealth hubs: Zug, Geneva, Lugano, Gstaad (Saanen), London's Kensington and Chelsea, New York, Miami and Palm Beach, Singapore, Hong Kong, Dubai, Monaco's neighbour the Côte d'Azur, Luxembourg.",
+      "places": ["CH:1711", "CH:6621", "CH:5192", "CH:843", "UK:E09000020", "US:5128581", "US:4164138", "US:4167505", "SG:*", "HK:12747064", "AE:292223", "FR:06088", "LU:0304"]}
+  }
+}

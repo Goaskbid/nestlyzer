@@ -1148,13 +1148,13 @@ function globalRankHTML(box) {
   GRANK = GRANK || {};
   (GRANK[sc] = GRANK[sc] || fetch('/data/rank/' + sc + '.json?v=__VERSION__').then(function (r) { if (!r.ok) throw new Error('rank ' + r.status); return r.json(); })).then(function (G) {
     if (S.gscope !== sc || S.profile !== key) return;
-    var pr = G.profiles[key], nm = { europe: 'Europe', americas: 'the Americas', asia_pacific: 'Asia-Pacific', world: 'all 54 countries' }[sc];
+    var pr = G.profiles[key], nm = { europe: 'Europe', americas: 'the Americas', asia_pacific: 'Asia-Pacific', mideast_africa: 'the Middle East and Africa', world: 'all ' + META.countries.length + ' countries' }[sc];
     if (!pr || !pr.top.length) { box.innerHTML = '<div class="empty"><h3>' + esc(profileName(key)) + ' is ranked country by country</h3><p>Its criteria rely on figures that each country defines in its own way, so a fair ranking across ' + esc(nm) + ' is not possible yet. Pick a country to see its ranking.</p></div>'; return; }
     var biz = isBizKey(key), floor = biz ? '' : ' of 10,000+ residents';
-    box.innerHTML = '<p class="small muted" style="padding:8px 16px 0">Top ' + pr.top.length + ' of ' + fmtInt(pr.ranked) + ' ' + (biz ? 'sites' : 'towns and cities' + floor) + ' in ' + esc(nm) + ' for ' + esc(profileName(key)) + '. Each score combines how the country stands on comparable national figures (World Bank, Transparency International, V-Dem' + (biz ? ', Logistics Performance Index' : '') + '), measures that mean the same everywhere (' + (biz ? 'distance to port, chemical park and airport, residents within 100 km, terrain' : 'climate, services nearby, sea') + ') and how high the place ranks in its own country. <button class="chip" type="button" data-def="grank">How this works</button></p><ol class="list grank">' +
+    box.innerHTML = '<p class="small muted" style="padding:8px 16px 0">Top ' + pr.top.length + ' of ' + fmtInt(pr.ranked) + ' ' + (biz ? 'sites' : 'towns and cities' + floor) + ' in ' + esc(nm) + ' for ' + esc(profileName(key)) + ', one per metro area. Each score combines how the country stands on comparable national figures (World Bank, Transparency International, V-Dem' + (biz ? ', Logistics Performance Index' : '') + '), measures that mean the same everywhere (' + (biz ? 'distance to port, chemical park and airport, residents within 100 km, terrain' : 'climate, services nearby, sea') + ') and how high the place ranks in its own country. <button class="chip" type="button" data-def="grank">How this works</button></p><ol class="list grank">' +
       pr.top.map(function (t, i) {
         var cc = t[0].split(':')[0], top = Math.max(0.1, 100 - t[3]);
-        return '<li class="row" data-gopen="' + esc(t[0]) + '" tabindex="0"><span class="rk">' + (i + 1) + '</span><div><div class="nm">' + flagImg(cc) + ' ' + esc(t[1]) + '</div><div class="meta">' + esc(countryName(cc)) + ' · top ' + (top < 1 ? '1' : Math.round(top)) + '% in the country' + (t[4] != null ? ' · national level ' + t[4] + '% of the score' : '') + '</div></div><div class="right">' + scoreBadge(t[2]) + '</div></li>';
+        return '<li class="row" data-gopen="' + esc(t[0]) + '" tabindex="0"><span class="rk">' + (i + 1) + '</span><div><div class="nm">' + flagImg(cc) + ' ' + esc(t[1]) + '</div><div class="meta">' + esc(countryName(cc)) + ' · top ' + (top < 1 ? '1' : Math.round(top)) + '% in the country' + (t[4] != null ? ' · national level ' + t[4] + '% of the score' : '') + (t[7] ? ' · stands for ' + t[7] + ' more ranked place' + (t[7] > 1 ? 's' : '') + ' within 25 km' : '') + '</div></div><div class="right">' + scoreBadge(t[2]) + '</div></li>';
       }).join('') + '</ol>';
   }).catch(function () { if (GRANK) delete GRANK[sc]; box.innerHTML = '<div class="empty"><h3>The cross-country ranking did not load</h3><p>Check the connection and choose the scope again.</p></div>'; });
 }
@@ -1337,7 +1337,23 @@ function fitItems(r) {
       out.push({ k: 'cat:' + c, s: cats[c], imp: w[c] / tot, lab: needLab[c] || shortCat(c), val: '', cmp: ev, why: '', src: catLabel(c) });
     }
   });
-  return out;
+  return fitMerge(out);
+}
+/* 2.13.3 (audit NZD-001): one line per need. Parts that share a label (for example "chemical park" and "port access",
+   both "A chemical park or port nearby") are merged into one reason: the score is their weight-averaged score, the
+   weight is their sum, so the line still reflects exactly what the score counts. Parts pulling in opposite directions
+   become one trade-off line on the side the merged score falls, never the same reason on both sides. */
+function fitMerge(out) {
+  var g = {}, order = [];
+  out.forEach(function (o) { var key = String(o.lab).toLowerCase().trim(); if (!g[key]) { g[key] = []; order.push(key); } g[key].push(o); });
+  return order.map(function (key) {
+    var ps = g[key]; if (ps.length === 1) return ps[0];
+    var I = 0, T = 0; ps.forEach(function (o) { I += o.imp; T += o.imp * o.s; });
+    var main = ps.slice().sort(function (a, b) { return b.imp - a.imp; })[0], hi = ps.filter(function (o) { return o.s >= 60; }), lo = ps.filter(function (o) { return o.s <= 40; });
+    var nm = function (l) { return l.map(function (o) { return o.src || o.lab; }).filter(function (v, i, a) { return v && a.indexOf(v) === i; }).join(', '); };
+    var cmp = hi.length && lo.length ? 'A trade-off: strong on ' + nm(hi) + ', weak on ' + nm(lo) : (main.cmp || '');
+    return { k: 'need:' + key, s: I ? T / I : main.s, imp: I, lab: main.lab, val: ps.length === ps.filter(function (o) { return o.val === main.val; }).length ? main.val : '', cmp: cmp, why: main.why, src: nm(ps), parts: ps.length, mixed: !!(hi.length && lo.length) };
+  });
 }
 function fitPhrase(sc, cn, good) { var B = good ? FIT_BAND : FIT_WEAK; for (var i = 0; i < B.length; i++) if (good ? sc >= B[i][0] : sc <= B[i][0]) return B[i][1] + cn; return ''; }
 /* 2.12 local economy: employees by GICS sector and industry, compared with the national mix (build_economy.py) */

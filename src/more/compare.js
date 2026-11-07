@@ -1,10 +1,20 @@
 /* Compare side by side (part of the lazy module /assets/more.js since 2.7) */
+var NZ_COMPARE_REQUEST = 0, NZ_UPGRADE = null;
+function loadUpgrade() {
+  if (window.NZUpgrade) return Promise.resolve();
+  return NZ_UPGRADE = NZ_UPGRADE || (window.NZ_BLOB ? window.NZ_BLOB('/assets/nzx.js') : Promise.resolve('/assets/nzx.js?v=__VERSION__')).then(function (u) { return new Promise(function (ok, bad) { var sc = document.createElement('script'); sc.src = u; sc.async = true; sc.onload = ok; sc.onerror = bad; document.head.appendChild(sc); }); }).catch(function (e) { NZ_UPGRADE = null; throw e; });
+}
 function openCompare(ids) {
+  var nzRequest = ++NZ_COMPARE_REQUEST;
+  var nzSnapshot = JSON.stringify([S.profile, S.cc, S.method, window.NZ && window.NZ.version, window.NZ_DATA_VERSION || null]);
+  var nzProfile = S.profile;
+  var nzCurrent = function () { return nzRequest === NZ_COMPARE_REQUEST && nzSnapshot === JSON.stringify([S.profile, S.cc, S.method, window.NZ && window.NZ.version, window.NZ_DATA_VERSION || null]); };
   ids = (ids || S.compare).slice(0, 3);
   Promise.all(ids.map(function (id) { return loadCountry(id.split(':')[0]).catch(function () { return null; }); })).then(function () {
+    if (!nzCurrent()) return;
     var list = ids.map(function (id) { return BYID[id]; }).filter(Boolean);
     if (list.length < 2) { toast('Tick at least two places', 'Tick Compare on two or three places, on the place itself or in your shortlist.', { label: 'Open shortlist', attr: 'data-lt="saved"' }); return; }
-    var xs = list.map(function (r) { var x = RES && RES.byId[r.id]; return x || { r: r, id: r.id, catScores: ENGINE.categoriesFor(r, S.profile), overall: (ENGINE.scoreRaw(r, S.profile, 0, r.country) || {}).score }; });
+    var xs = list.map(function (r) { var x = RES && RES.byId[r.id]; return x || { r: r, id: r.id, catScores: ENGINE.categoriesFor(r, nzProfile), overall: (ENGINE.scoreRaw(r, nzProfile, 0, r.country) || {}).score }; });
     var wins = xs.map(function () { return []; }), ties = xs.map(function () { return []; });
     var mixed = xs.some(function (x) { return x.r.country !== xs[0].r.country; });
     function row(label, vals, show, better, key, relative) {
@@ -18,13 +28,13 @@ function openCompare(ids) {
     }
     function prow(k, label, better, key) { return row(label, xs.map(function (x) { return pval(x.r, k); }), function (v) { return esc(pfmt(k, v)); }, better, key); }
     var allFar = function (k, lim) { return xs.every(function (x) { var v = pval(x.r, k); return v == null || v > lim; }); };
-    var w = ENGINE.weightsFor(xs[0].r, S.profile);
+    var w = ENGINE.weightsFor(xs[0].r, nzProfile);
     var ck = Object.keys(w).filter(function (k) { return xs.some(function (x) { return fin(x.catScores[k]); }); }).sort(function (a, b) { return w[b] - w[a]; });
     var head = '<thead><tr><th></th>' + xs.map(function (x) {
       return '<th><div class="cmp-ph" data-photo="' + esc(x.id) + '" data-postcard="' + esc(x.id) + '" data-w="260" data-h="140"></div>' + flagImg(x.r.country) + ' <b>' + esc(x.r.name) + '</b><div class="small muted">' + esc(localAreaOf(x.r)) + ', ' + esc(countryName(x.r.country)) + '</div><div class="cmp-acts"><button class="btn btn-sm" type="button" data-goto="' + esc(x.id) + '">Open</button><button class="icon-btn sm" type="button" data-cmpdrop="' + esc(x.id) + '" aria-label="Remove ' + esc(x.r.name) + ' from compare">' + ICON.close + '</button></div></th>';
     }).join('') + '</tr></thead>';
     var body = '<tbody>' +
-      '<tr class="grp"><th colspan="' + (xs.length + 1) + '">Fit for ' + esc(profileName(S.profile)) + '</th></tr>' +
+      '<tr class="grp"><th colspan="' + (xs.length + 1) + '">Fit for ' + esc(profileName(nzProfile)) + '</th></tr>' +
       row('Score', xs.map(function (x) { return x.overall; }), function (v) { return fin(v) ? scoreBadge(v) : '–'; }, 'max', 'overall fit', true) +
       row('Rank', xs.map(function (x) { return x.rank ? '#' + x.rank : 'not ranked here'; }), function (v) { return esc(v); }) +
       row('Data depth', xs.map(function (x) { return depthKind(x.r.country)[1]; }), function (v) { return esc(v); }) +
@@ -40,8 +50,20 @@ function openCompare(ids) {
       (allFar('coast', 150) ? '' : prow('coast', 'Sea', 'min', 'the sea')) + (allFar('lake', 40) ? '' : prow('lake', 'Large lake', 'min', 'lakes')) +
       '</tbody>';
     var verdict = (mixed ? '<p class="small cmp-note">These places are in different countries. Scores and category values are measured against each place\'s own country, so they are not compared here; distances, sizes and the setting are.</p>' : '') + '<div class="verdicts">' + xs.map(function (x, i) { var wl = wins[i].filter(function (v, j, a) { return a.indexOf(v) === j; }), tl = ties[i].filter(function (v, j, a) { return a.indexOf(v) === j && wl.indexOf(v) < 0; }); return '<div class="verdict"><b>' + esc(x.r.name) + '</b> ' + (wl.length ? 'wins on ' + esc(wl.slice(0, 5).join(', ')) + (tl.length ? '; ties on ' + esc(tl.slice(0, 3).join(', ')) : '') + '.' : tl.length ? 'ties on ' + esc(tl.slice(0, 3).join(', ')) + '.' : 'wins no single row, but check the details.') + '</div>'; }).join('') + '</div>';
-    openModal('Compare places', verdict + '<div class="tablewrap"><table class="cmp">' + head + body + '</table></div>' + I.cmpAllHTML(list) + '<div class="actions" style="margin-top:12px"><button class="btn btn-sm" type="button" data-savecmp="' + esc(ids.join(',')) + '">♡ Save these places</button><button class="btn btn-sm" type="button" data-share-cmp="' + esc(ids.join(',')) + '">' + ICON.share + 'Share this comparison</button><button class="btn btn-sm" type="button" data-cmppdf="' + esc(ids.join(',')) + '">' + ICON.doc + 'PDF</button></div><p class="small muted" style="margin-top:12px">Green marks the best value in a row when the places differ. Scores use the ' + esc(profileName(S.profile)) + ' profile; places in other countries are scored with their own country\'s data depth.</p>');
+    var nzNotice = '<p class="nz-note" role="note"><b>General location information, no individual advice.</b> Fixed standard profiles; not tax, legal, financial, investment or immigration advice. <a href="/legal/#disclaimer">Limits</a></p>';
+    openModal('Compare places', nzNotice + verdict + '<div class="tablewrap"><table class="cmp">' + head + body + '</table></div>' + I.cmpAllHTML(list) + '<div class="actions" style="margin-top:12px"><button class="btn btn-sm" type="button" data-savecmp="' + esc(ids.join(',')) + '">♡ Save these places</button><button class="btn btn-sm" type="button" data-share-cmp="' + esc(ids.join(',')) + '">' + ICON.share + 'Share this comparison</button><button class="btn btn-sm" type="button" data-cmppdf="' + esc(ids.join(',')) + '">' + ICON.doc + 'PDF</button></div><p class="small muted" style="margin-top:12px">Green marks the best value in a row when the places differ. Scores use the ' + esc(profileName(nzProfile)) + ' profile; places in other countries are scored with their own country\'s data depth.</p>');
     hydratePostcards($('#modal')); hydratePhotos($('#modal'));
+    // 2.14 (owner audit A1): the comparison upgrade (/assets/nzx.js) mounts here through an explicit host, because the
+    // app's state lives inside its closure. A missing or failing upgrade leaves the native comparison as it is.
+    var nzHost = { version: '__VERSION__', method: S.method, profile: nzProfile, profileName: profileName(nzProfile), methodURL: 'https://nestlyzer.com/method/',
+      factors: ENGINE.factorById, weight: function (c) { return w[c] || 0; },
+      overallOf: function (r) { var x = RES && RES.byId[r.id]; return x ? x.overall : (ENGINE.scoreRaw(r, nzProfile, 0, r.country) || {}).score; },
+      ranked: function (n) { return ((RES && RES.scored) || []).slice(0, n).map(function (x) { return { r: x.r, overall: x.overall }; }); } };
+    loadUpgrade().then(function () {
+      if (!nzCurrent() || !window.NZUpgrade || typeof window.NZUpgrade.mountCompare !== 'function') return;
+      try { window.NZUpgrade.mountCompare({ root: $('#modal'), host: nzHost, ids: ids.slice(), profile: nzProfile, country: S.cc, modelVersion: S.method, releaseVersion: (window.NZ && window.NZ.version) || '__VERSION__', dataVersion: window.NZ_DATA_VERSION || null, nativeRows: list.slice(), isCurrent: nzCurrent }); }
+      catch (e) { if (window.console) console.warn('Nestlyzer comparison upgrade unavailable.', e); }
+    }, function () { /* offline or blocked: the native comparison stays complete */ });
   });
 }
 

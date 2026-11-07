@@ -1,0 +1,709 @@
+{
+ "biz_hq": {
+  "metros": 1194,
+  "references": 17,
+  "found_ranked": 17,
+  "in_top_100": 13,
+  "median_percentile": 3.1,
+  "places": [
+   {
+    "ref": "US:5128581",
+    "rank": 17,
+    "as": "Bayonne"
+   },
+   {
+    "ref": "UK:E09000001",
+    "rank": 2,
+    "as": "Camden"
+   },
+   {
+    "ref": "FR:75056",
+    "rank": 62,
+    "as": "Pantin"
+   },
+   {
+    "ref": "JP:1850147",
+    "rank": 9,
+    "as": "Suginami (杉並)"
+   },
+   {
+    "ref": "KR:1835848",
+    "rank": 16,
+    "as": "Seoul (서울시)"
+   },
+   {
+    "ref": "HK:12747064",
+    "rank": 19,
+    "as": "Yuen Long San Hui (元朗)"
+   },
+   {
+    "ref": "SG:*",
+    "rank": 33,
+    "as": "Woodlands"
+   },
+   {
+    "ref": "CH:261",
+    "rank": 6,
+    "as": "Zürich"
+   },
+   {
+    "ref": "CH:6621",
+    "rank": 381,
+    "as": "Genève"
+   },
+   {
+    "ref": "NL:GM0363",
+    "rank": 67,
+    "as": "Gooise Meren"
+   },
+   {
+    "ref": "US:4887398",
+    "rank": 141,
+    "as": "Chicago"
+   },
+   {
+    "ref": "DE:09162000",
+    "rank": 182,
+    "as": "München"
+   },
+   {
+    "ref": "DE:06412000",
+    "rank": 66,
+    "as": "Offenbach am Main"
+   },
+   {
+    "ref": "CA:6167865",
+    "rank": 8,
+    "as": "Waterfront Communities-The Island"
+   },
+   {
+    "ref": "AU:2147714",
+    "rank": 51,
+    "as": "Sydney"
+   },
+   {
+    "ref": "AE:292223",
+    "rank": 37,
+    "as": "Jebel Ali"
+   },
+   {
+    "ref": "LU:0304",
+    "rank": 396,
+    "as": "Luxembourg"
+   }
+  ],
+  "top10": [
+   "Helmond NL",
+   "Camden UK",
+   "Oakville CA",
+   "Suwon (수원시) KR",
+   "Dordrecht NL",
+   "Zürich CH",
+   "Köln DE",
+   "Waterfront Communities-The Island CA",
+   "Suginami (杉並) JP",
+   "Tilburg NL"
+  ]
+ },
+ "biz_tech": {
+  "metros": 1753,
+  "references": 18,
+  "found_ranked": 18,
+  "in_top_100": 15,
+  "median_percentile": 1.3,
+  "places": [
+   {
+    "ref": "US:5391959",
+    "rank": 3,
+    "as": "San Mateo"
+   },
+   {
+    "ref": "US:5392171",
+    "rank": 20,
+    "as": "Santa Clara (California)"
+   },
+   {
+    "ref": "US:5809844",
+    "rank": 23,
+    "as": "Seattle"
+   },
+   {
+    "ref": "US:4931972",
+    "rank": 22,
+    "as": "Cambridge (Massachusetts)"
+   },
+   {
+    "ref": "US:5128581",
+    "rank": 5,
+    "as": "Manhattan (New York)"
+   },
+   {
+    "ref": "UK:E09000007",
+    "rank": 7,
+    "as": "Camden"
+   },
+   {
+    "ref": "DE:11000000",
+    "rank": 100,
+    "as": "Berlin"
+   },
+   {
+    "ref": "FR:75056",
+    "rank": 21,
+    "as": "Pantin"
+   },
+   {
+    "ref": "SE:0180",
+    "rank": 33,
+    "as": "Stockholm"
+   },
+   {
+    "ref": "IL:293397",
+    "rank": 161,
+    "as": "Givatayim (גיבעתיים)"
+   },
+   {
+    "ref": "IN:1277333",
+    "rank": 1009,
+    "as": "Bengaluru"
+   },
+   {
+    "ref": "CA:6167865",
+    "rank": 59,
+    "as": "Willowdale (Ontario, 79,440 residents)"
+   },
+   {
+    "ref": "SG:*",
+    "rank": 31,
+    "as": "Novena"
+   },
+   {
+    "ref": "JP:1850147",
+    "rank": 36,
+    "as": "Nakano (中野, Tokyo)"
+   },
+   {
+    "ref": "KR:1835848",
+    "rank": 15,
+    "as": "Seoul (서울시)"
+   },
+   {
+    "ref": "CH:261",
+    "rank": 1,
+    "as": "Zürich"
+   },
+   {
+    "ref": "NL:GM0363",
+    "rank": 24,
+    "as": "Haarlem"
+   },
+   {
+    "ref": "US:4671654",
+    "rank": 131,
+    "as": "Austin (Texas)"
+   }
+  ],
+  "top10": [
+   "Zürich CH",
+   "Arlington (Virginia) US",
+   "San Mateo US",
+   "Utrecht NL",
+   "Manhattan (New York) US",
+   "Anaheim US",
+   "Camden UK",
+   "Berkeley (California) US",
+   "Köln DE",
+   "Basel CH"
+  ]
+ },
+ "expat_professional": {
+  "metros": 5032,
+  "references": 15,
+  "found_ranked": 15,
+  "in_top_100": 10,
+  "median_percentile": 1.4,
+  "places": [
+   {
+    "ref": "UK:E09000033",
+    "rank": 86,
+    "as": "Richmond upon Thames"
+   },
+   {
+    "ref": "US:5128581",
+    "rank": 406,
+    "as": "Elizabeth (New Jersey)"
+   },
+   {
+    "ref": "SG:*",
+    "rank": 258,
+    "as": "Woodlands"
+   },
+   {
+    "ref": "HK:12747064",
+    "rank": 632,
+    "as": "Tseung Kwan O"
+   },
+   {
+    "ref": "AE:292223",
+    "rank": 189,
+    "as": "Dubai"
+   },
+   {
+    "ref": "CH:261",
+    "rank": 3,
+    "as": "Zürich"
+   },
+   {
+    "ref": "CH:6621",
+    "rank": 71,
+    "as": "Genève"
+   },
+   {
+    "ref": "NL:GM0363",
+    "rank": 5,
+    "as": "Amsterdam"
+   },
+   {
+    "ref": "DE:09162000",
+    "rank": 1,
+    "as": "München"
+   },
+   {
+    "ref": "LU:0304",
+    "rank": 8,
+    "as": "Luxembourg"
+   },
+   {
+    "ref": "BE:21004",
+    "rank": 10,
+    "as": "Leuven / Louvain"
+   },
+   {
+    "ref": "CA:6167865",
+    "rank": 127,
+    "as": "Vaughan"
+   },
+   {
+    "ref": "AU:2147714",
+    "rank": 88,
+    "as": "Sydney"
+   },
+   {
+    "ref": "JP:1850147",
+    "rank": 45,
+    "as": "Kōtō (江東)"
+   },
+   {
+    "ref": "DE:06412000",
+    "rank": 27,
+    "as": "Frankfurt am Main"
+   }
+  ],
+  "top10": [
+   "München DE",
+   "Stichtse Vecht NL",
+   "Zürich CH",
+   "Bergen NO",
+   "Amsterdam NL",
+   "Stuttgart DE",
+   "Stavanger NO",
+   "Luxembourg LU",
+   "Versailles FR",
+   "Leuven / Louvain BE"
+  ]
+ },
+ "student": {
+  "metros": 1988,
+  "references": 16,
+  "found_ranked": 16,
+  "in_top_100": 7,
+  "median_percentile": 10.2,
+  "places": [
+   {
+    "ref": "UK:E09000007",
+    "rank": 363,
+    "as": "Westminster"
+   },
+   {
+    "ref": "JP:1850147",
+    "rank": 99,
+    "as": "Suginami (杉並)"
+   },
+   {
+    "ref": "KR:1835848",
+    "rank": 328,
+    "as": "Seoul (서울시)"
+   },
+   {
+    "ref": "DE:09162000",
+    "rank": 69,
+    "as": "München"
+   },
+   {
+    "ref": "AU:2158177",
+    "rank": 187,
+    "as": "Melbourne"
+   },
+   {
+    "ref": "FR:75056",
+    "rank": 5,
+    "as": "Paris"
+   },
+   {
+    "ref": "AU:2147714",
+    "rank": 565,
+    "as": "Sydney"
+   },
+   {
+    "ref": "CH:261",
+    "rank": 85,
+    "as": "Zürich"
+   },
+   {
+    "ref": "DE:11000000",
+    "rank": 86,
+    "as": "Berlin"
+   },
+   {
+    "ref": "CA:6077243",
+    "rank": 218,
+    "as": "Le Plateau-Mont-Royal"
+   },
+   {
+    "ref": "US:4930956",
+    "rank": 280,
+    "as": "Cambridge (Massachusetts)"
+   },
+   {
+    "ref": "AT:90001",
+    "rank": 18,
+    "as": "Wien"
+   },
+   {
+    "ref": "UK:S30000008",
+    "rank": 59,
+    "as": "City of Edinburgh"
+   },
+   {
+    "ref": "CA:6167865",
+    "rank": 736,
+    "as": "Willowdale (Ontario, 79,440 residents)"
+   },
+   {
+    "ref": "CA:6173331",
+    "rank": 309,
+    "as": "Vancouver"
+   },
+   {
+    "ref": "UK:E07000008",
+    "rank": 355,
+    "as": "Cambridge"
+   }
+  ],
+  "top10": [
+   "Milano IT",
+   "Leiden NL",
+   "Madrid ES",
+   "Lausanne CH",
+   "Paris FR",
+   "Bytom PL",
+   "Reggio di Calabria IT",
+   "Chemnitz DE",
+   "Barcelona ES",
+   "Enschede NL"
+  ]
+ },
+ "pensioner": {
+  "metros": 8615,
+  "references": 17,
+  "found_ranked": 17,
+  "in_top_100": 3,
+  "median_percentile": 6.3,
+  "places": [
+   {
+    "ref": "PT:080508",
+    "rank": 1164,
+    "as": "Quelfes"
+   },
+   {
+    "ref": "PT:080808",
+    "rank": 1164,
+    "as": "Quelfes"
+   },
+   {
+    "ref": "PT:080106",
+    "rank": 1354,
+    "as": "Albufeira e Olhos de Água"
+   },
+   {
+    "ref": "ES:29069",
+    "rank": 417,
+    "as": "Estepona"
+   },
+   {
+    "ref": "ES:29067",
+    "rank": 231,
+    "as": "Benalmádena"
+   },
+   {
+    "ref": "ES:03133",
+    "rank": 337,
+    "as": "Torrevieja"
+   },
+   {
+    "ref": "ES:03031",
+    "rank": 539,
+    "as": "Nucia, la"
+   },
+   {
+    "ref": "ES:03014",
+    "rank": 608,
+    "as": "San Vicente del Raspeig"
+   },
+   {
+    "ref": "FR:06088",
+    "rank": 1,
+    "as": "Vallauris"
+   },
+   {
+    "ref": "FR:06029",
+    "rank": 1,
+    "as": "Vallauris"
+   },
+   {
+    "ref": "FR:06083",
+    "rank": 6,
+    "as": "Menton"
+   },
+   {
+    "ref": "US:4172131",
+    "rank": 1855,
+    "as": "Bradenton"
+   },
+   {
+    "ref": "US:4165565",
+    "rank": 2124,
+    "as": "Naples (Florida)"
+   },
+   {
+    "ref": "US:4155995",
+    "rank": 2887,
+    "as": "North Fort Myers"
+   },
+   {
+    "ref": "US:5313457",
+    "rank": 7105,
+    "as": "Paradise Valley"
+   },
+   {
+    "ref": "CY:5000",
+    "rank": 102,
+    "as": "Μέσα Γειτονιά"
+   },
+   {
+    "ref": "MT:*",
+    "rank": 274,
+    "as": "Tas-Sliema / Sliema"
+   }
+  ],
+  "top10": [
+   "Vallauris FR",
+   "Marseille FR",
+   "Saint-Raphaël FR",
+   "Marín ES",
+   "Corvera de Asturias ES",
+   "Menton FR",
+   "Meilen CH",
+   "Hyères FR",
+   "Περάματος EL",
+   "Rumilly FR"
+  ]
+ },
+ "remote": {
+  "metros": 11549,
+  "references": 16,
+  "found_ranked": 16,
+  "in_top_100": 2,
+  "median_percentile": 4.0,
+  "places": [
+   {
+    "ref": "PT:110657",
+    "rank": 127,
+    "as": "Pinhal Novo"
+   },
+   {
+    "ref": "PT:131217",
+    "rank": 205,
+    "as": "Gondomar (São Cosme), Valbom e Jovim"
+   },
+   {
+    "ref": "ES:08019",
+    "rank": 376,
+    "as": "Sant Just Desvern"
+   },
+   {
+    "ref": "ES:46250",
+    "rank": 726,
+    "as": "Picassent"
+   },
+   {
+    "ref": "ES:28079",
+    "rank": 6,
+    "as": "Tres Cantos"
+   },
+   {
+    "ref": "ES:35016",
+    "rank": 669,
+    "as": "Teror"
+   },
+   {
+    "ref": "DE:11000000",
+    "rank": 116,
+    "as": "Neuenhagen bei Berlin"
+   },
+   {
+    "ref": "EE:0784",
+    "rank": 1232,
+    "as": "Maardu linn"
+   },
+   {
+    "ref": "HR:04090",
+    "rank": 27,
+    "as": "Solin"
+   },
+   {
+    "ref": "MX:3530597",
+    "rank": 1118,
+    "as": "Xochimilco"
+   },
+   {
+    "ref": "CO:3674962",
+    "rank": 547,
+    "as": "Bello"
+   },
+   {
+    "ref": "AR:3435910",
+    "rank": 170,
+    "as": "Quilmes"
+   },
+   {
+    "ref": "TH:1609350",
+    "rank": 379,
+    "as": "Pak Kret"
+   },
+   {
+    "ref": "TH:1153671",
+    "rank": 2470,
+    "as": "Lamphun"
+   },
+   {
+    "ref": "MY:1735161",
+    "rank": 1182,
+    "as": "Puchong"
+   },
+   {
+    "ref": "AE:292223",
+    "rank": 883,
+    "as": "Dubai Investments Park"
+   }
+  ],
+  "top10": [
+   "Langreo ES",
+   "Kitzingen DE",
+   "Elda ES",
+   "Grasse FR",
+   "Oraş Popeşti Leordeni RO",
+   "Tres Cantos ES",
+   "Realejos, Los ES",
+   "Comiso IT",
+   "Margaride (Santa Eulália), Várzea, Lagares, Varziela e Moure PT",
+   "Le Chambon-Feugerolles FR"
+  ]
+ },
+ "hnw": {
+  "metros": 11560,
+  "references": 13,
+  "found_ranked": 13,
+  "in_top_100": 4,
+  "median_percentile": 10.3,
+  "places": [
+   {
+    "ref": "CH:1711",
+    "rank": 1,
+    "as": "Zug"
+   },
+   {
+    "ref": "CH:6621",
+    "rank": 43,
+    "as": "Bonneville"
+   },
+   {
+    "ref": "CH:5192",
+    "rank": 67,
+    "as": "Lugano"
+   },
+   {
+    "ref": "CH:843",
+    "rank": 2815,
+    "as": "Bulle"
+   },
+   {
+    "ref": "UK:E09000020",
+    "rank": 162,
+    "as": "Bromley"
+   },
+   {
+    "ref": "US:5128581",
+    "rank": 668,
+    "as": "Woodrow"
+   },
+   {
+    "ref": "US:4164138",
+    "rank": 1193,
+    "as": "Miami Lakes"
+   },
+   {
+    "ref": "US:4167505",
+    "rank": 1409,
+    "as": "Wellington (Florida)"
+   },
+   {
+    "ref": "SG:*",
+    "rank": 3955,
+    "as": "Woodlands"
+   },
+   {
+    "ref": "HK:12747064",
+    "rank": 4092,
+    "as": "Discovery Bay (愉景灣)"
+   },
+   {
+    "ref": "AE:292223",
+    "rank": 4080,
+    "as": "Dubai Investments Park"
+   },
+   {
+    "ref": "FR:06088",
+    "rank": 19,
+    "as": "Vallauris"
+   },
+   {
+    "ref": "LU:0304",
+    "rank": 1212,
+    "as": "Arlon / Aarlen"
+   }
+  ],
+  "top10": [
+   "Zug CH",
+   "Unterföhring DE",
+   "Saint-Germain-en-Laye FR",
+   "Biberach an der Riß DE",
+   "Herrsching a.Ammersee DE",
+   "Neumarkt i.d.OPf. DE",
+   "Leuven / Louvain BE",
+   "Wörgl AT",
+   "Rumilly FR",
+   "Neusäß DE"
+  ]
+ }
+}

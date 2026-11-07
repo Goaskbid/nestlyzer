@@ -208,8 +208,10 @@ with sync_playwright() as p:
     pg.goto(B + '/business/data-centre/', wait_until='load'); h1 = pg.inner_text('h1'); n = pg.evaluate("document.querySelectorAll('.rank-list li').length")
     check('bizpages', 'data centre' in h1.lower() and n >= 10 and 'screening' not in pg.inner_text('body').lower(), f'business profile page: "{h1}", {n} ranked places, no screening wording')
     pg.goto(B + '/', wait_until='load')
-    rt = pg.evaluate("document.querySelectorAll('#rankings .rank-tile').length"); bz = pg.evaluate("document.querySelectorAll('#business-sites a.chip').length"); nav = pg.evaluate("!!document.querySelector('[data-nav-rank]')")
+    rt = pg.evaluate("document.querySelectorAll('#rankings .rank-tile').length"); nav = pg.evaluate("!!document.querySelector('[data-nav-rank]')")
     pg.click('[data-hmode="biz"]'); pg.wait_for_timeout(600)
+    pg.wait_for_selector('#business-sites a.tile', timeout=20000)   # 2.14: the business sections load when business mode is chosen
+    bz = pg.evaluate("document.querySelectorAll('#business-sites a.tile').length")
     vis = pg.evaluate("[!!document.querySelector('#profiles').offsetParent, !!document.querySelector('#business-sites').offsetParent, !!document.querySelector('#rankings').offsetParent]")
     pg.click('[data-hmode="home"]'); pg.wait_for_timeout(600)
     vis2 = pg.evaluate("[!!document.querySelector('#profiles').offsetParent, !!document.querySelector('#business-sites').offsetParent]")

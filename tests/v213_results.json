@@ -7,22 +7,22 @@
  {
   "id": "countries",
   "ok": true,
-  "check": "54 country business-climate pages"
+  "check": "63 country business-climate pages"
  },
  {
   "id": "annotation",
   "ok": true,
-  "check": "the scatter is explained with the countries it shows: The sweet spot. Albania, Cyprus, China, Latvia, Croatia and Poland combine below-median income per person (the labour-cost proxy) with above"
+  "check": "the scatter is explained with the countries it shows: The sweet spot. Argentina, T\u00fcrkiye, Albania, China, Latvia and Croatia combine below-median income per person (the labour-cost proxy) with a"
  },
  {
   "id": "sitemap",
   "ok": true,
-  "check": "insights sitemap with 81 URLs"
+  "check": "insights sitemap with 90 URLs"
  },
  {
   "id": "published",
   "ok": true,
-  "check": "published folder: 6 sitemap files, 15634 addresses, 0 missing []"
+  "check": "published folder: 6 sitemap files, 18411 addresses, 0 missing []"
  },
  {
   "id": "percentile-words",
@@ -67,12 +67,12 @@
  {
   "id": "scatter",
   "ok": true,
-  "check": "scatter draws 52 countries"
+  "check": "scatter draws 61 countries"
  },
  {
   "id": "phone",
   "ok": true,
-  "check": "81 Insights pages on a 390 px phone: nothing wider than the screen ([])"
+  "check": "90 Insights pages on a 390 px phone: nothing wider than the screen ([])"
  },
  {
   "id": "print",
@@ -82,7 +82,7 @@
  {
   "id": "panel",
   "ok": true,
-  "check": "business-climate panel on a Singapore place (headquarters): Business climate in Singapore  What companies compare between countries, scored 0\u2013100 across the 54 countries Nestlyzer covers.   marks the key drivers for a re"
+  "check": "business-climate panel on a Singapore place (headquarters): Business climate in Singapore  What companies compare between countries, scored 0\u2013100 across the 63 countries Nestlyzer covers.   marks the key drivers for a re"
  },
  {
   "id": "medals",

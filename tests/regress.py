@@ -131,8 +131,8 @@ async def main():
             legal = await q.inner_text('.site-footer')
             consent = await q.is_visible('#consent')
             ad = await q.locator('a[href^="mailto:torsten.sauter@icloud.com?subject=Nestlyzer%20advertising"]').count()
-            h1 = ' '.join(h1.split()); ok = 'Find where you fit' in h1 and tiles >= 27 and ctiles == 54 and faq >= 5 and 'Torsten Sauter' in legal and consent and ad == 1
-            rec('R01', 'Landing page: hero, 27 profile tiles, 54 countries (35 European + 19 world, 9 new in 2.12), FAQ, legal footer, sponsorship, consent banner', ok, f'h1="{h1}", profiles={tiles}, countries={ctiles}, faq={faq}, consent={consent} after {banner_s}s {dbg}, sponsor_link={ad}')
+            h1 = ' '.join(h1.split()); ok = 'Find where you fit' in h1 and tiles >= 27 and ctiles == 63 and faq >= 5 and 'Torsten Sauter' in legal and consent and ad == 1
+            rec('R01', 'Landing page: hero, 27 profile tiles, 63 countries (35 European + 28 world: 9 new in 2.12, 9 in 2.14), FAQ, legal footer, sponsorship, consent banner', ok, f'h1="{h1}", profiles={tiles}, countries={ctiles}, faq={faq}, consent={consent} after {banner_s}s {dbg}, sponsor_link={ad}')
             await ctx2.close()
         await check('R01', 'Landing', r01)
 
@@ -527,7 +527,7 @@ async def main():
             await pg.wait_for_selector('#place.open')
             box = await pg.evaluate("(()=>{const i=document.querySelector('#place .ctry img').getBoundingClientRect();return [Math.round(i.width),Math.round(i.height)]})()")
             listpop = await pg.evaluate("NZ.record('CH:4911').popNow"); pl = await pg.evaluate("NZ.record('CH:4911').population")
-            rec('R35', 'Builder starts from the current country (all 54 selectable); flag renders at 4:3; one resident figure (latest year) everywhere', first == 'FR' and n == 54 and abs(box[0] / box[1] - 4 / 3) < 0.15, f'target={first}, choices={n}, flag={box}, Bürglen display {listpop} (scoring base {pl})')
+            rec('R35', 'Builder starts from the current country (all 63 selectable); flag renders at 4:3; one resident figure (latest year) everywhere', first == 'FR' and n == 63 and abs(box[0] / box[1] - 4 / 3) < 0.15, f'target={first}, choices={n}, flag={box}, Bürglen display {listpop} (scoring base {pl})')
         await check('R35', 'Builder/flag/pop', r35)
 
         async def r36():
@@ -1062,8 +1062,8 @@ async def main():
             foot = await q.locator('.site-footer a[href="/about/"]').count(); nav = await q.locator('.site-header a[href="/about/"]').count()
             await ctx.close()
             sm = urllib.request.urlopen(BASE + '/sitemap.xml').read().decode(); sm += ''.join(urllib.request.urlopen(BASE + '/' + n).read().decode() for n in re.findall(r'/(sitemap-[\w-]+\.xml)</loc>', sm))
-            ok = info[0] == 20 and info[1] == 4 and 'priorities change' in info[2] and not info[3] and not info[4] and foot == 1 and nav == 0 and '/about/' in sm
-            rec('R73', 'About page: the founder interview (20 questions: 18 approved 26 Oct, 2 added 31 Oct, 4 photos), linked quietly from the footer only, listed in the sitemap, no draft notes left', ok, f'questions={info[0]}, photos loaded={info[1]}, footer link={foot}, header link={nav}, in sitemap={"/about/" in sm}, draft notes left={info[3] or info[4]}')
+            ok = info[0] == 21 and info[1] == 4 and 'priorities change' in info[2] and not info[3] and not info[4] and foot == 1 and nav == 0 and '/about/' in sm
+            rec('R73', 'About page: the founder interview (21 questions: 18 approved 26 Oct, 2 added 31 Oct, 1 added 7 Nov, 4 photos), linked quietly from the footer only, listed in the sitemap, no draft notes left', ok, f'questions={info[0]}, photos loaded={info[1]}, footer link={foot}, header link={nav}, in sitemap={"/about/" in sm}, draft notes left={info[3] or info[4]}')
         await check('R73', 'About page', r73)
 
         rec('R32', 'No uncaught JavaScript errors across all flows', not errors, f'{len(errors)} errors: {errors[:3]}')

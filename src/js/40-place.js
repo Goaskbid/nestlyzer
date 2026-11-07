@@ -131,7 +131,7 @@ function breakdownHTML(x) {
 }
 function lotteryHTML(r) {
   if (!(S.profile === 'swiss_lottery' || (S.profile === 'self_fit' && S.builder && S.builder.tax === 'lottery'))) return '';
-  if (r.country === 'CH') return '<div class="lot"><h3>Tax module joined locally</h3><p>Swiss municipal and cantonal tax-burden factors are joined. Personal residence facts still need a separate tax check.</p><div class="pills"><span class="chip tone-good">tax factors joined</span><span class="chip">country-specific treatment</span></div></div>';
+  if (r.country === 'CH') return '<div class="lot"><h3>Tax module joined locally</h3><p>Swiss municipal and cantonal tax-burden factors are joined. Personal residence facts still need a separate tax check.</p>' + NZ_NOTE_TAX + '<div class="pills"><span class="chip tone-good">tax factors joined</span><span class="chip">country-specific treatment</span></div></div>';
   return '<div class="lot"><h3>Country tax module required</h3><p>The municipality ranking remains valid as a place-quality ranking. Lottery, wealth, inheritance, capital-gains, property and windfall tax treatment must come from the specific country module before a tax ranking is claimed.</p><div class="pills"><span class="chip tone-mid">tax module pending</span></div></div>';
 }
 
@@ -228,7 +228,7 @@ function renderPlace() {
     (ranked ? '<div class="metric"><span>Rank</span><b>#' + fmtInt(ranked.rank) + '</b><small>of ' + fmtInt(RES.scored.length) + '</small></div>' : '<div class="metric"><span>Rank</span><b>–</b><small>not ranked</small></div>') +
     '<button class="metric depth-' + dk[0] + '" type="button" data-def="depthplace"><span>Data depth</span><b>' + esc(dk[1].replace(' data', '')) + '</b><small>' + fmt(r.sourceConfidence) + '% conf.' + (fin(x.measured) ? ', ' + x.measured + '% measured' : '') + '</small></button>' +
     '</div></div>' +
-    '<div class="inputs">Inputs: ' + esc(inputLabel(r)) + '</div>' +
+    '<div class="inputs">Inputs: ' + esc(inputLabel(r)) + '</div>' + NZ_NOTE + (NZ_CNOTE[r.country] || '') +
     (why ? '<p class="small" style="margin:0;color:var(--bad)">' + esc(why) + '</p>' : '') +
     whyHTML(r, x) + '<div data-kfslot="' + esc(r.id) + '"></div>' + snacksHTML(r) + aroundHereHTML(r) + homeDeltaHTML(r) +
     '<div class="ptabs" role="tablist" aria-label="Place sections">' + PTABS.map(function (t) { return '<button type="button" role="tab" data-ptab="' + t[0] + '" aria-selected="' + (t[0] === tab) + '">' + t[1] + '</button>'; }).join('') + '</div>' +

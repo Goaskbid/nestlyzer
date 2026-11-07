@@ -105,7 +105,7 @@ function hydratePlace(r) {
     fillPhoto($('#place [data-hero]'), r, lead, 0, r.name + ', public image');
     fillPhoto($('[data-story-photo]'), r, lead, 0, r.name);
     var w = $('[data-wiki]');
-    if (w && c.extract) { var t = c.extract.split('. ').slice(0, 2).join('. '); w.innerHTML = '<p>' + esc(t) + (/\.$/.test(t) ? '' : '.') + '</p>' + (c.url ? '<a class="small" href="' + esc(c.url) + '" target="_blank" rel="noopener">Public article</a>' : ''); }
+    if (w && c.extract) { var t = c.extract.split('. ').slice(0, 2).join('. '); w.innerHTML = '<p>' + esc(t) + (/\.$/.test(t) ? '' : '.') + '</p>' + (c.url ? '<a class="small" href="' + esc(c.url) + '" target="_blank" rel="noopener">Public article</a>' : '') + ' <span class="small muted">Text: Wikipedia, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, first sentences.</span>'; }
     identity(r, c.entity);
     contact(r, c.entity);
   });
@@ -114,7 +114,7 @@ function hydratePlace(r) {
     fillPhoto($('[data-region-photo]'), r, c && photoUsable(c.image) ? c.image : '', 1, localAreaOf(r));
     if (!c) return;
     var w = $('[data-wiki-region]');
-    if (w && c.extract) { var t = c.extract.split('. ').slice(0, 2).join('. '); w.innerHTML = '<p>' + esc(t) + (/\.$/.test(t) ? '' : '.') + '</p>' + (c.url ? '<a class="small" href="' + esc(c.url) + '" target="_blank" rel="noopener">Regional article</a>' : ''); }
+    if (w && c.extract) { var t = c.extract.split('. ').slice(0, 2).join('. '); w.innerHTML = '<p>' + esc(t) + (/\.$/.test(t) ? '' : '.') + '</p>' + (c.url ? '<a class="small" href="' + esc(c.url) + '" target="_blank" rel="noopener">Regional article</a>' : '') + ' <span class="small muted">Text: Wikipedia, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, first sentences.</span>'; }
   });
   sights(r);
   commonsImages(r, 6).then(function (imgs) {
@@ -130,6 +130,7 @@ function regionContext(r) {
     return wikiSummary(langs[i][0], langs[i][1]).then(function (s) { if (!s) return next(i + 1); return { extract: s.extract || '', url: s.content_urls && s.content_urls.desktop.page, image: (s.originalimage && s.originalimage.source) || (s.thumbnail && s.thumbnail.source) || '' }; });
   })(0);
 }
+var ARMS_ON = true;   // owner decision 7 Nov 2026: flags and coats of arms stay on (IP register item 2 records the SR 232.21 Art. 8 risk; set false to switch arms off)
 function identity(r, e) {
   var box = $('[data-ids]'); if (!box || box.dataset.done) return; box.dataset.done = '1';
   var coa = claim(e, 'P94'), cands = [];
@@ -147,7 +148,11 @@ function identity(r, e) {
     img.onerror = function () { i++; if (i < list.length) img.src = list[i]; else img.remove(); };
     img.src = list[0]; box.appendChild(img);
   }
-  chain(cands, 'Coat of arms of ' + r.name, r.name);
+  /* 2.13.3 IP audit: coats of arms are off. Swiss communal and cantonal arms may only be used by their public body (Federal
+     Act on the Protection of the Swiss Coat of Arms, SR 232.21, Art. 8), German municipal arms are protected by state law,
+     and Wikimedia files carry no per-image licence check here. Flags stay. Switch back only per verified file and licence. */
+  if (!ARMS_ON) cands = [], regionArms = [];
+  if (cands.length) chain(cands, 'Coat of arms of ' + r.name, r.name);
   if (regionArms.length) chain(regionArms.map(function (f) { return commonsFile(f, 120); }), 'Coat of arms of ' + r.cantonName, r.cantonName);
   chain([commonsFile(flags[r.country] || ('Flag of ' + cn + '.svg'), 120)], 'Flag of ' + cn, cn);
 }

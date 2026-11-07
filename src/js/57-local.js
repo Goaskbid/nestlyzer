@@ -39,11 +39,11 @@ function amenitiesQuery(r) {
 function amenitiesHTML(r, a) {
   if (!a) return '<p class="small muted">Everyday places could not be counted right now (the OpenStreetMap service did not answer). <button class="linkbtn" type="button" data-retry>Try again</button></p>';
   var tot = AMEN_DEF.reduce(function (s, d) { return s + a[d[0]]; }, 0);
-  var verdict = tot === 0 ? 'Nothing mapped within 1.5 km of the centre: a very rural spot, or OpenStreetMap is thin here.' :
-    a.food && a.school && (a.doctor || a.pharm) ? 'The basics are within walking distance: shopping, school and health care.' :
-    a.food || a.school ? 'Some basics are close; for the rest you will need a car, bike or bus.' : 'Few everyday places nearby; plan on driving for shopping and school.';
+  var verdict = tot === 0 ? 'No matching facilities were returned within 1.5 km of the reference point. Map completeness is unknown.' :
+    a.food && a.school && (a.doctor || a.pharm) ? 'Shopping, school and health-care facilities are mapped within 1.5 km of the reference point. Routes, opening hours and availability have not been checked.' :
+    a.food || a.school ? 'Some daily-service facilities are mapped within 1.5 km of the reference point. The counts do not establish travel times or a required transport mode.' : 'Few matching facilities were returned in this reference-point search. This does not establish a need to drive or the absence of services.';
   return '<p class="small">' + esc(verdict) + '</p><div class="amen">' + AMEN_DEF.map(function (d) { var n = a[d[0]]; return '<div class="am' + (n ? '' : ' zero') + '"><span aria-hidden="true">' + d[1] + '</span><b>' + (n > 99 ? '99+' : n) + '</b><small>' + esc(d[2]) + '</small></div>'; }).join('') + '</div>' +
-    '<p class="small muted">Counted within 1.5 km of the municipality centre in OpenStreetMap (© OpenStreetMap contributors, ODbL). Volunteers map unevenly, so a zero can mean "not mapped yet".</p>';
+    '<p class="small muted">Counted within 1.5 km of the reference point in OpenStreetMap (© OpenStreetMap contributors, ODbL). Volunteers map unevenly, so a zero can mean "not mapped yet".</p>';
 }
 
 /* Eurostat JSON-stat: pick a value for the preferred categories, latest year with data */

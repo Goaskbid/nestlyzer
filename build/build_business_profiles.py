@@ -462,6 +462,15 @@ def main():
         cfg['profiles'][k] = dict(d, minPopProposed=1000)
         if k not in cfg['order']: cfg['order'].insert(cfg['order'].index('nature') + 1 if 'nature' in cfg['order'] else len(cfg['order']), k)
         cfg.setdefault('icons', {})[k] = d['icon']
+    # 2.14 evidence audit (docs/audit/evidence_audit_2.13.3.json): for these profiles the top 30 places of a country were
+    # losing residents in most countries (rural value 0 of 18, budget and low income 0-1 of 7): low prices alone point to
+    # places people leave. They now also weigh whether people move to a place (population change and net migration).
+    VITALITY = {'rural_value': 10, 'nature': 8, 'budget': 8, 'low_income': 8, 'outdoor': 8, 'coastal': 8, 'remote': 8, 'climate': 8}
+    for k, wv in VITALITY.items():
+        pr = cfg['profiles'].get(k)
+        if not pr or (pr.get('weights', {}).get('demographics') or 0) >= wv: continue
+        pr['weights'] = dict(pr['weights'], demographics=wv)
+        if pr.get('needs') is not None and not any('demographics' in n[1] for n in pr['needs']): pr['needs'].append(['A place people move to, not one they leave', ['demographics']])
     meta['categoryLabels']['outdoor'] = 'Mountains and water (terrain relief, lakes and the sea nearby)'
     meta['categoryLabels']['border'] = 'National border nearby (straight line)'
     meta['categoryLabels']['domreach'] = 'Home market (residents of the same country within 150 km)'

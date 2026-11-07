@@ -1,0 +1,102 @@
+[
+ {
+  "id": "manifest",
+  "ok": true,
+  "check": "installable app manifest: standalone, icons ['192x192', '512x512'] + maskable, start /?source=app, 5 shortcuts"
+ },
+ {
+  "id": "head",
+  "ok": true,
+  "check": "home-screen tags for iPhone and Android, service worker registered"
+ },
+ {
+  "id": "iphone-start",
+  "ok": true,
+  "check": "iPhone 13: start page fits the screen, advice notice visible"
+ },
+ {
+  "id": "iphone-ranking",
+  "ok": true,
+  "check": "iPhone 13: \"Show my places\" keeps the household (pensioner) and the country (DE): 100 places listed, notice above, fits the screen"
+ },
+ {
+  "id": "iphone-targets",
+  "ok": true,
+  "check": "iPhone 13: buttons on a result row are big enough to tap ([44, 44, 44, 44])"
+ },
+ {
+  "id": "iphone-place",
+  "ok": true,
+  "check": "iPhone 13: place page opens at its top, fits the screen, notice visible, 7 tabs"
+ },
+ {
+  "id": "iphone-tabs",
+  "ok": true,
+  "check": "iPhone 13: every place tab fits the screen"
+ },
+ {
+  "id": "iphone-save",
+  "ok": true,
+  "check": "iPhone 13: saving works, closing returns to the list, the shortlist shows the saved place (stored entries: 1)"
+ },
+ {
+  "id": "iphone-business",
+  "ok": true,
+  "check": "iPhone 13: business mode, picking \"biz_finance\" shows its rankings below; fits the screen"
+ },
+ {
+  "id": "iphone-sound",
+  "ok": true,
+  "check": "iPhone 13: the menu holds the Sounds switch and it works (stored 1); no extra header button on the phone"
+ },
+ {
+  "id": "iphone-errors",
+  "ok": true,
+  "check": "iPhone 13: no script errors along the journey []"
+ },
+ {
+  "id": "pixel-start",
+  "ok": true,
+  "check": "Pixel 7: start page fits the screen, advice notice visible"
+ },
+ {
+  "id": "pixel-ranking",
+  "ok": true,
+  "check": "Pixel 7: \"Show my places\" keeps the household (pensioner) and the country (DE): 100 places listed, notice above, fits the screen"
+ },
+ {
+  "id": "pixel-targets",
+  "ok": true,
+  "check": "Pixel 7: buttons on a result row are big enough to tap ([44, 44, 44, 44])"
+ },
+ {
+  "id": "pixel-place",
+  "ok": true,
+  "check": "Pixel 7: place page opens at its top, fits the screen, notice visible, 7 tabs"
+ },
+ {
+  "id": "pixel-tabs",
+  "ok": true,
+  "check": "Pixel 7: every place tab fits the screen"
+ },
+ {
+  "id": "pixel-save",
+  "ok": true,
+  "check": "Pixel 7: saving works, closing returns to the list, the shortlist shows the saved place (stored entries: 1)"
+ },
+ {
+  "id": "pixel-business",
+  "ok": true,
+  "check": "Pixel 7: business mode, picking \"biz_finance\" shows its rankings below; fits the screen"
+ },
+ {
+  "id": "pixel-sound",
+  "ok": true,
+  "check": "Pixel 7: the menu holds the Sounds switch and it works (stored 1); no extra header button on the phone"
+ },
+ {
+  "id": "pixel-errors",
+  "ok": true,
+  "check": "Pixel 7: no script errors along the journey []"
+ }
+]

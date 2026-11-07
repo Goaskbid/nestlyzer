@@ -243,8 +243,14 @@ def publication(recs):
             if d['source_id'] in dec: raise SystemExit('two current decisions for ' + d['source_id'] + ': supersede the old one')
             dec[d['source_id']] = d
     out = {}
+    # 2.14 (owner audit A3): NZ_STRICT_PUBLICATION=1 publishes only records approved one by one (publication_approved
+    # true). Off by default because it would take 5,740 context records off the site that today rest on a source-level
+    # decision (4,556) or predate the flags (1,146); that is the owner's call (see the release report, open items).
+    strict = os.environ.get('NZ_STRICT_PUBLICATION') == '1'
     for r in recs:
         h, d = holds_of(r), dec.get(r['source_id'])
+        if strict and str(r.get('publication_approved')).strip().lower() not in ('true', '1'):
+            out[r['record_id']] = ('held', 'record_not_approved', d['decision_id'] if d else '', ['RECORD_APPROVAL_PENDING']); continue
         if 'publication_approved' not in r:
             out[r['record_id']] = ('published', 'production_before_flags', '', []); continue
         if d is None:

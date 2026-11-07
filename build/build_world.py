@@ -34,12 +34,12 @@ SRC = os.path.join(ROOT, 'build', 'source')
 OUT = os.path.join(ROOT, 'data')
 R_KM = 6371.0088
 
-WORLD = ['US', 'CA', 'JP', 'KR', 'TW', 'HK', 'SG', 'AU', 'NZ', 'IL', 'BR', 'MX', 'MY', 'ID', 'MA', 'ZA', 'IN', 'CN', 'AE']   # 2.12: nine new countries (owner request: BRICS and the world-expansion screen)
-A3 = {'US': 'USA', 'CA': 'CAN', 'JP': 'JPN', 'KR': 'KOR', 'TW': 'TWN', 'HK': 'HKG', 'SG': 'SGP', 'AU': 'AUS', 'NZ': 'NZL', 'IL': 'ISR', 'BR': 'BRA', 'MX': 'MEX', 'MY': 'MYS', 'ID': 'IDN', 'MA': 'MAR', 'ZA': 'ZAF', 'IN': 'IND', 'CN': 'CHN', 'AE': 'ARE'}
-NAMES = {'US': 'United States', 'CA': 'Canada', 'JP': 'Japan', 'KR': 'South Korea', 'TW': 'Taiwan', 'HK': 'Hong Kong', 'SG': 'Singapore', 'AU': 'Australia', 'NZ': 'New Zealand', 'IL': 'Israel', 'BR': 'Brazil', 'MX': 'Mexico', 'MY': 'Malaysia', 'ID': 'Indonesia', 'MA': 'Morocco', 'ZA': 'South Africa', 'IN': 'India', 'CN': 'China', 'AE': 'United Arab Emirates'}
+WORLD = ['US', 'CA', 'JP', 'KR', 'TW', 'HK', 'SG', 'AU', 'NZ', 'IL', 'BR', 'MX', 'MY', 'ID', 'MA', 'ZA', 'IN', 'CN', 'AE'] + ['RU', 'TR', 'VN', 'TH', 'SA', 'PH', 'AR', 'CO', 'EG']   # 2.12: nine new countries (BRICS); 2.14: nine more (owner request 7 Nov 2026: high human development, large FDI and B2B markets). HELD until district data: CL, QA, KZ, UY, CR, PA, GE (GeoNames lists their capitals as one place, so the capital won most households; config kept below)
+A3 = {'RU': 'RUS', 'TR': 'TUR', 'VN': 'VNM', 'TH': 'THA', 'CL': 'CHL', 'SA': 'SAU', 'QA': 'QAT', 'KZ': 'KAZ', 'PH': 'PHL', 'AR': 'ARG', 'CO': 'COL', 'UY': 'URY', 'CR': 'CRI', 'PA': 'PAN', 'GE': 'GEO', 'EG': 'EGY', 'US': 'USA', 'CA': 'CAN', 'JP': 'JPN', 'KR': 'KOR', 'TW': 'TWN', 'HK': 'HKG', 'SG': 'SGP', 'AU': 'AUS', 'NZ': 'NZL', 'IL': 'ISR', 'BR': 'BRA', 'MX': 'MEX', 'MY': 'MYS', 'ID': 'IDN', 'MA': 'MAR', 'ZA': 'ZAF', 'IN': 'IND', 'CN': 'CHN', 'AE': 'ARE'}
+NAMES = {'RU': 'Russia', 'TR': 'Türkiye', 'VN': 'Vietnam', 'TH': 'Thailand', 'CL': 'Chile', 'SA': 'Saudi Arabia', 'QA': 'Qatar', 'KZ': 'Kazakhstan', 'PH': 'Philippines', 'AR': 'Argentina', 'CO': 'Colombia', 'UY': 'Uruguay', 'CR': 'Costa Rica', 'PA': 'Panama', 'GE': 'Georgia', 'EG': 'Egypt', 'US': 'United States', 'CA': 'Canada', 'JP': 'Japan', 'KR': 'South Korea', 'TW': 'Taiwan', 'HK': 'Hong Kong', 'SG': 'Singapore', 'AU': 'Australia', 'NZ': 'New Zealand', 'IL': 'Israel', 'BR': 'Brazil', 'MX': 'Mexico', 'MY': 'Malaysia', 'ID': 'Indonesia', 'MA': 'Morocco', 'ZA': 'South Africa', 'IN': 'India', 'CN': 'China', 'AE': 'United Arab Emirates'}
 NATIVE_COUNTRY = {'JP': '日本', 'KR': '대한민국', 'TW': '臺灣', 'HK': '香港', 'IL': 'ישראל'}
 # projection centres (lon, lat); the United States uses three: lower 48, Alaska, Hawaii
-ZONES = {'US': [(-98.0, 39.0), (-150.0, 62.0), (-157.0, 20.5)], 'CA': [(-96.0, 56.0)], 'JP': [(137.0, 37.0)], 'KR': [(127.8, 36.4)], 'TW': [(121.0, 23.7)],
+ZONES = {'RU': [(40.0, 56.0), (85.0, 58.0), (132.0, 50.0), (160.0, 60.0)], 'TR': [(35.0, 39.0)], 'VN': [(106.0, 16.0)], 'TH': [(101.0, 14.5)], 'CL': [(-71.0, -35.0)], 'SA': [(45.0, 24.0)], 'QA': [(51.2, 25.3)], 'KZ': [(67.0, 48.0)], 'PH': [(122.0, 12.0)], 'AR': [(-64.0, -38.0)], 'CO': [(-74.0, 4.5)], 'UY': [(-56.0, -33.0)], 'CR': [(-84.0, 10.0)], 'PA': [(-80.0, 8.5)], 'GE': [(43.5, 42.2)], 'EG': [(30.0, 27.0)], 'US': [(-98.0, 39.0), (-150.0, 62.0), (-157.0, 20.5)], 'CA': [(-96.0, 56.0)], 'JP': [(137.0, 37.0)], 'KR': [(127.8, 36.4)], 'TW': [(121.0, 23.7)],
          'HK': [(114.15, 22.35)], 'SG': [(103.82, 1.35)], 'AU': [(134.0, -26.0)], 'NZ': [(172.5, -41.5)], 'IL': [(35.0, 31.5)],
          'BR': [(-52.0, -14.0)], 'MX': [(-102.0, 23.5)], 'MY': [(102.5, 4.0), (114.5, 3.5)], 'ID': [(118.0, -2.5)], 'MA': [(-7.0, 31.5)], 'ZA': [(25.0, -29.0)],
          'IN': [(80.0, 22.0)], 'CN': [(104.0, 35.0)], 'AE': [(54.3, 24.2)]}
@@ -47,9 +47,12 @@ ZONES = {'US': [(-98.0, 39.0), (-150.0, 62.0), (-157.0, 20.5)], 'CA': [(-96.0, 5
 HK18 = {'Central and Western': '中西區', 'Wan Chai': '灣仔區', 'Eastern': '東區', 'Southern': '南區', 'Yau Tsim Mong': '油尖旺區', 'Sham Shui Po': '深水埗區',
         'Kowloon City': '九龍城區', 'Wong Tai Sin': '黃大仙區', 'Kwun Tong': '觀塘區', 'Kwai Tsing': '葵青區', 'Tsuen Wan': '荃灣區', 'Tuen Mun': '屯門區',
         'Yuen Long': '元朗區', 'North': '北區', 'Tai Po': '大埔區', 'Sha Tin': '沙田區', 'Sai Kung': '西貢區', 'Islands': '離島區'}
-MINPOP = {'CN': 15000, 'IN': 15000, 'ID': 15000, 'MX': 15000, 'BR': 15000, 'MY': 5000, 'ZA': 5000, 'MA': 5000, 'AE': 2000}
+MINPOP = {'RU': 5000, 'TR': 5000, 'VN': 10000, 'TH': 5000, 'PH': 15000, 'EG': 15000, 'CO': 5000, 'AR': 2000, 'KZ': 2000, 'SA': 2000, 'CL': 2000, 'CN': 15000, 'IN': 15000, 'ID': 15000, 'MX': 15000, 'BR': 15000, 'MY': 5000, 'ZA': 5000, 'MA': 5000, 'AE': 2000}
 TERRITORY = {('HK', 'Hong Kong'), ('SG', 'Singapore')}   # the whole territory is the country itself
 UMBRELLA = {('HK', 'New Territories'), ('HK', 'Kowloon'), ('HK', 'Hong Kong Island'), ('HK', 'Victoria')}
+WORLD_ALL = list(WORLD)
+if os.environ.get('NZ_ONLY'):   # 2.14: add countries without rebuilding (and so without touching) the existing ones
+    WORLD = [c for c in WORLD if c in os.environ['NZ_ONLY'].split(',')]
 REGION_LOCAL = {'JP': 'name_ja', 'KR': 'name_ko', 'TW': 'name_zht', 'IL': 'name_he'}
 
 
@@ -137,6 +140,13 @@ def deoverlap(rows):
             rad = 0.5 * math.sqrt(pops[k] / (math.pi * 2500.0))
             for j in t.query_ball_point(P[k], rad):
                 if j != k and not rows[ids[j]]['fc'] and pops[j] < pops[k] / 10 and ids[j] not in drop: drop.add(ids[j]); why['inside a city'] += 1
+    # 2.14: the same name with the same population in one country is one place listed twice (e.g. Tabuk, Philippines, 122,771 twice)
+    seen = {}
+    for i, r in enumerate(rows):
+        if i in drop or r['pop'] < 1000: continue
+        key = (r['cc'], r['name'], r['pop'])
+        if key in seen: drop.add(i); why['same name and population twice'] += 1
+        else: seen[key] = i
     for i in whole: rows[i]['whole'] = True
     kept = [r for i, r in enumerate(rows) if i not in drop]
     print('removed:', dict(why))
@@ -146,7 +156,7 @@ places, ndrop = deoverlap(raw)
 print('after de-overlap', len(places), 'removed', ndrop, collections.Counter(r['cc'] for r in places))
 
 # ---------------------------------------------------------------- regions (Natural Earth admin-1)
-adm = [f for f in ne('ne_10m_admin_1_states_provinces')['features'] if f['properties'].get('adm0_a3') in A3.values() and f.get('geometry')]
+adm = [f for f in ne('ne_10m_admin_1_states_provinces')['features'] if f['properties'].get('adm0_a3') in {A3[c] for c in WORLD} and f.get('geometry')]
 reg = {cc: [] for cc in WORLD}
 for f in adm:
     p = f['properties']; cc = [k for k, v in A3.items() if v == p['adm0_a3']][0]
@@ -502,12 +512,13 @@ meta['sources']['ourairports'] = dict(meta['sources'].get('ourairports', {}), no
 cfg = meta['config']
 cfg.setdefault('regionLevel', {}).update({cc: 'n2' for cc in WORLD})
 cfg.setdefault('countryNames', {}).update({cc: NAMES[cc] for cc in WORLD})
-cfg['worldCountries'] = WORLD
+cfg['worldCountries'] = [c for c in WORLD_ALL if c in set(cfg.get('worldCountries') or []) | set(WORLD)]
 meta['countries'].sort(key=lambda c: c['cc'])
 json.dump(meta, open(os.path.join(OUT, 'meta.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
 json.dump(search, open(os.path.join(OUT, 'search.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
 print('world shards written; geo features', len(geo_features), 'MB', round(sum(os.path.getsize(os.path.join(OUT, 'geo', 'w', cc + '.json')) for cc in WORLD) / 1e6, 2))
 for nm, cc in (('Tokyo', 'JP'), ('Shinjuku', 'JP'), ('Seoul', 'KR'), ('Brooklyn', 'US'), ('Los Angeles', 'US'), ('Sydney', 'AU'), ('Tel Aviv', 'IL'), ('Sha Tin', 'HK')):
+    if cc not in all_rows: continue
     ps, xsh, res = all_rows[cc]
     for k2, r in enumerate(ps):
         if r['name'] == nm:

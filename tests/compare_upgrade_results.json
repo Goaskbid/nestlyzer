@@ -1,0 +1,77 @@
+[
+ {
+  "id": "desktop-mount",
+  "ok": true,
+  "check": "desktop: the native comparison requests /assets/nzx.js and mounts it below its table (59 measures, notice shown, fits the screen)"
+ },
+ {
+  "id": "desktop-answer",
+  "ok": true,
+  "check": "desktop: question answered from stored values, each with source link, level and year: \"Z\u00fcrich has the lowest reported value: 1.99 persons. This is a comparison of this measure, \u2026\""
+ },
+ {
+  "id": "desktop-reference",
+  "ok": true,
+  "check": "desktop: explicit reference place (Zug): differences stated against it, and it is marked in the chart"
+ },
+ {
+  "id": "desktop-chart",
+  "ok": true,
+  "check": "desktop: linked chart: the 3 compared places highlighted among 782 ranked places"
+ },
+ {
+  "id": "desktop-linked",
+  "ok": true,
+  "check": "desktop: clicking a place in the chart makes it the reference in the controls (CH:261)"
+ },
+ {
+  "id": "desktop-stale",
+  "ok": true,
+  "check": "desktop: after a profile change the open answers do not pretend to be current"
+ },
+ {
+  "id": "desktop-errors",
+  "ok": true,
+  "check": "desktop: no script errors []"
+ },
+ {
+  "id": "phone-mount",
+  "ok": true,
+  "check": "phone: the native comparison requests /assets/nzx.js and mounts it below its table (59 measures, notice shown, fits the screen)"
+ },
+ {
+  "id": "phone-answer",
+  "ok": true,
+  "check": "phone: question answered from stored values, each with source link, level and year: \"Z\u00fcrich has the lowest reported value: 1.99 persons. This is a comparison of this measure, \u2026\""
+ },
+ {
+  "id": "phone-reference",
+  "ok": true,
+  "check": "phone: explicit reference place (Zug): differences stated against it, and it is marked in the chart"
+ },
+ {
+  "id": "phone-chart",
+  "ok": true,
+  "check": "phone: linked chart: the 3 compared places highlighted among 782 ranked places"
+ },
+ {
+  "id": "phone-linked",
+  "ok": true,
+  "check": "phone: clicking a place in the chart makes it the reference in the controls (CH:261)"
+ },
+ {
+  "id": "phone-stale",
+  "ok": true,
+  "check": "phone: after a profile change the open answers do not pretend to be current"
+ },
+ {
+  "id": "phone-errors",
+  "ok": true,
+  "check": "phone: no script errors []"
+ },
+ {
+  "id": "fallback",
+  "ok": true,
+  "check": "module blocked: native comparison complete (30 rows), no upgrade section, no script error"
+ }
+]

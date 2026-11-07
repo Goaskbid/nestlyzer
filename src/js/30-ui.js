@@ -97,7 +97,7 @@ function openProfilePicker() {
     '<h4>Your own</h4><div class="ppgrid"><button type="button" class="ppi" data-builder><span class="ppic">' + profileIcon('self_fit', 20) + '</span><span><b>Build my own profile</b><small>Answer a few questions and get your own weights.</small></span></button></div><h4>For companies</h4><div class="ppgrid"><button type="button" class="ppi" data-mode="biz"><span class="ppic">🏭</span><span><b>Business locations</b><small>Factories, logistics, tech, labs and offices.</small></span></button></div></div>');
 }
 /* countries by continent; Switzerland first in Europe */
-var CONTINENTS = [['North America', ['CA', 'MX', 'US']], ['South America', ['BR']], ['Asia', ['CN', 'HK', 'IN', 'ID', 'JP', 'MY', 'KR', 'SG', 'TW']], ['Oceania', ['AU', 'NZ']], ['Middle East', ['IL', 'AE']], ['Africa', ['MA', 'ZA']]];
+var CONTINENTS = [['North America', ['CA', 'MX', 'US']], ['Central America', ['CR', 'PA']], ['South America', ['AR', 'BR', 'CL', 'CO', 'UY']], ['Asia', ['CN', 'HK', 'IN', 'ID', 'JP', 'KZ', 'MY', 'PH', 'KR', 'SG', 'TW', 'TH', 'VN']], ['Oceania', ['AU', 'NZ']], ['Middle East', ['IL', 'QA', 'SA', 'AE']], ['Africa', ['EG', 'MA', 'ZA']]];
 function countryGroups() {
   var all = META.countries.slice().sort(function (a, b) { return a.cc === 'CH' ? -1 : b.cc === 'CH' ? 1 : a.name.localeCompare(b.name); }), used = {};
   var out = CONTINENTS.map(function (g) { return [g[0], all.filter(function (c) { if (g[1].indexOf(c.cc) < 0) return false; used[c.cc] = 1; return true; })]; }).filter(function (g) { return g[1].length; });
@@ -156,11 +156,12 @@ function renderDepthNote() {
   var db = $('#depthbadge'); if (db) { var k = depthKind(S.cc); db.innerHTML = '<button class="dbadge ' + k[0] + '" type="button" data-def="depth" title="' + esc(k[2]) + '">' + esc(k[1]) + '</button>'; }
 }
 function renderResultsHead() {
+  var rn = $('#rnote'); if (rn && !rn.firstChild) rn.innerHTML = NZ_NOTE_S;   // 2.13.3 advice notice above the results (kept out of the start-page HTML for its size budget)
   var n = RES ? RES.scored.length : 0;
   var hidden = RES ? SCOPE.length - n : 0;
   $('#rcount').innerHTML = RES ? fmtInt(n) + ' of ' + fmtInt(SCOPE.length) + (SCOPE.length === 1 ? ' place fits' : ' places fit') + (hidden > 0 ? ' · <button class="linkbtn" type="button" data-showall>' + (S.showAll ? 'hide the other ' + fmtInt(hidden) : 'why not the other ' + fmtInt(hidden) + '?') + '</button>' : '') : '';
   var mh = $('#musthead'); if (mh) mh.innerHTML = isBizKey(S.profile) ? 'Requirements to confirm on site: <button class="chip" type="button" data-unknownmust="flag" aria-pressed="' + !S.unknownExclude + '">flag them</button> <button class="chip" type="button" data-unknownmust="exclude" aria-pressed="' + !!S.unknownExclude + '">leave them out</button>' : '';
-  var gs = $('#gscope'); if (gs) gs.innerHTML = [['', countryName(S.cc)], ['europe', 'Europe'], ['americas', 'Americas'], ['asia_pacific', 'Asia-Pacific'], ['world', 'World']].map(function (g) { return '<button type="button" data-gscope="' + g[0] + '" aria-pressed="' + ((S.gscope || '') === g[0]) + '">' + esc(g[1]) + '</button>'; }).join('');
+  var gs = $('#gscope'); if (gs) gs.innerHTML = [['', countryName(S.cc)], ['europe', 'Europe'], ['americas', 'Americas'], ['asia_pacific', 'Asia-Pacific'], ['mideast_africa', 'Middle East and Africa'], ['world', 'World']].map(function (g) { return '<button type="button" data-gscope="' + g[0] + '" aria-pressed="' + ((S.gscope || '') === g[0]) + '">' + esc(g[1]) + '</button>'; }).join('');
   var lg = $('#rlegend'); if (lg) lg.innerHTML = '<i class="tone-good"></i>70+ strong <i class="tone-mid"></i>50–69 <i class="tone-bad"></i>under 50, for ' + esc(profileName(S.profile).toLowerCase()) + ' · #12 = rank on that criterion';
   $('#scopename').innerHTML = esc(scopeName()) + (S.lang ? ' <button class="chip langchip" type="button" data-droplang title="Remove the language filter">' + esc(LANG_NAMES[S.lang]) + '-speaking only ✕</button>' : '');
 }
@@ -234,7 +235,20 @@ function rowHTML(x) {
     '<span class="rk" title="Rank for this profile">' + x.rank + '</span>' +
     '<div><div class="nm">' + esc(r.name) + '</div><div class="meta">' + esc(localAreaOf(r)) + (isWorld(r.country) || inEurope(r) ? '' : ' (overseas)') + ', ' + fmtInt(r.popNow) + ' residents, ' + fmt(r.sourceConfidence) + '% confidence' + (fin(x.measured) && assessKind(x)[0] !== 'assessed' ? ' · <span class="assess ' + assessKind(x)[0] + '" title="' + esc(evidenceLine(x)) + '">' + esc(assessKind(x)[1]) + '</span>' : '') + '</div>' +
     '<div class="subs">' + cats + '</div><div class="subs f">' + facs + '</div>' + mustHTML(x) + (tl && !x.must ? '<div class="trend">' + esc(tl) + '</div>' : '') + '</div>' +
-    '<div class="right">' + scoreBadge(x.overall) + nestBars(x) + '<span class="rowacts">' + saveBtn(x.id, true) + '</span></div></li>';
+    '<div class="right">' + scoreBadge(x.overall) + nestBars(x) + '<span class="rowacts">' + saveBtn(x.id, true) + hideBtn(x.id) + '</span></div></li>';
+}
+/* 2.13.3 "Not for this search" (owner package 6 Nov, T03): a visitor can set a place aside for the current profile and
+   country, and undo it. It only narrows what is listed: ranks, scores, the shortlist and notes stay exactly as they are. */
+function hideKey() { return 'hide:' + S.profile + '|' + S.cc; }
+function hiddenIds() { var h = store(hideKey()); return Array.isArray(h) ? h : []; }
+function hideBtn(id) { return '<button class="icon-btn sm hide-btn" type="button" data-hide="' + esc(id) + '" aria-label="Not for this search" title="Not for this search (undo any time)"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>'; }
+function setHidden(id, on) { var h = hiddenIds().filter(function (x) { return x !== id; }); if (on) h.push(id); store(hideKey(), h.slice(-500)); renderResults(); }
+function hideClick(t) {
+  var b;
+  if ((b = t.closest('[data-hide]'))) { var id = b.dataset.hide, r = BYID[id]; setHidden(id, true); toast('Set aside for this search', (r ? r.name : 'The place') + ' is hidden in this list only. Its rank, score and your shortlist are unchanged.', { label: 'Undo', attr: 'data-unhide="' + esc(id) + '"' }); return true; }
+  if ((b = t.closest('[data-unhide]'))) { setHidden(b.dataset.unhide, false); return true; }
+  if (t.closest('[data-unhideall]')) { store(hideKey(), []); renderResults(); return true; }
+  return false;
 }
 function renderResults() {
   var box = $('#results');
@@ -263,13 +277,17 @@ function renderResults() {
     box.innerHTML = '<div class="empty"><h3>' + (coastal ? cTitle : 'No place in ' + esc(scopeName()) + ' passes this profile') + '</h3><p>' + (coastal ? cText : 'Widen the region, relax a filter, or try a related profile.') + '</p>' + (coastal && !wholeDry ? '<div class="actions"><button class="btn btn-sm" type="button" data-near="ALL|R">Whole country</button></div>' : '') + (wholeDry ? '<div class="actions">' + ['IT', 'FR', 'ES', 'PT', 'HR', 'EL'].map(function (c) { return '<button class="btn btn-sm" type="button" data-pcc="' + c + '">' + flagImg(c, 11) + ' ' + esc(countryName(c)) + '</button>'; }).join('') + '</div>' : '') + (reasons ? '<p class="small muted">' + esc(plainReason(reasons)) + '.</p>' : '') + '</div>' + unrankedHTML();
     return;
   }
-  var picks = RES.scored.slice(0, 9).map(function (x) {
+  var HID = hiddenIds(), hset = {}; HID.forEach(function (id) { hset[id] = 1; });
+  var vis = function (x) { return !hset[x.id]; };
+  var nHid = (RES.view || RES.scored).filter(function (x) { return hset[x.id]; }).length;
+  var picks = RES.scored.filter(vis).slice(0, 9).map(function (x) {
     return '<div class="pick" role="button" tabindex="0" data-id="' + esc(x.id) + '"><div class="ph" data-photo="' + esc(x.id) + '" data-postcard="' + esc(x.id) + '" data-w="420" data-h="230"><span class="rk" title="Rank for this profile">#' + x.rank + '</span>' + scoreBadge(x.overall) + '<span class="pickacts">' + saveBtn(x.id, true) + '</span></div><div class="bd"><div class="nm"><b>' + esc(x.r.name) + '</b></div><div class="small muted">' + flagImg(x.r.country, 11) + ' ' + esc(localAreaOf(x.r)) + ', ' + fmtInt(x.r.popNow) + ' residents</div>' + snackLine(x.r) + mustHTML(x) + nestBars(x) + '<p>' + esc(cardCopy(x)) + '</p></div></div>';
   }).join('');
-  var view = RES.view || RES.scored;
+  var view = (RES.view || RES.scored).filter(vis);
   var shown = view.slice(0, S.shown);
   var ma = multiAnswer() ? '<div class="banner"><span>' + (S.profile === 'student' ? 'Students rarely have one answer: campus, language and city matter.' : S.profile === 'expat_professional' ? 'Expat moves depend on language and employer location.' : esc(countryName(S.cc)) + ' is multilingual, so the best place depends on your language.') + ' Compare the groups side by side.</span><button class="btn btn-sm" type="button" data-lt="board">Regional reality</button></div>' : '';
   box.innerHTML = ma + (S.sort === 'score' ? '<div class="picks-wrap"><button class="pk-nav prev" type="button" data-pkscroll="-1" aria-label="Previous top picks">‹</button><div class="picks" aria-label="Top picks">' + picks + '</div><button class="pk-nav next" type="button" data-pkscroll="1" aria-label="More top picks">›</button></div>' : '') +
+    (nHid ? '<p class="hid-note small">' + fmtInt(nHid) + (nHid === 1 ? ' place' : ' places') + ' set aside for this search (ranks unchanged). <button class="linkish" type="button" data-unhideall>Show them again</button></p>' : '') +
     '<ol class="list" aria-label="Ranking">' + shown.map(rowHTML).join('') + '</ol>' +
     (view.length > S.shown ? '<button class="btn more-btn" type="button" data-more>Show ' + Math.min(100, view.length - S.shown) + ' more of ' + fmtInt(view.length - S.shown) + '</button>' : '') +
     (S.showAll ? unrankedHTML() : '');

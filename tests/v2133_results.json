@@ -1,0 +1,67 @@
+[
+ {
+  "id": "notice-pages",
+  "ok": true,
+  "check": "advice notice at the top of 6 sample pages (all)"
+ },
+ {
+  "id": "legal",
+  "ok": true,
+  "check": "legal page: no-advice disclaimer, eligibility, tax standard cases, liability within the law (Art. 100 CO)"
+ },
+ {
+  "id": "biz-sets",
+  "ok": true,
+  "check": "start page business rankings: 20 kinds of site, one set each (no longer logistics only)"
+ },
+ {
+  "id": "bounded",
+  "ok": true,
+  "check": "cross-country scores within 0-100 in all scopes (0 outside), ranking sorted by score (0 unsorted)"
+ },
+ {
+  "id": "reasons",
+  "ok": true,
+  "check": "owner's audit harness: 560 world top-ten explanations, 0 repeat a reason, 0 show one on both sides"
+ },
+ {
+  "id": "audit-100",
+  "ok": true,
+  "check": "owner's audit harness: no world score above 100 in any scope"
+ },
+ {
+  "id": "notice-start",
+  "ok": true,
+  "check": "start page: advice notice visible next to the start button"
+ },
+ {
+  "id": "biz-follow",
+  "ok": true,
+  "check": "business rankings below follow the selected kind of site: ['biz_manufacturing', 'biz_tech'] -> [True, True]"
+ },
+ {
+  "id": "notice-app",
+  "ok": true,
+  "check": "map and ranking: advice notice visible above the results"
+ },
+ {
+  "id": "set-aside",
+  "ok": true,
+  "check": "\"Not for this search\": 1. CH:293 hidden, next keeps rank 2, undo restores the list"
+ },
+ {
+  "id": "fx",
+  "ok": true,
+  "check": "feedback layer loaded: menu ['Sounds: off', 'Vibration: on'], sound switch stored 1, 10 sparks when saving a place (off for reduced motion)"
+ },
+ {
+  "id": "notice-place",
+  "ok": true,
+  "check": "place page: advice notice visible under the score"
+ },
+ {
+  "id": "phone",
+  "ok": true,
+  "check": "notice fits a 390 px phone"
+ }
+]

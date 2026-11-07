@@ -122,18 +122,6 @@
    "msg": "city (21% of the weight) averages 53 in the top 10"
   },
   {
-   "p": "low_income",
-   "cc": "DE",
-   "kind": "core-mean",
-   "msg": "jobs (16% of the weight) averages 48 in the top 10"
-  },
-  {
-   "p": "low_income",
-   "cc": "DE",
-   "kind": "core-weak",
-   "msg": "jobs: 4 of the top 10 under 40: Limbach-Oberfrohna 39, Hohenstein-Ernstthal 40, Glauchau 39, Zwickau 38"
-  },
-  {
    "p": "low_income_family",
    "cc": "DE",
    "kind": "core-mean",
@@ -158,12 +146,6 @@
    "msg": "commodhub (39% of the weight) averages 57 in the top 10"
   },
   {
-   "p": "low_income",
-   "cc": "FR",
-   "kind": "core-mean",
-   "msg": "jobs (16% of the weight) averages 53 in the top 10"
-  },
-  {
    "p": "low_income_family",
    "cc": "FR",
    "kind": "core-mean",
@@ -180,18 +162,6 @@
    "cc": "FR",
    "kind": "core-weak",
    "msg": "safety: 1 of the top 10 under 40: Saint-Étienne 36"
-  },
-  {
-   "p": "remote",
-   "cc": "FR",
-   "kind": "core-mean",
-   "msg": "affordability (16% of the weight) averages 54 in the top 10"
-  },
-  {
-   "p": "remote",
-   "cc": "FR",
-   "kind": "core-weak",
-   "msg": "affordability: 2 of the top 10 under 40: Paris 6, Marseille 30"
   },
   {
    "p": "biz_crypto",
@@ -254,12 +224,6 @@
    "msg": "only 0 places pass"
   },
   {
-   "p": "low_income",
-   "cc": "UK",
-   "kind": "core-mean",
-   "msg": "jobs (16% of the weight) averages 53 in the top 10"
-  },
-  {
    "p": "biz_hq",
    "cc": "UK",
    "kind": "core-mean",
@@ -294,18 +258,6 @@
    "cc": "NL",
    "kind": "core-mean",
    "msg": "safety (16% of the weight) averages 60 in the top 10"
-  },
-  {
-   "p": "low_income",
-   "cc": "NL",
-   "kind": "core-mean",
-   "msg": "jobs (16% of the weight) averages 48 in the top 10"
-  },
-  {
-   "p": "low_income",
-   "cc": "NL",
-   "kind": "core-weak",
-   "msg": "jobs: 2 of the top 10 under 40: Enschede 38, Leiden 37"
   },
   {
    "p": "low_income_family",
@@ -353,7 +305,7 @@
    "p": "outdoor",
    "cc": "NL",
    "kind": "core-mean",
-   "msg": "outdoor (35% of the weight) averages 31 in the top 10"
+   "msg": "outdoor (32% of the weight) averages 32 in the top 10"
   },
   {
    "p": "outdoor",
@@ -374,18 +326,6 @@
    "msg": "affordability (16% of the weight) averages 57 in the top 10"
   },
   {
-   "p": "low_income",
-   "cc": "ES",
-   "kind": "core-mean",
-   "msg": "jobs (16% of the weight) averages 43 in the top 10"
-  },
-  {
-   "p": "low_income",
-   "cc": "ES",
-   "kind": "core-weak",
-   "msg": "jobs: 3 of the top 10 under 40: San Fulgencio 28, Elda 29, Torrevieja 24"
-  },
-  {
    "p": "biz_wealth",
    "cc": "ES",
    "kind": "thin",
@@ -404,18 +344,6 @@
    "msg": "only 0 places pass"
   },
   {
-   "p": "outdoor",
-   "cc": "ES",
-   "kind": "core-mean",
-   "msg": "environment (15% of the weight) averages 43 in the top 10"
-  },
-  {
-   "p": "outdoor",
-   "cc": "ES",
-   "kind": "core-weak",
-   "msg": "environment: 2 of the top 10 under 40: Icod de los Vinos 11, Arico 28"
-  },
-  {
    "p": "young_family",
    "cc": "US",
    "kind": "core-mean",
@@ -426,12 +354,6 @@
    "cc": "US",
    "kind": "core-mean",
    "msg": "affordability (24% of the weight) averages 57 in the top 10"
-  },
-  {
-   "p": "remote",
-   "cc": "US",
-   "kind": "core-mean",
-   "msg": "affordability (16% of the weight) averages 54 in the top 10"
   },
   {
    "p": "cross_border",

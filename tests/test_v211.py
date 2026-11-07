@@ -15,19 +15,19 @@ def check(fid, ok, msg):
 
 
 N = json.load(open(os.path.join(ROOT, 'data/national.json')))
-check('national', len(N['countries']) == 54 and all(len(v['cats']) >= 3 for v in N['countries'].values()), f'national level for {len(N["countries"])} countries (World Bank WDI, CPI, V-Dem, WBL, ND-GAIN)')
+check('national', len(N['countries']) == 63 and all(len(v['cats']) >= 3 for v in N['countries'].values()), f'national level for {len(N["countries"])} countries (World Bank WDI, CPI, V-Dem, WBL, ND-GAIN)')
 G = json.load(open(os.path.join(ROOT, 'data/rank/world.json')))
 P = G['profiles']
 biz = [k for k in P if k.startswith('biz_') and P[k]['top']]
-check('global', G['version'] == 2 and len(biz) >= 12 and P['student']['ranked'] > 1000, f'cross-country rankings for {len(biz)} business profiles and students ({P["student"]["ranked"]} places)')
+check('global', G['version'] >= 2 and len(biz) >= 12 and P['student']['ranked'] > 1000, f'cross-country rankings for {len(biz)} business profiles and students ({P["student"]["ranked"]} places)')
 for k in ('young_family', 'dinks', 'remote'):
     sc = [t[2] for t in P[k]['top'][:10]]
     check('ties', len(set(sc)) >= 3, f'{k}: top 10 not one tied region ({len(set(sc))} distinct scores)')
 eu = json.load(open(os.path.join(ROOT, 'data/rank/europe.json')))['profiles']
 top = [t[1] for t in eu['expat_professional']['top'][:15]]
 check('plausible', any(n.startswith(('Zug', 'Baar', 'Bærum', 'Oslo', 'København', 'Amstelveen')) for n in top), f'Europe, expat professionals: {top[:8]}')
-top = [t[1] for t in P['biz_port_industry']['top'][:10]]
-check('plausible', sum(any(n.startswith(w) for w in ('Dunkerque', 'Corpus Christi', 'Ludwigshafen', 'Moerdijk', 'Vlaardingen', 'Mannheim', 'Port Arthur', 'Venezia', 'Saint-Fons', 'Grande-Synthe')) for n in top) >= 5, f'world, port industry: {top}')
+top = [t[1] for t in P['biz_port_industry']['top'][:12]]   # 2.14: top 12 with 6 known port-industry places; world-4 lists one entry per metro area (Grande-Synthe folds into Dunkerque), so the Gulf Coast refining hubs Lake Charles and Deer Park (Houston Ship Channel) join the list (as strict as 5 in the top 10; near-ties of 0.1 points move with the larger country pool)
+check('plausible', sum(any(n.startswith(w) for w in ('Dunkerque', 'Corpus Christi', 'Ludwigshafen', 'Moerdijk', 'Vlaardingen', 'Mannheim', 'Port Arthur', 'Venezia', 'Saint-Fons', 'Grande-Synthe', 'Lake Charles', 'Deer Park')) for n in top) >= 6, f'world, port industry: {top}')
 # benchmark (needs build/.cache/global_full.json from NZ_BENCH=1 node build/build_global_rank.js)
 out = subprocess.run([sys.executable, os.path.join(ROOT, 'tests/rank_benchmark.py'), '--quiet', '--json', '/tmp/nz_bench.json'], capture_output=True, text=True)
 S = json.load(open('/tmp/nz_bench.json'))['summary'] if out.returncode == 0 else {}
@@ -71,8 +71,8 @@ with sync_playwright() as p:
     meta = pg.inner_text('#results .grank .row .meta')
     check('bizglobal', len(rows) == 5 and 'in the country' in meta, f'business profile ranked across Europe: {rows}; "{meta}"')
     pg.goto(B + '/', wait_until='load'); pg.click('[data-hmode="biz"]'); pg.wait_for_timeout(600)
-    pg.wait_for_selector('#biz-extra #biz-rankings .rank-tile', timeout=30000)
-    vis = pg.evaluate("[!!(document.querySelector('#rankings')||{}).offsetParent, document.querySelectorAll('#biz-rankings .rank-tile').length]")
+    pg.wait_for_selector('#biz-extra #biz-rankings .rank-set:not([hidden]) .rank-tile', timeout=30000)   # 2.13.3: one set per kind of site, the selected one shown
+    vis = pg.evaluate("[!!(document.querySelector('#rankings')||{}).offsetParent, document.querySelectorAll('#biz-rankings .rank-set:not([hidden]) .rank-tile').length]")
     check('bizband', vis[0] is False and vis[1] == 4, f'start page in business mode shows the business world and continental rankings ({vis[1]} tiles; household band hidden)')
     def top(cc, prof, n=6):
         pg.goto(f'{B}/#/explore?cc={cc}&p={prof}', wait_until='load')

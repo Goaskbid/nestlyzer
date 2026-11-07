@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Nestlyzer release from GitHub Codespaces (2.13.2).
+# Nestlyzer release from GitHub Codespaces (2.14.0).
 #
 # 1. Open the repository on github.com, press "Code", "Codespaces", "Create codespace on main".
 # 2. Drag nestlyzer-codespaces-<version>.zip from your computer into the file list on the left.
@@ -28,6 +28,11 @@ VER=$(python3 -c "import json;print(json.load(open('$REL/package.json'))['versio
 echo "Nestlyzer $VER"
 # the repository holds sources only; without the build workflow nothing would be built and the live site would break
 [ -f .github/workflows/site.yml ] || { echo "Stopped: the repository has no build workflow (.github/workflows/site.yml). Create it on github.com first"; echo "(Add file, Create new file, paste site.yml from the release, Commit), set Settings > Pages > Source to GitHub Actions, then run this again."; exit 1; }
+# 2.14 (owner audit A0): never let an older release overwrite newer work, and keep a way back
+CUR=$(python3 -c "import json;print(json.load(open('package.json'))['version'])" 2>/dev/null || echo 0)
+if [ "$CUR" != "0" ] && python3 -c "import sys;a=[int(x) for x in sys.argv[1].split('.')];b=[int(x) for x in sys.argv[2].split('.')];sys.exit(0 if a<b else 1)" "$VER" "$CUR"; then
+  echo "Stopped: the repository already holds Nestlyzer $CUR, newer than this release ($VER). Nothing was changed."; exit 1; fi
+BK="backup-before-$VER-$(date +%Y%m%d-%H%M)"; git tag "$BK" && echo "   Backup of the current state: tag $BK (undo with: git reset --hard $BK)"
 echo "1/4 GitHub limits"
 python3 "$REL/build/check_github_limits.py" "$REL"
 echo "2/4 Replacing the repository files with the release"
@@ -45,10 +50,14 @@ echo "3/4 Changes"
 git add -A
 git status --short | awk '{print $1}' | sort | uniq -c | sed 's/^/   /'
 echo "   (A = added, M = changed, D = removed)"
+git diff --cached --stat | tail -1 | sed 's/^/   /'
+if git diff --cached --name-only | grep -q '^src/\|^build/'; then echo "   Source and build files change: the site is rebuilt from them by the workflow."; fi
+if [ -f .github/workflows/site.yml ] && ! cmp -s "$REL/.github/workflows/site.yml" .github/workflows/site.yml; then echo "   Warning: the build workflow on GitHub differs from this release's. The site will still build from _site; update the workflow on github.com when convenient."; fi
 read -r -p "4/4 Commit and push Nestlyzer $VER now? [y/N] " ok
 if [ "${ok,,}" != "y" ]; then git reset -q; echo "Nothing pushed. The files are still changed in the codespace; run 'git checkout -- . && git clean -fd' to undo."; exit 0; fi
 git -c user.name="${GIT_AUTHOR_NAME:-$(git config user.name || echo nestlyzer)}" commit -qm "Nestlyzer $VER"
 git push -q origin main || { echo "Push refused (message above). Nothing was published; the commit stays in the codespace."; exit 1; }
+git push -q origin "$BK" 2>/dev/null && echo "   Backup tag $BK saved on GitHub too." || true
 rm -rf "$REL"
 echo "Done. Watch the build under the repository's Actions tab; the site is live when it turns green."
 echo "If Settings > Pages > Source is not yet 'GitHub Actions', set it once."

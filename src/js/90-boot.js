@@ -72,6 +72,7 @@ function onClick(ev) {
   if ($('#modal').classList.contains('open') && builderClick(t)) return;
   if (toolsClick(t, ev)) return;
   if (dataClick(t)) return;
+  if (hideClick(t)) return;
   if ((b = t.closest('[data-unsave]'))) return toggleSave(b.dataset.unsave);
   if ((b = t.closest('[data-save]'))) return toggleSave(b.dataset.save);
   if ((b = t.closest('[data-cmp]'))) return toggleCompare(b.dataset.cmp);
@@ -138,12 +139,12 @@ function setHomeMode(m, user) {
   $$('.who:not(.who-biz):not(.who-more)').forEach(function (x) { x.hidden = biz; });
   var wm = $('#who-more'); if (wm && biz) wm.hidden = true;
   var wb = $('.who-biz'); if (wb) wb.hidden = !biz;
-  if (wb && biz) $$('.who-biz [data-ico]').forEach(function (b) { b.removeAttribute('data-ico'); b.insertAdjacentHTML('afterbegin', profileIcon(b.dataset.who, 17)); });
+  if (wb && biz) moreLoad().then(function () { $$('.who-biz [data-ico]').forEach(function (b) { b.removeAttribute('data-ico'); b.insertAdjacentHTML('afterbegin', profileIcon(b.dataset.who, 17)); }); }, function () { /* icons are decorative */ });   // 2.14: business icons come with the on-demand module
   var be = $('.biz-entry'); if (be) be.hidden = !biz;
   var leg = $('.cine-legend'); if (leg) leg.hidden = biz;
   // the rest of the start page follows the mode: household sections or business sections, never both
   $$('.home-only').forEach(function (x) { x.hidden = biz; }); $$('.biz-only').forEach(function (x) { x.hidden = !biz; });
-  var bx = $('#biz-extra'); if (biz && bx && !bx.dataset.loaded) { bx.dataset.loaded = 1; fetch(assetURL('/data/start_biz.html?v=' + VERSION)).then(function (r) { return r.ok ? r.text() : ''; }).then(function (h) { bx.innerHTML = h; }, function () { bx.dataset.loaded = ''; }); }
+  var bx = $('#biz-extra'); if (biz && bx && !bx.dataset.loaded) { bx.dataset.loaded = 1; fetch(assetURL('/data/start_biz.html?v=' + VERSION)).then(function (r) { return r.ok ? r.text() : ''; }).then(function (h) { bx.innerHTML = h; bizRankSync(); }, function () { bx.dataset.loaded = ''; }); }
   var grp = biz ? wb : $('.who:not(.who-biz):not(.who-more)');
   if (grp && !grp.querySelector('[aria-pressed="true"]')) { var last = store(biz ? 'lastbiz' : 'lasthome'); if (biz && last && !grp.querySelector('[data-who="' + last + '"]')) bizMoreFill(); var pick = (last && grp.querySelector('[data-who="' + last + '"]')) || grp.querySelector('[data-who]'); $$('.who [data-who]').forEach(function (x) { x.setAttribute('aria-pressed', x === pick); }); if (!biz && pick) heroSetProfile(pick.dataset.who); }
   var bmo = $('#who-biz-more'), bmb = $('[data-bizmore]'); if (biz && bmo && bmo.hidden && bmo.querySelector('[aria-pressed="true"]')) { bmo.hidden = false; if (bmb) { bmb.setAttribute('aria-expanded', 'true'); bmb.querySelector('span').textContent = 'Fewer business types'; } }
@@ -162,10 +163,20 @@ function loadBizGlobe() {
       var vb = window.innerHeight || H; r = Math.min(vb * 0.58, W * 0.4); return { cx: W * 0.68, cy: vb * 0.57, r: r }; } };
   BIZGLOBE = fetch('/assets/bizglobe.js?v=' + VERSION).then(function (r) { return r.text(); }).then(function (code) { var el = document.createElement('script'); el.textContent = code; document.body.appendChild(el); if (window.NZB_FOCUS && sc) window.NZB_FOCUS(sc.value); }).catch(function () {});
 }
+/* 2.13.3: the cross-country tiles follow the selected kind of site (audit NZD-002: was always logistics) */
+function bizRankSync() {
+  var sets = $$('#biz-extra [data-rankp]'); if (!sets.length) return;
+  var who = $('.who-biz [aria-pressed="true"]') || $('#who-biz-more [aria-pressed="true"]'), p = who ? who.dataset.who : '';
+  var hit = sets.some(function (x) { return x.dataset.rankp === p; });
+  sets.forEach(function (x, i) { x.hidden = hit ? x.dataset.rankp !== p : i > 0; });
+}
 function syncStartHref() {
+  bizRankSync();
   var a = $('[data-start="go"]'), who = $('.who:not([hidden]) [aria-pressed="true"]') || $('.who [aria-pressed="true"]'), sc = $('#start-country');
   if (a && sc) a.setAttribute('href', '/#/explore?cc=' + sc.value + '&p=' + (who ? who.dataset.who : 'young_family'));
   var bz = $('[data-bizlink]'); if (bz && sc) bz.setAttribute('href', '/business/?cc=' + sc.value);
+  // 2.14 (owner audit): the chosen profile stays named next to the button, also on phones where the chips sit below it
+  var gf = $('#go-for'); if (gf && who) gf.textContent = 'For: ' + (who.textContent || '').trim();
 }
 function startFromLanding(kind) {
   var who = $('.who [aria-pressed="true"]');
@@ -308,6 +319,8 @@ function landingReady() {
   if (sel && !sel.options.length) sel.innerHTML = META.countries.slice().sort(function (a, b) { return a.cc === 'CH' ? -1 : b.cc === 'CH' ? 1 : a.name.localeCompare(b.name); }).map(function (c) { return '<option value="' + c.cc + '">' + esc(c.name) + '</option>'; }).join('');
 }
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+/* 2.13.3: small feedback layer (motion, optional sounds, vibration), loaded once idle so first paint is unchanged */
+(function () { var go = function () { loadScript('/assets/fx.js?v=' + VERSION).catch(function () { /* decorative only */ }); }; if ('requestIdleCallback' in window) requestIdleCallback(go, { timeout: 2500 }); else setTimeout(go, 1200); })();
 /* read-only hook for the regression suite and for support debugging */
 window.NZ_STORY = function (r) { return storyFor(r); };
 window.NZ = { version: VERSION, get state() { return S; }, get res() { return RES; }, get scope() { return SCOPE; }, get meta() { return META; }, get map() { return MAP; }, record: function (id) { return BYID[id]; } };

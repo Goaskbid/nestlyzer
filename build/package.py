@@ -10,7 +10,7 @@ DIST = os.path.join(ROOT, 'dist')
 os.makedirs(DIST, exist_ok=True)
 
 SRC_DIRS = ['.github', 'build', 'src', 'tests', 'vendor', 'assets', 'data', 'docs', 'tools']
-SRC_FILES = ['.gitignore', 'CNAME', 'package.json', 'package-lock.json', 'README.md', 'favicon.ico', 'favicon.svg']
+SRC_FILES = ['.gitignore', 'CNAME', 'package.json', 'package-lock.json', 'README.md', 'NOTICE.md', 'favicon.ico', 'favicon.svg']
 SKIP_PARTS = {'node_modules', '__pycache__', 'shots', 'results', '.DS_Store', '.cache'}
 GENERATED = {'data/routes.json', 'assets/consent.js', 'assets/hero-ch.svg', 'assets/site.css', 'data/hero.json', 'data/hero.bin', 'data/pages.json'}
 
@@ -142,9 +142,20 @@ def main():
             groups.append(cur); cur, size = [], 0
         cur.append(k); size += est[k]
     if cur: groups.append(cur)
-    parts = [('nestlyzer-' + ver + '-site-1-app-and-data.zip', [f for k in core for f in top[k]])]
+    # 2.14: the data grew past one chat-sized zip with nine more countries, so app and data travel separately
+    parts = [('nestlyzer-' + ver + '-site-1-app.zip', [f for k in core if k != 'data' for f in top[k]]),
+             ]
+    dchunks, cur, size = [], [], 0
+    for f in top.get('data', []):
+        e = len(zlib.compress(open(os.path.join(site, f), 'rb').read(), 6))
+        if cur and size + e > 24e6: dchunks.append(cur); cur, size = [], 0
+        cur.append(f); size += e
+    if cur: dchunks.append(cur)
+    for i, c in enumerate(dchunks):
+        parts.append(('nestlyzer-%s-site-%d-data-%d-of-%d.zip' % (ver, i + 2, i + 1, len(dchunks)), c))
+    n0 = len(parts) + 1
     for i, g in enumerate(groups):
-        parts.append(('nestlyzer-%s-site-%d-pages-%s-to-%s.zip' % (ver, i + 2, g[0], g[-1]), [f for k in g for f in top[k]]))
+        parts.append(('nestlyzer-%s-site-%d-pages-%s-to-%s.zip' % (ver, i + n0, g[0], g[-1]), [f for k in g for f in top[k]]))
     report['site_zips'] = []
     for name, files in parts:
         zp = zipup(name, site, files)

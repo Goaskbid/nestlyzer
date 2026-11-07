@@ -409,3 +409,8 @@ body.bizmode .modeseg button[aria-pressed="true"]{background:#0F7C7A;color:#fff}
 .ins-band{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:22px;align-items:center;border:1px solid var(--line);border-radius:18px;padding:22px 24px;background:linear-gradient(135deg,rgba(42,156,150,.09),rgba(224,178,58,.08))}
 .ins-podium{display:flex;flex-wrap:wrap;gap:8px 16px;font-weight:650}.ins-band-links{display:grid;gap:8px}.ins-band-links a{display:block;padding:10px 14px;border-radius:12px;background:var(--surface,#fff);border:1px solid var(--line);font-weight:600;text-decoration:none;color:inherit}.ins-band-links a:hover{border-color:#2a9c96}
 @media(max-width:760px){.ins-band{grid-template-columns:1fr;padding:18px 16px}}
+/* 2.13.3 set-aside places */
+.hid-note{margin:6px 2px 8px;color:var(--ink-3)}
+.linkish{background:none;border:0;padding:0;color:var(--blue);font:inherit;text-decoration:underline;cursor:pointer}
+.hide-btn{color:var(--ink-3)}
+.results .nz-note,#results-pane .nz-note{margin:6px 0 4px}

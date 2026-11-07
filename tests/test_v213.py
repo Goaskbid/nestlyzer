@@ -56,6 +56,8 @@ with sync_playwright() as pw:
     pg.goto(B + '/', wait_until='load'); pg.wait_for_timeout(800)
     hb = pg.evaluate("(()=>{const e=document.querySelector('#insights');return e&&!e.hidden&&e.offsetHeight>0?e.querySelectorAll('a[href^=\"/insights/\"]').length:0})()")
     pg.click('[data-hmode="biz"]'); pg.wait_for_timeout(500)
+    try: pg.wait_for_function("!!document.querySelector('#insights-biz')", timeout=15000)   # 2.13.3: loads with the business sections
+    except Exception: pass
     bb = pg.evaluate("(()=>{const e=document.querySelector('#insights-biz');return e&&!e.hidden&&e.offsetHeight>0&&document.querySelector('#insights').hidden?e.querySelectorAll('a[href^=\"/insights/\"]').length:0})()")
     check('start-band', hb >= 5 and bb >= 5, f'start page: households band ({hb} links) and, after switching to business, the business band ({bb} links)')
     pg.goto(B + '/insights/labour-cost-vs-talent/', wait_until='load')

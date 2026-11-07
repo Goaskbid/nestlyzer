@@ -11,7 +11,7 @@ from playwright.sync_api import sync_playwright
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else ROOT)
 PORT = int(os.environ.get('V26_PORT', '8926'))
-WORLD = ['US', 'CA', 'JP', 'KR', 'TW', 'HK', 'SG', 'AU', 'NZ', 'IL', 'BR', 'MX', 'MY', 'ID', 'MA', 'ZA', 'IN', 'CN', 'AE']
+WORLD = ['US', 'CA', 'JP', 'KR', 'TW', 'HK', 'SG', 'AU', 'NZ', 'IL', 'BR', 'MX', 'MY', 'ID', 'MA', 'ZA', 'IN', 'CN', 'AE'] + ['RU', 'TR', 'VN', 'TH', 'SA', 'PH', 'AR', 'CO', 'EG']
 ARGS = ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader']
 res = []
 def check(ok, msg): res.append((bool(ok), msg)); print(('PASS ' if ok else 'FAIL ') + msg, flush=True)
@@ -32,7 +32,7 @@ def diff(a, b):
 # ---------- files ----------
 meta = json.loads(rd('data/meta.json'))
 wc = [c['cc'] for c in meta['countries'] if c.get('world')]
-check(sorted(wc) == sorted(WORLD) and len(meta['countries']) == 54, f'meta: 54 countries, the 19 outside Europe marked as world: {wc}')
+check(sorted(wc) == sorted(WORLD) and len(meta['countries']) == 63, f'meta: 63 countries, the 28 outside Europe marked as world: {wc}')
 check(all(k in meta['config']['profiles'] and k in meta['config']['order'] for k in ('business_owner', 'digital_native')), 'meta: Business owner and Digital native profiles exist')
 hj = json.loads(rd('data/hero.json')); hb = os.path.getsize(os.path.join(SITE, 'data/hero.bin'))
 check(hj['profiles'][-2:] == ['business_owner', 'digital_native'] and len(hj['profiles']) == 10 and hj['frame'] == {'lon': [-180, 180], 'lat': [-90, 90]} and hb == 4 + hj['n'] * (5 + hj['bytes']) and hj['n'] > 100000,
@@ -49,7 +49,7 @@ jp = rd('japan/index.html'); il = rd('israel/index.html')
 check('places ranked' in re.search(r'<title>(.*?)</title>', jp).group(1) and 'Tokyo (東京)' in jp and 'תל אביב' in il, 'SEO pages: Japan says "places ranked" and lists Tokyo (東京); Israel shows Hebrew names')
 bo = rd('best/business-owner/index.html')
 rows = re.findall(r'<tr><td[ >]', bo[bo.find('Business climate by country'):])
-check('Business climate by country' in bo and len(rows) == 54 and '29.74%' in bo and 'Rule of law' in bo, f'Business owner page: business climate table for {len(rows)} countries (corporate tax, VAT, best place), says what is missing')
+check('Business climate by country' in bo and len(rows) == 63 and '29.74%' in bo and 'Rule of law' in bo, f'Business owner page: business climate table for {len(rows)} countries (corporate tax, VAT, best place), says what is missing')
 check('Best places for digital natives' in rd('best/digital-native/index.html'), 'Digital native page exists')
 check('GeoNames' in rd('legal/index.html') and 'GeoNames' in rd('method/index.html'), 'GeoNames (CC BY 4.0) is credited on the legal and method pages')
 

@@ -60,6 +60,12 @@ var ICON = {
   spark: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 2.2 5.6L20 11l-5.8 2.4L12 19l-2.2-5.6L4 11l5.8-2.4L12 3Z"/></svg>'
 };
 
+/* 2.13.3 legal notice (owner rule: visible where results are shown, not only in the footer; never dismissed for good) */
+var NZ_NOTE = '<p class="nz-note" role="note"><b>General location information, no individual advice.</b> Nestlyzer compares places on fixed standard profiles from public data. It is not tax, legal, financial, investment, immigration or real-estate advice and does not consider your situation. Scores are model results, not recommendations or guarantees. <a href="/legal/#disclaimer">Limits and liability</a></p>';
+var NZ_NOTE_S = '<p class="nz-note" role="note"><b>General information, no individual advice.</b> Standard profiles, public data; not tax, legal, financial, investment or immigration advice. <a href="/legal/#disclaimer">Limits</a></p>';
+var NZ_NOTE_TAX = '<p class="nz-note" role="note"><b>Tax figures are standard cases for comparison, not your tax bill.</b> They are not tax advice and do not confirm any entitlement. Check your own case with the tax authority or a qualified adviser.</p>';
+/* 2.14: country notices next to results (sanctions are not a ranking factor and are not assessed here) */
+var NZ_CNOTE = { RU: '<p class="nz-note" role="note"><b>Sanctions apply.</b> Switzerland, the EU, the UK, the US and others restrict many business activities, payments, investments and exports involving Russia. These statistics describe places only; they say nothing about whether any activity there is permitted. Check the current sanctions rules (for example SECO in Switzerland) before acting.</p>' };
 /* ---------------- state ---------------- */
 var S = {
   view: 'landing', cc: 'CH', profile: 'young_family', region: 'ALL', area: 'ALL', q: '', minConf: 0, layer: 'score', sort: 'score',
@@ -220,7 +226,7 @@ function areaOptions() {
   keys.sort(function (a, b) { return nutsName(a).localeCompare(nutsName(b)); }).forEach(function (k) { out.push([k, nutsName(k), counts[k]]); });
   return out;
 }
-var LOCAL_KIND = { CH: 'Canton', DE: 'District', FR: 'Département', IT: 'Province', ES: 'Province', BE: 'Arrondissement', SE: 'County', NO: 'County', HR: 'County', HU: 'County', RO: 'County', LT: 'County', IE: 'Region', PL: 'Subregion', PT: 'Subregion', AT: 'Region', FI: 'Region', CZ: 'Region', SK: 'Region', BG: 'Province', EL: 'Regional unit', US: 'State', CA: 'Province', JP: 'Prefecture', KR: 'Province', TW: 'County', HK: 'District', SG: 'District', AU: 'State', NZ: 'Region', IL: 'District', BR: 'State', MX: 'State', MY: 'State', ID: 'Province', MA: 'Region', ZA: 'Province', IN: 'State', CN: 'Province', AE: 'Emirate' };
+var LOCAL_KIND = { CH: 'Canton', DE: 'District', FR: 'Département', IT: 'Province', ES: 'Province', BE: 'Arrondissement', SE: 'County', NO: 'County', HR: 'County', HU: 'County', RO: 'County', LT: 'County', IE: 'Region', PL: 'Subregion', PT: 'Subregion', AT: 'Region', FI: 'Region', CZ: 'Region', SK: 'Region', BG: 'Province', EL: 'Regional unit', US: 'State', CA: 'Province', JP: 'Prefecture', KR: 'Province', TW: 'County', HK: 'District', SG: 'District', AU: 'State', NZ: 'Region', IL: 'District', BR: 'State', MX: 'State', MY: 'State', ID: 'Province', MA: 'Region', ZA: 'Province', IN: 'State', CN: 'Province', AE: 'Emirate', RU: 'Region', TR: 'Province', VN: 'Province', TH: 'Province', CL: 'Region', SA: 'Province', QA: 'Municipality', KZ: 'Region', PH: 'Province', AR: 'Province', CO: 'Department', UY: 'Department', CR: 'Province', PA: 'Province', GE: 'Region', EG: 'Governorate' };
 /* countries outside Europe (GeoNames places, Natural Earth regions) */
 function isWorld(cc) { return !!(META && (META.config.worldCountries || []).indexOf(cc) >= 0); }
 function localKind(cc) { return LOCAL_KIND[cc || S.cc] || 'Area'; }
@@ -360,7 +366,7 @@ function fromHash() {
   FKEYS.forEach(function (k) { S.f[k] = +p.get(k) || 0; });
   S.terrain = p.get('terrain') || ''; S.climate = p.get('climate') || ''; S.lang = LANG_NAMES[p.get('lang')] ? p.get('lang') : '';
   S.q = (p.get('q') || '').slice(0, 80);
-  S.gscope = ['europe', 'americas', 'asia_pacific', 'world'].indexOf(p.get('g')) >= 0 ? p.get('g') : '';   // the name filter travels with the link; a link without one clears it (NZ-GLOBAL-045)
+  S.gscope = ['europe', 'americas', 'asia_pacific', 'mideast_africa', 'world'].indexOf(p.get('g')) >= 0 ? p.get('g') : '';   // the name filter travels with the link; a link without one clears it (NZ-GLOBAL-045)
   S.selected = p.get('sel') || null;
   if (['saved', 'records', 'board'].indexOf(p.get('lt')) >= 0) S.pendingTab = p.get('lt');
   // every link decodes to a complete panel state: no tab or an unknown one means Overview (NZ-GLOBAL-046)

@@ -1,11 +1,11 @@
 {
  "title": "“I wanted a ranking that changes when your priorities change.”",
- "standfirst": "A conversation with Torsten Sauter, founder of Nestlyzer, about choosing where to live and where to locate a business, looking beyond familiar places, and turning the idea of a municipality ranking into something more personal.",
+ "standfirst": "A conversation with Torsten Sauter, founder of Nestlyzer, in November 2026: choosing where to live and where to locate a business, looking beyond familiar places, and what he has been building alongside it.",
  "intro": [
   "A place can finish near the top of a ranking and still be the wrong choice for the person reading it. For Torsten Sauter, that distinction became the starting point for Nestlyzer.",
   "Inspired by municipality rankings he had seen in Swiss newspapers, the Switzerland-based founder wanted to make the idea more interactive: a way to explore places, compare their characteristics and give greater importance to the things that matter to you.",
   "Nestlyzer’s focus is the municipality itself. It brings together quality-of-life measures, housing pressure, demographics, commuting and lifestyle matching to help people consider where they might want to live. The ambition is to make the alternatives easier to understand before the search narrows to a particular home.",
-  "Since autumn 2026 the same approach also serves companies, and new world and continental rankings compare places across 54 countries."
+  "Since autumn 2026 the same approach also serves companies. Nestlyzer now covers about 145,600 places in 63 countries, with 65 profiles for households and company sites, world and continental rankings, and a library of charts and country analyses."
  ],
  "photos": {
   "portrait": {
@@ -134,7 +134,7 @@
     "My ambition is to take the approach beyond its Swiss starting point without pretending that every country has the same information or the same local context.",
     "The comparison should remain useful at the level of actual towns and municipalities. Adding another country is worthwhile when it helps someone make a meaningful choice there, rather than merely making the coverage map look larger."
    ],
-   "note": "Nestlyzer covers 54 countries: 35 in Europe, plus the United States, Canada, Mexico, Brazil, Japan, South Korea, Taiwan, Hong Kong, Singapore, China, India, Indonesia, Malaysia, Australia, New Zealand, Israel, the United Arab Emirates, Morocco and South Africa. Switzerland has the deepest official data; in most other countries the rankings are marked as an early indication until more national data is joined."
+   "note": "Nestlyzer covers 63 countries: 35 in Europe plus Russia and Türkiye, the United States, Canada, Mexico, Brazil, Argentina, Colombia, Japan, South Korea, Taiwan, Hong Kong, Singapore, China, India, Indonesia, Malaysia, Thailand, Vietnam, the Philippines, Australia, New Zealand, Israel, the United Arab Emirates, Saudi Arabia, Egypt, Morocco and South Africa. Switzerland has the deepest official data; in most other countries the rankings are marked as an early indication until more national data is joined."
   },
   {
    "q": "Is Nestlyzer mainly for people who are already planning a move?",
@@ -157,12 +157,14 @@
    "note": "Advertising, photographs and other presentation elements never enter the score."
   },
   {
-   "q": "You also created CurveScout, DipMapper and mnemika. What connects choosing a place to live with finding a road to ride, somewhere to swim or a way to learn?",
+   "q": "You also build CurveScout, DipMapper and mnemika. Where do they stand, and what connects them with Nestlyzer?",
    "a": [
-    "They begin with different interests, but the common idea is helping someone understand a place before deciding what to do.",
-    "CurveScout concerns riding and discovering roads. DipMapper concerns swimming places. mnemika.com is a learning and exam trainer: it turns a large syllabus into something you can work through step by step. Nestlyzer applies the same approach to municipalities and the question of where to live.",
-    "The decision in Nestlyzer carries more weight, so I would expect people to investigate more deeply. But the part that interests me is similar: take information that can be difficult to assemble, organise it around a practical question and leave room for the person’s own preferences.",
-    "I enjoy finding these applications for publicly available information. Each project still needs to justify itself independently. A person considering a move does not need to share my enthusiasm for motorcycles to find Nestlyzer useful."
+    "They begin with different interests, but the common idea is helping someone understand a place, or a subject, before deciding what to do.",
+    "CurveScout concerns riding and discovering roads. It has grown from a few hundred scouted routes to more than 30,000 rides, each with its scenic stretches marked, a roadbook, photos and the passes along the way. The part I am proudest of is that you can bend a route yourself by pulling the road on the map, and CurveScout Ride now works as a navigator and tour guide while you ride.",
+    "DipMapper concerns swimming places. It started as a swim-spot finder and is growing into a guide for water activities in general: paddling, diving, sailing and boat trips, meant to work as well anywhere in the world as it does at home.",
+    "mnemika.com is a learning and exam trainer. It began as a trainer for the Swiss Passerelle exam and is widening to the Matura and the vocational baccalaureate. It is free, needs no account and keeps your progress in your own browser. Its idea is close to Nestlyzer’s: take a large, hard-to-survey body of information and turn it into something you can work through step by step.",
+    "Nestlyzer applies the same approach to municipalities, and now to company sites. The decision there carries more weight, so I would expect people to investigate more deeply.",
+    "I enjoy finding these applications for publicly available information. Each project still has to justify itself on its own. A person considering a move does not need to share my enthusiasm for motorcycles to find Nestlyzer useful."
    ]
   },
   {
@@ -172,7 +174,7 @@
    "q": "Nestlyzer now ranks places for companies as well. Why business?",
    "a": [
     "Because a company choosing a site asks the same question as a family choosing a home, only with different priorities.",
-    "A plant needs freight access, flat land and people within commuting distance. A software team needs graduates and an airport. A chemical plant wants to sit where pipelines, ports and similar plants already are. A café or a small practice needs people walking past. There are now 20 kinds of site to choose from, from a port terminal to a guesthouse.",
+    "A plant needs freight access, flat land and people within commuting distance. A software team needs graduates and an airport. A chemical plant wants to sit where pipelines, ports and similar plants already are. A café or a small practice needs people walking past. There are now 35 kinds of site to choose from, from a port terminal or a semiconductor plant to a guesthouse or a family office.",
     "The method stays the same: you decide what matters, you see which places fit, and you see where the evidence is thin. For a site decision that means wage levels, energy prices, taxes and the industry already present next to the place itself."
    ]
   },
@@ -210,6 +212,14 @@
    "a": [
     "Every place now opens with its ten strongest reasons and its three biggest drawbacks for the profile you chose, each in one line with the figure behind it and how it compares with the rest of the country.",
     "The same figure can count for one person and against another. An airport five kilometres away is a gift for a regional headquarters and a nuisance for a retired couple. The page says which it is for you, instead of colouring it the same for everyone."
+   ]
+  },
+  {
+   "q": "What has changed most in Nestlyzer recently?",
+   "a": [
+    "Mostly honesty about the evidence. Every country now follows the same rule: when a place’s result rests mainly on estimates rather than measured data, it says “Thin evidence” and comes after the places with solid data. Historical figures carry their year in the heading, so a 2018 tax figure is never presented as today’s.",
+    "Each place now gives one reason per need instead of listing the same point twice, and the cross-country scores stay on a clear 0 to 100 scale.",
+    "And it says plainly what it is: general information on fixed standard profiles, not tax, legal or financial advice. A ranking helps you decide where to look; your own visit and the people responsible on the ground help you decide."
    ]
   },
   {

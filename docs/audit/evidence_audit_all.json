@@ -1,0 +1,2853 @@
+{
+ "version": "2.14.0",
+ "mode": "all profiles; profiles that weigh population change are in-sample (circular)",
+ "scope": "Top 30 per country and household profile vs all ranked places of that country; countries with at least 150 places carrying the five-year change.",
+ "profiles": {
+  "young_family": {
+   "countries": 17,
+   "top30_grows_faster_in": 15,
+   "top30_grows_slower_in": 2,
+   "median_gap_pct_points": 2.1,
+   "verdict": "consistent: people move to these places"
+  },
+  "low_income": {
+   "countries": 17,
+   "top30_grows_faster_in": 13,
+   "top30_grows_slower_in": 4,
+   "median_gap_pct_points": 3.4,
+   "verdict": "consistent: people move to these places"
+  },
+  "low_income_family": {
+   "countries": 16,
+   "top30_grows_faster_in": 10,
+   "top30_grows_slower_in": 6,
+   "median_gap_pct_points": 1.78,
+   "verdict": "mixed"
+  },
+  "single_parent": {
+   "countries": 15,
+   "top30_grows_faster_in": 10,
+   "top30_grows_slower_in": 5,
+   "median_gap_pct_points": 1.08,
+   "verdict": "mixed"
+  },
+  "pensioner": {
+   "countries": 17,
+   "top30_grows_faster_in": 14,
+   "top30_grows_slower_in": 3,
+   "median_gap_pct_points": 2.04,
+   "verdict": "consistent: people move to these places"
+  },
+  "single_pensioner": {
+   "countries": 17,
+   "top30_grows_faster_in": 14,
+   "top30_grows_slower_in": 3,
+   "median_gap_pct_points": 2.05,
+   "verdict": "consistent: people move to these places"
+  },
+  "single": {
+   "countries": 11,
+   "top30_grows_faster_in": 8,
+   "top30_grows_slower_in": 3,
+   "median_gap_pct_points": 1.47,
+   "verdict": "consistent: people move to these places"
+  },
+  "young_professional": {
+   "countries": 11,
+   "top30_grows_faster_in": 8,
+   "top30_grows_slower_in": 3,
+   "median_gap_pct_points": 1.36,
+   "verdict": "consistent: people move to these places"
+  },
+  "commuter": {
+   "countries": 11,
+   "top30_grows_faster_in": 8,
+   "top30_grows_slower_in": 3,
+   "median_gap_pct_points": 1.4,
+   "verdict": "consistent: people move to these places"
+  },
+  "first_home": {
+   "countries": 16,
+   "top30_grows_faster_in": 11,
+   "top30_grows_slower_in": 5,
+   "median_gap_pct_points": 2.14,
+   "verdict": "mixed"
+  },
+  "expat_professional": {
+   "countries": 17,
+   "top30_grows_faster_in": 16,
+   "top30_grows_slower_in": 1,
+   "median_gap_pct_points": 4.71,
+   "verdict": "consistent: people move to these places"
+  },
+  "healthcare_first": {
+   "countries": 17,
+   "top30_grows_faster_in": 16,
+   "top30_grows_slower_in": 1,
+   "median_gap_pct_points": 3.48,
+   "verdict": "consistent: people move to these places"
+  },
+  "nature": {
+   "countries": 18,
+   "top30_grows_faster_in": 8,
+   "top30_grows_slower_in": 10,
+   "median_gap_pct_points": -0.02,
+   "verdict": "neutral: top places grow like the country average"
+  },
+  "rural_value": {
+   "countries": 18,
+   "top30_grows_faster_in": 8,
+   "top30_grows_slower_in": 10,
+   "median_gap_pct_points": -0.02,
+   "verdict": "neutral: top places grow like the country average"
+  },
+  "hnw": {
+   "countries": 17,
+   "top30_grows_faster_in": 17,
+   "top30_grows_slower_in": 0,
+   "median_gap_pct_points": 5.82,
+   "verdict": "consistent: people move to these places"
+  },
+  "climate": {
+   "countries": 17,
+   "top30_grows_faster_in": 14,
+   "top30_grows_slower_in": 3,
+   "median_gap_pct_points": 1.78,
+   "verdict": "consistent: people move to these places"
+  },
+  "coastal": {
+   "countries": 13,
+   "top30_grows_faster_in": 10,
+   "top30_grows_slower_in": 3,
+   "median_gap_pct_points": 1.3,
+   "verdict": "consistent: people move to these places"
+  },
+  "business_owner": {
+   "countries": 17,
+   "top30_grows_faster_in": 15,
+   "top30_grows_slower_in": 2,
+   "median_gap_pct_points": 4.91,
+   "verdict": "consistent: people move to these places"
+  },
+  "outdoor": {
+   "countries": 17,
+   "top30_grows_faster_in": 14,
+   "top30_grows_slower_in": 3,
+   "median_gap_pct_points": 2.06,
+   "verdict": "consistent: people move to these places"
+  },
+  "early_retiree": {
+   "countries": 3,
+   "top30_grows_faster_in": 2,
+   "top30_grows_slower_in": 1,
+   "median_gap_pct_points": 0.57,
+   "verdict": "too few countries"
+  },
+  "dinks": {
+   "countries": 8,
+   "top30_grows_faster_in": 6,
+   "top30_grows_slower_in": 2,
+   "median_gap_pct_points": 0.97,
+   "verdict": "consistent: people move to these places"
+  },
+  "remote": {
+   "countries": 7,
+   "top30_grows_faster_in": 7,
+   "top30_grows_slower_in": 0,
+   "median_gap_pct_points": 1.44,
+   "verdict": "consistent: people move to these places"
+  },
+  "budget": {
+   "countries": 7,
+   "top30_grows_faster_in": 4,
+   "top30_grows_slower_in": 3,
+   "median_gap_pct_points": 0.88,
+   "verdict": "mixed"
+  },
+  "digital_native": {
+   "countries": 6,
+   "top30_grows_faster_in": 4,
+   "top30_grows_slower_in": 2,
+   "median_gap_pct_points": 1.64,
+   "verdict": "mixed"
+  }
+ },
+ "countries": {
+  "AT": {
+   "young_family": {
+    "n": 1670,
+    "top30_growth_median": 4.58,
+    "all_growth_median": 2.1,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 6.1,
+    "all_netmig_median": 3.3
+   },
+   "low_income": {
+    "n": 600,
+    "top30_growth_median": 6.64,
+    "all_growth_median": 2.76,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 6.1,
+    "all_netmig_median": 3.6
+   },
+   "low_income_family": {
+    "n": 596,
+    "top30_growth_median": 4.58,
+    "all_growth_median": 2.8,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 6.1,
+    "all_netmig_median": 3.6
+   },
+   "single_parent": {
+    "n": 276,
+    "top30_growth_median": 4.58,
+    "all_growth_median": 2.83,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 7.6,
+    "all_netmig_median": 3.9
+   },
+   "pensioner": {
+    "n": 956,
+    "top30_growth_median": 4.93,
+    "all_growth_median": 2.53,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 1.2,
+    "all_netmig_median": 3.4
+   },
+   "single_pensioner": {
+    "n": 956,
+    "top30_growth_median": 3.4,
+    "all_growth_median": 2.53,
+    "top30_growing_pct": 87,
+    "top30_netmig_median": 1.2,
+    "all_netmig_median": 3.4
+   },
+   "single": {
+    "n": 128,
+    "top30_growth_median": 2.13,
+    "all_growth_median": 3.34,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 6.1,
+    "all_netmig_median": 5.9
+   },
+   "young_professional": {
+    "n": 140,
+    "top30_growth_median": 2.13,
+    "all_growth_median": 3.97,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 6.1,
+    "all_netmig_median": 5.9
+   },
+   "commuter": {
+    "n": 386,
+    "top30_growth_median": 2.86,
+    "all_growth_median": 3.53,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 5.9,
+    "all_netmig_median": 5.9
+   },
+   "first_home": {
+    "n": 596,
+    "top30_growth_median": 4.58,
+    "all_growth_median": 2.8,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 6.1,
+    "all_netmig_median": 3.6
+   },
+   "expat_professional": {
+    "n": 277,
+    "top30_growth_median": 2.43,
+    "all_growth_median": 2.83,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 6.1,
+    "all_netmig_median": 3.9
+   },
+   "healthcare_first": {
+    "n": 956,
+    "top30_growth_median": 3.4,
+    "all_growth_median": 2.53,
+    "top30_growing_pct": 90,
+    "top30_netmig_median": 1.2,
+    "all_netmig_median": 3.4
+   },
+   "nature": {
+    "n": 1815,
+    "top30_growth_median": 5.64,
+    "all_growth_median": 1.98,
+    "top30_growing_pct": 90,
+    "top30_netmig_median": 1.2,
+    "all_netmig_median": 3.4
+   },
+   "rural_value": {
+    "n": 1815,
+    "top30_growth_median": 5.52,
+    "all_growth_median": 1.98,
+    "top30_growing_pct": 90,
+    "top30_netmig_median": 1.2,
+    "all_netmig_median": 3.4
+   },
+   "hnw": {
+    "n": 1686,
+    "top30_growth_median": 3.16,
+    "all_growth_median": 2.07,
+    "top30_growing_pct": 90,
+    "top30_netmig_median": 5,
+    "all_netmig_median": 3.3
+   },
+   "climate": {
+    "n": 963,
+    "top30_growth_median": 4.25,
+    "all_growth_median": 2.47,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 1.2,
+    "all_netmig_median": 3.4
+   },
+   "coastal": {
+    "n": 278,
+    "top30_growth_median": 3.67,
+    "all_growth_median": 3.64,
+    "top30_growing_pct": 87,
+    "top30_netmig_median": 5.8,
+    "all_netmig_median": 3.9
+   },
+   "business_owner": {
+    "n": 963,
+    "top30_growth_median": 2.13,
+    "all_growth_median": 2.47,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 5.9,
+    "all_netmig_median": 3.4
+   },
+   "outdoor": {
+    "n": 1686,
+    "top30_growth_median": 6,
+    "all_growth_median": 2.07,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 2.6,
+    "all_netmig_median": 3.3
+   }
+  },
+  "BE": {
+   "young_family": {
+    "n": 580,
+    "top30_growth_median": 4.05,
+    "all_growth_median": 2.75,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 6.9,
+    "all_netmig_median": 5.8
+   },
+   "low_income": {
+    "n": 560,
+    "top30_growth_median": 3.09,
+    "all_growth_median": 2.77,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 8,
+    "all_netmig_median": 5.8
+   },
+   "low_income_family": {
+    "n": 560,
+    "top30_growth_median": 3.31,
+    "all_growth_median": 2.77,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 8,
+    "all_netmig_median": 5.8
+   },
+   "single_parent": {
+    "n": 513,
+    "top30_growth_median": 3.89,
+    "all_growth_median": 2.81,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 8.1,
+    "all_netmig_median": 5.9
+   },
+   "pensioner": {
+    "n": 577,
+    "top30_growth_median": 4.32,
+    "all_growth_median": 2.75,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 6.7,
+    "all_netmig_median": 5.8
+   },
+   "single_pensioner": {
+    "n": 577,
+    "top30_growth_median": 4.05,
+    "all_growth_median": 2.75,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 6.9,
+    "all_netmig_median": 5.8
+   },
+   "early_retiree": {
+    "n": 538,
+    "top30_growth_median": 3.3,
+    "all_growth_median": 2.73,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 6.2,
+    "all_netmig_median": 5.8
+   },
+   "single": {
+    "n": 456,
+    "top30_growth_median": 4.74,
+    "all_growth_median": 2.91,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 7.2,
+    "all_netmig_median": 6.2
+   },
+   "young_professional": {
+    "n": 432,
+    "top30_growth_median": 4.74,
+    "all_growth_median": 2.92,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 6.9,
+    "all_netmig_median": 6.2
+   },
+   "dinks": {
+    "n": 325,
+    "top30_growth_median": 4.3,
+    "all_growth_median": 3.08,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 5.5,
+    "all_netmig_median": 6.2
+   },
+   "remote": {
+    "n": 483,
+    "top30_growth_median": 4.47,
+    "all_growth_median": 2.81,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 8,
+    "all_netmig_median": 5.9
+   },
+   "commuter": {
+    "n": 475,
+    "top30_growth_median": 3.58,
+    "all_growth_median": 2.91,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 7.2,
+    "all_netmig_median": 6.2
+   },
+   "first_home": {
+    "n": 560,
+    "top30_growth_median": 2.75,
+    "all_growth_median": 2.77,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 8,
+    "all_netmig_median": 5.8
+   },
+   "budget": {
+    "n": 546,
+    "top30_growth_median": 4.3,
+    "all_growth_median": 2.73,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 8,
+    "all_netmig_median": 5.8
+   },
+   "expat_professional": {
+    "n": 513,
+    "top30_growth_median": 4.97,
+    "all_growth_median": 2.81,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 6.2,
+    "all_netmig_median": 5.9
+   },
+   "healthcare_first": {
+    "n": 577,
+    "top30_growth_median": 4.64,
+    "all_growth_median": 2.75,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 6.9,
+    "all_netmig_median": 5.8
+   },
+   "nature": {
+    "n": 580,
+    "top30_growth_median": 2.73,
+    "all_growth_median": 2.75,
+    "top30_growing_pct": 87,
+    "top30_netmig_median": 5.5,
+    "all_netmig_median": 5.8
+   },
+   "rural_value": {
+    "n": 580,
+    "top30_growth_median": 2.73,
+    "all_growth_median": 2.75,
+    "top30_growing_pct": 90,
+    "top30_netmig_median": 6.3,
+    "all_netmig_median": 5.8
+   },
+   "hnw": {
+    "n": 580,
+    "top30_growth_median": 3.26,
+    "all_growth_median": 2.75,
+    "top30_growing_pct": 96,
+    "top30_netmig_median": 6.7,
+    "all_netmig_median": 5.8
+   },
+   "climate": {
+    "n": 577,
+    "top30_growth_median": 3.89,
+    "all_growth_median": 2.75,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 6.9,
+    "all_netmig_median": 5.8
+   },
+   "business_owner": {
+    "n": 577,
+    "top30_growth_median": 3.58,
+    "all_growth_median": 2.75,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 5.5,
+    "all_netmig_median": 5.8
+   },
+   "digital_native": {
+    "n": 434,
+    "top30_growth_median": 3.53,
+    "all_growth_median": 2.91,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 7.2,
+    "all_netmig_median": 6.2
+   },
+   "outdoor": {
+    "n": 580,
+    "top30_growth_median": 3.59,
+    "all_growth_median": 2.75,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 6.5,
+    "all_netmig_median": 5.8
+   }
+  },
+  "BG": {
+   "young_family": {
+    "n": 239,
+    "top30_growth_median": -4.08,
+    "all_growth_median": -9.8,
+    "top30_growing_pct": 17,
+    "top30_netmig_median": 2.5,
+    "all_netmig_median": 1.9
+   },
+   "low_income": {
+    "n": 237,
+    "top30_growth_median": -3.42,
+    "all_growth_median": -9.9,
+    "top30_growing_pct": 27,
+    "top30_netmig_median": 4.4,
+    "all_netmig_median": 1.9
+   },
+   "low_income_family": {
+    "n": 218,
+    "top30_growth_median": -4.08,
+    "all_growth_median": -9.58,
+    "top30_growing_pct": 17,
+    "top30_netmig_median": 2.5,
+    "all_netmig_median": 1.9
+   },
+   "single_parent": {
+    "n": 184,
+    "top30_growth_median": -4.41,
+    "all_growth_median": -9.45,
+    "top30_growing_pct": 13,
+    "top30_netmig_median": 2.5,
+    "all_netmig_median": 2.4
+   },
+   "pensioner": {
+    "n": 229,
+    "top30_growth_median": -4.8,
+    "all_growth_median": -9.67,
+    "top30_growing_pct": 17,
+    "top30_netmig_median": 1.3,
+    "all_netmig_median": 1.9
+   },
+   "single_pensioner": {
+    "n": 229,
+    "top30_growth_median": -4.41,
+    "all_growth_median": -9.67,
+    "top30_growing_pct": 17,
+    "top30_netmig_median": 1.3,
+    "all_netmig_median": 1.9
+   },
+   "first_home": {
+    "n": 218,
+    "top30_growth_median": -6.14,
+    "all_growth_median": -9.58,
+    "top30_growing_pct": 23,
+    "top30_netmig_median": 4.4,
+    "all_netmig_median": 1.9
+   },
+   "expat_professional": {
+    "n": 197,
+    "top30_growth_median": -4.09,
+    "all_growth_median": -9.47,
+    "top30_growing_pct": 23,
+    "top30_netmig_median": 4.4,
+    "all_netmig_median": 2.5
+   },
+   "healthcare_first": {
+    "n": 229,
+    "top30_growth_median": -4.08,
+    "all_growth_median": -9.67,
+    "top30_growing_pct": 17,
+    "top30_netmig_median": 1.3,
+    "all_netmig_median": 1.9
+   },
+   "nature": {
+    "n": 263,
+    "top30_growth_median": -6.76,
+    "all_growth_median": -9.9,
+    "top30_growing_pct": 7,
+    "top30_netmig_median": 2.5,
+    "all_netmig_median": 1.9
+   },
+   "rural_value": {
+    "n": 263,
+    "top30_growth_median": -5.86,
+    "all_growth_median": -9.9,
+    "top30_growing_pct": 13,
+    "top30_netmig_median": 2.5,
+    "all_netmig_median": 1.9
+   },
+   "hnw": {
+    "n": 263,
+    "top30_growth_median": -4.08,
+    "all_growth_median": -9.9,
+    "top30_growing_pct": 23,
+    "top30_netmig_median": 2.5,
+    "all_netmig_median": 1.9
+   },
+   "climate": {
+    "n": 251,
+    "top30_growth_median": -4.41,
+    "all_growth_median": -9.9,
+    "top30_growing_pct": 17,
+    "top30_netmig_median": 2.5,
+    "all_netmig_median": 1.9
+   },
+   "business_owner": {
+    "n": 251,
+    "top30_growth_median": -4.09,
+    "all_growth_median": -9.9,
+    "top30_growing_pct": 20,
+    "top30_netmig_median": 8.5,
+    "all_netmig_median": 1.9
+   },
+   "outdoor": {
+    "n": 263,
+    "top30_growth_median": -5.3,
+    "all_growth_median": -9.9,
+    "top30_growing_pct": 13,
+    "top30_netmig_median": 2.5,
+    "all_netmig_median": 1.9
+   }
+  },
+  "CY": {
+   "nature": {
+    "n": 118,
+    "top30_growth_median": 12.04,
+    "all_growth_median": 9.89,
+    "top30_growing_pct": 87,
+    "top30_netmig_median": 13.9,
+    "all_netmig_median": 13.9
+   },
+   "rural_value": {
+    "n": 118,
+    "top30_growth_median": 27.3,
+    "all_growth_median": 9.89,
+    "top30_growing_pct": 90,
+    "top30_netmig_median": 13.9,
+    "all_netmig_median": 13.9
+   }
+  },
+  "CZ": {
+   "young_family": {
+    "n": 1533,
+    "top30_growth_median": 3.89,
+    "all_growth_median": 1.79,
+    "top30_growing_pct": 73,
+    "top30_netmig_median": 4,
+    "all_netmig_median": 1.3
+   },
+   "low_income": {
+    "n": 463,
+    "top30_growth_median": 7.58,
+    "all_growth_median": 0.41,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 8.9,
+    "all_netmig_median": 1.3
+   },
+   "low_income_family": {
+    "n": 463,
+    "top30_growth_median": 5.14,
+    "all_growth_median": 0.41,
+    "top30_growing_pct": 80,
+    "top30_netmig_median": 4,
+    "all_netmig_median": 1.3
+   },
+   "single_parent": {
+    "n": 278,
+    "top30_growth_median": 5.14,
+    "all_growth_median": 0.03,
+    "top30_growing_pct": 90,
+    "top30_netmig_median": 4,
+    "all_netmig_median": 1.3
+   },
+   "pensioner": {
+    "n": 726,
+    "top30_growth_median": 0.64,
+    "all_growth_median": 0.83,
+    "top30_growing_pct": 57,
+    "top30_netmig_median": 4,
+    "all_netmig_median": 1.3
+   },
+   "single_pensioner": {
+    "n": 726,
+    "top30_growth_median": 2.11,
+    "all_growth_median": 0.83,
+    "top30_growing_pct": 60,
+    "top30_netmig_median": 1.8,
+    "all_netmig_median": 1.3
+   },
+   "single": {
+    "n": 117,
+    "top30_growth_median": 5.82,
+    "all_growth_median": 0.93,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 8.9,
+    "all_netmig_median": 1.3
+   },
+   "young_professional": {
+    "n": 106,
+    "top30_growth_median": 6.8,
+    "all_growth_median": 1.61,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 8.9,
+    "all_netmig_median": 4
+   },
+   "commuter": {
+    "n": 336,
+    "top30_growth_median": 7.04,
+    "all_growth_median": 3.23,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 8.9,
+    "all_netmig_median": 4
+   },
+   "first_home": {
+    "n": 463,
+    "top30_growth_median": 7.04,
+    "all_growth_median": 0.41,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 8.9,
+    "all_netmig_median": 1.3
+   },
+   "expat_professional": {
+    "n": 278,
+    "top30_growth_median": 5.92,
+    "all_growth_median": 0.03,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 8.9,
+    "all_netmig_median": 1.3
+   },
+   "healthcare_first": {
+    "n": 726,
+    "top30_growth_median": 2.11,
+    "all_growth_median": 0.83,
+    "top30_growing_pct": 63,
+    "top30_netmig_median": 4,
+    "all_netmig_median": 1.3
+   },
+   "nature": {
+    "n": 1934,
+    "top30_growth_median": 3.76,
+    "all_growth_median": 1.94,
+    "top30_growing_pct": 76,
+    "top30_netmig_median": 2.2,
+    "all_netmig_median": 1.8
+   },
+   "rural_value": {
+    "n": 1934,
+    "top30_growth_median": 3.83,
+    "all_growth_median": 1.94,
+    "top30_growing_pct": 79,
+    "top30_netmig_median": 2.2,
+    "all_netmig_median": 1.8
+   },
+   "hnw": {
+    "n": 1533,
+    "top30_growth_median": 1.95,
+    "all_growth_median": 1.79,
+    "top30_growing_pct": 67,
+    "top30_netmig_median": 4,
+    "all_netmig_median": 1.3
+   },
+   "climate": {
+    "n": 726,
+    "top30_growth_median": 4.08,
+    "all_growth_median": 0.83,
+    "top30_growing_pct": 77,
+    "top30_netmig_median": 2.2,
+    "all_netmig_median": 1.3
+   },
+   "coastal": {
+    "n": 114,
+    "top30_growth_median": 2.36,
+    "all_growth_median": 2.2,
+    "top30_growing_pct": 70,
+    "top30_netmig_median": 4,
+    "all_netmig_median": 4
+   },
+   "business_owner": {
+    "n": 726,
+    "top30_growth_median": 7.13,
+    "all_growth_median": 0.83,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 8.9,
+    "all_netmig_median": 1.3
+   },
+   "outdoor": {
+    "n": 1533,
+    "top30_growth_median": 5.35,
+    "all_growth_median": 1.79,
+    "top30_growing_pct": 90,
+    "top30_netmig_median": 2.2,
+    "all_netmig_median": 1.3
+   }
+  },
+  "DE": {
+   "young_family": {
+    "n": 6993,
+    "top30_growth_median": 2.21,
+    "all_growth_median": 1.76,
+    "top30_growing_pct": 87,
+    "top30_netmig_median": 4.6,
+    "all_netmig_median": 4.7
+   },
+   "low_income": {
+    "n": 4168,
+    "top30_growth_median": 0.79,
+    "all_growth_median": 1.91,
+    "top30_growing_pct": 57,
+    "top30_netmig_median": 5.3,
+    "all_netmig_median": 4.5
+   },
+   "low_income_family": {
+    "n": 4165,
+    "top30_growth_median": 0.28,
+    "all_growth_median": 1.91,
+    "top30_growing_pct": 53,
+    "top30_netmig_median": 4.4,
+    "all_netmig_median": 4.5
+   },
+   "single_parent": {
+    "n": 2994,
+    "top30_growth_median": 1.33,
+    "all_growth_median": 1.96,
+    "top30_growing_pct": 67,
+    "top30_netmig_median": 4.4,
+    "all_netmig_median": 4.5
+   },
+   "pensioner": {
+    "n": 5167,
+    "top30_growth_median": 2.78,
+    "all_growth_median": 1.84,
+    "top30_growing_pct": 77,
+    "top30_netmig_median": 6.5,
+    "all_netmig_median": 4.5
+   },
+   "single_pensioner": {
+    "n": 5167,
+    "top30_growth_median": 1.31,
+    "all_growth_median": 1.84,
+    "top30_growing_pct": 63,
+    "top30_netmig_median": 2.4,
+    "all_netmig_median": 4.5
+   },
+   "early_retiree": {
+    "n": 4605,
+    "top30_growth_median": 1.88,
+    "all_growth_median": 1.9,
+    "top30_growing_pct": 77,
+    "top30_netmig_median": 5.9,
+    "all_netmig_median": 4.5
+   },
+   "single": {
+    "n": 2055,
+    "top30_growth_median": 2.61,
+    "all_growth_median": 2.01,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 7.3,
+    "all_netmig_median": 4.5
+   },
+   "young_professional": {
+    "n": 1972,
+    "top30_growth_median": 2.72,
+    "all_growth_median": 2.05,
+    "top30_growing_pct": 90,
+    "top30_netmig_median": 7.1,
+    "all_netmig_median": 4.4
+   },
+   "dinks": {
+    "n": 1198,
+    "top30_growth_median": 2.28,
+    "all_growth_median": 1.97,
+    "top30_growing_pct": 90,
+    "top30_netmig_median": 7.3,
+    "all_netmig_median": 4.5
+   },
+   "remote": {
+    "n": 2996,
+    "top30_growth_median": 2.79,
+    "all_growth_median": 1.96,
+    "top30_growing_pct": 73,
+    "top30_netmig_median": 5.3,
+    "all_netmig_median": 4.5
+   },
+   "commuter": {
+    "n": 2981,
+    "top30_growth_median": 3.61,
+    "all_growth_median": 2.06,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 7.1,
+    "all_netmig_median": 4.4
+   },
+   "first_home": {
+    "n": 4165,
+    "top30_growth_median": 0.67,
+    "all_growth_median": 1.91,
+    "top30_growing_pct": 53,
+    "top30_netmig_median": 2.1,
+    "all_netmig_median": 4.5
+   },
+   "budget": {
+    "n": 5170,
+    "top30_growth_median": -0.33,
+    "all_growth_median": 1.84,
+    "top30_growing_pct": 43,
+    "top30_netmig_median": 4,
+    "all_netmig_median": 4.5
+   },
+   "expat_professional": {
+    "n": 2996,
+    "top30_growth_median": 2.21,
+    "all_growth_median": 1.96,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 6.5,
+    "all_netmig_median": 4.5
+   },
+   "healthcare_first": {
+    "n": 5167,
+    "top30_growth_median": 3.03,
+    "all_growth_median": 1.84,
+    "top30_growing_pct": 87,
+    "top30_netmig_median": 5.8,
+    "all_netmig_median": 4.5
+   },
+   "nature": {
+    "n": 7597,
+    "top30_growth_median": 3,
+    "all_growth_median": 1.71,
+    "top30_growing_pct": 83,
+    "top30_netmig_median": 4.6,
+    "all_netmig_median": 4.8
+   },
+   "rural_value": {
+    "n": 7597,
+    "top30_growth_median": 1.59,
+    "all_growth_median": 1.71,
+    "top30_growing_pct": 73,
+    "top30_netmig_median": 6.7,
+    "all_netmig_median": 4.8
+   },
+   "hnw": {
+    "n": 7000,
+    "top30_growth_median": 3.21,
+    "all_growth_median": 1.76,
+    "top30_growing_pct": 90,
+    "top30_netmig_median": 7.3,
+    "all_netmig_median": 4.7
+   },
+   "climate": {
+    "n": 5170,
+    "top30_growth_median": 2.74,
+    "all_growth_median": 1.84,
+    "top30_growing_pct": 73,
+    "top30_netmig_median": 6.3,
+    "all_netmig_median": 4.5
+   },
+   "coastal": {
+    "n": 849,
+    "top30_growth_median": 1.91,
+    "all_growth_median": 2.27,
+    "top30_growing_pct": 87,
+    "top30_netmig_median": 9.5,
+    "all_netmig_median": 6.6
+   },
+   "business_owner": {
+    "n": 5170,
+    "top30_growth_median": 2.72,
+    "all_growth_median": 1.84,
+    "top30_growing_pct": 87,
+    "top30_netmig_median": 7.3,
+    "all_netmig_median": 4.5
+   },
+   "digital_native": {
+    "n": 2183,
+    "top30_growth_median": 1.88,
+    "all_growth_median": 2.03,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 6.2,
+    "all_netmig_median": 4.4
+   },
+   "outdoor": {
+    "n": 6993,
+    "top30_growth_median": 4.58,
+    "all_growth_median": 1.76,
+    "top30_growing_pct": 90,
+    "top30_netmig_median": 5.9,
+    "all_netmig_median": 4.7
+   }
+  },
+  "EL": {
+   "young_family": {
+    "n": 823,
+    "top30_growth_median": 0.69,
+    "all_growth_median": -3.76,
+    "top30_growing_pct": 60,
+    "top30_netmig_median": 0,
+    "all_netmig_median": 3.6
+   },
+   "low_income": {
+    "n": 378,
+    "top30_growth_median": 3.64,
+    "all_growth_median": 0.24,
+    "top30_growing_pct": 80,
+    "top30_netmig_median": 18.7,
+    "all_netmig_median": 3.1
+   },
+   "low_income_family": {
+    "n": 327,
+    "top30_growth_median": 2.03,
+    "all_growth_median": 0.33,
+    "top30_growing_pct": 73,
+    "top30_netmig_median": 5.1,
+    "all_netmig_median": 2
+   },
+   "single_parent": {
+    "n": 235,
+    "top30_growth_median": 0.95,
+    "all_growth_median": 0.94,
+    "top30_growing_pct": 70,
+    "top30_netmig_median": 0,
+    "all_netmig_median": 2
+   },
+   "pensioner": {
+    "n": 448,
+    "top30_growth_median": 0.69,
+    "all_growth_median": -0.59,
+    "top30_growing_pct": 60,
+    "top30_netmig_median": 5.1,
+    "all_netmig_median": 3.1
+   },
+   "single_pensioner": {
+    "n": 448,
+    "top30_growth_median": 1.22,
+    "all_growth_median": -0.59,
+    "top30_growing_pct": 70,
+    "top30_netmig_median": 5.1,
+    "all_netmig_median": 3.1
+   },
+   "single": {
+    "n": 136,
+    "top30_growth_median": 0.69,
+    "all_growth_median": 0.69,
+    "top30_growing_pct": 57,
+    "top30_netmig_median": 0,
+    "all_netmig_median": 2
+   },
+   "young_professional": {
+    "n": 135,
+    "top30_growth_median": 0.24,
+    "all_growth_median": 0.79,
+    "top30_growing_pct": 53,
+    "top30_netmig_median": 0.4,
+    "all_netmig_median": 2
+   },
+   "dinks": {
+    "n": 102,
+    "top30_growth_median": 0.11,
+    "all_growth_median": 0.8,
+    "top30_growing_pct": 50,
+    "top30_netmig_median": 0.4,
+    "all_netmig_median": 0.4
+   },
+   "commuter": {
+    "n": 200,
+    "top30_growth_median": 0.24,
+    "all_growth_median": 0.33,
+    "top30_growing_pct": 53,
+    "top30_netmig_median": 0.4,
+    "all_netmig_median": 2
+   },
+   "first_home": {
+    "n": 327,
+    "top30_growth_median": 0.69,
+    "all_growth_median": 0.33,
+    "top30_growing_pct": 60,
+    "top30_netmig_median": 0,
+    "all_netmig_median": 2
+   },
+   "expat_professional": {
+    "n": 257,
+    "top30_growth_median": 2.03,
+    "all_growth_median": 0.86,
+    "top30_growing_pct": 73,
+    "top30_netmig_median": 5.1,
+    "all_netmig_median": 2
+   },
+   "healthcare_first": {
+    "n": 448,
+    "top30_growth_median": 2.89,
+    "all_growth_median": -0.59,
+    "top30_growing_pct": 73,
+    "top30_netmig_median": 18.7,
+    "all_netmig_median": 3.1
+   },
+   "nature": {
+    "n": 1258,
+    "top30_growth_median": -12.02,
+    "all_growth_median": -4.31,
+    "top30_growing_pct": 19,
+    "top30_netmig_median": 11.2,
+    "all_netmig_median": 3.6
+   },
+   "rural_value": {
+    "n": 1257,
+    "top30_growth_median": -7.41,
+    "all_growth_median": -4.31,
+    "top30_growing_pct": 20,
+    "top30_netmig_median": 17.6,
+    "all_netmig_median": 3.6
+   },
+   "hnw": {
+    "n": 1006,
+    "top30_growth_median": 2.89,
+    "all_growth_median": -3.35,
+    "top30_growing_pct": 73,
+    "top30_netmig_median": 5.1,
+    "all_netmig_median": 3.6
+   },
+   "climate": {
+    "n": 533,
+    "top30_growth_median": 5.44,
+    "all_growth_median": -0.53,
+    "top30_growing_pct": 87,
+    "top30_netmig_median": 18.7,
+    "all_netmig_median": 3.1
+   },
+   "coastal": {
+    "n": 505,
+    "top30_growth_median": 2.32,
+    "all_growth_median": -0.45,
+    "top30_growing_pct": 57,
+    "top30_netmig_median": 18.7,
+    "all_netmig_median": 2
+   },
+   "business_owner": {
+    "n": 533,
+    "top30_growth_median": 0.93,
+    "all_growth_median": -0.53,
+    "top30_growing_pct": 57,
+    "top30_netmig_median": 0,
+    "all_netmig_median": 3.1
+   },
+   "outdoor": {
+    "n": 1006,
+    "top30_growth_median": 2.66,
+    "all_growth_median": -3.35,
+    "top30_growing_pct": 59,
+    "top30_netmig_median": 18.7,
+    "all_netmig_median": 3.6
+   }
+  },
+  "FI": {
+   "young_family": {
+    "n": 117,
+    "top30_growth_median": 4.82,
+    "all_growth_median": -1.1,
+    "top30_growing_pct": 80,
+    "top30_netmig_median": 11.5,
+    "all_netmig_median": 11.4
+   },
+   "low_income": {
+    "n": 213,
+    "top30_growth_median": 5.44,
+    "all_growth_median": -3.53,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 11.5,
+    "all_netmig_median": 5.6
+   },
+   "low_income_family": {
+    "n": 102,
+    "top30_growth_median": 4.97,
+    "all_growth_median": -0.44,
+    "top30_growing_pct": 80,
+    "top30_netmig_median": 11.5,
+    "all_netmig_median": 11.4
+   },
+   "pensioner": {
+    "n": 112,
+    "top30_growth_median": 1.97,
+    "all_growth_median": -0.88,
+    "top30_growing_pct": 70,
+    "top30_netmig_median": 11.5,
+    "all_netmig_median": 11.4
+   },
+   "single_pensioner": {
+    "n": 112,
+    "top30_growth_median": 1.17,
+    "all_growth_median": -0.88,
+    "top30_growing_pct": 60,
+    "top30_netmig_median": 11.5,
+    "all_netmig_median": 11.4
+   },
+   "first_home": {
+    "n": 102,
+    "top30_growth_median": 5.44,
+    "all_growth_median": -0.44,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 11.5,
+    "all_netmig_median": 11.4
+   },
+   "expat_professional": {
+    "n": 165,
+    "top30_growth_median": 5.4,
+    "all_growth_median": -2.18,
+    "top30_growing_pct": 90,
+    "top30_netmig_median": 11.5,
+    "all_netmig_median": 5.6
+   },
+   "healthcare_first": {
+    "n": 112,
+    "top30_growth_median": 3.76,
+    "all_growth_median": -0.88,
+    "top30_growing_pct": 77,
+    "top30_netmig_median": 11.5,
+    "all_netmig_median": 11.4
+   },
+   "nature": {
+    "n": 300,
+    "top30_growth_median": -6.17,
+    "all_growth_median": -4.65,
+    "top30_growing_pct": 17,
+    "top30_netmig_median": 5.6,
+    "all_netmig_median": 5.6
+   },
+   "rural_value": {
+    "n": 300,
+    "top30_growth_median": -5.38,
+    "all_growth_median": -4.65,
+    "top30_growing_pct": 20,
+    "top30_netmig_median": 5.6,
+    "all_netmig_median": 5.6
+   },
+   "hnw": {
+    "n": 294,
+    "top30_growth_median": 4.56,
+    "all_growth_median": -4.67,
+    "top30_growing_pct": 83,
+    "top30_netmig_median": 11.5,
+    "all_netmig_median": 5.6
+   },
+   "climate": {
+    "n": 258,
+    "top30_growth_median": 2.84,
+    "all_growth_median": -4.44,
+    "top30_growing_pct": 63,
+    "top30_netmig_median": 11.5,
+    "all_netmig_median": 5.6
+   },
+   "coastal": {
+    "n": 235,
+    "top30_growth_median": 0.39,
+    "all_growth_median": -4.41,
+    "top30_growing_pct": 50,
+    "top30_netmig_median": 11.5,
+    "all_netmig_median": 5.6
+   },
+   "business_owner": {
+    "n": 258,
+    "top30_growth_median": 5.4,
+    "all_growth_median": -4.44,
+    "top30_growing_pct": 90,
+    "top30_netmig_median": 11.5,
+    "all_netmig_median": 5.6
+   },
+   "outdoor": {
+    "n": 294,
+    "top30_growth_median": -6.39,
+    "all_growth_median": -4.67,
+    "top30_growing_pct": 17,
+    "top30_netmig_median": 5.6,
+    "all_netmig_median": 5.6
+   }
+  },
+  "HR": {
+   "young_family": {
+    "n": 453,
+    "top30_growth_median": -3.05,
+    "all_growth_median": -12.99,
+    "top30_growing_pct": 30,
+    "top30_netmig_median": 10.2,
+    "all_netmig_median": 5.4
+   },
+   "low_income": {
+    "n": 236,
+    "top30_growth_median": -3.38,
+    "all_growth_median": -10.72,
+    "top30_growing_pct": 23,
+    "top30_netmig_median": 11.9,
+    "all_netmig_median": 7.2
+   },
+   "low_income_family": {
+    "n": 215,
+    "top30_growth_median": -2.47,
+    "all_growth_median": -10.72,
+    "top30_growing_pct": 37,
+    "top30_netmig_median": 10.2,
+    "all_netmig_median": 7.2
+   },
+   "single_parent": {
+    "n": 128,
+    "top30_growth_median": -3.05,
+    "all_growth_median": -9.83,
+    "top30_growing_pct": 23,
+    "top30_netmig_median": 10.2,
+    "all_netmig_median": 7.2
+   },
+   "pensioner": {
+    "n": 319,
+    "top30_growth_median": -3.05,
+    "all_growth_median": -11.95,
+    "top30_growing_pct": 33,
+    "top30_netmig_median": 11.9,
+    "all_netmig_median": 5.4
+   },
+   "single_pensioner": {
+    "n": 319,
+    "top30_growth_median": -3.05,
+    "all_growth_median": -11.95,
+    "top30_growing_pct": 30,
+    "top30_netmig_median": 10.2,
+    "all_netmig_median": 5.4
+   },
+   "first_home": {
+    "n": 215,
+    "top30_growth_median": -2.9,
+    "all_growth_median": -10.72,
+    "top30_growing_pct": 30,
+    "top30_netmig_median": 11.9,
+    "all_netmig_median": 7.2
+   },
+   "expat_professional": {
+    "n": 136,
+    "top30_growth_median": -3.76,
+    "all_growth_median": -9.83,
+    "top30_growing_pct": 17,
+    "top30_netmig_median": 11.9,
+    "all_netmig_median": 9
+   },
+   "healthcare_first": {
+    "n": 319,
+    "top30_growth_median": -3.05,
+    "all_growth_median": -11.95,
+    "top30_growing_pct": 30,
+    "top30_netmig_median": 11.9,
+    "all_netmig_median": 5.4
+   },
+   "nature": {
+    "n": 525,
+    "top30_growth_median": -14.43,
+    "all_growth_median": -12.87,
+    "top30_growing_pct": 13,
+    "top30_netmig_median": 18.9,
+    "all_netmig_median": 7.2
+   },
+   "rural_value": {
+    "n": 525,
+    "top30_growth_median": -12.21,
+    "all_growth_median": -12.87,
+    "top30_growing_pct": 13,
+    "top30_netmig_median": 18.9,
+    "all_netmig_median": 7.2
+   },
+   "hnw": {
+    "n": 501,
+    "top30_growth_median": -3.76,
+    "all_growth_median": -12.89,
+    "top30_growing_pct": 20,
+    "top30_netmig_median": 10.2,
+    "all_netmig_median": 5.4
+   },
+   "climate": {
+    "n": 350,
+    "top30_growth_median": -9.81,
+    "all_growth_median": -11.87,
+    "top30_growing_pct": 13,
+    "top30_netmig_median": 11.9,
+    "all_netmig_median": 7.2
+   },
+   "coastal": {
+    "n": 126,
+    "top30_growth_median": -4.13,
+    "all_growth_median": -6.06,
+    "top30_growing_pct": 33,
+    "top30_netmig_median": 11.9,
+    "all_netmig_median": 11.9
+   },
+   "business_owner": {
+    "n": 350,
+    "top30_growth_median": -3.38,
+    "all_growth_median": -11.87,
+    "top30_growing_pct": 23,
+    "top30_netmig_median": 11.9,
+    "all_netmig_median": 7.2
+   },
+   "outdoor": {
+    "n": 501,
+    "top30_growth_median": -9.54,
+    "all_growth_median": -12.89,
+    "top30_growing_pct": 13,
+    "top30_netmig_median": 11.9,
+    "all_netmig_median": 5.4
+   }
+  },
+  "HU": {
+   "young_family": {
+    "n": 1320,
+    "top30_growth_median": 4.58,
+    "all_growth_median": -1.9,
+    "top30_growing_pct": 87,
+    "top30_netmig_median": 5.1,
+    "all_netmig_median": -1.4
+   },
+   "low_income": {
+    "n": 461,
+    "top30_growth_median": 5.38,
+    "all_growth_median": -1.12,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 5.1,
+    "all_netmig_median": -0.2
+   },
+   "low_income_family": {
+    "n": 461,
+    "top30_growth_median": 4.1,
+    "all_growth_median": -1.12,
+    "top30_growing_pct": 87,
+    "top30_netmig_median": 5.1,
+    "all_netmig_median": -0.2
+   },
+   "single_parent": {
+    "n": 268,
+    "top30_growth_median": 4.1,
+    "all_growth_median": -1.69,
+    "top30_growing_pct": 87,
+    "top30_netmig_median": 5.1,
+    "all_netmig_median": -0.2
+   },
+   "pensioner": {
+    "n": 733,
+    "top30_growth_median": 4.58,
+    "all_growth_median": -1.21,
+    "top30_growing_pct": 80,
+    "top30_netmig_median": 5.1,
+    "all_netmig_median": -0.2
+   },
+   "single_pensioner": {
+    "n": 733,
+    "top30_growth_median": 7.58,
+    "all_growth_median": -1.21,
+    "top30_growing_pct": 90,
+    "top30_netmig_median": 5.1,
+    "all_netmig_median": -0.2
+   },
+   "single": {
+    "n": 135,
+    "top30_growth_median": 4.64,
+    "all_growth_median": 0.65,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 5.1,
+    "all_netmig_median": 2.8
+   },
+   "young_professional": {
+    "n": 114,
+    "top30_growth_median": 4.58,
+    "all_growth_median": 1.7,
+    "top30_growing_pct": 90,
+    "top30_netmig_median": 5.1,
+    "all_netmig_median": 2.9
+   },
+   "commuter": {
+    "n": 266,
+    "top30_growth_median": 4.58,
+    "all_growth_median": 1.17,
+    "top30_growing_pct": 83,
+    "top30_netmig_median": 5.1,
+    "all_netmig_median": 2
+   },
+   "first_home": {
+    "n": 461,
+    "top30_growth_median": 4.58,
+    "all_growth_median": -1.12,
+    "top30_growing_pct": 90,
+    "top30_netmig_median": 5.1,
+    "all_netmig_median": -0.2
+   },
+   "expat_professional": {
+    "n": 268,
+    "top30_growth_median": 4.58,
+    "all_growth_median": -1.69,
+    "top30_growing_pct": 87,
+    "top30_netmig_median": 5.1,
+    "all_netmig_median": -0.2
+   },
+   "healthcare_first": {
+    "n": 733,
+    "top30_growth_median": 4.64,
+    "all_growth_median": -1.21,
+    "top30_growing_pct": 87,
+    "top30_netmig_median": 5.1,
+    "all_netmig_median": -0.2
+   },
+   "nature": {
+    "n": 1519,
+    "top30_growth_median": -3.22,
+    "all_growth_median": -2.13,
+    "top30_growing_pct": 30,
+    "top30_netmig_median": 0.8,
+    "all_netmig_median": -1.4
+   },
+   "rural_value": {
+    "n": 1519,
+    "top30_growth_median": -1.71,
+    "all_growth_median": -2.13,
+    "top30_growing_pct": 43,
+    "top30_netmig_median": 2,
+    "all_netmig_median": -1.4
+   },
+   "hnw": {
+    "n": 1320,
+    "top30_growth_median": 5.38,
+    "all_growth_median": -1.9,
+    "top30_growing_pct": 90,
+    "top30_netmig_median": 5.1,
+    "all_netmig_median": -1.4
+   },
+   "climate": {
+    "n": 733,
+    "top30_growth_median": 7.58,
+    "all_growth_median": -1.21,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 5.1,
+    "all_netmig_median": -0.2
+   },
+   "coastal": {
+    "n": 128,
+    "top30_growth_median": 3.97,
+    "all_growth_median": -0.21,
+    "top30_growing_pct": 83,
+    "top30_netmig_median": -1.4,
+    "all_netmig_median": -1.4
+   },
+   "business_owner": {
+    "n": 733,
+    "top30_growth_median": 6.35,
+    "all_growth_median": -1.21,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 5.1,
+    "all_netmig_median": -0.2
+   },
+   "outdoor": {
+    "n": 1320,
+    "top30_growth_median": 0.16,
+    "all_growth_median": -1.9,
+    "top30_growing_pct": 50,
+    "top30_netmig_median": 2.8,
+    "all_netmig_median": -1.4
+   }
+  },
+  "IT": {
+   "young_family": {
+    "n": 5856,
+    "top30_growth_median": -2.04,
+    "all_growth_median": -2.49,
+    "top30_growing_pct": 27,
+    "top30_netmig_median": 7.1,
+    "all_netmig_median": 4.9
+   },
+   "low_income": {
+    "n": 3440,
+    "top30_growth_median": 0.65,
+    "all_growth_median": -1.81,
+    "top30_growing_pct": 67,
+    "top30_netmig_median": 7.1,
+    "all_netmig_median": 4.6
+   },
+   "low_income_family": {
+    "n": 3421,
+    "top30_growth_median": -3.01,
+    "all_growth_median": -1.8,
+    "top30_growing_pct": 20,
+    "top30_netmig_median": 5.8,
+    "all_netmig_median": 4.7
+   },
+   "single_parent": {
+    "n": 2364,
+    "top30_growth_median": -1.1,
+    "all_growth_median": -1.59,
+    "top30_growing_pct": 27,
+    "top30_netmig_median": 7.1,
+    "all_netmig_median": 4.6
+   },
+   "pensioner": {
+    "n": 4329,
+    "top30_growth_median": 0.01,
+    "all_growth_median": -2.03,
+    "top30_growing_pct": 52,
+    "top30_netmig_median": 6.3,
+    "all_netmig_median": 4.8
+   },
+   "single_pensioner": {
+    "n": 4329,
+    "top30_growth_median": 0.05,
+    "all_growth_median": -2.03,
+    "top30_growing_pct": 53,
+    "top30_netmig_median": 6.3,
+    "all_netmig_median": 4.8
+   },
+   "single": {
+    "n": 1518,
+    "top30_growth_median": 0.55,
+    "all_growth_median": -0.92,
+    "top30_growing_pct": 60,
+    "top30_netmig_median": 6.3,
+    "all_netmig_median": 4.9
+   },
+   "young_professional": {
+    "n": 1491,
+    "top30_growth_median": 0.05,
+    "all_growth_median": -0.81,
+    "top30_growing_pct": 53,
+    "top30_netmig_median": 6.3,
+    "all_netmig_median": 4.9
+   },
+   "dinks": {
+    "n": 840,
+    "top30_growth_median": -0.19,
+    "all_growth_median": -0.85,
+    "top30_growing_pct": 47,
+    "top30_netmig_median": 3.5,
+    "all_netmig_median": 4.5
+   },
+   "remote": {
+    "n": 2197,
+    "top30_growth_median": 0.39,
+    "all_growth_median": -1.61,
+    "top30_growing_pct": 57,
+    "top30_netmig_median": 7.2,
+    "all_netmig_median": 4.6
+   },
+   "commuter": {
+    "n": 2259,
+    "top30_growth_median": 0.05,
+    "all_growth_median": -1,
+    "top30_growing_pct": 53,
+    "top30_netmig_median": 6.3,
+    "all_netmig_median": 4.9
+   },
+   "first_home": {
+    "n": 3421,
+    "top30_growth_median": 0.34,
+    "all_growth_median": -1.8,
+    "top30_growing_pct": 53,
+    "top30_netmig_median": 6.3,
+    "all_netmig_median": 4.7
+   },
+   "budget": {
+    "n": 4000,
+    "top30_growth_median": 0.34,
+    "all_growth_median": -2.03,
+    "top30_growing_pct": 53,
+    "top30_netmig_median": 8.2,
+    "all_netmig_median": 4.9
+   },
+   "expat_professional": {
+    "n": 2375,
+    "top30_growth_median": 0.51,
+    "all_growth_median": -1.6,
+    "top30_growing_pct": 63,
+    "top30_netmig_median": 3.5,
+    "all_netmig_median": 4.6
+   },
+   "healthcare_first": {
+    "n": 4329,
+    "top30_growth_median": 0.01,
+    "all_growth_median": -2.03,
+    "top30_growing_pct": 50,
+    "top30_netmig_median": 6.3,
+    "all_netmig_median": 4.8
+   },
+   "nature": {
+    "n": 6302,
+    "top30_growth_median": -3.44,
+    "all_growth_median": -2.64,
+    "top30_growing_pct": 13,
+    "top30_netmig_median": 7.8,
+    "all_netmig_median": 4.9
+   },
+   "rural_value": {
+    "n": 6302,
+    "top30_growth_median": -3.44,
+    "all_growth_median": -2.64,
+    "top30_growing_pct": 13,
+    "top30_netmig_median": 7.8,
+    "all_netmig_median": 4.9
+   },
+   "hnw": {
+    "n": 5888,
+    "top30_growth_median": -0.04,
+    "all_growth_median": -2.5,
+    "top30_growing_pct": 43,
+    "top30_netmig_median": 6.3,
+    "all_netmig_median": 4.9
+   },
+   "climate": {
+    "n": 4354,
+    "top30_growth_median": -1.59,
+    "all_growth_median": -2.04,
+    "top30_growing_pct": 37,
+    "top30_netmig_median": 7.3,
+    "all_netmig_median": 4.7
+   },
+   "coastal": {
+    "n": 2862,
+    "top30_growth_median": -0.52,
+    "all_growth_median": -2.32,
+    "top30_growing_pct": 46,
+    "top30_netmig_median": 6.9,
+    "all_netmig_median": 4.4
+   },
+   "business_owner": {
+    "n": 4354,
+    "top30_growth_median": 0.48,
+    "all_growth_median": -2.04,
+    "top30_growing_pct": 53,
+    "top30_netmig_median": 3.5,
+    "all_netmig_median": 4.7
+   },
+   "digital_native": {
+    "n": 1520,
+    "top30_growth_median": 0.66,
+    "all_growth_median": -0.98,
+    "top30_growing_pct": 60,
+    "top30_netmig_median": 7.1,
+    "all_netmig_median": 4.9
+   },
+   "outdoor": {
+    "n": 5888,
+    "top30_growth_median": -1.56,
+    "all_growth_median": -2.5,
+    "top30_growing_pct": 28,
+    "top30_netmig_median": 7.2,
+    "all_netmig_median": 4.9
+   }
+  },
+  "NL": {
+   "young_family": {
+    "n": 358,
+    "top30_growth_median": 3.45,
+    "all_growth_median": 3.22,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 6.6,
+    "all_netmig_median": 6.3
+   },
+   "low_income": {
+    "n": 348,
+    "top30_growth_median": 4.1,
+    "all_growth_median": 3.22,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 6.6,
+    "all_netmig_median": 6.1
+   },
+   "low_income_family": {
+    "n": 353,
+    "top30_growth_median": 2.88,
+    "all_growth_median": 3.22,
+    "top30_growing_pct": 96,
+    "top30_netmig_median": 6.6,
+    "all_netmig_median": 6.3
+   },
+   "single_parent": {
+    "n": 351,
+    "top30_growth_median": 2.66,
+    "all_growth_median": 3.22,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 6.6,
+    "all_netmig_median": 6.3
+   },
+   "pensioner": {
+    "n": 357,
+    "top30_growth_median": 3.52,
+    "all_growth_median": 3.22,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 6.3,
+    "all_netmig_median": 6.1
+   },
+   "single_pensioner": {
+    "n": 357,
+    "top30_growth_median": 3.53,
+    "all_growth_median": 3.22,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 6.6,
+    "all_netmig_median": 6.1
+   },
+   "single": {
+    "n": 347,
+    "top30_growth_median": 4.6,
+    "all_growth_median": 3.22,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 5.9,
+    "all_netmig_median": 6.3
+   },
+   "young_professional": {
+    "n": 344,
+    "top30_growth_median": 4.6,
+    "all_growth_median": 3.24,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 6.4,
+    "all_netmig_median": 6.3
+   },
+   "dinks": {
+    "n": 333,
+    "top30_growth_median": 4.25,
+    "all_growth_median": 3.28,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 6.4,
+    "all_netmig_median": 6.3
+   },
+   "remote": {
+    "n": 336,
+    "top30_growth_median": 4.66,
+    "all_growth_median": 3.22,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 7.7,
+    "all_netmig_median": 6.3
+   },
+   "commuter": {
+    "n": 345,
+    "top30_growth_median": 4.66,
+    "all_growth_median": 3.26,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 5.9,
+    "all_netmig_median": 6.3
+   },
+   "first_home": {
+    "n": 353,
+    "top30_growth_median": 3.57,
+    "all_growth_median": 3.22,
+    "top30_growing_pct": 96,
+    "top30_netmig_median": 6.6,
+    "all_netmig_median": 6.3
+   },
+   "budget": {
+    "n": 337,
+    "top30_growth_median": 4.1,
+    "all_growth_median": 3.22,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 6.6,
+    "all_netmig_median": 6.3
+   },
+   "expat_professional": {
+    "n": 355,
+    "top30_growth_median": 3.95,
+    "all_growth_median": 3.22,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 6.4,
+    "all_netmig_median": 6.1
+   },
+   "healthcare_first": {
+    "n": 357,
+    "top30_growth_median": 3.59,
+    "all_growth_median": 3.22,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 6.4,
+    "all_netmig_median": 6.1
+   },
+   "nature": {
+    "n": 360,
+    "top30_growth_median": 3.34,
+    "all_growth_median": 3.24,
+    "top30_growing_pct": 96,
+    "top30_netmig_median": 6.6,
+    "all_netmig_median": 6.3
+   },
+   "rural_value": {
+    "n": 360,
+    "top30_growth_median": 2.75,
+    "all_growth_median": 3.24,
+    "top30_growing_pct": 96,
+    "top30_netmig_median": 6.6,
+    "all_netmig_median": 6.3
+   },
+   "hnw": {
+    "n": 359,
+    "top30_growth_median": 3.59,
+    "all_growth_median": 3.24,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 6.3,
+    "all_netmig_median": 6.3
+   },
+   "climate": {
+    "n": 348,
+    "top30_growth_median": 3.45,
+    "all_growth_median": 3.22,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 7.4,
+    "all_netmig_median": 6.1
+   },
+   "coastal": {
+    "n": 141,
+    "top30_growth_median": 3.01,
+    "all_growth_median": 3.08,
+    "top30_growing_pct": 96,
+    "top30_netmig_median": 5.9,
+    "all_netmig_median": 5.3
+   },
+   "business_owner": {
+    "n": 357,
+    "top30_growth_median": 4.25,
+    "all_growth_median": 3.22,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 6.4,
+    "all_netmig_median": 6.1
+   },
+   "digital_native": {
+    "n": 326,
+    "top30_growth_median": 5.25,
+    "all_growth_median": 3.22,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 6.1,
+    "all_netmig_median": 6.3
+   },
+   "outdoor": {
+    "n": 348,
+    "top30_growth_median": 3.57,
+    "all_growth_median": 3.24,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 7.4,
+    "all_netmig_median": 6.3
+   }
+  },
+  "PL": {
+   "young_family": {
+    "n": 2462,
+    "top30_growth_median": -6.5,
+    "all_growth_median": -4.77,
+    "top30_growing_pct": 10,
+    "top30_netmig_median": -1.1,
+    "all_netmig_median": -1.1
+   },
+   "low_income": {
+    "n": 2328,
+    "top30_growth_median": -4.7,
+    "all_growth_median": -4.57,
+    "top30_growing_pct": 17,
+    "top30_netmig_median": -1.4,
+    "all_netmig_median": -1.1
+   },
+   "low_income_family": {
+    "n": 2320,
+    "top30_growth_median": -5.49,
+    "all_growth_median": -4.56,
+    "top30_growing_pct": 13,
+    "top30_netmig_median": -1.1,
+    "all_netmig_median": -1.1
+   },
+   "single_parent": {
+    "n": 1763,
+    "top30_growth_median": -6.56,
+    "all_growth_median": -3.75,
+    "top30_growing_pct": 10,
+    "top30_netmig_median": -1.1,
+    "all_netmig_median": -1
+   },
+   "pensioner": {
+    "n": 2440,
+    "top30_growth_median": -3.84,
+    "all_growth_median": -4.73,
+    "top30_growing_pct": 13,
+    "top30_netmig_median": -1.8,
+    "all_netmig_median": -1.1
+   },
+   "single_pensioner": {
+    "n": 2440,
+    "top30_growth_median": -2.04,
+    "all_growth_median": -4.73,
+    "top30_growing_pct": 23,
+    "top30_netmig_median": -1.8,
+    "all_netmig_median": -1.1
+   },
+   "single": {
+    "n": 754,
+    "top30_growth_median": -5.58,
+    "all_growth_median": -1.8,
+    "top30_growing_pct": 10,
+    "top30_netmig_median": -0.7,
+    "all_netmig_median": 0.5
+   },
+   "young_professional": {
+    "n": 626,
+    "top30_growth_median": -5.58,
+    "all_growth_median": -0.76,
+    "top30_growing_pct": 10,
+    "top30_netmig_median": -0.7,
+    "all_netmig_median": 0.6
+   },
+   "dinks": {
+    "n": 418,
+    "top30_growth_median": -5.2,
+    "all_growth_median": 0.27,
+    "top30_growing_pct": 33,
+    "top30_netmig_median": 1,
+    "all_netmig_median": 1
+   },
+   "remote": {
+    "n": 1761,
+    "top30_growth_median": -2.73,
+    "all_growth_median": -3.79,
+    "top30_growing_pct": 10,
+    "top30_netmig_median": -0.7,
+    "all_netmig_median": -1
+   },
+   "commuter": {
+    "n": 739,
+    "top30_growth_median": -5.59,
+    "all_growth_median": -1.76,
+    "top30_growing_pct": 7,
+    "top30_netmig_median": -0.7,
+    "all_netmig_median": 0.5
+   },
+   "first_home": {
+    "n": 2320,
+    "top30_growth_median": -5.42,
+    "all_growth_median": -4.56,
+    "top30_growing_pct": 13,
+    "top30_netmig_median": -1.4,
+    "all_netmig_median": -1.1
+   },
+   "budget": {
+    "n": 2448,
+    "top30_growth_median": -3.54,
+    "all_growth_median": -4.77,
+    "top30_growing_pct": 13,
+    "top30_netmig_median": -1.3,
+    "all_netmig_median": -1.1
+   },
+   "expat_professional": {
+    "n": 1768,
+    "top30_growth_median": 7.64,
+    "all_growth_median": -3.77,
+    "top30_growing_pct": 80,
+    "top30_netmig_median": 12.4,
+    "all_netmig_median": -1
+   },
+   "healthcare_first": {
+    "n": 2440,
+    "top30_growth_median": 8.69,
+    "all_growth_median": -4.73,
+    "top30_growing_pct": 87,
+    "top30_netmig_median": 12.4,
+    "all_netmig_median": -1.1
+   },
+   "nature": {
+    "n": 2478,
+    "top30_growth_median": -6.35,
+    "all_growth_median": -4.8,
+    "top30_growing_pct": 3,
+    "top30_netmig_median": -1.2,
+    "all_netmig_median": -1.1
+   },
+   "rural_value": {
+    "n": 2478,
+    "top30_growth_median": -5.6,
+    "all_growth_median": -4.8,
+    "top30_growing_pct": 7,
+    "top30_netmig_median": -0.7,
+    "all_netmig_median": -1.1
+   },
+   "hnw": {
+    "n": 2477,
+    "top30_growth_median": 15.89,
+    "all_growth_median": -4.8,
+    "top30_growing_pct": 90,
+    "top30_netmig_median": 8.4,
+    "all_netmig_median": -1.1
+   },
+   "climate": {
+    "n": 2455,
+    "top30_growth_median": -5.6,
+    "all_growth_median": -4.76,
+    "top30_growing_pct": 10,
+    "top30_netmig_median": -1.2,
+    "all_netmig_median": -1.1
+   },
+   "coastal": {
+    "n": 369,
+    "top30_growth_median": -3.98,
+    "all_growth_median": -5.28,
+    "top30_growing_pct": 23,
+    "top30_netmig_median": 0.1,
+    "all_netmig_median": -1
+   },
+   "business_owner": {
+    "n": 2454,
+    "top30_growth_median": -5.2,
+    "all_growth_median": -4.76,
+    "top30_growing_pct": 37,
+    "top30_netmig_median": 1,
+    "all_netmig_median": -1.1
+   },
+   "digital_native": {
+    "n": 774,
+    "top30_growth_median": -5.42,
+    "all_growth_median": -1.94,
+    "top30_growing_pct": 20,
+    "top30_netmig_median": -0.7,
+    "all_netmig_median": 0.4
+   },
+   "outdoor": {
+    "n": 2477,
+    "top30_growth_median": -4.4,
+    "all_growth_median": -4.8,
+    "top30_growing_pct": 17,
+    "top30_netmig_median": -0.7,
+    "all_netmig_median": -1.1
+   }
+  },
+  "PT": {
+   "young_family": {
+    "n": 1505,
+    "top30_growth_median": -5.5,
+    "all_growth_median": -4.57,
+    "top30_growing_pct": 13,
+    "top30_netmig_median": 8.4,
+    "all_netmig_median": 15.9
+   },
+   "low_income": {
+    "n": 699,
+    "top30_growth_median": -4.43,
+    "all_growth_median": -1.57,
+    "top30_growing_pct": 13,
+    "top30_netmig_median": 16.7,
+    "all_netmig_median": 15.3
+   },
+   "low_income_family": {
+    "n": 676,
+    "top30_growth_median": -5.28,
+    "all_growth_median": -1.45,
+    "top30_growing_pct": 10,
+    "top30_netmig_median": 16.7,
+    "all_netmig_median": 15.3
+   },
+   "single_parent": {
+    "n": 404,
+    "top30_growth_median": -1.64,
+    "all_growth_median": 0.2,
+    "top30_growing_pct": 27,
+    "top30_netmig_median": 15.3,
+    "all_netmig_median": 15.3
+   },
+   "pensioner": {
+    "n": 952,
+    "top30_growth_median": -3,
+    "all_growth_median": -2.78,
+    "top30_growing_pct": 27,
+    "top30_netmig_median": 8.4,
+    "all_netmig_median": 15.3
+   },
+   "single_pensioner": {
+    "n": 952,
+    "top30_growth_median": -6.34,
+    "all_growth_median": -2.78,
+    "top30_growing_pct": 10,
+    "top30_netmig_median": 8.4,
+    "all_netmig_median": 15.3
+   },
+   "single": {
+    "n": 192,
+    "top30_growth_median": 3.43,
+    "all_growth_median": 1.07,
+    "top30_growing_pct": 70,
+    "top30_netmig_median": 15.9,
+    "all_netmig_median": 13.8
+   },
+   "young_professional": {
+    "n": 175,
+    "top30_growth_median": 3.53,
+    "all_growth_median": 1.16,
+    "top30_growing_pct": 73,
+    "top30_netmig_median": 15.9,
+    "all_netmig_median": 13.8
+   },
+   "dinks": {
+    "n": 111,
+    "top30_growth_median": 3.43,
+    "all_growth_median": 1.16,
+    "top30_growing_pct": 73,
+    "top30_netmig_median": 15.9,
+    "all_netmig_median": 15.9
+   },
+   "remote": {
+    "n": 419,
+    "top30_growth_median": 1.06,
+    "all_growth_median": 0.04,
+    "top30_growing_pct": 60,
+    "top30_netmig_median": 11.5,
+    "all_netmig_median": 15.3
+   },
+   "commuter": {
+    "n": 385,
+    "top30_growth_median": 3.53,
+    "all_growth_median": -0.86,
+    "top30_growing_pct": 67,
+    "top30_netmig_median": 15.9,
+    "all_netmig_median": 15.3
+   },
+   "first_home": {
+    "n": 676,
+    "top30_growth_median": -4.6,
+    "all_growth_median": -1.45,
+    "top30_growing_pct": 10,
+    "top30_netmig_median": 16.7,
+    "all_netmig_median": 15.3
+   },
+   "budget": {
+    "n": 995,
+    "top30_growth_median": -5,
+    "all_growth_median": -2.98,
+    "top30_growing_pct": 10,
+    "top30_netmig_median": 17,
+    "all_netmig_median": 15.3
+   },
+   "expat_professional": {
+    "n": 419,
+    "top30_growth_median": 1.04,
+    "all_growth_median": 0.04,
+    "top30_growing_pct": 60,
+    "top30_netmig_median": 13.8,
+    "all_netmig_median": 15.3
+   },
+   "healthcare_first": {
+    "n": 952,
+    "top30_growth_median": -1.78,
+    "all_growth_median": -2.78,
+    "top30_growing_pct": 27,
+    "top30_netmig_median": 8.4,
+    "all_netmig_median": 15.3
+   },
+   "nature": {
+    "n": 1811,
+    "top30_growth_median": -11.14,
+    "all_growth_median": -5.33,
+    "top30_growing_pct": 10,
+    "top30_netmig_median": 18.5,
+    "all_netmig_median": 15.9
+   },
+   "rural_value": {
+    "n": 1811,
+    "top30_growth_median": -7.31,
+    "all_growth_median": -5.33,
+    "top30_growing_pct": 7,
+    "top30_netmig_median": 17,
+    "all_netmig_median": 15.9
+   },
+   "hnw": {
+    "n": 1599,
+    "top30_growth_median": 1.52,
+    "all_growth_median": -4.79,
+    "top30_growing_pct": 80,
+    "top30_netmig_median": 8.4,
+    "all_netmig_median": 15.9
+   },
+   "climate": {
+    "n": 995,
+    "top30_growth_median": -5,
+    "all_growth_median": -2.98,
+    "top30_growing_pct": 13,
+    "top30_netmig_median": 16.1,
+    "all_netmig_median": 15.3
+   },
+   "coastal": {
+    "n": 767,
+    "top30_growth_median": 7.05,
+    "all_growth_median": -1.94,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 16.9,
+    "all_netmig_median": 15.9
+   },
+   "business_owner": {
+    "n": 995,
+    "top30_growth_median": 3.53,
+    "all_growth_median": -2.98,
+    "top30_growing_pct": 70,
+    "top30_netmig_median": 15.9,
+    "all_netmig_median": 15.3
+   },
+   "digital_native": {
+    "n": 201,
+    "top30_growth_median": 3.46,
+    "all_growth_median": 1.06,
+    "top30_growing_pct": 83,
+    "top30_netmig_median": 15.9,
+    "all_netmig_median": 13.8
+   },
+   "outdoor": {
+    "n": 1599,
+    "top30_growth_median": -7.28,
+    "all_growth_median": -4.79,
+    "top30_growing_pct": 13,
+    "top30_netmig_median": 17,
+    "all_netmig_median": 15.9
+   }
+  },
+  "RO": {
+   "young_family": {
+    "n": 3017,
+    "top30_growth_median": 10.53,
+    "all_growth_median": -4.16,
+    "top30_growing_pct": 77,
+    "top30_netmig_median": 34.8,
+    "all_netmig_median": 2.9
+   },
+   "low_income": {
+    "n": 1594,
+    "top30_growth_median": 22.23,
+    "all_growth_median": -2.98,
+    "top30_growing_pct": 87,
+    "top30_netmig_median": 34.8,
+    "all_netmig_median": 2.9
+   },
+   "low_income_family": {
+    "n": 1586,
+    "top30_growth_median": 13.01,
+    "all_growth_median": -2.94,
+    "top30_growing_pct": 70,
+    "top30_netmig_median": 8.9,
+    "all_netmig_median": 2.9
+   },
+   "single_parent": {
+    "n": 756,
+    "top30_growth_median": 13.01,
+    "all_growth_median": -2.31,
+    "top30_growing_pct": 70,
+    "top30_netmig_median": 34.8,
+    "all_netmig_median": 2.9
+   },
+   "pensioner": {
+    "n": 2320,
+    "top30_growth_median": 5.01,
+    "all_growth_median": -3.51,
+    "top30_growing_pct": 77,
+    "top30_netmig_median": 34.8,
+    "all_netmig_median": 2.9
+   },
+   "single_pensioner": {
+    "n": 2320,
+    "top30_growth_median": 5.13,
+    "all_growth_median": -3.51,
+    "top30_growing_pct": 80,
+    "top30_netmig_median": 34.8,
+    "all_netmig_median": 2.9
+   },
+   "single": {
+    "n": 375,
+    "top30_growth_median": 15.32,
+    "all_growth_median": -0.34,
+    "top30_growing_pct": 87,
+    "top30_netmig_median": 34.8,
+    "all_netmig_median": 3.7
+   },
+   "young_professional": {
+    "n": 368,
+    "top30_growth_median": 15.32,
+    "all_growth_median": 0.44,
+    "top30_growing_pct": 83,
+    "top30_netmig_median": 34.8,
+    "all_netmig_median": 3.3
+   },
+   "dinks": {
+    "n": 145,
+    "top30_growth_median": 22.23,
+    "all_growth_median": 3.26,
+    "top30_growing_pct": 87,
+    "top30_netmig_median": 34.8,
+    "all_netmig_median": 3.9
+   },
+   "commuter": {
+    "n": 747,
+    "top30_growth_median": 22.06,
+    "all_growth_median": -1.03,
+    "top30_growing_pct": 70,
+    "top30_netmig_median": 8.4,
+    "all_netmig_median": 2.9
+   },
+   "first_home": {
+    "n": 1586,
+    "top30_growth_median": 15.32,
+    "all_growth_median": -2.94,
+    "top30_growing_pct": 77,
+    "top30_netmig_median": 34.8,
+    "all_netmig_median": 2.9
+   },
+   "expat_professional": {
+    "n": 756,
+    "top30_growth_median": 18.33,
+    "all_growth_median": -2.31,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 34.8,
+    "all_netmig_median": 2.9
+   },
+   "healthcare_first": {
+    "n": 2320,
+    "top30_growth_median": 15.32,
+    "all_growth_median": -3.51,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 34.8,
+    "all_netmig_median": 2.9
+   },
+   "nature": {
+    "n": 3115,
+    "top30_growth_median": -1.89,
+    "all_growth_median": -4.23,
+    "top30_growing_pct": 43,
+    "top30_netmig_median": 6.1,
+    "all_netmig_median": 2.9
+   },
+   "rural_value": {
+    "n": 3115,
+    "top30_growth_median": 0.57,
+    "all_growth_median": -4.23,
+    "top30_growing_pct": 57,
+    "top30_netmig_median": 6.3,
+    "all_netmig_median": 2.9
+   },
+   "hnw": {
+    "n": 3059,
+    "top30_growth_median": 10.53,
+    "all_growth_median": -4.18,
+    "top30_growing_pct": 80,
+    "top30_netmig_median": 34.8,
+    "all_netmig_median": 2.9
+   },
+   "climate": {
+    "n": 2340,
+    "top30_growth_median": 0.6,
+    "all_growth_median": -3.55,
+    "top30_growing_pct": 53,
+    "top30_netmig_median": 8.4,
+    "all_netmig_median": 2.9
+   },
+   "coastal": {
+    "n": 268,
+    "top30_growth_median": -5.18,
+    "all_growth_median": -4.78,
+    "top30_growing_pct": 20,
+    "top30_netmig_median": 2.7,
+    "all_netmig_median": 2.3
+   },
+   "business_owner": {
+    "n": 2340,
+    "top30_growth_median": 19.69,
+    "all_growth_median": -3.55,
+    "top30_growing_pct": 87,
+    "top30_netmig_median": 34.8,
+    "all_netmig_median": 2.9
+   },
+   "outdoor": {
+    "n": 3059,
+    "top30_growth_median": 1.15,
+    "all_growth_median": -4.18,
+    "top30_growing_pct": 60,
+    "top30_netmig_median": 8.4,
+    "all_netmig_median": 2.9
+   }
+  },
+  "SE": {
+   "young_family": {
+    "n": 187,
+    "top30_growth_median": 2.63,
+    "all_growth_median": 1.97,
+    "top30_growing_pct": 83,
+    "top30_netmig_median": 3.3,
+    "all_netmig_median": 2.1
+   },
+   "low_income": {
+    "n": 284,
+    "top30_growth_median": -3.21,
+    "all_growth_median": 0.47,
+    "top30_growing_pct": 20,
+    "top30_netmig_median": 4.2,
+    "all_netmig_median": 2.1
+   },
+   "low_income_family": {
+    "n": 187,
+    "top30_growth_median": 0.08,
+    "all_growth_median": 1.97,
+    "top30_growing_pct": 50,
+    "top30_netmig_median": 2.1,
+    "all_netmig_median": 2.1
+   },
+   "single_parent": {
+    "n": 186,
+    "top30_growth_median": 0.09,
+    "all_growth_median": 2.05,
+    "top30_growing_pct": 53,
+    "top30_netmig_median": 2.1,
+    "all_netmig_median": 2.1
+   },
+   "pensioner": {
+    "n": 187,
+    "top30_growth_median": 5.53,
+    "all_growth_median": 1.97,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 3.3,
+    "all_netmig_median": 2.1
+   },
+   "single_pensioner": {
+    "n": 187,
+    "top30_growth_median": 5.28,
+    "all_growth_median": 1.97,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 3.3,
+    "all_netmig_median": 2.1
+   },
+   "early_retiree": {
+    "n": 287,
+    "top30_growth_median": 5.88,
+    "all_growth_median": 0.45,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 3.3,
+    "all_netmig_median": 2.1
+   },
+   "remote": {
+    "n": 274,
+    "top30_growth_median": 4.92,
+    "all_growth_median": 0.57,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 3.3,
+    "all_netmig_median": 2.1
+   },
+   "first_home": {
+    "n": 187,
+    "top30_growth_median": 1.45,
+    "all_growth_median": 1.97,
+    "top30_growing_pct": 70,
+    "top30_netmig_median": 2.1,
+    "all_netmig_median": 2.1
+   },
+   "budget": {
+    "n": 290,
+    "top30_growth_median": -3.18,
+    "all_growth_median": 0.37,
+    "top30_growing_pct": 23,
+    "top30_netmig_median": 4.2,
+    "all_netmig_median": 2.1
+   },
+   "expat_professional": {
+    "n": 274,
+    "top30_growth_median": 5.28,
+    "all_growth_median": 0.57,
+    "top30_growing_pct": 90,
+    "top30_netmig_median": 3.3,
+    "all_netmig_median": 2.1
+   },
+   "healthcare_first": {
+    "n": 187,
+    "top30_growth_median": 5.88,
+    "all_growth_median": 1.97,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 3.3,
+    "all_netmig_median": 2.1
+   },
+   "nature": {
+    "n": 290,
+    "top30_growth_median": -3.49,
+    "all_growth_median": 0.37,
+    "top30_growing_pct": 23,
+    "top30_netmig_median": 4.2,
+    "all_netmig_median": 2.1
+   },
+   "rural_value": {
+    "n": 290,
+    "top30_growth_median": -3.89,
+    "all_growth_median": 0.37,
+    "top30_growing_pct": 10,
+    "top30_netmig_median": 4.2,
+    "all_netmig_median": 2.1
+   },
+   "hnw": {
+    "n": 290,
+    "top30_growth_median": 5.05,
+    "all_growth_median": 0.37,
+    "top30_growing_pct": 90,
+    "top30_netmig_median": 3.3,
+    "all_netmig_median": 2.1
+   },
+   "climate": {
+    "n": 290,
+    "top30_growth_median": -3.18,
+    "all_growth_median": 0.37,
+    "top30_growing_pct": 27,
+    "top30_netmig_median": 6.3,
+    "all_netmig_median": 2.1
+   },
+   "coastal": {
+    "n": 275,
+    "top30_growth_median": 0.56,
+    "all_growth_median": 0.54,
+    "top30_growing_pct": 53,
+    "top30_netmig_median": 3.3,
+    "all_netmig_median": 2.1
+   },
+   "business_owner": {
+    "n": 290,
+    "top30_growth_median": 5.28,
+    "all_growth_median": 0.37,
+    "top30_growing_pct": 90,
+    "top30_netmig_median": 3.3,
+    "all_netmig_median": 2.1
+   },
+   "outdoor": {
+    "n": 290,
+    "top30_growth_median": -2.83,
+    "all_growth_median": 0.37,
+    "top30_growing_pct": 30,
+    "top30_netmig_median": 6.3,
+    "all_netmig_median": 2.1
+   }
+  },
+  "SI": {
+   "young_family": {
+    "n": 205,
+    "top30_growth_median": 3.12,
+    "all_growth_median": 1.57,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 3.5,
+    "all_netmig_median": 6.2
+   },
+   "low_income": {
+    "n": 155,
+    "top30_growth_median": 4.29,
+    "all_growth_median": 1.89,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 7.4,
+    "all_netmig_median": 6.2
+   },
+   "pensioner": {
+    "n": 183,
+    "top30_growth_median": 1.5,
+    "all_growth_median": 1.89,
+    "top30_growing_pct": 70,
+    "top30_netmig_median": 3.5,
+    "all_netmig_median": 6.2
+   },
+   "single_pensioner": {
+    "n": 183,
+    "top30_growth_median": 1.5,
+    "all_growth_median": 1.89,
+    "top30_growing_pct": 73,
+    "top30_netmig_median": 3.5,
+    "all_netmig_median": 6.2
+   },
+   "expat_professional": {
+    "n": 107,
+    "top30_growth_median": 3.44,
+    "all_growth_median": 2.2,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 7.4,
+    "all_netmig_median": 6.2
+   },
+   "healthcare_first": {
+    "n": 183,
+    "top30_growth_median": 1.57,
+    "all_growth_median": 1.89,
+    "top30_growing_pct": 73,
+    "top30_netmig_median": 3.5,
+    "all_netmig_median": 6.2
+   },
+   "nature": {
+    "n": 206,
+    "top30_growth_median": 0.2,
+    "all_growth_median": 1.57,
+    "top30_growing_pct": 53,
+    "top30_netmig_median": 1.8,
+    "all_netmig_median": 6.2
+   },
+   "rural_value": {
+    "n": 206,
+    "top30_growth_median": 1.55,
+    "all_growth_median": 1.57,
+    "top30_growing_pct": 73,
+    "top30_netmig_median": 3.5,
+    "all_netmig_median": 6.2
+   },
+   "hnw": {
+    "n": 205,
+    "top30_growth_median": 1.61,
+    "all_growth_median": 1.57,
+    "top30_growing_pct": 77,
+    "top30_netmig_median": 3.5,
+    "all_netmig_median": 6.2
+   },
+   "climate": {
+    "n": 183,
+    "top30_growth_median": 2.81,
+    "all_growth_median": 1.89,
+    "top30_growing_pct": 87,
+    "top30_netmig_median": 7,
+    "all_netmig_median": 6.2
+   },
+   "business_owner": {
+    "n": 183,
+    "top30_growth_median": 3.86,
+    "all_growth_median": 1.89,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 7.4,
+    "all_netmig_median": 6.2
+   },
+   "outdoor": {
+    "n": 205,
+    "top30_growth_median": 3.08,
+    "all_growth_median": 1.57,
+    "top30_growing_pct": 83,
+    "top30_netmig_median": 7,
+    "all_netmig_median": 6.2
+   }
+  },
+  "SK": {
+   "young_family": {
+    "n": 1070,
+    "top30_growth_median": 11.29,
+    "all_growth_median": 0.25,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 5.3,
+    "all_netmig_median": -0.3
+   },
+   "low_income": {
+    "n": 282,
+    "top30_growth_median": 13.94,
+    "all_growth_median": -1.79,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 5.3,
+    "all_netmig_median": -0.3
+   },
+   "low_income_family": {
+    "n": 282,
+    "top30_growth_median": 12.6,
+    "all_growth_median": -1.79,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 5.3,
+    "all_netmig_median": -0.3
+   },
+   "single_parent": {
+    "n": 157,
+    "top30_growth_median": 7.75,
+    "all_growth_median": -3.7,
+    "top30_growing_pct": 87,
+    "top30_netmig_median": 5.3,
+    "all_netmig_median": -0.3
+   },
+   "pensioner": {
+    "n": 473,
+    "top30_growth_median": 9.53,
+    "all_growth_median": -0.22,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 5.3,
+    "all_netmig_median": -0.3
+   },
+   "single_pensioner": {
+    "n": 473,
+    "top30_growth_median": 10.58,
+    "all_growth_median": -0.22,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 5.3,
+    "all_netmig_median": -0.3
+   },
+   "first_home": {
+    "n": 282,
+    "top30_growth_median": 12.6,
+    "all_growth_median": -1.79,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 5.3,
+    "all_netmig_median": -0.3
+   },
+   "expat_professional": {
+    "n": 157,
+    "top30_growth_median": 7.75,
+    "all_growth_median": -3.7,
+    "top30_growing_pct": 93,
+    "top30_netmig_median": 5.3,
+    "all_netmig_median": -0.3
+   },
+   "healthcare_first": {
+    "n": 473,
+    "top30_growth_median": 12.23,
+    "all_growth_median": -0.22,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 5.3,
+    "all_netmig_median": -0.3
+   },
+   "nature": {
+    "n": 1280,
+    "top30_growth_median": 0.58,
+    "all_growth_median": 0.36,
+    "top30_growing_pct": 57,
+    "top30_netmig_median": -0.2,
+    "all_netmig_median": -0.3
+   },
+   "rural_value": {
+    "n": 1280,
+    "top30_growth_median": 1.7,
+    "all_growth_median": 0.36,
+    "top30_growing_pct": 67,
+    "top30_netmig_median": -0.2,
+    "all_netmig_median": -0.3
+   },
+   "hnw": {
+    "n": 1070,
+    "top30_growth_median": 9.53,
+    "all_growth_median": 0.25,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 5.3,
+    "all_netmig_median": -0.3
+   },
+   "climate": {
+    "n": 473,
+    "top30_growth_median": 13.78,
+    "all_growth_median": -0.22,
+    "top30_growing_pct": 100,
+    "top30_netmig_median": 5.3,
+    "all_netmig_median": -0.3
+   },
+   "business_owner": {
+    "n": 473,
+    "top30_growth_median": 13.94,
+    "all_growth_median": -0.22,
+    "top30_growing_pct": 97,
+    "top30_netmig_median": 5.3,
+    "all_netmig_median": -0.3
+   },
+   "outdoor": {
+    "n": 1070,
+    "top30_growth_median": 5.42,
+    "all_growth_median": 0.25,
+    "top30_growing_pct": 83,
+    "top30_netmig_median": 5.3,
+    "all_netmig_median": -0.3
+   }
+  }
+ }
+}

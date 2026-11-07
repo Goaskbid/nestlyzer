@@ -1,0 +1,52 @@
+{
+ "model": "world-3 (bounded 0-100 scale, 2.13.3)",
+ "curve": "published = 50 + 50*tanh((raw-50)/50), sorted on the exact raw score",
+ "scopes": {
+  "world": {
+   "rows": 5600,
+   "identical_positions": 3188,
+   "top10_set_overlap_pct": 99.6,
+   "same_number_one": "55/56",
+   "max_before": 109.7,
+   "above100_before": 138,
+   "max_after": 91.6,
+   "above100_after": 0
+  },
+  "europe": {
+   "rows": 5600,
+   "identical_positions": 3413,
+   "top10_set_overlap_pct": 99.3,
+   "same_number_one": "56/56",
+   "max_before": 109.7,
+   "above100_before": 76,
+   "max_after": 91.6,
+   "above100_after": 0
+  },
+  "americas": {
+   "rows": 5600,
+   "identical_positions": 3915,
+   "top10_set_overlap_pct": 99.8,
+   "same_number_one": "56/56",
+   "max_before": 109.1,
+   "above100_before": 34,
+   "max_after": 91.4,
+   "above100_after": 0
+  },
+  "asia_pacific": {
+   "rows": 5600,
+   "identical_positions": 3764,
+   "top10_set_overlap_pct": 98.8,
+   "same_number_one": "56/56",
+   "max_before": 106.9,
+   "above100_before": 28,
+   "max_after": 90.7,
+   "above100_after": 0
+  }
+ },
+ "variant_not_applied": {
+  "bounded_place_level": {
+   "world_top10_overlap": "64.5%",
+   "same_number_one": "22 of 56"
+  }
+ }
+}

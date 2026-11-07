@@ -19,7 +19,7 @@ import csv, gzip, io, json, os, re, sys, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, 'build', 'source')
-WORLD = ['US', 'CA', 'JP', 'KR', 'TW', 'HK', 'SG', 'AU', 'NZ', 'IL', 'BR', 'MX', 'MY', 'ID', 'MA', 'ZA', 'IN', 'CN', 'AE']   # 2.12: nine new countries (owner request: BRICS and the world-expansion screen)
+WORLD = ['US', 'CA', 'JP', 'KR', 'TW', 'HK', 'SG', 'AU', 'NZ', 'IL', 'BR', 'MX', 'MY', 'ID', 'MA', 'ZA', 'IN', 'CN', 'AE'] + ['RU', 'TR', 'VN', 'TH', 'SA', 'PH', 'AR', 'CO', 'EG']   # 2.12: nine new countries (BRICS); 2.14: nine more (owner request 7 Nov 2026: high human development, large FDI and B2B markets). HELD until district data: CL, QA, KZ, UY, CR, PA, GE (GeoNames lists their capitals as one place, so the capital won most households; config kept below)
 
 KANA = re.compile(r'[぀-ヿ]')
 CJK = re.compile(r'[一-鿿]')
@@ -98,6 +98,7 @@ def main():
     with gzip.open(os.path.join(SRC, 'world_places.json.gz'), 'wt', encoding='utf-8') as f:
         json.dump({'source': 'GeoNames cities500 (CC BY 4.0) via geonamescache 3.0.2; feature codes via all-the-cities 3.1.0', 'countries': WORLD, 'rows': rows}, f, ensure_ascii=False, separators=(',', ':'))
     print('places', len(rows))
+    if os.environ.get('NZ_NO_AIRPORTS'): return   # 2.14: airports_world.json already covers every country
     url = 'https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airports.csv'
     txt = urllib.request.urlopen(url, timeout=60).read().decode('utf-8')
     ap = []

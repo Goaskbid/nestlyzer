@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Nestlyzer small update from GitHub Codespaces (2.15.1). Carries only the changed files (a few MB instead of 76 MB).
+# Nestlyzer small update from GitHub Codespaces (2.15.2). Carries only the changed files (a few MB instead of 76 MB).
 #   unzip -oq "$(find /workspaces -name 'nestlyzer-update-*.zip' | head -1)" -d /tmp/nzu && bash /tmp/nzu/tools/codespaces_update.sh
 # Copies the files listed in UPDATE_FILES.txt over the repository, shows the change, asks once, commits ONLY those files
 # and pushes. Other files in the codespace (stray zips, a changed package-lock.json) are left alone and never committed.
@@ -15,7 +15,7 @@ VER=$(python3 -c "import json;print(json.load(open('$REL/package.json'))['versio
 CUR=$(python3 -c "import json;print(json.load(open('package.json'))['version'])")
 BASE=$(cat "$REL/UPDATE_BASE.txt")
 if [ "$CUR" = "$VER" ]; then echo "Nestlyzer $VER is already in the repository. Nothing to do."; exit 0; fi
-[ "$CUR" = "$BASE" ] || { echo "Stopped: this update needs Nestlyzer $BASE in the repository, found $CUR. Nothing was changed."; exit 1; }
+case " $BASE " in *" $CUR "*) ;; *) echo "Stopped: this update needs Nestlyzer $BASE in the repository, found $CUR. Nothing was changed."; exit 1;; esac
 N=$(grep -c . "$REL/UPDATE_FILES.txt")
 echo "Nestlyzer $CUR -> $VER: $N files"
 read -r -p "Copy them, commit and push now? [y/N] " ok

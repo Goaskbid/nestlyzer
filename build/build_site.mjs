@@ -7,6 +7,7 @@ import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import { buildInsights } from './insights.mjs';
 import { worldPage } from './world_page.mjs';
+import { policyPages } from './policy_pages.mjs';
 const require = createRequire(import.meta.url);
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const terser = require('terser');
@@ -15,7 +16,7 @@ const topojson = require('topojson-client');
 const Engine = require(path.join(ROOT, 'src/engine.js'));
 const NestData = require(path.join(ROOT, 'src/data.js'));
 
-const VERSION = process.env.NZ_VERSION || '2.15.1';
+const VERSION = process.env.NZ_VERSION || '2.15.2';
 const SITE = 'https://nestlyzer.com';
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
 /* Static pages: emoji in text become our inline line icons at build time (2.10.1); the app swaps the rest at run time. */
@@ -676,6 +677,7 @@ ${v28html}<h2 id="kpis" style="font-size:var(--step-2);margin:28px 0 10px">Key f
 <h2 style="font-size:var(--step-2);margin:28px 0 10px">Known limits</h2><ul class="prose"><li>Distances are straight lines from population-weighted centres, not travel times.</li><li>Local data still differs by country: the table above shows which measures exist where. Italy, Austria, Czechia and most of Central and South-Eastern Europe have regional (district) figures but few municipal ones; East Asia and New Zealand have the fewest local figures.</li><li>Police-recorded crime depends on how often people report and how police record offences; it is compared within a country only.</li><li>Swiss tax burden figures are from ESTV 2018 and are relative comparisons, not personal tax advice.</li><li>Municipalities abolished or merged before 2025 are kept out of rankings (2.8 roster repair from official change records); five Greek communities created after 2020 still have no point location.</li></ul>`;
   page({ p: '/method/', title: 'Methodology: how Nestlyzer ranks places to live | Nestlyzer', desc: 'Every factor, weight, source and rule behind Nestlyzer rankings, including data depth by country and known limits.', body, crumbs: [['Home', '/'], ['Method', '/method/']], jsonld: [{ '@context': 'https://schema.org', '@type': 'Dataset', name: 'Nestlyzer place rankings', description: `Rankings and official local figures for ${fmtInt(countries.reduce((a, c) => a + c.n, 0))} places in ${countries.length} countries, for households and business sites, with every factor, weight and source.`, url: SITE + '/method/', creator: { '@type': 'Organization', name: 'Nestlyzer', url: SITE + '/' }, spatialCoverage: countries.map((c) => c.name).join(', '), isAccessibleForFree: true, license: SITE + '/legal/' }] });
   worldPage({ ROOT, topojson, meta, esc, fmtInt, flagImg, PICON, appLink, page, VERSION, countryPath });
+  policyPages({ ROOT, esc, fmtInt, flagImg, page, countries });
 }
 function legalPage() {
   const body = `<h1>Imprint and policies</h1><p class="lede">Last updated: 11 October 2026</p><div class="prose">
@@ -1014,7 +1016,7 @@ if (!FAST) for (const c of countries) {
 write('assets/site.css', B.siteCss);
 // clean previously generated page folders
 if (!FAST) {
-const GEN_ROOTS = new Set([...countries.map((c) => cslug(c.cc)), 'best', 'method', 'legal']);
+const GEN_ROOTS = new Set([...countries.map((c) => cslug(c.cc)), 'best', 'method', 'legal', 'incentives', 'districts']);
 for (const d of GEN_ROOTS) fs.rmSync(path.join(ROOT, d), { recursive: true, force: true });
 SITEMAP.length = 0; SITEMAP.push('/');
 methodPage(); legalPage(); aboutPage();

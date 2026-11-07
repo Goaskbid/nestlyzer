@@ -770,7 +770,8 @@ function cxDim(r) {
   if (d.occupation) b.push(d.occupation);
   if (d.dwelling_class) b.push(d.dwelling_class); else if (d.rooms) b.push(d.rooms + (d.rooms === '1' ? ' room' : ' rooms'));
   if (d.cohort) b.push(d.cohort);
-  if (d.scenario && d.adults) { var ew = [].concat(d.earner_wages_percent_of_national_average || []), ch = +d.children || 0;
+  if (r.sameN) b.push('the same for all ' + r.sameN + ' household types published');
+  else if (d.scenario && d.adults) { var ew = [].concat(d.earner_wages_percent_of_national_average || []), ch = +d.children || 0;
     b.push((+d.adults === 1 ? 'single' : 'couple') + (ch ? ', ' + ch + (ch === 1 ? ' child' : ' children') : ', no children') + (ew.length ? ', earning ' + ew.map(function (x) { return x + '%'; }).join(' + ') + ' of the average wage' : '')); }
   if (d.tax_schedule) b.push(d.tax_schedule === 'married' ? 'married couples (joint tax)' : d.tax_schedule === 'basic' ? 'single people (basic tax rate)' : String(d.tax_schedule).replace(/_/g, ' '));
   if (d.tenancy) b.push(String(d.tenancy).replace(/_/g, ' ').replace('rental dwelling stock', 'existing tenancies'));
@@ -829,13 +830,18 @@ function cxRows(r) {
 }
 function cxGeo(o, rel) {
   if (o.source_geo_level === 'country') return 'national';
-  if (o.source_geo_level === 'country_scenario') return 'national, for the household type shown';
+  if (o.source_geo_level === 'country_scenario') return o.sameN ? 'national' : 'national, for the household type shown';
   if (o.source_geo_level === 'multicountry_aggregate') return o.area_label + ' (benchmark)';
   var rr = rel[o.source_geo_id]; return rr === 'is' ? 'this municipality' : (CX_REL[rr] || o.source_geo_level.replace(/_/g, ' ')) + (o.area_label ? ': ' + o.area_label : '');
 }
 function housingWorkHTML(r, traceOnly) {
   var c = cxRows(r); if (!c || !c.items.length) return traceOnly ? null : '';
   var biz = isBizKey(S.profile), it = c.items;
+  // 2.15.3: one row for a household-type figure that is the same for every household type (was repeated up to 8 times)
+  (function () { var seen = {}, out = []; it.forEach(function (b) { var o = b.last, d = o.dimensions || {}; if (!d.scenario) { out.push(b); return; }
+    var k = o.indicator_id + '|' + o.unit + '|' + o.reference_period + '|' + Math.round(o.value * 100);
+    if (seen[k]) { seen[k].n++; return; } var o2 = Object.assign({}, o), b2 = Object.assign({}, b, { last: o2 }); seen[k] = { b: b2, n: 1 }; out.push(b2); });
+    Object.keys(seen).forEach(function (k) { if (seen[k].n > 1) seen[k].b.last.sameN = seen[k].n; }); it = out; })();
   var pick = function (re, n, sortBy) { var a = it.filter(function (b) { return re.test(b.last.indicator_id); }); if (sortBy) a.sort(sortBy); return a; };
   var local = function (b) { var l = b.last.source_geo_level; return l === 'country' || l === 'country_scenario' ? 1 : l === 'multicountry_aggregate' ? 2 : 0; };
   var byPay = function (a, b) { var al = /^all/i.test((a.last.dimensions || {}).occupation || '') ? 0 : 1, bl = /^all/i.test((b.last.dimensions || {}).occupation || '') ? 0 : 1; return local(a) - local(b) || al - bl || b.last.value - a.last.value; };
@@ -1060,7 +1066,7 @@ function cxAllRows(r) {
   return c.items.map(function (b) { var o = b.last; return { rec: o, g: 'hpl', k: 'cx:' + o.record_id, label: cxLabel(o) + (cxDim(o) ? ' (' + cxDim(o) + ')' : ''), val: cxVal(o), src: [String(o.reference_period), cxGeo(o, c.rel), cxNote(o), cxSrc(o)].filter(Boolean).join(' · ') }; });
 }
 (function () { var st = document.createElement('style'); st.textContent = ".adt tr.adr.good>th,.cxt tr.good>th{box-shadow:inset 3px 0 var(--good);padding-left:9px}.adt tr.adr.bad>th,.cxt tr.bad>th{box-shadow:inset 3px 0 var(--bad);padding-left:9px}.adt tr.adr.mid>th,.cxt tr.mid>th{box-shadow:inset 3px 0 var(--amber);padding-left:9px}.adt td em,.cxt td em{display:block;font-style:normal;font-size:11.5px;line-height:1.35;color:var(--ink-3);margin-top:2px;text-align:right}.cxt td em{text-align:left}.adt tr.good td em,.cxt tr.good td em{color:var(--good)}.adt tr.bad td em,.cxt tr.bad td em{color:var(--bad)}.adt tr.mid td em,.cxt tr.mid td em{color:var(--mid)}.adt tr.dim,.cxt tr.dim{opacity:.62}.adt tr.dim+tr.adn,.cxt tr.dim+tr.adn{opacity:.62}.adt tr.nat th,.cxt tr.nat th{font-weight:400;color:var(--ink-2)}.cxkey{font-size:11.5px;color:var(--ink-3);margin:2px 0 8px}.cxkey i{display:inline-block;width:9px;height:9px;border-radius:2px;margin:0 4px 0 10px;vertical-align:0}.cxkey i:first-child{margin-left:0}@media (max-width:640px){.adt td em{text-align:left}}"; document.head.appendChild(st); })();
-(function () { var st = document.createElement('style'); st.textContent = ".cxw .cxt th{font-weight:600;width:46%}.cxw .cxt th small,.cxw .cxt td small{display:block;color:var(--ink-3);font-weight:400;font-size:11px;margin-top:2px}.cxw h4{margin:12px 0 4px}.cxw details.cxmore{margin-top:16px;border-top:1px solid var(--line);padding-top:8px}.cxw details.cxmore>summary{cursor:pointer;font-weight:600;color:var(--ink-2);padding:6px 0}.cxw .qbar{display:block;width:120px;max-width:100%;height:12px;margin:4px 0 2px}"; document.head.appendChild(st); })();
+(function () { var st = document.createElement('style'); st.textContent = ".cxw .cxt th{font-weight:600;width:46%}.cxw .cxt th small,.cxw .cxt td small{display:block;color:var(--ink-3);font-weight:400;font-size:11px;margin-top:2px}.cxw h4{margin:12px 0 4px}.cxw details.cxmore{margin-top:16px;border-top:1px solid var(--line);padding-top:8px}.cxw details.cxmore>summary{cursor:pointer;font-weight:600;color:var(--ink-2);padding:6px 0}.cxw .qbar{display:block;width:120px;max-width:100%;height:12px;margin:4px 0 2px}@media (max-width:899px){#place .sec h3{font-size:1.25rem;font-weight:750;letter-spacing:-.01em;line-height:1.2;margin:26px 0 4px}#place .sec .sub{font-size:.8125rem;line-height:1.45;color:var(--ink-3);margin:0 0 12px}#place .sec h4{font-size:1rem;font-weight:700;line-height:1.3;margin:22px 0 4px;color:var(--ink)}.cxw .cxt,.cxw .cxt tbody{display:block}.cxw .cxt tr{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:14px;align-items:start;padding:11px 0;border-bottom:1px solid var(--line)}.cxw .cxt th,.cxw .cxt td{display:block;width:auto!important;padding:0!important;border:0!important;background:none}.cxw .cxt th{font-size:.9375rem;font-weight:600;line-height:1.3;color:var(--ink)}.cxw .cxt th small{font-size:.75rem;font-weight:400;line-height:1.35;color:var(--ink-3);margin-top:3px}.cxw .cxt td{text-align:right;max-width:48vw}.cxw .cxt td b{display:block;font-size:1.0625rem;font-weight:700;line-height:1.25;font-variant-numeric:tabular-nums}.cxw .cxt td small{font-size:.75rem;line-height:1.35;color:var(--ink-3);margin-top:3px}.cxw .cxt td .qbar{margin-left:auto}}"; document.head.appendChild(st); })();
 
 /* the Facts tab tables come from the start bundle; the comparison and tone are added here, for every row (2.11.2) */
 /* 2.12: the same distance can be good for one profile and bad for another. A hub airport 5 km away is an asset for a
@@ -1156,6 +1162,7 @@ function globalRankHTML(box) {
         var cc = t[0].split(':')[0], top = Math.max(0.1, 100 - t[3]);
         return '<li class="row" data-gopen="' + esc(t[0]) + '" tabindex="0"><span class="rk">' + (i + 1) + '</span><div><div class="nm">' + flagImg(cc) + ' ' + esc(t[1]) + '</div><div class="meta">' + esc(countryName(cc)) + ' · top ' + (top < 1 ? '1' : Math.round(top)) + '% in the country' + (t[4] != null ? ' · national level ' + t[4] + '% of the score' : '') + (t[7] ? ' · stands for ' + t[7] + ' more ranked place' + (t[7] > 1 ? 's' : '') + ' within 25 km' : '') + '</div></div><div class="right">' + scoreBadge(t[2]) + '</div></li>';
       }).join('') + '</ol>';
+    gscopePins(pr.top);
   }).catch(function () { if (GRANK) delete GRANK[sc]; box.innerHTML = '<div class="empty"><h3>The cross-country ranking did not load</h3><p>Check the connection and choose the scope again.</p></div>'; });
 }
 
@@ -1520,4 +1527,49 @@ function facilitiesHTML(r) {
     if (!near.length) return '<p class="small muted">None of the listed seaports, terminals, chemical parks, refineries, nuclear power stations or learning cities lies within 60 km.</p>';
     return '<ul class="fac">' + near.map(function (x) { var f = x[1]; return '<li class="k-' + f.kind + '"><span class="fi" aria-hidden="true">' + (IC[f.kind] || '•') + '</span><span><b>' + esc(f.name) + '</b><small>' + esc(f.label + (f.detail ? ', ' + f.detail : '')) + '. ' + (f.source ? '<a href="' + esc(f.source) + '" target="_blank" rel="noopener">' + esc(f.by) + '</a>' : esc(f.by)) + (f.period ? ' (' + esc(f.period) + ')' : '') + '</small></span><span class="km">' + fmt(x[0]) + ' km</span></li>'; }).join('') + '</ul><p class="small muted">' + esc(d.note || '') + ' Nuclear stations: so far the US operating list only; worldwide lists are being added.</p>';
   });
+}
+/* 2.15.3: clearer place pages. What decides the fit stays open; background sections fold into tap-to-open panels,
+   and inside "Costs and key figures" only the profile's key figures stay open. Nothing is removed: every figure is
+   one tap away. Runs on every place render (idempotent). */
+(function () {
+  if (window.NZ_TIDY) return; window.NZ_TIDY = 1;
+  var LESS = /^(How .+ has changed|Decision facts|The wider region at a glance|Getting around|Population trend)/i;
+  var st = document.createElement('style');
+  st.textContent = '#place details.sec-fold{border:1px solid var(--line);border-radius:14px;margin:10px 0;background:var(--surface)}#place details.sec-fold>summary{list-style:none;cursor:pointer;padding:13px 16px;font-weight:650;font-size:1rem;display:flex;justify-content:space-between;align-items:center;gap:10px}#place details.sec-fold>summary::-webkit-details-marker{display:none}#place details.sec-fold>summary::after{content:"+";font-size:1.25rem;color:var(--ink-3);line-height:1}#place details.sec-fold[open]>summary::after{content:"–"}#place details.sec-fold>.sec{padding:0 16px 12px;margin:0;border:0}#place details.sec-fold>.sec>h3:first-child{display:none}#place details.g-fold{border-top:1px solid var(--line);margin:4px 0}#place details.g-fold>summary{cursor:pointer;padding:10px 0;font-weight:600;font-size:.9375rem;color:var(--ink-2)}#place .pt-n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}#place .pt-n b{color:var(--ink);font-weight:700}#place .sec-more-h{font-size:.8125rem;color:var(--ink-3);margin:26px 0 4px}' +
+    '@media (max-width:899px){#place .cxt th{font-size:.9375rem;font-weight:600;line-height:1.3}#place .cxt th small{font-size:.75rem;font-weight:400;line-height:1.35}#place .cxt td{text-align:left!important;font-size:.8125rem;line-height:1.4}#place .cxt td b{font-size:1.0625rem}}';
+  document.head.appendChild(st);
+  var tidy = function () {
+    var root = document.getElementById('place'); if (!root || window.innerWidth >= 900) return;   // phones only: the desktop panel has room for everything
+    var secs = [].slice.call(root.querySelectorAll('section.sec')).filter(function (s) { return !s.closest('details.sec-fold') && !s.dataset.tidy; });
+    secs.forEach(function (s) { s.dataset.tidy = 1; var h = s.querySelector('h3'); if (!h) return; var t = h.textContent.trim();
+      if (LESS.test(t)) { var d = document.createElement('details'); d.className = 'sec-fold'; var sm = document.createElement('summary'); sm.textContent = t; d.appendChild(sm); s.parentNode.insertBefore(d, s); d.appendChild(s); }
+      if (/^Costs and key figures/i.test(t)) { [].slice.call(s.querySelectorAll('h4')).forEach(function (h4, i) { if (i === 0 || h4.closest('details')) return; var tb = h4.nextElementSibling; if (!tb || tb.tagName !== 'TABLE') return; var d = document.createElement('details'); d.className = 'g-fold'; var sm = document.createElement('summary'); sm.textContent = h4.textContent + ' (' + tb.querySelectorAll('tr').length + ')'; d.appendChild(sm); h4.parentNode.insertBefore(d, h4); h4.remove(); d.appendChild(tb); }); }
+    });
+  };
+  var pend = 0, mo = new MutationObserver(function () { if (pend) return; pend = 1; requestAnimationFrame(function () { pend = 0; mo.disconnect(); try { tidy(); } finally { var p = document.getElementById('place'); if (p) mo.observe(p, { childList: true, subtree: true }); } }); });
+  var start = function () { var p = document.getElementById('place'); if (!p) return setTimeout(start, 500); tidy(); mo.observe(p, { childList: true, subtree: true }); };
+  start();
+})();
+
+/* 2.15.3: a cross-country ranking also shows on the main map: every listed place in the scope, top 10 larger, map fitted to them */
+function gscopePins(top) {
+  var M = MAP; if (!M || !M.addSource) return;
+  if (!M._nzGs) { M._nzGs = 1; var off = function () { setTimeout(function () { if (S.gscope || !M.getLayer('gscope-c')) return; M.setLayoutProperty('gscope-c', 'visibility', 'none'); if (M.getLayer('gscope-l')) M.setLayoutProperty('gscope-l', 'visibility', 'none'); if (M._nzMinZ) M.setMinZoom(M._nzMinZ); }, 0); }; document.addEventListener('click', off, true); window.addEventListener('hashchange', off); }
+  var pts = top.filter(function (t) { return t[8] != null; }), fc = { type: 'FeatureCollection', features: pts.map(function (t, i) { return { type: 'Feature', properties: { id: t[0], rk: i + 1, name: t[1] }, geometry: { type: 'Point', coordinates: [t[9], t[8]] } }; }) };
+  var go = function () {
+    if (M.getSource('gscope')) M.getSource('gscope').setData(fc);
+    else { M.addSource('gscope', { type: 'geojson', data: fc }); M.addLayer({ id: 'gscope-c', type: 'circle', source: 'gscope', paint: { 'circle-radius': ['case', ['<=', ['get', 'rk'], 10], 8, 5], 'circle-color': ['case', ['<=', ['get', 'rk'], 10], '#f5c542', '#ffffff'], 'circle-stroke-color': '#0b1f3a', 'circle-stroke-width': 1.5 } });
+      M.on('click', 'gscope-c', function (e) { var f = e.features && e.features[0]; if (f) { var b = document.querySelector('[data-gopen="' + f.properties.id + '"]'); if (b) b.click(); } }); }
+    M.setLayoutProperty('gscope-c', 'visibility', 'visible');
+    // outlines of the other countries in the list, so the pins sit on a map (one small file per country; Europe is already drawn)
+    var ccs = {}; pts.forEach(function (t) { var c = t[0].split(':')[0]; if (c !== S.cc) ccs[c] = 1; });
+    Promise.all(Object.keys(ccs).map(function (c) { return getJSON('/data/geo/w/' + c + '.json?v=__VERSION__').catch(function () { return null; }); })).then(function (fs) {
+      if (!S.gscope) return; var land = { type: 'FeatureCollection', features: [] }; fs.forEach(function (fc) { if (fc && fc.features) land.features = land.features.concat(fc.features); });
+      if (M.getSource('gscope-land')) M.getSource('gscope-land').setData(land);
+      else { M.addSource('gscope-land', { type: 'geojson', data: land }); M.addLayer({ id: 'gscope-l', type: 'fill', source: 'gscope-land', paint: { 'fill-color': '#9fb6c8', 'fill-opacity': 0.28, 'fill-outline-color': '#6b8aa3' } }, 'gscope-c'); }
+      M.setLayoutProperty('gscope-l', 'visibility', 'visible');
+    });
+    if (pts.length) { var a = [180, 90, -180, -90]; pts.forEach(function (t) { a[0] = Math.min(a[0], t[9]); a[1] = Math.min(a[1], t[8]); a[2] = Math.max(a[2], t[9]); a[3] = Math.max(a[3], t[8]); }); var wide = window.innerWidth >= 900, pl = document.getElementById('place'), cr = M.getContainer().getBoundingClientRect(), prr = pl && pl.offsetWidth ? pl.getBoundingClientRect() : null, rp = prr && prr.left > cr.left && prr.left < cr.right ? cr.right - prr.left + 30 : 40, rl = document.querySelector('.rail'), rr = rl && rl.offsetWidth && wide ? rl.getBoundingClientRect() : null, lp = rr && rr.right > cr.left && rr.right < cr.right ? rr.right - cr.left + 30 : 40; if (lp + rp > cr.width - 160) { lp = 40; rp = 40; } if (!M._nzMinZ) M._nzMinZ = M.getMinZoom(); M.setMinZoom(0.5); setTimeout(function () { M.fitBounds([[a[0], a[1]], [a[2], a[3]]], { padding: { top: 60, bottom: wide ? 140 : 60, left: lp, right: rp }, duration: 700, maxZoom: 6 }); }, 350); }
+  };
+  if (M.isStyleLoaded && !M.isStyleLoaded()) M.once('idle', go); else go();
 }

@@ -47,7 +47,7 @@ walk('data'); walk('vendor'); walk('assets/flags');
 // build-time only (2.11): the app reads one rank file per region and never the national table or the combined list
 const BUILD_ONLY = new Set(['data/routes.json', 'data/rank/global.json', 'data/national.json']);
 for (let i = files.length - 1; i >= 0; i--) if (BUILD_ONLY.has(files[i])) files.splice(i, 1);
-files.push('assets/icon-192.png', 'assets/mark.svg', 'assets/more.js', 'assets/globe.js', 'assets/bizglobe.js', 'assets/fx.js', 'assets/nzx.js');
+files.push('assets/icon-192.png', 'assets/mark.svg', 'assets/more.js', 'assets/globe.js', 'assets/bizglobe.js', 'assets/fx.js', 'assets/nzx.js', 'assets/home.js');
 const pack = {};
 let raw = 0;
 const SITE = path.dirname(OUT), split = {};

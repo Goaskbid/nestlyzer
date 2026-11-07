@@ -219,7 +219,7 @@ function renderPlace() {
     data: allDataHTML(r)
   };
   var html =
-    '<div class="place-top"><button class="icon-btn" type="button" data-closeplace aria-label="Close place">' + ICON.back + '</button><span class="grow small muted">' + (ranked ? '#' + ranked.rank + ' of ' + fmtInt(RES.scored.length) + ' for ' + esc(p.name) : esc(p ? p.name : '')) + '</span>' + acts + '</div>' +
+    '<div class="place-top"><button class="icon-btn" type="button" data-closeplace aria-label="Close place">' + ICON.back + '</button><span class="grow small muted pt-n"><b>' + esc(r.name) + '</b> · ' + (ranked ? '#' + ranked.rank + ' · ' : '') + esc(p ? p.name : '') + '</span>' + acts + '</div>' +
     '<div class="scroll" id="placescroll"><div class="ph-hero" data-hero="' + esc(r.id) + '" data-postcard="' + esc(r.id) + '" data-w="480" data-h="240"><div class="shade"></div><button class="ph-count" type="button" data-ptab="photos" hidden>📷 <span></span></button><div class="ttl"><span class="ctry">' + flagImg(r.country, 12) + ' ' + esc(countryName(r.country)) + '</span><h2>' + esc(r.name) + '</h2>' + (r.latin ? '<div class="latin">' + esc(r.latin) + '</div>' : '') + '<div class="sub">' + esc(localAreaOf(r)) + ', ' + popLabel(r) + '</div></div></div>' +
     '<div class="pstrip" data-pstrip="' + esc(r.id) + '"></div>' +
     '<div class="pbody">' +

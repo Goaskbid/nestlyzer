@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Nestlyzer release from GitHub Codespaces (2.15.5).
+# Nestlyzer release from GitHub Codespaces (2.15.6).
 #
 # 1. Open the repository on github.com, press "Code", "Codespaces", "Create codespace on main".
 # 2. Drag nestlyzer-codespaces-<version>.zip from your computer into the file list on the left.

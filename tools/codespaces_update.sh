@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Nestlyzer small update from GitHub Codespaces (2.15.5). Carries only the changed files (a few MB instead of 76 MB).
+# Nestlyzer small update from GitHub Codespaces (2.15.6). Carries only the changed files (a few MB instead of 76 MB).
 #   unzip -oq "$(find /workspaces -name 'nestlyzer-update-*.zip' | head -1)" -d /tmp/nzu && bash /tmp/nzu/tools/codespaces_update.sh
 # Copies the files listed in UPDATE_FILES.txt over the repository, shows the change, asks once, commits ONLY those files
 # and pushes. Other files in the codespace (stray zips, a changed package-lock.json) are left alone and never committed.

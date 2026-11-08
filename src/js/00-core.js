@@ -359,7 +359,7 @@ function fromHash() {
   var h = location.hash || '';
   if (h.indexOf('#/explore') !== 0) return false;
   var p = new URLSearchParams(h.split('?')[1] || '');
-  S.cc = (p.get('cc') || 'CH').toUpperCase();
+  var sc0 = document.getElementById('start-country'); S.cc = (p.get('cc') || store('homecc') || (sc0 && sc0.value) || 'CH').toUpperCase();   // 2.15.6: no cc in the link means the visitor's country
   S.profile = p.get('p') || 'young_family';
   S.region = p.get('r') || 'ALL'; S.area = p.get('a') || 'ALL';
   S.layer = p.get('l') || 'score'; S.minConf = +p.get('conf') || 0; S.sort = p.get('sort') || 'score';

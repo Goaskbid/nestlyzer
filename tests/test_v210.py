@@ -216,7 +216,7 @@ with sync_playwright() as p:
     pg.click('[data-hmode="home"]'); pg.wait_for_timeout(600)
     vis2 = pg.evaluate("[!!document.querySelector('#profiles').offsetParent, !!document.querySelector('#business-sites').offsetParent]")
     check('modes', vis == [False, True, False] and vis2 == [True, False], f'business mode shows only business sections (household profiles {vis[0]}, business sites {vis[1]}), home mode the reverse {vis2}; the rankings band shows in both modes since 2.11')
-    check('start', rt == 4 and bz == 20 and nav, f'start page: {rt} world/continental ranking tiles, {bz} business profiles in their own section (13 + finance + 6 new in 2.12.1), Rankings in the menu')
+    check('start', rt == 4 and bz == 16 and nav, f'start page: {rt} world/continental ranking tiles, {bz} business profiles in their own section (16 after the 2.15.4 profile audit), Rankings in the menu')
     c.close()
 
     # ---- Phone (owner tests on iPhone): start button visible above Safari's address bar; nothing cut off on a place page ----

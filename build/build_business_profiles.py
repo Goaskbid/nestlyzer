@@ -503,6 +503,15 @@ def main():
     # 2.11.2 owner decision (delegated): the divorce rate says little about fit and is sensitive, so it is shown but never scored
     for f in meta['factors']:
         if f['id'] == 'divorce_rate_per_1000': f['not_scored'] = True; f['name'] = 'Divorce rate (shown, not scored)'
+    # 2.15.5 owner decision (8 Nov 2026): merge household profiles that weighted almost the same (96-99%). The survivor is
+    # renamed to cover both; the other stays in the config (saved links keep working) but is no longer offered or ranked.
+    HH_MERGE = {'single_parent': ('low_income_family', 'Single parent or low-income family'), 'young_professional': ('single', 'Single or young professional'),
+                'hnw': ('swiss_lottery', 'High-net-worth household'), 'pensioner': ('single_pensioner', 'Retirees (couple or single)')}
+    for keep, (gone, name) in HH_MERGE.items():
+        if keep in cfg['profiles']: cfg['profiles'][keep]['name'] = name
+    cfg['hhDormant'] = [g for g, _ in HH_MERGE.values()]
+    cfg['order'] = [k for k in cfg['order'] if k not in cfg['hhDormant']]
+    cfg['bizGroups'] = [[g, [k for k in ks if k not in cfg['bizDormant']]] for g, ks in cfg['bizGroups']]
     json.dump(meta, open(p, 'w'), separators=(',', ':'), ensure_ascii=False)
     swiss_campus_km(meta)
     print('business profiles', len(PROFILES), list(PROFILES))

@@ -82,6 +82,22 @@ def main():
         d = json.load(open(J('build/source', fn), encoding='utf-8'))
         for x in d['rows']:
             items.append({'name': x[0], 'cc': x[1], 'lat': x[2], 'lon': x[3], 'kind': kind, 'label': label, 'detail': '', 'by': by_, 'source': None, 'period': None})
+    # 2.15.5: special economic zones and freeports (08a, owner-approved). The source names the zone, not its boundary, so each is
+    # marked at the port or town it is named after (well-known coordinates), labelled as such, never as the zone outline.
+    ZP = {'East Midlands Freeport': (52.83, -1.33, 'East Midlands Airport'), 'Felixstowe and Harwich Freeport': (51.96, 1.35, 'Felixstowe'), 'Humber Freeport': (53.74, -0.33, 'Hull'),
+          'Liverpool City Region Freeport': (53.41, -2.99, 'Liverpool'), 'Plymouth and South Devon Freeport': (50.37, -4.14, 'Plymouth'), 'Solent Freeport': (50.90, -1.40, 'Southampton'),
+          'Teesside Freeport': (54.60, -1.16, 'Teesport'), 'Thames Freeport': (51.46, 0.36, 'Tilbury'), 'Inverness and Cromarty Firth Freeport': (57.69, -4.17, 'Invergordon'),
+          'Firth of Forth Freeport': (56.01, -3.72, 'Grangemouth'), 'Anglesey Freeport': (53.31, -4.63, 'Holyhead'), 'Port Talbot and Milford Haven Freeport': (51.59, -3.78, 'Port Talbot'),
+          'Foreign-Trade Zone 001 - New York': (40.70, -74.01, 'New York'), 'Foreign-Trade Zone 008 - Toledo': (41.65, -83.54, 'Toledo'),
+          'Ceuta qualifying corporate income rebate': (35.89, -5.32, 'Ceuta'), 'Melilla qualifying corporate income rebate': (35.29, -2.94, 'Melilla'), 'Zona Especial Canaria': (28.12, -15.43, 'Las Palmas')}
+    import csv as _csv
+    zf = J('build/source/deliveries/s8-20261107/08a_special_economic_zones.csv'); seen = set()
+    if os.path.exists(zf):
+        for r in _csv.DictReader(open(zf, encoding='utf-8')):
+            nm = r['regime_name']; k = next((z for z in ZP if nm.startswith(z[:30])), None)
+            if not k or k in seen or r.get('commercial_reuse_status') != 'permitted' or (r.get('hold_reason') or '').strip(): continue
+            seen.add(k); la, lo, at = ZP[k]
+            items.append({'name': nm, 'cc': r['nestlyzer_country_code'] or r['country_code'], 'lat': la, 'lon': lo, 'kind': 'zone', 'label': 'Special economic zone or freeport (marked at ' + at + ', not its outline)', 'detail': (r.get('benefit_summary') or '')[:140], 'by': r.get('source_name') or 'official source', 'source': r.get('source_url') or None, 'period': r.get('reference_period') or None})
     cnt = collections.Counter(i['kind'] for i in items)
     json.dump({'version': 1, 'note': 'Points of reference only, not a hazard or safety assessment. Locations are rounded.', 'counts': cnt, 'items': items}, open(J('data/facilities.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
     os.makedirs(J('docs/audit'), exist_ok=True)

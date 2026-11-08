@@ -60,7 +60,7 @@ function probit(p) { const a = [-39.69683028665376, 220.9460984245205, -275.9285
    lowered the published-ranking benchmark (fDi, EIU). The z scale stays as in 2.12. */
 const LCAP = +(process.env.NZ_LCAP || 0.0001), LSD = +(process.env.NZ_LSD || 18), LZ = (p) => 50 + LSD * probit(Math.min(1 - LCAP, Math.max(LCAP, p)));
 const BOUND = (x) => 50 + 50 * Math.tanh((x - 50) / 50);
-const dormant = new Set(meta.config.bizDormant || []);
+const dormant = new Set([...(meta.config.bizDormant || []), ...(meta.config.hhDormant || [])]);
 const profiles = Object.entries(meta.config.profiles).filter(([k, p]) => p.weights && k !== 'self_fit' && k !== 'swiss_lottery' && !dormant.has(k));
 const rows = {}, CTRY = {}, DEPTH = {}, XY = {};
 const ABSCAT0 = { outdoor: 1, border: 1, finhub: 1, insurhub: 1, fundhub: 1, commodhub: 1, cryptohub: 1, wealthhub: 1, reach300: 1, portaccess: 1, chempark: 1, freight: 1, reach: 1, flatland: 1, climate: 1, services: 1, coast: 1 };   // profile -> [{id, name, cc, cont, pop, cats}]

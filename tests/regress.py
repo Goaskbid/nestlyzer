@@ -935,7 +935,7 @@ async def main():
             await q.click('.scope-bar [data-filters]'); await q.wait_for_timeout(300)
             await q.mouse.click(200, 60); await q.wait_for_timeout(300); tapout = await q.is_hidden('#filterpanel')
             await ctx.close()
-            ok = groups >= 20 and mclosed and 'Pensioner' in pill and top and fclosed and still and tapout
+            ok = groups >= 20 and mclosed and ('Pensioner' in pill or 'Retirees' in pill) and top and fclosed and still and tapout
             rec('R65', 'Phone: profile picker sheet; filter sheet sits on top and is usable; Back closes the sheet instead of leaving the page; a tap outside closes it', ok, f'profiles in picker={groups}, picker closed={mclosed}, pill="{pill}", sheet on top={top}, back closed={fclosed}, still exploring={still}, tap outside closed={tapout}')
         await check('R65', 'Phone sheets and back button', r65)
 

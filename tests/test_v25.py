@@ -134,7 +134,7 @@ def main():
             pg.click('[data-whomore]')
             pg.wait_for_function("document.querySelectorAll('#who-more [data-who]').length > 0 && !document.querySelector('#who-more').hidden", timeout=15000)
             more = pg.locator('#who-more [data-who]').count()
-            check(pg.locator('#who-more').is_visible() and more == 22, f'{name}: "More households" opens {more} more (30 in total; Retiring abroad new in 2.15)')
+            check(pg.locator('#who-more').is_visible() and more == 19, f'{name}: "More households" opens {more} more (26 in total, 7 shown first: 4 near-duplicates merged in 2.15.5)')
             pg.click('#who-more [data-who="dinks"]')
             href = pg.get_attribute('[data-start="go"]', 'href')
             check('p=dinks' in href and pg.locator('.who [aria-pressed="true"]').count() == 1, f'{name}: picking DINKS sets the start link ({href})')

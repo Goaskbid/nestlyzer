@@ -73,7 +73,7 @@ with sync_playwright() as p:
     check(diff(a, a2) > 0.3, f'globe turns (picture changes over 1.2 s: {diff(a, a2):.2f})')
     pg.click('.who [data-who="pensioner"]'); pg.wait_for_timeout(1500)
     cap = pg.inner_text('#cine-prof')
-    check(cap == 'pensioner couple', f'legend follows the household: "{cap}"')
+    check(cap in ('pensioner couple', 'retirees (couple or single)'), f'legend follows the household: "{cap}"')
     pg.click('.who [data-whomore]'); pg.wait_for_timeout(1500)
     more = pg.eval_on_selector_all('#who-more [data-who]', 'e => e.map(x => x.dataset.who)')
     check('business_owner' in more and 'digital_native' in more, f'More households lists Business owner and Digital native ({len(more)} households)')

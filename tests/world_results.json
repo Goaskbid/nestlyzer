@@ -7,7 +7,7 @@
  {
   "id": "metro",
   "ok": true,
-  "check": "one entry per metro area: 0 listed pairs closer than 25 km across 45 world lists"
+  "check": "one entry per metro area: 0 listed pairs closer than 25 km across 42 world lists"
  },
  {
   "id": "scopes",
@@ -27,7 +27,7 @@
  {
   "id": "benchmark",
   "ok": true,
-  "check": "documented hubs found (top 100 metros, and half of them within the top 10% of all metros): biz_hq 13/17 (top 3.1%), biz_tech 15/18 (top 1.9%), expat_professional 10/15 (top 1.4%), student 7/16 (top 10.2%), pensioner 4/17 (top 6.3%), remote 2/16 (top 4.0%), hnw 4/13 (top 10.3%), sun_retiree 5/17 (top 2.0%)"
+  "check": "documented hubs found (top 100 metros, and half of them within the top 10% of all metros): biz_hq 13/17 (top 3.1%), biz_tech 15/18 (top 1.3%), expat_professional 10/15 (top 1.4%), student 7/16 (top 10.2%), pensioner 4/17 (top 6.3%), remote 2/16 (top 4.0%), hnw 4/13 (top 10.3%), sun_retiree 5/17 (top 2.0%)"
  },
  {
   "id": "desktop-load",

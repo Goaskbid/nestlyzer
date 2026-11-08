@@ -16,7 +16,7 @@ const topojson = require('topojson-client');
 const Engine = require(path.join(ROOT, 'src/engine.js'));
 const NestData = require(path.join(ROOT, 'src/data.js'));
 
-const VERSION = process.env.NZ_VERSION || '2.15.4';
+const VERSION = process.env.NZ_VERSION || '2.15.5';
 const SITE = 'https://nestlyzer.com';
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
 /* Static pages: emoji in text become our inline line icons at build time (2.10.1); the app swaps the rest at run time. */
@@ -59,7 +59,7 @@ for (const c of countries) {
   if (sh.world && sh.world.whole) { const wh = new Set(sh.world.whole.map(String)); all.forEach((r) => { if (wh.has(String(r.oid))) r.whole = true; }); }
   SH[c.cc] = { sh, recs: all.filter((r) => !r.superseded), capital: xs && xs.capital };
 }
-const profiles = cfg.order.filter((k) => engine.profiles[k]);
+const profiles = [...cfg.order, ...(cfg.hhDormant || []).filter((k) => k === 'single')].filter((k) => engine.profiles[k]);   // 2.15.5: 'single' was merged but its country pages stay (their URLs are indexed)
 const WORLD = cfg.worldCountries || [];
 const CONTINENTS = [['North America', ['CA', 'MX', 'US']], ['Central America', ['CR', 'PA']], ['South America', ['AR', 'BR', 'CL', 'CO', 'UY']], ['Asia', ['CN', 'HK', 'IN', 'ID', 'JP', 'KZ', 'MY', 'PH', 'KR', 'SG', 'TW', 'TH', 'VN']], ['Oceania', ['AU', 'NZ']], ['Middle East', ['IL', 'QA', 'SA', 'AE']], ['Africa', ['EG', 'MA', 'ZA']]];
 function countryGroupsB() {

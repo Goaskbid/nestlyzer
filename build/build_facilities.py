@@ -78,6 +78,23 @@ def main():
     for it in items:
         if it['kind'] == 'nuclear':
             n = it.pop('n', 1); it['detail'] = (str(n) + ' reactor units, ' if n > 1 else '1 reactor unit, ') + it['detail']
+    # 2.15.8: worldwide nuclear power plants from the WRI Global Power Plant Database (CC BY 4.0, release snapshot 2021).
+    # IAEA PRIS itself is not openly licensed for commercial reuse, so the open WRI roster is used. Sites already present
+    # (US NRC roster) within 8 km are not doubled. Germany ended nuclear power in April 2023 and Taiwan in May 2025: marked shut down.
+    import csv as _c, math as _m
+    I3 = dict(USA='US', FRA='FR', JPN='JP', CHN='CN', RUS='RU', IND='IN', GBR='GB', DEU='DE', CAN='CA', KOR='KR', ESP='ES', CHE='CH', UKR='UA', ARG='AR', BEL='BE',
+              SWE='SE', TWN='TW', BRA='BR', CZE='CZ', FIN='FI', PAK='PK', SVK='SK', ARM='AM', BGR='BG', HUN='HU', IRN='IR', MEX='MX', NLD='NL', ROU='RO', SVN='SI', ZAF='ZA')
+    SHUT = {'DE': 'shut down since April 2023 (German nuclear exit)', 'TW': 'shut down since May 2025 (Taiwan nuclear exit)'}
+    have = [(x['lat'], x['lon']) for x in items if x['kind'] == 'nuclear']
+    near = lambda a, b: any(abs(a - y) < 0.08 and abs(b - x) < 0.11 for y, x in have)
+    for r in _c.DictReader(open(J('build/source/wri_gppd_nuclear.csv'), encoding='utf-8')):
+        la, lo = float(r['latitude']), float(r['longitude'])
+        if near(la, lo): continue
+        cc = I3.get(r['country'], r['country']); mw = round(float(r['capacity_mw'] or 0))
+        det = (f'{mw:,} MW' if mw else '') + ('; ' + SHUT[cc] if cc in SHUT else '')
+        items.append({'name': r['name'].replace(' Nuclear Power Plant', '').strip(), 'cc': cc, 'lat': round(la, 4), 'lon': round(lo, 4), 'kind': 'nuclear', 'label': 'Nuclear power plant', 'detail': det,
+                      'by': 'World Resources Institute, Global Power Plant Database (CC BY 4.0)', 'source': 'https://datasets.wri.org/dataset/globalpowerplantdatabase', 'period': '2021'})
+        have.append((la, lo))
     for fn, kind, label, by_ in (('chem_parks.json', 'chemical', 'Chemical park or refinery complex', 'Nestlyzer compilation of major chemical parks'), ('major_seaports.json', 'seaport', 'Major seaport', 'Nestlyzer compilation of major seaports')):
         d = json.load(open(J('build/source', fn), encoding='utf-8'))
         for x in d['rows']:

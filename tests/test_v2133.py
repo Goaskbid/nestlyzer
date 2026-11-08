@@ -17,7 +17,8 @@ check('notice-pages', not miss and len(pages) >= 4, f'advice notice at the top o
 lg = rd('legal/index.html')
 check('legal', all(k in lg for k in ['Art. 100', 'Fixed standard profiles', 'No entitlement or eligibility', 'Tax figures are standard cases', 'No adviser relationship', 'injury to life, body or health']), 'legal page: no-advice disclaimer, eligibility, tax standard cases, liability within the law (Art. 100 CO)')
 sb = rd('data/start_biz.html'); sets = re.findall(r'data-rankp="([a-z_]+)"', sb)
-check('biz-sets', len(sets) >= 20 and 'biz_logistics' in sets and len(set(sets)) == len(sets), f'start page business rankings: {len(sets)} kinds of site, one set each (no longer logistics only)')
+# 2.15.6 owner decision: 12 overlapping B2B kinds merged into others, so 16 kinds and about 420 world top-ten cases are the intended counts
+check('biz-sets', len(sets) >= 16 and 'biz_logistics' in sets and len(set(sets)) == len(sets), f'start page business rankings: {len(sets)} kinds of site, one set each (no longer logistics only)')
 over = []; order = []
 for sc in ['world', 'europe', 'americas', 'asia_pacific']:
     d = json.load(open(os.path.join(ROOT, 'data/rank', sc + '.json')))
@@ -30,7 +31,7 @@ out = tempfile.mktemp(suffix='.json')
 r = subprocess.run(['node', os.path.join(ROOT, 'tests/explain_audit.cjs'), ROOT, out], capture_output=True, text=True, timeout=600)
 A = json.load(open(out)) if r.returncode == 0 else {}
 e = A.get('explanations', {}); g = A.get('global_rank', {})
-check('reasons', e.get('cases', 0) >= 500 and e.get('duplicate_side') == 0 and e.get('both_sides') == 0, f"owner's audit harness: {e.get('cases')} world top-ten explanations, {e.get('duplicate_side')} repeat a reason, {e.get('both_sides')} show one on both sides")
+check('reasons', e.get('cases', 0) >= 400 and e.get('duplicate_side') == 0 and e.get('both_sides') == 0, f"owner's audit harness: {e.get('cases')} world top-ten explanations, {e.get('duplicate_side')} repeat a reason, {e.get('both_sides')} show one on both sides")
 check('audit-100', g and all(v['above100'] == 0 for v in g.values()), "owner's audit harness: no world score above 100 in any scope")
 with sync_playwright() as pw:
     br = pw.chromium.launch(); cx = br.new_context(viewport={'width': 1400, 'height': 900}); cx.add_init_script("""try{localStorage.setItem('nz:consent2', JSON.stringify({v:2,a:false,d:false,t:1}));localStorage.setItem('nz:toured','1')}catch(e){}"""); pg = cx.new_page()

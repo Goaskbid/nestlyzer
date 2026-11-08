@@ -21,9 +21,9 @@ function factFor(h, r, f) {
   const v = r.factorRaw && r.factorRaw[f.id]; if (typeof v !== 'number' || !Number.isFinite(v)) return null;
   const bc = f.by_country && f.by_country[r.country], lv = (r.factorLevel && r.factorLevel[f.id]) || 0;
   // 2.15 (audit 2): no invented metadata. A missing source, period or unit stays missing and is shown as such.
-  const srcURL = bc ? bc.source_url : f.source_url, srcName = bc ? bc.source_name : f.source_name, per0 = bc ? (bc.period || f.source_period) : f.source_period;
+  const srcURL = bc ? (bc.source_url || bc.url) : f.source_url, srcName = bc ? bc.source_name : f.source_name, per0 = bc ? (bc.period || f.source_period) : f.source_period;
   const period = per0 && !/var(y|ies)|unknown/i.test(String(per0)) ? String(per0) : null;
-  return { value: v, unit: f.unit || null, metric: f.id, definitionId: f.id, geographicSupport: LV[lv] || 'this place', statistic: 'value as published', scenario: 'as published',
+  return { value: v, unit: (bc && bc.unit) || f.unit || null, metric: f.id, definitionId: f.id, geographicSupport: LV[lv] || 'this place', statistic: 'value as published', scenario: 'as published',
     methodVersion: 'nestlyzer-' + h.version, source: safeURL(srcURL || ''), sourceName: srcName || 'source not recorded', period, status: /suppress|withdraw|held|censor/i.test(String((bc && bc.status) || f.status || '')) ? 'suppressed' : 'value', level: lv };
 }
 function scoreFact(h, x) {

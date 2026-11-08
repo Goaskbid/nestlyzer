@@ -1,12 +1,12 @@
 {
- "version": "2.15.3",
+ "version": "2.15.4",
  "places_ranked": 145595,
  "countries": 63,
  "residents": 3043063477,
  "official_measures": 210,
  "all_measures": 279,
  "household_profiles": 30,
- "business_profiles": 20,
+ "business_profiles": 16,
  "by_depth": {
   "partial": 6,
   "foundation": 23,

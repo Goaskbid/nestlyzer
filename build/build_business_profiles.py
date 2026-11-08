@@ -286,8 +286,14 @@ def main():
     small = ['biz_shop', 'biz_cafe', 'biz_workshop', 'biz_practice', 'biz_studio', 'biz_startup', 'biz_guesthouse']
     # company sites grouped like GICS sectors; small businesses stay together
     # small-business profiles are dormant (owner decision 24 Oct): kept in the config so links keep working, not offered
-    cfg['bizDormant'] = small
-    cfg['bizOrder'] = [k for k in cfg['bizOrder'] if k not in small]
+    # 2.15.4 profile audit (owner request 8 Nov: hide redundant company profiles): finance sub-types scored almost the same
+    # as "Financial services office" (bank 1.00, sovereign fund 0.97, broker 0.93 weight similarity) and are folded into it;
+    # contact centre into shared-service centre (0.94), fulfilment into logistics, food processing into manufacturing,
+    # aerospace into semiconductor and electronics (0.95). Kept in the config so saved links keep working, not offered.
+    merged = ['biz_bank', 'biz_wealth', 'biz_broker', 'biz_insurer', 'biz_fund', 'biz_commodity', 'biz_crypto', 'biz_swf',
+              'biz_contact_center', 'biz_fulfilment', 'biz_food_processing', 'biz_aero']
+    cfg['bizDormant'] = small + merged
+    cfg['bizOrder'] = [k for k in cfg['bizOrder'] if k not in cfg['bizDormant']]
     # the site types companies relocate or open most often (fDi Markets project counts by activity, CBRE/JLL industrial and
     # office demand): offered first on the start card; the others stay one click away under "More business types"
     # countries without any motorway / railway in the source map (nearest one more than 40 km from every place)

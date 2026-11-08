@@ -1,0 +1,20 @@
+{
+ "decision": "Owner batch publication approval",
+ "by": "site owner (Anton Sauter)",
+ "date": "2026-11-08",
+ "statement": "Publish the data I send you (owner instruction in the Nestlyzer build conversation, 7 Nov 2026, repeated 8 Nov 2026).",
+ "scope_note": "Applies only to rows that also carry commercial_reuse_status=permitted and no hold_reason. Rows are shown as context with their conditions and source; nothing enters a score.",
+ "files": [
+  "08a_special_economic_zones.csv",
+  "08b_patent_boxes.csv",
+  "08c_canton_tax_regimes.csv",
+  "08d_subsidies.csv",
+  "08e_immigration_routes.csv",
+  "05_districts_berlin.csv",
+  "05_districts_hamburg.csv",
+  "05_districts_paris.csv",
+  "05_districts_vienna.csv",
+  "05_districts_barcelona.csv",
+  "03_local_SG.csv"
+ ]
+}

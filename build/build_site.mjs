@@ -16,7 +16,7 @@ const topojson = require('topojson-client');
 const Engine = require(path.join(ROOT, 'src/engine.js'));
 const NestData = require(path.join(ROOT, 'src/data.js'));
 
-const VERSION = process.env.NZ_VERSION || '2.15.3';
+const VERSION = process.env.NZ_VERSION || '2.15.4';
 const SITE = 'https://nestlyzer.com';
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
 /* Static pages: emoji in text become our inline line icons at build time (2.10.1); the app swaps the rest at run time. */
@@ -1018,7 +1018,7 @@ if (!FAST) for (const c of countries) {
 write('assets/site.css', B.siteCss);
 // clean previously generated page folders
 if (!FAST) {
-const GEN_ROOTS = new Set([...countries.map((c) => cslug(c.cc)), 'best', 'method', 'legal', 'incentives', 'districts']);
+const GEN_ROOTS = new Set([...countries.map((c) => cslug(c.cc)), 'best', 'method', 'legal', 'incentives', 'districts', 'immigration']);
 for (const d of GEN_ROOTS) fs.rmSync(path.join(ROOT, d), { recursive: true, force: true });
 SITEMAP.length = 0; SITEMAP.push('/');
 methodPage(); legalPage(); aboutPage();

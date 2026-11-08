@@ -1079,7 +1079,7 @@ function profTone(r, k) {
   if (k === 'border' && w.border > 0 && fin(cats.border)) return cats.border >= 60 ? ['good', 'a short way to the border'] : cats.border <= 30 ? ['bad', 'far from the border'] : null;
   var nk = PK_NZ[k]; if (!nk || !(p.avoid || []).length || p.avoid.indexOf(nk) < 0) return null;
   var nz = ENGINE.nuisances(r, [nk]), hit = nz && nz.hits[0];
-  if (hit && hit.pen >= 30) return ['bad', (nk === 'steep' ? 'steep terrain' : 'close enough to hear') + ': a drawback for ' + who];
+  if (hit && hit.pen >= 30) return ['bad', (nk === 'steep' ? 'steep terrain' : 'close by (distance only, not a noise measurement)') + ': a drawback for ' + who];
   if (nz && !hit) return ['good', (nk === 'steep' ? 'gentle terrain' : 'far enough to be quiet') + ': good for ' + who];
   return null;
 }
@@ -1519,12 +1519,13 @@ var FAC = null;
 function facKm(a, b, c, d) { var R = 6371, x = (c - a) * Math.PI / 180, y = (d - b) * Math.PI / 180, h = Math.sin(x / 2) * Math.sin(x / 2) + Math.cos(a * Math.PI / 180) * Math.cos(c * Math.PI / 180) * Math.sin(y / 2) * Math.sin(y / 2); return 2 * R * Math.asin(Math.sqrt(h)); }
 function facilitiesHTML(r) {
   if (!document.getElementById('fac-css')) { var st = document.createElement('style'); st.id = 'fac-css'; st.textContent = '.fac{list-style:none;margin:0;padding:0;display:grid;gap:6px}.fac li{display:grid;grid-template-columns:30px 1fr auto;gap:10px;align-items:center;padding:8px 10px;border:1px solid var(--line,#e2e8f0);border-radius:10px;background:var(--card,#fff)}.fac .fi{font-size:18px;line-height:1;text-align:center}.fac b{display:block;font-weight:600}.fac small{color:var(--muted,#64748b)}.fac .km{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}.fac li.k-nuclear{border-left:3px solid #d97706}.fac li.k-chemical{border-left:3px solid #b91c1c}.fac li.k-seaport{border-left:3px solid #0369a1}.fac li.k-terminal{border-left:3px solid #4d7c0f}.fac li.k-learning{border-left:3px solid #7c3aed}'; document.head.appendChild(st); }
-  if (!Number.isFinite(r.lat)) return Promise.resolve('<p class="small muted">No location recorded for this place.</p>');
-  FAC = FAC || getJSON('/data/facilities.json?v=__VERSION__').catch(function () { FAC = null; return { items: [] }; });
+  if (!Number.isFinite(r.lat) || !Number.isFinite(r.lon)) return Promise.resolve('<p class="small muted">No usable location recorded for this place.</p>');
+  FAC = FAC || getJSON('/data/facilities.json?v=__VERSION__').catch(function () { FAC = null; return null; });
   return FAC.then(function (d) {
+    if (!d || !Array.isArray(d.items)) { FAC = null; return '<p class="small muted" role="status">Facility data could not be loaded. Reopen this place to retry. No conclusion about nearby facilities can be drawn.</p>'; }
     var IC = { nuclear: '⚡', chemical: '🏭', seaport: '⚓', terminal: '🚆', learning: '🎓' };
     var near = d.items.map(function (f) { return [facKm(r.lat, r.lon, f.lat, f.lon), f]; }).filter(function (x) { return x[0] <= 60; }).sort(function (a, b) { return a[0] - b[0]; }).slice(0, 12);
-    if (!near.length) return '<p class="small muted">None of the listed seaports, terminals, chemical parks, refineries, nuclear power stations or learning cities lies within 60 km.</p>';
+    if (!near.length) return '<p class="small muted">No matching reference points were returned within 60 km from this partial inventory. Coverage is incomplete; this is not evidence that no facilities exist. The nuclear layer currently covers the US operating list only.</p>';
     return '<ul class="fac">' + near.map(function (x) { var f = x[1]; return '<li class="k-' + f.kind + '"><span class="fi" aria-hidden="true">' + (IC[f.kind] || '•') + '</span><span><b>' + esc(f.name) + '</b><small>' + esc(f.label + (f.detail ? ', ' + f.detail : '')) + '. ' + (f.source ? '<a href="' + esc(f.source) + '" target="_blank" rel="noopener">' + esc(f.by) + '</a>' : esc(f.by)) + (f.period ? ' (' + esc(f.period) + ')' : '') + '</small></span><span class="km">' + fmt(x[0]) + ' km</span></li>'; }).join('') + '</ul><p class="small muted">' + esc(d.note || '') + ' Nuclear stations: so far the US operating list only; worldwide lists are being added.</p>';
   });
 }

@@ -53,11 +53,14 @@ function climateFor(r) {
   if (!fin(r.lat)) return Promise.resolve(null);
   var url = 'https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M_MAX,T2M_MIN,PRECTOTCORR,ALLSKY_SFC_SW_DWN&community=RE&longitude=' + r.lon.toFixed(3) + '&latitude=' + r.lat.toFixed(3) + '&format=JSON';
   CLIMATE[r.id] = jget(url).then(function (j) {
-    var P = j && j.properties && j.properties.parameter; if (!P || !P.T2M_MAX) return null;
+    var P = j && j.properties && j.properties.parameter; if (!P || !P.T2M_MAX || !P.T2M_MIN || !P.PRECTOTCORR) { delete CLIMATE[r.id]; return null; }
     var M = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'], days = [31, 28.25, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     var hi = M.map(function (m) { return P.T2M_MAX[m]; }), lo = M.map(function (m) { return P.T2M_MIN[m]; }), rain = M.map(function (m, i) { return P.PRECTOTCORR[m] * days[i]; }), sun = M.map(function (m) { return P.ALLSKY_SFC_SW_DWN ? P.ALLSKY_SFC_SW_DWN[m] : null; });
-    if (!hi.every(fin)) return null;
-    return { hi: hi, lo: lo, rain: rain, sun: sun, year: rain.reduce(function (a, b) { return a + b; }, 0), sunAnn: P.ALLSKY_SFC_SW_DWN ? P.ALLSKY_SFC_SW_DWN.ANN : null };
+    var fill = j.header && Number(j.header.fill_value);
+    var usable = function (v) { return fin(v) && v !== fill && v !== -999; };
+    if (!hi.every(usable) || !lo.every(usable) || !rain.every(function (v) { return usable(v) && v >= 0; })) { delete CLIMATE[r.id]; return null; }
+    sun = sun.map(function (v) { return usable(v) && v >= 0 ? v : null; });
+    return { hi: hi, lo: lo, rain: rain, sun: sun, year: rain.reduce(function (a, b) { return a + b; }, 0), sunAnn: P.ALLSKY_SFC_SW_DWN && usable(P.ALLSKY_SFC_SW_DWN.ANN) ? P.ALLSKY_SFC_SW_DWN.ANN : null };
   }).catch(function () { delete CLIMATE[r.id]; return null; });
   return CLIMATE[r.id];
 }

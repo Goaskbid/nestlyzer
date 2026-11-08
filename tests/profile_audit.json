@@ -1,5 +1,5 @@
 {
- "checked": 456,
+ "checked": 360,
  "issues": [
   {
    "p": "young_family",
@@ -134,18 +134,6 @@
    "msg": "safety (16% of the weight) averages 58 in the top 10"
   },
   {
-   "p": "biz_wealth",
-   "cc": "DE",
-   "kind": "core-mean",
-   "msg": "wealthhub (35% of the weight) averages 53 in the top 10"
-  },
-  {
-   "p": "biz_commodity",
-   "cc": "DE",
-   "kind": "core-mean",
-   "msg": "commodhub (39% of the weight) averages 57 in the top 10"
-  },
-  {
    "p": "low_income_family",
    "cc": "FR",
    "kind": "core-mean",
@@ -162,12 +150,6 @@
    "cc": "FR",
    "kind": "core-weak",
    "msg": "safety: 1 of the top 10 under 40: Saint-Étienne 36"
-  },
-  {
-   "p": "biz_crypto",
-   "cc": "FR",
-   "kind": "thin",
-   "msg": "only 0 places pass"
   },
   {
    "p": "biz_clinic",
@@ -210,18 +192,6 @@
    "cc": "IT",
    "kind": "core-weak",
    "msg": "chempark: 1 of the top 10 under 40: Napoli 0"
-  },
-  {
-   "p": "biz_commodity",
-   "cc": "IT",
-   "kind": "core-mean",
-   "msg": "commodhub (39% of the weight) averages 54 in the top 10"
-  },
-  {
-   "p": "biz_crypto",
-   "cc": "IT",
-   "kind": "thin",
-   "msg": "only 0 places pass"
   },
   {
    "p": "biz_hq",
@@ -290,18 +260,6 @@
    "msg": "safety (18% of the weight) averages 58 in the top 10"
   },
   {
-   "p": "biz_wealth",
-   "cc": "NL",
-   "kind": "thin",
-   "msg": "only 0 places pass"
-  },
-  {
-   "p": "biz_insurer",
-   "cc": "NL",
-   "kind": "thin",
-   "msg": "only 1 places pass"
-  },
-  {
    "p": "outdoor",
    "cc": "NL",
    "kind": "core-mean",
@@ -324,24 +282,6 @@
    "cc": "ES",
    "kind": "core-mean",
    "msg": "affordability (16% of the weight) averages 57 in the top 10"
-  },
-  {
-   "p": "biz_wealth",
-   "cc": "ES",
-   "kind": "thin",
-   "msg": "only 0 places pass"
-  },
-  {
-   "p": "biz_commodity",
-   "cc": "ES",
-   "kind": "thin",
-   "msg": "only 0 places pass"
-  },
-  {
-   "p": "biz_crypto",
-   "cc": "ES",
-   "kind": "thin",
-   "msg": "only 0 places pass"
   },
   {
    "p": "young_family",

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Nestlyzer small update from GitHub Codespaces (2.15.3). Carries only the changed files (a few MB instead of 76 MB).
+# Nestlyzer small update from GitHub Codespaces (2.15.4). Carries only the changed files (a few MB instead of 76 MB).
 #   unzip -oq "$(find /workspaces -name 'nestlyzer-update-*.zip' | head -1)" -d /tmp/nzu && bash /tmp/nzu/tools/codespaces_update.sh
 # Copies the files listed in UPDATE_FILES.txt over the repository, shows the change, asks once, commits ONLY those files
 # and pushes. Other files in the codespace (stray zips, a changed package-lock.json) are left alone and never committed.
@@ -16,6 +16,14 @@ CUR=$(python3 -c "import json;print(json.load(open('package.json'))['version'])"
 BASE=$(cat "$REL/UPDATE_BASE.txt")
 if [ "$CUR" = "$VER" ]; then echo "Nestlyzer $VER is already in the repository. Nothing to do."; exit 0; fi
 case " $BASE " in *" $CUR "*) ;; *) echo "Stopped: this update needs Nestlyzer $BASE in the repository, found $CUR. Nothing was changed."; exit 1;; esac
+# 2.15.4 (audit 3): never overwrite work. Stop if any tracked file has unsaved changes, or if an untracked file sits
+# where the update would write. Stray zips elsewhere are fine. Then check the files this update builds on are present.
+MOD=$(git status --porcelain --untracked-files=no | grep -v 'package-lock.json' || true)
+if [ -n "$MOD" ]; then echo "Stopped: these files have unsaved changes and would be overwritten. Nothing was changed."; echo "$MOD" | head -15 | sed 's/^/   /'; echo "   To discard them: git checkout -- .   then run this again."; exit 1; fi
+UNT=$(git ls-files --others --exclude-standard | grep -x -F -f "$REL/UPDATE_FILES.txt" || true)
+if [ -n "$UNT" ]; then echo "Stopped: these files exist in the codespace but not in the repository, and the update would overwrite them:"; echo "$UNT" | head -15 | sed 's/^/   /'; echo "Nothing was changed."; exit 1; fi
+if [ -f "$REL/UPDATE_REQUIRES.txt" ]; then MISS=""; while IFS= read -r f; do [ -n "$f" ] && [ ! -e "$f" ] && MISS="$MISS $f"; done < "$REL/UPDATE_REQUIRES.txt"; [ -z "$MISS" ] || { echo "Stopped: this repository is missing files the update builds on:$MISS. Nothing was changed."; exit 1; }; fi
+git checkout -q -- package-lock.json 2>/dev/null || true
 N=$(grep -c . "$REL/UPDATE_FILES.txt")
 echo "Nestlyzer $CUR -> $VER: $N files"
 read -r -p "Copy them, commit and push now? [y/N] " ok

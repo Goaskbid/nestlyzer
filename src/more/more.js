@@ -838,9 +838,10 @@ function housingWorkHTML(r, traceOnly) {
   var c = cxRows(r); if (!c || !c.items.length) return traceOnly ? null : '';
   var biz = isBizKey(S.profile), it = c.items;
   // 2.15.3: one row for a household-type figure that is the same for every household type (was repeated up to 8 times)
+  var MERGED = {};
   (function () { var seen = {}, out = []; it.forEach(function (b) { var o = b.last, d = o.dimensions || {}; if (!d.scenario) { out.push(b); return; }
     var k = o.indicator_id + '|' + o.unit + '|' + o.reference_period + '|' + Math.round(o.value * 100);
-    if (seen[k]) { seen[k].n++; return; } var o2 = Object.assign({}, o), b2 = Object.assign({}, b, { last: o2 }); seen[k] = { b: b2, n: 1 }; out.push(b2); });
+    if (seen[k]) { seen[k].n++; MERGED[o.record_id] = 1; return; } var o2 = Object.assign({}, o), b2 = Object.assign({}, b, { last: o2 }); seen[k] = { b: b2, n: 1 }; out.push(b2); });
     Object.keys(seen).forEach(function (k) { if (seen[k].n > 1) seen[k].b.last.sameN = seen[k].n; }); it = out; })();
   var pick = function (re, n, sortBy) { var a = it.filter(function (b) { return re.test(b.last.indicator_id); }); if (sortBy) a.sort(sortBy); return a; };
   var local = function (b) { var l = b.last.source_geo_level; return l === 'country' || l === 'country_scenario' ? 1 : l === 'multicountry_aggregate' ? 2 : 0; };
@@ -919,7 +920,7 @@ function housingWorkHTML(r, traceOnly) {
     c.all.forEach(function (o) {
       var id = o.record_id, st = on[id], k = kOf(o);
       if (st) { T[st].push(id); return; }
-      T.dropped[id] = !cxTotal(o) ? 'BREAKDOWN_TOTAL_SHOWN' : o.value == null ? 'NOT_TYPED' : /^(adjustment|correction)s?$/i.test(o.label || '') ? 'NOT_APPLICABLE'
+      T.dropped[id] = MERGED[id] ? 'SAME_FOR_ALL_HOUSEHOLDS' : !cxTotal(o) ? 'BREAKDOWN_TOTAL_SHOWN' : o.value == null ? 'NOT_TYPED' : /^(adjustment|correction)s?$/i.test(o.label || '') ? 'NOT_APPLICABLE'
         : shownK[k] && shownK[k][String(o.reference_period)] ? 'DUPLICATE_CONCEPT' : shownK[k] ? 'STALE_FOR_THIS_USE' : 'UNEXPLAINED';
     });
     return T;
@@ -1573,4 +1574,19 @@ function gscopePins(top) {
     if (pts.length) { var a = [180, 90, -180, -90]; pts.forEach(function (t) { a[0] = Math.min(a[0], t[9]); a[1] = Math.min(a[1], t[8]); a[2] = Math.max(a[2], t[9]); a[3] = Math.max(a[3], t[8]); }); var wide = window.innerWidth >= 900, pl = document.getElementById('place'), cr = M.getContainer().getBoundingClientRect(), prr = pl && pl.offsetWidth ? pl.getBoundingClientRect() : null, rp = prr && prr.left > cr.left && prr.left < cr.right ? cr.right - prr.left + 30 : 40, rl = document.querySelector('.rail'), rr = rl && rl.offsetWidth && wide ? rl.getBoundingClientRect() : null, lp = rr && rr.right > cr.left && rr.right < cr.right ? rr.right - cr.left + 30 : 40; if (lp + rp > cr.width - 160) { lp = 40; rp = 40; } if (!M._nzMinZ) M._nzMinZ = M.getMinZoom(); M.setMinZoom(0.5); setTimeout(function () { M.fitBounds([[a[0], a[1]], [a[2], a[3]]], { padding: { top: 60, bottom: wide ? 140 : 60, left: lp, right: rp }, duration: 700, maxZoom: 6 }); }, 350); }
   };
   if (M.isStyleLoaded && !M.isStyleLoaded()) M.once('idle', go); else go();
+}
+
+/* 2.15.7: incentives and residence routes that apply in the place's country (data/programmes.json), on the Around tab */
+var PROG = null;
+function programmesHTML(r) {
+  PROG = PROG || getJSON('/data/programmes.json?v=__VERSION__').catch(function () { PROG = null; return null; });
+  return PROG.then(function (d) {
+    var x = d && d[r.country]; if (!x) return '';
+    var biz = isBizKey(S.profile), nm = countryName(r.country), flag = '<img class="flag" src="/assets/flags/' + r.country.toLowerCase() + '.png" width="19" height="14" alt="">';
+    var cardf = function (o) { return '<li><b>' + esc(o.n) + '</b>' + (o.w ? ' <span class="small muted">' + esc(o.w) + '</span>' : '') + (o.f && o.f.length ? '<span class="pg-f">' + o.f.map(function (f) { return '<i>' + f + '</i>'; }).join('') + '</span>' : '') + '<small>' + esc(o.s) + '</small></li>'; };
+    var inc = x.inc.length ? '<div class="pg"><h4>' + flag + ' Incentives and special zones in ' + esc(nm) + ' <a class="small" href="/incentives/">all</a></h4><ul>' + x.inc.slice(0, 6).map(cardf).join('') + '</ul></div>' : '';
+    var imm = (x.imm.length || x.blue) ? '<div class="pg"><h4>' + flag + ' Residence routes into ' + esc(nm) + ' <a class="small" href="/immigration/#im-' + r.country + '">all</a></h4><ul>' + (x.blue ? '<li><b>EU Blue Card</b><small>Work and residence permit for highly qualified non-EU workers with a qualifying job offer.</small></li>' : '') + x.imm.slice(0, 5).map(cardf).join('') + '</ul></div>' : '';
+    if (!document.getElementById('pg-css')) { var st = document.createElement('style'); st.id = 'pg-css'; st.textContent = '.pg{margin:8px 0 16px}.pg h4{display:flex;align-items:center;gap:8px;margin:0 0 8px;font-size:1rem}.pg h4 a{margin-left:auto}.pg ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}.pg li{border:1px solid var(--line);border-left:3px solid #F97316;border-radius:12px;padding:10px 12px;background:var(--surface);display:grid;gap:4px}.pg small{color:var(--ink-2);line-height:1.4}.pg-f{display:flex;flex-wrap:wrap;gap:5px}.pg-f i{font-style:normal;background:#0b1f3a;color:#fff;border-radius:999px;padding:2px 9px;font-size:12px;font-weight:700}'; document.head.appendChild(st); }
+    return (biz ? inc + imm : imm + inc) + '<p class="small muted">Shown for context; these programmes do not change the score. General information, not tax or immigration advice.</p>';
+  });
 }

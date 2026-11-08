@@ -438,8 +438,8 @@ details.cmp-all>summary{cursor:pointer;padding:12px 4px;font-weight:650}
 /* business mode: must-haves on rows and cards, mode chip */
 .must{display:flex;flex-wrap:wrap;gap:4px;margin:5px 0 2px}.must .mu{font-size:11.5px;line-height:1.3;padding:2px 7px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink-2)}
 .must .mu.pass{border-color:#b9ddd2;background:#e8f5f1;color:#0c5f55}.must .mu.fail{border-color:#efc2bd;background:#fbe9e7;color:#8f2f2f}.must .mu.unknown{border-style:dashed;border-color:#d9b98f;background:#fcf4e8;color:#7a4a12}
-.musthead:empty{display:none}.musthead{margin-top:4px}.musthead .chip[aria-pressed="true"]{background:#0F7C7A;color:#fff;border-color:#0F7C7A}
-.pchip.modechip{border-style:dashed}body.bizmode .pchip[aria-pressed="true"]{background:#0F7C7A;border-color:#0F7C7A}body.bizmode .pchip.modechip{border-color:#0F7C7A;color:#0b6d6b}
+.musthead:empty{display:none}.musthead{margin-top:4px}.musthead .chip[aria-pressed="true"]{background:#EA580C;color:#fff;border-color:#EA580C}
+.pchip.modechip{border-style:dashed}body.bizmode .pchip[aria-pressed="true"]{background:#EA580C;border-color:#EA580C}body.bizmode .pchip.modechip{border-color:#0F7C7A;color:#0b6d6b}
 [data-theme=dark] .must .mu{filter:invert(.88) hue-rotate(180deg)}
 
 .assess{font-weight:650;white-space:nowrap}.assess.partial{color:var(--amber,#b45309)}.assess.screening{color:var(--ink-3)}

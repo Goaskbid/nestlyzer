@@ -375,14 +375,14 @@ body.has-tray .rail .scroll,body.has-tray #placescroll{padding-bottom:76px}
 .hmode{display:inline-flex;gap:4px;padding:4px;margin:0 0 18px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16)}
 .hmode button{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:0 16px;border:0;border-radius:999px;background:transparent;color:#c9d6e6;font:600 .95rem var(--font-body,inherit);cursor:pointer}
 .hmode button[aria-pressed="true"]{background:#fff;color:#0b1a2c}
-.cine-biz .hmode button[aria-pressed="true"]{background:#5fd0c4;color:#062421}
+.cine-biz .hmode button[aria-pressed="true"]{background:#F97316;color:#fff}
 .hmode button:focus-visible{outline:2px solid #f7cf74;outline-offset:2px}
 .cine-biz-globe{display:none;position:absolute;z-index:0;right:max(3vw,24px);top:50%;transform:translateY(-50%);width:min(48vw,640px);aspect-ratio:1;height:auto}
 .cine-biz .cine-biz-globe{display:block}
 .cine-biz #cine-a{opacity:0!important}
 .cine-biz{background:radial-gradient(120% 90% at 70% 40%,#0d3340 0%,#071a22 55%,#050f14 100%)}
-.cine-biz .btn-sun{background:#5fd0c4;border-color:#5fd0c4;color:#062421}
-.cine-biz .who [aria-pressed="true"]{background:#5fd0c4;color:#062421;border-color:#5fd0c4}
+.cine-biz .btn-sun{background:#F97316;border-color:#F97316;color:#fff}
+.cine-biz .who [aria-pressed="true"]{background:#F97316;color:#fff;border-color:#F97316}
 .biz-entry a{color:#9fe6dc}
 @media (max-width:900px){
   .hmode{display:flex;width:100%}.hmode button{flex:1;justify-content:center;padding:0 10px;font-size:.9rem}
@@ -394,7 +394,7 @@ body.has-tray .rail .scroll,body.has-tray #placescroll{padding-bottom:76px}
 .modeseg{display:inline-flex;flex:none;gap:2px;padding:3px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2);margin-right:6px}
 .modeseg button{border:0;background:transparent;border-radius:999px;padding:5px 12px;font:600 13px inherit;color:var(--ink-2);cursor:pointer;white-space:nowrap}
 .modeseg button[aria-pressed="true"]{background:var(--ink,#0b1a2c);color:var(--surface,#fff)}
-body.bizmode .modeseg button[aria-pressed="true"]{background:#0F7C7A;color:#fff}
+body.bizmode .modeseg button[aria-pressed="true"]{background:#EA580C;color:#fff}
 [data-alldata] svg{max-width:100%;height:auto}
 .modeseg-wide{display:flex;width:100%;margin:0 0 12px}.modeseg-wide button{flex:1;padding:10px 8px;font-size:14px}
 

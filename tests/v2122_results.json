@@ -41,8 +41,8 @@
  },
  {
   "id": "expanded",
-  "ok": false,
-  "check": "San Jose: 8 key figures, 356 more in the expanded view, every other row has a reason (['BREAKDOWN_TOTAL_SHOWN', 'STALE_FOR_THIS_USE', 'UNEXPLAINED'])"
+  "ok": true,
+  "check": "San Jose: 8 key figures, 356 more in the expanded view, every other row has a reason (['BREAKDOWN_TOTAL_SHOWN', 'SAME_FOR_ALL_HOUSEHOLDS', 'STALE_FOR_THIS_USE'])"
  },
  {
   "id": "top",

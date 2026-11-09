@@ -2,6 +2,7 @@
 //   node build/build_site.mjs
 import fs from 'node:fs';
 import crypto from 'node:crypto';
+import zlib from 'node:zlib';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
@@ -16,7 +17,7 @@ const topojson = require('topojson-client');
 const Engine = require(path.join(ROOT, 'src/engine.js'));
 const NestData = require(path.join(ROOT, 'src/data.js'));
 
-const VERSION = process.env.NZ_VERSION || '2.15.12';
+const VERSION = process.env.NZ_VERSION || '2.15.13';
 const SITE = 'https://nestlyzer.com';
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
 /* Static pages: emoji in text become our inline line icons at build time (2.10.1); the app swaps the rest at run time. */
@@ -129,6 +130,10 @@ function rslug(cc, reg) { const k = cc + ':' + reg.code; if (!rslugCache[k]) { c
 
 // rankings: country-wide and per region, every profile
 const FAST = !!process.env.NZ_FAST;
+// 2.15.13: the complete SEO expansion runs whenever build/seo.enabled is committed, so the existing GitHub workflow
+// (which a codespace cannot change) builds it too. NZ_FULL_SEO=0 forces a quick build without it.
+const FULLSEO = process.env.NZ_FULL_SEO === '1' || (process.env.NZ_FULL_SEO !== '0' && fs.existsSync(path.join(ROOT, 'build/seo.enabled')));
+if (FAST && FULLSEO) throw new Error('NZ_FAST is not a complete SEO build');
 console.time('rank');
 const RANK = {};      // RANK[cc][profile] = {byId:{id:{rank,score}}, n, list}
 const RRANK = {};     // RRANK[cc][regionCode][profile]
@@ -167,6 +172,13 @@ for (const c of (FAST ? [] : countries)) {
     used[base + s] = 1;
     PAGES[r.id] = base + s + '/';
     pageRecs.push(r);
+  }
+}
+// Stable URLs for the complete, compact SEO postprocessor.
+if (FULLSEO) {
+  const legacy = JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(ROOT, 'build/seo-legacy-paths.json.gz'))).toString('utf8')).paths;
+  for (const c of countries) for (const r of SH[c.cc].recs) if (!r.superseded) {
+    PAGES[r.id] = legacy[r.id] || '/places/' + c.cc.toLowerCase() + '/' + encodeURIComponent(String(r.oid)) + '/';
   }
 }
 const regionPath = (cc, reg) => `/${cslug(cc)}/${rslug(cc, reg)}/`;
@@ -1043,7 +1055,7 @@ bestIndexPage();
 for (const p of profiles) profilePage(p);
 if (!FAST) { for (const d of fs.readdirSync(path.join(ROOT, 'business'), { withFileTypes: true })) if (d.isDirectory()) fs.rmSync(path.join(ROOT, 'business', d.name), { recursive: true, force: true }); for (const p of BIZ) bizPage(p); }
 for (const c of countries) { countryPage(c); for (const code of Object.keys(RRANK[c.cc])) regionPage(c.cc, code); for (const m of metrosOf(c.cc)) metroPage(c.cc, m); }
-for (const r of pageRecs) placePage(r);
+if (!FULLSEO) for (const r of pageRecs) placePage(r);
 write('data/pages.json', JSON.stringify(PAGES));
 // static page → app view, used by the single-file offline copy so its links stay inside the app
 const ROUTES = {};
@@ -1089,3 +1101,10 @@ write('.nojekyll', '\n');
   write('data/fingerprints.json', JSON.stringify({ version: VERSION, algorithm: 'SHA-256', files: fp })); }
 write('VERSION.txt', `Nestlyzer ${VERSION}\nbuilt ${new Date().toISOString()}\ndata ${meta.v}\npages ${SITEMAP.length}\n`);
 console.log(`built ${SITEMAP.length} pages, index ${Math.round(shell.length / 1024)} KB (js ${Math.round(B.js.length / 1024)} KB, css ${Math.round(B.css.length / 1024)} KB), hero ${hero.kb} KB in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
+if (FULLSEO && process.env.NZ_FULL_SEO !== '1') {   // the workflow did not run the expansion itself: run it here, then re-fingerprint
+  const { spawnSync } = await import('node:child_process');
+  for (const a of [['build/seo_expand.mjs', '--root', '.', '--out', '.', '--cache', '.cache/seo'], ['build/fingerprint_data.mjs']]) {
+    const r = spawnSync(process.execPath, a, { cwd: ROOT, stdio: 'inherit', env: process.env });
+    if (r.status !== 0) throw new Error('SEO step failed: ' + a[0]);
+  }
+}

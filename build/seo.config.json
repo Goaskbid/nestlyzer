@@ -1,0 +1,26 @@
+{
+  "origin": "https://nestlyzer.com",
+  "placePageSize": 200,
+  "rankingPageSize": 200,
+  "maxRankingResults": 0,
+  "maxSitemapUrls": 45000,
+  "maxSitemapBytes": 45000000,
+  "maxPublicBytes": 900000000,
+  "publicProfilePolicy": "existing-menu-or-world-selector-excluding-dormant",
+  "excludedExactPaths": [
+    "/incentives/",
+    "/districts/"
+  ],
+  "exclusionReason": "The audited inputs to these two routes carry publication_approved=false. Remove this temporary exclusion only after the source/batch publication review and builder fix. noindex is not access control.",
+  "rankingMethod": "v2",
+  "factLimit": 2,
+  "scorePolicy": "Reuse existing model and eligibility unchanged. Do not interpret improved crawling as validation of rankings.",
+  "scopeNames": {
+    "world": "Worldwide",
+    "europe": "Europe",
+    "americas": "Americas",
+    "asia_pacific": "Asia-Pacific",
+    "mideast_africa": "Middle East and Africa"
+  },
+  "legacyRegistry": "seo-legacy-paths.json.gz"
+}

@@ -26,4 +26,7 @@ if (!fs.existsSync(path.join(OUT, 'sitemap.xml'))) { console.error('Missing requ
   const missPage = urls.filter((u) => !fs.existsSync(path.join(OUT, u, u === '' || u.endsWith('/') ? 'index.html' : '')));
   console.log(`published check: ${kids.length} sitemap files, ${urls.length} addresses, ${missKid.length + missPage.length} missing`);
   if (!urls.length || missKid.length || missPage.length) { console.error('Missing in the published folder:', missKid.concat(missPage).slice(0, 10).join(', ')); process.exit(1); } }
-if (bytes > 900e6) { console.error('Too large for GitHub Pages (1 GB limit)'); process.exit(1); }
+// GitHub rules are hard requirements (owner, 9 Nov 2026): the published site stays far below the 1 GB Pages limit, with
+// room for data growth and fast deploys within the 10-minute window. Stop the build instead of publishing anything larger.
+if (bytes > 850e6) { console.error('Stopped: ' + (bytes / 1e6).toFixed(0) + ' MB is above the 850 MB safety budget for GitHub Pages (hard limit 1 GB).'); process.exit(1); }
+if (n > 200000) { console.error('Stopped: too many files for a safe Pages deployment (' + n + ').'); process.exit(1); }

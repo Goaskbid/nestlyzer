@@ -23,28 +23,49 @@ CITY = {  # key -> name, country, centre (well-known central square), file, key-
 D9 = os.path.join(ROOT, 'build/source/deliveries/s9-20261109')
 def _approved(d, fn):
     import hashlib
-    try: A = json.load(open(os.path.join(d, 'OWNER_APPROVALS.json'), encoding='utf-8'))
-    except Exception: return False
-    L = open(os.path.join(d, fn), encoding='utf-8').read().replace('\r', '').rstrip().split('\n')
-    return fn in A.get('files', []) and A.get('sha256', {}).get(fn) == hashlib.sha256('\n'.join([L[0]] + sorted(L[1:])).encode()).hexdigest()
+    try:
+        A = json.load(open(os.path.join(d, 'OWNER_APPROVALS.json'), encoding='utf-8'))
+        text = open(os.path.join(d, fn), encoding='utf-8').read()
+        records = list(csv.DictReader(text.splitlines(keepends=True)))
+    except (OSError, ValueError, csv.Error):
+        return False
+    if fn not in A.get('files', []): return False
+    # Match the JS policy reader's csv-records-v2 contract exactly.
+    if A.get('hash_format') == 'csv-records-v2':
+        canonical = sorted(json.dumps([[k, r[k]] for k in sorted(r)], ensure_ascii=False, separators=(',', ':')) for r in records)
+        payload = json.dumps(canonical, ensure_ascii=False, separators=(',', ':'))
+    else:
+        if any('\n' in str(v) or '\r' in str(v) for r in records for v in r.values()): return False
+        L = text.replace('\r', '').rstrip().split('\n')
+        payload = '\n'.join([L[0]] + sorted(L[1:]))
+    return A.get('sha256', {}).get(fn) == hashlib.sha256(payload.encode()).hexdigest()
+
+def usable(r):
+    blocked = {'suppressed', 'withdrawn', 'missing', 'not_available', 'conflicting', 'held_for_review', 'held', 'censored'}
+    return not (r.get('hold_reason') or '').strip() and not any(
+        str(r.get(k, '')).lower().strip() in blocked for k in ('status', 'value_status', 'record_status'))
+
 def rows(city):
-    # 2.15.10: newest owner-approved delivery first; approval is pinned to the exact records; only reusable rows without a hold
     for d in (D9, D):
         fn = '05_districts_%s.csv' % city; f = os.path.join(d, fn)
-        if os.path.exists(f) and _approved(d, fn):
-            return [r for r in csv.DictReader(open(f, encoding='utf-8')) if r.get('commercial_reuse_status') in ('Green', 'permitted') and not (r.get('hold_reason') or '').strip()]
+        if not os.path.exists(f): continue
+        # A changed newest source is a failure, not permission to silently revive its predecessor.
+        if not _approved(d, fn): raise ValueError('District source review does not match: ' + f)
+        return [r for r in csv.DictReader(open(f, encoding='utf-8'))
+                if r.get('commercial_reuse_status') in ('Green', 'permitted') and usable(r)]
     return []
 
 def latest(R, ind, band=None, dimensions=None):
     o = {}
     for r in R:
+        if not usable(r): continue
         if r.get('indicator_id') != ind or (band is not None and r.get('age_band') != band): continue
         if dimensions is not None:
             try: row_dimensions = json.loads(r.get('dimensions') or '{}')
             except (ValueError, TypeError): raise ValueError('Invalid source dimensions')
             if any(row_dimensions.get(k) != v for k, v in dimensions.items()): continue
         try: v = float(r['value'])
-        except Exception: continue
+        except (ValueError, TypeError, KeyError): continue
         if not math.isfinite(v): continue
         c = r['geographic_code']; p = r.get('period', '')
         if c in o and p == o[c][1] and v != o[c][0]:
@@ -176,7 +197,7 @@ def main():
                 sc[prof] = round(100 * t / n) if n else None
             nm = (pop.get(code) or [None] * 5)[4] or f['gname'] or code
             for pfx in ('Budapest ',): nm = nm.replace(pfx, '')
-            Zs.append({'c': code, 'n': nm, 'd': f['d'], 'lx': f['lx'], 'ly': f['ly'], 'km2': f['area'], 'v': {k: (None if I[k][0].get(code) is None else round(I[k][0][code], 1)) for k in I}, 's': sc})
+            Zs.append({'c': code, 'n': nm, 'd': f['d'], 'lx': f['lx'], 'ly': f['ly'], 'km2': f['area'], 'v': {k: (None if I[k][0].get(code) is None else round(I[k][0][code], 1)) for k in I}, 's': sc, 'e': {p: {'coverage': round(100 * sum(w for _, ks, w in needs if any(code in I.get(k, ({},))[0] and I[k][0][code] is not None for k in ks)) / sum(w for _, _, w in needs)), 'missing': [n for n, ks, _ in needs if not any(code in I.get(k, ({},))[0] and I[k][0][code] is not None for k in ks)]} for p, needs in NEED.items()}})
         for prof in W8:
             order = sorted([z for z in Zs if z['s'][prof] is not None], key=lambda z: -z['s'][prof])
             previous = None; rank = 0
@@ -189,8 +210,8 @@ def main():
             if s and s[2] and (s[2], s[3]) not in srcs: srcs.append((s[2], s[3]))
         for z in Zs:
             f = feats[z['c']]; pr = {'city': key, 'cn': name, 'c': z['c'], 'n': z['n'], 'N': len(Zs), 'km2': z['km2']}
-            for p_ in W8: pr['s_' + p_] = z['s'].get(p_); pr['r_' + p_] = (z.get('r') or {}).get(p_)
-            GEO.append({'type': 'Feature', 'properties': pr, 'geometry': {'type': 'MultiPolygon', 'coordinates': [[[[round(x, 4), round(y, 4)] for x, y in ring] for ring in poly] for poly in f['polys']]}})
+            for p_ in W8: pr['s_' + p_] = z['s'].get(p_); pr['r_' + p_] = (z.get('r') or {}).get(p_); pr['coverage_' + p_] = z['e'][p_]['coverage']; pr['missing_' + p_] = json.dumps(z['e'][p_]['missing'], ensure_ascii=False)
+            GEO.append({'type': 'Feature', 'properties': pr, 'geometry': {'type': 'MultiPolygon', 'coordinates': [[[[x, y] for x, y in ring] for ring in poly] for poly in f['polys']]}})
         out['cities'].append({'k': key, 'n': name, 'cc': cc, 'w': W, 'h': H, 'ctr': [round(X(ctr[1]), 1), round(Y(ctr[0]), 1), ctrn], 'ind': {k: [v[1], v[2]] for k, v in I.items()}, 'z': Zs, 'src': srcs,
                               'used': {p: [I[k][1] for k in w if k in I] for p, w in W8.items()}, 'cov': cov})
         print(key, len(Zs), 'zones', list(I), 'unmatched codes:', sorted(set(c for c in pop) - set(feats)) if pop else '-')

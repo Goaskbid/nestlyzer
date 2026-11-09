@@ -1583,30 +1583,55 @@ var PROG = null;
    profile (percentile of the published district figures; partial evidence, see /districts/). Tap a district for details. */
 var ZGEO = null, ZPAL = ['#1d3557', '#2a6f97', '#2a9d8f', '#8ab17d', '#e9c46a', '#f4a261'], ZPN = { young_family: 'young families', young_professional: 'young professionals', pensioner: 'retirees' };
 var ZBOX = [[2.2, 48.8, 2.5, 48.92], [13.05, 52.32, 13.8, 52.7], [16.15, 48.1, 16.6, 48.34], [18.9, 47.33, 19.36, 47.64], [14.2, 49.93, 14.73, 50.19], [2.04, 41.31, 2.24, 41.48]];
+function zoneViewportVisible(M) {
+  if (!M || !M.getStyle() || M.getZoom() < 8) return false;
+  var b = M.getBounds();
+  return ZBOX.some(function (q) { return b.getWest() < q[2] && b.getEast() > q[0] && b.getSouth() < q[3] && b.getNorth() > q[1]; });
+}
 function zonesMap(M, prof) {
-  var p = ZPN[prof] ? prof : null, b = M.getBounds(), near = M.getZoom() >= 8 && ZBOX.some(function (q) { return b.getWest() < q[2] && b.getEast() > q[0] && b.getSouth() < q[3] && b.getNorth() > q[1]; });
+  var request = M._nzZoneRequest = (M._nzZoneRequest || 0) + 1;
+  var p = ZPN[prof] ? prof : null, near = zoneViewportVisible(M);
+  var current = function () { return M._nzZoneRequest === request && zoneViewportVisible(M); };
   if (!near) { if (M.getLayer('zones-fill')) { M.setLayoutProperty('zones-fill', 'visibility', 'none'); M.setLayoutProperty('zones-line', 'visibility', 'none'); } var lg0 = document.getElementById('zone-legend'); if (lg0) lg0.hidden = true; M._nzZones = false; return; }
-  ZGEO = ZGEO || getJSON('/data/zones_geo.json?v=__VERSION__').catch(function () { ZGEO = null; return null; });
-  ZGEO.then(function (fc) {
-    if (!fc || !M.getStyle()) return;
+  ZGEO = ZGEO || getJSON('/data/zones_geo.json?v=__VERSION__').then(function (fc) {
+    if (!fc || fc.type !== 'FeatureCollection' || !Array.isArray(fc.features) || !fc.features.every(function (f) {
+      return f && f.type === 'Feature' && f.properties && f.geometry &&
+        ['Polygon', 'MultiPolygon'].indexOf(f.geometry.type) >= 0 && Array.isArray(f.geometry.coordinates);
+    })) throw new Error('District geometry payload is invalid');
+    return fc;
+  }).catch(function () { ZGEO = null; return null; });
+  return ZGEO.then(function (fc) {
+    if (!current()) return;
+    if (!fc) {
+      var failed = document.getElementById('zone-legend');
+      if (!failed) { failed = document.createElement('div'); failed.id = 'zone-legend'; failed.setAttribute('role', 'status'); M.getContainer().appendChild(failed); }
+      failed.hidden = false;
+      failed.textContent = 'District layer could not load. Move the map or reselect the profile to retry.';
+      return;
+    }
     var fill = p ? ['step', ['coalesce', ['get', 's_' + p], -1], 'rgba(0,0,0,0)', 0, ZPAL[0], 17, ZPAL[1], 34, ZPAL[2], 50, ZPAL[3], 67, ZPAL[4], 84, ZPAL[5]] : 'rgba(255,255,255,0.05)';
     if (!M.getSource('zones')) {
       M.addSource('zones', { type: 'geojson', data: fc });
       var before = M.getLayer('pts') ? 'pts' : undefined;
       M.addLayer({ id: 'zones-fill', type: 'fill', source: 'zones', minzoom: 8, paint: { 'fill-color': fill, 'fill-opacity': ['interpolate', ['linear'], ['zoom'], 8, 0.55, 12, 0.75] } }, before);
       M.addLayer({ id: 'zones-line', type: 'line', source: 'zones', minzoom: 8, paint: { 'line-color': '#ffffff', 'line-width': ['interpolate', ['linear'], ['zoom'], 8, 0.6, 12, 2] } }, before);
+      if (!M._nzZoneHandlersBound) {
+      M._nzZoneHandlersBound = true;
       M.on('click', 'zones-fill', function (e) {
         var f = e.features && e.features[0]; if (!f || !window.maplibregl) return; var q = f.properties, pp = ZPN[S.profile] ? S.profile : null, sc = pp ? q['s_' + pp] : null, rk = pp ? q['r_' + pp] : null;
-        var html = '<div class="zpop"><b>' + esc(q.n) + '</b><span>' + esc(q.cn) + ' · ' + q.km2 + ' km²</span>' + (pp && sc != null && sc !== 'null' ? '<p><strong>#' + rk + ' of ' + q.N + '</strong> districts of ' + esc(q.cn) + ' for ' + ZPN[pp] + ' <em>(fit ' + sc + '/100, within the city)</em></p>' : '<p>District fit is computed for young families, young professionals and retirees.</p>') + '<a href="/districts/?profile=' + encodeURIComponent(S.profile) + '#zone-' + esc(q.city) + '">All ' + q.N + ' districts of ' + esc(q.cn) + ' compared</a></div>';
+        var html = '<div class="zpop"><b>' + esc(q.n) + '</b><span>' + esc(q.cn) + ' · ' + q.km2 + ' km²</span>' + (pp && sc != null && sc !== 'null' ? '<p><strong>#' + rk + ' of ' + q.N + '</strong> districts of ' + esc(q.cn) + ' for ' + ZPN[pp] + ' <em>(partial comparison ' + sc + '/100, within the city)</em></p>' : '<p>District fit is computed for young families, young professionals and retirees.</p>') + '<p>Available source measures only. This does not establish that all profile requirements are met.</p>' + '<a href="/districts/?profile=' + encodeURIComponent(S.profile) + '#zone-' + esc(q.city) + '">All ' + q.N + ' districts of ' + esc(q.cn) + ' compared</a></div>';
         new maplibregl.Popup({ closeButton: true, maxWidth: '280px' }).setLngLat(e.lngLat).setHTML(html).addTo(M);
       });
       M.on('mouseenter', 'zones-fill', function () { M.getCanvas().style.cursor = 'pointer'; }); M.on('mouseleave', 'zones-fill', function () { M.getCanvas().style.cursor = ''; });
-      var st = document.createElement('style'); st.textContent = '.zpop{display:grid;gap:3px;font:13px/1.4 system-ui}.zpop span{color:#64748b;font-size:12px}.zpop p{margin:4px 0}.zpop a{font-weight:650}#zone-legend{position:absolute;right:10px;top:64px;z-index:4;background:rgba(11,31,58,.88);color:#fff;border-radius:12px;padding:8px 10px;font:12px/1.3 system-ui;max-width:230px;pointer-events:none}#zone-legend i{display:inline-block;width:16px;height:8px;margin-right:2px;border-radius:2px}#zone-legend[hidden]{display:none}'; document.head.appendChild(st);
+      }
+      if (!document.getElementById('nz-zone-styles')) {
+      var st = document.createElement('style'); st.id = 'nz-zone-styles'; st.textContent = '.zpop{display:grid;gap:3px;font:13px/1.4 system-ui}.zpop span{color:#64748b;font-size:12px}.zpop p{margin:4px 0}.zpop a{font-weight:650}#zone-legend{position:absolute;right:10px;top:64px;z-index:4;background:rgba(11,31,58,.88);color:#fff;border-radius:12px;padding:8px 10px;font:12px/1.3 system-ui;max-width:230px;pointer-events:none}#zone-legend i{display:inline-block;width:16px;height:8px;margin-right:2px;border-radius:2px}#zone-legend[hidden]{display:none}'; document.head.appendChild(st);
+      }
     } else { M.setPaintProperty('zones-fill', 'fill-color', fill); M.setLayoutProperty('zones-fill', 'visibility', 'visible'); M.setLayoutProperty('zones-line', 'visibility', 'visible'); }
     M._nzZones = true;
     var host = M.getContainer(), lg = document.getElementById('zone-legend');
     if (!lg) { lg = document.createElement('div'); lg.id = 'zone-legend'; lg.setAttribute('role', 'note'); host.appendChild(lg); }
-    lg.hidden = false; lg.innerHTML = p ? '<b>City districts</b><br>' + ZPAL.map(function (c) { return '<i style="background:' + c + '"></i>'; }).join('') + '<br>fit within the city for ' + ZPN[p] + '. Tap a district.' : '<b>City districts</b><br>Tap a district. District fit exists for families, young professionals and retirees.';
+    lg.hidden = false; lg.innerHTML = p ? '<b>City districts</b><br>' + ZPAL.map(function (c) { return '<i style="background:' + c + '"></i>'; }).join('') + '<br>Partial, within-city comparison for ' + ZPN[p] + '. Missing requirements remain unknown. Tap a district.' : '<b>City districts</b><br>Tap a district. District fit exists for families, young professionals and retirees.';
   });
 }
 function programmesHTML(r) {

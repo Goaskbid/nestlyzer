@@ -47,7 +47,7 @@
  {
   "id": "desktop-country",
   "ok": true,
-  "check": "desktop: country filter DE: 4 places, all in DE"
+  "check": "desktop: country filter DE: 3 places, all in DE"
  },
  {
   "id": "desktop-open",
@@ -77,7 +77,7 @@
  {
   "id": "phone-country",
   "ok": true,
-  "check": "phone: country filter DE: 4 places, all in DE"
+  "check": "phone: country filter DE: 3 places, all in DE"
  },
  {
   "id": "phone-open",
@@ -97,7 +97,7 @@
  {
   "id": "layers",
   "ok": true,
-  "check": "world map layer: 293 seaports drawn, 3 charts under the evidence boxes"
+  "check": "world map layer: 321 seaports drawn, 3 charts under the evidence boxes"
  },
  {
   "id": "entry",

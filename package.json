@@ -1,6 +1,6 @@
 {
   "name": "nestlyzer",
-  "version": "2.15.8",
+  "version": "2.15.9",
   "private": true,
   "description": "Nestlyzer.com — find where you fit. Static site build.",
   "scripts": {

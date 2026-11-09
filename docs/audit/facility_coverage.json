@@ -1,0 +1,656 @@
+{
+ "note": "Facility layer coverage per site country (2.15.9). Zero means none in the reference layer, not none in the country.",
+ "counts": {
+  "AE": {
+   "seaport": 7,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 4,
+   "zone": 0
+  },
+  "AL": {
+   "seaport": 1,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 0,
+   "zone": 0
+  },
+  "AR": {
+   "seaport": 2,
+   "nuclear": 3,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 9,
+   "zone": 0
+  },
+  "AT": {
+   "seaport": 0,
+   "nuclear": 0,
+   "chemical": 2,
+   "terminal": 0,
+   "learning": 0,
+   "zone": 0
+  },
+  "AU": {
+   "seaport": 17,
+   "nuclear": 0,
+   "chemical": 1,
+   "terminal": 0,
+   "learning": 2,
+   "zone": 0
+  },
+  "BE": {
+   "seaport": 5,
+   "nuclear": 3,
+   "chemical": 3,
+   "terminal": 0,
+   "learning": 2,
+   "zone": 0
+  },
+  "BG": {
+   "seaport": 2,
+   "nuclear": 1,
+   "chemical": 1,
+   "terminal": 9,
+   "learning": 1,
+   "zone": 0
+  },
+  "BR": {
+   "seaport": 12,
+   "nuclear": 2,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 7,
+   "zone": 0
+  },
+  "CA": {
+   "seaport": 5,
+   "nuclear": 6,
+   "chemical": 2,
+   "terminal": 0,
+   "learning": 1,
+   "zone": 0
+  },
+  "CH": {
+   "seaport": 0,
+   "nuclear": 4,
+   "chemical": 4,
+   "terminal": 0,
+   "learning": 1,
+   "zone": 0
+  },
+  "CN": {
+   "seaport": 13,
+   "nuclear": 12,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 15,
+   "zone": 0
+  },
+  "CO": {
+   "seaport": 4,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 9,
+   "zone": 0
+  },
+  "CY": {
+   "seaport": 2,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 0,
+   "zone": 0
+  },
+  "CZ": {
+   "seaport": 0,
+   "nuclear": 2,
+   "chemical": 2,
+   "terminal": 0,
+   "learning": 0,
+   "zone": 0
+  },
+  "DE": {
+   "seaport": 12,
+   "nuclear": 7,
+   "chemical": 18,
+   "terminal": 39,
+   "learning": 4,
+   "zone": 0
+  },
+  "DK": {
+   "seaport": 4,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 1,
+   "zone": 0
+  },
+  "EE": {
+   "seaport": 3,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 0,
+   "zone": 0
+  },
+  "EG": {
+   "seaport": 3,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 6,
+   "zone": 0
+  },
+  "EL": {
+   "seaport": 3,
+   "nuclear": 0,
+   "chemical": 1,
+   "terminal": 0,
+   "learning": 1,
+   "zone": 0
+  },
+  "ES": {
+   "seaport": 12,
+   "nuclear": 5,
+   "chemical": 4,
+   "terminal": 0,
+   "learning": 3,
+   "zone": 3
+  },
+  "FI": {
+   "seaport": 3,
+   "nuclear": 2,
+   "chemical": 1,
+   "terminal": 0,
+   "learning": 3,
+   "zone": 0
+  },
+  "FR": {
+   "seaport": 14,
+   "nuclear": 19,
+   "chemical": 7,
+   "terminal": 0,
+   "learning": 9,
+   "zone": 0
+  },
+  "HK": {
+   "seaport": 1,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 0,
+   "zone": 0
+  },
+  "HR": {
+   "seaport": 2,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 0,
+   "zone": 0
+  },
+  "HU": {
+   "seaport": 0,
+   "nuclear": 1,
+   "chemical": 2,
+   "terminal": 0,
+   "learning": 2,
+   "zone": 0
+  },
+  "ID": {
+   "seaport": 8,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 1,
+   "zone": 0
+  },
+  "IE": {
+   "seaport": 2,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 3,
+   "zone": 0
+  },
+  "IL": {
+   "seaport": 2,
+   "nuclear": 0,
+   "chemical": 1,
+   "terminal": 0,
+   "learning": 0,
+   "zone": 0
+  },
+  "IN": {
+   "seaport": 13,
+   "nuclear": 9,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 3,
+   "zone": 0
+  },
+  "IS": {
+   "seaport": 1,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 0,
+   "zone": 0
+  },
+  "IT": {
+   "seaport": 15,
+   "nuclear": 0,
+   "chemical": 13,
+   "terminal": 38,
+   "learning": 7,
+   "zone": 0
+  },
+  "JP": {
+   "seaport": 7,
+   "nuclear": 16,
+   "chemical": 3,
+   "terminal": 0,
+   "learning": 2,
+   "zone": 0
+  },
+  "KR": {
+   "seaport": 5,
+   "nuclear": 6,
+   "chemical": 2,
+   "terminal": 0,
+   "learning": 34,
+   "zone": 0
+  },
+  "LI": {
+   "seaport": 0,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 0,
+   "zone": 0
+  },
+  "LT": {
+   "seaport": 1,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 0,
+   "zone": 0
+  },
+  "LU": {
+   "seaport": 0,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 0,
+   "zone": 0
+  },
+  "LV": {
+   "seaport": 3,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 1,
+   "zone": 0
+  },
+  "MA": {
+   "seaport": 6,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 7,
+   "zone": 0
+  },
+  "MK": {
+   "seaport": 0,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 0,
+   "zone": 0
+  },
+  "MT": {
+   "seaport": 2,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 0,
+   "zone": 0
+  },
+  "MX": {
+   "seaport": 10,
+   "nuclear": 1,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 12,
+   "zone": 0
+  },
+  "MY": {
+   "seaport": 7,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 2,
+   "zone": 0
+  },
+  "NL": {
+   "seaport": 10,
+   "nuclear": 1,
+   "chemical": 5,
+   "terminal": 0,
+   "learning": 2,
+   "zone": 0
+  },
+  "NO": {
+   "seaport": 3,
+   "nuclear": 0,
+   "chemical": 2,
+   "terminal": 0,
+   "learning": 0,
+   "zone": 0
+  },
+  "NZ": {
+   "seaport": 3,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 0,
+   "zone": 0
+  },
+  "PH": {
+   "seaport": 3,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 3,
+   "zone": 0
+  },
+  "PL": {
+   "seaport": 3,
+   "nuclear": 0,
+   "chemical": 4,
+   "terminal": 0,
+   "learning": 1,
+   "zone": 0
+  },
+  "PT": {
+   "seaport": 4,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 10,
+   "zone": 0
+  },
+  "RO": {
+   "seaport": 1,
+   "nuclear": 1,
+   "chemical": 1,
+   "terminal": 0,
+   "learning": 0,
+   "zone": 0
+  },
+  "RS": {
+   "seaport": 0,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 0,
+   "zone": 0
+  },
+  "RU": {
+   "seaport": 6,
+   "nuclear": 10,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 6,
+   "zone": 0
+  },
+  "SA": {
+   "seaport": 2,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 3,
+   "zone": 0
+  },
+  "SE": {
+   "seaport": 7,
+   "nuclear": 3,
+   "chemical": 1,
+   "terminal": 0,
+   "learning": 0,
+   "zone": 0
+  },
+  "SG": {
+   "seaport": 1,
+   "nuclear": 0,
+   "chemical": 1,
+   "terminal": 0,
+   "learning": 0,
+   "zone": 0
+  },
+  "SI": {
+   "seaport": 1,
+   "nuclear": 1,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 2,
+   "zone": 0
+  },
+  "SK": {
+   "seaport": 0,
+   "nuclear": 2,
+   "chemical": 1,
+   "terminal": 0,
+   "learning": 2,
+   "zone": 0
+  },
+  "TH": {
+   "seaport": 2,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 13,
+   "zone": 0
+  },
+  "TR": {
+   "seaport": 3,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 8,
+   "zone": 0
+  },
+  "TW": {
+   "seaport": 4,
+   "nuclear": 3,
+   "chemical": 1,
+   "terminal": 0,
+   "learning": 0,
+   "zone": 0
+  },
+  "UK": {
+   "seaport": 13,
+   "nuclear": 8,
+   "chemical": 6,
+   "terminal": 0,
+   "learning": 11,
+   "zone": 12
+  },
+  "US": {
+   "seaport": 37,
+   "nuclear": 87,
+   "chemical": 6,
+   "terminal": 0,
+   "learning": 1,
+   "zone": 2
+  },
+  "VN": {
+   "seaport": 3,
+   "nuclear": 0,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 6,
+   "zone": 0
+  },
+  "ZA": {
+   "seaport": 6,
+   "nuclear": 1,
+   "chemical": 0,
+   "terminal": 0,
+   "learning": 1,
+   "zone": 0
+  }
+ },
+ "gaps": {
+  "AE": [
+   "chemical"
+  ],
+  "AL": [
+   "chemical",
+   "learning"
+  ],
+  "AR": [
+   "chemical"
+  ],
+  "AT": [
+   "learning"
+  ],
+  "BR": [
+   "chemical"
+  ],
+  "CN": [
+   "chemical"
+  ],
+  "CO": [
+   "chemical"
+  ],
+  "CY": [
+   "chemical",
+   "learning"
+  ],
+  "CZ": [
+   "learning"
+  ],
+  "DK": [
+   "chemical"
+  ],
+  "EE": [
+   "chemical",
+   "learning"
+  ],
+  "EG": [
+   "chemical"
+  ],
+  "HK": [
+   "chemical",
+   "learning"
+  ],
+  "HR": [
+   "chemical",
+   "learning"
+  ],
+  "ID": [
+   "chemical"
+  ],
+  "IE": [
+   "chemical"
+  ],
+  "IL": [
+   "learning"
+  ],
+  "IN": [
+   "chemical"
+  ],
+  "IS": [
+   "chemical",
+   "learning"
+  ],
+  "LI": [
+   "chemical",
+   "learning"
+  ],
+  "LT": [
+   "chemical",
+   "learning"
+  ],
+  "LU": [
+   "chemical",
+   "learning"
+  ],
+  "LV": [
+   "chemical"
+  ],
+  "MA": [
+   "chemical"
+  ],
+  "MK": [
+   "chemical",
+   "learning"
+  ],
+  "MT": [
+   "chemical",
+   "learning"
+  ],
+  "MX": [
+   "chemical"
+  ],
+  "MY": [
+   "chemical"
+  ],
+  "NO": [
+   "learning"
+  ],
+  "NZ": [
+   "chemical",
+   "learning"
+  ],
+  "PH": [
+   "chemical"
+  ],
+  "PT": [
+   "chemical"
+  ],
+  "RO": [
+   "learning"
+  ],
+  "RS": [
+   "chemical",
+   "learning"
+  ],
+  "RU": [
+   "chemical"
+  ],
+  "SA": [
+   "chemical"
+  ],
+  "SE": [
+   "learning"
+  ],
+  "SG": [
+   "learning"
+  ],
+  "SI": [
+   "chemical"
+  ],
+  "TH": [
+   "chemical"
+  ],
+  "TR": [
+   "chemical"
+  ],
+  "TW": [
+   "learning"
+  ],
+  "VN": [
+   "chemical"
+  ],
+  "ZA": [
+   "chemical"
+  ]
+ }
+}

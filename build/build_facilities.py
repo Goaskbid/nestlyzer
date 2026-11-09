@@ -85,17 +85,30 @@ def main():
     I3 = dict(USA='US', FRA='FR', JPN='JP', CHN='CN', RUS='RU', IND='IN', GBR='GB', DEU='DE', CAN='CA', KOR='KR', ESP='ES', CHE='CH', UKR='UA', ARG='AR', BEL='BE',
               SWE='SE', TWN='TW', BRA='BR', CZE='CZ', FIN='FI', PAK='PK', SVK='SK', ARM='AM', BGR='BG', HUN='HU', IRN='IR', MEX='MX', NLD='NL', ROU='RO', SVN='SI', ZAF='ZA')
     SHUT = {'DE': 'shut down since April 2023 (German nuclear exit)', 'TW': 'shut down since May 2025 (Taiwan nuclear exit)'}
-    have = [(x['lat'], x['lon']) for x in items if x['kind'] == 'nuclear']
-    near = lambda a, b: any(abs(a - y) < 0.08 and abs(b - x) < 0.11 for y, x in have)
+    # 2.15.9 (audit 2.15.8): identity-based reconciliation instead of a proximity rectangle. Only US rows can duplicate the
+    # NRC roster, so a WRI row is folded into an NRC site only when it is in the US and within about 5 km of it. Every other
+    # row is kept (Leibstadt and Beznau are separate plants). Source IDs and capacity years are kept; GB is the site's UK.
+    I3['GBR'] = 'UK'
+    CLOSED = {'Kernkraftwerk Mühleberg': 'power generation ended December 2019', 'Hinkley Point B': 'closed 2022', 'Hunterston B': 'closed 2022',
+              'Indian Point 2': 'closed 2020', 'Indian Point 3': 'closed 2021', 'Fessenheim': 'closed 2020'}
+    nrc = [(x['lat'], x['lon'], x['name']) for x in items if x['kind'] == 'nuclear']
+    rec = {'kept': 0, 'folded_into_nrc_site': []}
     for r in _c.DictReader(open(J('build/source/wri_gppd_nuclear.csv'), encoding='utf-8')):
-        la, lo = float(r['latitude']), float(r['longitude'])
-        if near(la, lo): continue
-        cc = I3.get(r['country'], r['country']); mw = round(float(r['capacity_mw'] or 0))
-        det = (f'{mw:,} MW' if mw else '') + ('; ' + SHUT[cc] if cc in SHUT else '')
-        items.append({'name': r['name'].replace(' Nuclear Power Plant', '').strip(), 'cc': cc, 'lat': round(la, 4), 'lon': round(lo, 4), 'kind': 'nuclear', 'label': 'Nuclear power plant', 'detail': det,
-                      'by': 'World Resources Institute, Global Power Plant Database (CC BY 4.0)', 'source': 'https://datasets.wri.org/dataset/globalpowerplantdatabase', 'period': '2021'})
-        have.append((la, lo))
-    for fn, kind, label, by_ in (('chem_parks.json', 'chemical', 'Chemical park or refinery complex', 'Nestlyzer compilation of major chemical parks'), ('major_seaports.json', 'seaport', 'Major seaport', 'Nestlyzer compilation of major seaports')):
+        la, lo = float(r['latitude']), float(r['longitude']); cc = I3.get(r['country'], r['country'])
+        if cc == 'US':
+            m = [n for y, x, n in nrc if abs(la - y) < 0.045 and abs(lo - x) < 0.06]
+            tok = lambda t: set(w for w in re.sub(r'[^a-z ]', ' ', t.lower().replace('saint', 'st')).split() if len(w) > 2 and w not in ('nuclear', 'station', 'generating', 'generation', 'power', 'plant', 'pseg', 'one'))
+            m = [n for n in m if tok(n) & tok(r['name'])]
+            if m: rec['folded_into_nrc_site'].append({'wri_id': r['gppd_idnr'], 'wri_name': r['name'], 'nrc_site': m[0]}); continue
+        mw = round(float(r['capacity_mw'] or 0)); st = SHUT.get(cc) or next((v for k, v in CLOSED.items() if k in r['name']), '')
+        det = (f'{mw:,} MW' if mw else '') + ('; ' + st if st else '; operating status not tracked, see source')
+        yr = (r.get('year_of_capacity_data') or '').strip()
+        items.append({'name': r['name'].replace(' Nuclear Power Plant', '').strip(), 'cc': cc, 'lat': round(la, 4), 'lon': round(lo, 4), 'kind': 'nuclear', 'label': 'Nuclear power plant (WRI database)', 'detail': det,
+                      'gppd_idnr': r['gppd_idnr'], 'year_of_capacity_data': yr or None, 'by': 'World Resources Institute, Global Power Plant Database v1.3 (CC BY 4.0)', 'source': 'https://datasets.wri.org/dataset/globalpowerplantdatabase', 'period': ('capacity ' + yr) if yr else 'database release 2021'})
+        rec['kept'] += 1
+    os.makedirs(J('docs/audit'), exist_ok=True); json.dump(rec, open(J('docs/audit/nuclear_reconciliation.json'), 'w'), indent=1, ensure_ascii=False)
+    print('nuclear WRI kept', rec['kept'], 'folded into NRC sites', len(rec['folded_into_nrc_site']))
+    for fn, kind, label, by_ in (('chem_parks.json', 'chemical', 'Chemical park or refinery complex', 'Nestlyzer compilation of major chemical parks'), ('major_seaports.json', 'seaport', 'Major seaport', 'Nestlyzer compilation of major seaports; positions partly from Natural Earth (public domain)')):
         d = json.load(open(J('build/source', fn), encoding='utf-8'))
         for x in d['rows']:
             items.append({'name': x[0], 'cc': x[1], 'lat': x[2], 'lon': x[3], 'kind': kind, 'label': label, 'detail': '', 'by': by_, 'source': None, 'period': None})

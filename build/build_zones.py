@@ -23,13 +23,20 @@ def rows(city):
     f = os.path.join(D, '05_districts_%s.csv' % city)
     return list(csv.DictReader(open(f, encoding='utf-8'))) if os.path.exists(f) else []
 
-def latest(R, ind, band=None):
+def latest(R, ind, band=None, dimensions=None):
     o = {}
     for r in R:
         if r.get('indicator_id') != ind or (band is not None and r.get('age_band') != band): continue
+        if dimensions is not None:
+            try: row_dimensions = json.loads(r.get('dimensions') or '{}')
+            except (ValueError, TypeError): raise ValueError('Invalid source dimensions')
+            if any(row_dimensions.get(k) != v for k, v in dimensions.items()): continue
         try: v = float(r['value'])
         except Exception: continue
+        if not math.isfinite(v): continue
         c = r['geographic_code']; p = r.get('period', '')
+        if c in o and p == o[c][1] and v != o[c][0]:
+            raise ValueError('Conflicting same-period observation: %s / %s' % (c, ind))
         if c not in o or p > o[c][1]: o[c] = (v, p, r.get('source_name', ''), r.get('source_url', ''), r.get('geographic_unit', ''))
     return o
 
@@ -101,16 +108,25 @@ def main():
             put('rent', {c: v[0] for c, v in rm.items()}, 'Rent per m² a month', '€', next(iter(rm.values())) if rm else None)
             put('rentm', {c: v[0] for c, v in mr.items()}, 'Average monthly rent', '€', next(iter(mr.values())) if mr else None)
         if key == 'budapest':
-            pr = latest(R, 'used_home_transaction_price_per_m2')
+            pr = latest(R, 'used_home_transaction_price_per_m2', dimensions={'dwelling_type':'all_used_dwellings'})
             put('price', {c: v[0] for c, v in pr.items()}, 'Home price per m²', ' thousand HUF', next(iter(pr.values())) if pr else None)
         put('dist', {c: f['dist'] for c, f in feats.items()}, 'Distance to ' + ctrn, ' km', None)
         # grow: Berlin's change may be absolute residents; convert to % when it is a count
         if key == 'berlin' and 'grow' in I and I['grow'][2] == '':
             I['grow'] = ({c: 100 * v / (pop[c][0] - v) for c, v in I['grow'][0].items() if c in pop}, 'Population change, 5 years', '%')
         P = {k: pct(v[0]) for k, v in I.items()}
-        W8 = {'young_family': {'kids': 1, 'dens': -1, 'rent': -1, 'rentm': -.5, 'price': -1, 'grow': .5, 'dist': .3},
+        W8 = {'young_family': {'kids': 1, 'dens': -1, 'rent': -1, 'price': -1, 'grow': .5, 'dist': .3},
               'young_professional': {'dist': -1, 'dens': 1, 'grow': .5, 'rent': -.5, 'price': -.5, 'old': -.3},
               'pensioner': {'old': 1, 'dens': -.7, 'rent': -1, 'price': -1, 'dist': -.5, 'age': .5}}
+        # 2.15.9 (audit): disclose how much of each profile's needs the district data covers. Missing needs stay unknown;
+        # the score is labelled as partial instead of pretending density or distance stand in for them.
+        NEED = {'young_family': [('Housing cost', ['rent', 'price'], 1), ('Children nearby', ['kids'], 1), ('Space and calm', ['dens'], 1), ('Growing area', ['grow'], .5), ('Childcare and schools', [], 1), ('Safety', [], 1), ('Public transport', [], .7)],
+                'young_professional': [('Central location', ['dist'], 1), ('Urban density', ['dens'], 1), ('Housing cost', ['rent', 'price'], .7), ('Growing area', ['grow'], .5), ('Jobs nearby', [], 1), ('Public transport', [], 1), ('Culture and nightlife', [], .5)],
+                'pensioner': [('Peers of the same age', ['old', 'age'], 1), ('Housing cost', ['rent', 'price'], 1), ('Calm', ['dens'], .7), ('Short trips to the centre', ['dist'], .5), ('Health care', [], 1), ('Safety', [], 1), ('Public transport', [], .7)]}
+        cov = {}
+        for prof, needs in NEED.items():
+            tot = sum(w for _, _, w in needs); got = sum(w for _, ks, w in needs if any(k in I for k in ks))
+            cov[prof] = [round(100 * got / tot), [n for n, ks, _ in needs if not any(k in I for k in ks)]]
         Zs = []
         for code, f in sorted(feats.items()):
             sc = {}
@@ -126,12 +142,16 @@ def main():
             Zs.append({'c': code, 'n': nm, 'd': f['d'], 'lx': f['lx'], 'ly': f['ly'], 'km2': f['area'], 'v': {k: (None if I[k][0].get(code) is None else round(I[k][0][code], 1)) for k in I}, 's': sc})
         for prof in W8:
             order = sorted([z for z in Zs if z['s'][prof] is not None], key=lambda z: -z['s'][prof])
-            for i, z in enumerate(order): z.setdefault('r', {})[prof] = i + 1
+            previous = None; rank = 0
+            for i, z in enumerate(order):
+                if previous is None or z['s'][prof] != previous: rank = i + 1
+                z.setdefault('r', {})[prof] = rank
+                previous = z['s'][prof]
         srcs = []
         for k, s in src.items():
             if s and s[2] and (s[2], s[3]) not in srcs: srcs.append((s[2], s[3]))
         out['cities'].append({'k': key, 'n': name, 'cc': cc, 'w': W, 'h': H, 'ctr': [round(X(ctr[1]), 1), round(Y(ctr[0]), 1), ctrn], 'ind': {k: [v[1], v[2]] for k, v in I.items()}, 'z': Zs, 'src': srcs,
-                              'used': {p: [I[k][1] for k in w if k in I] for p, w in W8.items()}})
+                              'used': {p: [I[k][1] for k in w if k in I] for p, w in W8.items()}, 'cov': cov})
         print(key, len(Zs), 'zones', list(I), 'unmatched codes:', sorted(set(c for c in pop) - set(feats)) if pop else '-')
     json.dump(out, open(os.path.join(ROOT, 'data/zones.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
     print('zones.json', os.path.getsize(os.path.join(ROOT, 'data/zones.json')))

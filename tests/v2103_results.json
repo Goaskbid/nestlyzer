@@ -67,12 +67,12 @@
  {
   "finding": "ranking",
   "ok": true,
-  "check": "US biz_port_industry: top 6 are where this industry already operates: ['Port Arthur', 'Deer Park (Texas)', 'Corpus Christi', 'Lake Charles', 'Channelview', 'Groves']"
+  "check": "US biz_port_industry: top 6 are where this industry already operates: ['Port Arthur', 'Deer Park (Texas)', 'Corpus Christi', 'Lake Charles', 'Baton Rouge', 'Channelview']"
  },
  {
   "finding": "ranking",
   "ok": true,
-  "check": "US biz_energy_intensive: top 6 are where this industry already operates: ['Corpus Christi', 'Jacinto City', 'Pasadena (Texas)', 'Galena Park', 'Cloverleaf', 'South Houston']"
+  "check": "US biz_energy_intensive: top 6 are where this industry already operates: ['Corpus Christi', 'Jacinto City', 'Pasadena (Texas)', 'Galena Park', 'Cloverleaf', 'Port Allen']"
  },
  {
   "finding": "ranking",

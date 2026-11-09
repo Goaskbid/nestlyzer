@@ -18,5 +18,21 @@
   "03_local_SG.csv",
   "05_districts_bern.csv",
   "05_districts_budapest.csv"
- ]
+ ],
+ "sha256": {
+  "08a_special_economic_zones.csv": "6aef3947a623284d14fb26b047829e9159d668611b1e862213e63de392af9af5",
+  "08b_patent_boxes.csv": "108ad7498af4ec63ffb38bbaac81d3a98126ff805346cbfd005e93236afb19aa",
+  "08c_canton_tax_regimes.csv": "680292cabf423c96a30b29e9c12070ccbc362ea54c4d7e7d01aad4737131adae",
+  "08d_subsidies.csv": "f8e85d8718b4711c67a093120123eaa916b2b43313dd271abe72542028b3c41d",
+  "08e_immigration_routes.csv": "c57b2ac096f7e83574844b5f7dc73a6c4e2aba8da9d38cfa8a398c1868a89c5c",
+  "05_districts_berlin.csv": "c4ea6fcd193aba9211060e43905c1db4c2211dc9c94cb3f3cc8434e989c0acd7",
+  "05_districts_hamburg.csv": "ea8b836aa8bb595ef46a6296da0d05a659c0419a950e2fde7827658a3bca80de",
+  "05_districts_paris.csv": "119ec245c25b2a9cdb4baa453de5d8327bd9a1f2e17a86b9c513cbdf8942f0fc",
+  "05_districts_vienna.csv": "c68745ce9fbc8e567478e25c727c8f2a2f6ae1b550fd09389d774edaf047fa96",
+  "05_districts_barcelona.csv": "5fc58987e9d0d6b4e8b3d98c8f225a538672c40a96986cb369e4957311656cf4",
+  "03_local_SG.csv": "5e39707e9cf4cb3a8c0ace08232dd4828e5e9f54e9a87b4b67b09198abfe2d6b",
+  "05_districts_bern.csv": "245ed3ce06306c0899f9227a889d911dddedf5b4fba90c0785212b67dbb9dc48",
+  "05_districts_budapest.csv": "1b61eb710538dd4d487404daadc7e803a7d83b1a903209453148f0c091d826ae"
+ },
+ "pinning": "2.15.9: the owner approved these files as delivered; the approval holds only for the exact set of records hashed here (row order ignored). Any change to the records needs a new approval."
 }

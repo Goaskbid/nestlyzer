@@ -9,3 +9,5 @@
 | Budapest | budapest.geojson | OpenStreetMap administrative boundaries, via github.com/ANETILab/public_transport_in_the_15minute_city | ODbL 1.0 (© OpenStreetMap contributors) |
 
 Coordinates rounded to 4 decimals and thinned to about 25 m. Joined to the delivered statistics by official district number or code only.
+
+2.15.9: geometries simplified with a topology-preserving method (shapely, tolerance about 20 m) and checked valid; largest area change against the source boundary 1.04% (Budapest). The same valid shapes feed the map, area and density.

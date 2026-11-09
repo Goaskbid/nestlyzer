@@ -1,0 +1,125 @@
+{
+ "kept": 171,
+ "folded_into_nrc_site": [
+  {
+   "wri_id": "USA0008055",
+   "wri_name": "Arkansas Nuclear One",
+   "nrc_site": "Arkansas Nuclear"
+  },
+  {
+   "wri_id": "USA0006022",
+   "wri_name": "Braidwood Generation Station",
+   "nrc_site": "Braidwood"
+  },
+  {
+   "wri_id": "USA0000046",
+   "wri_name": "Browns Ferry",
+   "nrc_site": "Browns Ferry"
+  },
+  {
+   "wri_id": "USA0006023",
+   "wri_name": "Byron Generating Station",
+   "nrc_site": "Byron"
+  },
+  {
+   "wri_id": "USA0006153",
+   "wri_name": "Callaway",
+   "nrc_site": "Callaway"
+  },
+  {
+   "wri_id": "USA0006011",
+   "wri_name": "Calvert Cliffs Nuclear Power Plant",
+   "nrc_site": "Calvert Cliffs"
+  },
+  {
+   "wri_id": "USA0000204",
+   "wri_name": "Clinton Power Station",
+   "nrc_site": "Clinton"
+  },
+  {
+   "wri_id": "USA0006145",
+   "wri_name": "Comanche Peak",
+   "nrc_site": "Comanche Peak"
+  },
+  {
+   "wri_id": "USA0006099",
+   "wri_name": "Diablo Canyon",
+   "nrc_site": "Diablo Canyon"
+  },
+  {
+   "wri_id": "USA0001729",
+   "wri_name": "Fermi",
+   "nrc_site": "Fermi"
+  },
+  {
+   "wri_id": "USA0006110",
+   "wri_name": "James A Fitzpatrick",
+   "nrc_site": "FitzPatrick"
+  },
+  {
+   "wri_id": "USA0006001",
+   "wri_name": "Joseph M Farley",
+   "nrc_site": "Farley"
+  },
+  {
+   "wri_id": "USA0000566",
+   "wri_name": "Millstone",
+   "nrc_site": "Millstone"
+  },
+  {
+   "wri_id": "USA0002589",
+   "wri_name": "Nine Mile Point Nuclear Station",
+   "nrc_site": "Nine Mile Point"
+  },
+  {
+   "wri_id": "USA0002410",
+   "wri_name": "PSEG Salem Generating Station",
+   "nrc_site": "Salem"
+  },
+  {
+   "wri_id": "USA0001715",
+   "wri_name": "Palisades",
+   "nrc_site": "Palisades"
+  },
+  {
+   "wri_id": "USA0003166",
+   "wri_name": "Peach Bottom",
+   "nrc_site": "Peach Bottom"
+  },
+  {
+   "wri_id": "USA0006462",
+   "wri_name": "River Bend",
+   "nrc_site": "River Bend"
+  },
+  {
+   "wri_id": "USA0006152",
+   "wri_name": "Sequoyah",
+   "nrc_site": "Sequoyah"
+  },
+  {
+   "wri_id": "USA0006045",
+   "wri_name": "St Lucie",
+   "nrc_site": "Saint Lucie"
+  },
+  {
+   "wri_id": "USA0003806",
+   "wri_name": "Surry",
+   "nrc_site": "Surry"
+  },
+  {
+   "wri_id": "USA0006127",
+   "wri_name": "V C Summer",
+   "nrc_site": "Summer"
+  },
+  {
+   "wri_id": "USA0004270",
+   "wri_name": "Waterford 3",
+   "nrc_site": "Waterford"
+  },
+  {
+   "wri_id": "USA0000210",
+   "wri_name": "Wolf Creek Generating Station",
+   "nrc_site": "Wolf Creek"
+  }
+ ]
+}

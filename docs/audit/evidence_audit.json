@@ -1,5 +1,5 @@
 {
- "version": "2.15.8",
+ "version": "2.15.9",
  "mode": "out-of-sample only: profiles that weigh population change are left out",
  "scope": "Top 30 per country and household profile vs all ranked places of that country; countries with at least 150 places carrying the five-year change.",
  "profiles": {

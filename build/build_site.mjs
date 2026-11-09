@@ -16,7 +16,7 @@ const topojson = require('topojson-client');
 const Engine = require(path.join(ROOT, 'src/engine.js'));
 const NestData = require(path.join(ROOT, 'src/data.js'));
 
-const VERSION = process.env.NZ_VERSION || '2.15.11';
+const VERSION = process.env.NZ_VERSION || '2.15.12';
 const SITE = 'https://nestlyzer.com';
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
 /* Static pages: emoji in text become our inline line icons at build time (2.10.1); the app swaps the rest at run time. */
@@ -177,7 +177,7 @@ const appLink = (o) => '/#/explore?' + new URLSearchParams(o).toString();
 // ------------------------------------------------------------------ bundles
 async function bundle() {
   const css = (await esbuild.transform(read('src/css/base.css') + read('src/css/app.css') + read('src/css/v3.css'), { loader: 'css', minify: true })).code;
-  const siteCss = (await esbuild.transform(read('src/css/base.css'), { loader: 'css', minify: true })).code;
+  const siteCss = (await esbuild.transform(read('src/css/base.css') + read('src/css/lists.css'), { loader: 'css', minify: true })).code;
   const parts = ['src/engine.js', 'src/data.js', ...fs.readdirSync(path.join(ROOT, 'src/js')).sort().filter((f) => f !== '57-local.js').map((f) => 'src/js/' + f)];   /* 57-local (amenities, regional snapshot) ships in the on-demand module */
   const EMOJI = JSON.parse(fs.readFileSync(path.join(ROOT, 'build/icons/emoji_icons.json'), 'utf8'));
   fs.writeFileSync(path.join(ROOT, 'data/icons.json'), JSON.stringify(Object.fromEntries(Object.entries(EMOJI.map).map(([e, n]) => [e, EMOJI.icons[n]]))));   /* line icons that replace emoji in the app (loaded on first use) */
@@ -294,7 +294,7 @@ function page({ p, title, desc, body, jsonld = [], crumbs = [], cc = null, appHr
   desc = trimDesc(desc); title = cutTitle(title);
   // 5. structured data: a ranking page describes its first ranking as an ItemList (the places and their pages)
   if (!jsonld.some((j) => j['@type'] === 'ItemList')) {
-    const ol = /<ol class="rank-list">([\s\S]*?)<\/ol>/.exec(body);
+    const ol = /<ol class="rank-list[^"]*">([\s\S]*?)<\/ol>/.exec(body);
     const items = ol ? [...ol[1].matchAll(/<a href="([^"]+)"[^>]*>([^<]+)<\/a>/g)].slice(0, 20) : [];
     if (items.length >= 3) jsonld = jsonld.concat([{ '@context': 'https://schema.org', '@type': 'ItemList', name: title.replace(/ \| Nestlyzer$/, ''), itemListOrder: 'https://schema.org/ItemListOrderDescending', numberOfItems: items.length, itemListElement: items.map((m, i) => ({ '@type': 'ListItem', position: i + 1, name: m[2].replace(/&amp;/g, '&'), url: (m[1].startsWith('http') ? '' : SITE) + m[1] })) }]);
   }
@@ -329,9 +329,16 @@ const depthText = (cc) => { const c = countries.find((x) => x.cc === cc), m = (c
   return 'Regional overview: population, geography' + (ms ? ', ' + ms : '') + ' and modelled indicators for costs, schools and safety.'; };
 const scoreCell = (v) => `<span class="chip ${v >= 70 ? 'tone-good' : v >= 50 ? 'tone-mid' : 'tone-bad'}"><b>${fmt(v)}</b></span>`;
 const placeLink = (r, p = 'young_family') => PAGES[r.id] ? `<a href="${PAGES[r.id]}">${esc(r.name)}</a>` : `<a href="${appLink({ cc: r.country, p, sel: r.id })}">${esc(r.name)}</a>`;
+// 2.15.12: the two strongest weighted criteria of a top-3 place for this profile (short labels, score out of 100)
+const shortCat = (k) => catName(k).replace(/ \(.*$/, '').replace(/ and .*$/, '').replace(/^Education$/, 'Schools and family');
+function whyTop(r, p) {
+  try { const c = engine.categoriesFor(r, p), w = engine.weightsFor(r, p) || {};
+    const top = Object.keys(c).filter((k) => w[k] > 0 && Number.isFinite(c[k])).sort((a, b) => c[b] * w[b] - c[a] * w[a]).slice(0, 2);
+    return top.length ? `<span class="rl-why">${top.map((k) => `${esc(shortCat(k))} <b>${Math.round(c[k])}</b>`).join(' · ')}</span>` : ''; } catch (e) { return ''; }
+}
 function topList(list, cc, p, extra) {
   if (!list.length) return '<p class="muted">No municipality passes this profile here. The profile needs data this country does not have yet, or no place meets its minimums.</p>';
-  return `<ol class="rank-list">${list.map((x) => `<li><span class="n">${x.rank}</span><span>${placeLink(x.r, p)}<br><span class="small muted">${esc(localOf(x.r) || '')}, ${fmtInt(x.r.popNow)} residents</span></span>${scoreCell(x.overall)}</li>`).join('')}</ol><p class="small"><a href="${appLink({ cc, p, ...(extra || {}) })}">See all on the map</a></p>`;
+  return `<ol class="rank-list rl2">${list.map((x, i) => `<li style="--s:${Math.round(x.overall || 0)}"><span class="n">${x.rank}</span><span>${x.r.country !== cc ? flagImg(x.r.country, 12) + ' ' : ''}${placeLink(x.r, p)}<br><span class="small muted">${esc(localOf(x.r) || '')}, ${fmtInt(x.r.popNow)} residents</span>${i < 3 ? whyTop(x.r, p) : ''}</span>${scoreCell(x.overall)}</li>`).join('')}</ol><p class="small"><a href="${appLink({ cc, p, ...(extra || {}) })}">See all on the map</a></p>`;
 }
 function cats(r) { return engine.categories(r); }
 const UNITS = { PT: ['parish', 'parishes'], IE: ['local electoral area', 'local electoral areas'], EL: ['community', 'communities'], CY: ['community', 'communities'], MT: ['locality', 'localities'] };
@@ -529,7 +536,7 @@ function regionPage(cc, code) {
 ${recs.length >= 8 ? dotMap(cc, 'young_family', `Young family fit across ${reg.name}, one dot per place${recs.length > 1500 ? ' (the 1,500 largest shown)' : ''}; numbers mark the top 10`, recs, R.p.young_family, 1500) : ''}
 <div class="cta-band"><h2>Rank ${esc(reg.name)} for your household</h2><a class="btn" href="${appLink({ cc, p: 'young_family', ...(cc === 'CH' ? { a: code } : { r: code }) })}">Open the map</a></div>
 <div class="grid-2">${shown.map((p) => `<section class="card"><h2 style="font-size:var(--step-2)"><a href="${profilePath(p)}" style="color:inherit">For ${esc(AUDIENCE[p])}</a></h2>${topList(R.p[p].list.slice(0, 10).map((x) => x), cc, p)}</section>`).join('')}</div>
-<section style="margin-top:28px"><h2 style="font-size:var(--step-2);margin-bottom:10px">All profiles in ${esc(reg.name)}</h2><table class="table"><thead><tr><th>Profile</th><th>Top place</th><th class="num">Score</th><th class="num">Places that pass</th></tr></thead><tbody>${profiles.map((p) => { const x = R.p[p].list[0]; return `<tr><td><a href="${profilePath(p)}">${esc(engine.profiles[p].name)}</a></td><td>${x ? placeLink(x.r, p) : '–'}</td><td class="num">${x ? scoreCell(x.overall) : ''}</td><td class="num">${fmtInt(R.p[p].n)}</td></tr>`; }).join('')}</tbody></table></section>
+<section style="margin-top:28px"><h2 style="font-size:var(--step-2);margin-bottom:10px">All profiles in ${esc(reg.name)}</h2><table class="table"><thead><tr><th>Profile</th><th>Top place</th><th class="num">Score</th><th class="num">Places that pass</th></tr></thead><tbody>${profiles.map((p) => { const x = R.p[p].list[0]; return `<tr><td><a href="${profilePath(p)}">${esc(engine.profiles[p].name)}</a></td><td>${x ? placeLink(x.r, p) : '–'}</td><td class="num">${x ? scoreCell(x.overall) : ''}</td><td class="num"><span class="pbar" style="--s:${Math.round(100 * R.p[p].n / Math.max(1, (R.recs || []).length || R.p[p].n))}"></span>${fmtInt(R.p[p].n)}</td></tr>`; }).join('')}</tbody></table></section>
 ${linked.length ? `<section style="margin-top:28px"><h2 style="font-size:var(--step-2);margin-bottom:10px">${cc === 'CH' ? 'Every municipality' : 'Towns of 30,000+'} in ${esc(reg.name)}</h2><ul class="linklist">${linked.map((r) => `<li>${placeLink(r)} <span class="small muted">${fmtInt(r.popNow)}</span></li>`).join('')}</ul></section>` : ''}`;
   page({ p: regionPath(cc, reg), cc, appHref: appLink({ cc, p: 'young_family', ...(cc === 'CH' ? { a: code } : { r: code }) }), title: fitTitle([`Best places to live in ${reg.name}`, `, ${cname}`]), desc: `Where to live in ${reg.name}: ${units(cc, recs.length)} ranked for families, retirees, commuters, remote workers and more, from public data.`, body, crumbs: [['Home', '/'], [cname, countryPath(cc)], [reg.name, regionPath(cc, reg)]],
     jsonld: [{ '@context': 'https://schema.org', '@type': 'ItemList', name: `Best places in ${reg.name} for young families`, itemListElement: R.p.young_family ? R.p.young_family.list.slice(0, 10).map((x, i) => ({ '@type': 'ListItem', position: i + 1, name: x.r.name, url: PAGES[x.r.id] ? SITE + PAGES[x.r.id] : undefined })) : [] }] });
@@ -579,9 +586,12 @@ ${A.since ? `<section class="qa about-since"><h2>${esc(A.since.h)}</h2><p class=
 }
 
 // ------------------------------------------------------------------ profile pages
+// 2.15.12: each profile tile shows its worldwide top three with flags (from the published world ranking)
+let WTOP = null; try { WTOP = JSON.parse(read('data/rank/world.json')).profiles; } catch (e) { WTOP = {}; }
+const worldTop = (k) => { const t = ((WTOP[k] || {}).top || []).slice(0, 3); return t.length ? `<span class="wtop">${t.map((x, i) => `<span>${i + 1}. ${flagImg(String(x[0]).split(':')[0], 11)} ${esc(x[1])}</span>`).join('')}</span>` : ''; };
 function bestIndexPage() {
   const body = `<h1>Best places to live, by household</h1><p class="lede">${profiles.length} household profiles, each a transparent set of weights. Pick yours to see its best places in Switzerland and across ${countries.length - 1} more countries in Europe, North America, Asia and Oceania.</p>
-<div class="tiles">${profiles.map((k) => `<a class="tile" href="${profilePath(k)}" style="--tone:${cfg.tones[k] || '#0e7490'}"><span class="ico">${ico(k, 20)}</span><span><b>${esc(engine.profiles[k].name)}</b><small>${esc(TILE_BLURB[k] || (engine.profiles[k].intro || '').split('.')[0])}</small></span></a>`).join('')}</div>
+<div class="tiles">${profiles.map((k) => `<a class="tile" href="${profilePath(k)}" style="--tone:${cfg.tones[k] || '#0e7490'}"><span class="ico">${ico(k, 20)}</span><span><b>${esc(engine.profiles[k].name)}</b><small>${esc(TILE_BLURB[k] || (engine.profiles[k].intro || '').split('.')[0])}</small>${worldTop(k)}</span></a>`).join('')}</div>
 <div class="cta-band"><h2>Or build your own profile</h2><a class="btn" href="${appLink({ cc: 'CH', p: 'young_family' })}">Open the map</a></div>`;
   page({ p: '/best/', title: `Best places to live for every household, ${countries.length} countries | Nestlyzer`, desc: `Rankings for ${profiles.length} household profiles: families, retirees, students, commuters, remote workers and more, across ${countries.length} countries in Europe, North America, Asia and Oceania.`, body, crumbs: [['Home', '/'], ['Profiles', '/best/']] });
 }
@@ -606,7 +616,7 @@ function profilePage(p) {
 ${(KPI.byProfile[p] || []).length ? `<section class="card"><h2 style="font-size:var(--step-2);margin-bottom:8px">Key figures for ${esc(AUDIENCE[p])}</h2><p class="small muted">What people in this situation compare. Place pages show each one with its period, area and source where the official figure exists.</p>${kpiList(P, p)}</section>` : ''}
 <div class="cta-band"><h2>Rank any country for ${esc(AUDIENCE[p])}</h2><a class="btn" href="${appLink({ cc: 'CH', p })}">Open the map</a></div>
 <div class="grid-2"><section class="card"><h2 style="font-size:var(--step-2)">${flagImg('CH', 18)} Switzerland, top 20</h2><p class="small muted">Deepest data: 28 official factors.</p>${topList(ch.list.slice(0, 20), 'CH', p)}</section>
-<section class="card"><h2 style="font-size:var(--step-2)">Across all countries</h2><p class="small muted">Best match per country among places with at least 5,000 residents (overseas territories such as French Guiana or Réunion are left out here). How much is measured differs by country: see the data depth on each country page.</p><table class="table"><tbody>${others.map(([c, R]) => { const eu = (r) => WORLD.includes(r.country) || (r.lat > 27 && r.lat < 72 && r.lon > -32 && r.lon < 45); const x = R.list.find((y) => y.r.popNow >= 5000 && eu(y.r)) || R.list.find((y) => eu(y.r)) || R.list[0]; return `<tr><td>${flagImg(c.cc)} <a href="${countryPath(c.cc)}">${esc(c.name)}</a></td><td>${placeLink(x.r, p)}</td><td class="num">${scoreCell(x.overall)}</td></tr>`; }).join('')}</tbody></table></section></div>
+<section class="card"><h2 style="font-size:var(--step-2)">Across all countries</h2><p class="small muted">Best match per country among places with at least 5,000 residents (overseas territories such as French Guiana or Réunion are left out here). How much is measured differs by country: see the data depth on each country page.</p><ol class="cbars">${others.map(([c, R]) => { const eu = (r) => WORLD.includes(r.country) || (r.lat > 27 && r.lat < 72 && r.lon > -32 && r.lon < 45); const x = R.list.find((y) => y.r.popNow >= 5000 && eu(y.r)) || R.list.find((y) => eu(y.r)) || R.list[0]; return x ? [c, x] : null; }).filter(Boolean).sort((a, b) => b[1].overall - a[1].overall).map(([c, x]) => `<li style="--s:${Math.round(x.overall)}"><span class="cb-c">${flagImg(c.cc)} <a href="${countryPath(c.cc)}">${esc(c.name)}</a></span><span class="cb-p">${placeLink(x.r, p)}</span><span class="cb-b"><i></i><b>${Math.round(x.overall)}</b></span></li>`).join('')}</ol></section></div>
 ${p === 'business_owner' ? businessClimate() : ''}
 <section style="margin-top:28px"><h2 style="font-size:var(--step-2);margin-bottom:10px">Other profiles</h2><ul class="linklist">${profiles.filter((k) => k !== p).map((k) => `<li><a href="${profilePath(k)}">${esc(engine.profiles[k].name)}</a></li>`).join('')}</ul></section>`;
   page({ p: profilePath(p), title: fitTitle([`Best places for ${AUDIENCE[p]}`, ` in ${countries.length} countries`]), desc: `Where should ${AUDIENCE[p]} live? Rankings across Switzerland, Europe, North America, Asia and Oceania with the weights shown, from public data.`, body, crumbs: [['Home', '/'], ['Profiles', '/#profiles'], [P.name, profilePath(p)]] });
@@ -960,20 +970,20 @@ function businessPage() {
   const theme = `<style id="nz-business-theme">
 @font-face{font-family:"Bricolage";font-weight:200 800;font-stretch:75% 100%;font-display:swap;src:url(${font('bricolage-grotesque-latin-standard-normal.woff2')}) format("woff2")}
 @font-face{font-family:"Public Sans";font-weight:100 900;font-display:swap;src:url(${font('public-sans-latin-wght-normal.woff2')}) format("woff2")}
-:root{--ink:#132238;--muted:#4f5d6e;--line:#d7e0df;--paper:#eef3f2;--navy:#0B2E5C;--teal:#0F7C7A;--soft:#e2f1ef;--warm:#f7e6d3;--copper:#C8742A}
+:root{--ink:#132238;--muted:#4f5d6e;--line:#dfe3e8;--paper:#f6f4ef;--navy:#0B2E5C;--teal:#EA580C;--soft:#fff1e8;--warm:#fde7d6;--copper:#F97316}
 body{font-family:"Public Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--paper)}
 h1,h2,h3,.stat b,.brand{font-family:"Bricolage","Public Sans",ui-sans-serif,system-ui,sans-serif}
 h1{font-stretch:85%;letter-spacing:-.01em}
 header{background:linear-gradient(90deg,#08223f 0%,#0B2E5C 55%,#0d3f55 100%);border-bottom:3px solid var(--teal)}
 .nzb-brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none}.nzb-brand b{font:700 25px "Bricolage",sans-serif;font-stretch:85%}
-.nzb-brand span{font:500 18px "Public Sans",sans-serif;color:#cfe7e4}.nzb-brand small{font:700 12px "Public Sans",sans-serif;background:var(--copper);color:#fff;padding:3px 8px;border-radius:999px}
+.nzb-brand span{font:500 18px "Public Sans",sans-serif;color:#FDBA74}.nzb-brand small{font:700 12px "Public Sans",sans-serif;background:var(--copper);color:#fff;padding:3px 8px;border-radius:999px}
 .mark .mk-pin{fill:var(--teal)}
 nav button[aria-selected=true]{background:var(--teal);border-color:var(--teal)}
-.pill.warn{background:var(--warm);color:#7a3f0c}.barfill{background:linear-gradient(90deg,var(--teal),#2aa39b)}
-a{color:#0b6d6b}button:focus-visible,a:focus-visible,input:focus,select:focus{outline-color:var(--copper)}
+.pill.warn{background:var(--warm);color:#7a3f0c}.barfill{background:linear-gradient(90deg,var(--teal),#FB923C)}
+a{color:#0B2E5C}button:focus-visible,a:focus-visible,input:focus,select:focus{outline-color:var(--copper)}
 .card,.stat{border-radius:14px}
 </style>`;
-  const mark = MARK_INLINE.replace('fill="#F5B700"', 'fill="#C8742A"');
+  const mark = MARK_INLINE.replace('fill="#F5B700"', 'fill="#F97316"');
   h = h.replace('</head>', theme + '</head>')
     .replace(/<div class="brand">Nestlyzer <span style="font-weight:400">Business<\/span><small>Beta<\/small><\/div>/, `<a class="nzb-brand" href="/" aria-label="Nestlyzer home">${mark}<b>Nestlyzer</b><span>Business</span></a>`)
     .replace('<a id="back-home" href="../index.html">Residential Nestlyzer</a>', '<a id="back-home" href="/">Places to live</a>')
@@ -986,7 +996,11 @@ a{color:#0b6d6b}button:focus-visible,a:focus-visible,input:focus,select:focus{ou
   h = h.slice(0, introEnd) + '<div class="nzb-globe"><canvas id="nzb-globe" role="img" aria-label="Globe: land as hexagons; economies with data are brighter; the two compared economies are highlighted"></canvas><p class="nzb-key"><span><i class="ka"></i>Economy A</span> <span><i class="kb"></i>Economy B</span> <span><i class="kd"></i>Places ranked</span></p></div>' + h.slice(introEnd);
   const cta = '<p class="nzb-cta"><a class="button" id="nzb-rank" href="/#/explore?cc=CH&amp;p=biz_manufacturing">Rank municipalities for a business site</a> <span class="small muted">Manufacturing, logistics, tech, labs, offices and HQ, with must-haves</span></p>';
   const ctaJs = "(function(){var a=document.getElementById('nzb-rank'),s=document.getElementById('country-a'),ok=" + JSON.stringify(countries.map((c) => c.cc)) + ",map={GB:'UK',GR:'EL'};function u(){var c=map[s.value]||s.value;if(ok.indexOf(c)<0)c='CH';a.href='/#/explore?cc='+c+'&p=biz_manufacturing';}if(a&&s){s.addEventListener('change',u);u();}})();";
-  h = h.replace('<div class="nzb-globe">', cta + '<div class="nzb-globe">');
+  // 2.15.12: twin of the household profiles page — the company profiles as icon tiles with their worldwide top three (flags)
+  const bizTiles = `<section class="nzb-prof" aria-labelledby="nzb-prof-h"><h2 id="nzb-prof-h">Best places for your business site</h2><p class="nzb-lede">${BIZ.length} company profiles, each a transparent set of weights and must-haves. Pick the kind of site to see its best municipalities in ${countries.length} countries.</p>${(cfg.bizGroups || [['Business locations', BIZ]]).map(([g, ks]) => { const K = ks.filter((k) => BIZ.includes(k)); return K.length ? `<h3>${esc(g)}</h3><div class="nzb-tiles">${K.map((k) => `<a class="nzb-tile" href="${bizPath(k)}"><span class="ico">${ico(k, 20)}</span><span><b>${esc(engine.profiles[k].name)}</b><small>${esc((engine.profiles[k].intro || '').split('.')[0])}</small>${worldTop(k)}</span></a>`).join('')}</div>` : ''; }).join('')}</section>`;
+  const bizTileCss = '<style>.nzb-prof{margin:18px 0 26px}.nzb-prof h2{font-size:clamp(1.5rem,4vw,2.2rem);margin:0 0 6px}.nzb-lede{color:var(--muted);max-width:62ch;margin:0 0 10px}.nzb-prof h3{font-size:1rem;margin:16px 0 8px;color:var(--muted)}.nzb-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:10px}.nzb-tile{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff;color:var(--ink);text-decoration:none;transition:border-color .15s}.nzb-tile:hover{border-color:#EA580C}.nzb-tile .ico{display:grid;place-items:center;width:38px;height:38px;flex:none;border-radius:12px;background:#fff1e8;color:#EA580C}.nzb-tile .ico svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.nzb-cta .button,#nzb-rank{background:#EA580C!important;border-color:#EA580C!important;color:#fff!important}.nzb-tile b{display:block}.nzb-tile small{display:block;color:var(--muted);font-size:13px;margin-top:2px}.wtop{display:grid;gap:1px;margin-top:6px;font-size:12px;color:var(--muted)}.wtop span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.wtop .flag{vertical-align:-1px}</style>';
+  h = h.replace('</head>', bizTileCss + '</head>');
+  h = h.replace('<div class="nzb-globe">', cta + bizTiles + '<div class="nzb-globe">');
   h = h.replace('</body>', '<script>window.NZB_HEX=' + hex + ';</script><script>' + gjs + '</script><script>' + ctaJs + '</script></body>');
   h = h.replace('</style>\n</head>', '</style></head>').replace('<style id="nz-business-theme">', '<style id="nz-business-theme">.intro{grid-template-columns:1fr minmax(220px,300px)!important;align-items:start;grid-template-rows:auto auto auto 1fr;row-gap:14px}.intro>div:first-child{grid-column:1}.nzb-cta{grid-column:1;margin:4px 0 0}.nzb-cta .button{background:#0F7C7A;color:#fff;border-color:#0F7C7A;font-weight:700}.intro>.pill{grid-column:1;justify-self:start}.nzb-globe{grid-column:2;grid-row:1 / span 4;align-self:start}.nzb-globe canvas{display:block;width:100%;aspect-ratio:1}.nzb-key{margin:6px 0 0;font-size:12px;color:var(--muted);text-align:center}.nzb-key span{white-space:nowrap}.nzb-key i{display:inline-block;width:10px;height:10px;border-radius:2px;margin:0 4px 0 10px;vertical-align:-1px}.nzb-key .ka{background:#e08b3c}.nzb-key .kb{background:#5fd0c4}.nzb-key .kd{background:rgba(95,208,196,.55)}@media (max-width:760px){.intro{grid-template-columns:1fr!important}.nzb-globe{grid-column:1;grid-row:auto;max-width:260px;margin:0 auto;order:-1}}\n');
   if (!h.includes('nz-business-theme') || !h.includes('nzb-brand')) throw new Error('business page: theme or header not applied');

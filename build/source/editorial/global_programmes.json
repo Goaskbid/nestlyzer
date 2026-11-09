@@ -1,1962 +1,2567 @@
 {
-  "meta": {
-    "by": "Nestlyzer editorial team",
-    "as_of": "2026-06",
-    "note": "Short summaries written by Nestlyzer from the official government pages linked on every entry. Rules change often: the linked official page is authoritative. General information, not tax, legal or immigration advice.",
-    "fields": [
-      "cc",
-      "kind",
-      "name",
-      "figures",
-      "summary",
-      "conditions",
-      "official_url",
-      "status"
-    ]
-  },
-  "rows": [
-    [
-      "MT",
-      "tax-person",
-      "Non-dom remittance basis",
-      [
-        "Foreign income taxed only if brought to Malta",
-        "€5,000 minimum tax"
-      ],
-      "Residents who are not domiciled in Malta pay tax on foreign income only when it is remitted to Malta; foreign capital gains stay untaxed even when remitted.",
-      "Minimum annual tax of €5,000 applies when foreign income is €35,000 or more.",
-      "https://cfr.gov.mt",
-      ""
-    ],
-    [
-      "MT",
-      "tax-person",
-      "Global Residence Programme",
-      [
-        "15% flat on remitted foreign income",
-        "€15,000 minimum tax a year"
-      ],
-      "Special tax status for non-EU nationals who buy or rent qualifying property in Malta.",
-      "Property purchase from €275,000 (€220,000 in Gozo and the south) or rent from €9,600 a year (€8,750); health insurance; no EU/EEA/Swiss nationals.",
-      "https://cfr.gov.mt",
-      ""
-    ],
-    [
-      "MT",
-      "tax-person",
-      "Highly Qualified Persons rule",
-      [
-        "15% flat on employment income"
-      ],
-      "Senior staff in financial services, gaming, aviation and maritime pay a flat 15% instead of up to 35%.",
-      "Salary above a yearly indexed threshold; limited number of years; applied for through the sector regulator.",
-      "https://cfr.gov.mt",
-      ""
-    ],
-    [
-      "MT",
-      "nomad",
-      "Nomad Residence Permit",
-      [
-        "€42,000 gross income a year"
-      ],
-      "One-year renewable permit for remote workers employed or contracted outside Malta.",
-      "Work for a foreign employer or own foreign company; health insurance; Maltese address.",
-      "https://residencymalta.gov.mt",
-      ""
-    ],
-    [
-      "MT",
-      "invest",
-      "Malta Permanent Residence Programme",
-      [
-        "Permanent residence"
-      ],
-      "Permanent residence for non-EU investors who pay a government contribution and buy or rent property.",
-      "Government contribution, administration fee, charitable donation, property purchase or long lease and proof of capital; background checks.",
-      "https://residencymalta.gov.mt",
-      ""
-    ],
-    [
-      "MT",
-      "cbi",
-      "Citizenship by naturalisation for exceptional services",
-      [
-        "Struck down by EU Court, April 2025"
-      ],
-      "The EU Court of Justice ruled on 29 April 2025 that Malta's investor citizenship scheme breaches EU law. Do not plan on it.",
-      "Malta must stop granting citizenship in exchange for payments.",
-      "https://curia.europa.eu",
-      "closed"
-    ],
-    [
-      "CY",
-      "tax-person",
-      "Non-domiciled resident status",
-      [
-        "17 years",
-        "No defence contribution on dividends and interest"
-      ],
-      "Tax residents who are not Cypriot-domiciled are exempt from the Special Defence Contribution on dividends, interest and rents for up to 17 years.",
-      "Tax residence through the 183-day or the 60-day rule.",
-      "https://www.mof.gov.cy/mof/tax/taxdep.nsf",
-      ""
-    ],
-    [
-      "CY",
-      "tax-person",
-      "50% employment income exemption",
-      [
-        "50% of salary tax-free",
-        "above €55,000 a year"
-      ],
-      "New residents who earn more than €55,000 a year from a Cyprus job pay tax on half of it.",
-      "For up to 17 years; not Cyprus tax residents before taking up the job.",
-      "https://www.mof.gov.cy/mof/tax/taxdep.nsf",
-      ""
-    ],
-    [
-      "CY",
-      "invest",
-      "Permanent residence via property",
-      [
-        "€300,000 new property"
-      ],
-      "Fast-track permanent residence for non-EU buyers of new residential property.",
-      "Proof of secure annual income from abroad; clean record; property of at least €300,000 plus VAT.",
-      "https://www.moi.gov.cy/moi/crmd/crmd.nsf",
-      ""
-    ],
-    [
-      "CY",
-      "nomad",
-      "Digital nomad visa",
-      [
-        "€3,500 net a month"
-      ],
-      "Up to three years for remote workers employed outside Cyprus.",
-      "Non-EU nationals; income from abroad; health insurance; national cap on numbers.",
-      "https://www.moi.gov.cy/moi/crmd/crmd.nsf",
-      ""
-    ],
-    [
-      "IT",
-      "tax-person",
-      "Flat tax for new residents",
-      [
-        "€300,000 a year on foreign income (2026 arrivals)",
-        "€200,000 for 2024–2025 arrivals"
-      ],
-      "Lump-sum tax that replaces Italian tax on all foreign income, for up to 15 years.",
-      "Not resident in Italy in 9 of the last 10 years; family members pay an extra fixed amount each; set by the 2026 budget law, check the current figure.",
-      "https://www.agenziaentrate.gov.it",
-      "changed"
-    ],
-    [
-      "IT",
-      "tax-person",
-      "Inbound workers regime (impatriati)",
-      [
-        "50% of income tax-free",
-        "60% with a child or in the south"
-      ],
-      "Employees and self-employed who move their tax residence to Italy pay tax on half their Italian work income for 5 years.",
-      "Income up to €600,000; highly qualified; not resident in Italy in the previous 3 years; stay at least 4 years.",
-      "https://www.agenziaentrate.gov.it",
-      ""
-    ],
-    [
-      "IT",
-      "retire",
-      "7% tax for pensioners in southern towns",
-      [
-        "7% flat on all foreign income",
-        "10 years"
-      ],
-      "Foreign pensioners who move to a small town in southern Italy pay 7% on all foreign income.",
-      "Town under 20,000 residents in the south or listed earthquake areas; foreign pension; not Italian resident in the 5 previous years.",
-      "https://www.agenziaentrate.gov.it",
-      ""
-    ],
-    [
-      "IT",
-      "invest",
-      "Investor visa for Italy",
-      [
-        "€250,000 in an innovative start-up",
-        "€500,000 in a company",
-        "€2 million in government bonds"
-      ],
-      "Two-year renewable residence for investors, decided by an online committee.",
-      "Investment within 3 months of arrival; €1 million donation route for public-interest projects.",
-      "https://investorvisa.mise.gov.it",
-      ""
-    ],
-    [
-      "IT",
-      "retire",
-      "Elective residence visa",
-      [
-        "about €31,000 passive income a year"
-      ],
-      "Residence for people who live on pensions or investment income without working in Italy.",
-      "Stable passive income; housing in Italy; no work allowed.",
-      "https://vistoperitalia.esteri.it",
-      ""
-    ],
-    [
-      "IT",
-      "nomad",
-      "Digital nomad visa",
-      [
-        "about €28,000 a year"
-      ],
-      "One-year renewable permit for highly qualified remote workers since April 2024.",
-      "Degree or 5 years' experience; income at least three times the health-cost exemption threshold; insurance.",
-      "https://vistoperitalia.esteri.it",
-      ""
-    ],
-    [
-      "EL",
-      "tax-person",
-      "Flat tax for high-net-worth newcomers (Article 5A)",
-      [
-        "€100,000 a year on all foreign income",
-        "15 years"
-      ],
-      "Lump-sum tax on worldwide foreign income for new Greek residents who invest in Greece.",
-      "Investment of at least €500,000 in Greece; not Greek tax resident in 7 of the last 8 years; €20,000 per family member.",
-      "https://www.aade.gr/en/greeks-abroad-non-residents/income-taxation/tax-incentives-order-attract-new-tax-residents",
-      ""
-    ],
-    [
-      "EL",
-      "retire",
-      "7% flat tax for foreign pensioners (Article 5B)",
-      [
-        "7% on all foreign income",
-        "15 years"
-      ],
-      "Retirees who move their tax residence to Greece pay 7% on all foreign-source income.",
-      "Not Greek tax resident in 5 of the last 6 years; from a country with an administrative cooperation agreement.",
-      "https://www.aade.gr",
-      ""
-    ],
-    [
-      "EL",
-      "tax-person",
-      "50% relief for incoming workers (Article 5C)",
-      [
-        "50% of work income tax-free",
-        "7 years"
-      ],
-      "Employees and freelancers who move to Greece pay income tax on half of their Greek work income.",
-      "Not Greek tax resident in 5 of the last 6 years; stay at least 2 years.",
-      "https://www.aade.gr/en/greeks-abroad-non-residents/income-taxation/tax-incentives-order-attract-new-tax-residents",
-      ""
-    ],
-    [
-      "EL",
-      "invest",
-      "Golden visa",
-      [
-        "€800,000 in Athens, Thessaloniki, Mykonos, Santorini and large islands",
-        "€400,000 elsewhere",
-        "€250,000 for conversions or listed buildings"
-      ],
-      "Five-year renewable residence for property buyers and investors.",
-      "Single property of at least 120 m² in the higher bands; no short-term rental; renewals as long as the investment is held.",
-      "https://www.migration.gov.gr",
-      ""
-    ],
-    [
-      "EL",
-      "nomad",
-      "Digital nomad visa",
-      [
-        "€3,500 net a month"
-      ],
-      "Residence for remote workers employed or self-employed outside Greece.",
-      "Non-EU nationals; employer or clients abroad; health insurance.",
-      "https://www.migration.gov.gr",
-      ""
-    ],
-    [
-      "PT",
-      "tax-person",
-      "IFICI tax regime (NHR 2.0)",
-      [
-        "20% flat on qualifying Portuguese work income",
-        "10 years",
-        "most foreign income exempt"
-      ],
-      "Replaced the old non-habitual resident regime in 2024 for researchers, tech staff, start-up founders and other qualifying roles.",
-      "Not Portuguese tax resident in the previous 5 years; qualifying activity and degree; application by 15 January of the following year.",
-      "https://info.portaldasfinancas.gov.pt",
-      ""
-    ],
-    [
-      "PT",
-      "invest",
-      "Golden visa (fund route)",
-      [
-        "€500,000 in investment funds",
-        "7 days a year in Portugal"
-      ],
-      "Residence for investors; property purchases no longer qualify since October 2023.",
-      "Qualifying fund units, company capital with jobs, research or culture donations.",
-      "https://aima.gov.pt",
-      "changed"
-    ],
-    [
-      "PT",
-      "retire",
-      "D7 passive income visa",
-      [
-        "Income at least the Portuguese minimum wage"
-      ],
-      "Residence for retirees and people with stable passive income.",
-      "Regular passive income; accommodation in Portugal; Portuguese tax number and bank account.",
-      "https://vistos.mne.gov.pt",
-      ""
-    ],
-    [
-      "PT",
-      "nomad",
-      "D8 digital nomad visa",
-      [
-        "Income at least 4 × minimum wage"
-      ],
-      "Temporary stay or residence for remote workers.",
-      "Work for employers or clients abroad; proof of the last 3 months' income.",
-      "https://vistos.mne.gov.pt",
-      ""
-    ],
-    [
-      "ES",
-      "tax-person",
-      "Beckham regime for inbound workers",
-      [
-        "24% flat on Spanish work income up to €600,000",
-        "6 years",
-        "foreign income mostly exempt"
-      ],
-      "People who move to Spain for a job, to found a start-up or as remote workers are taxed as non-residents.",
-      "Not Spanish tax resident in the previous 5 years; apply within 6 months of registering with social security.",
-      "https://sede.agenciatributaria.gob.es",
-      ""
-    ],
-    [
-      "ES",
-      "nomad",
-      "International teleworker visa",
-      [
-        "about €2,760 a month (2 × minimum wage)"
-      ],
-      "Residence for remote workers, with access to the Beckham regime.",
-      "Work for companies outside Spain (up to 20% Spanish clients); degree or 3 years' experience.",
-      "https://www.inclusion.gob.es",
-      ""
-    ],
-    [
-      "ES",
-      "invest",
-      "Golden visa",
-      [
-        "Closed on 3 April 2025"
-      ],
-      "Spain abolished residence by investment. Permits already granted can be renewed.",
-      "No new applications.",
-      "https://www.inclusion.gob.es",
-      "closed"
-    ],
-    [
-      "UK",
-      "tax-person",
-      "Foreign income and gains regime",
-      [
-        "4 years",
-        "100% relief on foreign income and gains"
-      ],
-      "Since 6 April 2025 the UK taxes on residence, not domicile. Newcomers can keep foreign income and gains tax-free for their first 4 years.",
-      "Not UK tax resident in any of the 10 years before arriving; must claim each year; the old non-dom remittance basis is abolished.",
-      "https://www.gov.uk/government/publications/tax-changes-for-non-uk-domiciled-individuals",
-      "changed"
-    ],
-    [
-      "UK",
-      "work",
-      "Skilled Worker visa",
-      [
-        "£41,700 general salary threshold",
-        "degree-level jobs"
-      ],
-      "Work visa for a job with a licensed sponsor; a route to settlement.",
-      "Job at degree level (RQF 6); salary threshold or the going rate, whichever is higher; English level B1.",
-      "https://www.gov.uk/skilled-worker-visa",
-      "changed"
-    ],
-    [
-      "UK",
-      "work",
-      "Global Talent visa",
-      [
-        "Up to 5 years",
-        "no job offer needed"
-      ],
-      "For leaders and promising talent in science, engineering, digital technology, arts and culture.",
-      "Endorsement by an approved body or a qualifying prize.",
-      "https://www.gov.uk/global-talent",
-      ""
-    ],
-    [
-      "UK",
-      "invest",
-      "Innovator Founder visa",
-      [
-        "3 years",
-        "no minimum investment"
-      ],
-      "For founders with an innovative, viable and scalable business idea.",
-      "Endorsement by an approved body; English level B2.",
-      "https://www.gov.uk/innovator-founder-visa",
-      ""
-    ],
-    [
-      "UK",
-      "study",
-      "Student visa and Graduate route",
-      [
-        "Graduate route: 2 years after a degree (18 months from 2027)"
-      ],
-      "Study visa for a course with a licensed sponsor, then time to work without a sponsor.",
-      "Confirmation of acceptance; proof of funds; English level.",
-      "https://www.gov.uk/student-visa",
-      "changed"
-    ],
-    [
-      "UK",
-      "work",
-      "High Potential Individual visa",
-      [
-        "2 years (3 for a PhD)",
-        "no job offer needed"
-      ],
-      "For recent graduates of top-ranked universities outside the UK.",
-      "Degree from a listed university in the last 5 years.",
-      "https://www.gov.uk/high-potential-individual-visa",
-      ""
-    ],
-    [
-      "UK",
-      "biz",
-      "Electronic Travel Authorisation (ETA)",
-      [
-        "£16",
-        "valid 2 years"
-      ],
-      "Visitors who do not need a visa, including EU citizens, need an ETA before travelling for tourism or business meetings.",
-      "Up to 6 months per visit; no paid work.",
-      "https://www.gov.uk/guidance/apply-for-an-electronic-travel-authorisation-eta",
-      ""
-    ],
-    [
-      "IE",
-      "tax-person",
-      "Special Assignee Relief Programme (SARP)",
-      [
-        "30% of income above €100,000 tax-free",
-        "5 years"
-      ],
-      "Relief for employees assigned to Ireland by their employer.",
-      "Base salary of at least €100,000; worked for the employer abroad before; extended to 2030.",
-      "https://www.revenue.ie",
-      ""
-    ],
-    [
-      "IE",
-      "work",
-      "Critical Skills Employment Permit",
-      [
-        "2 years",
-        "then Stamp 4 residence"
-      ],
-      "Work permit for shortage occupations and highly paid roles, with family reunification from the start.",
-      "Job offer of at least 2 years; salary thresholds set by the Department of Enterprise.",
-      "https://enterprise.gov.ie",
-      ""
-    ],
-    [
-      "NL",
-      "tax-person",
-      "30% ruling",
-      [
-        "30% of salary tax-free (27% from 2027)",
-        "5 years"
-      ],
-      "Employers can pay recruited staff from abroad a tax-free allowance.",
-      "Recruited from more than 150 km from the Dutch border; salary threshold; cap at the public-sector maximum salary.",
-      "https://www.belastingdienst.nl",
-      "changed"
-    ],
-    [
-      "NL",
-      "invest",
-      "Dutch-American Friendship Treaty (DAFT)",
-      [
-        "€4,500 business investment"
-      ],
-      "US citizens can live in the Netherlands as self-employed with a small business capital.",
-      "US nationality; €4,500 in a Dutch business account; registered business.",
-      "https://ind.nl",
-      ""
-    ],
-    [
-      "NL",
-      "work",
-      "Highly skilled migrant permit",
-      [
-        "Fast-track via recognised sponsors"
-      ],
-      "Residence for knowledge workers hired by an IND-recognised employer.",
-      "Salary thresholds by age; employer must be a recognised sponsor.",
-      "https://ind.nl",
-      ""
-    ],
-    [
-      "CH",
-      "tax-person",
-      "Lump-sum taxation",
-      [
-        "Tax on living expenses instead of income",
-        "federal minimum base about CHF 430,000"
-      ],
-      "Foreigners who live in Switzerland without working there can be taxed on their expenses.",
-      "Not Swiss nationals; no gainful work in Switzerland; abolished in Zurich, Schaffhausen, Appenzell Ausserrhoden and both Basels.",
-      "https://www.estv.admin.ch",
-      ""
-    ],
-    [
-      "FR",
-      "tax-person",
-      "Impatriate regime",
-      [
-        "30% of salary tax-free",
-        "8 years",
-        "50% of some foreign income exempt"
-      ],
-      "Employees recruited from abroad get a partial exemption of their pay and of some passive foreign income.",
-      "Not French tax resident in the 5 previous years.",
-      "https://www.impots.gouv.fr",
-      ""
-    ],
-    [
-      "FR",
-      "work",
-      "Talent Passport",
-      [
-        "Up to 4 years",
-        "family included"
-      ],
-      "Multi-year permit for qualified employees, researchers, founders, investors and artists.",
-      "Category criteria such as salary, degree or investment of €300,000.",
-      "https://france-visas.gouv.fr",
-      ""
-    ],
-    [
-      "DK",
-      "tax-person",
-      "Researcher and key-employee scheme",
-      [
-        "27% flat plus 8% labour-market contribution",
-        "7 years"
-      ],
-      "Gross tax of about 32.8% instead of progressive rates up to 52%.",
-      "Monthly salary above the yearly threshold; not taxable in Denmark in the previous 10 years.",
-      "https://skat.dk",
-      ""
-    ],
-    [
-      "SE",
-      "tax-person",
-      "Expert tax relief",
-      [
-        "25% of income tax-free",
-        "7 years"
-      ],
-      "Foreign experts, researchers and key staff pay tax on 75% of their pay.",
-      "For the remuneration route, gross monthly remuneration must exceed 1.5 times the price base amount applicable when work starts. The tasks/expertise route and other qualifying conditions remain separate.",
-      "https://forskarskattenamnden.se/andra-sprak/taxation-of-research-workers-board/conditions-for-tax-relief/remuneration-rate",
-      ""
-    ],
-    [
-      "MC",
-      "tax-person",
-      "No personal income tax",
-      [
-        "0% income tax for residents"
-      ],
-      "Monaco does not tax individuals on income (French nationals excepted).",
-      "Residence card requires accommodation and proof of means; banks often require a deposit.",
-      "https://www.gouv.mc",
-      ""
-    ],
-    [
-      "AD",
-      "tax-person",
-      "Low flat income tax",
-      [
-        "Income tax capped at 10%"
-      ],
-      "Andorra's personal income tax is 0% to 10%.",
-      "Passive residence requires an investment in Andorra and 90 days a year presence.",
-      "https://www.govern.ad",
-      ""
-    ],
-    [
-      "GE",
-      "tax-person",
-      "Small business status",
-      [
-        "1% tax on turnover up to GEL 500,000"
-      ],
-      "Individual entrepreneurs with small business status pay 1% on turnover.",
-      "Register as an individual entrepreneur; some activities excluded.",
-      "https://www.rs.ge",
-      ""
-    ],
-    [
-      "UY",
-      "tax-person",
-      "Tax holiday for new residents",
-      [
-        "0% on foreign investment income",
-        "11 years (or 7% after)"
-      ],
-      "New tax residents can choose an 11-year holiday on foreign dividends and interest.",
-      "Not Uruguayan tax resident in the previous 5 years; property or company investment route.",
-      "https://www.dgi.gub.uy",
-      ""
-    ],
-    [
-      "PA",
-      "tax-person",
-      "Territorial tax system",
-      [
-        "Foreign-source income not taxed"
-      ],
-      "Panama only taxes income earned in Panama.",
-      "Residence via Friendly Nations, Qualified Investor or Pensionado visas.",
-      "https://www.migracion.gob.pa",
-      ""
-    ],
-    [
-      "PY",
-      "tax-person",
-      "Territorial tax system",
-      [
-        "10% income tax",
-        "foreign income not taxed"
-      ],
-      "Low flat rates and taxation of local income only.",
-      "Residence via the migration authority.",
-      "https://www.migraciones.gov.py",
-      ""
-    ],
-    [
-      "CR",
-      "tax-person",
-      "Territorial tax system",
-      [
-        "Foreign-source income not taxed"
-      ],
-      "Costa Rica taxes income from Costa Rican sources only.",
-      "Residence via Rentista, Pensionado or digital nomad routes.",
-      "https://www.migracion.go.cr",
-      ""
-    ],
-    [
-      "AE",
-      "tax-person",
-      "No personal income tax",
-      [
-        "0% income tax on salaries and investments"
-      ],
-      "The UAE does not tax individuals' income.",
-      "Tax residence certificate needs 183 days, or 90 days with a permanent home or job.",
-      "https://tax.gov.ae",
-      ""
-    ],
-    [
-      "SG",
-      "tax-person",
-      "Low progressive income tax",
-      [
-        "Top rate 24%",
-        "no capital gains tax"
-      ],
-      "Foreign income received by residents is generally not taxed.",
-      "Resident after 183 days in a year.",
-      "https://www.iras.gov.sg",
-      ""
-    ],
-    [
-      "HK",
-      "tax-person",
-      "Territorial salaries tax",
-      [
-        "Standard rate 15% (16% above HK$5 million)"
-      ],
-      "Only income from a Hong Kong job is taxed; no capital gains or dividend tax.",
-      "Territorial source rules.",
-      "https://www.ird.gov.hk",
-      ""
-    ],
-    [
-      "KR",
-      "tax-person",
-      "19% flat tax option for foreign employees",
-      [
-        "19% flat on salary",
-        "20 years"
-      ],
-      "Foreign employees can choose a single 19% rate instead of progressive rates.",
-      "Employees of Korean companies; time-limited scheme.",
-      "https://www.nts.go.kr",
-      ""
-    ],
-    [
-      "TH",
-      "tax-person",
-      "LTR visa 17% tax",
-      [
-        "17% flat on salary for highly skilled professionals",
-        "10-year visa"
-      ],
-      "Long-Term Resident visa holders in qualifying industries pay 17% on Thai employment income.",
-      "Highly skilled professional category; employer and salary criteria.",
-      "https://ltr.boi.go.th",
-      ""
-    ],
-    [
-      "MY",
-      "tax-person",
-      "Foreign-sourced income exemption",
-      [
-        "Foreign income exempt for individuals until 2036"
-      ],
-      "Individuals in Malaysia do not pay tax on foreign income brought into the country.",
-      "Partnerships excluded; must have been taxed abroad in some cases.",
-      "https://www.hasil.gov.my",
-      ""
-    ],
-    [
-      "CN",
-      "tax-person",
-      "Hainan Free Trade Port talent tax cap",
-      [
-        "Individual income tax capped at 15%"
-      ],
-      "High-end and urgently needed talent working in Hainan pay at most 15%.",
-      "At least 183 days a year in Hainan; listed talent categories.",
-      "https://en.hnftp.gov.cn",
-      ""
-    ],
-    [
-      "PR",
-      "tax-person",
-      "Puerto Rico Act 60 resident investor",
-      [
-        "0% on capital gains accrued after the move",
-        "$10,000 yearly donation"
-      ],
-      "New residents of the US territory pay no Puerto Rico tax on most passive income.",
-      "Buy a home within 2 years; not resident in the previous 10 years; US federal tax still applies to non-Puerto Rico income.",
-      "https://www.ddec.pr.gov",
-      ""
-    ],
-    [
-      "AE",
-      "tax-corp",
-      "Free zone 0% corporate tax",
-      [
-        "0% on qualifying income",
-        "9% above AED 375,000 elsewhere"
-      ],
-      "Companies in UAE free zones such as JAFZA, DMCC, DIFC and ADGM pay no corporate tax on qualifying income.",
-      "Adequate substance; qualifying activities; audited accounts.",
-      "https://tax.gov.ae",
-      ""
-    ],
-    [
-      "SA",
-      "tax-corp",
-      "Regional Headquarters programme",
-      [
-        "0% corporate tax for 30 years on RHQ activities"
-      ],
-      "Multinationals that move their regional headquarters to Saudi Arabia get tax and visa benefits.",
-      "Licensed RHQ; minimum staff; government contracts depend on it.",
-      "https://www.misa.gov.sa",
-      ""
-    ],
-    [
-      "QA",
-      "tax-corp",
-      "Qatar Financial Centre",
-      [
-        "10% corporate tax on local-source profits"
-      ],
-      "Onshore business platform with its own law and tax regime.",
-      "QFC licence; permitted activities.",
-      "https://www.qfc.qa",
-      ""
-    ],
-    [
-      "SG",
-      "tax-corp",
-      "Pioneer and development incentives",
-      [
-        "5% or 10% concessionary tax rate"
-      ],
-      "Lower corporate tax for qualifying new or expanding activities instead of 17%.",
-      "Awarded case by case by the Economic Development Board.",
-      "https://www.edb.gov.sg",
-      ""
-    ],
-    [
-      "MY",
-      "tax-corp",
-      "Labuan international business centre",
-      [
-        "3% of audited net profits"
-      ],
-      "Labuan trading companies pay 3% tax on profits.",
-      "Substance: minimum staff and spending in Labuan.",
-      "https://www.labuanfsa.gov.my",
-      ""
-    ],
-    [
-      "CN",
-      "tax-corp",
-      "Hainan Free Trade Port",
-      [
-        "15% corporate tax for encouraged industries",
-        "island-wide customs operation since December 2025"
-      ],
-      "Lower corporate tax and duty-free imports of many goods for companies with real operations in Hainan.",
-      "Encouraged industry list; substantive operations.",
-      "https://en.hnftp.gov.cn",
-      ""
-    ],
-    [
-      "CN",
-      "tax-corp",
-      "Qianhai Shenzhen–Hong Kong cooperation zone",
-      [
-        "15% corporate tax for encouraged industries"
-      ],
-      "Preferential rate for companies in the Qianhai zone of Shenzhen.",
-      "Encouraged industry catalogue; main business in the zone.",
-      "https://qh.sz.gov.cn",
-      ""
-    ],
-    [
-      "IN",
-      "tax-corp",
-      "GIFT City IFSC",
-      [
-        "100% tax holiday for 10 of 15 years"
-      ],
-      "International Financial Services Centre in Gujarat with tax holidays for funds, banks and fintechs.",
-      "IFSCA registration; operations in the IFSC.",
-      "https://ifsca.gov.in",
-      ""
-    ],
-    [
-      "PH",
-      "tax-corp",
-      "PEZA ecozones",
-      [
-        "Income tax holiday, then 5% on gross income"
-      ],
-      "Registered export enterprises get tax holidays and a special 5% rate under the CREATE Act.",
-      "Registration with the Philippine Economic Zone Authority.",
-      "https://www.peza.gov.ph",
-      ""
-    ],
-    [
-      "TH",
-      "tax-corp",
-      "BOI and Eastern Economic Corridor",
-      [
-        "Up to 13 years corporate tax exemption"
-      ],
-      "Board of Investment incentives for target industries.",
-      "Approved project; activity and location criteria.",
-      "https://www.boi.go.th",
-      ""
-    ],
-    [
-      "VN",
-      "tax-corp",
-      "High-tech parks and economic zones",
-      [
-        "10% corporate tax for 15 years"
-      ],
-      "Preferential rate and tax holidays instead of the standard 20%.",
-      "Qualifying project in a high-tech park or difficult area.",
-      "https://mof.gov.vn",
-      ""
-    ],
-    [
-      "ID",
-      "tax-corp",
-      "Special Economic Zones (KEK)",
-      [
-        "Tax holidays and import duty relief"
-      ],
-      "Corporate tax holidays and customs relief for investors in designated zones such as Batam.",
-      "Investment in a designated zone and sector.",
-      "https://kek.go.id",
-      ""
-    ],
-    [
-      "MU",
-      "tax-corp",
-      "Global Business Licence",
-      [
-        "15% rate with 80% partial exemption on some income"
-      ],
-      "Effective rate as low as 3% on qualifying foreign income.",
-      "Substance requirements set by the Financial Services Commission.",
-      "https://www.fscmauritius.org",
-      ""
-    ],
-    [
-      "PT",
-      "tax-corp",
-      "Madeira International Business Centre",
-      [
-        "5% corporate tax"
-      ],
-      "Reduced rate for licensed companies in Madeira's free zone until 2028.",
-      "Jobs and minimum investment; income caps.",
-      "https://www.ibc-madeira.com",
-      ""
-    ],
-    [
-      "EE",
-      "tax-corp",
-      "Tax only on distributed profits",
-      [
-        "0% on retained and reinvested profits"
-      ],
-      "Estonian companies pay corporate tax only when profits are distributed.",
-      "Applies to all Estonian companies; e-Residency lets non-residents run one online.",
-      "https://www.emta.ee",
-      ""
-    ],
-    [
-      "HU",
-      "tax-corp",
-      "Lowest corporate tax in the EU",
-      [
-        "9% corporate tax"
-      ],
-      "Flat 9% corporate rate (15% top-up for large groups under the global minimum tax).",
-      "Local business tax applies in addition.",
-      "https://nav.gov.hu",
-      ""
-    ],
-    [
-      "BG",
-      "tax-corp",
-      "Flat 10% taxes",
-      [
-        "10% corporate tax",
-        "10% personal income tax"
-      ],
-      "Among the lowest flat rates in the EU.",
-      "Global minimum tax top-up for large groups.",
-      "https://nra.bg",
-      ""
-    ],
-    [
-      "BR",
-      "tax-corp",
-      "Manaus Free Trade Zone",
-      [
-        "Tax incentives guaranteed until 2073"
-      ],
-      "Federal and state tax relief for manufacturing in the Amazon city.",
-      "Approved project with SUFRAMA; local production stages.",
-      "https://www.gov.br/suframa",
-      ""
-    ],
-    [
-      "US",
-      "tax-corp",
-      "Opportunity Zones",
-      [
-        "Deferral and reduction of capital gains tax",
-        "made permanent in 2025"
-      ],
-      "Investors who put capital gains into Qualified Opportunity Funds defer and reduce the tax; gains on the fund held 10 years are tax-free.",
-      "Investment through a qualified fund in a designated low-income census tract.",
-      "https://www.irs.gov",
-      ""
-    ],
-    [
-      "PR",
-      "tax-corp",
-      "Act 60 export services",
-      [
-        "4% corporate tax"
-      ],
-      "Companies serving clients outside Puerto Rico from the island pay 4%.",
-      "Decree from the Department of Economic Development; local jobs.",
-      "https://www.ddec.pr.gov",
-      ""
-    ],
-    [
-      "US",
-      "pr",
-      "Employment-based green card",
-      [
-        "Permanent residence",
-        "EB-1, EB-2 (incl. National Interest Waiver), EB-3"
-      ],
-      "Permanent residence through an employer or, for top talent, on your own petition.",
-      "Yearly caps per country create long waits for India and China.",
-      "https://www.uscis.gov/green-card",
-      ""
-    ],
-    [
-      "US",
-      "pr",
-      "Diversity Visa lottery",
-      [
-        "Up to 55,000 green cards a year"
-      ],
-      "Lottery for nationals of countries with low US immigration.",
-      "Secondary education or 2 years' qualifying work; paused by the US administration since December 2025, check the official page.",
-      "https://travel.state.gov/content/travel/en/us-visas/immigrate/diversity-visa-program-entry.html",
-      "paused"
-    ],
-    [
-      "US",
-      "invest",
-      "EB-5 immigrant investor",
-      [
-        "$800,000 in targeted areas",
-        "$1,050,000 elsewhere"
-      ],
-      "Green card for investors whose project creates at least 10 US jobs.",
-      "Lawful source of funds; investment at risk; conditional residence for 2 years.",
-      "https://www.uscis.gov/working-in-the-united-states/permanent-workers/eb-5-immigrant-investor-program",
-      ""
-    ],
-    [
-      "US",
-      "invest",
-      "Gold Card",
-      [
-        "$1 million gift (individual)",
-        "$2 million for corporate sponsorship"
-      ],
-      "Fast-track permanent residence introduced by executive order in 2025.",
-      "Vetting and a processing fee; legal challenges possible, check the official page.",
-      "https://trumpcard.gov",
-      "changed"
-    ],
-    [
-      "US",
-      "work",
-      "H-1B specialty occupation",
-      [
-        "85,000 a year by lottery",
-        "$100,000 fee for new petitions from abroad since September 2025"
-      ],
-      "Work visa for degree-level jobs with a US employer.",
-      "Employer petition; prevailing wage; registration lottery each March.",
-      "https://www.uscis.gov/working-in-the-united-states/h-1b-specialty-occupations",
-      "changed"
-    ],
-    [
-      "US",
-      "work",
-      "O-1 extraordinary ability",
-      [
-        "Up to 3 years, renewable",
-        "no lottery"
-      ],
-      "For people with sustained national or international acclaim in sciences, arts, business or sports.",
-      "Evidence of awards, publications, high pay or critical roles.",
-      "https://www.uscis.gov/working-in-the-united-states/temporary-workers/o-1-visa-individuals-with-extraordinary-ability-or-achievement",
-      ""
-    ],
-    [
-      "US",
-      "invest",
-      "E-2 treaty investor",
-      [
-        "Substantial investment",
-        "renewable"
-      ],
-      "For nationals of treaty countries who invest in and run a US business.",
-      "Treaty country nationality (some get it via Grenada citizenship); real operating business.",
-      "https://travel.state.gov",
-      ""
-    ],
-    [
-      "US",
-      "study",
-      "F-1 student visa and OPT",
-      [
-        "12 months work after study",
-        "24 more for STEM"
-      ],
-      "Study at a certified school, then Optional Practical Training.",
-      "Admission and I-20; proof of funds; interview.",
-      "https://studyinthestates.dhs.gov",
-      ""
-    ],
-    [
-      "US",
-      "biz",
-      "ESTA visa waiver and B-1 business visa",
-      [
-        "90 days without visa for 40+ countries"
-      ],
-      "Meetings, conferences and negotiations are allowed; paid work is not.",
-      "ESTA approval before travel; others need a B-1/B-2 visa.",
-      "https://esta.cbp.dhs.gov",
-      ""
-    ],
-    [
-      "CA",
-      "pr",
-      "Express Entry permanent residence",
-      [
-        "Points-based draws every few weeks"
-      ],
-      "Federal skilled worker, Canadian experience and trades programmes in one ranking.",
-      "Language tests, education assessment and points score (CRS).",
-      "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html",
-      ""
-    ],
-    [
-      "CA",
-      "work",
-      "Global Talent Stream",
-      [
-        "Work permit in about 2 weeks"
-      ],
-      "Fast-track work permits for in-demand tech and highly skilled roles.",
-      "Employer referral or listed occupation; labour market benefits plan.",
-      "https://www.canada.ca/en/employment-social-development/services/foreign-workers/global-talent.html",
-      ""
-    ],
-    [
-      "CA",
-      "study",
-      "Study permit and post-graduation work permit",
-      [
-        "Up to 3 years work permit after study",
-        "national cap on new study permits"
-      ],
-      "Study at a designated institution, then work in Canada.",
-      "Provincial attestation letter; proof of funds; language for the work permit.",
-      "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada.html",
-      "changed"
-    ],
-    [
-      "AU",
-      "pr",
-      "Skilled Independent visa (subclass 189)",
-      [
-        "Permanent residence",
-        "points-tested"
-      ],
-      "Permanent visa for skilled workers invited through SkillSelect.",
-      "Occupation on the list, skills assessment, points test, under 45.",
-      "https://immi.homeaffairs.gov.au",
-      ""
-    ],
-    [
-      "AU",
-      "work",
-      "National Innovation visa (subclass 858)",
-      [
-        "Permanent residence"
-      ],
-      "Replaced the Global Talent visa in December 2024 for exceptional talent.",
-      "Invitation after an expression of interest; international record of achievement.",
-      "https://immi.homeaffairs.gov.au",
-      "changed"
-    ],
-    [
-      "AU",
-      "study",
-      "Student visa (subclass 500)",
-      [
-        "A$2,000 application fee"
-      ],
-      "Study at a registered provider, with limited work rights.",
-      "Enrolment, funds, English, health insurance (OSHC).",
-      "https://immi.homeaffairs.gov.au",
-      "changed"
-    ],
-    [
-      "AU",
-      "invest",
-      "Business Innovation and Investment visa",
-      [
-        "Closed since July 2024"
-      ],
-      "Australia closed its investor and business visa programme.",
-      "Replaced in part by the National Innovation visa.",
-      "https://immi.homeaffairs.gov.au",
-      "closed"
-    ],
-    [
-      "NZ",
-      "invest",
-      "Active Investor Plus",
-      [
-        "NZ$5 million over 3 years (growth)",
-        "NZ$10 million over 5 years (balanced)"
-      ],
-      "Residence for investors, reworked in April 2025 with lower thresholds and English no longer required.",
-      "Minimum time in New Zealand; acceptable investments.",
-      "https://www.immigration.govt.nz",
-      "changed"
-    ],
-    [
-      "NZ",
-      "pr",
-      "Skilled Migrant Category resident visa",
-      [
-        "6 points needed"
-      ],
-      "Residence for skilled workers through qualifications, pay or registration plus New Zealand work.",
-      "Job or offer with an accredited employer.",
-      "https://www.immigration.govt.nz",
-      ""
-    ],
-    [
-      "DE",
-      "work",
-      "Opportunity Card (Chancenkarte)",
-      [
-        "Up to 1 year to find a job",
-        "part-time work allowed"
-      ],
-      "Points-based card for skilled workers to look for a job in Germany.",
-      "Recognised qualification, or points for language, experience, age and ties; proof of funds.",
-      "https://www.make-it-in-germany.com",
-      ""
-    ],
-    [
-      "DE",
-      "study",
-      "Student visa",
-      [
-        "Blocked account of about €11,900 a year"
-      ],
-      "Study in Germany with up to 140 full days of work a year; 18 months to find a job afterwards.",
-      "Admission; proof of funds; health insurance.",
-      "https://www.make-it-in-germany.com",
-      ""
-    ],
-    [
-      "DE",
-      "pr",
-      "Naturalisation after 5 years",
-      [
-        "Citizenship after 5 years",
-        "dual citizenship allowed"
-      ],
-      "Since 2024 Germany allows dual citizenship; the 3-year fast track was abolished in 2025.",
-      "Language B1, own income, citizenship test.",
-      "https://www.bmi.bund.de",
-      "changed"
-    ],
-    [
-      "AT",
-      "work",
-      "Red-White-Red Card",
-      [
-        "Points-based",
-        "2 years, then permanent"
-      ],
-      "Work and residence for very highly qualified people, skilled workers in shortage jobs and founders.",
-      "Points for qualification, experience, age and language; job offer with minimum pay.",
-      "https://www.migration.gv.at",
-      ""
-    ],
-    [
-      "HU",
-      "invest",
-      "Guest Investor Programme",
-      [
-        "€250,000 in a real-estate fund",
-        "€500,000 in property",
-        "10-year residence"
-      ],
-      "Residence certificate for non-EU investors since 2024.",
-      "Hold the investment for at least 5 years.",
-      "https://enterhungary.gov.hu",
-      ""
-    ],
-    [
-      "TR",
-      "cbi",
-      "Citizenship by investment",
-      [
-        "$400,000 in real estate",
-        "hold 3 years"
-      ],
-      "Turkish citizenship for buyers of property or other qualifying investments.",
-      "Valuation report; no sale for 3 years.",
-      "https://www.invest.gov.tr",
-      ""
-    ],
-    [
-      "AE",
-      "invest",
-      "Golden Visa",
-      [
-        "10 years",
-        "AED 2 million in property"
-      ],
-      "Long-term residence for investors, entrepreneurs, top talent and outstanding students, without a sponsor.",
-      "Category criteria; renewable.",
-      "https://u.ae/en/information-and-services/visa-and-emirates-id/residence-visas/golden-visa",
-      ""
-    ],
-    [
-      "AE",
-      "nomad",
-      "Remote work visa",
-      [
-        "1 year",
-        "$3,500 a month"
-      ],
-      "Live in the UAE while working for a company abroad.",
-      "Employer or own company abroad; health insurance.",
-      "https://icp.gov.ae",
-      ""
-    ],
-    [
-      "SA",
-      "invest",
-      "Premium Residency",
-      [
-        "Several categories incl. property owners from SAR 4 million"
-      ],
-      "Residence without a sponsor for talent, investors, entrepreneurs and property owners.",
-      "Category criteria and fees.",
-      "https://sapr.gov.sa",
-      ""
-    ],
-    [
-      "OM",
-      "invest",
-      "Investor residence",
-      [
-        "5 or 10 years"
-      ],
-      "Long-term residence for investors in property, companies or government bonds.",
-      "Minimum investment by tier.",
-      "https://www.investoman.om",
-      ""
-    ],
-    [
-      "BH",
-      "invest",
-      "Golden residency",
-      [
-        "10 years",
-        "property from BHD 200,000"
-      ],
-      "Long-term residence for property owners, retirees and talent.",
-      "Category criteria.",
-      "https://www.npra.gov.bh",
-      ""
-    ],
-    [
-      "SG",
-      "work",
-      "Employment Pass",
-      [
-        "S$5,600 a month minimum (S$6,200 in finance)",
-        "COMPASS points"
-      ],
-      "Work pass for professionals, managers and executives.",
-      "Qualifying salary rising with age; COMPASS framework.",
-      "https://www.mom.gov.sg/passes-and-permits/employment-pass",
-      ""
-    ],
-    [
-      "SG",
-      "work",
-      "Overseas Networks and Expertise (ONE) Pass",
-      [
-        "5 years",
-        "S$30,000 a month salary"
-      ],
-      "Personalised pass for top talent, not tied to one employer.",
-      "Salary or outstanding achievements in arts, sports, science or research.",
-      "https://www.mom.gov.sg/passes-and-permits/overseas-networks-expertise-pass",
-      ""
-    ],
-    [
-      "SG",
-      "invest",
-      "Global Investor Programme",
-      [
-        "S$10 million in a business",
-        "S$25 million in a GIP fund"
-      ],
-      "Permanent residence for established business owners and family offices.",
-      "Track record and company turnover criteria.",
-      "https://www.edb.gov.sg",
-      ""
-    ],
-    [
-      "SG",
-      "study",
-      "Student's Pass",
-      [
-        "Full-time study at an approved school"
-      ],
-      "Study pass issued by the Immigration and Checkpoints Authority.",
-      "Admission by an approved institution.",
-      "https://www.ica.gov.sg",
-      ""
-    ],
-    [
-      "HK",
-      "work",
-      "Top Talent Pass Scheme",
-      [
-        "Income of HK$2.5 million a year",
-        "or degree from a top-100 university"
-      ],
-      "Two-year visa to live and look for work in Hong Kong.",
-      "Income in the previous year or graduation within the last 5 years.",
-      "https://www.immd.gov.hk",
-      ""
-    ],
-    [
-      "HK",
-      "invest",
-      "New Capital Investment Entrant Scheme",
-      [
-        "HK$30 million in permitted assets"
-      ],
-      "Residence for investors and their families.",
-      "Net assets of HK$30 million; HK$3 million into a government portfolio.",
-      "https://www.newcies.gov.hk",
-      ""
-    ],
-    [
-      "JP",
-      "work",
-      "Highly Skilled Professional visa",
-      [
-        "70 points",
-        "permanent residence after 1 year with 80 points"
-      ],
-      "Points-based status for academics, engineers and managers with fast-track permanent residence.",
-      "Points for education, salary, experience, age and Japanese.",
-      "https://www.isa.go.jp/en/",
-      ""
-    ],
-    [
-      "JP",
-      "nomad",
-      "Digital nomad visa",
-      [
-        "¥10 million income a year",
-        "6 months"
-      ],
-      "Stay in Japan while working remotely for a foreign employer.",
-      "Nationals of visa-exempt and tax-treaty countries; private health insurance.",
-      "https://www.mofa.go.jp",
-      ""
-    ],
-    [
-      "JP",
-      "invest",
-      "Business Manager visa",
-      [
-        "¥30 million capital (since October 2025)",
-        "1 full-time employee"
-      ],
-      "Residence to run a business in Japan; capital requirement raised sixfold in 2025.",
-      "Office in Japan; business plan; experience or degree.",
-      "https://www.isa.go.jp/en/",
-      "changed"
-    ],
-    [
-      "KR",
-      "nomad",
-      "Workation visa",
-      [
-        "1 year, renewable once",
-        "income about twice Korea's GNI per capita"
-      ],
-      "Remote workers employed abroad can live in Korea.",
-      "At least 1 year at the current employer; insurance.",
-      "https://www.hikorea.go.kr",
-      ""
-    ],
-    [
-      "KR",
-      "study",
-      "Student visa (D-2)",
-      [
-        "Part-time work allowed"
-      ],
-      "Study at a Korean university, with a route to job-seeking visas afterwards.",
-      "Admission; proof of funds.",
-      "https://www.hikorea.go.kr",
-      ""
-    ],
-    [
-      "CN",
-      "work",
-      "K visa for young STEM talent",
-      [
-        "Since 1 October 2025",
-        "no employer invitation needed"
-      ],
-      "New visa for young graduates in science and technology.",
-      "STEM degree from a recognised university, or teaching or research there.",
-      "https://www.nia.gov.cn",
-      ""
-    ],
-    [
-      "CN",
-      "biz",
-      "Visa-free entry and 240-hour transit",
-      [
-        "30 days visa-free for many countries",
-        "10 days transit"
-      ],
-      "Unilateral visa exemption for business, tourism and visits, plus visa-free transit through many ports.",
-      "Eligible nationality; onward ticket for transit.",
-      "https://www.nia.gov.cn",
-      ""
-    ],
-    [
-      "TW",
-      "work",
-      "Employment Gold Card",
-      [
-        "4 permits in 1",
-        "1–3 years"
-      ],
-      "Combined work permit, residence visa, resident certificate and re-entry permit.",
-      "Salary or expertise in listed fields.",
-      "https://goldcard.nat.gov.tw",
-      ""
-    ],
-    [
-      "TH",
-      "nomad",
-      "Destination Thailand Visa (DTV)",
-      [
-        "5 years, multiple entry",
-        "180 days per stay",
-        "THB 500,000 in savings"
-      ],
-      "For remote workers, freelancers and people on courses such as Muay Thai or cooking.",
-      "Proof of funds; employer abroad or activity enrolment.",
-      "https://www.thaievisa.go.th",
-      ""
-    ],
-    [
-      "TH",
-      "invest",
-      "Long-Term Resident (LTR) visa",
-      [
-        "10 years"
-      ],
-      "For wealthy global citizens, wealthy pensioners, remote workers and highly skilled professionals.",
-      "Category criteria such as US$1 million in assets or income thresholds.",
-      "https://ltr.boi.go.th",
-      ""
-    ],
-    [
-      "MY",
-      "retire",
-      "Malaysia My Second Home (MM2H)",
-      [
-        "Silver US$150,000 deposit",
-        "Gold US$500,000",
-        "Platinum US$1 million"
-      ],
-      "Long-term residence in tiers relaunched in 2024.",
-      "Fixed deposit and property purchase by tier; minimum stay.",
-      "https://www.mm2h.gov.my",
-      "changed"
-    ],
-    [
-      "MY",
-      "nomad",
-      "DE Rantau Nomad Pass",
-      [
-        "US$24,000 a year"
-      ],
-      "Up to 2 years for digital nomads in tech and digital roles.",
-      "Contract or employer abroad.",
-      "https://mdec.my/derantau",
-      ""
-    ],
-    [
-      "ID",
-      "invest",
-      "Golden visa",
-      [
-        "5 or 10 years"
-      ],
-      "Residence for investors who set up companies or invest in Indonesia.",
-      "Investment tiers for individuals and companies.",
-      "https://evisa.imigrasi.go.id",
-      ""
-    ],
-    [
-      "ID",
-      "nomad",
-      "Remote worker visa (E33G)",
-      [
-        "US$60,000 income a year",
-        "1 year"
-      ],
-      "Live in Indonesia (for example Bali) while working for a foreign employer.",
-      "Income from abroad; no Indonesian clients.",
-      "https://evisa.imigrasi.go.id",
-      ""
-    ],
-    [
-      "PH",
-      "retire",
-      "Special Resident Retiree's Visa",
-      [
-        "Deposit from US$20,000 with pension"
-      ],
-      "Permanent residence for retirees aged 50 and over.",
-      "Deposit amount depends on age and pension.",
-      "https://pra.gov.ph",
-      ""
-    ],
-    [
-      "VN",
-      "biz",
-      "E-visa for all nationalities",
-      [
-        "Up to 90 days",
-        "single or multiple entry"
-      ],
-      "Electronic visa for tourism and business.",
-      "Online application.",
-      "https://evisa.gov.vn",
-      ""
-    ],
-    [
-      "IN",
-      "biz",
-      "e-Visa (business, tourist, medical)",
-      [
-        "Business e-visa up to 1 year"
-      ],
-      "Online visa for meetings, trade and tourism.",
-      "Eligible nationality; online application.",
-      "https://indianvisaonline.gov.in",
-      ""
-    ],
-    [
-      "IN",
-      "work",
-      "Employment visa",
-      [
-        "Salary above US$25,000 a year"
-      ],
-      "Work visa for skilled foreigners hired by Indian companies.",
-      "Employer contract; some exceptions to the salary floor.",
-      "https://indianvisaonline.gov.in",
-      ""
-    ],
-    [
-      "MX",
-      "retire",
-      "Temporary residence by economic solvency",
-      [
-        "Up to 4 years",
-        "then permanent"
-      ],
-      "Residence for people with stable income or savings.",
-      "Income or savings thresholds linked to the Mexican minimum wage; apply at a consulate.",
-      "https://www.inm.gob.mx",
-      ""
-    ],
-    [
-      "BR",
-      "nomad",
-      "Digital nomad visa",
-      [
-        "US$1,500 a month or US$18,000 savings",
-        "1 year, renewable"
-      ],
-      "Remote workers employed abroad can live in Brazil.",
-      "Employment or contracts abroad; health insurance.",
-      "https://www.gov.br/mre",
-      ""
-    ],
-    [
-      "BR",
-      "biz",
-      "Visas for US, Canadian and Australian visitors",
-      [
-        "e-Visa required again since April 2025"
-      ],
-      "Brazil reintroduced visas for these nationalities on a reciprocity basis.",
-      "Online e-visa.",
-      "https://www.gov.br/mre",
-      "changed"
-    ],
-    [
-      "CO",
-      "nomad",
-      "Digital nomad visa",
-      [
-        "Income about 3 × the minimum wage",
-        "up to 2 years"
-      ],
-      "Remote workers and entrepreneurs with foreign income can live in Colombia.",
-      "Foreign employer or clients; health insurance.",
-      "https://www.cancilleria.gov.co",
-      ""
-    ],
-    [
-      "PA",
-      "invest",
-      "Friendly Nations visa",
-      [
-        "Job offer or US$200,000 property"
-      ],
-      "Permanent residence for nationals of about 50 friendly countries.",
-      "Employment contract in Panama or property purchase.",
-      "https://www.migracion.gob.pa",
-      ""
-    ],
-    [
-      "PA",
-      "retire",
-      "Pensionado visa",
-      [
-        "US$1,000 a month pension"
-      ],
-      "Permanent residence for retirees, with discounts on many services.",
-      "Lifetime pension; reduced amount with a property purchase.",
-      "https://www.migracion.gob.pa",
-      ""
-    ],
-    [
-      "CR",
-      "nomad",
-      "Digital nomad visa",
-      [
-        "US$3,000 a month",
-        "1 year plus 1"
-      ],
-      "Remote workers pay no Costa Rican income tax on foreign income.",
-      "Income from abroad; health insurance.",
-      "https://www.migracion.go.cr",
-      ""
-    ],
-    [
-      "CR",
-      "retire",
-      "Pensionado and Rentista",
-      [
-        "US$1,000 a month pension",
-        "US$2,500 a month passive income"
-      ],
-      "Temporary residence for retirees and people with fixed income.",
-      "Proof of pension or bank-guaranteed income.",
-      "https://www.migracion.go.cr",
-      ""
-    ],
-    [
-      "ZA",
-      "nomad",
-      "Remote work visa",
-      [
-        "R1 million income a year"
-      ],
-      "Live in South Africa while working for a foreign employer.",
-      "Income threshold; employer abroad.",
-      "https://www.dha.gov.za",
-      ""
-    ],
-    [
-      "ZA",
-      "work",
-      "Critical Skills work visa",
-      [
-        "Up to 5 years",
-        "job offer optional"
-      ],
-      "For skills on the national critical skills list.",
-      "Qualification evaluation; professional registration.",
-      "https://www.dha.gov.za",
-      ""
-    ],
-    [
-      "MU",
-      "nomad",
-      "Premium Visa",
-      [
-        "1 year, renewable",
-        "US$1,500 a month"
-      ],
-      "Live in Mauritius and work remotely for foreign clients.",
-      "Income from abroad; health insurance.",
-      "https://edbmauritius.org",
-      ""
-    ],
-    [
-      "KN",
-      "cbi",
-      "St Kitts and Nevis citizenship",
-      [
-        "From US$250,000 contribution"
-      ],
-      "Caribbean citizenship by investment with visa-free travel to Schengen and the UK.",
-      "Due diligence; contribution to the Sustainable Island State fund or approved property.",
-      "https://ciu.gov.kn",
-      ""
-    ],
-    [
-      "DM",
-      "cbi",
-      "Dominica citizenship",
-      [
-        "From US$200,000 contribution"
-      ],
-      "Citizenship by investment through the Economic Diversification Fund or property.",
-      "Due diligence; minimum price agreed among Eastern Caribbean states.",
-      "https://cbiu.gov.dm",
-      ""
-    ],
-    [
-      "GD",
-      "cbi",
-      "Grenada citizenship",
-      [
-        "From US$235,000"
-      ],
-      "Citizenship that also opens the US E-2 treaty investor visa.",
-      "Due diligence; fund contribution or approved real estate.",
-      "https://imm.gov.gd",
-      ""
-    ],
-    [
-      "AG",
-      "cbi",
-      "Antigua and Barbuda citizenship",
-      [
-        "From US$230,000 for a family of 4"
-      ],
-      "Citizenship by investment with a 5-day stay in the first 5 years.",
-      "Due diligence; fund contribution or approved property.",
-      "https://cip.gov.ag",
-      ""
-    ],
-    [
-      "EU",
-      "biz",
-      "Schengen short-stay visa",
-      [
-        "90 days in any 180",
-        "€90 fee"
-      ],
-      "One visa for 29 European countries for business trips and tourism.",
-      "Visa-exempt nationalities instead need ETIAS once it starts (expected late 2026, €20).",
-      "https://home-affairs.ec.europa.eu",
-      ""
-    ],
-    [
-      "EU",
-      "biz",
-      "Entry/Exit System (EES)",
-      [
-        "Biometric registration since October 2025"
-      ],
-      "Non-EU travellers are registered with fingerprints and a photo at Schengen borders instead of passport stamps.",
-      "Applies to short stays of visitors with or without visas.",
-      "https://travel-europe.europa.eu/ees_en",
-      "changed"
-    ],
-    [
-      "EE",
-      "biz",
-      "e-Residency",
-      [
-        "Run an EU company online",
-        "EUR150 application state fee"
-      ],
-      "Digital identity to found and run an Estonian company remotely. Not a visa and not tax residence.",
-      "Background check; pick up the card at a service point.",
-      "https://learn.e-resident.gov.ee/hc/en-gb/articles/11432057891473-Estonian-state-fees",
-      ""
-    ]
-  ],
-  "audit_claim_checks": [
-    {
-      "row_index": 16,
-      "checked_on": "2026-11-08",
-      "checked_fields": [
-        "name.article_reference"
-      ],
-      "source_url": "https://www.aade.gr/en/greeks-abroad-non-residents/income-taxation/tax-incentives-order-attract-new-tax-residents",
-      "whole_record_approved": false,
-      "publication_approved": false
-    },
-    {
-      "row_index": 18,
-      "checked_on": "2026-11-08",
-      "checked_fields": [
-        "name.article_reference"
-      ],
-      "source_url": "https://www.aade.gr/en/greeks-abroad-non-residents/income-taxation/tax-incentives-order-attract-new-tax-residents",
-      "whole_record_approved": false,
-      "publication_approved": false
-    },
-    {
-      "row_index": 44,
-      "checked_on": "2026-11-08",
-      "checked_fields": [
-        "conditions.remuneration_multiplier"
-      ],
-      "source_url": "https://forskarskattenamnden.se/andra-sprak/taxation-of-research-workers-board/conditions-for-tax-relief/remuneration-rate",
-      "whole_record_approved": false,
-      "publication_approved": false
-    },
-    {
-      "row_index": 150,
-      "checked_on": "2026-11-08",
-      "checked_fields": [
-        "figures.application_state_fee"
-      ],
-      "source_url": "https://learn.e-resident.gov.ee/hc/en-gb/articles/11432057891473-Estonian-state-fees",
-      "whole_record_approved": false,
-      "publication_approved": false
-    }
-  ]
+"meta": {
+"by": "Nestlyzer editorial team",
+"as_of": "2026-06",
+"note": "Short summaries written by Nestlyzer from the official government pages linked on every entry. Rules change often: the linked official page is authoritative. General information, not tax, legal or immigration advice.",
+"fields": [
+"cc",
+"kind",
+"name",
+"figures",
+"summary",
+"conditions",
+"official_url",
+"status"
+],
+"links_checked": "2026-11-09: each entry carries its own link-check date and evidence level; a link check is not a verification of every claim."
+},
+"rows": [
+[
+"MT",
+"tax-person",
+"Non-dom remittance basis",
+[
+"Foreign income taxed only if brought to Malta",
+"€5,000 minimum tax"
+],
+"Residents who are not domiciled in Malta pay tax on foreign income only when it is remitted to Malta; foreign capital gains stay untaxed even when remitted.",
+"Minimum annual tax of €5,000 applies when foreign income is €35,000 or more.",
+"https://mtca.gov.mt/personal-tax/individual/tax-residence",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"MT",
+"tax-person",
+"Global Residence Programme",
+[
+"15% flat on remitted foreign income",
+"€15,000 minimum tax a year"
+],
+"Special tax status for non-EU nationals who buy or rent qualifying property in Malta.",
+"Property purchase from €275,000 (€220,000 in Gozo and the south) or rent from €9,600 a year (€8,750); health insurance; no EU/EEA/Swiss nationals.",
+"https://mtca.gov.mt/personal-tax/individual/special-schemes/global-residence-programme-rules",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"MT",
+"tax-person",
+"Highly Qualified Persons rule",
+[
+"15% flat on employment income"
+],
+"Senior staff in financial services, gaming, aviation and maritime pay a flat 15% instead of up to 35%.",
+"Salary above a yearly indexed threshold; limited number of years; applied for through the sector regulator.",
+"https://cfr.gov.mt/en/inlandrevenue/legal-technical/pages/tax-guidelines-on-highly-qualified-persons-rules.aspx",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"MT",
+"nomad",
+"Nomad Residence Permit",
+[
+"€42,000 gross income a year"
+],
+"One-year renewable permit for remote workers employed or contracted outside Malta.",
+"Work for a foreign employer or own foreign company; health insurance; Maltese address.",
+"https://nomad.residencymalta.gov.mt/nomad-eligibility/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"MT",
+"invest",
+"Malta Permanent Residence Programme",
+[
+"Permanent residence"
+],
+"Permanent residence for non-EU investors who pay a government contribution and buy or rent property.",
+"Government contribution, administration fee, charitable donation, property purchase or long lease and proof of capital; background checks.",
+"https://residencymalta.gov.mt/legal-framework-mprp-2/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"MT",
+"cbi",
+"Citizenship by naturalisation for exceptional services",
+[
+"Struck down by EU Court, April 2025"
+],
+"The EU Court of Justice ruled on 29 April 2025 that Malta's investor citizenship scheme breaches EU law. Do not plan on it.",
+"Malta must stop granting citizenship in exchange for payments.",
+"https://komunita.gov.mt/2026/02/05/malta-citizenship-by-merit/",
+"closed",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"CY",
+"tax-person",
+"Non-domiciled resident status",
+[
+"17 years",
+"No defence contribution on dividends and interest"
+],
+"Tax residents who are not Cypriot-domiciled are exempt from the Special Defence Contribution on dividends, interest and rents for up to 17 years.",
+"Tax residence through the 183-day or the 60-day rule.",
+"https://www.gov.cy/mof/en/documents/tax-incentives/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"CY",
+"tax-person",
+"50% employment income exemption",
+[
+"50% of salary tax-free",
+"above €55,000 a year"
+],
+"New residents who earn more than €55,000 a year from a Cyprus job pay tax on half of it.",
+"For up to 17 years; not Cyprus tax residents before taking up the job.",
+"https://www.gov.cy/mof-tax/documents/forologiki-dilosi-eisodimatos-atomoy/apallagi-50-gia-proti-ergodotisi-sti-dimokratia-arthra-8-23-kai-8-23a-toy-peri-forologias-toy-eisodimatos-nomoy/sychnes-erotiseis-anaforika-me-tin-apallagi-apo-foro-eisodimatos-toy-50-tis-amoivis-apo-askisi-opoiasdipote-ergodotisis-sti-dimokratia-arthro-823a-toy-peri-forologias-toy-eisodimatos-nomoy-meta-t/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"CY",
+"invest",
+"Permanent residence via property",
+[
+"€300,000 new property"
+],
+"Fast-track permanent residence for non-EU buyers of new residential property.",
+"Proof of secure annual income from abroad; clean record; property of at least €300,000 plus VAT.",
+"https://www.gov.cy/mip-md/en/documents/companies-investors-permanent-residence-3/immigration-permits-for-investors/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"CY",
+"nomad",
+"Digital nomad visa",
+[
+"€3,500 net a month"
+],
+"Up to three years for remote workers employed outside Cyprus.",
+"Non-EU nationals; income from abroad; health insurance; national cap on numbers.",
+"https://www.gov.cy/mip-md/documents/psifiakoi-nomades-kai-meli-oikogeneias/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"IT",
+"tax-person",
+"Flat tax for new residents",
+[
+"€300,000 a year on foreign income (2026 arrivals)",
+"€200,000 for 2024–2025 arrivals"
+],
+"Lump-sum tax that replaces Italian tax on all foreign income, for up to 15 years.",
+"Not resident in Italy in 9 of the last 10 years; family members pay an extra fixed amount each; set by the 2026 budget law, check the current figure.",
+"https://www1.agenziaentrate.gov.it/servizi/scadenzario/main.php?entroil=30-07-2026&op=3&tipologia=A&vista=1",
+"changed",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"IT",
+"tax-person",
+"Inbound workers regime (impatriati)",
+[
+"50% of income tax-free",
+"60% with a child or in the south"
+],
+"Employees and self-employed who move their tax residence to Italy pay tax on half their Italian work income for 5 years.",
+"Income up to €600,000; highly qualified; not resident in Italy in the previous 3 years; stay at least 4 years.",
+"https://def.finanze.it/DocTribFrontend/getAttoNormativoDetail.do?ACTION=getArticolo&articolo=Articolo+5&codiceOrdinamento=0000000000000050000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&id=%7BE12E75F1-08F0-419E-B896-5435658FCB09%7D",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"IT",
+"retire",
+"7% tax for pensioners in southern towns",
+[
+"7% flat on all foreign income",
+"10 years"
+],
+"Foreign pensioners who move to a small town in southern Italy pay 7% on all foreign income.",
+"Town under 30,000 residents (threshold raised from 20,000, in force since 7 April 2026) in the south or listed earthquake areas; foreign pension; not Italian resident in the 5 previous years.",
+"https://def.finanze.it/DocTribFrontend/getAttoNormativoDetail.do?ACTION=getArticolo&articolo=Articolo+24+ter&codiceOrdinamento=0000000000000249999900003000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&id=%7B31D694E8-4398-4030-873B-FEAF5A6647F9%7D",
+"changed",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"IT",
+"invest",
+"Investor visa for Italy",
+[
+"€250,000 in an innovative start-up",
+"€500,000 in a company",
+"€2 million in government bonds"
+],
+"Two-year renewable residence for investors, decided by an online committee.",
+"Investment within 3 months of arrival; €1 million donation route for public-interest projects.",
+"https://investorvisa.mise.gov.it/index.php/en/investor-visa-how-it-works/2-non-categorizzato/21-phase-1-getting-your-investor-visa-for-italy",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_result"
+}
+],
+[
+"IT",
+"retire",
+"Elective residence visa",
+[
+"about €31,000 passive income a year"
+],
+"Residence for people who live on pensions or investment income without working in Italy.",
+"Stable passive income; housing in Italy; no work allowed.",
+"https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visas-to-enter-italy/elective-residency/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"IT",
+"nomad",
+"Digital nomad visa",
+[
+"about €28,000 a year"
+],
+"One-year renewable permit for highly qualified remote workers since April 2024.",
+"Degree or 5 years' experience; income at least three times the health-cost exemption threshold; insurance.",
+"https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visas-to-enter-italy/digital-nomad-remote-worker-visa/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"EL",
+"tax-person",
+"Flat tax for high-net-worth newcomers (Article 5A)",
+[
+"€100,000 a year on all foreign income",
+"15 years"
+],
+"Lump-sum tax on worldwide foreign income for new Greek residents who invest in Greece.",
+"Investment of at least €500,000 in Greece; not Greek tax resident in 7 of the last 8 years; €20,000 per family member.",
+"https://www.aade.gr/en/greeks-abroad-non-residents/income-taxation/tax-incentives-order-attract-new-tax-residents",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"EL",
+"retire",
+"7% flat tax for foreign pensioners (Article 5B)",
+[
+"7% on all foreign income",
+"15 years"
+],
+"Retirees who move their tax residence to Greece pay 7% on all foreign-source income.",
+"Not Greek tax resident in 5 of the last 6 years; from a country with an administrative cooperation agreement.",
+"https://www.aade.gr/en/greeks-abroad-non-residents/income-taxation/tax-incentives-order-attract-new-tax-residents",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"EL",
+"tax-person",
+"50% relief for incoming workers (Article 5C)",
+[
+"50% of work income tax-free",
+"7 years"
+],
+"Employees and freelancers who move to Greece pay income tax on half of their Greek work income.",
+"Not Greek tax resident in 5 of the last 6 years; stay at least 2 years.",
+"https://www.aade.gr/en/psifiakes-ypiresies/eisodima/ypoboli-aitisis-ypagogis-se-eidiko-tropo-forologisis-arthro-5g-toy-kfe",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"EL",
+"invest",
+"Golden visa",
+[
+"€800,000 in Athens, Thessaloniki, Mykonos, Santorini and large islands",
+"€400,000 elsewhere",
+"€250,000 for conversions or listed buildings"
+],
+"Five-year renewable residence for property buyers and investors.",
+"Single property of at least 120 m² in the higher bands; no short-term rental; renewals as long as the investment is held.",
+"https://migration.gov.gr/en/golden-visa/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"EL",
+"nomad",
+"Digital nomad visa",
+[
+"€3,500 net a month"
+],
+"Residence for remote workers employed or self-employed outside Greece.",
+"Non-EU nationals; employer or clients abroad; health insurance.",
+"https://www.mfa.gr/services/working-in-greece-as-a-digital-nomad/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"PT",
+"tax-person",
+"IFICI tax regime (NHR 2.0)",
+[
+"20% flat on qualifying Portuguese work income",
+"10 years",
+"most foreign income exempt"
+],
+"Replaced the old non-habitual resident regime in 2024 for researchers, tech staff, start-up founders and other qualifying roles.",
+"Not Portuguese tax resident in the previous 5 years; qualifying activity and degree; application by 15 January of the following year.",
+"https://info.portaldasfinancas.gov.pt/pt/apoio_contribuinte/questoes_frequentes/pages/faqs-01018.aspx",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"PT",
+"invest",
+"Golden visa (fund route)",
+[
+"€500,000 in investment funds",
+"7 days a year in Portugal"
+],
+"Residence for investors; property purchases no longer qualify since October 2023.",
+"Qualifying fund units, company capital with jobs, research or culture donations.",
+"https://aima.gov.pt/en/viver/autorizacao-de-residencia-para-investimento-art-90-o-a",
+"changed",
+{
+"d": "2026-11-09",
+"s": "official_search_result"
+}
+],
+[
+"PT",
+"retire",
+"D7 passive income visa",
+[
+"Income at least the Portuguese minimum wage"
+],
+"Residence for retirees and people with stable passive income.",
+"Regular passive income; accommodation in Portugal; Portuguese tax number and bank account.",
+"https://www.gov.pt/servicos/pedir-um-visto-de-residencia-para-fixacao-de-residencia-de-reformados-religiosos-e-pessoas-que-vivem-de-rendimentos-proprios",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"PT",
+"nomad",
+"D8 digital nomad visa",
+[
+"Income at least 4 × minimum wage"
+],
+"Temporary stay or residence for remote workers.",
+"Work for employers or clients abroad; proof of the last 3 months' income.",
+"https://aima.gov.pt/en/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_result"
+}
+],
+[
+"ES",
+"tax-person",
+"Beckham regime for inbound workers",
+[
+"24% flat on Spanish work income up to €600,000",
+"6 years",
+"foreign income mostly exempt"
+],
+"People who move to Spain for a job, to found a start-up or as remote workers are taxed as non-residents.",
+"Not Spanish tax resident in the previous 5 years; apply within 6 months of registering with social security.",
+"https://www3.agenciatributaria.gob.es/Sede/irpf/tengo-que-presentar-declaracion/regimen-fiscal-aplicable-trabajadores-desplazados/regimen-especial.html",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_result"
+}
+],
+[
+"ES",
+"nomad",
+"International teleworker visa",
+[
+"about €2,760 a month (2 × minimum wage)"
+],
+"Residence for remote workers, with access to the Beckham regime.",
+"Work for companies outside Spain (up to 20% Spanish clients); degree or 3 years' experience.",
+"https://www.inclusion.gob.es/en/web/unidadgrandesempresas/teletrabajadores",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_result"
+}
+],
+[
+"ES",
+"invest",
+"Golden visa",
+[
+"Closed on 3 April 2025"
+],
+"Spain abolished residence by investment. Permits already granted can be renewed.",
+"No new applications.",
+"https://boe.es/buscar/act.php?id=BOE-A-2013-10074",
+"closed",
+{
+"d": "2026-11-09",
+"s": "official_search_result"
+}
+],
+[
+"UK",
+"tax-person",
+"Foreign income and gains regime",
+[
+"4 years",
+"100% relief on foreign income and gains"
+],
+"Since 6 April 2025 the UK taxes on residence, not domicile. Newcomers can keep foreign income and gains tax-free for their first 4 years.",
+"Not UK tax resident in any of the 10 years before arriving; must claim each year; the old non-dom remittance basis is abolished.",
+"https://www.gov.uk/guidance/check-if-you-can-claim-the-4-year-foreign-income-and-gains-regime",
+"changed",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"UK",
+"work",
+"Skilled Worker visa",
+[
+"£41,700 general salary threshold",
+"degree-level jobs"
+],
+"Work visa for a job with a licensed sponsor; a route to settlement.",
+"Job at degree level (RQF 6); salary threshold or the going rate, whichever is higher; English level B1.",
+"https://www.gov.uk/skilled-worker-visa",
+"changed",
+{
+"d": "2026-11-09",
+"s": "official_page_retrieved"
+}
+],
+[
+"UK",
+"work",
+"Global Talent visa",
+[
+"Up to 5 years",
+"no job offer needed"
+],
+"For leaders and promising talent in science, engineering, digital technology, arts and culture.",
+"Endorsement by an approved body or a qualifying prize.",
+"https://www.gov.uk/global-talent",
+"",
+{
+"d": "2026-11-09",
+"s": "official_page_retrieved"
+}
+],
+[
+"UK",
+"invest",
+"Innovator Founder visa",
+[
+"3 years",
+"no minimum investment"
+],
+"For founders with an innovative, viable and scalable business idea.",
+"Endorsement by an approved body; English level B2.",
+"https://www.gov.uk/innovator-founder-visa",
+"",
+{
+"d": "2026-11-09",
+"s": "official_page_retrieved"
+}
+],
+[
+"UK",
+"study",
+"Student visa and Graduate route",
+[
+"Graduate route: 2 years after a degree (18 months from 2027)"
+],
+"Study visa for a course with a licensed sponsor, then time to work without a sponsor.",
+"Confirmation of acceptance; proof of funds; English level.",
+"https://www.gov.uk/graduate-visa",
+"changed",
+{
+"d": "2026-11-09",
+"s": "official_page_retrieved"
+}
+],
+[
+"UK",
+"work",
+"High Potential Individual visa",
+[
+"2 years (3 for a PhD)",
+"no job offer needed"
+],
+"For recent graduates of top-ranked universities outside the UK.",
+"Degree from a listed university in the last 5 years.",
+"https://www.gov.uk/high-potential-individual-visa",
+"",
+{
+"d": "2026-11-09",
+"s": "official_page_retrieved"
+}
+],
+[
+"UK",
+"biz",
+"Electronic Travel Authorisation (ETA)",
+[
+"£20",
+"valid 2 years"
+],
+"Visitors who do not need a visa, including EU citizens, need an ETA before travelling for tourism or business meetings.",
+"Up to 6 months per visit; no paid work.",
+"https://www.gov.uk/eta",
+"changed",
+{
+"d": "2026-11-09",
+"s": "official_page_retrieved"
+}
+],
+[
+"IE",
+"tax-person",
+"Special Assignee Relief Programme (SARP)",
+[
+"30% of income above €100,000 tax-free",
+"5 years"
+],
+"Relief for employees assigned to Ireland by their employer.",
+"Base salary of at least €100,000; worked for the employer abroad before; extended to 2030.",
+"https://www.revenue.ie/en/personal-tax-credits-reliefs-and-exemptions/income-and-employment/special-assignee-relief-programme/what-are-the-conditions-to-qualify.aspx",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_result"
+}
+],
+[
+"IE",
+"work",
+"Critical Skills Employment Permit",
+[
+"2 years",
+"then Stamp 4 residence"
+],
+"Work permit for shortage occupations and highly paid roles, with family reunification from the start.",
+"Job offer of at least 2 years; salary thresholds set by the Department of Enterprise.",
+"https://www.enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_result"
+}
+],
+[
+"NL",
+"tax-person",
+"30% ruling",
+[
+"30% of salary tax-free (27% from 2027)",
+"5 years"
+],
+"Employers can pay recruited staff from abroad a tax-free allowance.",
+"Recruited from more than 150 km from the Dutch border; salary threshold; cap at the public-sector maximum salary.",
+"https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/content/coming-to-work-in-the-netherlands-30-percent-facility",
+"changed",
+{
+"d": "2026-11-09",
+"s": "official_search_result"
+}
+],
+[
+"NL",
+"invest",
+"Dutch-American Friendship Treaty (DAFT)",
+[
+"€4,500 business investment"
+],
+"US citizens can live in the Netherlands as self-employed with a small business capital.",
+"US nationality; €4,500 in a Dutch business account; registered business.",
+"https://ind.nl/en/residence-permits/work/residence-permit-self-employed-person",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_result"
+}
+],
+[
+"NL",
+"work",
+"Highly skilled migrant permit",
+[
+"Fast-track via recognised sponsors"
+],
+"Residence for knowledge workers hired by an IND-recognised employer.",
+"Salary thresholds by age; employer must be a recognised sponsor.",
+"https://ind.nl/en/residence-permits/work/highly-skilled-migrant",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_result"
+}
+],
+[
+"CH",
+"tax-person",
+"Lump-sum taxation",
+[
+"Tax on living expenses instead of income",
+"federal minimum base about CHF 430,000"
+],
+"Foreigners who live in Switzerland without working there can be taxed on their expenses.",
+"Not Swiss nationals; no gainful work in Switzerland; abolished in Zurich, Schaffhausen, Appenzell Ausserrhoden and both Basels.",
+"https://www.efd.admin.ch/en/lump-sum-taxation",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_result"
+}
+],
+[
+"FR",
+"tax-person",
+"Impatriate regime",
+[
+"30% of salary tax-free",
+"8 years",
+"50% of some foreign income exempt"
+],
+"Employees recruited from abroad get a partial exemption of their pay and of some passive foreign income.",
+"Not French tax resident in the 5 previous years.",
+"https://www.impots.gouv.fr/internationalenindividual/expatriate-tax-regime",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_result"
+}
+],
+[
+"FR",
+"work",
+"Talent Passport",
+[
+"Up to 4 years",
+"family included"
+],
+"Multi-year permit for qualified employees, researchers, founders, investors and artists.",
+"Category criteria such as salary, degree or investment of €300,000.",
+"https://www.service-public.gouv.fr/particuliers/vosdroits/F16922",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"DK",
+"tax-person",
+"Researcher and key-employee scheme",
+[
+"27% flat plus 8% labour-market contribution",
+"7 years"
+],
+"Gross tax of about 32.8% instead of progressive rates up to 52%.",
+"Monthly salary above the yearly threshold; not taxable in Denmark in the previous 10 years.",
+"https://skat.dk/en-us/businesses/employees-and-pay/non-danish-labour/tax-scheme-for-researchers",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_result"
+}
+],
+[
+"SE",
+"tax-person",
+"Expert tax relief",
+[
+"25% of income tax-free",
+"7 years"
+],
+"Foreign experts, researchers and key staff pay tax on 75% of their pay.",
+"For the remuneration route, gross monthly remuneration must exceed 1.5 times the price base amount applicable when work starts. The tasks/expertise route and other qualifying conditions remain separate.",
+"https://www.forskarskattenamnden.se/andra-sprak/taxation-of-research-workers-board/conditions-for-tax-relief/remuneration-rate",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"MC",
+"tax-person",
+"No personal income tax",
+[
+"0% income tax for residents"
+],
+"Monaco does not tax individuals on income (French nationals excepted).",
+"Residence card requires accommodation and proof of means; banks often require a deposit.",
+"https://bofip.impots.gouv.fr/bofip/12995-PGP.html/identifiant%3DBOI-INT-CVB-MCO-10-20210602",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"AD",
+"tax-person",
+"Low flat income tax",
+[
+"Income tax capped at 10%"
+],
+"Andorra's personal income tax is 0% to 10%.",
+"Passive residence requires an investment in Andorra and 90 days a year presence.",
+"https://www.govern.ad/ca/impost-sobre-la-renda-de-les-persones-f%C3%ADsiques",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"GE",
+"tax-person",
+"Small business status",
+[
+"1% tax on turnover up to GEL 500,000"
+],
+"Individual entrepreneurs with small business status pay 1% on turnover.",
+"Register as an individual entrepreneur; some activities excluded.",
+"https://www.matsne.gov.ge/en/document/view/1043717",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"UY",
+"tax-person",
+"Tax holiday for new residents",
+[
+"0% on foreign investment income",
+"11 years (or 7% after)"
+],
+"New tax residents can choose an 11-year holiday on foreign dividends and interest.",
+"Not Uruguayan tax resident in the previous 5 years; property or company investment route.",
+"https://www.gub.uy/direccion-general-impositiva/comunicacion/publicaciones/regimen-impatriados-opcion-para-nuevos-residentes-fiscales-uruguay",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"PA",
+"tax-person",
+"Territorial tax system",
+[
+"Foreign-source income not taxed"
+],
+"Panama only taxes income earned in Panama.",
+"Residence via Friendly Nations, Qualified Investor or Pensionado visas.",
+"https://www.gacetaoficial.gob.pa/documento/105014",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"PY",
+"tax-person",
+"Territorial tax system",
+[
+"10% income tax",
+"foreign income not taxed"
+],
+"Low flat rates and taxation of local income only.",
+"Residence via the migration authority.",
+"https://www.dnit.gov.py/en/web/portal-institucional/irp",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"CR",
+"tax-person",
+"Territorial tax system",
+[
+"Foreign-source income not taxed"
+],
+"Costa Rica taxes income from Costa Rican sources only.",
+"Residence via Rentista, Pensionado or digital nomad routes.",
+"https://pgrweb.go.cr/scij/Busqueda/Normativa/Normas/nrm_texto_completo.aspx?nValor1=1&nValor2=10969&nValor3=109669&param1=NRTC&strTipM=TC",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"AE",
+"tax-person",
+"No personal income tax",
+[
+"0% income tax on salaries and investments"
+],
+"The UAE does not tax individuals' income.",
+"Tax residence certificate needs 183 days, or 90 days with a permanent home or job.",
+"https://u.ae/about-the-uae/fact-sheet",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"SG",
+"tax-person",
+"Low progressive income tax",
+[
+"Top rate 24%",
+"no capital gains tax"
+],
+"Foreign income received by residents is generally not taxed.",
+"Resident after 183 days in a year.",
+"https://www.iras.gov.sg/taxes/individual-income-tax/basics-of-individual-income-tax/tax-residency-and-tax-rates/individual-income-tax-rates",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"HK",
+"tax-person",
+"Territorial salaries tax",
+[
+"Standard rate 15% (16% above HK$5 million)"
+],
+"Only income from a Hong Kong job is taxed; no capital gains or dividend tax.",
+"Territorial source rules.",
+"https://www.ird.gov.hk/eng/tax/ind_sal.htm",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"KR",
+"tax-person",
+"19% flat tax option for foreign employees",
+[
+"19% flat on salary",
+"20 years"
+],
+"Foreign employees can choose a single 19% rate instead of progressive rates.",
+"Employees of Korean companies; time-limited scheme.",
+"https://elaw.klri.re.kr/eng_service/lawTwoView.do?hseq=12228",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"TH",
+"tax-person",
+"LTR visa 17% tax",
+[
+"17% flat on salary for highly skilled professionals",
+"10-year visa"
+],
+"Long-Term Resident visa holders in qualifying industries pay 17% on Thai employment income.",
+"Highly skilled professional category; employer and salary criteria.",
+"https://ltr.boi.go.th/page/laws-regulations.html",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"MY",
+"tax-person",
+"Foreign-sourced income exemption",
+[
+"Foreign income exempt for individuals until 2036"
+],
+"Individuals in Malaysia do not pay tax on foreign income brought into the country.",
+"Partnerships excluded; must have been taxed abroad in some cases.",
+"https://www.hasil.gov.my/media/pshpbomm/explanatorynotes_be2025_2.pdf",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"CN",
+"tax-person",
+"Hainan Free Trade Port talent tax cap",
+[
+"Individual income tax capped at 15%"
+],
+"High-end and urgently needed talent working in Hainan pay at most 15%.",
+"At least 183 days a year in Hainan; listed talent categories.",
+"https://policy.mofcom.gov.cn/claw/clawContent.shtml?id=103252",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"PR",
+"tax-person",
+"Puerto Rico Act 60 resident investor",
+[
+"0% on capital gains accrued after the move",
+"$10,000 yearly donation"
+],
+"New residents of the US territory pay no Puerto Rico tax on most passive income.",
+"Buy a home within 2 years; not resident in the previous 10 years; US federal tax still applies to non-Puerto Rico income.",
+"https://bvirtualogp.pr.gov/ogp/BVirtual/LeyesOrganicas/pdf/60-2019.pdf",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"AE",
+"tax-corp",
+"Free zone 0% corporate tax",
+[
+"0% on qualifying income",
+"9% above AED 375,000 elsewhere"
+],
+"Companies in UAE free zones such as JAFZA, DMCC, DIFC and ADGM pay no corporate tax on qualifying income.",
+"Adequate substance; qualifying activities; audited accounts.",
+"https://mof.gov.ae/en/public-finance/tax/corporate-tax/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_result"
+}
+],
+[
+"SA",
+"tax-corp",
+"Regional Headquarters programme",
+[
+"0% corporate tax for 30 years on RHQ activities"
+],
+"Multinationals that move their regional headquarters to Saudi Arabia get tax and visa benefits.",
+"Licensed RHQ; minimum staff; government contracts depend on it.",
+"https://www.uqn.gov.sa/details?p=24526",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"QA",
+"tax-corp",
+"Qatar Financial Centre",
+[
+"10% corporate tax on local-source profits"
+],
+"Onshore business platform with its own law and tax regime.",
+"QFC licence; permitted activities.",
+"https://www.qfc.qa/en/setup/tax-overview",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_result"
+}
+],
+[
+"SG",
+"tax-corp",
+"Pioneer and development incentives",
+[
+"5% or 10% concessionary tax rate"
+],
+"Lower corporate tax for qualifying new or expanding activities instead of 17%.",
+"Awarded case by case by the Economic Development Board.",
+"https://www.edb.gov.sg/en/incentives-and-programmes/incentives-and-facilitation-programmes.html",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"MY",
+"tax-corp",
+"Labuan international business centre",
+[
+"3% of audited net profits"
+],
+"Labuan trading companies pay 3% tax on profits.",
+"Substance: minimum staff and spending in Labuan.",
+"https://www.labuanfsa.gov.my/areas-of-business/labuan-structures/labuan-companies/faq",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_result"
+}
+],
+[
+"CN",
+"tax-corp",
+"Hainan Free Trade Port",
+[
+"15% corporate tax for encouraged industries",
+"island-wide customs operation since December 2025"
+],
+"Lower corporate tax and duty-free imports of many goods for companies with real operations in Hainan.",
+"Encouraged industry list; substantive operations.",
+"https://policy.mofcom.gov.cn/claw/clawContent.shtml?id=103253",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"CN",
+"tax-corp",
+"Qianhai Shenzhen–Hong Kong cooperation zone",
+[
+"15% corporate tax for encouraged industries"
+],
+"Preferential rate for companies in the Qianhai zone of Shenzhen.",
+"Encouraged industry catalogue; main business in the zone.",
+"https://www.tid.gov.hk/en/tradecircular/2026/ci1712026.html",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"IN",
+"tax-corp",
+"GIFT City IFSC",
+[
+"100% tax holiday for 10 of 15 years"
+],
+"International Financial Services Centre in Gujarat with tax holidays for funds, banks and fintechs.",
+"IFSCA registration; operations in the IFSC.",
+"https://www.incometax.gov.in/iec/foportal/node/11591",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"PH",
+"tax-corp",
+"PEZA ecozones",
+[
+"Income tax holiday, then 5% on gross income"
+],
+"Registered export enterprises get tax holidays and a special 5% rate under the CREATE Act.",
+"Registration with the Philippine Economic Zone Authority.",
+"https://firb.gov.ph/resources/create-more/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"TH",
+"tax-corp",
+"BOI and Eastern Economic Corridor",
+[
+"Up to 13 years corporate tax exemption"
+],
+"Board of Investment incentives for target industries.",
+"Approved project; activity and location criteria.",
+"https://www.eeco.or.th/en/steps-for-requesting-incentives-from-the-eec/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"VN",
+"tax-corp",
+"High-tech parks and economic zones",
+[
+"10% corporate tax for 15 years"
+],
+"Preferential rate and tax holidays instead of the standard 20%.",
+"Qualifying project in a high-tech park or difficult area.",
+"https://en.baochinhphu.vn/law-on-corporate-income-tax-111261014131247153.htm",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"ID",
+"tax-corp",
+"Special Economic Zones (KEK)",
+[
+"Tax holidays and import duty relief"
+],
+"Corporate tax holidays and customs relief for investors in designated zones such as Batam.",
+"Investment in a designated zone and sector.",
+"https://oss.go.id/id/fasilitas-berusaha?path=kek",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"MU",
+"tax-corp",
+"Global Business Licence",
+[
+"15% rate with 80% partial exemption on some income"
+],
+"Effective rate as low as 3% on qualifying foreign income.",
+"Substance requirements set by the Financial Services Commission.",
+"https://mra.mu/index.php/business/corporate-tax",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"PT",
+"tax-corp",
+"Madeira International Business Centre",
+[
+"5% corporate tax"
+],
+"Reduced rate for licensed companies in Madeira's free zone until 2028.",
+"Jobs and minimum investment; income caps.",
+"https://portugalglobal.pt/en/investment/doing-business/taxation/corporate-income-tax/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"EE",
+"tax-corp",
+"Tax only on distributed profits",
+[
+"0% on retained and reinvested profits"
+],
+"Estonian companies pay corporate tax only when profits are distributed.",
+"Applies to all Estonian companies; e-Residency lets non-residents run one online.",
+"https://www.emta.ee/en/business-client/taxes-and-payment/income-and-social-taxes/taxation-dividends",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"HU",
+"tax-corp",
+"Lowest corporate tax in the EU",
+[
+"9% corporate tax"
+],
+"Flat 9% corporate rate (15% top-up for large groups under the global minimum tax).",
+"Local business tax applies in addition.",
+"https://nav.gov.hu/ugyfeliranytu/nezzen-utana/inf_fuz/2026/41.-A-tarsasagi-ado-legfontosabb-szabalyai-2026.02.02",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"BG",
+"tax-corp",
+"Flat 10% taxes",
+[
+"10% corporate tax",
+"10% personal income tax"
+],
+"Among the lowest flat rates in the EU.",
+"Global minimum tax top-up for large groups.",
+"https://www.minfin.bg/en/786",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"BR",
+"tax-corp",
+"Manaus Free Trade Zone",
+[
+"Tax incentives guaranteed until 2073"
+],
+"Federal and state tax relief for manufacturing in the Amazon city.",
+"Approved project with SUFRAMA; local production stages.",
+"https://www.gov.br/suframa/pt-br/centrais-de-conteudo/guia_suframa.pdf/view",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"US",
+"tax-corp",
+"Opportunity Zones",
+[
+"Deferral and reduction of capital gains tax",
+"made permanent in 2025"
+],
+"Investors who put capital gains into Qualified Opportunity Funds defer and reduce the tax; gains on the fund held 10 years are tax-free.",
+"Investment through a qualified fund in a designated low-income census tract.",
+"https://www.irs.gov/credits-deductions/businesses/opportunity-zones",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_result"
+}
+],
+[
+"PR",
+"tax-corp",
+"Act 60 export services",
+[
+"4% corporate tax"
+],
+"Companies serving clients outside Puerto Rico from the island pay 4%.",
+"Decree from the Department of Economic Development; local jobs.",
+"https://bvirtualogp.pr.gov/ogp/BVirtual/LeyesOrganicas/pdf/60-2019.pdf",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"US",
+"pr",
+"Employment-based green card",
+[
+"Permanent residence",
+"EB-1, EB-2 (incl. National Interest Waiver), EB-3"
+],
+"Permanent residence through an employer or, for top talent, on your own petition.",
+"Yearly caps per country create long waits for India and China.",
+"https://www.uscis.gov/green-card",
+"",
+{
+"d": "2026-11-09",
+"s": "fetch_blocked_candidate"
+}
+],
+[
+"US",
+"pr",
+"Diversity Visa lottery",
+[
+"Up to 55,000 green cards a year"
+],
+"Lottery for nationals of countries with low US immigration.",
+"Secondary education or 2 years' qualifying work; paused by the US administration since December 2025, check the official page.",
+"https://travel.state.gov/content/travel/en/us-visas/immigrate/diversity-visa-program-entry.html",
+"paused",
+{
+"d": "2026-11-09",
+"s": "fetch_blocked_candidate"
+}
+],
+[
+"US",
+"invest",
+"EB-5 immigrant investor",
+[
+"$800,000 in targeted areas",
+"$1,050,000 elsewhere"
+],
+"Green card for investors whose project creates at least 10 US jobs.",
+"Lawful source of funds; investment at risk; conditional residence for 2 years.",
+"https://www.uscis.gov/working-in-the-united-states/permanent-workers/eb-5-immigrant-investor-program",
+"",
+{
+"d": "2026-11-09",
+"s": "fetch_blocked_candidate"
+}
+],
+[
+"US",
+"invest",
+"Gold Card",
+[
+"$1 million gift (individual)",
+"$2 million for corporate sponsorship"
+],
+"Fast-track permanent residence introduced by executive order in 2025.",
+"Vetting and a processing fee; legal challenges possible, check the official page.",
+"https://www.reginfo.gov/public/do/PRAViewICR?ref_nbr=202605-1615-003",
+"changed",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"US",
+"work",
+"H-1B specialty occupation",
+[
+"85,000 a year by lottery",
+"$100,000 fee for new petitions from abroad since September 2025"
+],
+"Work visa for degree-level jobs with a US employer.",
+"Employer petition; prevailing wage; registration lottery each March.",
+"https://www.uscis.gov/working-in-the-united-states/h-1b-specialty-occupations",
+"changed",
+{
+"d": "2026-11-09",
+"s": "fetch_blocked_candidate"
+}
+],
+[
+"US",
+"work",
+"O-1 extraordinary ability",
+[
+"Up to 3 years, renewable",
+"no lottery"
+],
+"For people with sustained national or international acclaim in sciences, arts, business or sports.",
+"Evidence of awards, publications, high pay or critical roles.",
+"https://www.uscis.gov/working-in-the-united-states/temporary-workers/o-1-visa-individuals-with-extraordinary-ability-or-achievement",
+"",
+{
+"d": "2026-11-09",
+"s": "fetch_blocked_candidate"
+}
+],
+[
+"US",
+"invest",
+"E-2 treaty investor",
+[
+"Substantial investment",
+"renewable"
+],
+"For nationals of treaty countries who invest in and run a US business.",
+"Treaty country nationality (some get it via Grenada citizenship); real operating business.",
+"https://travel.state.gov",
+"",
+{
+"d": "2026-11-09",
+"s": "fetch_blocked_candidate"
+}
+],
+[
+"US",
+"study",
+"F-1 student visa and OPT",
+[
+"12 months work after study",
+"24 more for STEM"
+],
+"Study at a certified school, then Optional Practical Training.",
+"Admission and I-20; proof of funds; interview.",
+"https://studyinthestates.dhs.gov",
+"",
+{
+"d": "2026-11-09",
+"s": "fetch_blocked_candidate"
+}
+],
+[
+"US",
+"biz",
+"ESTA visa waiver and B-1 business visa",
+[
+"90 days without visa for 40+ countries"
+],
+"Meetings, conferences and negotiations are allowed; paid work is not.",
+"ESTA approval before travel; others need a B-1/B-2 visa.",
+"https://esta.cbp.dhs.gov",
+"",
+{
+"d": "2026-11-09",
+"s": "fetch_blocked_candidate"
+}
+],
+[
+"CA",
+"pr",
+"Express Entry permanent residence",
+[
+"Points-based draws every few weeks"
+],
+"Federal skilled worker, Canadian experience and trades programmes in one ranking.",
+"Language tests, education assessment and points score (CRS).",
+"https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html",
+"",
+{
+"d": "2026-11-09",
+"s": "official_page_retrieved"
+}
+],
+[
+"CA",
+"work",
+"Global Talent Stream",
+[
+"Work permit in about 2 weeks"
+],
+"Fast-track work permits for in-demand tech and highly skilled roles.",
+"Employer referral or listed occupation; labour market benefits plan.",
+"https://www.canada.ca/en/employment-social-development/services/foreign-workers/global-talent.html",
+"",
+{
+"d": "2026-11-09",
+"s": "official_page_retrieved"
+}
+],
+[
+"CA",
+"study",
+"Study permit and post-graduation work permit",
+[
+"Up to 3 years work permit after study",
+"national cap on new study permits"
+],
+"Study at a designated institution, then work in Canada.",
+"Provincial attestation letter; proof of funds; language for the work permit.",
+"https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation.html",
+"changed",
+{
+"d": "2026-11-09",
+"s": "official_page_retrieved"
+}
+],
+[
+"AU",
+"pr",
+"Skilled Independent visa (subclass 189)",
+[
+"Permanent residence",
+"points-tested"
+],
+"Permanent visa for skilled workers invited through SkillSelect.",
+"Occupation on the list, skills assessment, points test, under 45.",
+"https://immi.homeaffairs.gov.au",
+"",
+{
+"d": "2026-11-09",
+"s": "dynamic_page_shell"
+}
+],
+[
+"AU",
+"work",
+"National Innovation visa (subclass 858)",
+[
+"Permanent residence"
+],
+"Replaced the Global Talent visa in December 2024 for exceptional talent.",
+"Invitation after an expression of interest; international record of achievement.",
+"https://immi.homeaffairs.gov.au",
+"changed",
+{
+"d": "2026-11-09",
+"s": "dynamic_page_shell"
+}
+],
+[
+"AU",
+"study",
+"Student visa (subclass 500)",
+[
+"A$2,000 application fee"
+],
+"Study at a registered provider, with limited work rights.",
+"Enrolment, funds, English, health insurance (OSHC).",
+"https://immi.homeaffairs.gov.au",
+"changed",
+{
+"d": "2026-11-09",
+"s": "dynamic_page_shell"
+}
+],
+[
+"AU",
+"invest",
+"Business Innovation and Investment visa",
+[
+"Closed since July 2024"
+],
+"Australia closed its investor and business visa programme.",
+"Replaced in part by the National Innovation visa.",
+"https://immi.homeaffairs.gov.au",
+"closed",
+{
+"d": "2026-11-09",
+"s": "fetch_blocked_candidate"
+}
+],
+[
+"NZ",
+"invest",
+"Active Investor Plus",
+[
+"NZ$5 million over 3 years (growth)",
+"NZ$10 million over 5 years (balanced)"
+],
+"Residence for investors, reworked in April 2025 with lower thresholds and English no longer required.",
+"Minimum time in New Zealand; acceptable investments.",
+"https://www.immigration.govt.nz/visas/active-investor-plus-visa/",
+"changed",
+{
+"d": "2026-11-09",
+"s": "official_page_retrieved"
+}
+],
+[
+"NZ",
+"pr",
+"Skilled Migrant Category resident visa",
+[
+"6 points needed"
+],
+"Residence for skilled workers through qualifications, pay or registration plus New Zealand work.",
+"Job or offer with an accredited employer.",
+"https://www.immigration.govt.nz/visas/skilled-migrant-category-resident-visa/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_page_retrieved"
+}
+],
+[
+"DE",
+"work",
+"Opportunity Card (Chancenkarte)",
+[
+"Up to 1 year to find a job",
+"part-time work allowed"
+],
+"Points-based card for skilled workers to look for a job in Germany.",
+"Recognised qualification, or points for language, experience, age and ties; proof of funds.",
+"https://www.make-it-in-germany.com/en/visa-recognition/opportunity-card",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"DE",
+"study",
+"Student visa",
+[
+"Blocked account of about €11,900 a year"
+],
+"Study in Germany with up to 140 full days of work a year; 18 months to find a job afterwards.",
+"Admission; proof of funds; health insurance.",
+"https://www.make-it-in-germany.com/en/visa-recognition/visa-types/studying",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"DE",
+"pr",
+"Naturalisation after 5 years",
+[
+"Citizenship after 5 years",
+"dual citizenship allowed"
+],
+"Since 2024 Germany allows dual citizenship; the 3-year fast track was abolished in 2025.",
+"Language B1, own income, citizenship test.",
+"https://www.make-it-in-germany.com/en/arriving-living/long-term/naturalisation",
+"changed",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"AT",
+"work",
+"Red-White-Red Card",
+[
+"Points-based",
+"2 years, then permanent"
+],
+"Work and residence for very highly qualified people, skilled workers in shortage jobs and founders.",
+"Points for qualification, experience, age and language; job offer with minimum pay.",
+"https://www.migration.gv.at/en/types-of-immigration/permanent-immigration/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_result"
+}
+],
+[
+"HU",
+"invest",
+"Guest Investor Programme",
+[
+"€250,000 in a real-estate fund",
+"€500,000 in property",
+"10-year residence"
+],
+"Residence certificate for non-EU investors since 2024.",
+"Hold the investment for at least 5 years.",
+"https://www.oif.gov.hu/index.php/factsheets/residence-permit-for-guest-investor",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"TR",
+"cbi",
+"Citizenship by investment",
+[
+"$400,000 in real estate",
+"hold 3 years"
+],
+"Turkish citizenship for buyers of property or other qualifying investments.",
+"Valuation report; no sale for 3 years.",
+"https://www.invest.gov.tr/en/investmentguide/pages/acquiring-property-and-citizenship.aspx",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"AE",
+"invest",
+"Golden Visa",
+[
+"10 years",
+"AED 2 million in property"
+],
+"Long-term residence for investors, entrepreneurs, top talent and outstanding students, without a sponsor.",
+"Category criteria; renewable.",
+"https://u.ae/en/information-and-services/visa-and-emirates-id/residence-visas/golden-visa",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"AE",
+"nomad",
+"Remote work visa",
+[
+"1 year",
+"$3,500 a month"
+],
+"Live in the UAE while working for a company abroad.",
+"Employer or own company abroad; health insurance.",
+"https://u.ae/en/information-and-services/visa-and-emirates-id/residence-visas/residence-visa-for-working-outside-the-uae",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"SA",
+"invest",
+"Premium Residency",
+[
+"Several categories incl. property owners from SAR 4 million"
+],
+"Residence without a sponsor for talent, investors, entrepreneurs and property owners.",
+"Category criteria and fees.",
+"https://pr.gov.sa/services-terms",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"OM",
+"invest",
+"Investor residence",
+[
+"5 or 10 years"
+],
+"Long-term residence for investors in property, companies or government bonds.",
+"Minimum investment by tier.",
+"https://gov.om/en/w/get-investor-visa",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"BH",
+"invest",
+"Golden residency",
+[
+"Permanent residency",
+"property from BHD 130,000"
+],
+"Long-term residency for property owners, retirees and talent; the authority describes it as permanent residency with an administrative fee every ten years.",
+"Category criteria.",
+"https://www.npra.gov.bh/en/services/visas-residence-permit/residence-permits-services/golden-residency/",
+"changed",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"SG",
+"work",
+"Employment Pass",
+[
+"S$5,600 a month minimum (S$6,200 in finance)",
+"COMPASS points"
+],
+"Work pass for professionals, managers and executives.",
+"Qualifying salary rising with age; COMPASS framework.",
+"https://www.mom.gov.sg/passes-and-permits/employment-pass",
+"",
+{
+"d": "2026-11-09",
+"s": "official_page_retrieved"
+}
+],
+[
+"SG",
+"work",
+"Overseas Networks and Expertise (ONE) Pass",
+[
+"5 years",
+"S$30,000 a month salary"
+],
+"Personalised pass for top talent, not tied to one employer.",
+"Salary or outstanding achievements in arts, sports, science or research.",
+"https://www.mom.gov.sg/passes-and-permits/overseas-networks-expertise-pass",
+"",
+{
+"d": "2026-11-09",
+"s": "official_page_retrieved"
+}
+],
+[
+"SG",
+"invest",
+"Global Investor Programme",
+[
+"S$10 million in a business",
+"S$25 million in a GIP fund"
+],
+"Permanent residence for established business owners and family offices.",
+"Track record and company turnover criteria.",
+"https://www.edb.gov.sg/en/incentives-and-programmes/global-investor-programme.html",
+"",
+{
+"d": "2026-11-09",
+"s": "official_page_retrieved"
+}
+],
+[
+"SG",
+"study",
+"Student's Pass",
+[
+"Full-time study at an approved school"
+],
+"Study pass issued by the Immigration and Checkpoints Authority.",
+"Admission by an approved institution.",
+"https://www.ica.gov.sg/reside/STP/apply",
+"",
+{
+"d": "2026-11-09",
+"s": "official_page_retrieved"
+}
+],
+[
+"HK",
+"work",
+"Top Talent Pass Scheme",
+[
+"Income of HK$2.5 million a year",
+"or degree from a top-100 university"
+],
+"Two-year visa to live and look for work in Hong Kong.",
+"Income in the previous year or graduation within the last 5 years.",
+"https://www.immd.gov.hk",
+"",
+{
+"d": "2026-11-09",
+"s": "fetch_blocked_candidate"
+}
+],
+[
+"HK",
+"invest",
+"New Capital Investment Entrant Scheme",
+[
+"HK$30 million in permitted assets"
+],
+"Residence for investors and their families.",
+"Net assets of HK$30 million; HK$3 million into a government portfolio.",
+"https://www.newcies.gov.hk",
+"",
+{
+"d": "2026-11-09",
+"s": "fetch_blocked_candidate"
+}
+],
+[
+"JP",
+"work",
+"Highly Skilled Professional visa",
+[
+"70 points",
+"permanent residence after 1 year with 80 points"
+],
+"Points-based status for academics, engineers and managers with fast-track permanent residence.",
+"Points for education, salary, experience, age and Japanese.",
+"https://www.mofa.go.jp/j_info/visit/visa/long/visa16.html",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"JP",
+"nomad",
+"Digital nomad visa",
+[
+"¥10 million income a year",
+"6 months"
+],
+"Stay in Japan while working remotely for a foreign employer.",
+"Nationals of visa-exempt and tax-treaty countries; private health insurance.",
+"https://www.mofa.go.jp/ca/fna/pagewe_000001_00046.html",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"JP",
+"invest",
+"Business Manager visa",
+[
+"¥30 million capital (since October 2025)",
+"1 full-time employee"
+],
+"Residence to run a business in Japan; capital requirement raised sixfold in 2025.",
+"Office in Japan; business plan; experience or degree.",
+"https://www.moj.go.jp/isa/applications/resources/10_00237.html",
+"changed",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"KR",
+"nomad",
+"Workation visa",
+[
+"1 year, renewable once",
+"income about twice Korea's GNI per capita"
+],
+"Remote workers employed abroad can live in Korea.",
+"At least 1 year at the current employer; insurance.",
+"https://overseas.mofa.go.kr/sg-en/brd/m_2444/view.do?seq=761493",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"KR",
+"study",
+"Student visa (D-2)",
+[
+"Part-time work allowed"
+],
+"Study at a Korean university, with a route to job-seeking visas afterwards.",
+"Admission; proof of funds.",
+"https://www.studyinkorea.go.kr/en_US/plan/visaAndStay.do",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"CN",
+"work",
+"K visa for young STEM talent",
+[
+"Since 1 October 2025",
+"no employer invitation needed"
+],
+"New visa for young graduates in science and technology.",
+"STEM degree from a recognised university, or teaching or research there.",
+"https://www.fmprc.gov.cn/wjbxw_new/202508/t20250814_11690096.shtml",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"CN",
+"biz",
+"Visa-free entry and 240-hour transit",
+[
+"30 days visa-free for many countries",
+"10 days transit"
+],
+"Unilateral visa exemption for business, tourism and visits, plus visa-free transit through many ports.",
+"Eligible nationality; onward ticket for transit.",
+"https://en.nia.gov.cn/n147418/n147463/c183412/content.html",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"TW",
+"work",
+"Employment Gold Card",
+[
+"4 permits in 1",
+"1–3 years"
+],
+"Combined work permit, residence visa, resident certificate and re-entry permit.",
+"Salary or expertise in listed fields.",
+"https://goldcard.nat.gov.tw/en/qualification/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"TH",
+"nomad",
+"Destination Thailand Visa (DTV)",
+[
+"5 years, multiple entry",
+"180 days per stay",
+"THB 500,000 in savings"
+],
+"For remote workers, freelancers and people on courses such as Muay Thai or cooking.",
+"Proof of funds; employer abroad or activity enrolment.",
+"https://thaievisa.go.th/page/destination-thailand-visa",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"TH",
+"invest",
+"Long-Term Resident (LTR) visa",
+[
+"10 years"
+],
+"For wealthy global citizens, wealthy pensioners, remote workers and highly skilled professionals.",
+"Category criteria such as US$1 million in assets or income thresholds.",
+"https://ltr.boi.go.th/page/laws-regulations.html",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"MY",
+"retire",
+"Malaysia My Second Home (MM2H)",
+[
+"Silver US$150,000 deposit",
+"Gold US$500,000",
+"Platinum US$1 million"
+],
+"Long-term residence in tiers relaunched in 2024.",
+"Fixed deposit and property purchase by tier; minimum stay.",
+"https://www.motac.gov.my/en/program-kementerian/malaysia-my-second-home-mm2h/",
+"changed",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"MY",
+"nomad",
+"DE Rantau Nomad Pass",
+[
+"US$24,000 a year"
+],
+"Up to 2 years for digital nomads in tech and digital roles.",
+"Contract or employer abroad. New applications paused 1–30 November 2026; an enhanced framework is announced for 1 December 2026.",
+"https://www.mdec.my/md-programmes/digital-nomad-pass",
+"paused",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"ID",
+"invest",
+"Golden visa",
+[
+"5 or 10 years"
+],
+"Residence for investors who set up companies or invest in Indonesia.",
+"Investment tiers for individuals and companies.",
+"https://singaraja.imigrasi.go.id/golden-visa/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"ID",
+"nomad",
+"Remote worker visa (E33G)",
+[
+"US$60,000 income a year",
+"1 year"
+],
+"Live in Indonesia (for example Bali) while working for a foreign employer.",
+"Income from abroad; no Indonesian clients.",
+"https://ngurahrai.imigrasi.go.id/edukasi-visa-e33g-rumah-kedua-bagi-pekerja-jarak-jauh/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"PH",
+"retire",
+"Special Resident Retiree's Visa",
+[
+"Deposit from US$20,000 with pension"
+],
+"Permanent residence for retirees aged 50 and over.",
+"Deposit amount depends on age and pension.",
+"https://www.pra.gov.ph/srrvisa",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"VN",
+"biz",
+"E-visa for all nationalities",
+[
+"Up to 90 days",
+"single or multiple entry"
+],
+"Electronic visa for tourism and business.",
+"Online application.",
+"https://evisa.xuatnhapcanh.gov.vn/trang-chu-ttdt/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"IN",
+"biz",
+"e-Visa (business, tourist, medical)",
+[
+"Business e-visa up to 1 year"
+],
+"Online visa for meetings, trade and tourism.",
+"Eligible nationality; online application.",
+"https://indianvisaonline.gov.in/evisa/tvoa.html",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"IN",
+"work",
+"Employment visa",
+[
+"Salary above US$25,000 a year"
+],
+"Work visa for skilled foreigners hired by Indian companies.",
+"Employer contract; some exceptions to the salary floor.",
+"https://www.indianembassydublin.gov.in/page/employment-visa2/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"MX",
+"retire",
+"Temporary residence by economic solvency",
+[
+"Up to 4 years",
+"then permanent"
+],
+"Residence for people with stable income or savings.",
+"Income or savings thresholds linked to the Mexican minimum wage; apply at a consulate.",
+"https://www.miconsulado.sre.gob.mx/visasmexicanas/visa/visa-de-residencia-temporal/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"BR",
+"nomad",
+"Digital nomad visa",
+[
+"US$1,500 a month or US$18,000 savings",
+"1 year, renewable"
+],
+"Remote workers employed abroad can live in Brazil.",
+"Employment or contracts abroad; health insurance.",
+"https://www.gov.br/mj/pt-br/assuntos/seus-direitos/migracoes/portal-de-imigracao-laboral/navegacao-guiada-1/possui-autorizacao-de-residencia/o-que-deseja/qual-a-finalidade-desejada-1/trabalho-sem-contrato-de-trabalho-no-brasil/nomade-digital/nomade-digital",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"BR",
+"biz",
+"Visas for US, Canadian and Australian visitors",
+[
+"e-Visa required again since April 2025"
+],
+"Brazil reintroduced visas for these nationalities on a reciprocity basis.",
+"Online e-visa.",
+"https://www.gov.br/mre/pt-br/consulado-sao-francisco/electronic-visitor-visa-e-visa",
+"changed",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"CO",
+"nomad",
+"Digital nomad visa",
+[
+"Income about 3 × the minimum wage",
+"up to 2 years"
+],
+"Remote workers and entrepreneurs with foreign income can live in Colombia.",
+"Foreign employer or clients; health insurance.",
+"https://cancilleria.gov.co/node/26950",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"PA",
+"invest",
+"Friendly Nations visa",
+[
+"Job offer or US$200,000 property"
+],
+"Permanent residence for nationals of about 50 friendly countries.",
+"Employment contract in Panama or property purchase.",
+"https://www.migracion.gob.pa/wp-content/uploads/02-PAISES-ESPECIFICOS.pdf",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"PA",
+"retire",
+"Pensionado visa",
+[
+"US$1,000 a month pension"
+],
+"Permanent residence for retirees, with discounts on many services.",
+"Lifetime pension; reduced amount with a property purchase.",
+"https://www.migracion.gob.pa/documentos/jubilado-pensionado/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"CR",
+"nomad",
+"Digital nomad visa",
+[
+"US$3,000 a month",
+"1 year plus 1"
+],
+"Remote workers pay no Costa Rican income tax on foreign income.",
+"Income from abroad; health insurance.",
+"https://www.racsa.go.cr/nomadas-digitales/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"CR",
+"retire",
+"Pensionado and Rentista",
+[
+"US$1,000 a month pension",
+"US$2,500 a month passive income"
+],
+"Temporary residence for retirees and people with fixed income.",
+"Proof of pension or bank-guaranteed income.",
+"https://embajadacostaricaitalia.it/residenze/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"ZA",
+"nomad",
+"Remote work visa",
+[
+"R1 million income a year"
+],
+"Live in South Africa while working for a foreign employer.",
+"Income threshold; employer abroad.",
+"https://www.dha.gov.za/images/notices/8october24/Remote_Work_Visa_-_requirements_-_9_Oct_2024.pdf",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"ZA",
+"work",
+"Critical Skills work visa",
+[
+"Up to 5 years",
+"job offer optional"
+],
+"For skills on the national critical skills list.",
+"Qualification evaluation; professional registration.",
+"https://dirco.gov.za/ottawa/critical-skills-work-visa/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"MU",
+"nomad",
+"Premium Visa",
+[
+"1 year, renewable",
+"US$1,500 a month"
+],
+"Live in Mauritius and work remotely for foreign clients.",
+"Income from abroad; health insurance.",
+"https://passport.govmu.org/passport/?page_id=595",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"KN",
+"cbi",
+"St Kitts and Nevis citizenship",
+[
+"From US$250,000 contribution"
+],
+"Caribbean citizenship by investment with visa-free travel to Schengen and the UK.",
+"Due diligence; contribution to the Sustainable Island State fund or approved property.",
+"https://ciu.gov.kn/cbi-options/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"DM",
+"cbi",
+"Dominica citizenship",
+[
+"From US$200,000 contribution"
+],
+"Citizenship by investment through the Economic Diversification Fund or property.",
+"Due diligence; minimum price agreed among Eastern Caribbean states.",
+"https://www.cbiu.gov.dm/investment-options/economic-diversification-fund/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"GD",
+"cbi",
+"Grenada citizenship",
+[
+"From US$235,000"
+],
+"Citizenship that also opens the US E-2 treaty investor visa.",
+"Due diligence; fund contribution or approved real estate.",
+"https://imagrenada.gd/becoming-a-citizen/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"AG",
+"cbi",
+"Antigua and Barbuda citizenship",
+[
+"From US$230,000 for a family of 4"
+],
+"Citizenship by investment with a 5-day stay in the first 5 years.",
+"Due diligence; fund contribution or approved property.",
+"https://cip.gov.ag/investment-options/ndf/",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"EU",
+"biz",
+"Schengen short-stay visa",
+[
+"90 days in any 180",
+"€90 fee"
+],
+"One visa for 29 European countries for business trips and tourism.",
+"Visa-exempt nationalities instead need ETIAS once it starts (expected late 2026, €20).",
+"https://home-affairs.ec.europa.eu/policies/schengen/visa-policy/applying-schengen-visa_en",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"EU",
+"biz",
+"Entry/Exit System (EES)",
+[
+"Biometric registration since October 2025"
+],
+"Non-EU travellers are registered with fingerprints and a photo at Schengen borders instead of passport stamps.",
+"Applies to short stays of visitors with or without visas.",
+"https://travel-europe.europa.eu/en/ees/faq",
+"changed",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+],
+[
+"EE",
+"biz",
+"e-Residency",
+[
+"Run an EU company online",
+"EUR150 application state fee"
+],
+"Digital identity to found and run an Estonian company remotely. Not a visa and not tax residence.",
+"Background check; pick up the card at a service point.",
+"https://learn.e-resident.gov.ee/hc/en-gb/articles/11432057891473-Estonian-state-fees",
+"",
+{
+"d": "2026-11-09",
+"s": "official_search_evidence"
+}
+]
+],
+"audit_claim_checks": [
+{
+"row_index": 16,
+"checked_on": "2026-11-08",
+"checked_fields": [
+"name.article_reference"
+],
+"source_url": "https://www.aade.gr/en/greeks-abroad-non-residents/income-taxation/tax-incentives-order-attract-new-tax-residents",
+"whole_record_approved": false,
+"publication_approved": false
+},
+{
+"row_index": 18,
+"checked_on": "2026-11-08",
+"checked_fields": [
+"name.article_reference"
+],
+"source_url": "https://www.aade.gr/en/greeks-abroad-non-residents/income-taxation/tax-incentives-order-attract-new-tax-residents",
+"whole_record_approved": false,
+"publication_approved": false
+},
+{
+"row_index": 44,
+"checked_on": "2026-11-08",
+"checked_fields": [
+"conditions.remuneration_multiplier"
+],
+"source_url": "https://forskarskattenamnden.se/andra-sprak/taxation-of-research-workers-board/conditions-for-tax-relief/remuneration-rate",
+"whole_record_approved": false,
+"publication_approved": false
+},
+{
+"row_index": 150,
+"checked_on": "2026-11-08",
+"checked_fields": [
+"figures.application_state_fee"
+],
+"source_url": "https://learn.e-resident.gov.ee/hc/en-gb/articles/11432057891473-Estonian-state-fees",
+"whole_record_approved": false,
+"publication_approved": false
+}
+]
 }

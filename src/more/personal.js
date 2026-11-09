@@ -200,7 +200,17 @@ function myDataRestore(file) {
         if (Object.keys(BG).every(function (k) { return k in okB; }) && okB.targets.length) w.builder = okB;
       }
       ['lasthome', 'lastbiz', 'toporder', 'biztoporder'].forEach(function (k) { if (typeof d[k] === 'string' && /^[a-z_]{1,40}$/.test(d[k])) w[k] = d[k]; });
-      Object.keys(w).forEach(function (k) { store(k, w[k]); });
+      var snapshots = {}, completed = [], keys = Object.keys(w);
+      keys.forEach(function (k) { snapshots[k] = localStorage.getItem('nz:' + k); });
+      try {
+        keys.forEach(function (k) { localStorage.setItem('nz:' + k, JSON.stringify(w[k])); completed.push(k); });
+      } catch (writeError) {
+        var rollbackFailed = [];
+        completed.reverse().forEach(function (k) { try { if (snapshots[k] === null) localStorage.removeItem('nz:' + k); else localStorage.setItem('nz:' + k, snapshots[k]); } catch (_) { rollbackFailed.push(k); } });
+        if (st) st.textContent = rollbackFailed.length ? 'Restore failed and rollback is incomplete. Keep the backup file; do not reload. Affected keys: ' + rollbackFailed.join(', ') : 'Restore failed; earlier data restored. Keep the backup file and free browser storage before retrying.';
+        return;
+      }
+      keys.forEach(function (k) { if (store.memory) store.memory[k] = w[k]; });
       if (st) st.textContent = 'Restored. Reloading…'; setTimeout(function () { location.reload(); }, 600);
     } catch (e) { if (st) st.textContent = 'This file could not be restored: ' + e.message + '. Nothing was changed.'; }
   };

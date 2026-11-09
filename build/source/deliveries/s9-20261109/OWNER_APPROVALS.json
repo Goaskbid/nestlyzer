@@ -1,0 +1,39 @@
+{
+ "note": "Owner standing instruction: publish delivered data when sent (delivery of 8-9 November 2026). Approval holds only for the exact records hashed here (row order ignored).",
+ "files": [
+  "05_districts_barcelona.csv",
+  "05_districts_basel.csv",
+  "05_districts_berlin.csv",
+  "05_districts_bern.csv",
+  "05_districts_brussels.csv",
+  "05_districts_budapest.csv",
+  "05_districts_dublin.csv",
+  "05_districts_hamburg.csv",
+  "05_districts_lyon.csv",
+  "05_districts_marseille.csv",
+  "05_districts_paris.csv",
+  "05_districts_prague.csv",
+  "05_districts_vienna.csv",
+  "05_districts_zurich.csv",
+  "bern_2025_resolved_holds.csv",
+  "bern_census_quarters_2025_new.csv"
+ ],
+ "sha256": {
+  "05_districts_barcelona.csv": "0e3bff6ab4dcf254b08a47f0a649a95842230b8a3ea1a55cd1e22ef1bfbf0b38",
+  "05_districts_basel.csv": "9c847568ce90a6bc74fa6b35bc1fe561502f2b2c60ee3038c66f1e48544f0844",
+  "05_districts_berlin.csv": "fdd51bfab47ab2a3853e5cd02004c0586818c4009fde60efd665e104ff6fd298",
+  "05_districts_bern.csv": "f941a63d3e9f0c1a95fe2b3ca3494c009987f3b5369cca052708c384084c687e",
+  "05_districts_brussels.csv": "fe36806fb848e2daf46d905f59c93d63bdddf01da9944832ccf8666c8b0d0a3f",
+  "05_districts_budapest.csv": "1b61eb710538dd4d487404daadc7e803a7d83b1a903209453148f0c091d826ae",
+  "05_districts_dublin.csv": "261c1fc84553b1c0832ee7d5a05ff41878ff270f5c51fad1f4101b6650f08f1c",
+  "05_districts_hamburg.csv": "924ca2f6ba33e93bc7ccea0b7f532910d4d3d495388d40e8f6ec0a0e7a574b22",
+  "05_districts_lyon.csv": "48afb8a0c36648e12bdcde31c9a113e7ba25ae8c22c89fd8171b893d95021caa",
+  "05_districts_marseille.csv": "430aaa48cf84654b9a3cd28f05f1ba1ec60e754b187970cc087b97f58cb761d3",
+  "05_districts_paris.csv": "fe4c706314786e1681195fb030d96f4c04d4f43d78a26edd7e765f0beb488cc2",
+  "05_districts_prague.csv": "9b23d96398a644cd5aea358142433d2328335e495946cb27021520d811f0e83b",
+  "05_districts_vienna.csv": "b8522cfdd309edc90d4769adc712dc695e462482711eff48e53c705c67b0089c",
+  "05_districts_zurich.csv": "089ab7eb2370fd2b75f841624e4d854681b6c8b8009d46c1d396430c52ddae9b",
+  "bern_2025_resolved_holds.csv": "79c927386036721c0c5a4aec3dc58d50d3b2a6340c6cdce84c108d79a3631f9b",
+  "bern_census_quarters_2025_new.csv": "a1ea495fd1885fae1ff743c676c825ad22e64164e40c40ba4bf5b76dce5f7aa6"
+ }
+}

@@ -77,9 +77,9 @@ function photoUsable(u) { if (!u) return false; var f = ''; try { f = decodeURIC
 function fillPhoto(el, r, first, pick, alt) {
   if (!el || el.querySelector('img') || !extOn()) return;
   var id = S.selected, tried = {};
-  var fromPool = function () { photosFor(r).then(function (list) { if (S.selected !== id || el.querySelector('img') || !list || !list.length) return; var p = list[Math.min(pick, list.length - 1)]; if (p && !tried[p.src]) tryImg(p.src, fromPoolNext); }); };
-  var fromPoolNext = function () { photosFor(r).then(function (list) { if (S.selected !== id || el.querySelector('img')) return; var p = (list || []).filter(function (x) { return !tried[x.src]; })[0]; if (p) tryImg(p.src, function () {}); }); };
-  var tryImg = function (src, onfail) { tried[src] = 1; var img = new Image(); img.alt = alt; img.decoding = 'async'; img.referrerPolicy = 'no-referrer'; img.onload = function () { if (!el.querySelector('img') && S.selected === id) el.insertBefore(img, el.firstChild); }; img.onerror = onfail; img.src = src; };
+  var fromPool = function () { photosFor(r).then(function (list) { if (!extOn() || S.selected !== id || el.querySelector('img') || !list || !list.length) return; var p = list[Math.min(pick, list.length - 1)]; if (p && !tried[p.src]) tryImg(p.src, fromPoolNext); }); };
+  var fromPoolNext = function () { photosFor(r).then(function (list) { if (!extOn() || S.selected !== id || el.querySelector('img')) return; var p = (list || []).filter(function (x) { return !tried[x.src]; })[0]; if (p) tryImg(p.src, function () {}); }); };
+  var tryImg = function (src, onfail) { if (!extOn() || S.selected !== id) return; tried[src] = 1; var img = new Image(); img.alt = alt; img.decoding = 'async'; img.referrerPolicy = 'no-referrer'; img.onload = function () { if (extOn() && !el.querySelector('img') && S.selected === id) el.insertBefore(img, el.firstChild); }; img.onerror = onfail; img.src = src; };
   if (first) tryImg(first, fromPool); else fromPool();
 }
 function setImg(el, src, alt) {
@@ -144,8 +144,8 @@ function identity(r, e) {
     if (!list.length || !extOn()) return;
     var img = new Image(), i = 0; img.alt = alt; img.title = title; img.referrerPolicy = 'no-referrer'; img.loading = 'lazy';
     img.style.display = 'none';
-    img.onload = function () { img.style.display = ''; };
-    img.onerror = function () { i++; if (i < list.length) img.src = list[i]; else img.remove(); };
+    img.onload = function () { if (extOn()) img.style.display = ''; else img.remove(); };
+    img.onerror = function () { if (!extOn()) { img.remove(); return; } i++; if (i < list.length) img.src = list[i]; else img.remove(); };
     img.src = list[0]; box.appendChild(img);
   }
   /* 2.13.3 IP audit: coats of arms are off. Swiss communal and cantonal arms may only be used by their public body (Federal

@@ -17,11 +17,23 @@ CITY = {  # key -> name, country, centre (well-known central square), file, key-
     'vienna': ('Vienna', 'AT', (48.2085, 16.3731), 'Stephansplatz', lambda k: '9%02d00' % (VIENNA.index(k) + 1)),
     'barcelona': ('Barcelona', 'ES', (41.3870, 2.1700), 'Plaça de Catalunya', lambda k: '%02d' % int(k)),
     'budapest': ('Budapest', 'HU', (47.4979, 19.0540), 'Deák Ferenc tér', lambda k: '%02d' % int(k)),
+    'prague': ('Prague', 'CZ', (50.0875, 14.4213), 'Old Town Square', lambda k: k),
 }
 
+D9 = os.path.join(ROOT, 'build/source/deliveries/s9-20261109')
+def _approved(d, fn):
+    import hashlib
+    try: A = json.load(open(os.path.join(d, 'OWNER_APPROVALS.json'), encoding='utf-8'))
+    except Exception: return False
+    L = open(os.path.join(d, fn), encoding='utf-8').read().replace('\r', '').rstrip().split('\n')
+    return fn in A.get('files', []) and A.get('sha256', {}).get(fn) == hashlib.sha256('\n'.join([L[0]] + sorted(L[1:])).encode()).hexdigest()
 def rows(city):
-    f = os.path.join(D, '05_districts_%s.csv' % city)
-    return list(csv.DictReader(open(f, encoding='utf-8'))) if os.path.exists(f) else []
+    # 2.15.10: newest owner-approved delivery first; approval is pinned to the exact records; only reusable rows without a hold
+    for d in (D9, D):
+        fn = '05_districts_%s.csv' % city; f = os.path.join(d, fn)
+        if os.path.exists(f) and _approved(d, fn):
+            return [r for r in csv.DictReader(open(f, encoding='utf-8')) if r.get('commercial_reuse_status') in ('Green', 'permitted') and not (r.get('hold_reason') or '').strip()]
+    return []
 
 def latest(R, ind, band=None, dimensions=None):
     o = {}
@@ -45,6 +57,7 @@ def pct(vals):
     return {k: (None if v is None else (sum(1 for x in s if x < v) + 0.5 * (sum(1 for x in s if x == v) - 1)) / max(1, n - 1)) for k, v in vals.items()}
 
 def main():
+    GEO = []  # 2.15.11: lon/lat district polygons for the main map (dominant cities over 1 million residents)
     out = {'note': 'Districts ranked within their own city from the official district figures listed. Not comparable across cities; place ranks are unchanged.', 'cities': []}
     for key, (name, cc, ctr, ctrn, tocode) in CITY.items():
         gj = json.load(open(os.path.join(Z, key + '.geojson'), encoding='utf-8')); R = rows(key)
@@ -80,7 +93,7 @@ def main():
             clon, clat = cx / sa / kx, cy / sa / ky
             f.update(area=round(A, 2), d=d, lx=round(X(clon), 1), ly=round(Y(clat), 1), dist=round(math.hypot((clon - ctr[1]) * kx, (clat - ctr[0]) * ky), 1))
         # indicators
-        pop = latest(R, 'population_total') or latest(R, 'population_registered')
+        pop = latest(R, 'population_total') or latest(R, 'population_registered') or latest(R, 'CH_pks_population_denominator')
         I = {}; src = {}
         def put(k, vals, label, unit, s):
             if vals: I[k] = (vals, label, unit); src[k] = s
@@ -110,19 +123,43 @@ def main():
         if key == 'budapest':
             pr = latest(R, 'used_home_transaction_price_per_m2', dimensions={'dwelling_type':'all_used_dwellings'})
             put('price', {c: v[0] for c, v in pr.items()}, 'Home price per m²', ' thousand HUF', next(iter(pr.values())) if pr else None)
+        # 2.15.10: services, schools and safety from the 8-9 November delivery (per 10,000 residents within the city)
+        def per(keys, scale=10000):
+            got = [latest(R, k) for k in keys]
+            if not pop or not all(got): return {}, None
+            return {c: scale * sum(g[c][0] for g in got) / pop[c][0] for c in pop if all(c in g for g in got) and pop[c][0]}, next(iter(got[0].values()))
+        if key == 'paris':
+            v, s0 = per(['fr_bpe_primary_school_count', 'fr_bpe_middle_school_count']); put('care', v, 'Primary and middle schools per 10,000 residents', '', s0)
+            v, s0 = per(['fr_bpe_gp_count', 'fr_bpe_pharmacy_count']); put('health', v, 'GPs and pharmacies per 10,000 residents', '', s0)
+        if key == 'vienna':
+            v, s0 = per(['outpatient_gps_count', 'public_pharmacies_count']); put('health', v, 'GPs and pharmacies per 10,000 residents', '', s0)
+        if key == 'prague':
+            k14 = latest(R, 'population_under15'); k65 = latest(R, 'population_age65plus')
+            put('kids', {c: 100 * k14[c][0] / pop[c][0] for c in k14 if c in pop}, 'Children under 15', '%', next(iter(k14.values())) if k14 else None)
+            put('old', {c: 100 * k65[c][0] / pop[c][0] for c in k65 if c in pop}, 'Aged 65+', '%', next(iter(k65.values())) if k65 else None)
+            v, s0 = per(['kindergartens', 'primary_schools']); put('care', v, 'Kindergartens and primary schools per 10,000 residents', '', s0)
+            v, s0 = per(['adult_gp_practices']); put('health', v, 'GP practices per 10,000 residents', '', s0)
+        if key == 'bern':
+            a6, a15, a65 = latest(R, 'population_age', '0-6'), latest(R, 'population_age', '7-15'), latest(R, 'population_age', '65+')
+            put('kids', {c: 100 * (a6[c][0] + a15[c][0]) / pop[c][0] for c in a6 if c in a15 and c in pop}, 'Children 0–15', '%', next(iter(a6.values())) if a6 else None)
+            put('old', {c: 100 * a65[c][0] / pop[c][0] for c in a65 if c in pop}, 'Aged 65+', '%', next(iter(a65.values())) if a65 else None)
+        if key == 'zurich':
+            cr = latest(R, 'CH_pks_stgb_rate_per1000'); put('safe', {c: v[0] for c, v in cr.items()}, 'Criminal offences per 1,000 residents', '', next(iter(cr.values())) if cr else None)
+        for k in list(I):  # districts without geometry are not shown
+            I[k] = ({c: v for c, v in I[k][0].items() if c in feats}, I[k][1], I[k][2])
         put('dist', {c: f['dist'] for c, f in feats.items()}, 'Distance to ' + ctrn, ' km', None)
         # grow: Berlin's change may be absolute residents; convert to % when it is a count
         if key == 'berlin' and 'grow' in I and I['grow'][2] == '':
             I['grow'] = ({c: 100 * v / (pop[c][0] - v) for c, v in I['grow'][0].items() if c in pop}, 'Population change, 5 years', '%')
         P = {k: pct(v[0]) for k, v in I.items()}
-        W8 = {'young_family': {'kids': 1, 'dens': -1, 'rent': -1, 'price': -1, 'grow': .5, 'dist': .3},
-              'young_professional': {'dist': -1, 'dens': 1, 'grow': .5, 'rent': -.5, 'price': -.5, 'old': -.3},
-              'pensioner': {'old': 1, 'dens': -.7, 'rent': -1, 'price': -1, 'dist': -.5, 'age': .5}}
+        W8 = {'young_family': {'kids': 1, 'dens': -1, 'rent': -1, 'price': -1, 'grow': .5, 'dist': .3, 'care': 1, 'safe': -1, 'health': .3},
+              'young_professional': {'dist': -1, 'dens': 1, 'grow': .5, 'rent': -.5, 'price': -.5, 'old': -.3, 'safe': -.3},
+              'pensioner': {'old': 1, 'dens': -.7, 'rent': -1, 'price': -1, 'dist': -.5, 'age': .5, 'health': 1, 'safe': -1}}
         # 2.15.9 (audit): disclose how much of each profile's needs the district data covers. Missing needs stay unknown;
         # the score is labelled as partial instead of pretending density or distance stand in for them.
-        NEED = {'young_family': [('Housing cost', ['rent', 'price'], 1), ('Children nearby', ['kids'], 1), ('Space and calm', ['dens'], 1), ('Growing area', ['grow'], .5), ('Childcare and schools', [], 1), ('Safety', [], 1), ('Public transport', [], .7)],
-                'young_professional': [('Central location', ['dist'], 1), ('Urban density', ['dens'], 1), ('Housing cost', ['rent', 'price'], .7), ('Growing area', ['grow'], .5), ('Jobs nearby', [], 1), ('Public transport', [], 1), ('Culture and nightlife', [], .5)],
-                'pensioner': [('Peers of the same age', ['old', 'age'], 1), ('Housing cost', ['rent', 'price'], 1), ('Calm', ['dens'], .7), ('Short trips to the centre', ['dist'], .5), ('Health care', [], 1), ('Safety', [], 1), ('Public transport', [], .7)]}
+        NEED = {'young_family': [('Housing cost', ['rent', 'price'], 1), ('Children nearby', ['kids'], 1), ('Space and calm', ['dens'], 1), ('Growing area', ['grow'], .5), ('Childcare and schools', ['care'], 1), ('Safety', ['safe'], 1), ('Public transport', [], .7)],
+                'young_professional': [('Central location', ['dist'], 1), ('Urban density', ['dens'], 1), ('Housing cost', ['rent', 'price'], .7), ('Growing area', ['grow'], .5), ('Jobs nearby', [], 1), ('Safety', ['safe'], .5), ('Public transport', [], 1), ('Culture and nightlife', [], .5)],
+                'pensioner': [('Peers of the same age', ['old', 'age'], 1), ('Housing cost', ['rent', 'price'], 1), ('Calm', ['dens'], .7), ('Short trips to the centre', ['dist'], .5), ('Health care', ['health'], 1), ('Safety', ['safe'], 1), ('Public transport', [], .7)]}
         cov = {}
         for prof, needs in NEED.items():
             tot = sum(w for _, _, w in needs); got = sum(w for _, ks, w in needs if any(k in I for k in ks))
@@ -150,9 +187,14 @@ def main():
         srcs = []
         for k, s in src.items():
             if s and s[2] and (s[2], s[3]) not in srcs: srcs.append((s[2], s[3]))
+        for z in Zs:
+            f = feats[z['c']]; pr = {'city': key, 'cn': name, 'c': z['c'], 'n': z['n'], 'N': len(Zs), 'km2': z['km2']}
+            for p_ in W8: pr['s_' + p_] = z['s'].get(p_); pr['r_' + p_] = (z.get('r') or {}).get(p_)
+            GEO.append({'type': 'Feature', 'properties': pr, 'geometry': {'type': 'MultiPolygon', 'coordinates': [[[[round(x, 4), round(y, 4)] for x, y in ring] for ring in poly] for poly in f['polys']]}})
         out['cities'].append({'k': key, 'n': name, 'cc': cc, 'w': W, 'h': H, 'ctr': [round(X(ctr[1]), 1), round(Y(ctr[0]), 1), ctrn], 'ind': {k: [v[1], v[2]] for k, v in I.items()}, 'z': Zs, 'src': srcs,
                               'used': {p: [I[k][1] for k in w if k in I] for p, w in W8.items()}, 'cov': cov})
         print(key, len(Zs), 'zones', list(I), 'unmatched codes:', sorted(set(c for c in pop) - set(feats)) if pop else '-')
+    json.dump({'type': 'FeatureCollection', 'features': GEO}, open(os.path.join(ROOT, 'data/zones_geo.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
     json.dump(out, open(os.path.join(ROOT, 'data/zones.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
     print('zones.json', os.path.getsize(os.path.join(ROOT, 'data/zones.json')))
 

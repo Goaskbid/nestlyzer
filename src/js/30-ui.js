@@ -405,11 +405,15 @@ function goToPlace(id) {
 
 /* ---------- one shortlist: save places, tick two or three of them to compare ---------- */
 var UNDO = null;
-function undoRemove() { if (!UNDO || !UNDO.entry || isSaved(UNDO.entry.id)) return; saved.splice(Math.min(UNDO.at || 0, saved.length), 0, UNDO.entry); if (UNDO.cmp && S.compare.length < 3) S.compare.push(UNDO.entry.id); UNDO = null; persistShortlist(); refreshShortlistUI(); toast('Back on your shortlist', ''); }
+function undoRemove() { if (!UNDO || !UNDO.entry || isSaved(UNDO.entry.id)) return; saved.splice(Math.min(UNDO.at || 0, saved.length), 0, UNDO.entry); if (UNDO.cmp && S.compare.length < 3) S.compare.push(UNDO.entry.id); UNDO = null; var persisted = persistShortlist(); refreshShortlistUI(); if (persisted) toast('Back on your shortlist', ''); }
 function isSaved(id) { return saved.some(function (s) { return s.id === id; }); }
 function isCmp(id) { return S.compare.indexOf(id) >= 0; }
 function savedEntry(id) { var r = BYID[id], x = RES && RES.byId[id]; return { id: id, name: r.name, area: localAreaOf(r) + ', ' + countryName(r.country), profile: S.profile, score: x ? x.overall : null, t: Date.now() }; }
-function persistShortlist() { store(CURMODE === 'biz' ? 'bizsaved' : 'saved', saved); store(CURMODE === 'biz' ? 'bizcmp' : 'cmp', S.compare); }
+function persistShortlist() {
+  var a = store(CURMODE === 'biz' ? 'bizsaved' : 'saved', saved), b = store(CURMODE === 'biz' ? 'bizcmp' : 'cmp', S.compare);
+  if (a !== true || b !== true) { toast('Saved for this session only', 'Browser storage failed. Export your shortlist before leaving; changes may not survive a reload.'); return false; }
+  return true;
+}
 function refreshShortlistUI() {
   $$('[data-save]').forEach(function (b) { var id = b.dataset.save, on = isSaved(id); b.setAttribute('aria-pressed', on); if (b.classList.contains('lbl')) b.innerHTML = (on ? ICON.heartFill : ICON.heart) + '<span>' + (on ? 'Saved' : 'Save') + '</span>'; else b.innerHTML = on ? ICON.heartFill : ICON.heart; b.setAttribute('aria-label', (on ? 'Remove from' : 'Save to') + ' shortlist'); b.title = on ? 'On your shortlist' : 'Save to shortlist'; });
   $$('[data-cmp]').forEach(function (b) { var on = isCmp(b.dataset.cmp); b.setAttribute('aria-pressed', on); if (b.type === 'checkbox') b.checked = on; else if (b.classList.contains('lbl')) b.innerHTML = '<span class="cbox" aria-hidden="true">' + (on ? '✓' : '') + '</span><span>Compare</span>'; });
@@ -430,11 +434,11 @@ function saveBtnL(id) { var on = isSaved(id); return '<button class="btn btn-sm 
 function cmpBtn(id) { var on = isCmp(id); return '<button class="btn btn-sm lbl cmp-l" type="button" data-cmp="' + esc(id) + '" aria-pressed="' + on + '" title="Tick to compare side by side (up to three)"><span class="cbox" aria-hidden="true">' + (on ? '✓' : '') + '</span><span>Compare</span></button>'; }
 function toggleCompare(id, replaceId) {
   var r = BYID[id] || saved.filter(function (s) { return s.id === id; })[0]; if (!r && !isSaved(id)) return;
-  if (isCmp(id)) { S.compare = S.compare.filter(function (c) { return c !== id; }); persistShortlist(); refreshShortlistUI(); toast((r ? r.name : 'Place') + ' unticked', S.compare.length + ' of 3 places ticked for compare. It stays on your shortlist.'); return; }
+  if (isCmp(id)) { S.compare = S.compare.filter(function (c) { return c !== id; }); var persisted = persistShortlist(); refreshShortlistUI(); if (persisted) toast((r ? r.name : 'Place') + ' unticked', S.compare.length + ' of 3 places ticked for compare. It stays on your shortlist.'); return; }
   if (S.compare.length >= 3 && !replaceId) return askReplace(id);
   if (replaceId) S.compare = S.compare.filter(function (c) { return c !== replaceId; });
   if (!isSaved(id) && r) saved.unshift(savedEntry(id));
-  S.compare.push(id); persistShortlist(); refreshShortlistUI();
+  S.compare.push(id); var persisted = persistShortlist(); refreshShortlistUI(); if (!persisted) return;
   var n = S.compare.length, nm = r ? r.name : id;
   if (n >= 2) toast(nm + ' ticked for compare', n + ' of 3 places ticked. It is also on your shortlist.', { label: 'Compare ' + n + ' now', attr: 'data-opencmp' });
   else toast(nm + ' ticked for compare', 'Tick one or two more, then compare. It stays on your shortlist.', { label: 'View shortlist', attr: 'data-lt="saved"' });
@@ -460,7 +464,7 @@ function exportCSV() {
 }
 function exportPlainCSV() {
   var rows = [['id', 'name', 'area', 'profile', 'score', 'ticked for compare', 'note']].concat(saved.map(function (s) { var live = RES && RES.byId[s.id] && s.profile === S.profile ? RES.byId[s.id].overall : s.score; return [s.id, s.name, s.area, profileName(s.profile) || s.profile, fin(live) ? Math.round(live) : '', isCmp(s.id) ? 'yes' : '', s.note || '']; }));
-  var csv = rows.map(function (r) { return r.map(function (v) { v = String(v == null ? '' : v); return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }).join(','); }).join('\n');
+  var csv = rows.map(function (r) { return r.map(function (v) { var isText = typeof v === 'string'; v = String(v == null ? '' : v); if (isText && /^[\s\u0000-\u001f]*[=+@-]/.test(v)) v = "'" + v; return /[",\r\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }).join(','); }).join('\n');
   var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' })); a.download = 'nestlyzer-shortlist.csv'; document.body.appendChild(a); a.click(); a.remove();
 }
 function share(title, url) {

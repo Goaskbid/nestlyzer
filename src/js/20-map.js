@@ -290,8 +290,11 @@ function paintMarkers() {
   });
   declutterMarkers();
   requestAnimationFrame(declutterMarkers);
-  if (!MAPSTATE.declutterBound) { MAPSTATE.declutterBound = true; MAP.on('moveend', declutterMarkers); MAP.on('zoom', declutterMarkers); MAP.on('idle', declutterMarkers); }
+  if (!MAPSTATE.declutterBound) { MAPSTATE.declutterBound = true; MAP.on('moveend', declutterMarkers); MAP.on('zoom', declutterMarkers); MAP.on('idle', declutterMarkers); MAP.on('moveend', zoneHook); }
+  zoneHook();
 }
+/* 2.15.11: districts of dominant cities on the map (/assets/more.js zonesMap) */
+function zoneHook() { if (MAP && MAP.getZoom && (MAP.getZoom() >= 8 || MAP._nzZones)) moreLoad().then(function (X) { if (X.zonesMap) X.zonesMap(MAP, S.profile); }, function () {}); }
 function leaderSet() {
   if (!RES || !RES.scored.length) return [];
   // lowest fit: only places that are scored and eligible; unscored or excluded places never count as the worst (NZ-GLOBAL-006)

@@ -178,7 +178,7 @@ function storyFor(r, xr) {
   var tw = (xx.twin || []).map(function (id) { return twinLink(id); });
   if (tw.length === 3) say(out.interesting, 'twin', { t1: tw[0], t2: tw[1], t3: tw[2] });
   // nice to know
-  var c = climateOf(r); if (c) say(out.nice, 'climate', { code: c.code, name: c.name.toLowerCase(), text: c.text });
+  var c = climateOf(r); if (c && c.text) say(out.nice, 'climate', { code: c.code, name: c.name.toLowerCase(), text: c.text });
   var sw = sunDay(r, false), ss = sunDay(r, true);
   if (sw && ss && sw.set != null && ss.set != null) say(out.nice, 'light', { dw: pfmt('dayw', sw.len), sw: clock(sw.set), ds: pfmt('days', ss.len), ss: clock(ss.set) });
   else if (ss && ss.len >= 24) out.nice.push('Around midsummer the sun does not set at all here, and in midwinter it barely rises.');

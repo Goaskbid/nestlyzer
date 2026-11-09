@@ -49,18 +49,21 @@ function nearbyFor(r) {
 }
 /* climate normals: NASA POWER monthly climatology (public domain), about 50 km grid */
 function climateFor(r) {
+  if (typeof extOn === 'function' && !extOn()) return Promise.resolve(null);
   if (CLIMATE[r.id]) return CLIMATE[r.id];
   if (!fin(r.lat)) return Promise.resolve(null);
   var url = 'https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M_MAX,T2M_MIN,PRECTOTCORR,ALLSKY_SFC_SW_DWN&community=RE&longitude=' + r.lon.toFixed(3) + '&latitude=' + r.lat.toFixed(3) + '&format=JSON';
   CLIMATE[r.id] = jget(url).then(function (j) {
+    if (typeof extOn === 'function' && !extOn()) { delete CLIMATE[r.id]; return null; }
     var P = j && j.properties && j.properties.parameter; if (!P || !P.T2M_MAX || !P.T2M_MIN || !P.PRECTOTCORR) { delete CLIMATE[r.id]; return null; }
     var M = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'], days = [31, 28.25, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    var hi = M.map(function (m) { return P.T2M_MAX[m]; }), lo = M.map(function (m) { return P.T2M_MIN[m]; }), rain = M.map(function (m, i) { return P.PRECTOTCORR[m] * days[i]; }), sun = M.map(function (m) { return P.ALLSKY_SFC_SW_DWN ? P.ALLSKY_SFC_SW_DWN[m] : null; });
-    var fill = j.header && Number(j.header.fill_value);
+    var hi = M.map(function (m) { return P.T2M_MAX[m]; }), lo = M.map(function (m) { return P.T2M_MIN[m]; }), rain = M.map(function (m) { return P.PRECTOTCORR[m]; }), sun = M.map(function (m) { return P.ALLSKY_SFC_SW_DWN ? P.ALLSKY_SFC_SW_DWN[m] : null; });
+    var rawFill = j.header && j.header.fill_value, fill = fin(rawFill) ? rawFill : null;
     var usable = function (v) { return fin(v) && v !== fill && v !== -999; };
-    if (!hi.every(usable) || !lo.every(usable) || !rain.every(function (v) { return usable(v) && v >= 0; })) { delete CLIMATE[r.id]; return null; }
+    if (!hi.every(usable) || !lo.every(usable) || hi.some(function (v, i) { return lo[i] > v; }) || !rain.every(function (v) { return usable(v) && v >= 0; })) { delete CLIMATE[r.id]; return null; }
+    rain = rain.map(function (v, i) { return v * days[i]; });
     sun = sun.map(function (v) { return usable(v) && v >= 0 ? v : null; });
-    return { hi: hi, lo: lo, rain: rain, sun: sun, year: rain.reduce(function (a, b) { return a + b; }, 0), sunAnn: P.ALLSKY_SFC_SW_DWN && usable(P.ALLSKY_SFC_SW_DWN.ANN) ? P.ALLSKY_SFC_SW_DWN.ANN : null };
+    return { source_url: url, source_period: j.header ? { start: j.header.start || null, end: j.header.end || null } : null, aggregation: 'monthly precipitation rate multiplied by declared climatological month lengths', hi: hi, lo: lo, rain: rain, sun: sun, year: rain.reduce(function (a, b) { return a + b; }, 0), sunAnn: P.ALLSKY_SFC_SW_DWN && usable(P.ALLSKY_SFC_SW_DWN.ANN) ? P.ALLSKY_SFC_SW_DWN.ANN : null };
   }).catch(function () { delete CLIMATE[r.id]; return null; });
   return CLIMATE[r.id];
 }

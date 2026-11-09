@@ -149,7 +149,7 @@ function factsTableHTML(r) {
     }).join('');
     return rows ? '<h4 class="fh">' + g[1] + '</h4><div class="tablewrap"><table class="table facts"><tbody>' + rows + '</tbody></table></div>' : '';
   }).join('') + landSeaHTML(r) + '<p class="small muted">Low ← position among ' + esc(demonym(r.country)) + ' ' + unitWord(r.country, 2) + ' → high. Sources: ' + esc(isWorld(r.country) ? PARAM_SOURCES.world : PARAM_SOURCES.stat) + '; ' + esc(PARAM_SOURCES.ne) + '; ' + esc(PARAM_SOURCES.terrain) + '; ' + esc(PARAM_SOURCES.sun) + '.</p>' +
-    (climateOf(r) ? '<p class="small">Climate type ' + esc(climateOf(r).code) + ' (' + esc(climateOf(r).name) + '): ' + esc(climateOf(r).text) + '. Köppen-Geiger classification, Rubel et al. 2017.</p>' : '') + '</section>';
+    (climateOf(r) ? '<p class="small">Climate type ' + esc(climateOf(r).code) + ' (' + esc(climateOf(r).name) + ')' + (climateOf(r).text ? ': ' + esc(climateOf(r).text) : '') + '. Köppen-Geiger classification, Rubel et al. 2017.</p>' : '') + '</section>';
 }
 function landSeaHTML(r) {
   var x = r.x || {}, bits = [];

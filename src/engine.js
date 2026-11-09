@@ -92,7 +92,10 @@
   };
 
   Engine.prototype.categories = function (r) {
-    if (r._cats && r._catsM === this.method) return r._cats;
+    // 2.15.11 (deep audit MODEL-01): the cache is tied to the evidence it was built from, not only to the method.
+    var fs_ = r.factorScores || {}, sig = 0, i_ = 1;
+    for (var k_ in fs_) { var v_ = fs_[k_]; sig = (sig * 31 + (v_ == null ? 7 : Math.round(+v_ * 1000)) + i_++) % 2147483647; }
+    if (r._cats && r._catsM === this.method && r._catsS === sig) return r._cats;
     var out = {}, cats = Object.keys(this.factorIdsByCat);
     for (var i = 0; i < cats.length; i++) {
       var v = this.categoryScore(r, cats[i]);
@@ -166,7 +169,7 @@
     var campus = fsr.student_campus_access != null ? fsr.student_campus_access : this.derivedAccess(r, 'student');
     if (fin(commute)) out.commuter_access = commute;
     if (fin(campus)) out.student_access = campus;
-    r._cats = out; r._catsM = this.method;
+    r._cats = out; r._catsM = this.method; r._catsS = sig;
     return out;
   };
 

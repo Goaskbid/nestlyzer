@@ -30,7 +30,16 @@ function evidenceLine(x) {
   var est = Math.max(0, x.weighted - (x.measured || 0));
   return 'Scored on ' + x.weighted + '% of your weights: ' + (x.measured || 0) + '% official statistics' + (est ? ', ' + est + '% modelled (estimated from population and location)' : '');
 }
-function store(k, v) { try { if (v === undefined) return JSON.parse(localStorage.getItem('nz:' + k)); localStorage.setItem('nz:' + k, JSON.stringify(v)); } catch (e) { return null; } }
+function store(k, v) {
+  var memory = store.memory || (store.memory = Object.create(null));
+  if (v === undefined) {
+    if (Object.prototype.hasOwnProperty.call(memory, k)) return memory[k];
+    try { var value = JSON.parse(localStorage.getItem('nz:' + k)); store.lastError = null; return value; } catch (e) { store.lastError = e; return null; }
+  }
+  memory[k] = v;
+  try { localStorage.setItem('nz:' + k, JSON.stringify(v)); store.lastError = null; return true; }
+  catch (e) { store.lastError = e; return false; }
+}
 var FLAG_CODE = { EL: 'GR', UK: 'GB' };
 function scoreColor(v) {
   var cs = getComputedStyle(document.documentElement);
@@ -86,7 +95,7 @@ function countryName(cc) { return countryMeta(cc).name || cc; }
 var TAP = (window.matchMedia && matchMedia('(hover: none) and (pointer: coarse)').matches) ? 'Tap' : 'Click';
 // every request to an outside service goes through here, so switching live content off also stops lookups already queued
 function liveFetch(url, opt) { if (!extOn()) return Promise.reject(new Error('Live content is switched off')); return fetch(url, opt); }
-function extOn() { return store('ext') !== false; }
+function extOn() { var value = store('ext'); return value !== false && !store.lastError; }
 var EXT_OFF_HTML = '<p class="small muted">Live content is switched off in your privacy settings. <button class="linkbtn" type="button" data-extoggle>Turn it on</button></p>';
 function assetURL(p) { return window.NZ_ASSET_URL ? window.NZ_ASSET_URL(p) : location.origin + p; }
 function getJSON(url) { return fetch(url, { cache: 'force-cache' }).then(function (r) { if (!r.ok) throw new Error(url + ' ' + r.status); return r.json(); }); }
@@ -98,6 +107,10 @@ function lakeLabel(n) { return !n ? 'a large lake' : LAKE_WORD.test(n) ? n : 'La
 function shoreKm(r) { var fr = r.factorRaw || {}; return fin(fr.geo_shore_km) ? fr.geo_shore_km : fr.geo_coast_km; }
 function shoreName(r) { var x = r.x || {}, fr = r.factorRaw || {}; return x.shore && !(fr.geo_coast_km <= fr.geo_shore_km) ? lakeLabel(x.shore) : (x.sea ? x.sea.replace(/^The /, 'the ') : 'the sea'); }
 function attachExtra(all, xs) {
+  if (!xs || !xs.cols || !Array.isArray(xs.strs)) throw new Error('Invalid supplemental data schema');
+  Object.keys(xs.cols).forEach(function (key) {
+    if (!Array.isArray(xs.cols[key]) || xs.cols[key].length !== all.length) throw new Error('Supplemental data length mismatch: ' + key);
+  });
   var C = xs.cols, T = xs.strs, names = { kg: 1, lake: 1, river: 1, port: 1, iport: 1, mport: 1, chem: 1, fin: 1, econ: 1, border: 1, metro: 1, land: 1, sea: 1, tz: 1, shore: 1 };
   for (var i = 0; i < all.length; i++) {
     var o = {};
@@ -107,7 +120,7 @@ function attachExtra(all, xs) {
 }
 function loadCountry(cc) {
   if (SHARDS[cc]) return Promise.resolve(SHARDS[cc]);
-  return Promise.all([getJSON('/data/c/' + cc + '.json?v=' + VERSION), getJSON('/data/x/' + cc + '.json?v=' + VERSION).catch(function () { return null; })]).then(function (a) {
+  return Promise.all([getJSON('/data/c/' + cc + '.json?v=' + VERSION), getJSON('/data/x/' + cc + '.json?v=' + VERSION)]).then(function (a) {
     var sh = a[0], xs = a[1];
     var all = NestData.hydrate(sh);
     if (xs) attachExtra(all, xs);

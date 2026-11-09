@@ -1,40 +1,42 @@
 /* Parameters beyond the score: one catalogue for facts, filters, map layers, compare rows and the place story.
    Every parameter says where it comes from. None of them changes a standard profile's score. */
 var KOPPEN = {
-  Csa: ['Mediterranean, hot summer', 'dry, hot summers and mild, wet winters', 'med'],
-  Csb: ['Mediterranean, warm summer', 'dry, warm summers and mild, wet winters', 'med'],
-  Csc: ['Mediterranean, cool summer', 'dry, cool summers and wet winters', 'med'],
-  Cfa: ['Humid subtropical', 'hot, humid summers and mild winters, rain all year', 'mild'],
-  Cfb: ['Oceanic', 'mild all year, rain in every season, no real dry spell', 'mild'],
-  Cfc: ['Subpolar oceanic', 'cool summers, mild but long winters, frequent rain', 'cool'],
-  Cwa: ['Monsoon-influenced subtropical', 'wet summers and dry winters', 'mild'],
-  Cwb: ['Subtropical highland', 'mild with dry winters', 'mild'],
-  Dfa: ['Continental, hot summer', 'hot summers and cold, snowy winters', 'cont'],
-  Dfb: ['Continental, warm summer', 'warm summers and cold winters with snow', 'cont'],
-  Dfc: ['Subarctic', 'short, cool summers and long, cold winters', 'cold'],
-  Dfd: ['Extreme subarctic', 'very long, very cold winters', 'cold'],
-  Dsa: ['Continental Mediterranean', 'dry, hot summers and cold winters', 'cont'],
-  Dsb: ['Continental, dry warm summer', 'dry summers and cold winters', 'cont'],
-  Dsc: ['Subarctic, dry summer', 'cool dry summers and cold winters', 'cold'],
-  Dwb: ['Continental, dry winter', 'warm summers and dry, cold winters', 'cont'],
-  BSh: ['Hot semi-arid', 'hot and dry, little rain', 'dry'],
-  BSk: ['Cold semi-arid', 'dry, with hot summers and cool winters', 'dry'],
-  BWh: ['Hot desert', 'very dry and hot', 'dry'],
-  BWk: ['Cold desert', 'very dry, with cold winters', 'dry'],
-  ET: ['Alpine tundra', 'cold all year; summers barely above 10 °C', 'cold'],
-  EF: ['Ice cap', 'permanently frozen', 'cold'],
-  Af: ['Tropical rainforest', 'hot and wet all year', 'trop'],
-  Am: ['Tropical monsoon', 'hot all year with a short dry season and heavy monsoon rain', 'trop'],
-  Aw: ['Tropical savanna', 'hot all year with a long dry season', 'trop'],
-  As: ['Tropical, dry summer', 'hot all year, driest in summer', 'trop'],
-  Cwc: ['Subtropical highland, cool summer', 'cool with dry winters', 'cool'],
-  Dsd: ['Subarctic, dry summer, very cold winter', 'very cold winters and dry summers', 'cold'],
-  Dwa: ['Continental, hot summer, dry winter', 'hot, humid summers and cold, dry winters', 'cont'],
-  Dwc: ['Subarctic, dry winter', 'short summers and cold, dry winters', 'cold'],
-  Dwd: ['Extreme subarctic, dry winter', 'very cold, dry winters', 'cold']
+  Csa: ['Mediterranean, hot summer', 'med'],
+  Csb: ['Mediterranean, warm summer', 'med'],
+  Csc: ['Mediterranean, cool summer', 'med'],
+  Cfa: ['Humid subtropical', 'mild'],
+  Cfb: ['Oceanic', 'mild'],
+  Cfc: ['Subpolar oceanic', 'cool'],
+  Cwa: ['Monsoon-influenced subtropical', 'mild'],
+  Cwb: ['Subtropical highland', 'mild'],
+  Dfa: ['Continental, hot summer', 'cont'],
+  Dfb: ['Continental, warm summer', 'cont'],
+  Dfc: ['Subarctic', 'cold'],
+  Dfd: ['Extreme subarctic', 'cold'],
+  Dsa: ['Continental Mediterranean', 'cont'],
+  Dsb: ['Continental, dry warm summer', 'cont'],
+  Dsc: ['Subarctic, dry summer', 'cold'],
+  Dwb: ['Continental, dry winter', 'cont'],
+  BSh: ['Hot semi-arid', 'dry'],
+  BSk: ['Cold semi-arid', 'dry'],
+  BWh: ['Hot desert', 'dry'],
+  BWk: ['Cold desert', 'dry'],
+  ET: ['Alpine tundra', 'cold'],
+  EF: ['Ice cap', 'cold'],
+  Af: ['Tropical rainforest', 'trop'],
+  Am: ['Tropical monsoon', 'trop'],
+  Aw: ['Tropical savanna', 'trop'],
+  As: ['Tropical, dry summer', 'trop'],
+  Cwc: ['Subtropical highland, cool summer', 'cool'],
+  Dsd: ['Subarctic, dry summer, very cold winter', 'cold'],
+  Dwa: ['Continental, hot summer, dry winter', 'cont'],
+  Dwc: ['Subarctic, dry winter', 'cold'],
+  Dwd: ['Extreme subarctic, dry winter', 'cold']
 };
+var KOPPEN_T = null; // descriptions: /data/koppen.json, loaded once on first use
+
 var CLIMATE_GROUPS = [['med', 'Mediterranean'], ['mild', 'Mild and oceanic'], ['cont', 'Continental'], ['cool', 'Cool and damp'], ['cold', 'Cold, subarctic or alpine'], ['dry', 'Dry or semi-arid'], ['trop', 'Tropical']];
-function climateOf(r) { var k = r.x && r.x.kg; return k && KOPPEN[k] ? { code: k, name: KOPPEN[k][0], text: KOPPEN[k][1], group: KOPPEN[k][2] } : null; }
+function climateOf(r) { var k = r.x && r.x.kg; if (k && KOPPEN[k] && !KOPPEN_T) { KOPPEN_T = {}; getJSON('/data/koppen.json?v=' + VERSION).then(function (d) { KOPPEN_T = d || {}; }, function () {}); } return k && KOPPEN[k] ? { code: k, name: KOPPEN[k][0], text: (KOPPEN_T && KOPPEN_T[k]) || '', group: KOPPEN[k][1] } : null; }
 function terrainOf(r) {
   var x = r.x || {}; if (!fin(x.alt)) return null;
   var a = x.alt, rel = x.relief || 0;
@@ -100,7 +102,6 @@ var PARAMS = [
 var PARAM = {}; PARAMS.forEach(function (p) { PARAM[p.k] = p; });
 var PARAM_SOURCES = {
   stat: 'Official statistics (Eurostat GISCO LAU, Swiss FSO, Statistics Austria)',
-  geo: 'Computed from municipality and place centres, OurAirports and Natural Earth',
   world: 'GeoNames places and population (CC BY 4.0)',
   ne: 'Computed from Natural Earth 1:10m (public domain)',
   own: 'Computed from Nestlyzer\'s municipality centres',

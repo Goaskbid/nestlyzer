@@ -484,23 +484,23 @@
   "references": 17,
   "found_ranked": 17,
   "in_top_100": 4,
-  "median_percentile": 6.3,
+  "median_percentile": 6.2,
   "places": [
    {
     "ref": "PT:080508",
-    "rank": 1164,
+    "rank": 1161,
     "as": "Quelfes",
     "published": false
    },
    {
     "ref": "PT:080808",
-    "rank": 1164,
+    "rank": 1161,
     "as": "Quelfes",
     "published": false
    },
    {
     "ref": "PT:080106",
-    "rank": 1354,
+    "rank": 1340,
     "as": "Albufeira e Olhos de Água",
     "published": false
    },
@@ -512,7 +512,7 @@
    },
    {
     "ref": "ES:29067",
-    "rank": 231,
+    "rank": 227,
     "as": "Benalmádena",
     "published": false
    },
@@ -524,13 +524,13 @@
    },
    {
     "ref": "ES:03031",
-    "rank": 539,
+    "rank": 534,
     "as": "Nucia, la",
     "published": false
    },
    {
     "ref": "ES:03014",
-    "rank": 608,
+    "rank": 600,
     "as": "San Vicente del Raspeig",
     "published": false
    },
@@ -554,25 +554,25 @@
    },
    {
     "ref": "US:4172131",
-    "rank": 1855,
+    "rank": 1846,
     "as": "Bradenton",
     "published": false
    },
    {
     "ref": "US:4165565",
-    "rank": 2124,
+    "rank": 2119,
     "as": "Naples (Florida)",
     "published": false
    },
    {
     "ref": "US:4155995",
-    "rank": 2887,
+    "rank": 2879,
     "as": "North Fort Myers",
     "published": false
    },
    {
     "ref": "US:5313457",
-    "rank": 7105,
+    "rank": 7104,
     "as": "Paradise Valley",
     "published": false
    },
@@ -584,7 +584,7 @@
    },
    {
     "ref": "MT:*",
-    "rank": 274,
+    "rank": 272,
     "as": "Tas-Sliema / Sliema",
     "published": false
    }
@@ -611,25 +611,25 @@
   "places": [
    {
     "ref": "PT:110657",
-    "rank": 127,
+    "rank": 126,
     "as": "Pinhal Novo",
     "published": false
    },
    {
     "ref": "PT:131217",
-    "rank": 205,
+    "rank": 204,
     "as": "Gondomar (São Cosme), Valbom e Jovim",
     "published": false
    },
    {
     "ref": "ES:08019",
-    "rank": 376,
+    "rank": 377,
     "as": "Sant Just Desvern",
     "published": false
    },
    {
     "ref": "ES:46250",
-    "rank": 726,
+    "rank": 724,
     "as": "Picassent",
     "published": false
    },
@@ -641,7 +641,7 @@
    },
    {
     "ref": "ES:35016",
-    "rank": 669,
+    "rank": 667,
     "as": "Teror",
     "published": false
    },
@@ -653,7 +653,7 @@
    },
    {
     "ref": "EE:0784",
-    "rank": 1232,
+    "rank": 1225,
     "as": "Maardu linn",
     "published": false
    },
@@ -665,43 +665,43 @@
    },
    {
     "ref": "MX:3530597",
-    "rank": 1118,
+    "rank": 1112,
     "as": "Xochimilco",
     "published": false
    },
    {
     "ref": "CO:3674962",
-    "rank": 547,
+    "rank": 546,
     "as": "Bello",
     "published": false
    },
    {
     "ref": "AR:3435910",
-    "rank": 170,
+    "rank": 221,
     "as": "Quilmes",
     "published": false
    },
    {
     "ref": "TH:1609350",
-    "rank": 379,
+    "rank": 380,
     "as": "Pak Kret",
     "published": false
    },
    {
     "ref": "TH:1153671",
-    "rank": 2470,
+    "rank": 2458,
     "as": "Lamphun",
     "published": false
    },
    {
     "ref": "MY:1735161",
-    "rank": 1182,
+    "rank": 1176,
     "as": "Puchong",
     "published": false
    },
    {
     "ref": "AE:292223",
-    "rank": 883,
+    "rank": 881,
     "as": "Dubai Investments Park",
     "published": false
    }
@@ -819,33 +819,33 @@
   ]
  },
  "sun_retiree": {
-  "metros": 11728,
+  "metros": 11727,
   "references": 17,
   "found_ranked": 17,
   "in_top_100": 5,
-  "median_percentile": 2.0,
+  "median_percentile": 1.9,
   "places": [
    {
     "ref": "PT:080508",
-    "rank": 230,
+    "rank": 227,
     "as": "Faro (Sé e São Pedro)",
     "published": false
    },
    {
     "ref": "PT:080808",
-    "rank": 230,
+    "rank": 227,
     "as": "Faro (Sé e São Pedro)",
     "published": false
    },
    {
     "ref": "PT:080106",
-    "rank": 238,
+    "rank": 235,
     "as": "Albufeira e Olhos de Água",
     "published": false
    },
    {
     "ref": "ES:29069",
-    "rank": 89,
+    "rank": 88,
     "as": "Estepona",
     "published": false
    },
@@ -857,7 +857,7 @@
    },
    {
     "ref": "ES:03133",
-    "rank": 545,
+    "rank": 540,
     "as": "Torrevieja",
     "published": false
    },
@@ -869,7 +869,7 @@
    },
    {
     "ref": "ES:03014",
-    "rank": 620,
+    "rank": 615,
     "as": "Alicante",
     "published": false
    },
@@ -893,25 +893,25 @@
    },
    {
     "ref": "US:4172131",
-    "rank": 880,
+    "rank": 866,
     "as": "Sarasota",
     "published": false
    },
    {
     "ref": "US:4165565",
-    "rank": 1391,
+    "rank": 1369,
     "as": "Naples (Florida)",
     "published": false
    },
    {
     "ref": "US:4155995",
-    "rank": 1510,
+    "rank": 1491,
     "as": "North Fort Myers",
     "published": false
    },
    {
     "ref": "US:5313457",
-    "rank": 9057,
+    "rank": 9051,
     "as": "Fountain Hills",
     "published": false
    },

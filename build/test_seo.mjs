@@ -45,6 +45,8 @@ function fixture(){
  function rec(cc,id,name,pop){return {id:cc+':'+id,oid:id,name,country:cc,canton:'ZH',cantonName:'Zurich',region:'',population:pop,popNow:pop,popYear:2024,lat:47,lon:8,area_km2:10,factorRaw:{n_income:100},factorLevel:{n_income:9}};}
  json(path.join(root,'data/c/CH.json'),{recs:[rec('CH','1','One',40000),rec('CH','2','Two',2000),rec('CH','3','Three',1000)]});
  json(path.join(root,'data/c/US.json'),{recs:[rec('US','4','Large',50000),rec('US','5','Small',500)]});
+ json(path.join(root,'data/x/CH.json'),{strs:[],cols:{example:[null,null,null]}});
+ json(path.join(root,'data/x/US.json'),{strs:[],cols:{example:[null,null]}});
  raw(path.join(root,'src/data.js'),'exports.hydrate=s=>s.recs;exports.translit=s=>s;');
  raw(path.join(root,'src/engine.js'),"module.exports=class{rank(recs,p){return{scored:p==='pensioner'&&recs[0].country==='US'?[]:recs.map((r,i)=>({id:r.id,r,rank:i+1,overall:70-i,thin:false}))}}}");
  json(path.join(root,'data/rank/world.json'),{version:'fixture',profiles:{young_family:{ranked:5,top:[['CH:1','One',70]]},biz_logistics:{ranked:5,top:[['US:4','Large',65]]}}});
@@ -83,3 +85,6 @@ test('Unknown first modification dates stay omitted and no-change reruns retain 
 test('Source .cache is allowed for a root build, but not inside the published tree',()=>{
  const f=fixture();try{assert.doesNotThrow(()=>loadEnv(f.root,f.root,path.join(f.root,'.cache/seo'),baseConfig));assert.throws(()=>loadEnv(f.root,f.out,path.join(f.out,'private'),baseConfig),/Cache must/);}finally{f.clean();}
 });
+
+test('Missing supplemental file fails a static ranking build',()=>{const f=fixture();try{fs.unlinkSync(path.join(f.root,'data/x/CH.json'));assert.throws(()=>prepare(f.env),/supplement missing/);}finally{f.clean();}});
+test('Wrong supplemental row count fails a static ranking build',()=>{const f=fixture();try{f.json(path.join(f.root,'data/x/CH.json'),{strs:[],cols:{example:[null]}});assert.throws(()=>prepare(f.env),/Invalid country supplement/);}finally{f.clean();}});

@@ -131,8 +131,8 @@ async def main():
             legal = await q.inner_text('.site-footer')
             consent = await q.is_visible('#consent')
             ad = await q.locator('a[href^="mailto:torsten.sauter@icloud.com?subject=Nestlyzer%20advertising"]').count()
-            h1 = ' '.join(h1.split()); ok = 'Find where you fit' in h1 and tiles >= 27 and ctiles == 63 and faq >= 5 and 'Torsten Sauter' in legal and consent and ad == 1
-            rec('R01', 'Landing page: hero, 27 profile tiles, 63 countries (35 European + 28 world: 9 new in 2.12, 9 in 2.14), FAQ, legal footer, sponsorship, consent banner', ok, f'h1="{h1}", profiles={tiles}, countries={ctiles}, faq={faq}, consent={consent} after {banner_s}s {dbg}, sponsor_link={ad}')
+            h1 = ' '.join(h1.split()); ok = 'Find where you fit' in h1 and tiles >= 26 and ctiles == 63 and faq >= 5 and 'Torsten Sauter' in legal and consent and ad == 1
+            rec('R01', 'Landing page: hero, 26 profile tiles (merged profiles not listed, owner decision 8 Nov), 63 countries (35 European + 28 world: 9 new in 2.12, 9 in 2.14), FAQ, legal footer, sponsorship, consent banner', ok, f'h1="{h1}", profiles={tiles}, countries={ctiles}, faq={faq}, consent={consent} after {banner_s}s {dbg}, sponsor_link={ad}')
             await ctx2.close()
         await check('R01', 'Landing', r01)
 

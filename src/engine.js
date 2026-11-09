@@ -93,8 +93,8 @@
 
   Engine.prototype.categories = function (r) {
     // 2.15.11 (deep audit MODEL-01): the cache is tied to the evidence it was built from, not only to the method.
-    var fs_ = r.factorScores || {}, sig = 0, i_ = 1;
-    for (var k_ in fs_) { var v_ = fs_[k_]; sig = (sig * 31 + (v_ == null ? 7 : Math.round(+v_ * 1000)) + i_++) % 2147483647; }
+    var sig = 0, i_ = 1, h_ = function (o) { for (var k in o) { var v = o[k]; sig = (sig * 31 + (typeof v === 'number' ? Math.round(v * 1e3) : v == null ? 7 : String(v).length * 13 + String(v).charCodeAt(0)) + i_++) % 2147483647; } };
+    h_(r.factorScores || {}); h_(r.x || {});
     if (r._cats && r._catsM === this.method && r._catsS === sig) return r._cats;
     var out = {}, cats = Object.keys(this.factorIdsByCat);
     for (var i = 0; i < cats.length; i++) {
@@ -154,7 +154,10 @@
     var rel = fin(xx.relief) ? Math.max(0, Math.min(100, (Math.log10(Math.max(1, xx.relief)) - 1.7) / (3.08 - 1.7) * 100)) : null, ck0 = (r.factorRaw || {}).geo_coast_km, wat = Math.max(fin(xx.lake_km) ? lin(xx.lake_km, 1, 25) : 0, fin(ck0) ? lin(ck0, 1, 25) : 0);
     if (fin(rel)) out.outdoor = 0.65 * rel + 0.35 * wat;
     if (fin(xx.xb_s)) out.border = xx.xb_s; else if (fin(xx.border_km)) out.border = lin(xx.border_km, 3, 45);   // a border counts where the neighbour pays more (build_reach.py)
-    var fany = Math.max(xx.fin_s || 0, xx.ins_s || 0, xx.fund_s || 0, xx.com_s || 0, xx.cry_s || 0, xx.wlth_s || 0); if (fin(xx.fin_s)) out.finhub = fany;   // where finance clusters: the best centre for any role (2.12) if (fin(xx.ins_s)) out.insurhub = xx.ins_s; if (fin(xx.fund_s)) out.fundhub = xx.fund_s;
+    var fany = Math.max(xx.fin_s || 0, xx.ins_s || 0, xx.fund_s || 0, xx.com_s || 0, xx.cry_s || 0, xx.wlth_s || 0);
+    if (fin(xx.fin_s)) out.finhub = fany; // Broad finance screen; specialist roles remain separate.
+    if (fin(xx.ins_s)) out.insurhub = xx.ins_s;
+    if (fin(xx.fund_s)) out.fundhub = xx.fund_s;
     if (fin(xx.com_s)) out.commodhub = xx.com_s; if (fin(xx.cry_s)) out.cryptohub = xx.cry_s; if (fin(xx.wlth_s)) out.wealthhub = xx.wlth_s;   // inside or next to a chemical park with pipeline links (2.10.3)
     // household site measures (2.11, computed in build_reach.py): climate (mild and sunny), city scale, climate exposure
     // (estimate) and services nearby, 0-100

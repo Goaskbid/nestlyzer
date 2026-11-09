@@ -177,7 +177,8 @@ for cc, (s, n) in shards.items():
         kg = strs[cols['kg'][i]] if cols.get('kg') and cols['kg'][i] is not None else None
         lat = la[i]; p10 = cols.get('pop10', [None] * n)[i]; alt = cols.get('alt', [None] * n)[i]; rv = cols.get('river_km', [None] * n)[i]; ck = coast[i]
         if kg in KG and not np.isnan(lat):
-            dl = 24 / math.pi * math.acos(max(-1, min(1, -math.tan(math.radians(lat)) * math.tan(math.radians(-23.44)))))
+            declination = -23.44 if lat >= 0 else 23.44  # Local winter solstice, in degrees.
+            dl = 24 / math.pi * math.acos(max(-1, min(1, -math.tan(math.radians(lat)) * math.tan(math.radians(declination)))))
             cl.append(int(round(0.75 * KG[kg] + 0.25 * max(0, min(100, (dl - 6) / 4.5 * 100)))))
         else: cl.append(None)
         sv.append(int(round(max(0, min(100, (math.log10(p10) - math.log10(3000)) / (math.log10(60000) - math.log10(3000)) * 100)))) if p10 else None)

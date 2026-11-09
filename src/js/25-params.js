@@ -104,7 +104,6 @@ var PARAM_SOURCES = {
   stat: 'Official statistics (Eurostat GISCO LAU, Swiss FSO, Statistics Austria)',
   world: 'GeoNames places and population (CC BY 4.0)',
   ne: 'Computed from Natural Earth 1:10m (public domain)',
-  own: 'Computed from Nestlyzer\'s municipality centres',
   terrain: 'Mapzen terrain, 5 arc-minute grid (coarse: describes the surroundings, not the village itself)',
   sun: 'Computed from latitude, longitude and the local time zone (NOAA solar formulas)'
 };

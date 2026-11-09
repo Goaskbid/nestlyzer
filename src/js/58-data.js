@@ -41,9 +41,7 @@ function dataClick(t) {
 }
 
 /* the business types beyond the first eight, built on first use from the profile config (2.12.3) */
-function bizMoreFill() {
-  var g = $('#who-biz-more'); if (!g || g.dataset.filled || !META || !ENGINE) return g; g.dataset.filled = '1';
-  var top = META.config.bizTop || [];
-  g.innerHTML = (META.config.bizGroups || []).map(function (gr) { var ks = gr[1].filter(function (k) { return ENGINE.profiles[k] && top.indexOf(k) < 0; }); return ks.length ? '<span class="who-lab">' + esc(gr[0]) + '</span>' + ks.map(function (k) { return '<button type="button" data-who="' + k + '" aria-pressed="false">' + profileIcon(k, 17) + esc(ENGINE.profiles[k].name) + '</button>'; }).join('') : ''; }).join('');
+function bizMoreFill() {   // 2.15.15: rendered by the lazy module, which carries the business icons (no generic placeholder icons)
+  var g = $('#who-biz-more'); if (g && !g.dataset.filled && META && ENGINE) { g.dataset.filled = '1'; moreLoad().then(function (X) { X.bizMoreHTML(g); }, function () { g.dataset.filled = ''; }); }
   return g;
 }

@@ -1519,6 +1519,7 @@ function bizClimBody(B, cc, pk) {
 var FAC = null;
 function facKm(a, b, c, d) { var R = 6371, x = (c - a) * Math.PI / 180, y = (d - b) * Math.PI / 180, h = Math.sin(x / 2) * Math.sin(x / 2) + Math.cos(a * Math.PI / 180) * Math.cos(c * Math.PI / 180) * Math.sin(y / 2) * Math.sin(y / 2); return 2 * R * Math.asin(Math.sqrt(h)); }
 function facilitiesHTML(r) {
+  try { scoreContext(r); } catch (e) {}
   if (!document.getElementById('fac-css')) { var st = document.createElement('style'); st.id = 'fac-css'; st.textContent = '.fac{list-style:none;margin:0;padding:0;display:grid;gap:6px}.fac li{display:grid;grid-template-columns:30px 1fr auto;gap:10px;align-items:center;padding:8px 10px;border:1px solid var(--line,#e2e8f0);border-radius:10px;background:var(--card,#fff)}.fac .fi{font-size:18px;line-height:1;text-align:center}.fac b{display:block;font-weight:600}.fac small{color:var(--muted,#64748b)}.fac .km{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}.fac li.k-nuclear{border-left:3px solid #d97706}.fac li.k-chemical{border-left:3px solid #b91c1c}.fac li.k-seaport{border-left:3px solid #0369a1}.fac li.k-terminal{border-left:3px solid #4d7c0f}.fac li.k-learning{border-left:3px solid #7c3aed}.fac li.k-zone{border-left:3px solid #0f766e}'; document.head.appendChild(st); }
   if (!Number.isFinite(r.lat) || !Number.isFinite(r.lon)) return Promise.resolve('<p class="small muted">No usable location recorded for this place.</p>');
   FAC = FAC || getJSON('/data/facilities.json?v=__VERSION__').catch(function () { FAC = null; return null; });
@@ -1633,6 +1634,26 @@ function zonesMap(M, prof) {
     if (!lg) { lg = document.createElement('div'); lg.id = 'zone-legend'; lg.setAttribute('role', 'note'); host.appendChild(lg); }
     lg.hidden = false; lg.innerHTML = p ? '<b>City districts</b><br>' + ZPAL.map(function (c) { return '<i style="background:' + c + '"></i>'; }).join('') + '<br>Partial, within-city comparison for ' + ZPN[p] + '. Missing requirements remain unknown. Tap a district.' : '<b>City districts</b><br>Tap a district. District fit exists for families, young professionals and retirees.';
   });
+}
+
+/* 2.15.14 (evidence audit): one score context. The place panel scores the place within its country; a continental or
+   world list uses a cross-country score, so the two numbers can differ. Say so next to the score instead of hiding it. */
+var GSN = { europe: 'Europe', americas: 'Americas', asia_pacific: 'Asia-Pacific', mideast_africa: 'Middle East and Africa', world: 'World' };
+function scoreContext(r) {
+  if (typeof climateOf === 'function') climateOf({ x: { kg: 'Cfb' } });
+  // the first place opened may render before the climate descriptions arrive: add the description in place
+  var c = climateOf(r); if (c && !c.text) getJSON('/data/koppen.json?v=__VERSION__').then(function (d) { var t = d && d[c.code]; if (!t || S.selected !== r.id) return;
+    [].some.call(document.querySelectorAll('#place p.small'), function (el) { if (el.textContent.indexOf('Climate type ' + c.code + ' (') === 0 && el.textContent.indexOf(t) < 0) { var n = el.firstChild; if (n && n.nodeType === 3) { n.textContent = n.textContent.replace(/\)\.\s*/, '): ' + t + '. '); } return true; } }); }, function () {});
+  var box = document.querySelector('#place .scorebox'); if (!box || box.querySelector('.sc-ctx')) return;
+  var p = document.createElement('p'); p.className = 'small muted sc-ctx'; p.style.cssText = 'flex-basis:100%;margin:6px 0 0';
+  p.textContent = 'Score compared with places in ' + countryName(r.country) + '.' + (S.gscope ? ' The ' + (GSN[S.gscope] || 'cross-country') + ' list uses a cross-country score, so its number can differ.' : '');
+  box.appendChild(p);
+}
+
+/* 2.15.15: the business types beyond the first eight, with their own icons (biz icons live in this module) */
+function bizMoreHTML(g) {
+  var top = META.config.bizTop || [];
+  g.innerHTML = (META.config.bizGroups || []).map(function (gr) { var ks = gr[1].filter(function (k) { return ENGINE.profiles[k] && top.indexOf(k) < 0; }); return ks.length ? '<span class="who-lab">' + esc(gr[0]) + '</span>' + ks.map(function (k) { return '<button type="button" data-who="' + k + '" aria-pressed="' + (S.profile === k) + '">' + profileIcon(k, 17) + esc(ENGINE.profiles[k].name) + '</button>'; }).join('') : ''; }).join('');
 }
 function programmesHTML(r) {
   PROG = PROG || getJSON('/data/programmes.json?v=__VERSION__').catch(function () { PROG = null; return null; });

@@ -330,7 +330,7 @@ function landingReady() {
 }
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 /* 2.13.3: small feedback layer (motion, optional sounds, vibration), loaded once idle so first paint is unchanged */
-(function () { var go = function () { climateOf({ x: { kg: 'Cfb' } }); loadScript('/assets/fx.js?v=' + VERSION).catch(function () { /* decorative only */ }); }; if ('requestIdleCallback' in window) requestIdleCallback(go, { timeout: 2500 }); else setTimeout(go, 1200); })();
+(function () { var go = function () { loadScript('/assets/fx.js?v=' + VERSION).catch(function () { /* decorative only */ }); }; if ('requestIdleCallback' in window) requestIdleCallback(go, { timeout: 2500 }); else setTimeout(go, 1200); })();
 /* read-only hook for the regression suite and for support debugging */
 window.NZ_STORY = function (r) { return storyFor(r); };
 window.NZ = { version: VERSION, get state() { return S; }, get res() { return RES; }, get scope() { return SCOPE; }, get meta() { return META; }, get map() { return MAP; }, record: function (id) { return BYID[id]; } };

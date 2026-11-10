@@ -7,7 +7,9 @@ from playwright.sync_api import sync_playwright
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 B = sys.argv[1] if len(sys.argv) > 1 else 'http://localhost:8787'
 res = []
-GAP = re.compile(r'\b(no data|not measured|no measured value|unknown|missing|not in the data|too little data|Screening only|Not available yet|no open data|stand-in)\b', re.I)
+# 2.15.16: the evidence model (owner request 9 Nov) discloses unresolved inputs on purpose ("missing inputs/weight",
+# "density, not measured environmental quality"); those disclosures are allowed, the old gap phrases stay banned
+GAP = re.compile(r'\b(no data|(?<!density, )not measured(?! environmental)|no measured value|unknown|missing(?! (?:inputs?|weight|components?|values?))|not in the data|too little data|Screening only|Not available yet|no open data|stand-in)\b', re.I)
 
 
 def check(fid, ok, msg):

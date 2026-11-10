@@ -79,7 +79,15 @@ def pct(vals):
 
 def main():
     GEO = []  # 2.15.11: lon/lat district polygons for the main map (dominant cities over 1 million residents)
-    out = {'note': 'Districts ranked within their own city from the official district figures listed. Not comparable across cities; place ranks are unchanged.', 'cities': []}
+    out = {'note': 'Partial within-city model. Declared weights are fixed when inputs are missing. Demographic composition and distance are context proxies, not empirical proof of family or retiree attraction. Not comparable across cities.', 'cities': []}
+    # Added cities require a validated official polygon roster and a pinned reuse receipt.
+    import hashlib
+    more={'lyon':('Lyon','FR',(45.764,4.8357)), 'marseille':('Marseille','FR',(43.2965,5.3698)), 'brussels':('Brussels-Capital municipalities','BE',(50.85,4.35)), 'hamburg':('Hamburg','DE',(53.5511,9.9937)), 'rome':('Rome','IT',(41.9028,12.4964)), 'madrid':('Madrid','ES',(40.4168,-3.7038)), 'milan':('Milan','IT',(45.4642,9.19))}
+    for k,(n,c,ctr) in more.items():
+        f=os.path.join(Z,k+'.geojson'); rp=os.path.join(Z,k+'.receipt.json')
+        if os.path.exists(f) and os.path.exists(rp):
+            rec=json.load(open(rp)); raw=open(f,'rb').read()
+            if rec.get('commercial_reuse_status')=='Green' and rec.get('sha256_normalized')==hashlib.sha256(raw).hexdigest(): CITY[k]=(n,c,ctr,'City reference point',lambda x:str(x))
     for key, (name, cc, ctr, ctrn, tocode) in CITY.items():
         gj = json.load(open(os.path.join(Z, key + '.geojson'), encoding='utf-8')); R = rows(key)
         lat0 = ctr[0]; kx = math.cos(math.radians(lat0)) * 111.32; ky = 110.57
@@ -172,6 +180,12 @@ def main():
         # grow: Berlin's change may be absolute residents; convert to % when it is a count
         if key == 'berlin' and 'grow' in I and I['grow'][2] == '':
             I['grow'] = ({c: 100 * v / (pop[c][0] - v) for c, v in I['grow'][0].items() if c in pop}, 'Population change, 5 years', '%')
+        if key in ('hamburg','brussels','lyon','marseille','rome','madrid','milan'):
+            child=latest(R,'childcare_places_per_100_under3')
+            if child: put('care',{c:v[0] for c,v in child.items()},'Childcare places per 100 children under three','',next(iter(child.values())))
+            crime=latest(R,'DE_pks_total_offences')
+            if crime: put('crimecount',{c:v[0] for c,v in crime.items()},'Recorded offences, count (not a rate)','',next(iter(crime.values())))
+            # No denominator is imputed across a year or reporting geography.
         P = {k: pct(v[0]) for k, v in I.items()}
         W8 = {'young_family': {'kids': 1, 'dens': -1, 'rent': -1, 'price': -1, 'grow': .5, 'dist': .3, 'care': 1, 'safe': -1, 'health': .3},
               'young_professional': {'dist': -1, 'dens': 1, 'grow': .5, 'rent': -.5, 'price': -.5, 'old': -.3, 'safe': -.3},
@@ -194,7 +208,7 @@ def main():
                     v = P.get(k, {}).get(code)
                     if v is None: continue
                     t += abs(wt) * (v if wt > 0 else 1 - v); n += abs(wt)
-                sc[prof] = round(100 * t / n) if n else None
+                sc[prof] = round(100 * t / sum(abs(x) for x in w.values())) if n else None
             nm = (pop.get(code) or [None] * 5)[4] or f['gname'] or code
             for pfx in ('Budapest ',): nm = nm.replace(pfx, '')
             Zs.append({'c': code, 'n': nm, 'd': f['d'], 'lx': f['lx'], 'ly': f['ly'], 'km2': f['area'], 'v': {k: (None if I[k][0].get(code) is None else round(I[k][0][code], 1)) for k in I}, 's': sc, 'e': {p: {'coverage': round(100 * sum(w for _, ks, w in needs if any(code in I.get(k, ({},))[0] and I[k][0][code] is not None for k in ks)) / sum(w for _, _, w in needs)), 'missing': [n for n, ks, _ in needs if not any(code in I.get(k, ({},))[0] and I[k][0][code] is not None for k in ks)]} for p, needs in NEED.items()}})

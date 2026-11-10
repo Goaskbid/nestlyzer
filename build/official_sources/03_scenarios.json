@@ -1,0 +1,188 @@
+{
+  "status": "proposed_households_pending_approval",
+  "source": "https://swisstaxcalculator.estv.admin.ch/",
+  "income_components": [
+    "IncomeTaxCanton",
+    "IncomeTaxCity",
+    "IncomeTaxChurch"
+  ],
+  "wealth_components": [
+    "FortuneTaxCanton",
+    "FortuneTaxCity",
+    "FortuneTaxChurch"
+  ],
+  "federal_personal_tax_credits": "retained separately, never silently folded into legacy-comparable burden",
+  "scenarios": [
+    {
+      "scenario_id": "single_income_tax_100k_v2",
+      "legacy_factor": "single_income_tax_100k",
+      "label": "Single employee, gross CHF 100,000",
+      "version": "proposed-v2-2026-11-02",
+      "kind": "income",
+      "denominator_chf": 100000,
+      "request": {
+        "Relationship": 1,
+        "Confession1": 1,
+        "Age1": 40,
+        "RevenueType1": 1,
+        "Revenue1": 100000,
+        "Fortune": 0,
+        "Children": [],
+        "Confession2": 0,
+        "Age2": 0,
+        "RevenueType2": 0,
+        "Revenue2": 0
+      },
+      "scenario_approved": false,
+      "unresolved": [
+        "Exact legacy age and religion assumptions need source reconciliation.",
+        "These are explicit proposed standard households, not a claim of legacy equivalence.",
+        "Default deductions come from the official calculator and must be archived."
+      ]
+    },
+    {
+      "scenario_id": "single_income_tax_150k_v2",
+      "legacy_factor": "single_income_tax_150k",
+      "label": "Single employee, gross CHF 150,000",
+      "version": "proposed-v2-2026-11-02",
+      "kind": "income",
+      "denominator_chf": 150000,
+      "request": {
+        "Relationship": 1,
+        "Confession1": 1,
+        "Age1": 40,
+        "RevenueType1": 1,
+        "Revenue1": 150000,
+        "Fortune": 0,
+        "Children": [],
+        "Confession2": 0,
+        "Age2": 0,
+        "RevenueType2": 0,
+        "Revenue2": 0
+      },
+      "scenario_approved": false,
+      "unresolved": [
+        "Exact legacy age and religion assumptions need source reconciliation.",
+        "These are explicit proposed standard households, not a claim of legacy equivalence.",
+        "Default deductions come from the official calculator and must be archived."
+      ]
+    },
+    {
+      "scenario_id": "family_income_tax_100k_v2",
+      "legacy_factor": "family_income_tax_100k",
+      "label": "Married single-earner family, two children, gross CHF 100,000",
+      "version": "proposed-v2-2026-11-02",
+      "kind": "income",
+      "denominator_chf": 100000,
+      "request": {
+        "Relationship": 2,
+        "Confession1": 1,
+        "Age1": 40,
+        "RevenueType1": 1,
+        "Revenue1": 100000,
+        "Fortune": 0,
+        "Children": [
+          {
+            "Age": 4
+          },
+          {
+            "Age": 9
+          }
+        ],
+        "Confession2": 1,
+        "Age2": 40,
+        "RevenueType2": 4,
+        "Revenue2": 0
+      },
+      "scenario_approved": false,
+      "unresolved": [
+        "Exact legacy age and religion assumptions need source reconciliation.",
+        "These are explicit proposed standard households, not a claim of legacy equivalence.",
+        "Default deductions come from the official calculator and must be archived."
+      ]
+    },
+    {
+      "scenario_id": "retiree_tax_100k_v2",
+      "legacy_factor": "retiree_tax_100k",
+      "label": "Married retired couple, pension CHF 100,000",
+      "version": "proposed-v2-2026-11-02",
+      "kind": "income",
+      "denominator_chf": 100000,
+      "request": {
+        "Relationship": 2,
+        "Confession1": 1,
+        "Age1": 70,
+        "RevenueType1": 3,
+        "Revenue1": 100000,
+        "Fortune": 0,
+        "Children": [],
+        "Confession2": 1,
+        "Age2": 70,
+        "RevenueType2": 3,
+        "Revenue2": 0
+      },
+      "scenario_approved": false,
+      "unresolved": [
+        "Exact legacy age and religion assumptions need source reconciliation.",
+        "These are explicit proposed standard households, not a claim of legacy equivalence.",
+        "Default deductions come from the official calculator and must be archived."
+      ]
+    },
+    {
+      "scenario_id": "wealth_tax_1m_v2",
+      "legacy_factor": "wealth_tax_1m",
+      "label": "Married couple, net wealth CHF 1 million",
+      "version": "proposed-v2-2026-11-02",
+      "kind": "wealth",
+      "denominator_chf": 1000000,
+      "request": {
+        "Relationship": 2,
+        "Confession1": 1,
+        "Age1": 40,
+        "RevenueType1": 4,
+        "Revenue1": 0,
+        "Fortune": 1000000,
+        "Children": [],
+        "Confession2": 1,
+        "Age2": 40,
+        "RevenueType2": 4,
+        "Revenue2": 0
+      },
+      "scenario_approved": false,
+      "unresolved": [
+        "Exact legacy age and religion assumptions need source reconciliation.",
+        "These are explicit proposed standard households, not a claim of legacy equivalence.",
+        "Default deductions come from the official calculator and must be archived.",
+        "Legacy wealth-factor household status is not verified."
+      ]
+    },
+    {
+      "scenario_id": "wealth_tax_5m_v2",
+      "legacy_factor": "wealth_tax_5m",
+      "label": "Married couple, net wealth CHF 5 million",
+      "version": "proposed-v2-2026-11-02",
+      "kind": "wealth",
+      "denominator_chf": 5000000,
+      "request": {
+        "Relationship": 2,
+        "Confession1": 1,
+        "Age1": 40,
+        "RevenueType1": 4,
+        "Revenue1": 0,
+        "Fortune": 5000000,
+        "Children": [],
+        "Confession2": 1,
+        "Age2": 40,
+        "RevenueType2": 4,
+        "Revenue2": 0
+      },
+      "scenario_approved": false,
+      "unresolved": [
+        "Exact legacy age and religion assumptions need source reconciliation.",
+        "These are explicit proposed standard households, not a claim of legacy equivalence.",
+        "Default deductions come from the official calculator and must be archived.",
+        "Legacy wealth-factor household status is not verified."
+      ]
+    }
+  ]
+}

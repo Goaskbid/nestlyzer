@@ -1,0 +1,57 @@
+{
+  "version": "2026-11-02",
+  "status": "proposed_product_policy_not_statistical_standard",
+  "auto_deploy": false,
+  "publication": [
+    "positive publication approval",
+    "source licence/attribution recorded",
+    "raw immutable download receipt and hash",
+    "source release and observation period",
+    "concept, unit, universe, dimensions and suppression verified",
+    "reviewed official geography and boundary vintage"
+  ],
+  "score": [
+    "positive score approval separate from publication",
+    "purpose-specific freshness",
+    "one country-neutral evidence rule",
+    "mandatory profile domains met",
+    "no duplication of denominator, MOE, subgroup or repeated-year evidence",
+    "no ethnic, religious or nationality desirability measures",
+    "direct local versus regional versus modelled kept separate"
+  ],
+  "proposed_weighted_domain_coverage_threshold": 0.7,
+  "country_overrides": {},
+  "tax_retirement": [
+    "one complete reference year and stable calculator version",
+    "every official commune in that tax-year roster has all six valid scenarios or ranking is withheld",
+    "every legacy CH place resolved as exact entity, explicit successor alias, split/review or retired",
+    "no capital or canton-wide proxy filling",
+    "scenario assumptions approved and calculator UI benchmark passed",
+    "federal, cantonal, communal, church, personal tax and credits kept distinct",
+    "2018 inputs excluded from new scoring in one atomic release with rank-difference report and rollback"
+  ],
+  "ui": [
+    "show observation year and geographic level beside value/chart",
+    "show structural historical observations honestly",
+    "missing mandatory evidence leaves place searchable but without supported fit ranking"
+  ],
+  "required_outputs": [
+    "acquisition_receipts",
+    "native_geography_coverage",
+    "approved_crosswalk",
+    "factor_mapping",
+    "before_after_evidence",
+    "rank_diff",
+    "missingness_report",
+    "tax_gate",
+    "release_manifest"
+  ],
+  "pack_does_not_implement": [
+    "JS engine replacement",
+    "approval workflow UI",
+    "polygon-based crosswalk production",
+    "profile-specific factor dictionary and freshness calibration",
+    "tax scenario approval",
+    "production deployment"
+  ]
+}

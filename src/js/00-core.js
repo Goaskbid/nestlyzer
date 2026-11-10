@@ -256,6 +256,7 @@ function areaOf(r) {
 }
 function localAreaOf(r) { if (r.country === 'CH') return r.cantonName; var sh = SHARDS[r.country] && SHARDS[r.country].shard; return (sh && sh.nuts && sh.nuts[r.n3]) || areaOf(r); }
 function inScope(r) {
+  if(S.areaEncoded){if(!S.areaDecoded||!window.NZAreaSelect)return false;return window.NZAreaSelect.matches(r,S.areaSelection);}
   var sp = scopeSpecial();
   if (sp) {
     if (sp.kind === 'metro') return !!(r.x && r.x.metro === sp.name);
@@ -291,6 +292,7 @@ var LANG_AREAS = { de: ['german', 'bilingual', 'belgian_german', 'luxembourgish'
 function langPass(r) { var a = LANG_AREAS[S.lang]; if (!a) return true; var k = languageArea(r); if (r.country === 'CH' && k === 'bilingual') return true; return a.indexOf(k) >= 0; }
 var LANG_NAMES = { de: 'German', fr: 'French', it: 'Italian', en: 'English', nl: 'Dutch', es: 'Spanish', pt: 'Portuguese', nordic: 'Nordic-language' };
 function scopeName() {
+  if(S.areaEncoded)return S.areaSelection&&S.areaSelection.error?'Invalid area selection':((S.areaSelection&&S.areaSelection.areas.length)||0)+' selected areas / '+countryName(S.cc);
   var sp = scopeSpecial();
   if (sp) { if (sp.kind === 'metro') return metroLabel(sp.name); if (sp.kind === 'group') return sp.name + ', the whole city'; var c = BYID[sp.id]; return 'Within ' + sp.km + ' km of ' + (c ? c.name : 'a place'); }
   if (S.cc === 'CH') { if (S.area !== 'ALL') return 'Canton ' + META.config.cantons[S.area]; return (META.config.swissRegions[S.region] || {}).name || 'All Switzerland'; }
@@ -314,6 +316,7 @@ function syncMode() {
 }
 function runRanking() {
   if (!SHARD) return;
+  if(S.areaEncoded&&!S.areaDecoded&&!S.areaLoading){S.areaLoading=true;moreLoad().then(function(X){X.restoreAreas();S.areaLoading=false;update({fit:true});}).catch(function(){S.areaLoading=false;toast('Area selection unavailable','No results are shown until the selected-area filter can load.');});}
   if (syncMode()) refreshShortlistUI();
   if (isBizKey(S.profile)) { store('lastbiz', S.profile); if (ENGINE.profiles[S.profile]) ENGINE.profiles[S.profile].unknownMust = S.unknownExclude ? 'exclude' : 'flag'; } else if (S.profile !== 'self_fit') store('lasthome', S.profile);
   SCOPE = SHARD.records.filter(function (r) { return inScope(r) && passFilters(r); });
@@ -350,6 +353,7 @@ function languageSensitive() {
 function toHash() {
   var p = new URLSearchParams();
   p.set('cc', S.cc); p.set('p', S.profile);
+  if(S.areaEncoded)p.set('ma',S.areaEncoded);
   if (S.region !== 'ALL') p.set('r', S.region);
   if (S.area !== 'ALL') p.set('a', S.area);
   if (S.layer !== 'score') p.set('l', S.layer);
@@ -374,6 +378,7 @@ function fromHash() {
   var p = new URLSearchParams(h.split('?')[1] || '');
   var sc0 = document.getElementById('start-country'); S.cc = (p.get('cc') || store('homecc') || (sc0 && sc0.value) || 'CH').toUpperCase();   // 2.15.6: no cc in the link means the visitor's country
   S.profile = p.get('p') || 'young_family';
+  var sharedArea=p.get('ma')||'';if(sharedArea!==S.areaEncoded){S.areaEncoded=sharedArea;S.areaDecoded=!sharedArea;S.areaSelection=null;}
   S.region = p.get('r') || 'ALL'; S.area = p.get('a') || 'ALL';
   S.layer = p.get('l') || 'score'; S.minConf = +p.get('conf') || 0; S.sort = p.get('sort') || 'score';
   FKEYS.forEach(function (k) { S.f[k] = +p.get(k) || 0; });

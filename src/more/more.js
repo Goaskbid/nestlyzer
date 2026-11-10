@@ -1425,6 +1425,8 @@ function toolsHTML() {
     ['data-builder', '✨', 'Build my own profile', 'Answer a few questions and get your own weights.'],
     ['data-whatif', '🎛️', 'What if…', 'Change what matters and watch the ranking move.'],
     ['data-mydata', '💾', 'Your saved data', 'Download, restore or delete what this browser keeps.'],
+    ['data-multi-area', 'Map', 'Several areas', 'Combine administrative areas and drawn shapes.'],
+    ['data-evidence', 'Data', 'Profile evidence', 'Sources, missing inputs and observed outcomes.'],
     ['data-filters', '🎚️', 'Filters', 'Railway, lake, terrain, climate, border and more.'],
     ['data-layers', '🗺️', 'Map layers', 'Colour the map by terrain, lakes, rail, growth and more.'],
     ['data-tour', '🧭', 'Quick tour', 'Thirty seconds on how this works.'],

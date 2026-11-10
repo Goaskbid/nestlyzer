@@ -221,7 +221,7 @@ async def main():
             await explore(pg, '#/explore?cc=CH&p=young_family&sel=CH:2701')
             await pg.wait_for_selector('#place.open', timeout=10000)
             txt = await pg.evaluate("document.querySelector('#place').textContent")
-            need = ['Score', 'Rank', 'Data depth', 'conf.', 'measured', 'Decision facts', 'Explore around', 'Nice to know', 'All the numbers', 'Look-alikes elsewhere in Europe', 'Next door', 'Weather through the year', 'Worth a look nearby', 'Photos in and around', 'Getting around', 'Local explainer', 'Profile shape', 'Population trend', 'Jobs and company signals', 'Close comparables', 'Cross-border context', 'Full score and sub-rankings', 'PDF booklet', 'Print profile']
+            need = ['Score', 'Rank', 'Data depth', '% inputs', 'measured', 'Decision facts', 'Explore around', 'Nice to know', 'All the numbers', 'Look-alikes elsewhere in Europe', 'Next door', 'Weather through the year', 'Worth a look nearby', 'Photos in and around', 'Getting around', 'Local explainer', 'Profile shape', 'Population trend', 'Jobs and company signals', 'Close comparables', 'Cross-border context', 'Full score and sub-rankings', 'PDF booklet', 'Print profile']
             missing = [n for n in need if n not in txt]
             if 'Why #' not in txt and 'How it fits' not in txt: missing.append('why card')
             await pg.click('#place [data-ptab="facts"][role="tab"]'); await pg.wait_for_timeout(300)

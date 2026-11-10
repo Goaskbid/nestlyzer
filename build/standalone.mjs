@@ -20,6 +20,10 @@ const MIME = { '.json': 'application/json', '.js': 'text/javascript', '.css': 't
 const dataURI = (p) => `data:${MIME[path.extname(p)]};base64,${rd(p).toString('base64')}`;
 
 let html = rd('index.html').toString();
+// 2.15.16: the website loads the app from assets/app.js and assets/app.css (cached across pages); the single-file
+// builds put both back inline so they still work from disk or as one uploaded file
+html = html.replace(/<link rel="stylesheet" href="\/assets\/app\.css\?v=[\w.-]+">/, () => '<style>' + rd('assets/app.css').toString() + '</style>')
+  .replace(/<script defer src="\/assets\/app\.js\?v=[\w.-]+"><\/script>/, () => '<script>' + rd('assets/app.js').toString() + '</script>');
 
 if (!LIVE) {
 // 1) no analytics, ads or consent banner in a local preview
@@ -45,6 +49,7 @@ const files = [];
 const walk = (d) => { for (const f of fs.readdirSync(path.join(ROOT, d))) { const p = d + '/' + f; fs.statSync(path.join(ROOT, p)).isDirectory() ? walk(p) : files.push(p); } };
 walk('data'); walk('vendor'); walk('assets/flags');
 // build-time only (2.11): the app reads one rank file per region and never the national table or the combined list
+for (let i = files.length - 1; i >= 0; i--) if (files[i].startsWith('data/place-detail/')) files.splice(i, 1);   // 2.15.16: rich place details are served by the website only
 const BUILD_ONLY = new Set(['data/routes.json', 'data/rank/global.json', 'data/national.json']);
 for (let i = files.length - 1; i >= 0; i--) if (BUILD_ONLY.has(files[i])) files.splice(i, 1);
 files.push('assets/icon-192.png', 'assets/mark.svg', 'assets/more.js', 'assets/globe.js', 'assets/bizglobe.js', 'assets/fx.js', 'assets/nzx.js', 'assets/home.js');
@@ -96,7 +101,9 @@ if (SPLIT) {
 }
 
 const VERSION = process.env.NZ_VERSION || (rd('build/build_site.mjs').toString().match(/NZ_VERSION \|\| '([\d.]+)'/) || [0, 'x'])[1];
-const ROUTES = fs.existsSync(path.join(ROOT, 'data/routes.json')) ? rd('data/routes.json').toString() : '{}';
+// 2.15.16: the 145,000 regular place routes (/places/xx/ID/) are derived in the shim instead of listed (keeps the file small)
+const PLACE_RE = /^\/places\/([a-z]{2})\/([^/]+)\/$/;
+const ROUTES = fs.existsSync(path.join(ROOT, 'data/routes.json')) ? JSON.stringify(Object.fromEntries(Object.entries(JSON.parse(rd('data/routes.json'))).filter(([k, v]) => { const m = k.match(PLACE_RE); return !(m && v === '/#/explore?cc=' + m[1].toUpperCase() + '&p=young_family&sel=' + m[1].toUpperCase() + '%3A' + encodeURIComponent(decodeURIComponent(m[2]))); }))) : '{}';
 // the legal and method pages travel inside the single file, so the imprint and privacy policy are always reachable
 const docBody = (p) => { const h = rd(p).toString(); const m = h.match(/<main id="main" class="page">([\s\S]*?)<\/main>/); return m ? m[1].replace(/<script[\s\S]*?<\/script>/g, '') : ''; };
 const MIMEJ = (p) => `data:image/jpeg;base64,${rd(p).toString('base64')}`;
@@ -115,7 +122,7 @@ new MutationObserver(function(ms){ms.forEach(function(m){m.addedNodes.forEach(fu
 document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('img[src^="/assets/"]').forEach(fixImg)});
 /* 2.14 (owner audit A0): on the website, a link the single file cannot show itself (Insights, business.html, Worldwide)
    is a normal page load; it never falls back to the start page */
-window.addEventListener('click',function(ev){if(ev.defaultPrevented)return;var a=ev.target.closest&&ev.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href');if(!h||h.charAt(0)!=='/'||h.charAt(1)==='/'||h.indexOf('/nzdata-')===0)return;ev.preventDefault();if(h==='/'){location.hash='';return}if(h.indexOf('/#')===0){location.hash=h.slice(1);return}var rt=ROUTES[h.split('#')[0]];if(rt){location.hash=rt.slice(1);window.scrollTo(0,0);return}if(h.indexOf('/legal/')===0||h.indexOf('/method/')===0||h.indexOf('/about/')===0){var sec=h.split('#')[1]||'';var ifr=document.getElementById('nz-doc');if(!ifr){ifr=document.createElement('div');ifr.id='nz-doc';ifr.setAttribute('role','dialog');ifr.setAttribute('aria-modal','true');ifr.style.cssText='position:fixed;inset:0;z-index:200;background:var(--surface,#fff);overflow:auto;padding:16px';document.body.appendChild(ifr)}var doc=DOCS[h.indexOf('/legal/')===0?'legal':h.indexOf('/about/')===0?'about':'method'];ifr.innerHTML='<p><button type="button" class="btn btn-sm" onclick="this.parentNode.parentNode.remove()">Close</button> <a href="https://nestlyzer.com'+h+'" target="_blank" rel="noopener">Open on nestlyzer.com</a></p>'+doc;if(sec){var t=ifr.querySelector('#'+sec);if(t)t.scrollIntoView()}else ifr.scrollTop=0;return}${LIVE ? `location.href=h` : `a.setAttribute('href','https://nestlyzer.com'+h);a.setAttribute('target','_blank');a.setAttribute('rel','noopener');ev.preventDefault();window.open('https://nestlyzer.com'+h,'_blank','noopener')`}},false)})()</script>`;
+window.addEventListener('click',function(ev){if(ev.defaultPrevented)return;var a=ev.target.closest&&ev.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href');if(!h||h.charAt(0)!=='/'||h.charAt(1)==='/'||h.indexOf('/nzdata-')===0)return;ev.preventDefault();if(h==='/'){location.hash='';return}if(h.indexOf('/#')===0){location.hash=h.slice(1);return}var rt=(ROUTES[h.split('#')[0]]||(function(k){var m=k.match(/^\\/places\\/([a-z]{2})\\/([^/]+)\\/$/);if(!m)return;var c=m[1].toUpperCase();return '/#/explore?cc='+c+'&p=young_family&sel='+c+'%3A'+encodeURIComponent(decodeURIComponent(m[2]))})(h.split('#')[0]));if(rt){location.hash=rt.slice(1);window.scrollTo(0,0);return}if(h.indexOf('/legal/')===0||h.indexOf('/method/')===0||h.indexOf('/about/')===0){var sec=h.split('#')[1]||'';var ifr=document.getElementById('nz-doc');if(!ifr){ifr=document.createElement('div');ifr.id='nz-doc';ifr.setAttribute('role','dialog');ifr.setAttribute('aria-modal','true');ifr.style.cssText='position:fixed;inset:0;z-index:200;background:var(--surface,#fff);overflow:auto;padding:16px';document.body.appendChild(ifr)}var doc=DOCS[h.indexOf('/legal/')===0?'legal':h.indexOf('/about/')===0?'about':'method'];ifr.innerHTML='<p><button type="button" class="btn btn-sm" onclick="this.parentNode.parentNode.remove()">Close</button> <a href="https://nestlyzer.com'+h+'" target="_blank" rel="noopener">Open on nestlyzer.com</a></p>'+doc;if(sec){var t=ifr.querySelector('#'+sec);if(t)t.scrollIntoView()}else ifr.scrollTop=0;return}${LIVE ? `location.href=h` : `a.setAttribute('href','https://nestlyzer.com'+h);a.setAttribute('target','_blank');a.setAttribute('rel','noopener');ev.preventDefault();window.open('https://nestlyzer.com'+h,'_blank','noopener')`}},false)})()</script>`;
 html = html.replace('<head>', '<head>\n' + SHIM);
 const bodyAt = html.indexOf('<body>') + '<body>'.length;
 html = html.slice(0, bodyAt) + `\n<script type="application/json" id="nz-pack">${packJSON.replace(/</g, '\\u003c')}</script>\n` + html.slice(bodyAt);

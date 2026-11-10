@@ -1,0 +1,104 @@
+{
+  "pack_id": "nestlyzer-official-local-2026-11-02",
+  "files_total_including_manifest": 20,
+  "hash_algorithm": "SHA-256",
+  "manifest_hash_convention": "The manifest lists all other 19 payload files; it does not hash itself.",
+  "new_official_observations": 0,
+  "files": [
+    {
+      "name": "00_CLAUDE_START.md",
+      "bytes": 6394,
+      "sha256": "3805a7bade715ee8d715df08424ba445991c7abbb6839a766b3c9eb99fd94a08"
+    },
+    {
+      "name": "01_source_registry.json",
+      "bytes": 10525,
+      "sha256": "dd5c8a07f6e33e40db063003d03463a713d9a63ebd03c7cab2ba6785d89e6922"
+    },
+    {
+      "name": "02_indicator_contracts.csv",
+      "bytes": 7944,
+      "sha256": "082ed9c3d92a57a9e31a5a01d33d46c5b9c905b0f864d8d9935e58a5dbdbc85b"
+    },
+    {
+      "name": "03_scenarios.json",
+      "bytes": 5994,
+      "sha256": "9b3444b7465dc785e6201f6524410e487f4d90decb59999036900e192b6cba79"
+    },
+    {
+      "name": "04_country_baseline.csv",
+      "bytes": 790,
+      "sha256": "048f782a0aad59b91576b9a3a96f86570f8a6b922fe756d8766368224e3221a7"
+    },
+    {
+      "name": "05_CH_2172_scenario_tasks.csv.gz",
+      "bytes": 72063,
+      "sha256": "4ffb2f28063568818abc8b65fd9a9d842b3826066b7ffc0e51240fe9f8fabb06"
+    },
+    {
+      "name": "06_place_crosswalk_queue.csv.gz",
+      "bytes": 1439434,
+      "sha256": "49cb3d5eb4f771aa2af6b4a311d5c99f17ca470af6d498d4eed2051c808cac93"
+    },
+    {
+      "name": "07_release_gates.json",
+      "bytes": 2264,
+      "sha256": "a104abdb668ff88e6ad825a7cb773c96b4c9df796cfb401506f3dcce8dd3fa9c"
+    },
+    {
+      "name": "08_guardrails.patch",
+      "bytes": 5168,
+      "sha256": "82697e57b93ebb0ecf20ec55e87fb5bba5420010a19f230ae176cd9612244138"
+    },
+    {
+      "name": "09_implementation.md",
+      "bytes": 13467,
+      "sha256": "6758fbe60d304050d7717f7d2cbf9a6bd3a114e31dc0b524e23211c53eac6a65"
+    },
+    {
+      "name": "10_sources_and_limitations.md",
+      "bytes": 3829,
+      "sha256": "4ac96fe5e1bb067f1805c33e359a8f12c468617948e3978c333a20226dc6290e"
+    },
+    {
+      "name": "11_validation.json",
+      "bytes": 3080,
+      "sha256": "e9f979c0df351a7155218eaa4b0ace57c8161054058c8527e445362780965e5a"
+    },
+    {
+      "name": "nz_core.py",
+      "bytes": 10469,
+      "sha256": "ff5337b2f6109756df823006a3a7d239433f708c7d78447c81d53f47782b3642"
+    },
+    {
+      "name": "nz_countries.py",
+      "bytes": 22874,
+      "sha256": "4ad955619c9f417e5c3dd934b42a6da739b48da434be89333cb8a97c5c7ba7f1"
+    },
+    {
+      "name": "nz_integrate.py",
+      "bytes": 7650,
+      "sha256": "a2a56dd0af5f6294195d719cd7807e33f255fa581d491ebd59d2757deddd5a04"
+    },
+    {
+      "name": "nz_swiss.py",
+      "bytes": 15169,
+      "sha256": "0cde0bf2f536b0e1bcd569897a61b9d453a09d8a8d96e9ceebbaf1dee12686cd"
+    },
+    {
+      "name": "requirements.txt",
+      "bytes": 149,
+      "sha256": "f257ad3274d710c7fd8b0cbdc33d06522e7b184174d98b04717b3c35d2ac22f9"
+    },
+    {
+      "name": "run_pipeline.py",
+      "bytes": 1684,
+      "sha256": "9ee6392d9f8c7f944b7b69701ce61a6d180b70bc3d9a796ef372fdfe7e21e48f"
+    },
+    {
+      "name": "test_pipeline.py",
+      "bytes": 15335,
+      "sha256": "3083a83dc2a159a68b71eb7a4699e122ef2db017e3bc1c3c1c23efae60484156"
+    }
+  ]
+}

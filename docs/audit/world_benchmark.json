@@ -480,126 +480,126 @@
   ]
  },
  "pensioner": {
-  "metros": 8615,
+  "metros": 8622,
   "references": 17,
   "found_ranked": 17,
-  "in_top_100": 4,
-  "median_percentile": 6.2,
+  "in_top_100": 1,
+  "median_percentile": 7.3,
   "places": [
    {
     "ref": "PT:080508",
-    "rank": 1161,
+    "rank": 1435,
     "as": "Quelfes",
     "published": false
    },
    {
     "ref": "PT:080808",
-    "rank": 1161,
+    "rank": 1435,
     "as": "Quelfes",
     "published": false
    },
    {
     "ref": "PT:080106",
-    "rank": 1340,
+    "rank": 1800,
     "as": "Albufeira e Olhos de Água",
     "published": false
    },
    {
     "ref": "ES:29069",
-    "rank": 417,
+    "rank": 260,
     "as": "Estepona",
     "published": false
    },
    {
     "ref": "ES:29067",
-    "rank": 227,
-    "as": "Benalmádena",
+    "rank": 638,
+    "as": "Málaga",
     "published": false
    },
    {
     "ref": "ES:03133",
-    "rank": 337,
+    "rank": 152,
     "as": "Torrevieja",
     "published": false
    },
    {
     "ref": "ES:03031",
-    "rank": 534,
-    "as": "Nucia, la",
+    "rank": 302,
+    "as": "Altea",
     "published": false
    },
    {
     "ref": "ES:03014",
-    "rank": 600,
+    "rank": 629,
     "as": "San Vicente del Raspeig",
     "published": false
    },
    {
     "ref": "FR:06088",
-    "rank": 1,
-    "as": "Vallauris",
-    "published": true
+    "rank": 246,
+    "as": "Menton",
+    "published": false
    },
    {
     "ref": "FR:06029",
-    "rank": 1,
-    "as": "Vallauris",
-    "published": true
+    "rank": 179,
+    "as": "Cannes",
+    "published": false
    },
    {
     "ref": "FR:06083",
-    "rank": 6,
+    "rank": 246,
     "as": "Menton",
-    "published": true
+    "published": false
    },
    {
     "ref": "US:4172131",
-    "rank": 1846,
+    "rank": 2218,
     "as": "Bradenton",
     "published": false
    },
    {
     "ref": "US:4165565",
-    "rank": 2119,
+    "rank": 3463,
     "as": "Naples (Florida)",
     "published": false
    },
    {
     "ref": "US:4155995",
-    "rank": 2879,
+    "rank": 3540,
     "as": "North Fort Myers",
     "published": false
    },
    {
     "ref": "US:5313457",
-    "rank": 7104,
+    "rank": 7588,
     "as": "Paradise Valley",
     "published": false
    },
    {
     "ref": "CY:5000",
-    "rank": 102,
-    "as": "Μέσα Γειτονιά",
+    "rank": 56,
+    "as": "Άγιος Αθανάσιος",
     "published": true
    },
    {
     "ref": "MT:*",
-    "rank": 272,
-    "as": "Tas-Sliema / Sliema",
+    "rank": 509,
+    "as": "Ħal Qormi / Citta' Pinto",
     "published": false
    }
   ],
   "top10": [
-   "Vallauris FR",
-   "Marseille FR",
-   "Saint-Raphaël FR",
-   "Marín ES",
    "Corvera de Asturias ES",
-   "Menton FR",
-   "Meilen CH",
-   "Hyères FR",
+   "Marín ES",
+   "Realejos, Los ES",
    "Περάματος EL",
-   "Rumilly FR"
+   "Marseille FR",
+   "Ferrol ES",
+   "Lloret de Mar ES",
+   "Partinico IT",
+   "Langreo ES",
+   "Villanueva de la Serena ES"
   ]
  },
  "remote": {
@@ -819,126 +819,126 @@
   ]
  },
  "sun_retiree": {
-  "metros": 11727,
+  "metros": 11704,
   "references": 17,
   "found_ranked": 17,
   "in_top_100": 5,
-  "median_percentile": 1.9,
+  "median_percentile": 3.0,
   "places": [
    {
     "ref": "PT:080508",
-    "rank": 227,
+    "rank": 353,
     "as": "Faro (Sé e São Pedro)",
     "published": false
    },
    {
     "ref": "PT:080808",
-    "rank": 227,
+    "rank": 353,
     "as": "Faro (Sé e São Pedro)",
     "published": false
    },
    {
     "ref": "PT:080106",
-    "rank": 235,
+    "rank": 387,
     "as": "Albufeira e Olhos de Água",
     "published": false
    },
    {
     "ref": "ES:29069",
-    "rank": 88,
+    "rank": 62,
     "as": "Estepona",
     "published": false
    },
    {
     "ref": "ES:29067",
-    "rank": 43,
-    "as": "Benalmádena",
-    "published": true
+    "rank": 82,
+    "as": "Málaga",
+    "published": false
    },
    {
     "ref": "ES:03133",
-    "rank": 540,
+    "rank": 391,
     "as": "Torrevieja",
     "published": false
    },
    {
     "ref": "ES:03031",
-    "rank": 81,
+    "rank": 39,
     "as": "Calp",
-    "published": false
+    "published": true
    },
    {
     "ref": "ES:03014",
-    "rank": 615,
-    "as": "Alicante",
+    "rank": 497,
+    "as": "Santa Pola",
     "published": false
    },
    {
     "ref": "FR:06088",
-    "rank": 2,
-    "as": "Saint-Laurent-du-Var",
+    "rank": 83,
+    "as": "Menton",
     "published": true
    },
    {
     "ref": "FR:06029",
-    "rank": 2,
-    "as": "Saint-Laurent-du-Var",
+    "rank": 78,
+    "as": "Cannes",
     "published": true
    },
    {
     "ref": "FR:06083",
-    "rank": 3,
+    "rank": 83,
     "as": "Menton",
     "published": true
    },
    {
     "ref": "US:4172131",
-    "rank": 866,
-    "as": "Sarasota",
+    "rank": 885,
+    "as": "Bradenton",
     "published": false
    },
    {
     "ref": "US:4165565",
-    "rank": 1369,
+    "rank": 1615,
     "as": "Naples (Florida)",
     "published": false
    },
    {
     "ref": "US:4155995",
-    "rank": 1491,
+    "rank": 1574,
     "as": "North Fort Myers",
     "published": false
    },
    {
     "ref": "US:5313457",
-    "rank": 9051,
+    "rank": 9671,
     "as": "Fountain Hills",
     "published": false
    },
    {
     "ref": "CY:5000",
-    "rank": 14,
+    "rank": 11,
     "as": "Γερμασόγεια",
     "published": true
    },
    {
     "ref": "MT:*",
-    "rank": 453,
-    "as": "Birkirkara",
+    "rank": 212,
+    "as": "Ħal Qormi / Citta' Pinto",
     "published": false
    }
   ],
   "top10": [
    "Realejos, Los ES",
-   "Saint-Laurent-du-Var FR",
-   "Menton FR",
-   "Arroios PT",
+   "Narón ES",
+   "Marseille FR",
    "Βάρης EL",
    "Ficarazzi IT",
-   "Narón ES",
    "Mascali IT",
-   "Marseille FR",
-   "La Seyne-sur-Mer FR"
+   "Marín ES",
+   "Νέας Μάκρης EL",
+   "Corvera de Asturias ES",
+   "Scicli IT"
   ]
  }
 }

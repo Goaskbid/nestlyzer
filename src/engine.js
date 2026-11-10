@@ -56,7 +56,7 @@
   function Engine(meta, opts) {
     opts = opts || {};
     this.method = opts.method || 'v2';
-    this.evidence = opts.evidence || 'legacy';   // 'weighted' = true weighted share (NZ-GLOBAL-049), prepared; switch only after the owner approves (docs/rank_change_*.json)
+    this.evidence = opts.evidence || (meta.config.evidenceScoring && meta.config.evidenceScoring.mode) || 'legacy';   // 'weighted' = true weighted share (NZ-GLOBAL-049), prepared; switch only after the owner approves (docs/rank_change_*.json)
     this.meta = meta;
     this.cfg = meta.config;
     this.profiles = JSON.parse(JSON.stringify(this.cfg.profiles));
@@ -93,9 +93,9 @@
 
   Engine.prototype.categories = function (r) {
     // 2.15.11 (deep audit MODEL-01): the cache is tied to the evidence it was built from, not only to the method.
-    var sig = 0, i_ = 1, h_ = function (o) { for (var k in o) { var v = o[k]; sig = (sig * 31 + (typeof v === 'number' ? Math.round(v * 1e3) : v == null ? 7 : String(v).length * 13 + String(v).charCodeAt(0)) + i_++) % 2147483647; } };
-    h_(r.factorScores || {}); h_(r.x || {});
-    if (r._cats && r._catsM === this.method && r._catsS === sig) return r._cats;
+    var cacheModel = this.method + ':' + this.evidence + ':' + (this.cfg.semanticIntegrity ? 'semantic1' : 'original');
+    var sig = JSON.stringify([r.factorScores,r.factorRaw,r.factorLevel,r.x,r.population,r.country,r.sourceConfidence,r.evidence]);
+    if (r._cats && r._catsM === cacheModel && r._catsS === sig) return r._cats;
     var out = {}, cats = Object.keys(this.factorIdsByCat);
     for (var i = 0; i < cats.length; i++) {
       var v = this.categoryScore(r, cats[i]);
@@ -172,7 +172,20 @@
     var campus = fsr.student_campus_access != null ? fsr.student_campus_access : this.derivedAccess(r, 'student');
     if (fin(commute)) out.commuter_access = commute;
     if (fin(campus)) out.student_access = campus;
-    r._cats = out; r._catsM = this.method; r._catsS = sig;
+    if (this.method !== 'v1' && this.evidence === 'fixed' && this.cfg.semanticIntegrity) {
+      var policy = this.cfg.evidenceCategoryAllow || {}, raw = r.factorScores || {};
+      for (var cat in policy) { var vals = policy[cat].map(function(id){return raw[id];}).filter(fin); if(vals.length) out[cat]=avgFinite(vals); else delete out[cat]; }
+      // Population density is not an observed service, housing cost or healthcare network.
+      for (var pc in (r._proxy||{})) if (['affordability','health','family','jobs','lifestyle'].indexOf(pc)>=0) delete out[pc];
+      delete out.services;
+      // A documented access overlay may supply daily access. No population fallback.
+      if(r.evidence&&fin(r.evidence.daily_access_score))out.services=r.evidence.daily_access_score;
+      // Cohort-independent population growth is context, not observed migration of a profile.
+      delete out.demographics;
+      // Country tax rates, property multipliers and unrelated household cases must not be averaged.
+      r._taxAll = out.tax; delete out.tax;   // 2.15.16: restored per profile below as one explicit tax case
+    }
+    r._cats = out; r._catsM = cacheModel; r._catsS = sig;
     return out;
   };
 
@@ -187,11 +200,24 @@
     var cats = this.categories(r), p = this.profiles[key];
     // what this group dislikes nearby (2.11.3): noise, heavy industry, flooding and heat, crowding, steep terrain, dirty air
     var nz = p && p.avoid && p.avoid.length && this.method !== 'v1' ? this.nuisances(r, p.avoid) : null;
-    if (!p || (!p.focus && !nz)) return cats;
+    if (!p) return cats;
+    if (!p.focus && !nz && !(this.evidence==='fixed' && this.cfg.semanticIntegrity)) return cats;
     var out = {}; for (var k in cats) out[k] = cats[k];
+    if (this.evidence==='fixed' && this.cfg.semanticIntegrity) {
+      var fr=r.factorScores||{};
+      // 2.15.16: tax stays in every household ranking, as ONE explicit case per profile (no averaging of unlike cases):
+      // retirees -> retiree case, families -> family case, high earners -> single 150k, everyone else -> single 100k;
+      // where a country has no case table, its single tax measure (the category value) is used as before
+      if (!p.business) { var tc = /pensioner|retiree/.test(key) ? 'retiree_tax_100k' : /famil|parent|child|kid/.test(key) ? 'family_income_tax_100k' : /hnw|wealth|rich|dink|expat|executive/.test(key) ? 'single_income_tax_150k' : 'single_income_tax_100k';
+        if (fin(fr[tc]) && this.factorById[tc]?.score_role==='scored') out.tax=fr[tc]; else if (fin(r._taxAll)) out.tax=r._taxAll; }
+      // The case is explicit and fixed. Other tax cases remain facts, not substitutes.
+      if (p.business) delete out.affordability;
+      // Separate observed clustering from household cost or population proxies.
+      if (p.business && p.focus) {var fn0=0,fd0=0;for(var fk in p.focus) if(!/^(geo_catchment|working_age|at_working|n_(house|flat|home|rent|price|ch_price))/.test(fk)&&fin(fr[fk])) {var fw0=p.focus[fk];fn0+=(fw0<0?100-fr[fk]:fr[fk])*Math.abs(fw0);fd0+=Math.abs(fw0);}out.focus=fd0?fn0/fd0:null;}
+    }
     if (nz) out.quiet = nz.score;
     if (p.focus) {
-      var fv = this.focusScore(r, p); if (fin(fv)) out.focus = fv;
+      if (!(p.business && this.evidence==='fixed' && this.cfg.semanticIntegrity)) {var fv = this.focusScore(r, p); if (fin(fv)) out.focus = fv;}
       // industry cluster of this kind of site (build_clusters.py): where similar companies already operate
       var cl = (r.factorScores || {})['cluster_' + key]; if (fin(cl)) out.cluster = cl;
     }
@@ -244,6 +270,9 @@
     /* a weak core need is not made up for by strengths elsewhere (2.11.3): every category that carries 15% or more of the
        weight costs 1.5 x its share for each point under 50 (measured values only; legacy method unchanged) */
     if (this.method !== 'v1' && key !== LOTTERY && r.country === 'CH') { var st0 = p.strict || {}; for (c in st0) if (c !== 'foundation' && c !== 'coast' && fin(cats[c]) && cats[c] < st0[c]) score -= (st0[c] - cats[c]) * 0.5; }
+    // 2.15.16 budget reality: a fixed income cannot pay for the most expensive housing markets, however good the doctors
+    // and safety are; profiles with softFloors (budget, and the defining climate of a sun retiree) lose points below them in every country (not only the Swiss floors above)
+    if (this.method !== 'v1' && p.softFloors) { var sf = p.softFloors; for (c in sf) { var f0 = Array.isArray(sf[c]) ? sf[c][0] : sf[c], k0 = Array.isArray(sf[c]) ? sf[c][1] : 0.5; if (fin(cats[c]) && cats[c] < f0) score -= (f0 - cats[c]) * k0; } }
     if (this.method !== 'v1' && key !== LOTTERY) { var tw0 = 0, pen = 0; for (c in w) tw0 += w[c]; for (c in w) if (w[c] / tw0 >= 0.15 && fin(cats[c]) && cats[c] < 50 && !px[c]) pen += w[c] / tw0 * (50 - cats[c]) * 1.5; score = Math.max(0, score - pen); }
     if (r.country !== 'CH') {
       var sourceCount = Number(r.availableFactorCount || Object.keys(r.factorScores || {}).length || 0);
@@ -266,6 +295,59 @@
     return { score: score, coverage: coverage, weighted: tw ? Math.round(have / tw * 100) : 0, measured: measured, cats: cats, thin: this.method !== 'v1' && (measured < 50 || strictCov < 55) };
   };
 
+
+  /* Evidence model 1.0. Declared weights never migrate to available factors.
+     score is the supported lower bound, not a claim that missing values are zero.
+     upper is the unresolved bound. No country-specific confidence multiplier. */
+  Engine.prototype.scoreEvidence = function (r, key, minCoverage, country) {
+    var p = this.profiles[key]; if (!p || p.disabled) return null;
+    var cats = this.categoriesFor(r, key), w = this.weightsFor(r, key);
+    var num = 0, unresolved = 0, total = 0, observed = 0, measured = 0, detail = [];
+    var px = r._proxy || {}, self = this;
+    // These are preferences or proxies, never observations of actual service access.
+    var modelled = {services:1,city:1,climate:1,climaterisk:1,quiet:1,foundation:1};
+    Object.keys(w).forEach(function(c) {
+      var wc = Number(w[c]); if (!fin(wc) || wc <= 0) return; total += wc;
+      var value = fin(cats[c]) ? clamp(cats[c],0,100) : null, fraction = value === null ? 0 : 1;
+      if (c === 'quiet' && p.avoid && p.avoid.length) {
+        var nz = self.nuisances(r,p.avoid); fraction = nz ? nz.known / nz.requested : 0;
+      }
+      if (c === 'focus' && p.focus) {
+        var all=0,have=0; Object.keys(p.focus).forEach(function(k){var q=Math.abs(p.focus[k]);all+=q;if(fin((r.factorScores||{})[k])&&!(self.cfg.semanticIntegrity&&p.business&&/^(geo_catchment|working_age|at_working|n_(house|flat|home|rent|price|ch_price))/.test(k)))have+=q;}); fraction=all?have/all:0;
+      }
+      if(c==='freight'){var xx=r.x||{};fraction=(fin(xx.mway_km)?.5:0)+(fin(xx.rail_km)?.3:0)+(fin(portKm(xx))?.2:0);}
+      var known = wc*fraction, contribution = value===null ? 0 : value*known;
+      observed += known; if (!px[c] && !modelled[c]) measured += known;
+      num += contribution; unresolved += wc-known;
+      detail.push({category:c,weight:wc,value:value,knownWeight:known,points:contribution/100,
+        evidence:value===null?'missing':px[c]||modelled[c]?'modelled':'observed',
+        missingReason:value===null?'No compatible observation supplied':fraction<1?'Incomplete components':null});
+    });
+    if (!total || !observed) return null;
+    var lower = num/total, upper = (num+100*unresolved)/total;
+    var coverage = observed/total*100, measuredCoverage=measured/total*100;
+    // Penalties operate on both endpoints and stay visible as a separate model adjustment.
+    var penalty=0; detail.forEach(function(d){d.points=d.value===null?0:d.value*d.knownWeight/total;});
+    lower=clamp(lower-penalty,0,100);upper=clamp(upper-penalty,lower,100);
+    if (coverage < (key === LOTTERY ? 6 : 8)) return null;
+    return {score:lower,lower:lower,upper:upper,penalty:penalty,coverage:Math.round(coverage),
+      weighted:Math.round(coverage),measured:Math.round(measuredCoverage),cats:cats,
+      thin:measuredCoverage<50||coverage<55,contributions:detail,missingWeight:unresolved/total*100,
+      model:'evidence-fixed-1',scoreMeaning:'supported lower bound',
+      evidenceStatus:unresolved>0?'incomplete':'complete-inputs-not-empirical-validation'};
+  };
+  Engine.prototype.scoreLegacyRaw = Engine.prototype.scoreRaw;
+  Engine.prototype.scoreRaw = function (r,key,minCoverage,country) {
+    return this.method !== 'v1' && this.evidence === 'fixed' ? this.scoreEvidence(r,key,minCoverage,country) : this.scoreLegacyRaw(r,key,minCoverage,country);
+  };
+  Engine.prototype.explainEvidence = function (r,key) {
+    var x=this.scoreRaw(r,key,0,r.country);if(!x)return null;
+    return {profile:key,model:x.model||this.method,data:this.meta.v,country:r.country,
+      comparison:'within-country:'+r.country,score:x.score,upper:x.upper==null?x.score:x.upper,
+      coverage:x.coverage,measured:x.measured,contributions:x.contributions||[],
+      readiness:this.profiles[key].must?this.mustStatus(r,this.profiles[key]):[],
+      validation:(this.cfg.profileEvidence||{})[key]||{status:'not-empirically-validated'}};
+  };
   Engine.prototype.shortCat = function (k) {
     var L = this.meta.categoryLabels[k] || k;
     return L.replace('Environment and climate', 'Green space').replace('Affordability', 'Costs').replace('Jobs and economy', 'Jobs')
@@ -355,10 +437,10 @@
     air_quality: function (r, x) { var s = (r.factorScores || {}).n_pm25; return fin(s) ? [Math.max(0, 50 - s), s] : null; }
   };
   Engine.prototype.nuisances = function (r, list) {
-    var x = r.x || {}, hits = [], any = false, mx = 0, sum = 0;
-    (list || []).forEach(function (k) { var f = NZ_RULES[k], v = f && f(r, x); if (!v) return; any = true; var pen = Math.round(v[0]); if (pen > 0) hits.push({ k: k, pen: pen, d: v[1] }); mx = Math.max(mx, pen); sum += pen; });
+    var x = r.x || {}, hits = [], any = false, mx = 0, sum = 0, known = 0;
+    (list || []).forEach(function (k) { var f = NZ_RULES[k], v = f && f(r, x); if (!v) return; any = true; known++; var pen = Math.round(v[0]); if (pen > 0) hits.push({ k: k, pen: pen, d: v[1] }); mx = Math.max(mx, pen); sum += pen; });
     if (!any) return null;
-    return { score: Math.max(0, Math.round(100 - Math.min(100, mx + 0.5 * (sum - mx)))), hits: hits.sort(function (a, b) { return b.pen - a.pen; }) };
+    return { known: known, requested: (list || []).length, score: Math.max(0, Math.round(100 - Math.min(100, mx + 0.5 * (sum - mx)))), hits: hits.sort(function (a, b) { return b.pen - a.pen; }) };
   };
 
   Engine.prototype.factorValue = function (r, f) {
@@ -378,9 +460,9 @@
       if (!s) { reasons['coverage'] = (reasons['coverage'] || 0) + 1; continue; }
       var why = this.eligibilityFail(r, key, country);
       if (why) { reasons[why] = (reasons[why] || 0) + 1; continue; }
-      out.push({ r: r, id: r.id, overall: s.score, coverage: s.coverage, weighted: s.weighted, measured: s.measured, thin: !!s.thin, catScores: s.cats, sourceConfidence: r.sourceConfidence, _i: i, must: this.profiles[key].must ? this.mustStatus(r, this.profiles[key]) : null });
+      out.push({ r: r, id: r.id, overall: s.score, coverage: s.coverage, weighted: s.weighted, measured: s.measured, thin: !!s.thin, upper: s.upper, scoreMeaning: s.scoreMeaning, model: s.model, catScores: s.cats, sourceConfidence: r.sourceConfidence, _i: i, must: this.profiles[key].must ? this.mustStatus(r, this.profiles[key]) : null });
     }
-    out.sort(function (a, b) { return (a.thin - b.thin) || (b.overall - a.overall) || (b.sourceConfidence - a.sourceConfidence) || (a._i - b._i); });
+    out.sort(function (a, b) { return (self.evidence==='fixed' ? ((b.overall-a.overall)||(b.coverage-a.coverage)||a.id.localeCompare(b.id)) : ((a.thin-b.thin)||(b.overall-a.overall)||(b.sourceConfidence-a.sourceConfidence)||(a._i-b._i))); });
     out.forEach(function (x, i) { x.rank = i + 1; });
     var res = { scored: out, reasons: reasons, categoryRanks: {}, factorRanks: {} };
     if (opts.subRanks !== false) this.computeRanks(res);

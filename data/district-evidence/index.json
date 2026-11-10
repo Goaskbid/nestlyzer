@@ -1,0 +1,211 @@
+{
+  "schema": "district-evidence-1",
+  "geography_warning": "Brussels means the 19 Brussels-Capital municipalities, not sub-city districts of the City of Brussels.",
+  "cities": [
+    {
+      "id": "lyon",
+      "country": "FR",
+      "official_units_expected": 9,
+      "units_with_observations": 9,
+      "observations": 171,
+      "owner_approval_matches": true,
+      "source_sha256": "8cac1480e3a44bdc1d63db96d3eb99672fff0456beca2ccb6213171f4379c41f",
+      "boundary_ready": false,
+      "topics": {
+        "safety": {
+          "rows": 0,
+          "units": 0,
+          "status": "not supplied; not zero"
+        },
+        "transport": {
+          "rows": 0,
+          "units": 0,
+          "status": "not supplied; not zero"
+        },
+        "childcare": {
+          "rows": 0,
+          "units": 0,
+          "status": "not supplied; not zero"
+        }
+      },
+      "observations_url": "/data/district-evidence/lyon.json",
+      "boundary_rights": "Green"
+    },
+    {
+      "id": "marseille",
+      "country": "FR",
+      "official_units_expected": 16,
+      "units_with_observations": 16,
+      "observations": 304,
+      "owner_approval_matches": true,
+      "source_sha256": "122a325a21497734d74f6c81e13787e5360c69b8ec042ab6592a5b91d6fe6478",
+      "boundary_ready": false,
+      "topics": {
+        "safety": {
+          "rows": 0,
+          "units": 0,
+          "status": "not supplied; not zero"
+        },
+        "transport": {
+          "rows": 0,
+          "units": 0,
+          "status": "not supplied; not zero"
+        },
+        "childcare": {
+          "rows": 0,
+          "units": 0,
+          "status": "not supplied; not zero"
+        }
+      },
+      "observations_url": "/data/district-evidence/marseille.json",
+      "boundary_rights": "Green"
+    },
+    {
+      "id": "hamburg",
+      "country": "DE",
+      "official_units_expected": 7,
+      "units_with_observations": 7,
+      "observations": 140,
+      "owner_approval_matches": true,
+      "source_sha256": "c7994935f4cdfdb9e3dc45d0f6e305165080d30e7cd97e8726eb7631b1ab79e4",
+      "boundary_ready": false,
+      "topics": {
+        "safety": {
+          "rows": 42,
+          "units": 7,
+          "status": "published observations"
+        },
+        "transport": {
+          "rows": 0,
+          "units": 0,
+          "status": "not supplied; not zero"
+        },
+        "childcare": {
+          "rows": 0,
+          "units": 0,
+          "status": "not supplied; not zero"
+        }
+      },
+      "observations_url": "/data/district-evidence/hamburg.json",
+      "boundary_rights": "Green"
+    },
+    {
+      "id": "brussels",
+      "country": "BE",
+      "official_units_expected": 19,
+      "units_with_observations": 19,
+      "observations": 1444,
+      "owner_approval_matches": true,
+      "source_sha256": "8706d836c2a5db6be4a8632df24ff30a075f199c466b5694708e6d4284d9b2d4",
+      "boundary_ready": false,
+      "topics": {
+        "safety": {
+          "rows": 0,
+          "units": 0,
+          "status": "not supplied; not zero"
+        },
+        "transport": {
+          "rows": 0,
+          "units": 0,
+          "status": "not supplied; not zero"
+        },
+        "childcare": {
+          "rows": 38,
+          "units": 19,
+          "status": "published observations"
+        }
+      },
+      "observations_url": "/data/district-evidence/brussels.json",
+      "boundary_rights": "Green"
+    },
+    {
+      "id": "rome",
+      "country": "IT",
+      "official_units_expected": 15,
+      "units_with_observations": 0,
+      "observations": 0,
+      "owner_approval_matches": false,
+      "source_sha256": null,
+      "boundary_ready": false,
+      "topics": {
+        "safety": {
+          "rows": 0,
+          "units": 0,
+          "status": "not supplied; not zero"
+        },
+        "transport": {
+          "rows": 0,
+          "units": 0,
+          "status": "not supplied; not zero"
+        },
+        "childcare": {
+          "rows": 0,
+          "units": 0,
+          "status": "not supplied; not zero"
+        }
+      },
+      "observations_url": "/data/district-evidence/rome.json",
+      "boundary_rights": "Yellow"
+    },
+    {
+      "id": "madrid",
+      "country": "ES",
+      "official_units_expected": 21,
+      "units_with_observations": 0,
+      "observations": 0,
+      "owner_approval_matches": false,
+      "source_sha256": null,
+      "boundary_ready": false,
+      "topics": {
+        "safety": {
+          "rows": 0,
+          "units": 0,
+          "status": "not supplied; not zero"
+        },
+        "transport": {
+          "rows": 0,
+          "units": 0,
+          "status": "not supplied; not zero"
+        },
+        "childcare": {
+          "rows": 0,
+          "units": 0,
+          "status": "not supplied; not zero"
+        }
+      },
+      "observations_url": "/data/district-evidence/madrid.json",
+      "boundary_rights": "Green"
+    },
+    {
+      "id": "milan",
+      "country": "IT",
+      "official_units_expected": 9,
+      "units_with_observations": 0,
+      "observations": 0,
+      "owner_approval_matches": false,
+      "source_sha256": null,
+      "boundary_ready": false,
+      "topics": {
+        "safety": {
+          "rows": 0,
+          "units": 0,
+          "status": "not supplied; not zero"
+        },
+        "transport": {
+          "rows": 0,
+          "units": 0,
+          "status": "not supplied; not zero"
+        },
+        "childcare": {
+          "rows": 0,
+          "units": 0,
+          "status": "not supplied; not zero"
+        }
+      },
+      "observations_url": "/data/district-evidence/milan.json",
+      "boundary_rights": "Green"
+    }
+  ],
+  "retained_observations": 2059,
+  "new_observations": 0
+}

@@ -1,0 +1,3 @@
+# Standard-library adapters work without additional packages.
+# pyarrow is needed only for INSEE Parquet mode, not the CSV ZIP mode.
+pyarrow>=18.0.0

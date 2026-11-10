@@ -25,7 +25,7 @@ def source_files():
             dirs[:] = sorted(x for x in dirs if x not in SKIP_PARTS)
             for f in sorted(files):
                 rel = os.path.relpath(os.path.join(base, f), ROOT).replace(os.sep, '/')
-                if f in SKIP_PARTS or rel in GENERATED or f.endswith('.pyc'):
+                if f in SKIP_PARTS or rel in GENERATED or rel.startswith(('data/place-detail/', 'assets/app.', 'assets/place.', 'assets/seo-', 'assets/ranks.')) or f.endswith('.pyc'):   # 2.15.16: build outputs
                     continue
                 out.append(rel)
     return out

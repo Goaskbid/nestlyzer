@@ -224,11 +224,11 @@ function renderPlace() {
     '<div class="scroll" id="placescroll"><div class="ph-hero" data-hero="' + esc(r.id) + '" data-postcard="' + esc(r.id) + '" data-w="480" data-h="240"><div class="shade"></div><button class="ph-count" type="button" data-ptab="photos" hidden>📷 <span></span></button><div class="ttl"><span class="ctry">' + flagImg(r.country, 12) + ' ' + esc(countryName(r.country)) + '</span><h2>' + esc(r.name) + '</h2>' + (r.latin ? '<div class="latin">' + esc(r.latin) + '</div>' : '') + '<div class="sub">' + esc(localAreaOf(r)) + ', ' + popLabel(r) + '</div></div></div>' +
     '<div class="pstrip" data-pstrip="' + esc(r.id) + '"></div>' +
     '<div class="pbody">' +
-    '<div class="ids" data-ids="' + esc(r.id) + '"></div>' +
+    '<div class="ids" data-ids="' + esc(r.id) + '">' + flagImg(r.country) + '<button class="chip" type="button" data-arms="' + esc(r.id) + '">Load coat of arms</button></div>' +
     '<div class="scorebox">' + scoreRing(x.overall, 96) +
     '<div class="metrics">' +
     (ranked ? '<div class="metric"><span>Rank</span><b>#' + fmtInt(ranked.rank) + '</b><small>of ' + fmtInt(RES.scored.length) + '</small></div>' : '<div class="metric"><span>Rank</span><b>–</b><small>not ranked</small></div>') +
-    '<button class="metric depth-' + dk[0] + '" type="button" data-def="depthplace"><span>Data depth</span><b>' + esc(dk[1].replace(' data', '')) + '</b><small>' + fmt(r.sourceConfidence) + '% conf.' + (fin(x.measured) ? ', ' + x.measured + '% measured' : '') + '</small></button>' +
+    '<button class="metric depth-' + dk[0] + '" type="button" data-def="depthplace"><span>Data depth</span><b>' + esc(dk[1].replace(' data', '')) + '</b><small>' + fmt(x.weighted) + '% inputs' + (fin(x.measured) ? ', ' + x.measured + '% measured' : '') + '</small></button>' +
     '</div></div>' +
     '<div class="inputs">Inputs: ' + esc(inputLabel(r)) + '</div>' + NZ_NOTE + (NZ_CNOTE[r.country] || '') +
     (why ? '<p class="small" style="margin:0;color:var(--bad)">' + esc(why) + '</p>' : '') +

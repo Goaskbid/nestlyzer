@@ -103,7 +103,8 @@ var FPLAIN = {
 function catEvidence(r, cat, good) {
   var best = null;
   ENGINE.allFactors.forEach(function (f) {
-    if (f.category !== cat || /^common_|^geo_/.test(f.id)) return;
+    if (f.category !== cat || /^common_|^geo_/.test(f.id) || f.score_role === 'historical_context') return;
+    var allowed = META.config.evidenceCategoryAllow && META.config.evidenceCategoryAllow[cat]; if (allowed && allowed.indexOf(f.id) < 0) return;
     var v = ENGINE.factorValue(r, f); if (!fin(v)) return;
     var raw = (r.factorRaw || {})[f.id], lv = (r.factorLevel || {})[f.id] || 0, loc = lv === 0 || lv === 3 ? 1 : 0;
     if (lv === 9) return;   // a national figure is the same for every place in the country: never evidence for one place
@@ -114,7 +115,7 @@ function catEvidence(r, cat, good) {
   var p = Math.round(best.v), pl = FPLAIN[best.f.id], name = pl ? pl[best.v >= 50 ? 0 : 1] : best.f.name.replace(/ proxy$/i, '').replace(/ balance$/i, '').toLowerCase();
   var u = best.f.unit && !/score/.test(best.f.unit) ? best.f.unit : '';
   var rawTxt = fin(best.raw) && u === 'km' && best.raw < 0.5 ? ' (in the place itself)' : fin(best.raw) ? ' (' + fmt(best.raw, Math.abs(best.raw) < 100 ? 1 : 0) + (u ? (u.charAt(0) === '%' || u.charAt(0) === '‰' ? '' : ' ') + u : '') + ')' : '';
-  if ((best.lv === 2 || best.lv === 1) && !/region|district/i.test(name)) rawTxt += ' in the region'; else if (best.lv === 9 && !/national/i.test(name)) rawTxt += ' nationally';
+  if ((best.lv === 2 || best.lv === 1) && !/region|district/i.test(name)) rawTxt += ' in the region'; else if (best.lv === 3 && !/county|district/i.test(name)) rawTxt += ' in the county or district, not the municipality'; else if (best.lv === 9 && !/national/i.test(name)) rawTxt += ' nationally';
   var tp = truePct(r, best.f.id, function (x) { return ENGINE.factorValue(x, best.f); });
   if (tp == null) return name + rawTxt + ' (model score ' + p + ' of 100)';
   return name + rawTxt + (tp >= 50 ? ', better than about ' + pctTxt(tp) : ', weaker than about ' + pctTxt(100 - tp)) + '% of ' + demonym(r.country) + ' ' + unitWord(r.country);
@@ -126,7 +127,7 @@ function geoEvidence(r, cat) {
   if (cat === 'student_access' && r.geo && r.geo.studentAnchor) return stripParen(r.geo.studentAnchor).split(',')[0] === stripParen(r.name).split(',')[0] ? 'it is a university town itself' : 'the nearest campus town is ' + r.geo.studentAnchor;
   if (cat === 'jobs' && fin(fr.geo_catchment_30km)) return fmtInt(fr.geo_catchment_30km) + ' people live within 30 km';
   var d10 = fr.geo_density10_km2;
-  if ((cat === 'environment' || cat === 'affordability') && fin(d10) && !fin(r.density)) return 'about ' + fmtInt(d10) + ' people per km² live within 10 km' + (cat === 'affordability' ? ', a good guide to land and housing pressure' : '');
+  if (cat === 'environment' && fin(d10) && !fin(r.density)) return 'about ' + fmtInt(d10) + ' people per km² live within 10 km; this is density, not measured environmental quality';
   if (cat === 'foundation') { var g = growth5(r); if (g == null && !fin(r.density)) return 'it has ' + fmtInt(r.popNow) + ' residents' + (r.popYear ? ' (' + r.popYear + ')' : '') + (fin(d10) ? ' and about ' + fmtInt(d10) + ' people per km² within 10 km' : ''); return (g == null ? 'it has ' + fmtInt(r.popNow) + ' residents' + (r.popYear ? ' (' + r.popYear + ')' : '') : 'the population ') + (g == null ? '' : g >= 0 ? 'grew ' + fmt(g, 1) + '% in five years' : 'shrank ' + fmt(-g, 1) + '% in five years') + (fin(r.density) ? ', with ' + fmtInt(r.density) + ' residents per km²' : ''); }
   return null;
 }

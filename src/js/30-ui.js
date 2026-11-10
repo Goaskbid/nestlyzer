@@ -152,17 +152,18 @@ function renderDepthNote() {
     '<b>' + esc(dk[1]) + '.</b> ' + esc(dk[2]) + (cm.measuredFactors ? ' A typical place here has ' + cm.measuredFactors + ' measured official figures; open a place and choose \u201cAll data\u201d to see each one with its source.' : '');
   var p = profileDef(S.profile);
   var cov = RES && RES.scored.length ? Math.round(RES.scored.reduce(function (a, x) { return a + (fin(x.measured) ? x.measured : 0); }, 0) / RES.scored.length) : null;
-  el.innerHTML = '<details class="dn"><summary>' + flagImg(S.cc) + ' <span>' + esc(depthKind(S.cc)[1]) + ' for ' + esc(countryName(S.cc)) + '</span><span class="muted"> · what is in the score?</span></summary><p>' + depth + (cov != null ? ' On average ' + cov + '% of what ' + esc(p.name) + ' weighs is measured for these places from official local and regional statistics; the rest is modelled from population and location.' : '') + ' <button class="info" type="button" data-def="method" aria-label="How scores work">i</button></p></details>';
+  el.innerHTML = '<details class="dn"><summary>' + flagImg(S.cc) + ' <span>' + esc(depthKind(S.cc)[1]) + ' for ' + esc(countryName(S.cc)) + '</span><span class="muted"> · what is in the score?</span></summary><p>' + depth + (cov != null ? ' On average ' + cov + '% of what ' + esc(p.name) + ' weighs is measured for these places from official local and regional statistics; other weight is modelled, proxied or unresolved; unresolved weight does not transfer to known factors.' : '') + ' <button class="info" type="button" data-def="method" aria-label="How scores work">i</button></p></details>';
   var db = $('#depthbadge'); if (db) { var k = depthKind(S.cc); db.innerHTML = '<button class="dbadge ' + k[0] + '" type="button" data-def="depth" title="' + esc(k[2]) + '">' + esc(k[1]) + '</button>'; }
 }
 function renderResultsHead() {
   var rn = $('#rnote'); if (rn && !rn.firstChild) rn.innerHTML = NZ_NOTE_S;   // 2.13.3 advice notice above the results (kept out of the start-page HTML for its size budget)
   var n = RES ? RES.scored.length : 0;
   var hidden = RES ? SCOPE.length - n : 0;
-  $('#rcount').innerHTML = RES ? fmtInt(n) + ' of ' + fmtInt(SCOPE.length) + (SCOPE.length === 1 ? ' place fits' : ' places fit') + (hidden > 0 ? ' · <button class="linkbtn" type="button" data-showall>' + (S.showAll ? 'hide the other ' + fmtInt(hidden) : 'why not the other ' + fmtInt(hidden) + '?') + '</button>' : '') : '';
+  $('#rcount').innerHTML = RES ? fmtInt(n) + ' of ' + fmtInt(SCOPE.length) + (SCOPE.length === 1 ? ' place screened' : ' places screened') + (hidden > 0 ? ' · <button class="linkbtn" type="button" data-showall>' + (S.showAll ? 'hide the other ' + fmtInt(hidden) : 'why not the other ' + fmtInt(hidden) + '?') + '</button>' : '') : '';
   var mh = $('#musthead'); if (mh) mh.innerHTML = isBizKey(S.profile) ? 'Requirements to confirm on site: <button class="chip" type="button" data-unknownmust="flag" aria-pressed="' + !S.unknownExclude + '">flag them</button> <button class="chip" type="button" data-unknownmust="exclude" aria-pressed="' + !!S.unknownExclude + '">leave them out</button>' : '';
   var gs = $('#gscope'); if (gs) gs.innerHTML = [['', countryName(S.cc)], ['europe', 'Europe'], ['americas', 'Americas'], ['asia_pacific', 'Asia-Pacific'], ['mideast_africa', 'Middle East and Africa'], ['world', 'World']].map(function (g) { return '<button type="button" data-gscope="' + g[0] + '" aria-pressed="' + ((S.gscope || '') === g[0]) + '">' + esc(g[1]) + '</button>'; }).join('');
-  var lg = $('#rlegend'); if (lg) lg.innerHTML = '<i class="tone-good"></i>70+ strong <i class="tone-mid"></i>50–69 <i class="tone-bad"></i>under 50, for ' + esc(profileName(S.profile).toLowerCase()) + ' · #12 = rank on that criterion';
+  var lg = $('#rlegend'); if (lg) lg.innerHTML = '<i class="tone-good"></i>Supported points: 70+ <i class="tone-mid"></i>50 to 69 <i class="tone-bad"></i>under 50, for ' + esc(profileName(S.profile).toLowerCase()) + ' · #12 = rank on that criterion';
+  var ea=$('#nz-evidence-actions');if(!ea){ea=document.createElement('div');ea.id='nz-evidence-actions';ea.className='pills';$('#rcount').parentNode.appendChild(ea);}ea.innerHTML='<button class="chip" data-multi-area>Several areas</button><button class="chip" data-evidence>Evidence behind this profile</button><button class="chip" data-district-evidence>District evidence</button>'+(['pensioner','single_pensioner','early_retiree','healthcare_first'].indexOf(S.profile)>=0?'<button class="chip" data-retirement-hotspots>Observed retirement hotspots</button>':'');
   $('#scopename').innerHTML = esc(scopeName()) + (S.lang ? ' <button class="chip langchip" type="button" data-droplang title="Remove the language filter">' + esc(LANG_NAMES[S.lang]) + '-speaking only ✕</button>' : '');
 }
 /* 2.13: the leader on a criterion wears the crown, second and third a medal (rank inside the scope in view) */
@@ -233,7 +234,7 @@ function rowHTML(x) {
   var tl = trendLine(r);
   return '<li class="row" data-id="' + esc(x.id) + '" tabindex="0" aria-current="' + (S.selected === x.id) + '">' +
     '<span class="rk" title="Rank for this profile">' + x.rank + '</span>' +
-    '<div><div class="nm">' + esc(r.name) + '</div><div class="meta">' + esc(localAreaOf(r)) + (isWorld(r.country) || inEurope(r) ? '' : ' (overseas)') + ', ' + fmtInt(r.popNow) + ' residents, ' + fmt(r.sourceConfidence) + '% confidence' + (fin(x.measured) && assessKind(x)[0] !== 'assessed' ? ' · <span class="assess ' + assessKind(x)[0] + '" title="' + esc(evidenceLine(x)) + '">' + esc(assessKind(x)[1]) + '</span>' : '') + '</div>' +
+    '<div><div class="nm">' + esc(r.name) + '</div><div class="meta">' + esc(localAreaOf(r)) + (isWorld(r.country) || inEurope(r) ? '' : ' (overseas)') + ', ' + fmtInt(r.popNow) + ' residents, ' + fmt(x.weighted) + '% of profile inputs covered' + (fin(x.measured) && assessKind(x)[0] !== 'assessed' ? ' · <span class="assess ' + assessKind(x)[0] + '" title="' + esc(evidenceLine(x)) + '">' + esc(assessKind(x)[1]) + '</span>' : '') + '</div>' +
     '<div class="subs">' + cats + '</div><div class="subs f">' + facs + '</div>' + mustHTML(x) + (tl && !x.must ? '<div class="trend">' + esc(tl) + '</div>' : '') + '</div>' +
     '<div class="right">' + scoreBadge(x.overall) + nestBars(x) + '<span class="rowacts">' + saveBtn(x.id, true) + hideBtn(x.id) + '</span></div></li>';
 }
@@ -313,7 +314,7 @@ function defineTerm(key) {
   if (key === 'depthplace') { var r = selected(), x = r && placeX(r), kk = depthKind(r ? r.country : S.cc); return toast('Data depth: ' + kk[1], kk[2] + ' Confidence ' + (r ? fmt(r.sourceConfidence) : '–') + '% says how solid the sources are. ' + (x && fin(x.weighted) ? evidenceLine(x) + '. ' + assessKind(x)[1] + ': ' + assessKind(x)[2] : 'No score for this profile here.')); }
   if (key === 'grank') return moreLoad().then(function (X) { toast('Rankings across countries', X.GRANK_TEXT); });
   if (key === 'confidence') return toast('Confidence', T.confidence);
-  if (key === 'coverage') return toast('Data behind the score', "Official statistics: the share of this profile's weight backed by official figures for the place or its region. Modelled: criteria estimated from population and location, which count half. Detailed local data means at least 60% official statistics; a regional overview means under 30%. None of these numbers is a probability.");
+  if (key === 'coverage') return toast('Data behind the score', "Coverage is the available share of this profile's declared weight. Missing weight is not redistributed. Supported points and unresolved input ranges are not probabilities. Observed source data, model transformations and profile-specific outcomes are explained separately.");
   toast(catLabel(key), T[key] || T.score);
 }
 /* 2.12.2: every window opens at its start (top, left edge), never where an earlier window was scrolled */

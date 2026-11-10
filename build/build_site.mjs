@@ -12,14 +12,27 @@ import { worldPage } from './world_page.mjs';
 import { policyPages } from './policy_pages.mjs';
 const require = createRequire(import.meta.url);
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+require('./apply_evidence_policy.cjs')(ROOT);
+// The native builder and the all-place expansion run in separate processes.
+// This bounds peak memory on 4 GiB machines and prevents the parent retaining every rank.
+const needFullSEO=process.env.NZ_FULL_SEO==='1'||(process.env.NZ_FULL_SEO!=='0'&&fs.existsSync(path.join(ROOT,'build/seo.enabled')));
+if(needFullSEO&&process.env.NZ_NATIVE_ONLY!=='1'){
+ const {spawnSync}=await import('node:child_process');
+ const steps=[{args:['--expose-gc',fileURLToPath(import.meta.url)],env:{...process.env,NZ_NATIVE_ONLY:'1'}},{args:['--expose-gc','build/seo_expand.mjs','--root','.','--out','.','--cache','.cache/seo'],env:process.env},{args:['build/fingerprint_data.mjs'],env:process.env}];
+ for(const step of steps){const r=spawnSync(process.execPath,step.args,{cwd:ROOT,stdio:'inherit',env:step.env});if(r.status!==0){console.error('Build stage failed',step.args[0],r.signal||r.status);process.exit(r.status||1);}}
+ process.exit(0);
+}
 validateEmblems(ROOT);
-const terser = require('terser');
-const esbuild = require('esbuild');
-const topojson = require('topojson-client');
+const OFFLINE_BUILD = process.env.NZ_OFFLINE_BUILD === '1';
+const offlineTools = OFFLINE_BUILD ? require('./offline_tools.cjs') : null;
+const terser = OFFLINE_BUILD ? offlineTools.terser : require('terser');
+const esbuild = OFFLINE_BUILD ? offlineTools.esbuild : require('esbuild');
+const topojson = OFFLINE_BUILD ? require('../vendor/topojson-client.min.js') : require('topojson-client');
+if (OFFLINE_BUILD) console.log('Build backend: audited token-preserving offline tools; no mangling; original geometry retained.');
 const Engine = require(path.join(ROOT, 'src/engine.js'));
 const NestData = require(path.join(ROOT, 'src/data.js'));
 
-const VERSION = process.env.NZ_VERSION || '2.15.15';
+const VERSION = process.env.NZ_VERSION || '2.15.16';
 const SITE = 'https://nestlyzer.com';
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
 /* Static pages: emoji in text become our inline line icons at build time (2.10.1); the app swaps the rest at run time. */
@@ -51,18 +64,31 @@ const TODAY = new Date().toISOString().slice(0, 10);
 // ------------------------------------------------------------------ data
 const meta = JSON.parse(read('data/meta.json'));
 const engine = new Engine(meta, { method: 'v2' });
+// Immutable build-time memoization only; the browser retains content-sensitive invalidation.
+{const fn=engine.categories.bind(engine),memo=new WeakMap();engine.categories=r=>{if(!memo.has(r))memo.set(r,fn(r));return memo.get(r);};}
 const cfg = meta.config;
 const countries = meta.countries.slice().sort((a, b) => a.name.localeCompare(b.name));   // 2.15: no country pinned first (global site)
 const SH = {};
 const KG = { Csa: 'Mediterranean, hot summer', Csb: 'Mediterranean, warm summer', Cfa: 'Humid subtropical', Cfb: 'Oceanic', Cfc: 'Subpolar oceanic', Dfa: 'Continental, hot summer', Dfb: 'Continental, warm summer', Dfc: 'Subarctic', Dsb: 'Continental, dry warm summer', Dsc: 'Subarctic, dry summer', BSh: 'Hot semi-arid', BSk: 'Cold semi-arid', BWh: 'Hot desert', BWk: 'Cold desert', ET: 'Alpine tundra', EF: 'Ice cap' };
-for (const c of countries) {
+let loadedCountry=null;
+const thinCountries=Object.create(null);
+function thinRecord(r) {
+ const z={};for(const k of ['id','oid','official_id','country','countryName','name','officialName','latin','rc','n1','n2','n3','population','popNow','popYear','area_km2','density','lat','lon','sourceConfidence','availableFactorCount','dataReadiness','canton','cantonName','region_code','region','whole','geo','x','trend'])if(r[k]!==undefined)z[k]=r[k];return z;
+}
+function thinRows(rows, lookup){return rows.map(x=>({id:x.id,r:lookup.get(x.r.id),rank:x.rank,overall:x.overall,coverage:x.coverage,upper:x.upper,thin:x.thin}));}
+function loadCountry(cc) {
+  if (loadedCountry?.cc === cc) return loadedCountry.value;
+  const c = countries.find(x=>x.cc===cc);
   const sh = JSON.parse(read(`data/c/${c.cc}.json`)), all = NestData.hydrate(sh);
   const xs = JSON.parse(read(`data/x/${c.cc}.json`));
   if (!xs || !xs.cols || !Array.isArray(xs.strs) || Object.values(xs.cols).some(a => !Array.isArray(a) || a.length !== all.length)) throw Error('Invalid required supplement: '+c.cc);
   if (xs) { const NM = { kg: 1, lake: 1, river: 1, port: 1, iport: 1, mport: 1, chem: 1, border: 1, metro: 1, land: 1, sea: 1, shore: 1 }; all.forEach((r, i) => { const o = {}; for (const k in xs.cols) { const v = xs.cols[k][i]; if (v != null) o[k] = NM[k] ? xs.strs[v] : v; } r.x = o; }); }
   if (sh.world && sh.world.whole) { const wh = new Set(sh.world.whole.map(String)); all.forEach((r) => { if (wh.has(String(r.oid))) r.whole = true; }); }
-  SH[c.cc] = { sh, recs: all.filter((r) => !r.superseded), capital: xs && xs.capital };
+  const value = { sh: {nuts:sh.nuts}, recs: all.filter((r) => !r.superseded), capital: xs && xs.capital };
+  loadedCountry={cc,value};return value;
 }
+for(const c of countries) Object.defineProperty(SH,c.cc,{enumerable:true,get(){return thinCountries[c.cc]||loadCountry(c.cc);}});
+
 const profiles = [...cfg.order, ...(cfg.hhDormant || []).filter((k) => k === 'single')].filter((k) => engine.profiles[k]);   // 2.15.5: 'single' was merged but its country pages stay (their URLs are indexed)
 const WORLD = cfg.worldCountries || [];
 const CONTINENTS = [['North America', ['CA', 'MX', 'US']], ['Central America', ['CR', 'PA']], ['South America', ['AR', 'BR', 'CL', 'CO', 'UY']], ['Asia', ['CN', 'HK', 'IN', 'ID', 'JP', 'KZ', 'MY', 'PH', 'KR', 'SG', 'TW', 'TH', 'VN']], ['Oceania', ['AU', 'NZ']], ['Middle East', ['IL', 'QA', 'SA', 'AE']], ['Africa', ['EG', 'MA', 'ZA']]];
@@ -139,26 +165,24 @@ const FAST = !!process.env.NZ_FAST;
 const FULLSEO = process.env.NZ_FULL_SEO === '1' || (process.env.NZ_FULL_SEO !== '0' && fs.existsSync(path.join(ROOT, 'build/seo.enabled')));
 if (FAST && FULLSEO) throw new Error('NZ_FAST is not a complete SEO build');
 console.time('rank');
-const RANK = {};      // RANK[cc][profile] = {byId:{id:{rank,score}}, n, list}
-const RRANK = {};     // RRANK[cc][regionCode][profile]
+const RANK = {}, RRANK = {};
+function packedRanks(scored, idx){
+ const ranks=new Uint32Array(idx.size),scores=new Float64Array(idx.size);
+ for(const x of scored){const i=idx.get(x.id);ranks[i]=x.rank;scores[i]=x.overall;}
+ return new Proxy(Object.create(null),{get(_,id){const i=idx.get(id);return i!==undefined&&ranks[i]?{rank:ranks[i],score:scores[i]}:undefined;}});
+}
 for (const c of (FAST ? [] : countries)) {
-  const recs = SH[c.cc].recs;
-  RANK[c.cc] = {}; RRANK[c.cc] = {};
-  for (const p of profiles) {
-    const res = engine.rank(recs, p, { country: c.cc, subRanks: false });
-    const byId = {}; res.scored.forEach((x) => { byId[x.id] = { rank: x.rank, score: x.overall }; });
-    RANK[c.cc][p] = { byId, n: res.scored.length, list: res.scored.slice(0, 40), reasons: res.reasons };
-  }
-  const regs = {};
-  for (const r of recs) { const g = regionOf(r); if (g) (regs[g.code] ||= { reg: g, recs: [] }).recs.push(r); }
-  for (const [code, o] of Object.entries(regs)) {
-    RRANK[c.cc][code] = { reg: o.reg, recs: o.recs, p: {} };
-    for (const p of profiles) {
-      const res = engine.rank(o.recs, p, { country: c.cc, subRanks: false });
-      const byId = {}; res.scored.forEach((x) => { byId[x.id] = { rank: x.rank, score: x.overall }; });
-      RRANK[c.cc][code].p[p] = { byId, n: res.scored.length, list: res.scored.slice(0, 15) };
-    }
-  }
+ const full=loadCountry(c.cc),recs=full.recs,thin=recs.map(thinRecord),lookup=new Map(thin.map(r=>[r.id,r])),idx=new Map(recs.map((r,i)=>[r.id,i]));
+ RANK[c.cc]={};RRANK[c.cc]={};
+ for(const p of profiles){const res=engine.rank(recs,p,{country:c.cc,subRanks:false});RANK[c.cc][p]={byId:packedRanks(res.scored,idx),n:res.scored.length,list:thinRows(res.scored.slice(0,40),lookup),reasons:res.reasons};}
+ const regs={};for(const r of recs){const g=regionOf(r);if(g)(regs[g.code]||={reg:g,recs:[]}).recs.push(r);}
+ for(const [code,o] of Object.entries(regs)){
+  RRANK[c.cc][code]={reg:o.reg,recs:o.recs.map(r=>lookup.get(r.id)),p:{}};
+  const ri=new Map(o.recs.map((r,i)=>[r.id,i]));
+  for(const p of profiles){const res=engine.rank(o.recs,p,{country:c.cc,subRanks:false});RRANK[c.cc][code].p[p]={byId:packedRanks(res.scored,ri),n:res.scored.length,list:thinRows(res.scored.slice(0,15),lookup)};}
+ }
+ thinCountries[c.cc]={sh:full.sh,recs:thin,capital:full.capital};loadedCountry=null;
+ if(global.gc)global.gc();console.log('rank',c.cc,process.memoryUsage().rss>>20,'MiB');
 }
 console.timeEnd('rank');
 
@@ -201,7 +225,7 @@ async function bundle() {
   const min = process.env.NZ_DEBUG ? { code: '(function(){' + app + '\n})();' } : await terser.minify('(function(){' + app + '\n})();', { ecma: 2020, compress: { passes: 2, arrows: true, unsafe_arrows: true }, mangle: true, format: { comments: false } });
   if (min.error) throw min.error;
   // the on-demand part (All data, compare all rows, data catalogue): names resolve through the app's bridge (NZI)
-  const moreSrc = 'window.NZX=function(I){with(I){Object.assign(PICON,' + JSON.stringify(Object.fromEntries(Object.keys(PICON).filter((k) => /^biz_/.test(k) || (cfg.bizDormant || []).includes(k)).map((k) => [k, PICON[k]]))) + ');var CATALOGUE=' + JSON.stringify(CATALOGUE) + ', WHO_MORE=' + JSON.stringify(WHO_MORE()) + ';\n' + (read('src/js/57-local.js') + '\n' + read('src/more/econ_tables.js') + '\n' + read('src/more/more.js') + '\n' + read('src/more/builder.js') + '\n' + read('src/more/game.js') + '\n' + read('src/more/tour.js') + '\n' + read('src/more/records.js') + '\n' + read('src/more/personal.js') + '\n' + read('src/more/compare.js') + '\n' + read('src/more/booklet.js') + '\n' + read('src/more/lazy_views.js')).replace(/__VERSION__/g, VERSION) + '\nreturn {toolsHTML:toolsHTML,allDataHTML:allDataHTML,adHydrate:adHydrate,adCSV:adCSV,cmpAllHTML:cmpAllHTML,cmpAllHydrate:cmpAllHydrate,openCatalogue:openCatalogue,photoMetaOk:photoMetaOk,photoPixelFilter:photoPixelFilter,photoFromInfo:photoFromInfo,photoStem:photoStem,PHOTO_PEOPLE:PHOTO_PEOPLE,REG_MORE:REG_MORE,whoMoreFill:whoMoreFill,AMEN_MORE:AMEN_MORE,adAll:adAll,photosWith:photosWith,docAllHTML:docAllHTML,docLive:docLive,compareDoc:compareDoc,printInto:printInto,click:click,whoMore:whoMore,openBuilder:openBuilder,builderClick:builderClick,builderInput:builderInput,gameRound:gameRound,gameGuess:gameGuess,startTour:startTour,tourNext:tourNext,recordsHTML:recordsHTML,scorecardHTML:scorecardHTML,openTop10:openTop10,openWhatIf:openWhatIf,openBetterThanHome:openBetterThanHome,openMyData:openMyData,ptInput:ptInput,openCompare:openCompare,openBooklet:openBooklet,keyFactsHTML:keyFactsHTML,evidenceCSV:evidenceCSV,globalRankHTML:globalRankHTML,GRANK_TEXT:GRANK_TEXT,didYouMean:didYouMean,catClick:catClick,boardHTML:boardHTML,radarSVG:radarSVG,postcardSVG:postcardSVG,catDetailHTML:catDetailHTML,anchorPins:anchorPins,amenitiesFor:amenitiesFor,amenitiesHTML:amenitiesHTML,facilitiesHTML:facilitiesHTML,programmesHTML:programmesHTML,zonesMap:zonesMap,scoreContext:scoreContext,bizMoreHTML:bizMoreHTML,regionStatsFor:regionStatsFor,regionStatsHTML:regionStatsHTML,ready:CTX_READY};}};';
+  const moreSrc = 'window.NZX=function(I){with(I){Object.assign(PICON,' + JSON.stringify(Object.fromEntries(Object.keys(PICON).filter((k) => /^biz_/.test(k) || (cfg.bizDormant || []).includes(k)).map((k) => [k, PICON[k]]))) + ');var CATALOGUE=' + JSON.stringify(CATALOGUE) + ', WHO_MORE=' + JSON.stringify(WHO_MORE()) + ';\n' + (read('src/js/57-local.js') + '\n' + read('src/more/econ_tables.js') + '\n' + read('src/more/more.js') + '\n' + read('src/more/builder.js') + '\n' + read('src/more/game.js') + '\n' + read('src/more/tour.js') + '\n' + read('src/more/records.js') + '\n' + read('src/more/personal.js') + '\n' + read('src/more/compare.js') + '\n' + read('src/more/booklet.js') + '\n' + read('src/more/lazy_views.js') + '\n' + read('src/more/area_select.js') + '\n' + read('src/more/evidence_features.js')).replace(/__VERSION__/g, VERSION) + '\nreturn {evidenceAuto:evidenceAuto,featureClick:featureClick,restoreAreas:restoreAreas,areaPaint:areaPaint,openAreas:openAreas,openEvidence:openEvidence,showRetirementHotspots:showRetirementHotspots,toolsHTML:toolsHTML,allDataHTML:allDataHTML,adHydrate:adHydrate,adCSV:adCSV,cmpAllHTML:cmpAllHTML,cmpAllHydrate:cmpAllHydrate,openCatalogue:openCatalogue,photoMetaOk:photoMetaOk,photoPixelFilter:photoPixelFilter,photoFromInfo:photoFromInfo,photoStem:photoStem,PHOTO_PEOPLE:PHOTO_PEOPLE,REG_MORE:REG_MORE,whoMoreFill:whoMoreFill,AMEN_MORE:AMEN_MORE,adAll:adAll,photosWith:photosWith,docAllHTML:docAllHTML,docLive:docLive,compareDoc:compareDoc,printInto:printInto,click:click,whoMore:whoMore,openBuilder:openBuilder,builderClick:builderClick,builderInput:builderInput,gameRound:gameRound,gameGuess:gameGuess,startTour:startTour,tourNext:tourNext,recordsHTML:recordsHTML,scorecardHTML:scorecardHTML,openTop10:openTop10,openWhatIf:openWhatIf,openBetterThanHome:openBetterThanHome,openMyData:openMyData,ptInput:ptInput,openCompare:openCompare,openBooklet:openBooklet,keyFactsHTML:keyFactsHTML,evidenceCSV:evidenceCSV,globalRankHTML:globalRankHTML,GRANK_TEXT:GRANK_TEXT,didYouMean:didYouMean,catClick:catClick,boardHTML:boardHTML,radarSVG:radarSVG,postcardSVG:postcardSVG,catDetailHTML:catDetailHTML,anchorPins:anchorPins,amenitiesFor:amenitiesFor,amenitiesHTML:amenitiesHTML,facilitiesHTML:facilitiesHTML,programmesHTML:programmesHTML,zonesMap:zonesMap,scoreContext:scoreContext,bizMoreHTML:bizMoreHTML,regionStatsFor:regionStatsFor,regionStatsHTML:regionStatsHTML,ready:CTX_READY};}};';
   const more = process.env.NZ_DEBUG ? { code: moreSrc } : await terser.minify(moreSrc, { compress: { passes: 2 }, mangle: true, format: { comments: false } });
   if (more.error) throw more.error;
   fs.writeFileSync(path.join(ROOT, 'assets/more.js'), more.code);
@@ -483,14 +507,24 @@ function popChart(ap) {
   return `<svg class="popchart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Residents by year: ${ap.map((x) => x.year + ' ' + fmtInt(x.population)).join(', ')}">${bars}</svg><p class="small muted">${ch >= 0 ? '+' : '−'}${fmt(Math.abs(ch), 1)}% from ${first.year} to ${last.year}. Bars start at zero.</p>`;
 }
 // ------------------------------------------------------------------ municipality / town pages
+// 2.15.16: a place the model ranks in a country top 10% while its population shrank says so on its page (Evidence Lab)
+let LABFLAGS = null;
+function evidenceNote(r, cc) {
+  if (!LABFLAGS) { LABFLAGS = new Map(); try { const L = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/evidence/lab.json'), 'utf8')); for (const [c, P] of Object.entries(L.countries)) for (const [k, v] of Object.entries(P)) for (const f of v.flags || []) if (!LABFLAGS.has(f[0]) && engine.profiles[k] && !engine.profiles[k].business) LABFLAGS.set(f[0], [k, f[2], f[3]]); } catch (e) {} }
+  const f = LABFLAGS.get(r.id); if (!f) return '';
+  return `<p class="small" style="margin-top:10px"><b>Evidence check:</b> ranks #${fmtInt(f[1])} for ${esc(engine.profiles[f[0]].name.toLowerCase())}, but its population changed ${f[2] > 0 ? '+' : ''}${f[2]}% from 2019 to 2024, among the weakest in ${esc((countries.find((x) => x.cc === cc) || {}).name || cc)}. Check what drives that before relying on the rank. <a href="/evidence-lab/">Evidence Lab</a></p>`;
+}
 function placePage(r) {
   const cc = r.country, reg = regionOf(r), c = cats(r), fr = r.factorRaw || {}, g = r.geo || {};
   const cname = countries.find((x) => x.cc === cc).name;
-  const rows = SHOWN.map((p) => {
+  const rows = SHOWN.slice(0, 3).map((p) => {   // 2.15.16: first three rows in the HTML, the rest from compact data (assets/ranks.js)
     const a = RANK[cc][p].byId[r.id], b = reg ? RRANK[cc][reg.code].p[p].byId[r.id] : null;
     const why = a ? '' : (() => { const s = engine.scoreRaw(r, p, 55, cc); if (!s) return 'not enough data'; const f = engine.eligibilityFail(r, p, cc) || ''; return f.replace(/^(.*) floor$/i, (m0, k) => 'below the minimum for ' + k.toLowerCase()).replace(/population/i, 'too few residents'); })();
     return `<tr><td><a href="${profilePath(p)}">${esc(engine.profiles[p].name)}</a></td><td class="num nowrap">${a ? `<span class="sbar"><i class="dm-${binOf(a.score)}" style="width:${Math.round(a.score)}%"></i></span>${scoreCell(a.score)}` : ''}</td><td class="num">${a ? `#${fmtInt(a.rank)} of ${fmtInt(RANK[cc][p].n)}` : `<span class="small muted">not ranked: ${esc(why)}</span>`}</td><td class="num">${b ? `#${b.rank} of ${RRANK[cc][reg.code].p[p].n}` : '–'}</td><td class="nowrap"><a class="small" href="${appLink({ cc, p, sel: r.id })}" aria-label="${esc(engine.profiles[p].name)} on the map">Map</a></td></tr>`;
   }).join('');
+  const lazyRows = SHOWN.slice(3).map((p) => { const a = RANK[cc][p].byId[r.id], b = reg ? RRANK[cc][reg.code].p[p].byId[r.id] : null;
+    let why = 0; if (!a) { const s = engine.scoreRaw(r, p, 55, cc); why = !s ? 'not enough data' : (engine.eligibilityFail(r, p, cc) || '').replace(/^(.*) floor$/i, (m0, k) => 'below the minimum for ' + k.toLowerCase()).replace(/population/i, 'too few residents'); }
+    return [SHOWN.indexOf(p), a ? Math.round(a.score * 10) / 10 : null, a ? a.rank : null, RANK[cc][p].n, b ? b.rank : null, b ? RRANK[cc][reg.code].p[p].n : null, why]; });
   const ranked = SHOWN.map((p) => [p, RANK[cc][p].byId[r.id]]).filter((x) => x[1]).sort((a, b) => a[1].rank / RANK[cc][a[0]].n - b[1].rank / RANK[cc][b[0]].n);
   const NICHE = new Set(['swiss_lottery', 'hnw']);
   const best = ranked.filter(([p]) => !NICHE.has(p)).slice(0, 3).map(([p, a]) => `${AUDIENCE[p]} (top ${Math.max(1, Math.ceil(100 * a.rank / RANK[cc][p].n))}%, #${fmtInt(a.rank)} of ${fmtInt(RANK[cc][p].n)})`);
@@ -528,10 +562,10 @@ function placePage(r) {
   const hl = highlightsOf(r);
   const ctaHref = appLink({ cc, p: (ranked.find(([k]) => !NICHE.has(k)) || ranked[0] || ['young_family'])[0], sel: r.id });
   const body = `<h1>Living in ${esc(latinName(r) + kindSuffix(r))}${DUPNAME.has(cc + '|' + r.name) && reg ? `<span class="h1-sub">, ${esc(reg.name)}</span>` : ''}</h1><p class="lede">${esc(intro)}</p>
-<div class="facts">${facts.map(([k, v]) => `<div class="fact"><span>${esc(k)}</span><b>${esc(v)}</b></div>`).join('')}</div>
+<div class="facts">${facts.map(([k, v]) => `<div class="fact"><span>${esc(k)}</span><b>${esc(v)}</b></div>`).join('')}</div>${evidenceNote(r, cc)}
 <div class="cta-band"><h2>See ${esc(r.name)} on the map</h2><a class="btn" href="${ctaHref}">Open in Nestlyzer</a></div>
 ${hl.length ? `<section class="card" style="margin-top:18px"><h2 style="font-size:var(--step-2);margin-bottom:8px">Good to know about ${esc(r.name)}</h2><ul>${hl.map((h) => `<li>${esc(h)}</li>`).join('')}</ul>${r.x && r.x.metro && metrosOf(cc).some((m) => m.name === r.x.metro) ? `<p class="small"><a href="${metroPath(cc, r.x.metro)}">Best places in Greater ${esc(r.x.metro)}</a></p>` : ''}</section>` : ''}
-<div class="grid-2"><section class="card"><h2 style="font-size:var(--step-2);margin-bottom:8px">How ${esc(r.name)} ranks</h2><p class="small muted">Scores run 0 to 100 against every municipality in ${esc(cname)}. Ranks count only the places that pass each profile's minimums, so the totals differ by profile. ${esc(depthText(cc))}</p><div style="overflow-x:auto"><table class="table stack"><thead><tr><th>Profile</th><th class="num">Score</th><th class="num">In ${esc(cname)}</th><th class="num">In ${esc(reg ? reg.name : 'region')}</th><th></th></tr></thead><tbody>${rows}</tbody></table></div></section>
+<div class="grid-2"><section class="card"><h2 style="font-size:var(--step-2);margin-bottom:8px">How ${esc(r.name)} ranks</h2><p class="small muted">Scores run 0 to 100 against every municipality in ${esc(cname)}. Ranks count only the places that pass each profile's minimums, so the totals differ by profile. ${esc(depthText(cc))}</p><div style="overflow-x:auto"><table class="table stack"><thead><tr><th>Profile</th><th class="num">Score</th><th class="num">In ${esc(cname)}</th><th class="num">In ${esc(reg ? reg.name : 'region')}</th><th></th></tr></thead><tbody>${rows}</tbody></table><script type="application/json" class="nzr" data-cc="${cc}" data-id="${esc(r.id)}">${JSON.stringify(lazyRows).replace(/</g, '\\u003c')}</script><script src="/assets/ranks.js?v=${VERSION}" defer></script><noscript><p class="small"><a href="${ctaHref}">All ${SHOWN.length} profiles in the app</a></p></noscript></div></section>
 <section class="card"><h2 style="font-size:var(--step-2);margin-bottom:8px">Strengths and trade-offs</h2>${barList(top.map(([k, v]) => [catName(k), v]))}
 ${note ? `<h3 style="margin-top:18px">Local context</h3><p>${esc(note.setting)} ${esc(note.background || '')}</p>${note.proximity ? `<p>${esc(note.proximity)}</p>` : ''}${note.watch ? `<p><b>Watch:</b> ${esc(note.watch)}</p>` : ''}` : ''}
 ${t.annual_population ? `<h3 style="margin-top:18px">Residents by year</h3>${popChart(t.annual_population)}` : ''}
@@ -662,7 +696,7 @@ const kpiList = (P, pk) => { const K = KPI.kpis, g = {}; (KPI.byProfile[pk] || [
 const bizPath = (p) => `/business/${slugify(engine.profiles[p].name)}/`;
 const BRANK = {};
 console.time('bizrank');
-for (const c of (FAST ? [] : countries)) { BRANK[c.cc] = {}; for (const p of BIZ) { const res = engine.rank(SH[c.cc].recs, p, { country: c.cc, subRanks: false }); BRANK[c.cc][p] = { n: res.scored.length, list: res.scored.slice(0, 10) }; } }
+for (const c of (FAST ? [] : countries)) { BRANK[c.cc] = {};const recs=loadCountry(c.cc).recs,lookup=new Map(SH[c.cc].recs.map(r=>[r.id,r])); for (const p of BIZ) { const res = engine.rank(recs, p, { country: c.cc, subRanks: false }); BRANK[c.cc][p] = { n: res.scored.length, list: thinRows(res.scored.slice(0, 10),lookup) }; }loadedCountry=null;if(global.gc)global.gc(); }
 console.timeEnd('bizrank');
 function bizPage(p) {
   const P = engine.profiles[p], w = Object.entries(P.weights).sort((a, b) => b[1] - a[1]), K = KPI.kpis;
@@ -687,24 +721,52 @@ function methodPage() {
   const v28html = `<h2 id="v28" style="font-size:var(--step-2);margin:28px 0 10px">Official statistics by country</h2><p>${v28.length} measures from ${new Set(v28.flatMap((x) => Object.values(x.by_country || {}).map((b) => b.source_id))).size} official sources. “Scored” measures feed the categories; the others are shown on the place page for information.</p><div style="overflow-x:auto"><table class="table stack"><thead><tr><th>Country</th><th>Measure</th><th>Level</th><th>Year</th><th class="num">Places</th><th>Source and licence</th><th>Use</th></tr></thead><tbody>${v28rows.map(([cc, x, b]) => `<tr><td>${esc(cfg.countryNames && cfg.countryNames[cc] || cc)}</td><td>${esc(x.name)}</td><td>${esc(LV[b.level] || b.level)}</td><td>${esc(b.period)}</td><td class="num">${fmtInt(b.places)}</td><td class="small">${b.url ? `<a href="${esc(b.url)}">${esc(b.source_name)}</a>` : esc(b.source_name)}${b.dataset ? ', ' + esc(b.dataset) : ''}${b.licence ? '. ' + esc(b.licence) : ''}</td><td>${x.score_role === 'scored' ? 'scored' : 'shown'}</td></tr>`).join('')}</tbody></table></div>`;
   const f = meta.factors.filter((x) => x.score_role === 'scored' || x.score_role === 'scored_access_proxy');
   const body = `<h1>How Nestlyzer scores places</h1><p class="lede">Every number on Nestlyzer comes from a public dataset, a visible weight or a documented rule. This page lists all of them.</p>
-<div class="prose"><h2>The short version</h2><p>Each factor is scored 0 to 100. Factors roll up into categories (costs, family, safety, jobs, mobility and so on), and a category score is the mean of its factor scores. A household profile weights the categories. Profiles also set minimum population and, in Switzerland, minimum category scores, so a tiny village cannot win on one strong number.</p>
+<section class="card" id="beyond" style="margin:18px 0"><h2 style="font-size:var(--step-2);margin-bottom:8px">Beyond statistics: how Nestlyzer finds places that are really good</h2>
+<p>A weighted average of statistics is easy to build and easy to get wrong: it can crown a place that nobody in your situation could afford or would choose. Nestlyzer adds five checks on top of the scores.</p>
+<ol>
+<li><b>Reality checks per life situation.</b> Each profile has must-haves. A retiree on a fixed income loses points where housing is out of reach, however good the doctors are. Coastal living needs the sea. A student needs a campus. A place that fails a must-have is ranked lower or left out, with the reason shown.</li>
+<li><b>Missing data never counts as good.</b> Every place shows how much of its score rests on measured data. Places with thin data are flagged and ranked after well-measured ones.</li>
+<li><b>Checked against the real world.</b> Before each release, the rankings are compared with places people and companies actually choose. These include published logistics, liveability, competitiveness and property rankings, documented company and university hubs, and official findings on where retirees move. A release that drifts away from them is stopped. The <a href="/evidence-lab/">Evidence Lab</a> publishes these checks for every profile and country.</li>
+<li><b>Observed choices next to the model.</b> Where official migration evidence exists, the map shows where people like you actually move (for example retirement destinations) next to the score, so you can see both.</li>
+<li><b>Local knowledge, not just averages.</b> Big cities are split into districts. Place pages name strengths, trade-offs and local context. Every figure links to its source and period.</li>
+</ol>
+<p class="small muted">Scores are decision aids, not advice. Weights are visible and can be changed in the app; your changes stay in your browser.</p></section>
+<div class="prose"><h2>The short version</h2><p>Eligible factors use documented 0 to 100 transforms. Profile-specific source rules determine which observations can contribute to each category. Declared profile weights remain fixed when observations are missing. Profiles also set minimum population and, in Switzerland, minimum category scores, so a tiny village cannot win on one strong number.</p>
 <p>Photos, coats of arms, Wikipedia text, contact details, nearby sights, cross-border notes and advertising never change a score.</p>
 <h2>Data depth by country</h2><p>Switzerland has the deepest module. Since version 2.8 every country also carries official statistics from national statistics offices, tax authorities, police statistics and Eurostat: incomes, house prices and rents, local tax rates, crime, unemployment, life expectancy, doctors, education levels, distances to hospitals, universities and stations, and more. Where a figure exists only for the district or region, every place in it gets that figure and the app says so (\u201cregional value\u201d). The table <a href=\"#v28\">Official statistics by country</a> below lists every measure, its source, year and level.</p>
-<p>A category without any measured figure for a place (for example costs where no price data exists yet) falls back to a documented estimate (costs from population density). Those estimates are labelled in the app and count half in the score, so measured evidence leads the ranking.</p>
-<h2>Comparing countries</h2><p>Measures with one definition everywhere (Eurostat regional statistics in purchasing power standards, life expectancy, homicide rates, distances) are scored on one scale across all countries. Measures whose definitions differ by country (police-recorded crime, municipal tax rates, prices in national currency) are scored within the country. A national figure alone (such as the price level) never replaces local differences: it is blended with the local estimate.</p>
+<p>A category with no eligible observation remains unresolved. Its declared profile weight stays in the denominator. Population density is not a housing-cost observation. The supported score and unresolved range are shown separately.</p>
+<h2>Comparing countries</h2><p>Measures with one definition everywhere (Eurostat regional statistics in purchasing power standards, life expectancy, homicide rates, distances) are scored on one scale across all countries. Measures whose definitions differ by country (police-recorded crime, municipal tax rates, prices in national currency) are scored within the country. National conditions and supported local evidence retain their declared shares. Missing local evidence is not replaced by a national median or a score from another profile.</p>
 <h2>What changed in method v2 (October 2026)</h2><ul>${Engine.METHOD_V2.map((x) => `<li>${esc(x)}</li>`).join('')}</ul><p>The previous method (v1) is kept for audit: add <code>&amp;method=v1</code> to any map link. Our regression suite checks that v1 still reproduces the old site's rankings exactly.</p>
-<h2>Confidence and coverage</h2><p>${esc(cfg.terms.confidence)}</p><p>Every score shows the data behind it: the share of the profile's weight it is scored on, how much of that comes from <b>official statistics</b> for the place or its region, and how much is <b>modelled</b> from population and location (modelled criteria count half). A national figure alone never counts as local data, and a criterion without a figure counts neither for nor against a place.</p><p><b>Detailed local data</b>: at least 60% official statistics and 80% scored. <b>Local and modelled data</b>: at least 30% official statistics. <b>Regional overview</b>: the rest. None of these numbers is a probability.</p><h3>How modelled criteria are built</h3><table class="table"><thead><tr><th>Criterion</th><th>Model inputs, used where a place has no own figure</th></tr></thead><tbody><tr><td>Costs</td><td>Population density (and the national price level where published)</td></tr><tr><td>Health</td><td>Share of older residents</td></tr><tr><td>Family</td><td>Share of young residents, population growth and calm</td></tr><tr><td>Jobs</td><td>Working-age share and town size</td></tr><tr><td>Lifestyle</td><td>Town size and the population within 30 km</td></tr><tr><td>Green space</td><td>Low crowding within 10 km</td></tr></tbody></table><p>Modelled criteria count half, and each one is replaced by official figures as soon as they are published for the place or its district.</p><p>The ranking itself still uses the established 2.8 formula, in which outside Switzerland a place's evidence factor is estimated from the number of joined official fields (up to 78%). This keeps rankings stable; a revised formula based on the measured share is prepared for review and will be announced with its rank changes before it is switched on.</p></div>
+<h2>Evidence and unresolved inputs</h2><p>Profile weights stay fixed when a factor is missing. The displayed score is the sum of supported points on that fixed scale. A missing factor contributes no established points, while its declared share remains unresolved. The upper endpoint assigns unresolved inputs their possible maximum. This range is not a statistical confidence interval and not a forecast.</p><p>Observed access replaces population-based health and service substitutes. Residential property prices do not establish industrial-site costs. Poverty is not an offence rate, and total population growth is not retirement migration. Evidence cards state the population, reference period, geographic support and source.</p><p>Observed attraction is separate from suitability. The US retirement evidence layer includes official Census findings for The Villages area and other published retirement destinations. Historical state flows stay state-level. Profile weights have not been fitted to force familiar cities to the top.</p><p>These are transparent screening models. The supplied conditions do not establish an individual budget, medical entitlement, a permitted business activity or a deliverable site connection. Each profile has explicit evidence requirements, unresolved feasibility conditions and a versioned source chain. Numeric empirical validation is not claimed when the matching outcome panel is absent.</p></div>
 <h2 style="font-size:var(--step-2);margin:28px 0 10px">All factors</h2><div style="overflow-x:auto"><table class="table stack"><thead><tr><th>Factor</th><th>Category</th><th>Better when</th><th>Countries</th><th>Source</th><th>What it measures</th></tr></thead><tbody>${f.map((x) => `<tr><td><b>${esc(x.name)}</b></td><td>${esc(catName(x.category))}</td><td>${esc(x.direction)}</td><td>${esc((x.countries || ['all']).join(', '))}</td><td>${esc(x.v28 ? Object.values(x.by_country || {}).map((b) => b.source_name).filter((v, i, a) => a.indexOf(v) === i).slice(0, 3).join('; ') : (meta.sources[x.source_id] || {}).name || x.source_id)}</td><td class="small">${esc(x.description)}</td></tr>`).join('')}</tbody></table></div>
 <h2 style="font-size:var(--step-2);margin:28px 0 10px">All profiles and weights</h2><div style="overflow-x:auto"><table class="table stack"><thead><tr><th>Profile</th><th>Weights</th><th>Minimums (Switzerland)</th><th class="num">Min. residents</th></tr></thead><tbody>${SHOWN.map((p) => { const P = engine.profiles[p]; return `<tr><td><a href="${profilePath(p)}">${esc(P.name)}</a></td><td class="small">${Object.entries(P.weights).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${esc(catName(k))} ${v}`).join(', ')}</td><td class="small">${Object.entries(P.strict || {}).map(([k, v]) => `${esc(catName(k))} ${v}`).join(', ') || '–'}</td><td class="num">${P.minPop ? fmtInt(P.minPop) : '–'}</td></tr>`; }).join('')}</tbody></table></div>
 <h2 id="freshness" style="font-size:var(--step-2);margin:28px 0 10px">How fresh the data is</h2>
 <div class="facts"><div class="fact"><span>Residents, density, growth</span><b>${(meta.population || {}).year || 2024}</b></div><div class="fact"><span>Five-year growth from</span><b>${(meta.population || {}).base_year || 2019}</b></div><div class="fact"><span>Swiss portraits and tax</span><b>2021 / 2018</b></div><div class="fact"><span>Last build</span><b>${TODAY}</b></div></div>
-<p>Every month Nestlyzer asks Eurostat whether a newer year of municipal population figures has been published. When one appears, the rankings are rebuilt and checked automatically: a country is updated only if at least 85% of its places match the new table and its total population moves by less than 12%, and a single place whose population jumps by more than half (usually a merger) keeps its previous figures until the change is understood. Geography (coast, airports, railways, terrain, climate) does not change from year to year. ${((meta.population || {}).kept_countries || []).length ? 'Kept at the previous year this time: ' + esc(meta.population.kept_countries.join(', ')) + '.' : ''}</p>
+<p>Every month Nestlyzer asks Eurostat whether a newer year of municipal population figures has been published. When one appears, the rankings are rebuilt and checked automatically: a country is updated only if at least 85% of its places match the new table and its total population moves by less than 12%, and a single place whose population jumps by more than half (usually a merger) keeps its previous figures until the change is understood. Terrain changes slowly; transport networks, facilities and climate observations have their own reference periods and refresh requirements. ${((meta.population || {}).kept_countries || []).length ? 'Kept at the previous year this time: ' + esc(meta.population.kept_countries.join(', ')) + '.' : ''}</p>
 <h2 id="sources" style="font-size:var(--step-2);margin:28px 0 10px">Sources</h2><ul>${Object.entries(meta.sources).filter(([k]) => /gisco|swiss_fso|estv|fso|statistik|ourairports|natural_earth|edjnet|nuts2json|swiss_maps|model_access/.test(k)).filter(([k, x], i, all) => all.findIndex(([, y]) => (y.url || y.name) === (x.url || x.name)) === i).map(([k, s]) => `<li><b>${esc(s.name || k)}</b>${/^https?:/.test(s.url || '') ? ` <a href="${esc(s.url)}">${esc(s.url.replace(/^https?:\/\//, '').replace(/\/$/, ''))}</a>` : ''}${s.licence ? `. ${esc(s.licence)}` : ''}${s.note ? `. ${esc(s.note)}` : ''}</li>`).join('')}<li><b>Wikipedia, Wikidata and Wikimedia Commons</b> for photos, summaries, coats of arms and contact details, loaded in your browser and never scored.</li><li><b>OpenStreetMap</b> via Overpass for nearby sights, and OpenFreeMap vector tiles for the basemap. © OpenStreetMap contributors.</li></ul>
 <h2 id="data" style="font-size:var(--step-2);margin:28px 0 10px">Every dataset Nestlyzer uses</h2><p>What Nestlyzer holds, at which level, for which countries, from which source and year, and whether it changes a score. Live figures load in your browser when you open a place and never change a score. In the app, open a place and choose “All data” to see every figure for it.</p>${catalogueTable()}
 ${v28html}<h2 id="kpis" style="font-size:var(--step-2);margin:28px 0 10px">Key figures by profile (${Object.keys(KPI.kpis).length})</h2><p>Every profile lists the figures people in that situation, or a location planner, compare. The list follows the dimensions used by established comparisons (OECD regional well-being, EIU and Mercer liveability, the Eurostat survey on quality of life in European cities, Swiss and German municipality ratings, fDi Benchmark, Kearney, Cushman &amp; Wakefield, IMD, the World Bank and the EU Regional Innovation Scoreboard); no data is taken from those publications. Where an official figure exists it is shown on the place page with its period, area and source; it does not change the score. Different concepts stay apart: a price per kWh is never mixed with an annual bill or a share of income, employee pay never with employer cost, a level never with a growth rate.</p><div style="overflow-x:auto"><table class="table stack"><thead><tr><th>Key figure</th><th>Area</th><th>For</th><th>Unit</th><th>Level wanted</th><th class="num">Profiles</th></tr></thead><tbody>${Object.entries(KPI.kpis).map(([k, v]) => `<tr><td>${esc(v.name)}</td><td>${esc(v.domain)}</td><td>${v.audience === 'business' ? 'Business' : 'Households'}</td><td>${esc(v.unit)}</td><td>${esc(v.level)}</td><td class="num">${Object.values(KPI.byProfile).filter((l) => l.includes(k)).length}</td></tr>`).join('')}</tbody></table></div>
-<h2 id="audit" style="font-size:var(--step-2);margin:28px 0 10px">Data coverage audit (downloads)</h2><p>Generated from the published data with local scripts at every release (version ${VERSION}). Open them in any spreadsheet.</p><ul><li><a href="/nzdata-audit-coverage.csv" download>Coverage by country and indicator</a>: source geography, unique source areas, mapped, displayed and scored places, periods and why places are missing.</li><li><a href="/nzdata-audit-kpi_coverage.csv" download>Business key figures by country</a>: available or not, and at which level.</li><li><a href="/nzdata-audit-industry_coverage.csv" download>Industry classification by country</a>.</li><li><a href="/nzdata-audit-unresolved_geographies.csv" download>Collected source areas not yet linked to a place</a>.</li><li><a href="/nzdata-audit-README.md">What the columns mean</a>.</li><li>What is still being collected: <a href="/nzdata-downloads-nestlyzer-data-gaps.pdf">data gap overview (PDF)</a>, <a href="/nzdata-downloads-gap_matrix.csv" download>gap matrix</a>, and the collection briefs for <a href="/nzdata-downloads-brief-kpis.md">key figures for households and businesses</a>, <a href="/nzdata-downloads-brief-industry-structure.md">industry structure</a> and <a href="/nzdata-downloads-brief-geography-mapping.md">geography mapping</a>, the <a href="/nzdata-downloads-brief-next-delivery.md">next delivery</a> (with the <a href="/nzdata-downloads-places_lookup_for_mapping.csv" download>place list</a>).</li></ul>
+<h2 id="audit" style="font-size:var(--step-2);margin:28px 0 10px">Data coverage audit (downloads)</h2><p>Generated from the published data with local scripts at every release (version ${VERSION}). Open them in any spreadsheet.</p><ul><li><a href="/data/audit/coverage.csv" download>Coverage by country and indicator</a>: source geography, unique source areas, mapped, displayed and scored places, periods and why places are missing.</li><li><a href="/data/audit/kpi_coverage.csv" download>Business key figures by country</a>: available or not, and at which level.</li><li><a href="/data/audit/industry_coverage.csv" download>Industry classification by country</a>.</li><li><a href="/data/audit/unresolved_geographies.csv" download>Collected source areas not yet linked to a place</a>.</li><li><a href="/data/audit/README.md">What the columns mean</a>.</li><li>What is still being collected: <a href="/data/downloads/nestlyzer-data-gaps.pdf">data gap overview (PDF)</a>, <a href="/data/downloads/gap_matrix.csv" download>gap matrix</a>, and the collection briefs for <a href="/data/downloads/brief-kpis.md">key figures for households and businesses</a>, <a href="/data/downloads/brief-industry-structure.md">industry structure</a> and <a href="/data/downloads/brief-geography-mapping.md">geography mapping</a>, the <a href="/data/downloads/brief-next-delivery.md">next delivery</a> (with the <a href="/data/downloads/places_lookup_for_mapping.csv" download>place list</a>).</li></ul>
 <h2 style="font-size:var(--step-2);margin:28px 0 10px">Known limits</h2><ul class="prose"><li>Distances are straight lines from population-weighted centres, not travel times.</li><li>Local data still differs by country: the table above shows which measures exist where. Italy, Austria, Czechia and most of Central and South-Eastern Europe have regional (district) figures but few municipal ones; East Asia and New Zealand have the fewest local figures.</li><li>Police-recorded crime depends on how often people report and how police record offences; it is compared within a country only.</li><li>Swiss tax burden figures are from ESTV 2018 and are relative comparisons, not personal tax advice.</li><li>Municipalities abolished or merged before 2025 are kept out of rankings (2.8 roster repair from official change records); five Greek communities created after 2020 still have no point location.</li></ul>`;
   page({ p: '/method/', title: 'Methodology: how Nestlyzer ranks places to live | Nestlyzer', desc: 'Every factor, weight, source and rule behind Nestlyzer rankings, including data depth by country and known limits.', body, crumbs: [['Home', '/'], ['Method', '/method/']], jsonld: [{ '@context': 'https://schema.org', '@type': 'Dataset', name: 'Nestlyzer place rankings', description: `Rankings and official local figures for ${fmtInt(countries.reduce((a, c) => a + c.n, 0))} places in ${countries.length} countries, for households and business sites, with every factor, weight and source.`, url: SITE + '/method/', creator: { '@type': 'Organization', name: 'Nestlyzer', url: SITE + '/' }, spatialCoverage: countries.map((c) => c.name).join(', '), isAccessibleForFree: true, license: SITE + '/legal/' }] });
+  // 2.15.16 Evidence Lab: do the places the model ranks high also show what the real world says? (build/build_evidence_lab.js)
+  { const LP = path.join(ROOT, 'data/evidence/lab.json');
+    if (fs.existsSync(LP)) { const LAB = JSON.parse(fs.readFileSync(LP, 'utf8')), cn = Object.fromEntries(countries.map((c) => [c.cc, c.name]));
+      const prof = [...SHOWN, ...BIZ].filter((k, i, a) => a.indexOf(k) === i);
+      const rowsL = prof.map((k) => { const L = Object.entries(LAB.countries).map(([cc, P]) => [cc, P[k]]).filter(([, v]) => v && Number.isFinite(v.rho)); if (!L.length) return null;
+        const m = (f) => L.reduce((t, [, v]) => t + v[f], 0) / L.length, rho = m('rho'), conf = m('topConfirm'), con = m('topContra');
+        const fl = L.flatMap(([cc, v]) => (v.flags || []).slice(0, 1).map((x) => [cc, x])).slice(0, 3);
+        return [k, L.length, rho, conf, con, fl]; }).filter(Boolean);
+      const verdict = (r) => r >= 0.4 ? ['tone-good', 'strong'] : r >= 0.15 ? ['tone-mid', 'moderate'] : r > -0.05 ? ['tone-mid', 'weak'] : ['tone-bad', 'contradicted'];
+      const hhC = new Set(), bzC = new Set(); for (const [cc, P] of Object.entries(LAB.countries)) for (const [k, v] of Object.entries(P)) if (Number.isFinite(v.rho)) (engine.profiles[k] && engine.profiles[k].business ? bzC : hhC).add(cc);
+      const body = `<h1>Evidence Lab</h1><p class="lede">Scores are a model. This page checks them against what people and firms actually do, profile by profile and country by country, and shows where the evidence agrees and where it does not.</p>
+<div class="facts"><div class="fact"><span>Country-profile checks</span><b>${fmtInt(rowsL.reduce((t, r) => t + r[1], 0))}</b></div><div class="fact"><span>Countries with a household outcome</span><b>${hhC.size} of ${countries.length}</b></div><div class="fact"><span>Countries with a business outcome</span><b>${bzC.size} of ${countries.length}</b></div></div>
+<section class="card" style="margin:18px 0"><h2 style="font-size:var(--step-2);margin-bottom:8px">What is compared</h2><ul><li><b>Households:</b> ${esc(LAB.outcomes.households)}</li><li><b>Businesses:</b> ${esc(LAB.outcomes.business)}</li></ul>
+<p>For each country and profile: the rank agreement between score and outcome (Spearman, from −1 to +1), the share of the model's top 10% that is also among the faster-growing places or existing locations (confirmed), and the share among the slowest (contradicted).</p><p class="small muted">${esc(LAB.note)} Population growth is not yet split by age or household type; age-specific migration is being added, starting with retirees.</p></section>
+<div style="overflow-x:auto"><table class="table stack"><thead><tr><th>Profile</th><th class="num">Countries</th><th class="num">Agreement</th><th class="num">Top 10% confirmed</th><th class="num">Top 10% contradicted</th><th>Example to check</th></tr></thead><tbody>${rowsL.map(([k, n, rho, conf, con, fl]) => { const [t, w] = verdict(rho); return `<tr><td><a href="${engine.profiles[k].business ? bizPath(k) : profilePath(k)}">${esc(engine.profiles[k].name)}</a></td><td class="num">${n}</td><td class="num"><span class="chip ${t}"><b>${rho.toFixed(2)}</b></span> ${w}</td><td class="num">${Math.round(conf)}%</td><td class="num">${Math.round(con)}%</td><td class="small">${fl.map(([cc, x]) => `${flagImg(cc, 14)} ${esc(x[1])} (#${x[2]}, ${x[3] > 0 ? '+' : ''}${x[3]})`).join('; ')}</td></tr>`; }).join('')}</tbody></table></div>
+<section class="card" style="margin:18px 0"><h2 style="font-size:var(--step-2);margin-bottom:8px">What we do with it</h2><ul><li>Profiles with weak or contradicted agreement are reviewed first; their weights and must-haves are only changed when the change also passes the benchmark checks described on the <a href="/method/#beyond">method page</a>.</li><li>Missing outcomes are listed openly: countries without local population trends or industry registers are not counted here.</li><li>Built ${esc(LAB.built)} from the same data as the rankings.</li></ul></section>`;
+      page({ p: '/evidence-lab/', title: 'Evidence Lab: do the rankings match real moves? | Nestlyzer', desc: 'Nestlyzer checks every ranking against observed outcomes: where people move and where firms already operate, for every profile and country.', body: stackLabels(body), crumbs: [['Home', '/'], ['Method', '/method/'], ['Evidence Lab', '/evidence-lab/']] });
+    } }
   worldPage({ ROOT, topojson, meta, esc, fmtInt, flagImg, PICON, appLink, page, VERSION, countryPath });
   policyPages({ ROOT, esc, fmtInt, flagImg, page, countries });
 }
@@ -827,9 +889,8 @@ ${!ANALYTICS ? '' : '<tr><td>_ga, _ga_*</td><td>Google Analytics</td><td>Disting
 
 // ------------------------------------------------------------------ hero map (Switzerland, young family, SVG)
 function heroSvg() {
-  const simp = require('topojson-simplify');
   let t = JSON.parse(read('data/geo/ch.topo.json'));
-  t = simp.presimplify(t); t = simp.simplify(t, simp.quantile(t, 0.35));
+  if (!OFFLINE_BUILD) { const simp = require('topojson-simplify'); t = simp.presimplify(t); t = simp.simplify(t, simp.quantile(t, 0.35)); }
   const ramp = ['#E7ECF1', '#C5E4D2', '#86C9A2', '#35A6A3', '#1E6FD9', '#0B2E5C'];
   const col = (v) => !Number.isFinite(v) ? '#EEF1EC' : v >= 85 ? ramp[5] : v >= 72 ? ramp[4] : v >= 60 ? ramp[3] : v >= 48 ? ramp[2] : v >= 34 ? ramp[1] : ramp[0];
   const k = Math.cos(46.8 * Math.PI / 180), x0 = 5.95, y0 = 47.81, S = 1000 / ((10.5 - 5.95) * k);
@@ -932,15 +993,14 @@ function heroBin() {
   for (const r of pts) { buf.writeUInt16LE(Math.round((r.lon + 180) / 360 * 65535), o); o += 2; }
   for (const r of pts) { buf.writeUInt16LE(Math.round((r.lat + 90) / 180 * 65535), o); o += 2; }
   for (const r of pts) { buf.writeUInt8(Math.max(0, Math.min(255, Math.round(Math.log10(Math.max(r.population, 10)) * 40))), o); o += 1; }
-  // bands are relative within each country, so every country shows its own best places as brightly
-  const band = HERO_PROFILES.map(() => new Map());
-  HERO_PROFILES.forEach((p, pi) => {
-    const byC = {};
-    for (const r of pts) { const sr = engine.scoreRaw(r, p, 55, r.country); if (!sr || engine.eligibilityFail(r, p, r.country)) { band[pi].set(r, 1); continue; } (byC[r.country] = byC[r.country] || []).push([r, sr.score]); }
-    for (const cc in byC) { const a = byC[cc].sort((x, y) => x[1] - y[1]); a.forEach(([r], i) => band[pi].set(r, Math.max(2, Math.min(15, 2 + Math.floor(13 * (i + 0.5) / a.length))))); }
-  });
+  // Country-relative visual bands; the lookup is not an additional score input.
+  const band=HERO_PROFILES.map(()=>new Map());
+  for(const c of countries){const full=loadCountry(c.cc).recs,ids=new Set(full.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)&&!r.whole).map(r=>r.id));
+   HERO_PROFILES.forEach((p,pi)=>{const values=[];for(const r of full){if(!ids.has(r.id))continue;const sr=engine.scoreRaw(r,p,55,r.country);if(!sr||engine.eligibilityFail(r,p,r.country)){band[pi].set(r.id,1);continue;}values.push([r.id,sr.score]);}values.sort((a,b)=>a[1]-b[1]||a[0].localeCompare(b[0]));values.forEach(([id],i)=>band[pi].set(id,Math.max(2,Math.min(15,2+Math.floor(13*(i+0.5)/values.length)))));});
+   loadedCountry=null;if(global.gc)global.gc();
+  }
   for (const r of pts) {
-    for (let k = 0; k < P; k += 2) { buf.writeUInt8((band[k].get(r) << 4) | (k + 1 < P ? band[k + 1].get(r) : 0), o); o += 1; }
+    for (let k = 0; k < P; k += 2) { buf.writeUInt8((band[k].get(r.id) << 4) | (k + 1 < P ? band[k + 1].get(r.id) : 0), o); o += 1; }
   }
   fs.writeFileSync(path.join(ROOT, 'data/hero.bin'), buf);
   write('data/hero.json', JSON.stringify({ v: VERSION, profiles: HERO_PROFILES, n, bytes: NB, frame: { lon: [-180, 180], lat: [-90, 90] }, layout: 'u32 n | u16 lon[n] | u16 lat[n] | u8 log10(pop)*40 [n] | u8 two 4-bit scores [n*bytes] in profile order; 0 = no value, 1..15 = score bands' }));
@@ -1001,7 +1061,7 @@ a{color:#0B2E5C}button:focus-visible,a:focus-visible,input:focus,select:focus{ou
 </style>`;
   const mark = MARK_INLINE.replace('fill="#F5B700"', 'fill="#F97316"');
   h = h.replace(/<meta name="robots" content="noindex">/g, '');   // 2.15.14: /business/ is a full public page and listed in the sitemap: it must be indexable (Search Console noindex warning)
-  h = h.replace('</head>', theme + '</head>')
+  h = h.replace('</head>', '<meta name="description" content="Compare business locations using public sources, fixed profile weights, disclosed data gaps and explicit site-feasibility requirements.">' + theme + '</head>')
     .replace(/<div class="brand">Nestlyzer <span style="font-weight:400">Business<\/span><small>Beta<\/small><\/div>/, `<a class="nzb-brand" href="/" aria-label="Nestlyzer home">${mark}<b>Nestlyzer</b><span>Business</span></a>`)
     .replace('<a id="back-home" href="../index.html">Residential Nestlyzer</a>', '<a id="back-home" href="/">Places to live</a>')
     .replace(/<title>[^<]*Beta<\/title>/, '<title>Nestlyzer Business: country data, taxes and site screening</title>');   // 2.12: no beta labels (owner request 31 Oct)
@@ -1038,6 +1098,9 @@ let shell = read('src/shell.html');
 shell = shell.replace('__CSS__', () => B.css).replace('__JS__', () => B.js).replace('__LANDING__', () => L.html).replace('__HEADER__', () => header(true)).replace('__FOOTER__', () => footer()).replace('__TRACKING__', () => tracking()).replace('__CONSENT_HTML__', () => CONSENT_HTML).replace('__CONSENT_JS__', () => '<script>' + CONSENT_SRC + '</script>')
   .replace('__JSONLD__', () => JSON.stringify(L.ld).replace(/</g, '\\u003c')).replace(/__VERSION__/g, VERSION).replace(/__TOTAL__/g, TOTAL).replace(/__COUNTRIES__/g, countries.length)
   .replace('__FIT__', ICON.fit).replace('__MAP__', ICON.map).replace('__LIST__', ICON.list).replace('__PIN__', ICON.pin).replace(/__SPARK__/g, ICON.spark).replace(/__SLIDERS__/g, ICON_X.sliders).replace(/__HEART__/g, ICON_X.heart).replace(/__CLOSE__/g, ICON_X.close);
+write('assets/app.css', B.css + '.pre-explore .landing,.pre-explore .site-footer{display:none}');
+write('assets/app.js', B.js);
+shell = shell.replace('<style>' + B.css + ' .pre-explore .landing,.pre-explore .site-footer{display:none}</style>', '<link rel="stylesheet" href="/assets/app.css?v=' + VERSION + '">').replace('<script>' + B.js + '</script>', '<script defer src="/assets/app.js?v=' + VERSION + '"></script>');
 write('index.html', emojiSvg(shell, true));
 write('data/start_biz.html', emojiSvg(BIZ_EXTRA()));
 // 2.15: the country tiles load after first paint (start page budget), and the feature band follows the selected country
@@ -1048,6 +1111,8 @@ if (!FAST) for (const c of countries) {
   write(`data/feature/${c.cc}.json`, JSON.stringify({ ins: { FR: ['france-rent-vs-income', 'Rent against income in 31,000 French towns'], CH: ['switzerland-income-tax-by-commune', 'Swiss income tax, commune by commune'], DE: ['germany-rents-and-property-tax', 'German rents and property tax'], IT: ['italy-rental-yields', 'Italian rental yields'], ES: ['spain-income-and-inequality', 'Spanish income and inequality'], SE: ['sweden-tax-and-income', 'Swedish tax and income'], UK: ['uk-house-prices-vs-pay', 'UK house prices against pay'], US: ['us-income-and-life-expectancy', 'US income and life expectancy'] }[c.cc] || null, cc: c.cc, name: c.name, units: units(c.cc, c.n), unit1: unitW(c.cc, 1), nf: fc[fc.length >> 1] || 0, top }));
 }
 write('assets/site.css', B.siteCss);
+// 2.15.16: renderer for the place-page profile table (keeps the 18,000 rich pages light enough to publish every place)
+write('assets/ranks.js', '(function(){var P=' + JSON.stringify(SHOWN.map((p) => [p, engine.profiles[p].name, profilePath(p)])) + ',B=' + JSON.stringify(bins) + ';' + "function e(s){return String(s).replace(/[&<>\"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]})}function n(v){return Math.round(v).toLocaleString('en-GB')}\ndocument.querySelectorAll('script.nzr').forEach(function(s){var t=s.previousElementSibling,b=t&&t.tBodies[0];if(!b)return;var h=[].map.call(t.tHead.rows[0].cells,function(c){return c.textContent.trim()}),cc=s.dataset.cc,id=s.dataset.id,o='';\nJSON.parse(s.textContent).forEach(function(x){var p=P[x[0]],a=x[1]!=null,bin=a?B.filter(function(v){return x[1]>=v}).length:0,tone=a?(x[1]>=70?'tone-good':x[1]>=50?'tone-mid':'tone-bad'):'';\no+='<tr><td data-l=\"'+e(h[0])+'\"><a href=\"'+p[2]+'\">'+e(p[1])+'</a></td><td data-l=\"'+e(h[1])+'\" class=\"num nowrap\">'+(a?'<span class=\"sbar\"><i class=\"dm-'+bin+'\" style=\"width:'+Math.round(x[1])+'%\"></i></span><span class=\"chip '+tone+'\"><b>'+n(x[1])+'</b></span>':'')+'</td>'\n+'<td data-l=\"'+e(h[2])+'\" class=\"num\">'+(a?'#'+n(x[2])+' of '+n(x[3]):'<span class=\"small muted\">not ranked: '+e(x[6]||'')+'</span>')+'</td><td data-l=\"'+e(h[3])+'\" class=\"num\">'+(x[4]!=null?'#'+x[4]+' of '+x[5]:'\u2013')+'</td>'\n+'<td class=\"nowrap\"><a class=\"small\" href=\"/#/explore?cc='+cc+'&p='+p[0]+'&sel='+encodeURIComponent(id)+'\" aria-label=\"'+e(p[1])+' on the map\">Map</a></td></tr>'});b.insertAdjacentHTML('beforeend',o)})})();");
 // clean previously generated page folders
 if (!FAST) {
 const GEN_ROOTS = new Set([...countries.map((c) => cslug(c.cc)), 'best', 'method', 'legal', 'incentives', 'districts', 'immigration']);
@@ -1060,7 +1125,7 @@ bestIndexPage();
 for (const p of profiles) profilePage(p);
 if (!FAST) { for (const d of fs.readdirSync(path.join(ROOT, 'business'), { withFileTypes: true })) if (d.isDirectory()) fs.rmSync(path.join(ROOT, 'business', d.name), { recursive: true, force: true }); for (const p of BIZ) bizPage(p); }
 for (const c of countries) { countryPage(c); for (const code of Object.keys(RRANK[c.cc])) regionPage(c.cc, code); for (const m of metrosOf(c.cc)) metroPage(c.cc, m); }
-if (!FULLSEO) for (const r of pageRecs) placePage(r);
+for (const r of pageRecs) placePage(r);   // 2.15.16: the rich place pages stay in every build (the SEO expansion keeps them and adds compact pages for the rest)
 write('data/pages.json', JSON.stringify(PAGES));
 // static page → app view, used by the single-file offline copy so its links stay inside the app
 const ROUTES = {};
@@ -1106,7 +1171,7 @@ write('.nojekyll', '\n');
   write('data/fingerprints.json', JSON.stringify({ version: VERSION, algorithm: 'SHA-256', files: fp })); }
 write('VERSION.txt', `Nestlyzer ${VERSION}\nbuilt ${new Date().toISOString()}\ndata ${meta.v}\npages ${SITEMAP.length}\n`);
 console.log(`built ${SITEMAP.length} pages, index ${Math.round(shell.length / 1024)} KB (js ${Math.round(B.js.length / 1024)} KB, css ${Math.round(B.css.length / 1024)} KB), hero ${hero.kb} KB in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
-if (FULLSEO) {   // the workflow did not run the expansion itself: run it here, then re-fingerprint
+if (FULLSEO && process.env.NZ_NATIVE_ONLY !== '1') {   // coordinator runs postprocessing after the native process ends
   const { spawnSync } = await import('node:child_process');
   for (const a of [['build/seo_expand.mjs', '--root', '.', '--out', '.', '--cache', '.cache/seo'], ['build/fingerprint_data.mjs']]) {
     const r = spawnSync(process.execPath, a, { cwd: ROOT, stdio: 'inherit', env: process.env });

@@ -118,11 +118,13 @@ function bindMapEvents() {
     });
     MAP.on('mouseleave', layer, function () { MAP.getCanvas().style.cursor = ''; MAPSTATE.popup.remove(); });
     MAP.on('click', layer, function (e) {
+      if(window.NZ_DRAW_ACTIVE)return;
       var f = e.features && e.features[0]; if (!f) return;
       var r = recordForFeature(layer, f); if (r) selectPlace(r.id, { from: 'map' });
     });
   });
   MAP.on('click', 'nuts-fill', function (e) {
+    if(window.NZ_DRAW_ACTIVE)return;
     if (S.cc === 'CH') return;
     var hit = MAP.queryRenderedFeatures(e.point, { layers: ['pts', 'gisco-fill'] });
     if (hit.length) return;

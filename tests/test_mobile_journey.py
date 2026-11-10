@@ -16,7 +16,7 @@ sizes = {i['sizes'] for i in m['icons']}
 check('manifest', m['display'] == 'standalone' and {'192x192', '512x512'} <= sizes and any(i.get('purpose') == 'maskable' for i in m['icons']) and m['start_url'].startswith('/') and m.get('id') == '/' and len(m.get('shortcuts', [])) >= 4,
       f"installable app manifest: standalone, icons {sorted(sizes)} + maskable, start {m['start_url']}, {len(m.get('shortcuts', []))} shortcuts")
 idx = open(os.path.join(ROOT, 'index.html'), encoding='utf-8').read()
-check('head', all(k in idx for k in ['rel="manifest"', 'apple-touch-icon', 'apple-mobile-web-app-capable', 'viewport-fit=cover', 'theme-color']) and os.path.exists(os.path.join(ROOT, 'sw.js')) and 'serviceWorker' in idx,
+check('head', all(k in idx for k in ['rel="manifest"', 'apple-touch-icon', 'apple-mobile-web-app-capable', 'viewport-fit=cover', 'theme-color']) and os.path.exists(os.path.join(ROOT, 'sw.js')) and ('serviceWorker' in idx or 'serviceWorker' in open(os.path.join(ROOT, 'assets', 'app.js'), encoding='utf-8').read()),   # 2.15.16: app code is in assets/app.js
       'home-screen tags for iPhone and Android, service worker registered')
 with sync_playwright() as pw:
     br = pw.chromium.launch()

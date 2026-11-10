@@ -74,3 +74,15 @@ tests/results/
 /places/
 /rankings/
 /assets/seo-*.css
+.nestlyzer-patch-backups/
+.nestlyzer-verification/
+/data/place-detail/
+/assets/app.js
+/assets/app.css
+/assets/place.js
+/assets/place.css
+/assets/seo-*.css
+/sources/
+/immigration/
+/assets/ranks.js
+/evidence-lab/

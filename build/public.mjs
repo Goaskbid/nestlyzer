@@ -4,7 +4,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.resolve(ROOT, process.argv[2] || '_site');
 const meta = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/meta.json'), 'utf8'));
 const slug = (s) => String(s || '').normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/ß/g, 'ss').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-const dirs = ['assets', 'vendor', 'data', 'best', 'method', 'legal', 'about', 'business', 'insights', 'world', 'incentives', 'districts', 'immigration', 'places', 'rankings', 'sources', ...meta.countries.map((c) => slug(c.name))];
+const dirs = ['assets', 'vendor', 'data', 'best', 'method', 'legal', 'about', 'business', 'insights', 'world', 'incentives', 'districts', 'immigration', 'evidence-lab', 'places', 'rankings', 'sources', ...meta.countries.map((c) => slug(c.name))];
 const files = ['index.html', '404.html', 'ads.txt', 'favicon.ico', 'favicon.svg', 'robots.txt', 'site.webmanifest', 'sw.js', 'offline.html', 'CNAME', '.nojekyll', 'VERSION.txt'];
 // Reject destructive destinations BEFORE removing any output. This command never writes outside this checkout.
 const relOut = path.relative(ROOT, OUT);
@@ -17,6 +17,7 @@ let n = 0, bytes = 0;
 function copy(src, dst) {
   const st = fs.lstatSync(src); if (st.isSymbolicLink()) throw new Error("Symlink in public input: " + src);
   if (st.isDirectory()) { fs.mkdirSync(dst, { recursive: true }); for (const f of fs.readdirSync(src)) copy(path.join(src, f), path.join(dst, f)); return; }
+  if (path.relative(ROOT, src) === path.join('data', 'routes.json')) return;   // 2.15.16: build-time list only (the app never reads it)
   fs.copyFileSync(src, dst); n++; bytes += st.size;
 }
 for (const d of dirs) if (fs.existsSync(path.join(ROOT, d))) copy(path.join(ROOT, d), path.join(OUT, d));

@@ -1,0 +1,104 @@
+{
+  "as_of": "2026-11-02",
+  "pack_id": "nestlyzer-official-local-2026-11-02",
+  "offline_fixture_tests": {
+    "passed": 74,
+    "failed": 0,
+    "data": "synthetic only",
+    "command": "python -m unittest test_pipeline -v"
+  },
+  "additional_patch_helper_checks": {
+    "passed": 11,
+    "checks": [
+      "finite_value_'nan'",
+      "finite_value_'inf'",
+      "finite_value_'-inf'",
+      "finite_value_''",
+      "finite_value_'0'",
+      "finite_value_'12.5'",
+      "approval_review_candidate_False",
+      "approval_review_candidate_True",
+      "approval_held_for_review_True",
+      "approval_source_context_ready_1",
+      "approval_source_context_ready_"
+    ]
+  },
+  "python_syntax": "passed for all shipped Python files and proposed patched importer",
+  "patch_apply_check": "git apply --check passed against untouched 2.13.1",
+  "native_import_dry_run": {
+    "fixture_rows": 1,
+    "official_rows": 0,
+    "result": {
+      "input_rows": 1,
+      "input_sha256": "74974d2ef837360ac63baa2d678ec7c1c5afc6b88fc26b36dfca5f50e6dd9e99",
+      "would_add": 1,
+      "identical": 0,
+      "conflicts": 0
+    },
+    "applied": false
+  },
+  "existing_app_tests": {
+    "command": "npm test",
+    "exit_code": 0,
+    "scope": "unchanged uploaded application, not new-source integration"
+  },
+  "country_baselines": [
+    {
+      "cc": "CH",
+      "active_places": 2172,
+      "sha256_unchanged": "41c803f9a6fb4b833548de6494ec597bc4cfcddc7655f0ebc94d0886a5c16af0"
+    },
+    {
+      "cc": "FR",
+      "active_places": 34999,
+      "sha256_unchanged": "f561fdf25fc8aa078ae005d516e7df62883c2ddafaf0eeae6fdf8c9cadf7df3a"
+    },
+    {
+      "cc": "US",
+      "active_places": 21184,
+      "sha256_unchanged": "2d5634d881aa5e8477e73e5aba449324190ac629b98e7d677eaabf1b080c5046"
+    },
+    {
+      "cc": "CA",
+      "active_places": 2929,
+      "sha256_unchanged": "cd763c611f13eb54ee1af43aa9cd2071f63a900097f07a76a7734ceae23baa7c"
+    },
+    {
+      "cc": "AU",
+      "active_places": 2034,
+      "sha256_unchanged": "bca93e9a94fd9f8b7ea121977183ef02cbc0de8ef158d8f52c9d2e5961143054"
+    },
+    {
+      "cc": "BR",
+      "active_places": 2327,
+      "sha256_unchanged": "c61969c048b4e5f15a3b61fa052536ae88d9c4c805107d168786b87ff5c8fd75"
+    },
+    {
+      "cc": "MX",
+      "active_places": 626,
+      "sha256_unchanged": "523cb1f766b0d952fe23f78201465222f6dcc351dce6dfe4c8c449633ff82685"
+    }
+  ],
+  "task_counts": {
+    "05_CH_2172_scenario_tasks.csv.gz": 13032,
+    "06_place_crosswalk_queue.csv.gz": 66271
+  },
+  "source_selector_rules": 61,
+  "not_completed": {
+    "new_official_rows_downloaded": 0,
+    "live_calculator_requests_successful": 0,
+    "approved_crosswalks": 0,
+    "score_factors_updated": 0,
+    "production_deployed": false
+  },
+  "requires_live_verification": [
+    "all source schemas and latest releases",
+    "Swiss operation contract",
+    "six tax assumptions",
+    "source licences",
+    "native concept and denominator dictionaries",
+    "geographic boundary mapping",
+    "UI calculator benchmarks",
+    "actual JavaScript score integration"
+  ]
+}

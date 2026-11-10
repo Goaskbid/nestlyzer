@@ -1,0 +1,215 @@
+{
+  "pack_id": "nestlyzer-official-local-2026-11-02",
+  "as_of": "2026-11-02",
+  "new_official_observations_downloaded": 0,
+  "live_acquisition_status": "not_executed_successfully_in_this_runtime",
+  "network_limitation": "Outbound container DNS/download access unavailable. Web research was available.",
+  "status_vocabulary": {
+    "official_documentation_verified": "Primary-source landing page or documentation inspected via web. Not a successful binary download.",
+    "constructed_from_official_documentation": "URL follows verified publisher documentation; response/schema not live tested.",
+    "unofficial_client_contract": "Interface inferred from public original client code; official service URL, no supported API contract asserted."
+  },
+  "sources": [
+    {
+      "id": "FR_INSEE_DOSSIER",
+      "country": "FR",
+      "publisher": "INSEE",
+      "landing": "https://www.insee.fr/fr/statistiques/5359146",
+      "data_urls": [
+        "https://www.insee.fr/fr/statistiques/fichier/5359146/dossier_complet.parquet",
+        "https://www.insee.fr/fr/statistiques/fichier/5359146/dossier_complet_csv.zip"
+      ],
+      "documentation": "https://www.insee.fr/fr/statistiques/fichier/5359146/guide_base_dossier_complet_comparateur.pdf",
+      "verification": "official_documentation_verified",
+      "period": "Retain TIME_PERIOD per observation; not a 2026-only dataset",
+      "geography": "GEO_OBJECT=COM; preserve GEO_REF per observation",
+      "schema": "New long format from 2026-07-22",
+      "cadence": "Check publisher revisions; no fixed refresh date inferred",
+      "licence_action": "Record applicable INSEE open-data terms and attribution before publication",
+      "blocking_reviews": [
+        "native measure dictionary",
+        "statistical universe",
+        "GEO_REF mapping",
+        "confidentiality codes",
+        "profile freshness"
+      ]
+    },
+    {
+      "id": "US_ACS_2024_5Y",
+      "country": "US",
+      "publisher": "US Census Bureau",
+      "landing": "https://www.census.gov/programs-surveys/acs/data/summary-file.2024.html",
+      "data_urls": [
+        "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/5YRData/",
+        "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/documentation/Geos20245YR.txt"
+      ],
+      "documentation": "https://www.census.gov/content/dam/Census/library/publications/2023/acs/acs_table_based_summary_file_handbook_2023.pdf",
+      "verification": "official_documentation_verified",
+      "period": "2020-2024 five-year estimates",
+      "geography": "Summary level 160 whole census places; not every GeoNames settlement or county subdivision",
+      "schema": "Pipe-delimited UTF-8; estimates and paired 90-percent margins of error",
+      "api_key": "Bulk summary files do not call the keyed data API. Optional metadata requests may fail and then labels remain held.",
+      "cadence": "Annual five-year release; verify newer complete release before production",
+      "licence_action": "Keep Census attribution and survey limitations; check file-specific notices",
+      "blocking_reviews": [
+        "geography boundary mapping",
+        "variable labels and denominators",
+        "MOE reliability policy",
+        "sample-derived estimates versus counts"
+      ]
+    },
+    {
+      "id": "CA_CENSUS2021_PROFILE",
+      "country": "CA",
+      "publisher": "Statistics Canada",
+      "landing": "https://open.canada.ca/data/en/dataset/750e6035-adf8-4426-966f-4c25b12a999e",
+      "data_urls": [
+        "https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/download-telecharger/comp/getFile.cfm?Lang=E&GEONO=005&FILETYPE=CSV"
+      ],
+      "verification": "constructed_from_official_documentation",
+      "period": "2021 census; 2020 household income retained separately",
+      "geography": "2021 census subdivisions via DGUID, not metropolitan/settlement name",
+      "schema": "Repeated SYMBOL columns bind to adjacent measure, not last duplicate header",
+      "cadence": "Census releases plus revisions; newer annual local population is a separate acquisition workstream",
+      "licence_action": "Check Statistics Canada Open Licence and retain attribution",
+      "blocking_reviews": [
+        "live download/schema",
+        "characteristic and universe mapping",
+        "quality flags",
+        "2021 boundary crosswalk",
+        "age of source for intended use"
+      ]
+    },
+    {
+      "id": "AU_DBR_LGA2021",
+      "country": "AU",
+      "publisher": "Australian Bureau of Statistics",
+      "landing": "https://www.abs.gov.au/methodologies/data-region-methodology/2011-25",
+      "documentation": "https://www.abs.gov.au/statistics/application-programming-interfaces-apis/data-api-user-guide",
+      "data_urls": [
+        "https://data.api.abs.gov.au/rest/dataflow/ABS/ABS_REGIONAL_LGA2021/1.6.0?references=all",
+        "https://data.api.abs.gov.au/rest/data/ABS,ABS_REGIONAL_LGA2021,1.6.0/all?format=csv"
+      ],
+      "verification": "constructed_from_official_documentation",
+      "period": "2011-2025, observation-specific",
+      "geography": "LGA 2021 statistical boundaries; not current legal boundaries or whole metros",
+      "cadence": "Data by region periodic revisions; verify flow version",
+      "licence_action": "Record ABS terms, attribution and source-specific third-party qualifications",
+      "blocking_reviews": [
+        "live SDMX schema and units",
+        "modelled versus observed series",
+        "boundary matching",
+        "series selection"
+      ]
+    },
+    {
+      "id": "BR_IBGE",
+      "country": "BR",
+      "publisher": "IBGE",
+      "landing": "https://www.ibge.gov.br/estatisticas/sociais/populacao/22827-censo-demografico-2022.html",
+      "documentation": [
+        "https://servicodados.ibge.gov.br/api/docs/agregados?versao=3",
+        "https://apisidra.ibge.gov.br/home/ajuda"
+      ],
+      "api_base": "https://servicodados.ibge.gov.br/api/v3/agregados/",
+      "tables": [
+        "4714",
+        "9514",
+        "9543",
+        "6803",
+        "6804",
+        "6805",
+        "6579",
+        "5938"
+      ],
+      "verification": "official_documentation_verified",
+      "table_contract_status": "Candidate table IDs are metadata-checked at execution. Not all table metadata or latest periods were fetched here.",
+      "period": "2022 census; latest advertised annual population and GDP periods selected independently at runtime",
+      "geography": "N6 municipalities, table-specific codes and geography vintage",
+      "cadence": "Annual population/GDP, census and revisions",
+      "licence_action": "Record IBGE attribution and reuse terms; retain revisions",
+      "blocking_reviews": [
+        "live metadata and N6 availability",
+        "classification category totals",
+        "period-specific boundaries",
+        "native variable meanings",
+        "no protected-group desirability scores"
+      ]
+    },
+    {
+      "id": "MX_CPV2020_ITER",
+      "country": "MX",
+      "publisher": "INEGI",
+      "landing": "https://www.inegi.org.mx/programas/ccpv/2020/",
+      "data_urls": [
+        "https://www.inegi.org.mx/contenidos/programas/ccpv/2020/datosabiertos/iter/iter_00_cpv2020_csv.zip"
+      ],
+      "documentation": "https://www.inegi.org.mx/contenidos/programas/ccpv/2020/doc/fd_iter_cpv2020.pdf",
+      "verification": "constructed_from_official_documentation",
+      "period": "2020 structural baseline, not current cost-of-living data",
+      "geography": "ENTIDAD nonzero, MUN nonzero, LOC=0000 municipal/demarcation totals",
+      "cadence": "Census releases; check newer comparable intercensal products before promotion",
+      "licence_action": "Record INEGI free-use terms and attribution",
+      "blocking_reviews": [
+        "live archive/schema",
+        "municipal code and boundary crosswalk",
+        "suppressed values",
+        "denominators",
+        "freshness by purpose"
+      ]
+    },
+    {
+      "id": "CH_ESTV_CALCULATOR",
+      "country": "CH",
+      "publisher": "Swiss Federal Tax Administration",
+      "landing": "https://www.estv.admin.ch/de/steuerbelastung-in-den-gemeinden",
+      "calculator": "https://swisstaxcalculator.estv.admin.ch/",
+      "operation_base": "https://swisstaxcalculator.estv.admin.ch/delegate/ost-integration/v1/lg-proxy/operation/c3b67379_ESTV/",
+      "verification": "unofficial_client_contract",
+      "contract_evidence": "https://github.com/noaahh/estv-mcp/blob/main/src/estv_mcp/api.py",
+      "contract_note": "Independently written adapter to an official calculator service. No official supported public API contract or automation permission inferred. Respect access terms and rate limits; stop at access denials.",
+      "operations": [
+        "API_getTaxVersion",
+        "API_getTaxYearRange",
+        "API_calculateManySimpleTaxes",
+        "API_calculateTaxBudget",
+        "API_calculateDetailedTaxes"
+      ],
+      "period": "Latest supported is a candidate only; require a single complete validated tax year",
+      "cadence": "Tax year and calculator revision",
+      "blocking_reviews": [
+        "live request/response contract",
+        "six household scenarios",
+        "component accounting",
+        "all official current commune codes",
+        "submunicipal tax locations",
+        "UI benchmark",
+        "terms and permitted automation"
+      ]
+    },
+    {
+      "id": "CH_BFS_COMMUNES",
+      "country": "CH",
+      "publisher": "Swiss Federal Statistical Office",
+      "landing": "https://www.agvchapp.bfs.admin.ch/",
+      "documentation": "https://www.agvchapp.bfs.admin.ch/documents/rest_api_de.pdf",
+      "api_base": "https://www.agvchapp.bfs.admin.ch/api/communes/",
+      "verification": "official_documentation_verified",
+      "snapshot_2026_reference": "https://statistik.admin.ch/de/asset/36390081",
+      "snapshot_2021_reference": "https://www.swissstats.bfs.admin.ch/data/webviewer/appId/ch.admin.bfs.swissstat/article/issue21000252100-27/package",
+      "known_counts": [
+        {
+          "date": "2021-01-01",
+          "count": 2172
+        },
+        {
+          "date": "2026-01-01",
+          "count": 2110
+        }
+      ],
+      "warning": "Neither count establishes the current-day roster. Fetch the chosen tax-year snapshot and validate every application code and territory change.",
+      "cadence": "Event-driven territorial changes and dated snapshots",
+      "licence_action": "Record BFS attribution and geography dataset reuse terms"
+    }
+  ]
+}

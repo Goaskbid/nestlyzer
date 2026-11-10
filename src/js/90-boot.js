@@ -9,9 +9,10 @@ function update(opts) {
   if (!opts.keepShown) S.shown = 100;
   if (opts.autoSelect && RES.scored.length && !S.selected && window.innerWidth >= 900 && !multiAnswer()) { S.selected = RES.scored[0].id; S.autoSel = S.selected; }
   renderProfileBar(); renderScope(); renderResults(); renderTabs(); renderPlace(); renderTray();
+  if(['pensioner','single_pensioner','early_retiree','sun_retiree'].includes(S.profile)||MOREX){moreLoad().then(function(x){x.evidenceAuto();}).catch(function(){});}
   document.title = profileName(S.profile) + ' in ' + scopeName() + ' | Nestlyzer';
   pushHash(!opts.push);
-  if (MAPREADY) MAPREADY.then(function () { return loadCountryGeometry(S.cc); }).then(function () { paintMap(); if (opts.fit) fitScope(); }).catch(function (e) { if (window.console) console.warn('map update', e); });
+  if (MAPREADY) MAPREADY.then(function () { return loadCountryGeometry(S.cc); }).then(function () { paintMap(); if(MOREX&&MOREX.areaPaint)MOREX.areaPaint();if(MOREX&&MOREX.evidenceAuto)MOREX.evidenceAuto(); if (opts.fit) fitScope(); }).catch(function (e) { if (window.console) console.warn('map update', e); });
 }
 function renderTabs() {
   $$('#listtabs button').forEach(function (b) { b.setAttribute('aria-selected', b.dataset.lt === S.listTab); });

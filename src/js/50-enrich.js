@@ -130,32 +130,8 @@ function regionContext(r) {
     return wikiSummary(langs[i][0], langs[i][1]).then(function (s) { if (!s) return next(i + 1); return { extract: s.extract || '', url: s.content_urls && s.content_urls.desktop.page, image: (s.originalimage && s.originalimage.source) || (s.thumbnail && s.thumbnail.source) || '' }; });
   })(0);
 }
-var ARMS_ON = true;   // owner decision 7 Nov 2026: flags and coats of arms stay on (IP register item 2 records the SR 232.21 Art. 8 risk; set false to switch arms off)
-function identity(r, e) {
-  var box = $('[data-ids]'); if (!box || box.dataset.done) return; box.dataset.done = '1';
-  var coa = claim(e, 'P94'), cands = [];
-  if (coa) cands.push(commonsFile(coa, 120));
-  var n = stripParen(r.name), a = n.normalize('NFKD').replace(/[̀-ͯ]/g, '');
-  if (r.country === 'CH') [n + ' COA.svg', 'CHE ' + n + ' COA.svg', 'CHE ' + n + ' ' + r.canton + ' COA.svg', 'CHE ' + a + ' COA.svg', 'Wappen ' + n + '.svg'].forEach(function (f) { cands.push(commonsFile(f, 120)); });
-  else ['Coat of arms of ' + n + '.svg', 'Wappen ' + n + '.svg', 'Blason ville fr ' + n + '.svg', 'Escudo de ' + n + '.svg', 'Stemma di ' + n + '.svg', 'Herb ' + n + '.svg'].forEach(function (f) { cands.push(commonsFile(f, 120)); });
-  var cn = countryName(r.country), flags = { CH: 'Flag of Switzerland (Pantone).svg', UK: 'Flag of the United Kingdom.svg', NL: 'Flag of the Netherlands.svg', CZ: 'Flag of the Czech Republic.svg' };
-  var regionArms = r.country === 'CH' ? ['Wappen ' + ({ ZH: 'Zürich matt', BE: 'Bern matt', LU: 'Luzern matt', UR: 'Uri matt', SZ: 'Schwyz matt', OW: 'Obwalden matt', NW: 'Nidwalden matt', GL: 'Glarus matt', ZG: 'Zug matt', FR: 'Freiburg matt', SO: 'Solothurn matt', BS: 'Basel-Stadt matt', BL: 'Basel-Land matt', SH: 'Schaffhausen matt', AR: 'Appenzell Ausserrhoden matt', AI: 'Appenzell Innerrhoden matt', SG: 'St. Gallen matt', GR: 'Graubünden matt', AG: 'Aargau matt', TG: 'Thurgau matt', TI: 'Tessin matt', VD: 'Waadt matt', VS: 'Wallis matt', NE: 'Neuenburg matt', GE: 'Genf matt', JU: 'Jura matt' }[r.canton] || r.cantonName) + '.svg'] : [];
-  function chain(list, alt, title) {
-    if (!list.length || !extOn()) return;
-    var img = new Image(), i = 0; img.alt = alt; img.title = title; img.referrerPolicy = 'no-referrer'; img.loading = 'lazy';
-    img.style.display = 'none';
-    img.onload = function () { if (extOn()) img.style.display = ''; else img.remove(); };
-    img.onerror = function () { if (!extOn()) { img.remove(); return; } i++; if (i < list.length) img.src = list[i]; else img.remove(); };
-    img.src = list[0]; box.appendChild(img);
-  }
-  /* 2.13.3 IP audit: coats of arms are off. Swiss communal and cantonal arms may only be used by their public body (Federal
-     Act on the Protection of the Swiss Coat of Arms, SR 232.21, Art. 8), German municipal arms are protected by state law,
-     and Wikimedia files carry no per-image licence check here. Flags stay. Switch back only per verified file and licence. */
-  if (!ARMS_ON) cands = [], regionArms = [];
-  if (cands.length) chain(cands, 'Coat of arms of ' + r.name, r.name);
-  if (regionArms.length) chain(regionArms.map(function (f) { return commonsFile(f, 120); }), 'Coat of arms of ' + r.cantonName, r.cantonName);
-  chain([commonsFile(flags[r.country] || ('Flag of ' + cn + '.svg'), 120)], 'Flag of ' + cn, cn);
-}
+/* Coats of arms never load automatically or through guessed filenames. */
+function identity(r,e){var box=$('[data-ids]');if(!box||box.dataset.done)return;box.dataset.done='1';box.innerHTML=flagImg(r.country)+' <button class="chip" type="button" data-arms="'+esc(r.id)+'">Load coat of arms</button>';}
 function contact(r, e) {
   var el = $('[data-contact]'); if (!el) return;
   var web = claim(e, 'P856'), mail = claim(e, 'P968'), tel = claim(e, 'P1329'), ig = claim(e, 'P2003'), addr = claim(e, 'P6375'), coord = claim(e, 'P625');

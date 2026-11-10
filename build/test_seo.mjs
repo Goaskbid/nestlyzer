@@ -48,12 +48,13 @@ function fixture(){
  json(path.join(root,'data/x/CH.json'),{strs:[],cols:{example:[null,null,null]}});
  json(path.join(root,'data/x/US.json'),{strs:[],cols:{example:[null,null]}});
  raw(path.join(root,'src/data.js'),'exports.hydrate=s=>s.recs;exports.translit=s=>s;');
- raw(path.join(root,'src/engine.js'),"module.exports=class{rank(recs,p){return{scored:p==='pensioner'&&recs[0].country==='US'?[]:recs.map((r,i)=>({id:r.id,r,rank:i+1,overall:70-i,thin:false}))}}}");
+ raw(path.join(root,'src/engine.js'),"module.exports=class{categories(){return {cost:70}}rank(recs,p){return{scored:p==='pensioner'&&recs[0].country==='US'?[]:recs.map((r,i)=>({id:r.id,r,rank:i+1,overall:70-i,thin:false}))}}}");
  json(path.join(root,'data/rank/world.json'),{version:'fixture',profiles:{young_family:{ranked:5,top:[['CH:1','One',70]]},biz_logistics:{ranked:5,top:[['US:4','Large',65]]}}});
  for(const p of ['/','/legal/','/method/','/insights/','/world/','/incentives/'])raw(path.join(out,p.slice(1),'index.html'),'<html><head><title>'+p+'</title><meta name="description" content="Fixture"><link rel="canonical" href="https://nestlyzer.com'+p+'"></head><body><h1>'+p+'</h1><footer>Footer</footer></body></html>');
  raw(path.join(out,'sitemap.xml'),splitSitemaps(['/','/legal/','/method/','/insights/','/world/','/incentives/'].map(p=>({path:p})),'https://nestlyzer.com')[0]);
+ for(const f of ['place.js','place.css'])raw(path.join(root,'src/place',f),fs.readFileSync(new URL('../src/place/'+f,import.meta.url),'utf8'));
  raw(path.join(out,'assets/site.css'),'body{font-family:system-ui}');raw(path.join(out,'favicon.ico'),'fixture');
- const cfg={...baseConfig,legacyRegistry:null,rankingPageSize:2,placePageSize:2,maxSitemapUrls:5};
+ const cfg={...baseConfig,minNewPlacePopulation:0,maxRankingResults:0,excludedExactPaths:['/incentives/'],legacyRegistry:null,rankingPageSize:2,placePageSize:2,maxSitemapUrls:5};
  return {top,root,out,cache,meta,json,env:loadEnv(root,out,cache,cfg),clean(){fs.rmSync(top,{recursive:true,force:true});}};
 }
 test('Fixture builds every active place, includes small US location, preserves legacy identity',()=>{
@@ -88,3 +89,10 @@ test('Source .cache is allowed for a root build, but not inside the published tr
 
 test('Missing supplemental file fails a static ranking build',()=>{const f=fixture();try{fs.unlinkSync(path.join(f.root,'data/x/CH.json'));assert.throws(()=>prepare(f.env),/supplement missing/);}finally{f.clean();}});
 test('Wrong supplemental row count fails a static ranking build',()=>{const f=fixture();try{f.json(path.join(f.root,'data/x/CH.json'),{strs:[],cols:{example:[null]}});assert.throws(()=>prepare(f.env),/Invalid country supplement/);}finally{f.clean();}});
+
+test('Size budget: small new places stay in the app, not as pages; legacy pages stay (2.15.16)',()=>{
+ const f=fixture();try{f.env.config.minNewPlacePopulation=1e9;prepare(f.env);buildCountries(f.env);finalize(f.env);
+ assert(!fs.existsSync(path.join(f.out,'places/us/5/index.html')));
+ const pages=JSON.parse(fs.readFileSync(path.join(f.out,'data/pages.json')));assert.equal(pages['US:5'],undefined);assert.equal(pages['CH:1'],'/switzerland/zurich/one/');
+ }finally{f.clean();}
+});

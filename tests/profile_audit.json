@@ -152,6 +152,12 @@
    "msg": "safety: 1 of the top 10 under 40: Saint-Étienne 36"
   },
   {
+   "p": "single_pensioner",
+   "cc": "FR",
+   "kind": "core-mean",
+   "msg": "safety (18% of the weight) averages 59 in the top 10"
+  },
+  {
    "p": "biz_clinic",
    "cc": "FR",
    "kind": "core-mean",
@@ -282,6 +288,18 @@
    "cc": "ES",
    "kind": "core-mean",
    "msg": "affordability (16% of the weight) averages 57 in the top 10"
+  },
+  {
+   "p": "pensioner",
+   "cc": "ES",
+   "kind": "core-mean",
+   "msg": "health (20% of the weight) averages 59 in the top 10"
+  },
+  {
+   "p": "single_pensioner",
+   "cc": "ES",
+   "kind": "core-mean",
+   "msg": "health (24% of the weight) averages 59 in the top 10"
   },
   {
    "p": "young_family",

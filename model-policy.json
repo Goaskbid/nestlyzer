@@ -1,0 +1,950 @@
+{
+ "schema": "evidence-policy-1",
+ "config": {
+  "evidenceScoring": {
+   "mode": "legacy",
+   "version": "evidence-fixed-1",
+   "missing": "Declared profile weights remain fixed; unknown components produce an unresolved input range.",
+   "sort": "supported lower bound then coverage",
+   "activated_by": "owner request 2026-11-09",
+   "semantics": "Observed access replaces health outcomes; cost, service and demographic proxies cannot masquerade as profile-specific evidence.",
+   "weights_changed": false,
+   "prepared_mode": "fixed",
+   "status": "2.15.16: prepared, not live. Fixed weights with unresolved ranges fail the external-benchmark and plausibility audits (fDi 68/80, profile audit 35 weak top-10 needs vs limit 15); switch on after the evidence acquisitions."
+  },
+  "semanticIntegrity": false,
+  "evidenceCategoryAllow": {
+   "health": [
+    "n_hospital_km",
+    "n_general_hospital_km",
+    "n_gp_road_km",
+    "n_gps_100k_us",
+    "n_doctors_region",
+    "n_beds_region",
+    "n_doctors_pref_jp"
+   ],
+   "safety": [
+    "n_homicide_local",
+    "n_road_deaths_us",
+    "n_homicide_national",
+    "n_violent_crime_region",
+    "n_burglary_region",
+    "n_assault_region",
+    "n_robbery_region",
+    "n_crime_total_local",
+    "n_violent_local",
+    "n_burglary_local",
+    "n_crime_dk",
+    "n_crime_dk_count",
+    "n_crime_se",
+    "n_road_deaths_region",
+    "n_crime_pref_jp"
+   ],
+   "affordability": [
+    "vacancy_rate_balance",
+    "new_housing_per_1000",
+    "n_house_price_median",
+    "n_flat_price_median",
+    "n_home_price_mean",
+    "n_home_price_m2_mean",
+    "n_rent_paid_mean",
+    "n_woz_value",
+    "n_rent_flat_m2",
+    "n_rent_flat12_m2",
+    "n_rent_flat3_m2",
+    "n_rent_house_m2",
+    "n_rent_new_lease",
+    "n_house_price_uk",
+    "n_price_to_earnings",
+    "n_fuel_poverty",
+    "n_housing_burden_us",
+    "n_housing_problems_us",
+    "n_price_m2_pt",
+    "n_price_m2_pl",
+    "n_house_m2_no",
+    "n_house_price_se",
+    "n_home_value_us",
+    "n_rent_us",
+    "n_rent_au",
+    "n_mortgage_au",
+    "n_home_value_ca",
+    "n_rent_ca",
+    "n_rent_net_m2",
+    "n_rent_net_m2_local",
+    "n_house_price_m2_it",
+    "n_rent_m2_it"
+   ],
+   "family": [
+    "n_school_road_km",
+    "n_high_school_us"
+   ]
+  },
+  "profileEvidence": {
+   "young_family": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Moves and retention of households with children, childcare coverage and cost, actual school access and housing burden.",
+    "critical": [
+     "family_housing_available",
+     "childcare_access_known"
+    ],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "low_income": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Residual household resources after a fixed essential basket, access to suitable jobs without a car, retention and hardship outcomes.",
+    "critical": [
+     "essential_basket_affordable",
+     "essential_services_accessible"
+    ],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "low_income_family": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Fixed two-adult low-income family scenario, with child costs and employment access measured separately.",
+    "critical": [
+     "essential_basket_affordable",
+     "childcare_access_known"
+    ],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "single_parent": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Single-parent retention, childcare affordability and hours compatible with work, short reliable journeys and family-sized rentals.",
+    "critical": [
+     "childcare_hours_compatible",
+     "essential_basket_affordable"
+    ],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "pensioner": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Age-specific domestic migration and retention, plus pension-budget affordability, accessible healthcare and independent-living outcomes. Separate age proxy from confirmed retirement.",
+    "critical": [
+     "pension_budget_feasible",
+     "essential_care_access_known"
+    ],
+    "source_ids": [
+     "CENSUS_OLDER",
+     "CENSUS_TRENDS",
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION",
+     "NIA",
+     "TREASURY"
+    ]
+   },
+   "single_pensioner": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Older single-person household moves and retention; accessible housing, care and social participation.",
+    "critical": [
+     "pension_budget_feasible",
+     "essential_care_access_known"
+    ],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "early_retiree": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Moves of non-employed adults below pension age where measurable; otherwise explicitly labelled age-based evidence, not retirement counts.",
+    "critical": [
+     "pre_pension_health_cover_known",
+     "fixed_drawdown_budget_feasible"
+    ],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "single": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Single-adult housing affordability and retention, with career outcomes only for the career-oriented case.",
+    "critical": [],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "young_professional": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Age 25-39 employment and migration, occupation-specific wages net of housing, and career retention.",
+    "critical": [
+     "job_opportunity_measured"
+    ],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "dinks": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Dual-earner child-free household migration and net resources where microdata permit; never substitute all young adults.",
+    "critical": [
+     "dual_earner_fixed_case_defined"
+    ],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "remote": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Remote-worker shares and persistence, verified home broadband reliability and cost, and residual budget.",
+    "critical": [
+     "reliable_home_internet_known",
+     "residency_and_work_rules_known"
+    ],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "commuter": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Observed commuting flows and mode shares against scheduled and congestion-aware travel times.",
+    "critical": [
+     "reachable_jobs_by_schedule_known"
+    ],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "car_free": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Car-free household access to jobs, groceries and healthcare, including evenings, weekends and accessible routes.",
+    "critical": [
+     "daily_essentials_without_car_known"
+    ],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "student": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Enrolment by actual teaching campus, student moves, accommodation burden and student transport access.",
+    "critical": [
+     "teaching_campus_verified",
+     "student_housing_case_defined"
+    ],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION",
+     "OECD_TALENT"
+    ]
+   },
+   "first_home": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Ownership transitions and availability under a published standard financing and dwelling scenario, not house-price appreciation.",
+    "critical": [
+     "first_home_financing_case_defined",
+     "insurance_and_inventory_known"
+    ],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "budget": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Total essential expenditure and access to jobs/services under a fixed modest budget; compare with low_income for redundancy.",
+    "critical": [
+     "essential_basket_affordable"
+    ],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "urban": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Resident retention, actual cultural and service access, travel behaviour and net housing burden.",
+    "critical": [],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "expat_professional": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Skilled international arrivals and retention with a defined nationality/permit scenario; total foreign-born stock is not an annual flow.",
+    "critical": [
+     "published_origin_and_permit_case",
+     "credential_requirements_known"
+    ],
+    "source_ids": [
+     "OECD_TALENT",
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "healthcare_first": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Access to appropriate care, capacity, out-of-pocket burden and avoidable admissions; never infer clinical quality from a nearby hospital alone.",
+    "critical": [
+     "health_entitlement_known",
+     "required_care_access_known"
+    ],
+    "source_ids": [
+     "NIA",
+     "CENSUS_OLDER"
+    ]
+   },
+   "nature": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Accessible nature, air/water quality, ecological conditions and services, with household moves only as secondary evidence.",
+    "critical": [],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "rural_value": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Rural retention, accessible services and broadband, local job reach and total transport-adjusted costs.",
+    "critical": [
+     "essential_services_accessible",
+     "digital_service_known"
+    ],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "hnw": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Official residence/tax cases and persistent high-value services; avoid opaque millionaire-migration estimates.",
+    "critical": [
+     "published_wealth_and_income_case",
+     "residency_rights_known"
+    ],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "swiss_lottery": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Use an explicitly defined wealth scenario and official municipal tax calculations, not an invented lottery-winner behavioural model.",
+    "critical": [
+     "published_wealth_and_income_case"
+    ],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "climate": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Historical and forward-looking hazard exposure, insurance availability, adaptation and service continuity; migration alone cannot certify resilience.",
+    "critical": [
+     "multi_hazard_scope_known",
+     "insurance_case_known"
+    ],
+    "source_ids": [
+     "TREASURY",
+     "FEMA_REVIEW"
+    ]
+   },
+   "coastal": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Observed coastal household attraction and retention, public shoreline access and seasonal costs, separately from insurance/hazard risks.",
+    "critical": [],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "business_owner": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Owner-manager residence outcomes plus access to the relevant enterprise network; no company feasibility claim from this household score.",
+    "critical": [
+     "household_and_company_cases_separated"
+    ],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "digital_native": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Define digital occupation/working arrangement; otherwise compare redundancy and merge with a career or remote-work profile.",
+    "critical": [
+     "cohort_definition_published"
+    ],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "outdoor": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Actual public activity access, terrain suitability and safety, including non-mountain outdoor destinations.",
+    "critical": [],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "cross_border": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Official cross-border commuting flows, crossing schedules and a fixed residence/work/tax/social-insurance case.",
+    "critical": [
+     "work_rights_known",
+     "border_crossing_usable",
+     "cross_border_case_published"
+    ],
+    "source_ids": [
+     "CENSUS_MOBILITY",
+     "ONS_MIGRATION"
+    ]
+   },
+   "sun_retiree": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Older foreign-resident inflows and retention under a published origin/permit case, not holiday nights or expat stock alone.",
+    "critical": [
+     "published_origin_and_permit_case",
+     "health_cover_known"
+    ],
+    "source_ids": [
+     "CENSUS_OLDER",
+     "ONS_MIGRATION",
+     "NIA",
+     "TREASURY"
+    ]
+   },
+   "biz_manufacturing": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Sector-specific establishment openings, employment and survival, matched to operating-site capacity and logistics.",
+    "critical": [
+     "industrial_zoning",
+     "grid_capacity",
+     "industrial_plot",
+     "environmental_permit"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_logistics": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Warehouse/transport employment and openings, freight throughput, shipment time and delivery-market access.",
+    "critical": [
+     "truck_access",
+     "warehouse_zoning",
+     "usable_terminal_access"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_tech": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Software employment and wages, business births/survival and skilled-worker retention; separate lagged ecosystem inputs from future outcomes.",
+    "critical": [
+     "reliable_enterprise_connectivity"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT",
+     "OECD_TALENT"
+    ]
+   },
+   "biz_services": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Back-office establishment activity and retention, occupation-specific labour availability and wage/productivity measures.",
+    "critical": [
+     "data_processing_rules",
+     "service_language_case",
+     "enterprise_connectivity"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_lab": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Field-specific R&D employment, operating laboratories, research outputs and spinout survival.",
+    "critical": [
+     "lab_use_permission",
+     "required_lab_utilities",
+     "biosafety_case"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT",
+     "OECD_TALENT"
+    ]
+   },
+   "biz_hq": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Actual regional HQ employment and relocations, route/time-zone access and the relevant legal/tax operating scenario.",
+    "critical": [
+     "substance_requirements",
+     "office_use_permission"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_port_industry": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Cargo-specific throughput, port industrial employment and operating investment, with actual terminal links.",
+    "critical": [
+     "cargo_terminal_suitable",
+     "industrial_zoning",
+     "hazardous_goods_permission"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_shop": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Retail establishment survival, expenditure and pedestrian catchment; compare like store types.",
+    "critical": [
+     "retail_use_permission",
+     "street_access"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_cafe": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Food-service openings/survival, time-of-day footfall, tourism/daytime workers and comparable rents.",
+    "critical": [
+     "food_service_permission",
+     "premises_utilities"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_workshop": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Trade-specific business activity, survival and demand in a drive-time catchment.",
+    "critical": [
+     "trade_use_permission",
+     "noise_permissions"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_practice": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Unmet care demand, reimbursement, staffing, patient access and practice survival.",
+    "critical": [
+     "practice_licence",
+     "care_activity_authorisation"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT",
+     "NIA"
+    ]
+   },
+   "biz_studio": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Creative-sector employment, business survival and project/commission demand.",
+    "critical": [
+     "studio_activity_case"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_startup": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Sector-specific new employer firms, survival, scaled employment and verified financing, with non-employer shells separated.",
+    "critical": [
+     "sector_defined"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_guesthouse": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Official guest nights, occupancy and seasonality, lodging supply and business survival.",
+    "critical": [
+     "accommodation_permission",
+     "fire_and_access_requirements"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT",
+     "EUROSTAT_TOURISM"
+    ]
+   },
+   "biz_energy_intensive": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Operating sector capacity and realised investment, industrial tariffs, firm grid access and utility reliability.",
+    "critical": [
+     "firm_grid_connection",
+     "industrial_energy_contract",
+     "water_and_emissions_permissions"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT",
+     "IEA"
+    ]
+   },
+   "biz_datacenter": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Operational commissioned MW and occupancy, enterprise fibre and actual grid connection lead time; announced projects are a separate series.",
+    "critical": [
+     "firm_grid_capacity",
+     "fibre_redundancy",
+     "cooling_solution",
+     "planning_permission"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT",
+     "IEA",
+     "IEA_OBSERVATORY"
+    ]
+   },
+   "biz_pharma_production": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Authorised operating production sites, specialist employment and realised capacity, not patents or lab counts alone.",
+    "critical": [
+     "manufacturing_authorisation",
+     "process_water",
+     "validated_utilities"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_food_processing": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Operating food plants, agricultural input access, employment and throughput.",
+    "critical": [
+     "food_manufacturing_permission",
+     "process_water",
+     "cold_chain_case"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_fulfilment": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Fulfilment operations, last-mile delivery coverage and workforce availability.",
+    "critical": [
+     "warehouse_use_permission",
+     "truck_access",
+     "parcel_network_case"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_contact_center": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Contact-centre employment and retention, verified language pools and wage/turnover costs.",
+    "critical": [
+     "language_and_shift_case",
+     "enterprise_telecom",
+     "data_processing_rules"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_bank": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Licensed banking establishments and jobs, client market and operating permissions.",
+    "critical": [
+     "banking_activity_authorisation",
+     "substance_case"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_wealth": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Official wealth-management employment/authorised entities and client reach; private wealth estimates require a clear licence and method.",
+    "critical": [
+     "wealth_service_authorisation",
+     "client_jurisdiction_case"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_broker": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Authorised securities firms, market connectivity and specialist employment.",
+    "critical": [
+     "securities_permission",
+     "market_connectivity"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_insurer": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Licensed insurers, actuarial/underwriting employment, market access and operating substance.",
+    "critical": [
+     "insurance_authorisation",
+     "regulated_entity_case"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_fund": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Regulated fund management and administration activity, separated from legal domiciles and assets booked there.",
+    "critical": [
+     "fund_role_defined",
+     "regulatory_authorisation",
+     "substance_case"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_commodity": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Commodity trading employment and regulated/registered operating entities; cargo terminals only for physical operations.",
+    "critical": [
+     "commodity_and_activity_case",
+     "sanctions_and_trade_permissions"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_crypto": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Authorised virtual-asset service activity and employment, not token prices, promotional rankings or corporate registrations alone.",
+    "critical": [
+     "activity_authorisation",
+     "banking_and_custody_access"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_swf": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Only compare optional investment-office locations under a declared mandate, not sovereign fund domiciles.",
+    "critical": [
+     "mandate_and_office_scope_defined"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_finance": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Finance employment and operating entities by subsector, plus role-specific authorisation and substance.",
+    "critical": [
+     "financial_activity_case",
+     "regulatory_requirements_known"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_semis": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Operating fabs versus design offices versus assembly/test sites, with specialist staffing and realised capacity.",
+    "critical": [
+     "semiconductor_process_case",
+     "firm_power",
+     "water_quality_and_volume",
+     "site_permission"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_auto": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Automotive plants, suppliers, employment and realised expansions, using an explicit supplier tier and product case.",
+    "critical": [
+     "supplier_product_case",
+     "industrial_site",
+     "utility_capacity"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_aero": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Aerospace operating sites, employment, certifications and supply-chain links.",
+    "critical": [
+     "aerospace_activity_case",
+     "required_certification",
+     "site_permission"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_cleantech": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Operational plants and realised capacity by product, with input materials, power and permitting.",
+    "critical": [
+     "technology_process_case",
+     "utility_capacity",
+     "environmental_permission"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_media": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Media/games employment, commissioned production and business survival by subtype; announced projects are not operating activity.",
+    "critical": [
+     "media_subtype_defined",
+     "studio_or_digital_requirements"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT"
+    ]
+   },
+   "biz_clinic": {
+    "status": "screening-not-empirically-calibrated",
+    "requirements": "Unmet care demand, patient travel and payer coverage, authorisable capacity and clinical staffing, not population growth alone.",
+    "critical": [
+     "clinical_activity_permission",
+     "specialty_staffing",
+     "reimbursement_case"
+    ],
+    "source_ids": [
+     "BLS_QCEW",
+     "EUROSTAT_BD",
+     "STATENT",
+     "NIA"
+    ]
+   }
+  },
+  "historicalTaxExcluded": [
+   "single_income_tax_100k",
+   "single_income_tax_150k",
+   "family_income_tax_100k",
+   "retiree_tax_100k",
+   "wealth_tax_1m",
+   "wealth_tax_5m"
+  ],
+  "semanticIntegrityNote": "2.15.16: prepared, not live. With it on, mean evidence coverage falls to 59% (2,090 of 4,216 country-profile lists under 60%) and the external benchmarks and plausibility audits fail. Switch on per profile once the missing evidence (healthcare access, services, cohort migration) is acquired."
+ },
+ "terms": {
+  "coverage": "Declared profile weights remain fixed. Missing inputs remain unresolved. Coverage is available weight, not statistical confidence."
+ },
+ "historicalTaxSource": null,
+ "softFloors": {
+  "pensioner": {
+   "affordability": 40
+  },
+  "single_pensioner": {
+   "affordability": 40
+  },
+  "sun_retiree": {
+   "affordability": 40
+  }
+ },
+ "softFloorsNote": "2.15.16 budget reality: retirees live on a fixed income, so housing markets scoring under 40 on affordability lose half a point per missing point, in every country (before: only Swiss floors). Removes San Francisco Bay Area suburbs from the US retiree top; Florida's first sun-retiree place moves from #257 to #20.",
+ "preparedCategoryLabels": {
+  "safety": "Recorded safety measures, within-country comparison",
+  "health": "Healthcare access, where measured",
+  "focus": "Activity-specific evidence available for this business",
+  "climate": "Climate preference proxy: class and winter daylight",
+  "services": "Verified daily-service access, where supplied",
+  "reach300": "Population within 300 km straight-line, not truck travel time",
+  "quiet": "Measured nuisance components; missing components unresolved"
+ },
+ "preparedProfileIntros": {
+  "pensioner": "Healthcare access, recorded safety, housing cost and climate preference, with observed older-person migration shown separately."
+ },
+ "categoryLabels": {},
+ "profileIntros": {},
+ "preparedNote": "2.15.16: labels and intros that describe the prepared evidence model; they go live together with that model, not before (the live model still uses the 2.15.15 wording)."
+}

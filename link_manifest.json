@@ -1,0 +1,856 @@
+{
+  "unique_observations": 156,
+  "unique_stations": 3,
+  "places_with_nearby_context": 94,
+  "municipal_climate_observations_added": 0,
+  "countrywide_completeness_claimed": false,
+  "scoring_changed": false,
+  "records": [
+    {
+      "place_id": "US:4174757",
+      "name": "Tampa",
+      "station_id": "USW00012842",
+      "distance_km": 8.202,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4149962",
+      "name": "Cape Coral",
+      "station_id": "USW00012835",
+      "distance_km": 9.097,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4161785",
+      "name": "Lehigh Acres",
+      "station_id": "USW00012835",
+      "distance_km": 23.954,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4175538",
+      "name": "Town 'n' Country",
+      "station_id": "USW00012842",
+      "distance_km": 6.407,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4155995",
+      "name": "Fort Myers",
+      "station_id": "USW00012835",
+      "distance_km": 4.581,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4170156",
+      "name": "Riverview (Florida)",
+      "station_id": "USW00012842",
+      "distance_km": 23.599,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4172131",
+      "name": "Sarasota",
+      "station_id": "USW00012871",
+      "distance_km": 7.741,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4148708",
+      "name": "Bradenton",
+      "station_id": "USW00012871",
+      "distance_km": 10.955,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4168630",
+      "name": "Pinellas Park",
+      "station_id": "USW00012842",
+      "distance_km": 20.624,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:7260219",
+      "name": "University",
+      "station_id": "USW00012842",
+      "distance_km": 15.794,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4150118",
+      "name": "Carrollwood Village",
+      "station_id": "USW00012842",
+      "distance_km": 11.738,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4166195",
+      "name": "North Fort Myers",
+      "station_id": "USW00012835",
+      "distance_km": 9.341,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4153759",
+      "name": "Dunedin",
+      "station_id": "USW00012842",
+      "distance_km": 23.749,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4154280",
+      "name": "Egypt Lake-Leto",
+      "station_id": "USW00012842",
+      "distance_km": 6.898,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4150115",
+      "name": "Carrollwood",
+      "station_id": "USW00012842",
+      "distance_km": 10.694,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4154008",
+      "name": "East Lake",
+      "station_id": "USW00012842",
+      "distance_km": 22.361,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4154568",
+      "name": "Estero",
+      "station_id": "USW00012835",
+      "distance_km": 17.208,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4161313",
+      "name": "Lake Magdalene",
+      "station_id": "USW00012842",
+      "distance_km": 14.031,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4174969",
+      "name": "Temple Terrace",
+      "station_id": "USW00012842",
+      "distance_km": 16.826,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4151157",
+      "name": "Citrus Park (Florida)",
+      "station_id": "USW00012842",
+      "distance_km": 13.123,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4160822",
+      "name": "Keystone (Florida)",
+      "station_id": "USW00012842",
+      "distance_km": 22.844,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:7259705",
+      "name": "East Lake-Orient Park",
+      "station_id": "USW00012842",
+      "distance_km": 15.978,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4173392",
+      "name": "South Bradenton",
+      "station_id": "USW00012871",
+      "distance_km": 7.224,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:7259823",
+      "name": "Greater Northdale",
+      "station_id": "USW00012842",
+      "distance_km": 15.865,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4177960",
+      "name": "West and East Lealman",
+      "station_id": "USW00012842",
+      "distance_km": 21.677,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4177779",
+      "name": "Westchase",
+      "station_id": "USW00012842",
+      "distance_km": 12.287,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:7260548",
+      "name": "Palm River-Clair Mel",
+      "station_id": "USW00012842",
+      "distance_km": 16.375,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4161705",
+      "name": "Lealman",
+      "station_id": "USW00012842",
+      "distance_km": 20.91,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4163033",
+      "name": "Lutz",
+      "station_id": "USW00012842",
+      "distance_km": 22.26,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4170797",
+      "name": "Safety Harbor",
+      "station_id": "USW00012842",
+      "distance_km": 15.349,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4171782",
+      "name": "San Carlos Park",
+      "station_id": "USW00012835",
+      "distance_km": 14.379,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4146934",
+      "name": "Bayshore Gardens",
+      "station_id": "USW00012871",
+      "distance_km": 4.106,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4159805",
+      "name": "Iona (Florida)",
+      "station_id": "USW00012835",
+      "distance_km": 12.473,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4172150",
+      "name": "Sarasota Springs",
+      "station_id": "USW00012871",
+      "distance_km": 12.917,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4156748",
+      "name": "Gibsonton",
+      "station_id": "USW00012842",
+      "distance_km": 19.697,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4166936",
+      "name": "Oldsmar",
+      "station_id": "USW00012842",
+      "distance_km": 14.593,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4146161",
+      "name": "Apollo Beach",
+      "station_id": "USW00012842",
+      "distance_km": 24.836,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4167632",
+      "name": "Palmetto (Florida)",
+      "station_id": "USW00012871",
+      "distance_km": 13.408,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4156340",
+      "name": "Fruitville",
+      "station_id": "USW00012871",
+      "distance_km": 12.77,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4152639",
+      "name": "Cypress Lake",
+      "station_id": "USW00012835",
+      "distance_km": 6.421,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4047914",
+      "name": "Villas (Florida)",
+      "station_id": "USW00012835",
+      "distance_km": 3.914,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4163318",
+      "name": "Mango",
+      "station_id": "USW00012842",
+      "distance_km": 23.006,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4157657",
+      "name": "Gulf Gate Estates",
+      "station_id": "USW00012871",
+      "distance_km": 17.205,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4150727",
+      "name": "Cheval",
+      "station_id": "USW00012842",
+      "distance_km": 20.756,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4147145",
+      "name": "Bee Ridge",
+      "station_id": "USW00012871",
+      "distance_km": 15.169,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4156601",
+      "name": "Gateway (Florida)",
+      "station_id": "USW00012835",
+      "distance_km": 11.078,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4164047",
+      "name": "Memphis (Florida)",
+      "station_id": "USW00012871",
+      "distance_km": 14.948,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4163833",
+      "name": "McGregor (Florida)",
+      "station_id": "USW00012835",
+      "distance_km": 5.916,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4162776",
+      "name": "Longboat Key",
+      "station_id": "USW00012871",
+      "distance_km": 9.983,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4172052",
+      "name": "Sanibel",
+      "station_id": "USW00012835",
+      "distance_km": 22.017,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4173634",
+      "name": "Southgate (Florida)",
+      "station_id": "USW00012871",
+      "distance_km": 11.446,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4155996",
+      "name": "Fort Myers Beach",
+      "station_id": "USW00012835",
+      "distance_km": 17.147,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4166298",
+      "name": "North Sarasota",
+      "station_id": "USW00012871",
+      "distance_km": 5.012,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4172935",
+      "name": "Siesta Key",
+      "station_id": "USW00012871",
+      "distance_km": 14.915,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4167245",
+      "name": "Osprey",
+      "station_id": "USW00012871",
+      "distance_km": 23.804,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4173460",
+      "name": "South Gate Ridge",
+      "station_id": "USW00012871",
+      "distance_km": 14.175,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4177930",
+      "name": "West Samoset",
+      "station_id": "USW00012871",
+      "distance_km": 7.566,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4156006",
+      "name": "Fort Myers Shores",
+      "station_id": "USW00012835",
+      "distance_km": 17.968,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4169378",
+      "name": "Progress Village",
+      "station_id": "USW00012842",
+      "distance_km": 18.607,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4173467",
+      "name": "South Highpoint",
+      "station_id": "USW00012842",
+      "distance_km": 17.747,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4160749",
+      "name": "Kenneth City",
+      "station_id": "USW00012842",
+      "distance_km": 24.148,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4173558",
+      "name": "South Sarasota",
+      "station_id": "USW00012871",
+      "distance_km": 13.071,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4170018",
+      "name": "Ridge Wood Heights",
+      "station_id": "USW00012871",
+      "distance_km": 13.469,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4176324",
+      "name": "Vamo",
+      "station_id": "USW00012871",
+      "distance_km": 20.838,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4161352",
+      "name": "Lake Sarasota",
+      "station_id": "USW00012871",
+      "distance_km": 17.016,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4178111",
+      "name": "Whiskey Creek",
+      "station_id": "USW00012835",
+      "distance_km": 3.162,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4175319",
+      "name": "Tice",
+      "station_id": "USW00012835",
+      "distance_km": 11.002,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4174343",
+      "name": "Suncoast Estates",
+      "station_id": "USW00012835",
+      "distance_km": 14.118,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4154367",
+      "name": "Ellenton",
+      "station_id": "USW00012871",
+      "distance_km": 13.717,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4152003",
+      "name": "Cortez (Florida)",
+      "station_id": "USW00012871",
+      "distance_km": 14.672,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4162532",
+      "name": "Lochmoor Waterway Estates",
+      "station_id": "USW00012835",
+      "distance_km": 8.159,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4177759",
+      "name": "West Bradenton",
+      "station_id": "USW00012871",
+      "distance_km": 12.497,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4149241",
+      "name": "Buckingham",
+      "station_id": "USW00012835",
+      "distance_km": 16.307,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4175136",
+      "name": "The Meadows",
+      "station_id": "USW00012871",
+      "distance_km": 9.894,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4160752",
+      "name": "Kensington Park",
+      "station_id": "USW00012871",
+      "distance_km": 7.709,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4171741",
+      "name": "Samoset",
+      "station_id": "USW00012871",
+      "distance_km": 7.75,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4171061",
+      "name": "Saint James City",
+      "station_id": "USW00012835",
+      "distance_km": 23.669,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4153186",
+      "name": "Desoto Lakes",
+      "station_id": "USW00012871",
+      "distance_km": 7.57,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4175298",
+      "name": "Three Oaks (Florida)",
+      "station_id": "USW00012835",
+      "distance_km": 14.43,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4168556",
+      "name": "Pine Manor",
+      "station_id": "USW00012835",
+      "distance_km": 2.136,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4154937",
+      "name": "Feather Sound",
+      "station_id": "USW00012842",
+      "distance_km": 14.843,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4178215",
+      "name": "Whitfield (Florida)",
+      "station_id": "USW00012871",
+      "distance_km": 1.348,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4171010",
+      "name": "Saint George (Florida)",
+      "station_id": "USW00012842",
+      "distance_km": 21.151,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:7315227",
+      "name": "Greenbriar (Florida)",
+      "station_id": "USW00012842",
+      "distance_km": 21.558,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4156462",
+      "name": "Gandy",
+      "station_id": "USW00012842",
+      "distance_km": 12.926,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4158094",
+      "name": "Harlem Heights",
+      "station_id": "USW00012835",
+      "distance_km": 10.104,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4166943",
+      "name": "Olga",
+      "station_id": "USW00012835",
+      "distance_km": 21.019,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4169461",
+      "name": "Punta Rassa",
+      "station_id": "USW00012835",
+      "distance_km": 18.487,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4146082",
+      "name": "Anna Maria",
+      "station_id": "USW00012871",
+      "distance_km": 22.481,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4148710",
+      "name": "Bradenton Beach",
+      "station_id": "USW00012871",
+      "distance_km": 15.624,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4167671",
+      "name": "Palmona Park",
+      "station_id": "USW00012835",
+      "distance_km": 11.812,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4176299",
+      "name": "Utopia",
+      "station_id": "USW00012871",
+      "distance_km": 23.195,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4047852",
+      "name": "Matlacha",
+      "station_id": "USW00012835",
+      "distance_km": 21.413,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    },
+    {
+      "place_id": "US:4167465",
+      "name": "Page Park",
+      "station_id": "USW00012835",
+      "distance_km": 0.637,
+      "relationship": "nearby_station_context_not_a_municipal_measure",
+      "method": "WGS84 great-circle distance to published current station coordinate; nearest acquired station within 25 km, not nearest station in the complete NOAA network",
+      "score_eligible": false
+    }
+  ]
+}

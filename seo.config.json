@@ -1,0 +1,25 @@
+{
+  "origin": "https://nestlyzer.com",
+  "placePageSize": 200,
+  "rankingPageSize": 200,
+  "maxRankingResults": 100,
+  "maxSitemapUrls": 45000,
+  "maxSitemapBytes": 45000000,
+  "maxPublicBytes": 850000000,
+  "publicProfilePolicy": "existing-menu-or-world-selector-excluding-dormant",
+  "excludedExactPaths": [],
+  "exclusionReason": "2.15.15: owner approved publication of the delivered data (approvals pinned to content); both pages are public and indexable.",
+  "rankingMethod": "v2",
+  "factLimit": 1,
+  "scorePolicy": "Published model scores use the current configured engine. Legacy mode renormalises available inputs; fixed-mode supported ranges appear only when fixed mode is activated. No empirical validation is implied.",
+  "scopeNames": {
+    "world": "Worldwide",
+    "europe": "Europe",
+    "americas": "Americas",
+    "asia_pacific": "Asia-Pacific",
+    "mideast_africa": "Middle East and Africa"
+  },
+  "legacyRegistry": "seo-legacy-paths.json.gz",
+  "minNewPlacePopulation": 0,
+  "budgetNote": "All active place identities receive pages, including population below 1,000 or unknown. Existing rich URLs remain unchanged. Shared lazy details reduce duplication. The unchanged 850,000,000-byte public budget remains a hard release gate."
+}

@@ -1,0 +1,62 @@
+[
+ {
+  "id": "hold",
+  "ok": true,
+  "check": "Malta Gazette rows stay held (rights and newer release open): {'held/hold': 68, 'held/publish': 70, 'published/production_before_flags': 1146, 'published/reviewed': 4556}"
+ },
+ {
+  "id": "hold-page",
+  "ok": true,
+  "check": "no held Malta record reaches the Malta pages"
+ },
+ {
+  "id": "reconcile",
+  "ok": true,
+  "check": "record traces: 5840 context + 34894 master records, one outcome each"
+ },
+ {
+  "id": "gr-el",
+  "ok": true,
+  "check": "Greek national rows (ISO GR) now reach the Greek pages (EL)"
+ },
+ {
+  "id": "github",
+  "ok": true,
+  "check": "no folder over 900 files, no file of 20 MiB or more"
+ },
+ {
+  "id": "fact",
+  "ok": true,
+  "check": "Amsterdam, first-home buyer: CBS mean purchase price 631,000 EUR in the key figures"
+ },
+ {
+  "id": "score",
+  "ok": true,
+  "check": "cheaper homes (WOZ factor +60) raise Amsterdam for a first-home buyer 47.50 -> 70.10 through 'affordability' (weight 30); biz_manufacturing unchanged (80.01); restored score reproduces"
+ },
+ {
+  "id": "explain",
+  "ok": true,
+  "check": "the score tab names the WOZ home value as what holds Amsterdam back for a first-home buyer"
+ },
+ {
+  "id": "expanded",
+  "ok": true,
+  "check": "San Jose: 8 key figures, 356 more in the expanded view, every other row has a reason (['BREAKDOWN_TOTAL_SHOWN', 'SAME_FOR_ALL_HOUSEHOLDS', 'STALE_FOR_THIS_USE'])"
+ },
+ {
+  "id": "top",
+  "ok": true,
+  "check": "a new place opens at its top (previous panel scrolled to 6690px, new one at 0px)"
+ },
+ {
+  "id": "globe",
+  "ok": true,
+  "check": "start page globe draws (webgl)"
+ },
+ {
+  "id": "globe",
+  "ok": true,
+  "check": "start page globe draws (no-webgl)"
+ }
+]

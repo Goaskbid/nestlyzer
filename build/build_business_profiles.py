@@ -332,10 +332,10 @@ def main():
     # mild climate, services within reach and an airport, not empty land; tiny villages no longer lead. Old weights kept
     # for the legacy method (weightsV1).
     HH = {
-        'pensioner': ({'health': 20, 'climate': 16, 'safety': 14, 'services': 12, 'affordability': 10, 'quiet': 10, 'mobility': 7, 'tax': 6, 'coast': 5}, 2000),
+        'pensioner': ({'health': 20, 'climate': 16, 'safety': 14, 'services': 12, 'affordability': 10, 'quiet': 10, 'mobility': 13, 'tax': 6, 'coast': 5}, 2000),
         'single_pensioner': ({'health': 24, 'safety': 18, 'services': 16, 'affordability': 12, 'climate': 10, 'quiet': 8, 'mobility': 8, 'tax': 4}, 2000),
         'early_retiree': ({'climate': 16, 'health': 14, 'lifestyle': 14, 'tax': 14, 'services': 10, 'safety': 10, 'environment': 8, 'quiet': 8, 'affordability': 4, 'mobility': 2}, 2500),
-        'remote': ({'services': 16, 'affordability': 16, 'climate': 14, 'mobility': 14, 'safety': 10, 'lifestyle': 10, 'quiet': 8, 'tax': 6, 'health': 3, 'foundation': 3}, 5000),
+        'remote': ({'services': 16, 'affordability': 16, 'climate': 14, 'mobility': 14, 'safety': 10, 'lifestyle': 10, 'quiet': 8, 'tax': 6, 'health': 3, 'foundation': 3}, 2000),   # 2.15.19: remote workers may live in villages; 5,000 excluded 81% of Swiss places
         'coastal': ({'coast': 28, 'climate': 12, 'environment': 10, 'affordability': 10, 'health': 10, 'safety': 10, 'mobility': 8, 'services': 6, 'quiet': 6}, 2000),
         'budget': ({'affordability': 38, 'tax': 10, 'safety': 12, 'jobs': 12, 'services': 10, 'foundation': 8, 'mobility': 6, 'health': 4}, 2000),
         # profile audit (25 Oct): what each group really chooses by
@@ -343,9 +343,9 @@ def main():
         'single_parent': ({'family': 22, 'affordability': 24, 'safety': 16, 'services': 14, 'commuter_access': 12, 'quiet': 8, 'foundation': 4}, 5000),
         'low_income': ({'affordability': 40, 'jobs': 16, 'commuter_access': 14, 'services': 12, 'safety': 12, 'foundation': 6}, 3000),
         'low_income_family': ({'affordability': 30, 'family': 20, 'safety': 16, 'services': 12, 'commuter_access': 10, 'quiet': 8, 'foundation': 4}, 3000),
-        'first_home': ({'affordability': 30, 'commuter_access': 18, 'safety': 12, 'jobs': 12, 'family': 10, 'services': 8, 'quiet': 4, 'foundation': 4, 'tax': 2}, 3000),
+        'first_home': ({'affordability': 30, 'commuter_access': 18, 'safety': 12, 'jobs': 18, 'family': 10, 'services': 8, 'quiet': 4, 'foundation': 4, 'tax': 2}, 3000),
         'digital_native': ({'city': 22, 'campus': 14, 'lifestyle': 14, 'affordability': 14, 'commuter_access': 12, 'jobs': 12, 'demographics': 6, 'mobility': 6}, 5000),
-        'urban': ({'city': 30, 'lifestyle': 22, 'commuter_access': 16, 'jobs': 14, 'safety': 8, 'foundation': 6, 'health': 4}, 5000),
+        'urban': ({'city': 30, 'lifestyle': 22, 'commuter_access': 16, 'jobs': 20, 'safety': 8, 'foundation': 6, 'health': 4}, 5000),
         'car_free': ({'city': 30, 'commuter_access': 26, 'services': 14, 'lifestyle': 12, 'jobs': 10, 'safety': 8}, 4000),
         'single': ({'jobs': 24, 'city': 18, 'commuter_access': 18, 'lifestyle': 16, 'safety': 8, 'affordability': 8, 'foundation': 8}, 5500),
         'young_professional': ({'commuter_access': 24, 'jobs': 22, 'city': 18, 'lifestyle': 16, 'foundation': 8, 'safety': 6, 'affordability': 6}, 5000),
@@ -486,7 +486,7 @@ def main():
     meta['categoryLabels']['city'] = 'City scale (people within 10 km: big-city life, transit, scenes)'
     meta['categoryLabels']['climaterisk'] = 'Climate exposure (estimate: coastal and river flooding, heat; 100 = low)'
     meta['categoryLabels']['climate'] = 'Climate (mild and sunny: climate class and winter daylight)'
-    meta['categoryLabels']['services'] = 'Services nearby (people within 10 km: shops, doctors, cafes, transport)'
+    meta['categoryLabels']['services'] = 'Services nearby (estimated from how many people live within 10 km, unless shops and doctors are counted)'
     for k in ('biz_lab', 'biz_tech', 'biz_pharma_production'):
         if k in cfg['profiles'] and 'campus' not in cfg['profiles'][k]['weights']: cfg['profiles'][k]['weights']['campus'] = 15
     meta['categoryLabels']['portaccess'] = 'Port access (major sea or inland port)'

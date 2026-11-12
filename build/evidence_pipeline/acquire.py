@@ -9,10 +9,17 @@ FIELDS=['record_id','indicator_id','geographic_unit','geographic_code','code_sys
 def write(p,v):
  p=Path(p);p.parent.mkdir(parents=True,exist_ok=True);t=p.with_suffix(p.suffix+'.part');t.write_text(json.dumps(v,ensure_ascii=False,indent=2));t.replace(p)
 def digest(b):return hashlib.sha256(b).hexdigest()
-def fetch(url,out,timeout=20,limit=250_000_000):
+def approved_url(url):
  u=urllib.parse.urlparse(url)
- if u.scheme!='https' or u.hostname not in ALLOWED:raise ValueError('Endpoint outside official allowlist')
- if u.hostname=='raw.githubusercontent.com' and not u.path.startswith('/GlobalEnergyMonitor/'):raise ValueError('Not the publisher account')
+ if u.scheme!='https' or u.hostname not in ALLOWED or u.username or u.password or u.port not in (None,443):raise ValueError('Endpoint outside official allowlist')
+ if u.hostname in {'raw.githubusercontent.com','github.com'} and not u.path.startswith('/GlobalEnergyMonitor/'):raise ValueError('Not the publisher account')
+ return u
+class OfficialRedirect(urllib.request.HTTPRedirectHandler):
+ def redirect_request(self,req,fp,code,msg,headers,newurl):
+  approved_url(newurl)
+  return super().redirect_request(req,fp,code,msg,headers,newurl)
+def fetch(url,out,timeout=20,limit=250_000_000):
+ u=approved_url(url)
  out=Path(out);out.parent.mkdir(parents=True,exist_ok=True);receipt=out.with_suffix(out.suffix+'.receipt.json')
  if out.exists():
   if not receipt.exists():raise ValueError('Existing bytes have no acquisition receipt')
@@ -20,7 +27,7 @@ def fetch(url,out,timeout=20,limit=250_000_000):
   if m['source_url']!=url or m['sha256']!=digest(b):raise ValueError('Cached URL/hash mismatch')
   return b
  req=urllib.request.Request(url,headers={'User-Agent':'Nestlyzer/2.15.16 (+https://nestlyzer.com)','Accept':'application/json,application/geo+json,*/*'})
- with urllib.request.urlopen(req,timeout=timeout) as r:
+ with urllib.request.build_opener(OfficialRedirect()).open(req,timeout=timeout) as r:
   final=urllib.parse.urlparse(r.url)
   if final.scheme!='https' or final.hostname not in ALLOWED:raise ValueError('Unapproved redirect')
   chunks=[];n=0
@@ -74,17 +81,9 @@ def savecsv(path,rows):
   w=csv.DictWriter(f,fieldnames=FIELDS);w.writeheader();w.writerows(rows)
 
 def migration(work,year,timeout):
- rows=[];geographies=[]
- for group in ['B07001','B07401']:
-  base=f'https://api.census.gov/data/{year}/acs/acs5';u=base+'/groups/'+group+'.json';md=json.loads(fetch(u,work/'raw'/f'{group}_metadata.json',timeout));vars=census_variables(md,group)
-  names=['NAME']+[x for k,v in vars.items() for x in [k,v['margin_variable']]]
-  if len(names)>50:raise ValueError('Census request needs batching; schema changed')
-  url=base+'?'+urllib.parse.urlencode({'get':','.join(names),'for':'county:*'})
-  b=fetch(url,work/'raw'/f'{group}_{year}.json',timeout);rr,geos=census_rows(json.loads(b),vars,year,group,url,digest(b));rows+=rr;geographies.append(geos)
- if geographies[0]!=geographies[1]:raise ValueError('Inflow/outflow county vintages differ')
- savecsv(work/'stage/US_migration_age65_components.csv.gz',rows)
- write(work/'stage/US_migration_manifest.json',{'period':f'{year-4}-{year}','counties':len(geographies[0]),'rows':len(rows),'tables':['B07001','B07401'],'numeric_calibration_enabled':False,'note':'Age is not retirement status. Same-county moves are not intercounty migration. Retain margins of error. Do not label inflows as net flows. Pair compatible inflow and outflow components before a net statistic.'})
- return {'status':'acquired_staged','rows':len(rows),'counties':len(geographies[0]),'publication':'not automatically enabled'}
+ # Metadata is key-free; choose keyed API or official key-free bulk data.
+ from migration_v2 import acquire
+ return acquire(work,year,timeout)
 
 def topo_features(t):
  if t.get('type')!='Topology':return t
@@ -98,7 +97,11 @@ def topo_features(t):
  def ring(ids):
   out=[]
   for i in ids:
-   a=arcs[i] if i>=0 else list(reversed(arcs[~i]));out.extend(a if not out else a[1:])
+   if not isinstance(i,int) or isinstance(i,bool) or (i if i>=0 else ~i)>=len(arcs):raise ValueError('Invalid TopoJSON arc reference')
+   a=arcs[i] if i>=0 else list(reversed(arcs[~i]))
+   if not a or (out and out[-1]!=a[0]):raise ValueError('Discontinuous TopoJSON ring; no auto-repair')
+   out.extend(a if not out else a[1:])
+  if len(out)<4 or out[0]!=out[-1]:raise ValueError('Unclosed TopoJSON ring; no auto-repair')
   return out
  result=[]
  for obj in t['objects'].values():
@@ -120,6 +123,13 @@ def validate_geometry(data,job):
   if code not in expected:continue
   geom=f.get('geometry') or {}
   if geom.get('type') not in ['Polygon','MultiPolygon']:raise ValueError('District layer contains points or lines, not boundaries')
+  polygons=[geom.get('coordinates',[])] if geom['type']=='Polygon' else geom.get('coordinates',[])
+  if not polygons:raise ValueError('Empty polygon coordinates')
+  for polygon in polygons:
+   if not polygon:raise ValueError('Empty polygon rings')
+   for ring in polygon:
+    if len(ring)<4 or ring[0]!=ring[-1]:raise ValueError('Unclosed district ring; no auto-repair')
+    if any(len(point)!=2 or any(isinstance(v,bool) or not isinstance(v,(float,int)) or not math.isfinite(v) for v in point) for point in ring):raise ValueError('Nonfinite or non-WGS84-2D coordinate')
   s=shape(geom)
   if s.is_empty or not s.is_valid or s.area<=0:raise ValueError('Invalid or empty district polygon')
   x1,y1,x2,y2=s.bounds

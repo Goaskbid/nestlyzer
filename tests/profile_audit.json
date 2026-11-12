@@ -5,13 +5,13 @@
    "p": "young_family",
    "cc": "CH",
    "kind": "core-mean",
-   "msg": "affordability (16% of the weight) averages 58 in the top 10"
+   "msg": "safety (16% of the weight) averages 59 in the top 10"
   },
   {
    "p": "young_family",
    "cc": "CH",
    "kind": "core-weak",
-   "msg": "affordability: 2 of the top 10 under 40: Ebikon 39, Hochdorf 36"
+   "msg": "affordability: 1 of the top 10 under 40: Ebikon 39"
   },
   {
    "p": "low_income_family",
@@ -89,7 +89,13 @@
    "p": "urban",
    "cc": "CH",
    "kind": "core-mean",
-   "msg": "city (30% of the weight) averages 54 in the top 10"
+   "msg": "city (28% of the weight) averages 52 in the top 10"
+  },
+  {
+   "p": "urban",
+   "cc": "CH",
+   "kind": "country-lacks",
+   "msg": "city: no place in the country scores well (90th percentile 39)"
   },
   {
    "p": "healthcare_first",
@@ -137,19 +143,25 @@
    "p": "low_income_family",
    "cc": "FR",
    "kind": "core-mean",
-   "msg": "safety (16% of the weight) averages 59 in the top 10"
+   "msg": "safety (16% of the weight) averages 57 in the top 10"
+  },
+  {
+   "p": "low_income_family",
+   "cc": "FR",
+   "kind": "core-weak",
+   "msg": "safety: 1 of the top 10 under 40: Pierrefitte-sur-Seine 25"
   },
   {
    "p": "single_parent",
    "cc": "FR",
    "kind": "core-mean",
-   "msg": "safety (16% of the weight) averages 47 in the top 10"
+   "msg": "safety (16% of the weight) averages 43 in the top 10"
   },
   {
    "p": "single_parent",
    "cc": "FR",
    "kind": "core-weak",
-   "msg": "safety: 1 of the top 10 under 40: Saint-Étienne 36"
+   "msg": "safety: 3 of the top 10 under 40: Pierrefitte-sur-Seine 25, Saint-Étienne 36, Paris 22"
   },
   {
    "p": "single_pensioner",
@@ -167,31 +179,7 @@
    "p": "young_family",
    "cc": "IT",
    "kind": "core-mean",
-   "msg": "safety (16% of the weight) averages 55 in the top 10"
-  },
-  {
-   "p": "low_income_family",
-   "cc": "IT",
-   "kind": "core-mean",
-   "msg": "safety (16% of the weight) averages 53 in the top 10"
-  },
-  {
-   "p": "single_parent",
-   "cc": "IT",
-   "kind": "core-mean",
-   "msg": "safety (16% of the weight) averages 55 in the top 10"
-  },
-  {
-   "p": "first_home",
-   "cc": "IT",
-   "kind": "core-mean",
-   "msg": "affordability (30% of the weight) averages 56 in the top 10"
-  },
-  {
-   "p": "first_home",
-   "cc": "IT",
-   "kind": "core-weak",
-   "msg": "affordability: 1 of the top 10 under 40: Monza 30"
+   "msg": "safety (16% of the weight) averages 59 in the top 10"
   },
   {
    "p": "biz_port_industry",
@@ -200,10 +188,28 @@
    "msg": "chempark: 1 of the top 10 under 40: Napoli 0"
   },
   {
+   "p": "first_home",
+   "cc": "UK",
+   "kind": "core-mean",
+   "msg": "jobs (17% of the weight) averages 55 in the top 10"
+  },
+  {
    "p": "biz_hq",
    "cc": "UK",
    "kind": "core-mean",
    "msg": "lifestyle (18% of the weight) averages 52 in the top 10"
+  },
+  {
+   "p": "outdoor",
+   "cc": "UK",
+   "kind": "core-mean",
+   "msg": "outdoor (32% of the weight) averages 40 in the top 10"
+  },
+  {
+   "p": "outdoor",
+   "cc": "UK",
+   "kind": "country-lacks",
+   "msg": "outdoor: no place in the country scores well (90th percentile 30)"
   },
   {
    "p": "cross_border",
@@ -242,22 +248,16 @@
    "msg": "family: 1 of the top 10 under 40: Leiden 34"
   },
   {
-   "p": "low_income_family",
-   "cc": "NL",
-   "kind": "core-mean",
-   "msg": "safety (16% of the weight) averages 57 in the top 10"
-  },
-  {
-   "p": "low_income_family",
-   "cc": "NL",
-   "kind": "core-weak",
-   "msg": "safety: 1 of the top 10 under 40: Groningen 33"
-  },
-  {
    "p": "single_parent",
    "cc": "NL",
    "kind": "core-weak",
    "msg": "family: 1 of the top 10 under 40: Leiden 34"
+  },
+  {
+   "p": "first_home",
+   "cc": "NL",
+   "kind": "core-mean",
+   "msg": "jobs (17% of the weight) averages 52 in the top 10"
   },
   {
    "p": "healthcare_first",
@@ -269,13 +269,13 @@
    "p": "outdoor",
    "cc": "NL",
    "kind": "core-mean",
-   "msg": "outdoor (32% of the weight) averages 32 in the top 10"
+   "msg": "outdoor (32% of the weight) averages 14 in the top 10"
   },
   {
    "p": "outdoor",
    "cc": "NL",
    "kind": "country-lacks",
-   "msg": "outdoor: no place in the country scores well (90th percentile 28)"
+   "msg": "outdoor: no place in the country scores well (90th percentile 13)"
   },
   {
    "p": "cross_border",
@@ -290,16 +290,22 @@
    "msg": "affordability (16% of the weight) averages 57 in the top 10"
   },
   {
-   "p": "pensioner",
-   "cc": "ES",
-   "kind": "core-mean",
-   "msg": "health (20% of the weight) averages 59 in the top 10"
-  },
-  {
    "p": "single_pensioner",
    "cc": "ES",
    "kind": "core-mean",
    "msg": "health (24% of the weight) averages 59 in the top 10"
+  },
+  {
+   "p": "first_home",
+   "cc": "ES",
+   "kind": "core-mean",
+   "msg": "affordability (28% of the weight) averages 58 in the top 10"
+  },
+  {
+   "p": "first_home",
+   "cc": "ES",
+   "kind": "core-mean",
+   "msg": "jobs (17% of the weight) averages 53 in the top 10"
   },
   {
    "p": "young_family",
@@ -312,6 +318,12 @@
    "cc": "US",
    "kind": "core-mean",
    "msg": "affordability (24% of the weight) averages 57 in the top 10"
+  },
+  {
+   "p": "first_home",
+   "cc": "US",
+   "kind": "core-mean",
+   "msg": "affordability (28% of the weight) averages 58 in the top 10"
   },
   {
    "p": "cross_border",

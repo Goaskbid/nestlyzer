@@ -546,7 +546,10 @@ async def main():
             for path in ['/', '/switzerland/', '/switzerland/zurich/meilen/', '/best/young-family/', '/method/', '/legal/', '/no-such-page/']:
                 try: html = urllib.request.urlopen(BASE + path).read().decode()
                 except Exception as e: html = e.read().decode()
-                found[path] = ('ca-pub-2870312071451207' in html and 'google-adsense-account' in html, 'adsbygoogle.js?client=ca-pub-2870312071451207' in html)
+                # 2.15.18: the consent-gated ad loader may live in a shared script file referenced by the page (identical code, loaded in place)
+                import re as _re
+                shared = ''.join(urllib.request.urlopen(BASE + u).read().decode() for u in _re.findall(r'src="(/assets/shared-inline/[0-9a-f]+\.js)"', html))
+                found[path] = ('ca-pub-2870312071451207' in html and 'google-adsense-account' in html, 'adsbygoogle.js?client=ca-pub-2870312071451207' in html + shared)
             ok = txt == 'google.com, pub-2870312071451207, DIRECT, f08c47fec0942fa0' and all(v[0] for v in found.values()) and all(found[p][1] for p in ['/', '/switzerland/', '/switzerland/zurich/meilen/', '/best/young-family/', '/method/']) and not found['/legal/'][1] and not found['/no-such-page/'][1]
             rec('R37', 'AdSense ready: ads.txt, account meta on every page, Auto ads script on content pages only (not on legal or error pages)', ok, f'ads.txt="{txt}", pages={found}')
         await check('R37', 'AdSense', r37)

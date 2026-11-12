@@ -86,3 +86,5 @@ tests/results/
 /immigration/
 /assets/ranks.js
 /evidence-lab/
+.nestlyzer-audit-backups/
+/assets/shared-inline/

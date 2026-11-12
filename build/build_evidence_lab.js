@@ -14,6 +14,17 @@ const NM = { kg: 1, lake: 1, river: 1, port: 1, iport: 1, mport: 1, chem: 1, bor
 const fin = Number.isFinite;
 function ranks(v) { const o = v.map((x, i) => [x, i]).sort((a, b) => a[0] - b[0]), r = new Array(v.length); for (let i = 0; i < o.length;) { let j = i; while (j + 1 < o.length && o[j + 1][0] === o[i][0]) j++; for (let k = i; k <= j; k++) r[o[k][1]] = (i + j) / 2; i = j + 1; } return r; }
 function spearman(a, b) { const ra = ranks(a), rb = ranks(b), n = a.length, ma = (n - 1) / 2; let s = 0, sa = 0, sb = 0; for (let i = 0; i < n; i++) { s += (ra[i] - ma) * (rb[i] - ma); sa += (ra[i] - ma) ** 2; sb += (rb[i] - ma) ** 2; } return sa && sb ? s / Math.sqrt(sa * sb) : null; }
+// 2.15.19 explanation of a disagreement, built only from the place's own category scores (never invented):
+// 'high' = model ranks it high but the outcome is weak -> name its weakest relevant categories (likely reasons to leave);
+// 'low'  = model ranks it low but the outcome is strong -> name its strongest categories (what attracts people or firms)
+const LBL = meta.categoryLabels || {};
+function explain(r, p, biz, kind) {
+  const c = eng.categoriesFor(r, p), ks = ['jobs', 'mobility', 'services', 'affordability', 'demographics', 'family', 'health', 'safety', 'lifestyle', 'city', 'climate', 'environment', 'tax', 'logistics', 'talent', 'energy']
+    .filter((k) => fin(c[k]));
+  if (!ks.length) return '';
+  ks.sort((a, b) => kind === 'high' ? c[a] - c[b] : c[b] - c[a]);
+  return ks.slice(0, 2).map((k) => (LBL[k] || k).replace(/ \(.*$/, '') + ' ' + Math.round(c[k])).join(', ');
+}
 const out = { version: 1, built: new Date().toISOString().slice(0, 10), outcomes: {
   households: 'Population growth 2019 to 2024 (official population counts): where people actually move to or stay.',
   business: 'Existing presence of that industry in and around the place (official business and employment registers): where firms of this kind already operate.' },
@@ -39,7 +50,9 @@ for (const c of meta.countries) {
     const hi = q(0.6), lo = q(0.2), top = pairs.slice(0, Math.max(10, Math.ceil(pairs.length / 10)));
     const confirm = top.filter((x) => x[1] >= hi).length / top.length, contra = top.filter((x) => x[1] <= lo);
     C[p] = { n: pairs.length, rho: Math.round(rho * 100) / 100, topConfirm: Math.round(confirm * 100), topContra: Math.round(contra.length / top.length * 100),
-      flags: contra.slice(0, 5).map((x) => [x[2].id, x[2].name, x[3] + 1, Math.round(x[1] * 10) / 10]) };
+      flags: contra.slice(0, 5).map((x) => [x[2].id, x[2].name, x[3] + 1, Math.round(x[1] * 10) / 10, explain(x[2], p, biz, 'high')]),
+      // the opposite surprise: ranked in the bottom half, yet among the fastest-growing places / an established location
+      surprises: pairs.slice(Math.floor(pairs.length / 2)).filter((x) => x[1] >= q(0.9)).slice(0, 3).map((x) => [x[2].id, x[2].name, x[3] + 1, Math.round(x[1] * 10) / 10, explain(x[2], p, biz, 'low')]) };
   }
   process.stdout.write(c.cc + ' ');
 }

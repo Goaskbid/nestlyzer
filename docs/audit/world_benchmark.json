@@ -363,39 +363,39 @@
   ]
  },
  "student": {
-  "metros": 1988,
+  "metros": 1987,
   "references": 16,
   "found_ranked": 16,
   "in_top_100": 7,
-  "median_percentile": 10.2,
+  "median_percentile": 9.4,
   "places": [
    {
     "ref": "UK:E09000007",
-    "rank": 363,
+    "rank": 360,
     "as": "Westminster",
     "published": false
    },
    {
     "ref": "JP:1850147",
-    "rank": 99,
+    "rank": 89,
     "as": "Suginami (杉並)",
     "published": true
    },
    {
     "ref": "KR:1835848",
-    "rank": 328,
+    "rank": 198,
     "as": "Seoul (서울시)",
     "published": false
    },
    {
     "ref": "DE:09162000",
-    "rank": 69,
+    "rank": 61,
     "as": "München",
     "published": true
    },
    {
     "ref": "AU:2158177",
-    "rank": 187,
+    "rank": 174,
     "as": "Melbourne",
     "published": false
    },
@@ -407,316 +407,316 @@
    },
    {
     "ref": "AU:2147714",
-    "rank": 565,
+    "rank": 554,
     "as": "Sydney",
     "published": false
    },
    {
     "ref": "CH:261",
-    "rank": 85,
+    "rank": 74,
     "as": "Zürich",
     "published": true
    },
    {
     "ref": "DE:11000000",
-    "rank": 86,
+    "rank": 75,
     "as": "Berlin",
     "published": true
    },
    {
     "ref": "CA:6077243",
-    "rank": 218,
+    "rank": 203,
     "as": "Le Plateau-Mont-Royal",
     "published": false
    },
    {
     "ref": "US:4930956",
-    "rank": 280,
+    "rank": 266,
     "as": "Cambridge (Massachusetts)",
     "published": false
    },
    {
     "ref": "AT:90001",
-    "rank": 18,
+    "rank": 33,
     "as": "Wien",
     "published": true
    },
    {
     "ref": "UK:S30000008",
-    "rank": 59,
+    "rank": 50,
     "as": "City of Edinburgh",
     "published": true
    },
    {
     "ref": "CA:6167865",
-    "rank": 736,
+    "rank": 709,
     "as": "Willowdale (Ontario, 79,440 residents)",
     "published": false
    },
    {
     "ref": "CA:6173331",
-    "rank": 309,
+    "rank": 299,
     "as": "Vancouver",
     "published": false
    },
    {
     "ref": "UK:E07000008",
-    "rank": 355,
+    "rank": 351,
     "as": "Cambridge",
     "published": false
    }
   ],
   "top10": [
    "Milano IT",
-   "Leiden NL",
    "Madrid ES",
+   "Leiden NL",
    "Lausanne CH",
    "Paris FR",
    "Bytom PL",
-   "Reggio di Calabria IT",
    "Chemnitz DE",
+   "Reggio di Calabria IT",
    "Barcelona ES",
    "Enschede NL"
   ]
  },
  "pensioner": {
-  "metros": 8622,
+  "metros": 8625,
   "references": 17,
   "found_ranked": 17,
   "in_top_100": 1,
-  "median_percentile": 7.3,
+  "median_percentile": 5.6,
   "places": [
    {
     "ref": "PT:080508",
-    "rank": 1435,
+    "rank": 1330,
     "as": "Quelfes",
     "published": false
    },
    {
     "ref": "PT:080808",
-    "rank": 1435,
+    "rank": 1330,
     "as": "Quelfes",
     "published": false
    },
    {
     "ref": "PT:080106",
-    "rank": 1800,
+    "rank": 1588,
     "as": "Albufeira e Olhos de Água",
     "published": false
    },
    {
     "ref": "ES:29069",
-    "rank": 260,
+    "rank": 286,
     "as": "Estepona",
     "published": false
    },
    {
     "ref": "ES:29067",
-    "rank": 638,
+    "rank": 516,
     "as": "Málaga",
     "published": false
    },
    {
     "ref": "ES:03133",
-    "rank": 152,
+    "rank": 122,
     "as": "Torrevieja",
     "published": false
    },
    {
     "ref": "ES:03031",
-    "rank": 302,
+    "rank": 349,
     "as": "Altea",
     "published": false
    },
    {
     "ref": "ES:03014",
-    "rank": 629,
+    "rank": 473,
     "as": "San Vicente del Raspeig",
     "published": false
    },
    {
     "ref": "FR:06088",
-    "rank": 246,
-    "as": "Menton",
+    "rank": 148,
+    "as": "Vallauris",
     "published": false
    },
    {
     "ref": "FR:06029",
-    "rank": 179,
-    "as": "Cannes",
+    "rank": 148,
+    "as": "Vallauris",
     "published": false
    },
    {
     "ref": "FR:06083",
-    "rank": 246,
+    "rank": 205,
     "as": "Menton",
     "published": false
    },
    {
     "ref": "US:4172131",
-    "rank": 2218,
+    "rank": 1603,
     "as": "Bradenton",
     "published": false
    },
    {
     "ref": "US:4165565",
-    "rank": 3463,
+    "rank": 2286,
     "as": "Naples (Florida)",
     "published": false
    },
    {
     "ref": "US:4155995",
-    "rank": 3540,
+    "rank": 2279,
     "as": "North Fort Myers",
     "published": false
    },
    {
     "ref": "US:5313457",
-    "rank": 7588,
+    "rank": 3335,
     "as": "Paradise Valley",
     "published": false
    },
    {
     "ref": "CY:5000",
-    "rank": 56,
-    "as": "Άγιος Αθανάσιος",
+    "rank": 109,
+    "as": "Μέσα Γειτονιά",
     "published": true
    },
    {
     "ref": "MT:*",
-    "rank": 509,
-    "as": "Ħal Qormi / Citta' Pinto",
+    "rank": 479,
+    "as": "Tas-Sliema / Sliema",
     "published": false
    }
   ],
   "top10": [
+   "Marseille FR",
    "Corvera de Asturias ES",
    "Marín ES",
    "Realejos, Los ES",
-   "Περάματος EL",
-   "Marseille FR",
    "Ferrol ES",
    "Lloret de Mar ES",
-   "Partinico IT",
    "Langreo ES",
-   "Villanueva de la Serena ES"
+   "Wohlen (AG) CH",
+   "Wädenswil CH",
+   "Seregno IT"
   ]
  },
  "remote": {
-  "metros": 11549,
+  "metros": 11548,
   "references": 16,
   "found_ranked": 16,
-  "in_top_100": 2,
-  "median_percentile": 4.0,
+  "in_top_100": 4,
+  "median_percentile": 4.7,
   "places": [
    {
     "ref": "PT:110657",
-    "rank": 126,
+    "rank": 77,
     "as": "Pinhal Novo",
-    "published": false
+    "published": true
    },
    {
     "ref": "PT:131217",
-    "rank": 204,
+    "rank": 140,
     "as": "Gondomar (São Cosme), Valbom e Jovim",
     "published": false
    },
    {
     "ref": "ES:08019",
-    "rank": 377,
+    "rank": 261,
     "as": "Sant Just Desvern",
     "published": false
    },
    {
     "ref": "ES:46250",
-    "rank": 724,
+    "rank": 441,
     "as": "Picassent",
     "published": false
    },
    {
     "ref": "ES:28079",
-    "rank": 6,
+    "rank": 8,
     "as": "Tres Cantos",
     "published": true
    },
    {
     "ref": "ES:35016",
-    "rank": 667,
+    "rank": 419,
     "as": "Teror",
     "published": false
    },
    {
     "ref": "DE:11000000",
-    "rank": 116,
+    "rank": 89,
     "as": "Neuenhagen bei Berlin",
-    "published": false
+    "published": true
    },
    {
     "ref": "EE:0784",
-    "rank": 1225,
-    "as": "Maardu linn",
+    "rank": 1687,
+    "as": "Saue vald",
     "published": false
    },
    {
     "ref": "HR:04090",
-    "rank": 27,
+    "rank": 80,
     "as": "Solin",
     "published": true
    },
    {
     "ref": "MX:3530597",
-    "rank": 1112,
+    "rank": 2299,
     "as": "Xochimilco",
     "published": false
    },
    {
     "ref": "CO:3674962",
-    "rank": 546,
+    "rank": 1703,
     "as": "Bello",
     "published": false
    },
    {
     "ref": "AR:3435910",
-    "rank": 221,
-    "as": "Quilmes",
+    "rank": 639,
+    "as": "Lanús",
     "published": false
    },
    {
     "ref": "TH:1609350",
-    "rank": 380,
+    "rank": 1040,
     "as": "Pak Kret",
     "published": false
    },
    {
     "ref": "TH:1153671",
-    "rank": 2458,
+    "rank": 2660,
     "as": "Lamphun",
     "published": false
    },
    {
     "ref": "MY:1735161",
-    "rank": 1176,
+    "rank": 1652,
     "as": "Puchong",
     "published": false
    },
    {
     "ref": "AE:292223",
-    "rank": 881,
-    "as": "Dubai Investments Park",
+    "rank": 1235,
+    "as": "Dubai",
     "published": false
    }
   ],
   "top10": [
+   "Marseille FR",
    "Langreo ES",
    "Kitzingen DE",
+   "Liestal CH",
    "Elda ES",
-   "Grasse FR",
-   "Oraş Popeşti Leordeni RO",
-   "Tres Cantos ES",
-   "Realejos, Los ES",
-   "Comiso IT",
    "Margaride (Santa Eulália), Várzea, Lagares, Varziela e Moure PT",
-   "Le Chambon-Feugerolles FR"
+   "Realejos, Los ES",
+   "Tres Cantos ES",
+   "Grasse FR",
+   "Corvera de Asturias ES"
   ]
  },
  "hnw": {
@@ -740,13 +740,13 @@
    },
    {
     "ref": "CH:5192",
-    "rank": 67,
+    "rank": 70,
     "as": "Lugano",
     "published": true
    },
    {
     "ref": "CH:843",
-    "rank": 2814,
+    "rank": 2813,
     "as": "Bulle",
     "published": false
    },
@@ -819,126 +819,126 @@
   ]
  },
  "sun_retiree": {
-  "metros": 11704,
+  "metros": 11710,
   "references": 17,
   "found_ranked": 17,
   "in_top_100": 5,
-  "median_percentile": 3.0,
+  "median_percentile": 2.7,
   "places": [
    {
     "ref": "PT:080508",
-    "rank": 353,
+    "rank": 311,
     "as": "Faro (Sé e São Pedro)",
     "published": false
    },
    {
     "ref": "PT:080808",
-    "rank": 353,
+    "rank": 311,
     "as": "Faro (Sé e São Pedro)",
     "published": false
    },
    {
     "ref": "PT:080106",
-    "rank": 387,
+    "rank": 345,
     "as": "Albufeira e Olhos de Água",
     "published": false
    },
    {
     "ref": "ES:29069",
-    "rank": 62,
+    "rank": 53,
     "as": "Estepona",
     "published": false
    },
    {
     "ref": "ES:29067",
-    "rank": 82,
+    "rank": 73,
     "as": "Málaga",
     "published": false
    },
    {
     "ref": "ES:03133",
-    "rank": 391,
+    "rank": 353,
     "as": "Torrevieja",
     "published": false
    },
    {
     "ref": "ES:03031",
-    "rank": 39,
+    "rank": 34,
     "as": "Calp",
     "published": true
    },
    {
     "ref": "ES:03014",
-    "rank": 497,
+    "rank": 451,
     "as": "Santa Pola",
     "published": false
    },
    {
     "ref": "FR:06088",
-    "rank": 83,
+    "rank": 74,
     "as": "Menton",
     "published": true
    },
    {
     "ref": "FR:06029",
-    "rank": 78,
+    "rank": 70,
     "as": "Cannes",
     "published": true
    },
    {
     "ref": "FR:06083",
-    "rank": 83,
+    "rank": 74,
     "as": "Menton",
     "published": true
    },
    {
     "ref": "US:4172131",
-    "rank": 885,
+    "rank": 819,
     "as": "Bradenton",
     "published": false
    },
    {
     "ref": "US:4165565",
-    "rank": 1615,
+    "rank": 1551,
     "as": "Naples (Florida)",
     "published": false
    },
    {
     "ref": "US:4155995",
-    "rank": 1574,
+    "rank": 1516,
     "as": "North Fort Myers",
     "published": false
    },
    {
     "ref": "US:5313457",
-    "rank": 9671,
+    "rank": 10040,
     "as": "Fountain Hills",
     "published": false
    },
    {
     "ref": "CY:5000",
-    "rank": 11,
+    "rank": 24,
     "as": "Γερμασόγεια",
     "published": true
    },
    {
     "ref": "MT:*",
-    "rank": 212,
-    "as": "Ħal Qormi / Citta' Pinto",
+    "rank": 11697,
+    "as": "Birkirkara",
     "published": false
    }
   ],
   "top10": [
    "Realejos, Los ES",
-   "Narón ES",
    "Marseille FR",
-   "Βάρης EL",
+   "Narón ES",
    "Ficarazzi IT",
    "Mascali IT",
    "Marín ES",
-   "Νέας Μάκρης EL",
    "Corvera de Asturias ES",
-   "Scicli IT"
+   "Scicli IT",
+   "Castel Volturno IT",
+   "Línea de la Concepción, La ES"
   ]
  }
 }

@@ -156,7 +156,11 @@ for (const [sk, inScope] of Object.entries(SC)) {
       const occ = o[0].split(':')[0]; if ((perCC[occ] = (perCC[occ] || 0) + 1) > CC_CAP) continue;   // a world list shows at most 20 places per country; the country ranking shows the rest
       const e = o.concat(0, Math.round(q[0] * 1000) / 1000, Math.round(q[1] * 1000) / 1000); top.push(e); (cell[gx + ',' + gy] = cell[gx + ',' + gy] || []).push({ q, o: e });
     }
-    res.scopes[sk].profiles[k] = { ranked: out.length, metros: top.length, top };
+    // 2.15.19: the best place of every country for the world map, so the map shows the whole world, not only the
+    // countries that fill the top 100 (row: id, name, score, latitude, longitude)
+    const best = [], seenCC = new Set();
+    for (const o of out) { const c0 = o[0].split(':')[0], q = XY[o[0]]; if (seenCC.has(c0) || !q || q[0] == null) continue; seenCC.add(c0); best.push([o[0], o[1], o[2], Math.round(q[0] * 1000) / 1000, Math.round(q[1] * 1000) / 1000]); }
+    res.scopes[sk].profiles[k] = { ranked: out.length, metros: top.length, top, best };
     res.scopes[sk].places = Math.max(res.scopes[sk].places || 0, out.length);
     res.scopes[sk].countries = [...new Set(list.map((p) => p.cc))].length;
     if (process.env.NZ_BENCH) (full[sk] = full[sk] || {})[k] = out.map((o) => [o[0], o[1], o[2]]);

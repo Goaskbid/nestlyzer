@@ -1,5 +1,5 @@
 {
-  "version": "2.15.16",
+  "version": "2.15.19",
   "profiles": 65,
   "errors": 0,
   "statistical_validation_claim": false,
@@ -74,7 +74,7 @@
         "pension_budget_feasible",
         "essential_care_access_known"
       ],
-      "weight_sum": 100,
+      "weight_sum": 106,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
       "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
@@ -217,7 +217,7 @@
         "first_home_financing_case_defined",
         "insurance_and_inventory_known"
       ],
-      "weight_sum": 100,
+      "weight_sum": 106,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
       "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
@@ -243,7 +243,7 @@
       "contract_present": true,
       "cohort_requirement": "Resident retention, actual cultural and service access, travel behaviour and net housing burden.",
       "critical_gates": [],
-      "weight_sum": 100,
+      "weight_sum": 106,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
       "condition_scoring": "fixed-weight screening; observations and proxies disclosed",

@@ -101,6 +101,12 @@
       var v = this.categoryScore(r, cats[i]);
       if (fin(v)) out[cats[i]] = v;
     }
+    // 2.15.19 nature counts as nature: the built-up share used to be scored against a suburban sweet spot, so mountain
+    // and countryside places with 2% built-up land (Davos, Zermatt, Engadin) scored near zero on environment and
+    // rock, glacier and alpine land counted as "not green". 60% of the environment score is now the natural share
+    // (everything not built-up): 95% natural or more -> 100, 60% -> 0.
+    var bu0 = (r.factorRaw || {}).settlement_area_balance;
+    if (this.method !== 'v1' && fin(bu0) && fin(out.environment)) out.environment = 0.4 * out.environment + 0.6 * Math.max(0, Math.min(100, (40 - bu0) / 35 * 100));
     if (r.country !== 'CH') {
       var fs = r.factorScores || {};
       var pop = fs.common_population_scale, density = fs.common_density_balance, calm = fs.common_low_crowding;
@@ -126,7 +132,9 @@
         if (!fin(out.lifestyle)) out.lifestyle = avgFinite([pop, catch30]);
         // mobility has real factors in v2; no fill-in from density
       }
-      if (!fin(out.affordability)) out.affordability = avgFinite([calm, density]);
+      // 2.15.19 (auditor): housing costs are never guessed from density or calm; without price data affordability stays unknown
+      // (its weight is shown as missing, not filled with a proxy)
+      if (this.method === 'v1' && !fin(out.affordability)) out.affordability = avgFinite([calm, density]);   // legacy method v1 reproduces its published rankings exactly
       if (!fin(out.family)) out.family = avgFinite([youth, growth, calm]);
       if (!fin(out.health)) out.health = avgFinite([elderly]);
       for (var nk in natl) out[nk] = fin(out[nk]) ? (out[nk] + natl[nk]) / 2 : natl[nk];
@@ -152,7 +160,12 @@
     // commodity trading and gold, crypto, private wealth
     // outdoor (2.12): terrain relief (100 from 1,200 m of relief within reach) and water nearby; border: a national border within a short drive
     var rel = fin(xx.relief) ? Math.max(0, Math.min(100, (Math.log10(Math.max(1, xx.relief)) - 1.7) / (3.08 - 1.7) * 100)) : null, ck0 = (r.factorRaw || {}).geo_coast_km, wat = Math.max(fin(xx.lake_km) ? lin(xx.lake_km, 1, 25) : 0, fin(ck0) ? lin(ck0, 1, 25) : 0);
-    if (fin(rel)) out.outdoor = 0.65 * rel + 0.35 * wat;
+    // 2.15.19: mountains count fully. Relief now saturates at 2,000 m (was 1,200 m, so every alpine valley and every lake
+    // shore under a ridge scored the same) and altitude adds the high-alpine part (400 m -> 0, 1,500 m -> 100); water nearby
+    // is a bonus of up to 15 points (was 35% of the score), so a lake no longer outranks Davos or St. Moritz for an outdoor and mountain lover
+    if (fin(rel)) { var rel2 = fin(xx.relief) ? Math.max(0, Math.min(100, (Math.log10(Math.max(1, xx.relief)) - 1.7) / (3.3 - 1.7) * 100)) : rel,
+      alt2 = fin(xx.alt) ? Math.max(0, Math.min(100, (xx.alt - 400) / 11)) : null, mtn = alt2 == null ? rel2 : 0.6 * rel2 + 0.4 * alt2;
+      out.outdoor = Math.min(100, 0.9 * mtn + 0.15 * wat); }   // a lake is a bonus, its absence no penalty
     if (fin(xx.xb_s)) out.border = xx.xb_s; else if (fin(xx.border_km)) out.border = lin(xx.border_km, 3, 45);   // a border counts where the neighbour pays more (build_reach.py)
     var fany = Math.max(xx.fin_s || 0, xx.ins_s || 0, xx.fund_s || 0, xx.com_s || 0, xx.cry_s || 0, xx.wlth_s || 0);
     if (fin(xx.fin_s)) out.finhub = fany; // Broad finance screen; specialist roles remain separate.

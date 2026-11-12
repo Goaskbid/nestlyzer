@@ -1,0 +1,155 @@
+{
+ "built": "2026-11-12",
+ "train": [
+  "AT",
+  "BG",
+  "CY",
+  "DE",
+  "EE",
+  "FI",
+  "HU",
+  "IT",
+  "LU",
+  "MT",
+  "PL",
+  "RO",
+  "SI"
+ ],
+ "test": [
+  "BE",
+  "CH",
+  "CZ",
+  "DK",
+  "EL",
+  "HR",
+  "IE",
+  "LT",
+  "MK",
+  "NL",
+  "PT",
+  "SE",
+  "SK"
+ ],
+ "rule": "accept only if train and test agreement both rise by at least 0.02 and no test country with 300+ places falls by more than 0.05",
+ "profiles": {
+  "young_family": {
+   "baseTrain": 0.328,
+   "baseTest": 0.203,
+   "candidate": "+6 services",
+   "trainGain": 0.009,
+   "accepted": false
+  },
+  "pensioner": {
+   "baseTrain": 0.188,
+   "baseTest": 0.071,
+   "candidate": "+6 mobility",
+   "train": 0.213,
+   "test": 0.103,
+   "worstTestCountry": [
+    "EL",
+    -0.012899440322787364
+   ],
+   "accepted": true,
+   "weights": {
+    "health": 20,
+    "climate": 16,
+    "safety": 14,
+    "services": 12,
+    "affordability": 10,
+    "quiet": 10,
+    "mobility": 13,
+    "tax": 6,
+    "coast": 5
+   }
+  },
+  "remote": {
+   "baseTrain": 0.455,
+   "baseTest": 0.379,
+   "candidate": "+6 lifestyle",
+   "trainGain": -0.004,
+   "accepted": false
+  },
+  "nature": {
+   "baseTrain": -0.092,
+   "baseTest": -0.248,
+   "candidate": "+6 services",
+   "train": -0.062,
+   "test": -0.237,
+   "worstTestCountry": [
+    "NL",
+    -0.003678967123833865
+   ],
+   "accepted": false,
+   "weights": {
+    "environment": 30,
+    "quiet": 12,
+    "safety": 12,
+    "affordability": 12,
+    "tax": 8,
+    "health": 8,
+    "services": 14,
+    "mobility": 4,
+    "demographics": 8,
+    "family": 2
+   }
+  },
+  "budget": {
+   "baseTrain": 0.387,
+   "baseTest": 0.147,
+   "candidate": "+6 jobs",
+   "trainGain": 0.004,
+   "accepted": false
+  },
+  "urban": {
+   "baseTrain": 0.144,
+   "baseTest": 0.15,
+   "candidate": "+6 jobs",
+   "train": 0.179,
+   "test": 0.184,
+   "worstTestCountry": [
+    "CH",
+    0.004587010315714554
+   ],
+   "accepted": true,
+   "weights": {
+    "city": 30,
+    "lifestyle": 22,
+    "commuter_access": 16,
+    "jobs": 20,
+    "safety": 8,
+    "foundation": 6,
+    "health": 4
+   }
+  },
+  "commuter": {
+   "baseTrain": 0.315,
+   "baseTest": 0.225,
+   "candidate": "+6 jobs",
+   "trainGain": 0.013,
+   "accepted": false
+  },
+  "first_home": {
+   "baseTrain": 0.321,
+   "baseTest": 0.164,
+   "candidate": "+6 jobs",
+   "train": 0.348,
+   "test": 0.2,
+   "worstTestCountry": [
+    "CH",
+    0.004959610656255997
+   ],
+   "accepted": true,
+   "weights": {
+    "affordability": 30,
+    "commuter_access": 18,
+    "safety": 12,
+    "jobs": 18,
+    "family": 10,
+    "services": 8,
+    "quiet": 4,
+    "foundation": 4,
+    "tax": 2
+   }
+  }
+ }
+}

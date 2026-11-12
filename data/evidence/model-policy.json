@@ -919,18 +919,6 @@
  "terms": {
   "coverage": "Declared profile weights remain fixed. Missing inputs remain unresolved. Coverage is available weight, not statistical confidence."
  },
- "categoryLabels": {
-  "safety": "Recorded safety measures, within-country comparison",
-  "health": "Healthcare access, where measured",
-  "focus": "Activity-specific evidence available for this business",
-  "climate": "Climate preference proxy: class and winter daylight",
-  "services": "Verified daily-service access, where supplied",
-  "reach300": "Population within 300 km straight-line, not truck travel time",
-  "quiet": "Measured nuisance components; missing components unresolved"
- },
- "profileIntros": {
-  "pensioner": "Healthcare access, recorded safety, housing cost and climate preference, with observed older-person migration shown separately."
- },
  "historicalTaxSource": null,
  "softFloors": {
   "pensioner": {
@@ -943,5 +931,20 @@
    "affordability": 40
   }
  },
- "softFloorsNote": "2.15.16 budget reality: retirees live on a fixed income, so housing markets scoring under 40 on affordability lose half a point per missing point, in every country (before: only Swiss floors). Removes San Francisco Bay Area suburbs from the US retiree top; Florida's first sun-retiree place moves from #257 to #20."
+ "softFloorsNote": "2.15.16 budget reality: retirees live on a fixed income, so housing markets scoring under 40 on affordability lose half a point per missing point, in every country (before: only Swiss floors). Removes San Francisco Bay Area suburbs from the US retiree top; Florida's first sun-retiree place moves from #257 to #20.",
+ "preparedCategoryLabels": {
+  "safety": "Recorded safety measures, within-country comparison",
+  "health": "Healthcare access, where measured",
+  "focus": "Activity-specific evidence available for this business",
+  "climate": "Climate preference proxy: class and winter daylight",
+  "services": "Verified daily-service access, where supplied",
+  "reach300": "Population within 300 km straight-line, not truck travel time",
+  "quiet": "Measured nuisance components; missing components unresolved"
+ },
+ "preparedProfileIntros": {
+  "pensioner": "Healthcare access, recorded safety, housing cost and climate preference, with observed older-person migration shown separately."
+ },
+ "categoryLabels": {},
+ "profileIntros": {},
+ "preparedNote": "2.15.16: labels and intros that describe the prepared evidence model; they go live together with that model, not before (the live model still uses the 2.15.15 wording)."
 }

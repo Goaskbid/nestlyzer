@@ -22,7 +22,7 @@
  {
   "finding": "ties",
   "ok": true,
-  "check": "remote: top 10 not one tied region (7 distinct scores)"
+  "check": "remote: top 10 not one tied region (6 distinct scores)"
  },
  {
   "finding": "plausible",
@@ -37,12 +37,12 @@
  {
   "finding": "benchmark",
   "ok": true,
-  "check": "reference places: mean percentile 71.5 (old model 54.0), in the top 5%: 42% (old 7%)"
+  "check": "reference places: mean percentile 71.9 (old model 54.0), in the top 5%: 42% (old 7%)"
  },
  {
   "finding": "external",
   "ok": true,
-  "check": "published rankings: Prologis logistics 94.7, fDi cities 84.6, EIU liveability 85.0, Bilanz/IAZI separation (DINKs, expats, wealthy) [91.5, 84.9, 81.4], all profiles 49.4, IMD countries 84.5"
+  "check": "published rankings: Prologis logistics 94.7, fDi cities 84.6, EIU liveability 85.2, Bilanz/IAZI separation (DINKs, expats, wealthy) [91.5, 84.9, 81.3], all profiles 49.8, IMD countries 84.5"
  },
  {
   "finding": "clusters",
@@ -62,7 +62,7 @@
  {
   "finding": "catchip",
   "ok": true,
-  "check": "clicking the \"quiet\" chip on a result card opens the place with that category expanded: \"Measured nuisance components; missing components unresolved: 100 of 100\", 5 measures"
+  "check": "clicking the \"quiet\" chip on a result card opens the place with that category expanded: \"Fewer nuisances (traffic and aircraft noise, heavy industry, flooding, crowding): 100 of 100\", 5 measures"
  },
  {
   "finding": "bizglobal",
@@ -97,7 +97,7 @@
  {
   "finding": "profiles",
   "ok": true,
-  "check": "CH young families: commute and services count, villages without them no longer lead: ['W\u00e4denswil', 'Kriens', 'Noble-Contr\u00e9e', 'Ebikon', 'Martigny', 'Zwingen']"
+  "check": "CH young families: commute and services count, villages without them no longer lead: ['W\u00e4denswil', 'Kriens', 'Noble-Contr\u00e9e', 'Ebikon', 'Wolhusen', 'Martigny']"
  },
  {
   "finding": "search",

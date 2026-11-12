@@ -2,6 +2,7 @@
 import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.resolve(ROOT, process.argv[2] || '_site');
+import { optimize } from './deduplicate_static_assets.mjs';
 const meta = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/meta.json'), 'utf8'));
 const slug = (s) => String(s || '').normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/ß/g, 'ss').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const dirs = ['assets', 'vendor', 'data', 'best', 'method', 'legal', 'about', 'business', 'insights', 'world', 'incentives', 'districts', 'immigration', 'evidence-lab', 'places', 'rankings', 'sources', ...meta.countries.map((c) => slug(c.name))];
@@ -12,6 +13,7 @@ const protectedRoots = [...dirs, 'src', 'build', 'tools', 'tests', '.git', '.git
 if (!relOut || relOut.startsWith('..') || path.isAbsolute(relOut) || process.argv.length > 3 || (process.argv[2] || '').startsWith('-') || protectedRoots.some(d => relOut === d || relOut.startsWith(d + path.sep))) throw new Error('Unsafe public-output destination: ' + OUT);
 for (let q = OUT; q !== ROOT; q = path.dirname(q)) { if (fs.existsSync(q) && fs.lstatSync(q).isSymbolicLink()) throw new Error('Symlink in public-output path'); }
 if (!fs.existsSync(path.join(ROOT, 'index.html')) || !fs.existsSync(path.join(ROOT, 'sitemap.xml'))) throw new Error('Build the complete source site before publishing');
+console.log('Generated-page deduplication:', JSON.stringify(optimize(ROOT)));
 fs.rmSync(OUT, { recursive: true, force: true }); fs.mkdirSync(OUT, { recursive: true });
 let n = 0, bytes = 0;
 function copy(src, dst) {

@@ -416,3 +416,29 @@ body.bizmode .modeseg button[aria-pressed="true"]{background:#EA580C;color:#fff}
 .results .nz-note,#results-pane .nz-note{margin:6px 0 4px}
 
 .rh-more{display:none}@media (max-width:899px){.rh-more{display:inline;font-size:12px}.results-head:not(.open) :is(#rlegend,#musthead,#gscope){display:none}}
+
+/* 2.15.16 the ranking gets the screen: one slim header, tools tucked away, notice on one line */
+#nz-evidence-actions{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;scrollbar-width:none;margin-top:6px}
+#nz-evidence-actions::-webkit-scrollbar{display:none}
+#nz-evidence-actions .chip{white-space:nowrap;font-size:12px;padding:4px 10px}
+@media (max-width:899px){
+ .results-head{padding:6px 12px;gap:6px}
+ .results-head h2{font-size:var(--step-0)}
+ .results-head:not(.open) #nz-evidence-actions{display:none}
+ #depthbadge .badge,#depthbadge>*{font-size:11px;padding:2px 8px}
+ #rnote .nz-note{margin:4px 12px;padding:4px 10px;font-size:11.5px;line-height:1.35}
+ #rnote .nz-note-x{display:none}
+}
+@media (max-width:899px){
+ .results-head>div:first-child{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:10px;row-gap:2px}
+ .results-head .count#rcount{white-space:normal;font-size:12px}
+ .results-head .rh-more{font-size:12px}
+ #depthbadge{display:none}
+ .results-head.open #rlegend,.results-head.open #musthead,.results-head.open #gscope,.results-head.open #nz-evidence-actions{flex-basis:100%}
+}
+@media (max-width:899px){
+ .results-head h2#scopename{flex-basis:100%}
+ .results-head .linkbtn{min-height:24px;padding:0;line-height:24px}
+ #rcount{flex:0 1 auto}
+}
+@media (max-width:899px){.pick .ph{height:84px;min-height:0}.pick .ph img,.pick .ph svg{height:100%;object-fit:cover}}

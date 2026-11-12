@@ -22,7 +22,7 @@
  {
   "id": "published",
   "ok": true,
-  "check": "published folder: 7 sitemap files, 92258 addresses, 0 missing []"
+  "check": "published folder: 9 sitemap files, 151337 addresses, 0 missing []"
  },
  {
   "id": "percentile-words",

@@ -764,9 +764,10 @@ function evidenceCSV() {
    rent trends, pay by occupation, employer labour costs. They describe the place, its zone or metro, or the country, and
    say which; they are never place factors, never change a score and never count as measured local data. */
 var NACE_NAME = { A: 'agriculture, forestry, fishing', 'B-E': 'industry incl. energy', C: 'manufacturing', F: 'construction', 'G-I': 'trade, transport, hotels and restaurants', G: 'trade', H: 'transport and storage', I: 'hotels and restaurants', J: 'information and communication', K: 'finance and insurance', L: 'real estate', 'M-N': 'professional, scientific and support services', 'O-Q': 'public administration, education, health', 'R-U': 'other services', 'G-N_R-U': 'market services (trade, transport, hotels, information, finance, real estate, business and other services)', 'GZ-IZ': 'trade, transport, hotels and restaurants', 'OZ-QZ': 'public administration, education, health' };
-var CX_REL = { is: '', group_member: 'municipality group', zone_member: 'rental zone', metro_member: 'metropolitan area', principal_city: 'metropolitan area (principal city)', state: 'state', region: 'county', station: 'weather station', district: 'district', municipality: 'municipality', county: 'county', stat_region: 'statistical region', contains: 'county or region' };
+var CX_REL = { is: '', group_member: 'municipality group', zone_member: 'rental zone', metro_member: 'metropolitan area', principal_city: 'metropolitan area (principal city)', state: 'state', region: 'county', station: 'weather station', station_context_within_25km: 'nearby weather station (within 25 km, not municipal data)', district: 'district', municipality: 'municipality', county: 'county', stat_region: 'statistical region', contains: 'county or region' };
 function cxDim(r) {
   var d = r.dimensions || {}, b = [];
+  if (d.calendar_month != null) { var mo = Number(d.calendar_month); b.push(mo === 0 ? 'annual normal' : ['','January','February','March','April','May','June','July','August','September','October','November','December'][mo] || 'unresolved month'); }
   if (d.occupation) b.push(d.occupation);
   if (d.dwelling_class) b.push(d.dwelling_class); else if (d.rooms) b.push(d.rooms + (d.rooms === '1' ? ' room' : ' rooms'));
   if (d.cohort) b.push(d.cohort);
@@ -806,6 +807,7 @@ function cxSrc(o) { var u = String(o.source_url || ''), m = u.match(/^https?:\/\
 // one row per figure: a breakdown by sex shows its total only
 function cxTotal(o) { var s = (o.dimensions || {}).sex; return !s || /^(t|total|both|all|both sexes|total population)$/i.test(String(s)); }
 function cxNote(r) {
+  if (r.source_geo_level === 'climate_station') return 'Station normal, not a municipal measurement; nearby-station context only; excluded from ranking scores';
   var n = [r.statistic === 'mean' || r.statistic === 'annualised_mean' ? 'mean' : r.statistic === 'median' ? 'median' : ''];
   if (r.statistic === 'annualised_mean') n.push('publisher annualised at 2,080 hours');
   if (/after_adjustment/.test(r.indicator_id)) n.push('rent of existing tenancies after the yearly adjustment, not a new lease');
@@ -899,6 +901,8 @@ function housingWorkHTML(r, traceOnly) {
   // national key figures (World Bank WDI, 2.11): the country at a glance, after the local figures
   var wdi = it.filter(function (b) { return b.last.release === 'wdi-2026-10' || b.last.release === 'tables-2026-10-25'; }).sort(function (a, b) { return String(a.last.label).localeCompare(b.last.label); });
   if (wdi.length) groups.push(['The country at a glance (World Bank)', wdi]);
+  var stationRows = it.filter(function (b) { return b.last.source_geo_level === 'climate_station'; });
+  if (stationRows.length) { groups.forEach(function (g) { g[1] = g[1].filter(function (b) { return b.last.source_geo_level !== 'climate_station'; }); }); groups.push(['Nearby weather-station normals (not municipal measurements)', stationRows]); }
   var used = {}; groups.forEach(function (g) { g[1].forEach(function (b) { used[b.last.record_id] = 1; }); });
   // 2.12.2 (NZA-05): every remaining distinct figure stays reachable, whatever its release; local ones first, then the
   // region and the country. Only correction rows and rows without a number stay out (they carry a reason in the trace).
@@ -996,6 +1000,7 @@ var CX_IDX = {};
 /* how a context figure compares: among this country's areas (6+), else with the national or EU figure; national
    figures among the countries that publish them (built by compact_ctx.py); returns [tone class, text] */
 function cxTone(o, cx, biz) {
+  if (o.source_geo_level === 'climate_station') return ['ref', 'Station normal, not a municipal measurement or ranking input'];
   if (!fin(o.value)) return ['ref', 'description, not a measure'];
   var dir = cxDir(o.indicator_id, biz), cn = countryName(String(o.country || '').toUpperCase()) || 'the country';
   if (o.source_geo_level === 'multicountry_aggregate') return ['ref', 'benchmark to compare against'];

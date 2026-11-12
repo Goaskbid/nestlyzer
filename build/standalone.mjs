@@ -24,6 +24,8 @@ let html = rd('index.html').toString();
 // builds put both back inline so they still work from disk or as one uploaded file
 html = html.replace(/<link rel="stylesheet" href="\/assets\/app\.css\?v=[\w.-]+">/, () => '<style>' + rd('assets/app.css').toString() + '</style>')
   .replace(/<script defer src="\/assets\/app\.js\?v=[\w.-]+"><\/script>/, () => '<script>' + rd('assets/app.js').toString() + '</script>');
+// 2.15.18: shared page scripts (build/deduplicate_static_assets.mjs) go back inline in the single-file builds
+html = html.replace(/<script src="\/assets\/shared-inline\/([0-9a-f]+)\.js"><\/script>/g, (m, k) => '<script>' + rd('assets/shared-inline/' + k + '.js').toString() + '</script>');
 
 if (!LIVE) {
 // 1) no analytics, ads or consent banner in a local preview

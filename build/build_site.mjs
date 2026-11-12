@@ -33,7 +33,7 @@ if (OFFLINE_BUILD) console.log('Build backend: audited token-preserving offline 
 const Engine = require(path.join(ROOT, 'src/engine.js'));
 const NestData = require(path.join(ROOT, 'src/data.js'));
 
-const VERSION = process.env.NZ_VERSION || '2.15.19';
+const VERSION = process.env.NZ_VERSION || '2.15.20';
 const SITE = 'https://nestlyzer.com';
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
 /* Static pages: emoji in text become our inline line icons at build time (2.10.1); the app swaps the rest at run time. */

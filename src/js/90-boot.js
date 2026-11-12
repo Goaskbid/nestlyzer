@@ -37,7 +37,7 @@ function switchCountry(cc, o) {
     var ro = regionOptions().map(function (o) { return o[0]; }); if (ro.indexOf(S.region) < 0) S.region = 'ALL';
     var ao = areaOptions().map(function (o) { return o[0]; }); if (S.area !== 'ALL' && ao.indexOf(S.area) < 0) S.area = 'ALL';
     update({ fit: true, autoSelect: !o.keepSelection, push: true });
-  }).catch(function (e) { if (token !== SWITCH_TOKEN || S.cc !== cc) return; if (window.console) console.error('switchCountry', e && e.stack); $('#results').innerHTML = '<div class="empty"><h3>Could not load ' + esc(countryName(cc)) + '</h3><p>' + esc(e.message) + '. Check your connection and try again.</p></div>'; });
+  }).catch(function (e) { if (token !== SWITCH_TOKEN || S.cc !== cc) return; if (window.console) console.error('switchCountry', e && e.stack); $('#results').innerHTML = '<div class="empty"><h3>Could not load ' + esc(countryName(cc)) + '</h3><p>' + esc(e.message) + '. Check your connection and try again.</p><p><button class="btn" type="button" onclick="location.reload()">Try again</button></p></div>'; });
 }
 function selectPlace(id, o) {
   o = o || {};

@@ -98,7 +98,8 @@ function liveFetch(url, opt) { if (!extOn()) return Promise.reject(new Error('Li
 function extOn() { var value = store('ext'); return value !== false && !store.lastError; }
 var EXT_OFF_HTML = '<p class="small muted">Live content is switched off in your privacy settings. <button class="linkbtn" type="button" data-extoggle>Turn it on</button></p>';
 function assetURL(p) { return window.NZ_ASSET_URL ? window.NZ_ASSET_URL(p) : location.origin + p; }
-function getJSON(url) { return fetch(url, { cache: 'force-cache' }).then(function (r) { if (!r.ok) throw new Error(url + ' ' + r.status); return r.json(); }); }
+/* 2.15.20: a busy CDN can answer 429/5xx or drop the connection for a moment; retry twice (0.8 s, 2.4 s) before giving up */
+function getJSON(url, n) { n = n || 0; return fetch(url, n ? { cache: 'reload' } : { cache: 'force-cache' }).then(function (r) { if (!r.ok) { var e = new Error(url + ' ' + r.status); e.retry = r.status === 429 || r.status >= 500; throw e; } return r.json(); }).catch(function (e) { if (n < 2 && e.retry !== false && (e.retry || e.name === 'TypeError')) return new Promise(function (ok) { setTimeout(ok, 800 * (n * 2 + 1)); }).then(function () { return getJSON(url, n + 1); }); throw e; }); }
 function loadMeta() { return getJSON('/data/meta.json?v=' + VERSION).then(function (m) { META = m; ENGINE = new NestEngine(m, { method: S.method }); return m; }); }
 /* extra open-data parameters (data/x): terrain, climate zone, lakes, rivers, rail, motorways, ports, capital, border, neighbours, lookalikes */
 /* the Coastal living profile counts the sea and large lakes (25 km2+) as a shore */

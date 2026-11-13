@@ -488,3 +488,8 @@ html.bizmode,body.bizmode{--navy:#0B4D4C;--blue:#0F7C7A;--cyan:#2AA59F;--r0:#E5E
 #place .sec h3{margin:0 0 6px}#place .sec h4{margin:20px 0 8px}#place .sec .sub{margin-bottom:12px}
 #place details.yby{margin-top:8px}#place details.yby summary{font-size:12.5px;color:var(--ink-3);cursor:pointer}
 .rlegend{font-size:12px;color:var(--ink-3);margin-top:2px}.rlegend i{display:inline-block;width:9px;height:9px;border-radius:3px;margin:0 3px 0 6px;vertical-align:0}.rlegend i:first-child{margin-left:0}.rlegend i[class]{border:1px solid currentColor}.chip small{font-size:.85em;opacity:.75}
+
+/* 2.15.20 evidence card, same shape as the why card */
+.evcard{margin-top:10px;border-radius:16px;padding:12px 14px;background:var(--surface);border:1px solid var(--line)}.evcard h3{font-size:var(--step-0);margin:0 0 6px}.evcard p{margin:4px 0}.evcard .ev-ok b{color:var(--good)}.evcard .ev-no b{color:#b4372b}.evcard .ev-sur b{color:#9e6c00}
+.evcard h4{font-size:14px;margin:12px 0 6px}.evt{width:100%;border-collapse:collapse;font-size:13px}.evt td{padding:4px 6px;border-top:1px solid var(--line);vertical-align:top}.evt td:first-child{width:34px;text-align:right}.evt i{font-style:normal;color:var(--ink-2)}.evt small{display:block;color:var(--ink-2)}.evq{margin:6px 0;padding-left:18px;font-size:14px}.evq li{margin:4px 0}.evcard details summary{cursor:pointer;font-size:13px;margin-top:6px}
+.evt td:last-child{width:32%}

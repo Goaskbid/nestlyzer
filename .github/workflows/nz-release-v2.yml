@@ -1,0 +1,88 @@
+# Publish a Nestlyzer release from ONE zip attached to a GitHub Release (no codespace, no upload of many files).
+# How: Releases -> Draft a new release -> tag e.g. v2.15.19 -> attach nestlyzer-release-<version>.zip -> Publish release.
+# This workflow downloads the zip, checks it, replaces every repository file except .git and .github with its
+# contents, commits that as one commit, then starts "Build and publish nestlyzer.com". If any check fails,
+# nothing changes and the live site stays as it is; GitHub emails you.
+name: Release zip to nestlyzer.com
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: nz-release
+  cancel-in-progress: false
+
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+      - name: Download the release zip
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.release.tag_name }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/rel"
+          gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --pattern 'nestlyzer-release-*.zip' --dir "$RUNNER_TEMP/rel"
+          ls -la "$RUNNER_TEMP/rel"
+          n=$(ls "$RUNNER_TEMP"/rel/nestlyzer-release-*.zip | wc -l)
+          if [ "$n" != "1" ]; then echo "::error::Attach exactly one file named nestlyzer-release-<version>.zip (found $n)."; exit 1; fi
+      - name: Check and unpack
+        run: |
+          set -e
+          Z=$(ls "$RUNNER_TEMP"/rel/nestlyzer-release-*.zip)
+          U="$RUNNER_TEMP/up"; rm -rf "$U"; mkdir -p "$U"
+          unzip -q "$Z" -d "$U"
+          for f in package.json build/build_site.mjs build/public.mjs src/engine.js data/meta.json RELEASE.json; do
+            [ -f "$U/$f" ] || { echo "::error::The zip is incomplete: $f is missing. Nothing was changed."; exit 1; }
+          done
+          python3 - "$U" <<'PY'
+          import json,sys,os
+          u=sys.argv[1]; r=json.load(open(os.path.join(u,'RELEASE.json'))); v=json.load(open(os.path.join(u,'package.json')))['version']
+          assert r['version']==v, f"RELEASE.json says {r['version']}, package.json says {v}"
+          missing=[f for f in r['files'] if not os.path.isfile(os.path.join(u,f))]
+          assert not missing, f"{len(missing)} listed files missing, e.g. {missing[:3]}"
+          print('Release', v, 'complete:', len(r['files']), 'files')
+          PY
+          rm -rf "$U/.github" "$U/.git"
+          python3 "$U/build/check_github_limits.py" "$U"
+          find . -mindepth 1 -maxdepth 1 ! -name .git ! -name .github -exec rm -rf {} +
+          cp -a "$U"/. .
+          rm -f RELEASE.json
+      - name: Commit
+        id: commit
+        env:
+          TAG: ${{ github.event.release.tag_name }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "Nothing changed."; else git commit -qm "Nestlyzer $(node -p "require('./package.json').version"): from release $TAG"; git push -q; fi
+      - name: Start the build and publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        # A dispatch right after the push can still see the previous main (this published 2.15.20 instead of 2.15.21).
+        # So: wait until GitHub reports the new commit on main, dispatch, then check the run builds exactly that commit;
+        # if it does not, dispatch again (up to 4 times). Fails loudly if it never matches.
+        run: |
+          WANT=$(git rev-parse HEAD); R="$GITHUB_REPOSITORY"
+          for i in $(seq 1 24); do [ "$(gh api repos/$R/commits/main --jq .sha)" = "$WANT" ] && break; sleep 5; done
+          sleep 10
+          for try in 1 2 3 4; do
+            gh workflow run site.yml --repo "$R" --ref main
+            for i in $(seq 1 12); do sleep 10
+              GOT=$(gh run list --repo "$R" --workflow site.yml --event workflow_dispatch --limit 1 --json headSha --jq '.[0].headSha')
+              [ "$GOT" = "$WANT" ] && { echo "Build started for $WANT"; echo "Build and publish started for ${WANT:0:7}." >> "$GITHUB_STEP_SUMMARY"; exit 0; }
+            done
+            echo "Build started on an older commit ($GOT); starting it again."; sleep 20
+          done
+          echo "Could not start a build of $WANT"; exit 1

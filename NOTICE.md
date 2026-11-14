@@ -8,6 +8,7 @@ Nestlyzer (nestlyzer.com) combines public data and open software. Each keeps its
 - Administrative boundaries in Europe: © EuroGeographics for the administrative boundaries (Eurostat GISCO). See docs/audit/ip_register.md item 1: commercial use requires a EuroGeographics licence or a replacement source.
 - Switzerland: swisstopo swissBOUNDARIES3D (Swiss federal open data).
 - Places outside Europe: GeoNames (CC BY 4.0). Regions and land: Natural Earth (public domain). Airports: OurAirports (public domain).
+- Nuclear and coal power stations outside the US: WRI Global Power Plant Database v1.3 (CC BY 4.0), github.com/wri/global-power-plant-database.
 
 ## Statistics
 - World Bank, World Development Indicators (CC BY 4.0). "The World Bank: World Development Indicators". No endorsement implied.

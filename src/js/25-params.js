@@ -87,7 +87,7 @@ var PARAMS = [
   { k: 'mway', label: 'Nearest motorway', unit: 'km', get: function (r) { return (r.x || {}).mway_km; }, dir: -1, src: 'ne', group: 'access', d: 1 },
   { k: 'cap', label: 'Distance to the capital', unit: 'km', get: function (r) { return (r.x || {}).cap_km; }, dir: -1, src: 'ne', group: 'access', d: 0, name: function (r) { return capitalOf(r.country); } },
   { k: 'border', label: 'Nearest land border', unit: 'km', get: function (r) { return (r.x || {}).border_km; }, dir: -1, src: 'ne', group: 'access', d: 0, name: function (r) { return (r.x || {}).border; } },
-  { k: 'coast', label: 'Distance to the sea', unit: 'km', get: function (r) { return (r.factorRaw || {}).geo_coast_km; }, dir: -1, src: 'geo', group: 'nature', d: 0 },
+  { k: 'coast', label: 'Distance to the sea', unit: 'km', get: function (r) { return seaKm(r); }, dir: -1, src: 'geo', group: 'nature', d: 0 },
   { k: 'lake', label: 'Nearest large lake', unit: 'km', get: function (r) { return (r.x || {}).lake_km; }, dir: -1, src: 'ne', group: 'nature', d: 1, name: function (r) { return (r.x || {}).lake; } },
   { k: 'river', label: 'Nearest major river', unit: 'km', get: function (r) { return (r.x || {}).river_km; }, dir: -1, src: 'ne', group: 'nature', d: 1, name: function (r) { return (r.x || {}).river; } },
   { k: 'port', label: 'Nearest seaport', unit: 'km', get: function (r) { return (r.x || {}).port_km; }, dir: -1, src: 'ne', group: 'nature', d: 0, name: function (r) { return (r.x || {}).port; } },

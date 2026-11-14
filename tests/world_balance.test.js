@@ -26,7 +26,7 @@ for (const cc of meta.config.worldCountries) {
 // lakes count as shore: Greater Toronto has places for Coastal living (Lake Ontario)
 const ca = D.hydrate(JSON.parse(fs.readFileSync(path.join(root, 'data/c/CA.json'))));
 const tor = ca.find((r) => r.name === 'Toronto'); const fr = tor.factorRaw;
-const okLake = fr.geo_shore_km < 10 && fr.geo_coast_km > 300 && !eng.eligibilityFail(tor, 'coastal', 'CA');
+const okLake = fr.geo_shore_km < 10 && fr.geo_sea_km > 300 && !eng.eligibilityFail(tor, 'coastal', 'CA');
 if (!okLake) fail++;
-console.log(`${okLake ? 'ok  ' : 'FAIL'} Toronto counts Lake Ontario as its shore: shore ${fr.geo_shore_km} km, sea ${fr.geo_coast_km} km, passes Coastal living ${!eng.eligibilityFail(tor, 'coastal', 'CA')}`);
+console.log(`${okLake ? 'ok  ' : 'FAIL'} Toronto counts Lake Ontario as its shore: shore ${fr.geo_shore_km} km, sea ${fr.geo_sea_km} km, passes Coastal living ${!eng.eligibilityFail(tor, 'coastal', 'CA')}`);
 process.exitCode = fail ? 1 : 0;

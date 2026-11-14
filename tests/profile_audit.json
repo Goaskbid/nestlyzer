@@ -92,6 +92,12 @@
    "msg": "city (22% of the weight) averages 53 in the top 10"
   },
   {
+   "p": "biz_pharma_production",
+   "cc": "CH",
+   "kind": "core-mean",
+   "msg": "cluster (18% of the weight) averages 58 in the top 10"
+  },
+  {
    "p": "cross_border",
    "cc": "CH",
    "kind": "thin",
@@ -101,13 +107,7 @@
    "p": "biz_media",
    "cc": "CH",
    "kind": "core-mean",
-   "msg": "city (21% of the weight) averages 52 in the top 10"
-  },
-  {
-   "p": "biz_media",
-   "cc": "CH",
-   "kind": "core-weak",
-   "msg": "city: 1 of the top 10 under 40: Le Grand-Saconnex 39"
+   "msg": "city (21% of the weight) averages 53 in the top 10"
   },
   {
    "p": "sun_retiree",

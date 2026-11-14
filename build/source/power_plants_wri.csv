@@ -1,0 +1,1517 @@
+cc,name,mw,lat,lon,fuel,year
+AR,ATUCHA I,370,-33.9670,-59.2059,Nuclear,1974
+AR,ATUCHA II,745,-33.9674,-59.2045,Nuclear,2014
+AR,CENTRAL BAHIA BLANCA (PIEDRA BUENA) SA,620,-38.7872,-62.2536,Coal,1990
+AR,COSTANERA,1982,-34.6260,-58.3393,Coal,1983
+AR,EMBALSE,648,-32.2316,-64.4422,Nuclear,1984
+AR,PUERTO NUEVO,589,-34.5754,-58.3788,Coal,1965
+AR,SAN NICOLAS,644,-33.3562,-60.1729,Coal,1965
+AM,Armenian-2,375,40.1805,44.1498,Nuclear,1980
+AU,Bayswater,2640,-32.3953,150.9491,Coal,
+AU,Callide B,700,-24.3449,150.6197,Coal,
+AU,Callide C,840,-24.3449,150.6182,Coal,
+AU,Gladstone,1680,-23.8508,151.2187,Coal,
+AU,Hazelwood,1600,-38.2731,146.3923,Coal,
+AU,Kogan Creek,744,-26.9177,150.7493,Coal,
+AU,Liddell,2200,-32.3713,150.9776,Coal,
+AU,Loy Yang A,2180,-38.2536,146.5746,Coal,
+AU,Loy Yang B,1000,-38.2564,146.5864,Coal,
+AU,Millmerran,856,-27.9615,151.2789,Coal,
+AU,Mt Piper,1400,-33.3589,150.0313,Coal,
+AU,Munmorah,600,-33.2117,151.5418,Coal,
+AU,Stanwell,1460,-23.5097,150.3195,Coal,
+AU,Tarong,1400,-26.7824,151.9153,Coal,
+AU,Vales Point B,1360,-33.1607,151.5431,Coal,
+AU,Wallerawang C,500,-33.4028,150.0833,Coal,
+AU,Yallourn,1480,-38.1770,146.3428,Coal,
+BE,DOEL 4,2910,51.3254,4.2597,Nuclear,1985
+BE,TIHANGE 1N,962,50.5342,5.2751,Nuclear,1975
+BE,TIHANGE 3,2054,50.5342,5.2751,Nuclear,1985
+BA,Tuzla CHP Power Plant Bosnia and Herzegovina,730,44.5215,18.6056,Coal,
+BW,Morpule,732,-22.5223,27.0491,Coal,
+BR,Almirante Álvaro Alberto - Unidade I (Antiga Angra I),640,-23.0087,-44.4574,Nuclear,1985
+BR,Almirante Álvaro Alberto - Unidade II (Antiga Angra II),1350,-23.0072,-44.4588,Nuclear,2000
+BG,AES Galabovo,670,42.1573,25.9084,Coal,2011
+BG,Bobov Dol power station,630,42.2855,23.0342,Coal,1974
+BG,KOZLODUY,2000,43.7438,23.7723,Nuclear,
+BG,Maritsa Itzok-2 power station,1602,42.2541,26.1340,Coal,1979
+BG,Maritsa Itzok-3 power station,908,42.1450,26.0025,Coal,1980
+CA,Battle River,689,52.4685,-112.1339,Coal,
+CA,Boundary Dam,672,49.0961,-103.0305,Coal,
+CA,Bruce A,3220,44.3391,-81.5747,Nuclear,
+CA,Bruce B,3390,44.3190,-81.6027,Nuclear,
+CA,Darlington,3740,43.8697,-78.7239,Nuclear,
+CA,Genesee,1376,53.3446,-114.3049,Coal,
+CA,Keephills,1253,53.4487,-114.4501,Coal,
+CA,Lingan,620,46.2358,-60.0390,Coal,
+CA,Pickering A,1084,43.8107,-79.0689,Nuclear,
+CA,Pickering B,2160,43.8096,-79.0639,Nuclear,
+CA,Point Lepreau,660,45.0686,-66.4543,Nuclear,
+CA,Poplar River,582,49.0579,-105.4851,Coal,
+CA,Sheerness,816,51.4426,-111.7919,Coal,
+CA,Sundance,2141,53.5075,-114.5569,Coal,
+CL,GUACOLDA,760,-28.4673,-71.2573,Coal,
+CL,TERMOELECTRICA TOCOPILLA (U12),1002,-22.0910,-70.2126,Coal,
+CN,Aksu Cogen power station,700,41.1542,80.3997,Coal,2016
+CN,Alashan Left Qi Wusitai power station,600,39.4463,106.6676,Coal,2009
+CN,Anhui Bengbu power station,2520,32.7845,117.1150,Coal,2013
+CN,Anhui Hwasu power station,600,32.5856,117.2532,Coal,2012
+CN,Anhui Xuancheng power station,1320,30.8695,118.8648,Coal,2012
+CN,Anwen Songzao power station,1620,28.6411,106.7531,Coal,2015
+CN,Aral Xinhu Cogen power station,800,40.5897,81.1955,Coal,2013
+CN,Baise Coal,1320,23.7882,106.8155,Coal,2009
+CN,Baise Smelter power station,700,23.7857,106.8202,Coal,2016
+CN,Baishan - Hunjiang 2 Coal,600,41.9700,126.4730,Coal,2007
+CN,Baiyanghe power station,890,36.4719,117.8427,Coal,2002
+CN,Baoshan Works power station,1050,31.4424,121.4361,Coal,1986
+CN,Baosteel Zhanjiang power station,700,21.0699,110.4940,Coal,2014
+CN,Baotou Aluminum power station,1360,40.5572,110.1484,Coal,2016
+CN,Baotou Donghua power station,600,40.5781,110.0738,Coal,2005
+CN,Baotou East Hope power station,1320,40.5956,109.7828,Coal,2003
+CN,Baotou Hexi power station,1200,40.5694,109.7900,Coal,2006
+CN,Baotou Olefins power station,600,40.6081,109.6368,Coal,2009
+CN,Baqiao power station,850,34.2851,109.0496,Coal,2007
+CN,Bayanhua Jinshan power station,1200,44.9317,118.7082,Coal,2010
+CN,Beihai Bebuwan power station,640,21.5821,109.5810,Coal,2004
+CN,Beihai New Area Heating power station,900,38.0229,117.9726,Coal,2014
+CN,Beijing - Shijingshan Coal,880,39.9230,116.1375,Coal,1988
+CN,Binhai Port Unit 1,2000,34.3071,120.2469,Coal,
+CN,Binzhou - Huji 1-4 Coal,1320,37.3495,117.7784,Coal,2014
+CN,Binzhou Heating Supply Center power station,780,37.3482,117.8909,Coal,2012
+CN,Bohe Coal,2000,22.9657,112.1079,Coal,2015
+CN,Bulian power station,1320,39.3012,109.9682,Coal,2013
+CN,CEFR,20,39.7400,116.0300,Nuclear,
+CN,CKI Lamma power station,2500,22.2185,114.1082,Coal,1989
+CN,CPI Baicheng power station,1320,45.5261,122.7759,Coal,2010
+CN,CPI Changshu-1 power station,3320,31.7563,120.9731,Coal,2005
+CN,CPI Chifeng Daban power station,1200,43.5893,118.7119,Coal,2013
+CN,CPI Chifeng New City Region power station,600,42.2934,118.9133,Coal,2017
+CN,CPI Dabieshan power station,1200,31.1419,114.8922,Coal,2008
+CN,CPI Fenyi power station,540,27.7754,114.6173,Coal,2006
+CN,CPI Huolinhe power station,1200,45.4616,119.5386,Coal,2008
+CN,CPI Ningxia Zaoquan power station,1320,38.0462,106.6058,Coal,2017
+CN,CPI Pingwei power station,4540,32.6842,116.9021,Coal,2006
+CN,CPI Qinghe power station,1600,42.5299,124.1403,Coal,1995
+CN,CPI Shanxi Houma power station,700,35.5911,111.3757,Coal,2012
+CN,CPI Shentou power station,1320,39.5508,112.4887,Coal,1998
+CN,CPI Wusu power station,600,44.4364,84.7608,Coal,2011
+CN,CPI Xinchang power station,1400,28.8612,115.9764,Coal,2010
+CN,CPI Xining power station,1320,36.5847,101.4936,Coal,2015
+CN,CPI Zhongwei Cogen power station,700,37.6230,105.2350,Coal,2016
+CN,CR Changzhou power station,1260,31.9576,119.9921,Coal,2006
+CN,CR Liuzhi power station,1320,26.3883,105.3950,Coal,2016
+CN,Cangzhou Bohai power station,700,38.3617,117.6248,Coal,2015
+CN,Cangzhou power station,660,38.3658,116.8168,Coal,2007
+CN,Caofeidian Works power station,600,38.9446,118.4927,Coal,2009
+CN,Castle Peak power station,4108,22.3760,113.9214,Coal,1986
+CN,Changchun Southeast power station,700,43.6510,125.5693,Coal,2018
+CN,Changchun-2 power station,1220,43.8835,125.3942,Coal,2001
+CN,Changchun-3 power station,600,43.7778,125.1429,Coal,2009
+CN,Changde Coal,1320,29.1970,111.5607,Coal,2015
+CN,Changjiang,1220,19.4600,108.9000,Nuclear,
+CN,Changshu-2 power station,1950,31.7578,120.9790,Coal,2005
+CN,Changxing Island Hengli Petrochemical power station,720,39.5742,121.2547,Coal,2012
+CN,Changzhi power station,660,36.1926,113.0116,Coal,2012
+CN,Chaoyang Yanshanhu power station,1200,41.5065,120.3194,Coal,2012
+CN,Chaozhou Sanbaimen power station,3200,23.5655,117.0973,Coal,2008
+CN,Chifeng Yuanbaoshan power station,1800,42.3033,119.3250,Coal,1994
+CN,China Resources Caofeidian power station,600,38.9962,118.4877,Coal,2016
+CN,China Resources Dengkou power station,660,40.3838,107.0040,Coal,2009
+CN,China Resources Gucheng power station,640,32.8720,114.0436,Coal,2006
+CN,Chiping Haoji power station,1400,36.4865,116.3336,Coal,2013
+CN,Chiping Xinfa power station,620,36.6079,116.2456,Coal,2002
+CN,Chizhou Jiuhua power station,600,30.7524,117.5909,Coal,2005
+CN,Chongqing Baihe power station,600,31.2691,108.4561,Coal,2004
+CN,Chongqing Coal,600,29.4844,106.5395,Coal,1986
+CN,Chongqing Qineng power station,660,29.0043,106.5688,Coal,2013
+CN,Chongqing Shizhu power station,700,30.3907,108.2201,Coal,2014
+CN,Chongqing Shuanghuai power station,1920,30.1621,106.5474,Coal,2011
+CN,Chuangyuan Smelter power station,990,45.4373,119.4275,Coal,2017
+CN,Daba power station,2520,37.9897,105.9258,Coal,2001
+CN,Dabu Coal,1200,24.5852,113.5831,Coal,2015
+CN,Dafang power station,1200,27.1014,105.5658,Coal,2006
+CN,Daihai power station,2430,40.5204,112.6674,Coal,2008
+CN,Dalate power station,3180,40.3670,109.9970,Coal,2002
+CN,Dalian ETDC power station,700,39.0353,121.8157,Coal,2010
+CN,Dalian Ganjingzi power station,600,39.0262,121.5494,Coal,2010
+CN,Dandong Jinshan power station,600,40.1055,124.3192,Coal,2012
+CN,Dangtang Shendong power station,700,41.7566,123.6365,Coal,2018
+CN,Daqing Oil Central power station,900,46.5524,125.0734,Coal,1999
+CN,Datang 803 power station,600,40.2089,97.3590,Coal,2013
+CN,Datang Anhui Huainan Tianjiaan power station,640,32.6691,117.0253,Coal,1989
+CN,Datang Anyang-2 power station,1240,36.1195,114.2758,Coal,2003
+CN,Datang Baoding cogen power station,650,38.8753,115.4332,Coal,1999
+CN,Datang Baoji power station,660,34.3819,107.2942,Coal,2009
+CN,Datang Binchang power station,1260,35.1359,107.9315,Coal,2009
+CN,Datang Binzhou power station,700,37.4674,118.0470,Coal,2015
+CN,Datang Changshan power station,660,45.3170,124.4893,Coal,2008
+CN,Datang Fuzhou power station,2000,27.7855,116.5638,Coal,2016
+CN,Datang Gangu power station,660,34.7557,105.1008,Coal,2007
+CN,Datang Harbin power station,600,45.7117,126.4655,Coal,2009
+CN,Datang Heshan power station,1330,23.8218,108.8669,Coal,2003
+CN,Datang Hunchun power station,660,42.8953,130.2891,Coal,2002
+CN,Datang Hutubi power station,600,44.1508,86.8229,Coal,2013
+CN,Datang Jingtai power station,1320,37.2316,104.1681,Coal,2009
+CN,Datang Liancheng-2 power station,600,36.5195,102.8682,Coal,2004
+CN,Datang Linzhou power station,700,36.1087,113.8627,Coal,2011
+CN,Datang Lueyang power station,660,33.3467,106.1422,Coal,2011
+CN,Datang Luoyang Shouyangshan power station,1040,34.7325,112.7554,Coal,1991
+CN,Datang Luoyang power station,1045,34.6820,112.3777,Coal,2003
+CN,Datang Maanshan Dangtu power station,1320,31.5347,118.4139,Coal,2008
+CN,Datang Matou power station,1020,36.4873,114.4246,Coal,1992
+CN,Datang Nanjing Xiaguan-3 power station,1320,32.2127,119.2096,Coal,2010
+CN,Datang Ningde power station,2520,26.7575,119.7359,Coal,2007
+CN,Datang Qingyuan power station,600,38.7954,115.4810,Coal,2012
+CN,Datang Qitaihe power station,1900,45.7596,131.0536,Coal,2006
+CN,Datang Sanmenxia power station,2900,34.6847,111.0274,Coal,2007
+CN,Datang Shentou power station,2000,39.3648,112.5333,Coal,1998
+CN,Datang Tuoketuo power station,6720,40.1947,111.3589,Coal,2007
+CN,Datang Weihe power station,600,34.4310,108.8997,Coal,2003
+CN,Datang Wuan power station,600,36.8184,114.1870,Coal,2012
+CN,Datang Wushashan power station,2400,29.5050,121.6627,Coal,2006
+CN,Datang Xigu power station,990,36.1289,103.6228,Coal,2004
+CN,Datang Xinyang power station,1940,32.1099,114.1406,Coal,2006
+CN,Datang Xutang power station,1200,34.3486,117.9318,Coal,2002
+CN,Datang Yungang power station,1040,40.0610,113.2192,Coal,2006
+CN,Datang Zhuzhou-2 power station,1260,27.2444,113.4603,Coal,2016
+CN,Datong - Tashan Coal,4520,39.9261,113.0843,Coal,2008
+CN,Datong power station,3990,40.0279,113.2933,Coal,2001
+CN,Daya Bay,1888,22.6000,114.5400,Nuclear,
+CN,Dengfeng-2 power station,1900,34.3925,113.1997,Coal,2009
+CN,Diandong Yuwang power station,1200,25.1016,104.6172,Coal,2010
+CN,Diandong power station,2400,25.1995,104.6826,Coal,2007
+CN,Dianta Coal,1320,38.9728,110.4514,Coal,
+CN,Diaobingshan power station,600,42.4940,123.5656,Coal,2010
+CN,Dingzhou power station,2520,38.5122,114.8434,Coal,2007
+CN,Dongying Coastal power station,600,37.4288,118.8581,Coal,2012
+CN,Douhe power station,1300,39.7730,118.2729,Coal,1981
+CN,East Hope Metals Wucaiwan power station,7000,44.6885,89.1138,Coal,2014
+CN,Erdaojiang power station,600,41.7797,126.0148,Coal,2004
+CN,Fangchenggang,2000,21.6700,108.5600,Nuclear,
+CN,Fangchenggang Coal,2580,21.5918,108.3947,Coal,2007
+CN,Fangjiashan,2024,30.4400,120.9400,Nuclear,
+CN,Fangjiazhuang Coal,660,37.8450,106.7872,Coal,2010
+CN,Fengrun power station,600,39.8061,118.0861,Coal,2008
+CN,Fengzhen - Huaneng Coal,800,40.4043,113.1446,Coal,1992
+CN,Fengzhen - Jinlong Coal,1200,40.4029,113.1550,Coal,2007
+CN,Fengzhen Xinfeng power station,600,40.4705,113.0873,Coal,2007
+CN,Fugu Qingshuichuan power station,600,39.2049,111.1190,Coal,2016
+CN,Fujian Hongshan power station,3200,24.7277,118.7497,Coal,2014
+CN,Fuqing,4000,25.4426,119.4440,Nuclear,
+CN,Fushun CPI power station,600,41.8897,123.9342,Coal,2004
+CN,Fuxi power station,1200,28.6660,104.6893,Coal,2012
+CN,Fuxin Jinshan Power Station,600,41.7848,121.4302,Coal,2007
+CN,Fuxin power station,1100,41.9976,121.6635,Coal,2000
+CN,Fuyang power station,1280,33.0047,115.8448,Coal,2006
+CN,Fuzhou Kemen power station,2400,26.3736,119.7621,Coal,2007
+CN,GEPIC Jinchang power station,1320,38.3784,102.0968,Coal,2006
+CN,GEPIC Zhangye power station,650,39.0709,100.4621,Coal,2006
+CN,Ganneng Fengcheng power station,1400,28.1997,115.7097,Coal,2007
+CN,Ganquanbao TBEA power station,700,44.1247,87.7707,Coal,2013
+CN,Gansu Baiyin power station,700,36.5295,104.2271,Coal,2016
+CN,Gansu Chongxin power station,1320,35.2796,106.9196,Coal,2010
+CN,Guangan power station,2400,30.5288,106.8256,Coal,2004
+CN,Guangdong Huilai power station,3200,23.0056,116.5468,Coal,2011
+CN,Guangdong Huizhou Pinghai power station,2000,22.6059,114.7419,Coal,2010
+CN,Guangdong Jinwan power station,1200,21.9691,113.1797,Coal,2007
+CN,Guangdong Shajiao power complex,3970,22.7489,113.6807,Coal,1992
+CN,Guangdong Shaoguan power station,1800,24.5852,113.5831,Coal,2011
+CN,Guangxi Luzhai power station,700,24.4560,109.6935,Coal,2016
+CN,Guangzhou Lixin power station,660,23.0942,113.5650,Coal,2012
+CN,Guangzhou Nansha power station,600,22.8635,113.5228,Coal,2009
+CN,Guangzhou Zhujiang power station,1280,22.8141,113.5678,Coal,1996
+CN,Guixi power station,1880,28.2891,117.2231,Coal,2004
+CN,Guizhou Dalong power station,600,27.2954,109.0147,Coal,2006
+CN,Guizhou Faer power station,2400,26.3251,104.7706,Coal,2009
+CN,Guodian Anshun power station,1200,26.2203,105.6866,Coal,2000
+CN,Guodian Baoji-2 power station,2520,34.4980,107.2176,Coal,2006
+CN,Guodian Baoqing power station,1320,27.2021,111.3966,Coal,2012
+CN,Guodian Beilun power station,5060,29.9433,121.8131,Coal,2002
+CN,Guodian Changyuan Jingzhou power station,600,30.2971,112.3086,Coal,2000
+CN,Guodian Dananhu power station,1320,42.3202,93.1914,Coal,2016
+CN,Guodian Dawukou power station,660,39.0360,106.3846,Coal,2000
+CN,Guodian Dongsheng power station,660,39.8228,110.0344,Coal,2008
+CN,Guodian Duyun power station,1200,26.6304,107.5429,Coal,2012
+CN,Guodian Feixian power station,1300,35.3197,117.9057,Coal,2007
+CN,Guodian Guangdong Zhaoqing Dawang power station,700,23.3006,112.8563,Coal,2013
+CN,Guodian Huangjinbu power station,1300,28.4508,116.8603,Coal,2007
+CN,Guodian Jiangnan power station,660,43.7942,126.5902,Coal,2010
+CN,Guodian Jiangyin power station,1200,25.4393,119.3394,Coal,2007
+CN,Guodian Jilin power station,1300,47.3783,124.0519,Coal,1987
+CN,Guodian Jingmen power station,1200,31.0371,112.2316,Coal,1996
+CN,Guodian Jingyuan power station,880,36.7288,104.7625,Coal,1990
+CN,Guodian Jiujiang power station,1360,29.7404,116.0345,Coal,2001
+CN,Guodian Jiuquan power station,660,39.6800,98.5065,Coal,2011
+CN,Guodian Kuqa power station,870,41.7381,82.8874,Coal,2010
+CN,Guodian Langfang power station,700,39.4793,116.7695,Coal,2016
+CN,Guodian Nanning power station,1320,22.7891,108.9395,Coal,2015
+CN,Guodian Penglai power station,660,37.7553,120.5945,Coal,2006
+CN,Guodian Pingnan power station,700,45.5446,126.6582,Coal,2014
+CN,Guodian Shangqiu Minquan power station,1260,34.6189,115.2925,Coal,2008
+CN,Guodian Shenyang power station,660,41.7251,123.1886,Coal,2012
+CN,Guodian Shizuishan-2 power station,2020,39.2848,106.7880,Coal,2004
+CN,Guodian Taian power station,700,36.0764,117.1369,Coal,2015
+CN,Guodian Taizhou power station,4000,32.1872,119.9145,Coal,2012
+CN,Guodian Yongfu power station,600,25.1013,110.0690,Coal,2004
+CN,Guodian Zhijin power station,1320,26.8326,105.8193,Coal,2016
+CN,Guodian Zhuanghe power station,1200,39.6766,123.2059,Coal,2007
+CN,Guohua Hulunbeier power station,1200,49.3476,119.7207,Coal,2010
+CN,Guohua Shouguang power station,2000,37.2697,118.9069,Coal,2016
+CN,Guohua Taicang power station,1260,31.5877,121.2556,Coal,2006
+CN,Guohua Taishan power station,5000,21.8664,112.9228,Coal,2007
+CN,Guohua Xuzhou power station,2000,34.3858,117.2560,Coal,2000
+CN,Guohua Zhoushan power station,910,30.1032,122.1850,Coal,2009
+CN,Hainan Southwest power station,700,18.5383,108.6824,Coal,2015
+CN,Hancheng power station,2400,35.6002,110.5557,Coal,2002
+CN,Hanchuan power station,3260,30.6565,113.9173,Coal,2007
+CN,Handan Eastern Outskirt Cogen Power Station,700,36.5702,114.6509,Coal,2018
+CN,Handan power station,660,36.6421,114.4997,Coal,2001
+CN,Hanfeng power station,1320,36.4719,114.1523,Coal,2001
+CN,Hang Hau Longyan power station,600,25.2810,117.1550,Coal,2008
+CN,Hebei Longshan power station,1200,36.5976,113.6916,Coal,2007
+CN,Hebi Fenghe power station,1800,35.8512,114.1798,Coal,2003
+CN,Hefei power station,1260,31.9137,117.2521,Coal,2006
+CN,Hefei-2 power station,700,31.8043,117.5072,Coal,2001
+CN,Hefeng power station,600,46.6088,86.5936,Coal,2012
+CN,Hegang - Longmay Coal,700,47.2354,130.2256,Coal,
+CN,Heilongjiang Qiqihar power station,600,47.3790,124.0510,Coal,2007
+CN,Hejin power station,1300,35.6131,110.6558,Coal,2002
+CN,Henan Heqi power station,1320,35.7214,114.1855,Coal,2015
+CN,Henan Mengdian power station,600,35.4312,113.8325,Coal,2011
+CN,Henan Xinan power station,870,34.7406,112.0631,Coal,2007
+CN,Henan Xinmi power station,2700,34.5000,113.5986,Coal,2011
+CN,Henan Yongcheng power station,630,33.9541,116.4160,Coal,2005
+CN,Henan Yulian power station,900,34.7967,113.0790,Coal,2003
+CN,Hengfeng-2 power station,660,37.7527,115.6012,Coal,1996
+CN,Henglian Wucaiwan power station,1320,44.7896,89.1977,Coal,2017
+CN,Hengshui Hengxing power station,660,37.7527,115.6010,Coal,2006
+CN,Hengyun A Coal,545,23.0655,113.4984,Coal,
+CN,Hengyun B Coal,600,23.0638,113.5006,Coal,
+CN,Hesheng Shanshan power station,660,44.4560,86.0984,Coal,2016
+CN,Heshuyuan power station,1470,24.3924,116.2608,Coal,2009
+CN,Heyuan power station,1244,23.5670,114.6400,Coal,2008
+CN,Heze Huarun power station,1200,35.2526,115.6860,Coal,2011
+CN,Heze power station,1510,35.2407,115.5335,Coal,2002
+CN,Hezhou power station,2090,24.7361,111.3464,Coal,2012
+CN,Hohhot Jinqiao power station,600,40.7085,111.7399,Coal,2007
+CN,Hohhot Jinshan power station,600,40.7069,111.4576,Coal,2010
+CN,Hongjun Aluminum power station,1800,45.5000,119.6545,Coal,2011
+CN,Hongyanchi-1 power station,660,43.7280,87.6292,Coal,2005
+CN,Hongyanchi-2 power station,800,43.7436,87.6576,Coal,2002
+CN,Hongyang Nengyuan power station,600,41.3570,123.2217,Coal,2010
+CN,Hongyanhe,4183,39.8000,121.4800,Nuclear,
+CN,Houshi power station,4200,24.3031,118.1261,Coal,2002
+CN,Huadian Baotou Tuyou power station,1320,40.5836,110.6228,Coal,2016
+CN,Huadian Changde power station,1320,29.0310,111.7000,Coal,2015
+CN,Huadian Changsha power station,1200,28.4877,112.7985,Coal,2007
+CN,Huadian Fengjie power station,1200,31.1188,109.4473,Coal,2016
+CN,Huadian Fulaerji-2 power station,1200,47.1656,123.5848,Coal,1986
+CN,Huadian Gongxian power station,1200,28.2713,104.6697,Coal,2011
+CN,Huadian Guigang power station,1200,23.1128,109.7656,Coal,2007
+CN,Huadian Harbin-1 power station,950,45.7099,126.6955,Coal,2004
+CN,Huadian Harbin-3 power station,1640,45.9656,126.6637,Coal,1995
+CN,Huadian Jiangling power station,660,30.0912,112.3106,Coal,2017
+CN,Huadian Jurong power station,2000,32.1949,119.2494,Coal,2016
+CN,Huadian Kashi power station,900,39.4812,76.0498,Coal,2012
+CN,Huadian Laizhou power station,2078,37.4323,120.0177,Coal,2012
+CN,Huadian Longkou power station,880,37.6809,120.3132,Coal,1990
+CN,Huadian Luan power station,1320,31.6561,116.4914,Coal,2013
+CN,Huadian Luhua power station,660,38.0516,114.3177,Coal,2011
+CN,Huadian Luohe power station,660,33.5295,114.0979,Coal,2010
+CN,Huadian Ningxia Lingwu power station,3320,38.1483,106.3463,Coal,2009
+CN,Huadian Shiliquan power station,2060,34.8144,117.5731,Coal,2003
+CN,Huadian Shuozhou power station,700,39.3575,112.4830,Coal,2015
+CN,Huadian Suzhou power station,1260,33.8059,116.9821,Coal,2007
+CN,Huadian Urumqi power station,660,43.9007,87.6975,Coal,2009
+CN,Huadian Wangting power station,1920,31.4444,120.4364,Coal,2004
+CN,Huadian Weifang power station,2000,36.6656,119.2632,Coal,2002
+CN,Huadian Wuhu power station,1320,31.2376,118.1500,Coal,2012
+CN,Huadian Xinzhou Guangyu power station,970,38.4595,112.7516,Coal,2013
+CN,Huadian Xisaishan power station,2020,30.2031,115.1803,Coal,2009
+CN,Huadian Yangling Cogen power station,700,34.2592,108.1188,Coal,2016
+CN,Huadian Zhenxiong power station,1200,27.4929,104.9485,Coal,2012
+CN,Huadian Zhuozi power station,800,40.9221,112.6397,Coal,2006
+CN,Huadian Zibo power station,950,36.7602,118.0532,Coal,2007
+CN,Huai'an (Hebei) Coal,660,40.6458,114.4050,Coal,2007
+CN,Huai'an - Guoxin Coal,660,33.5866,119.0126,Coal,2008
+CN,Huaibei Guoan power station,640,33.8445,116.9357,Coal,2000
+CN,Huaibei Hushan power station,1320,33.8678,116.8598,Coal,2013
+CN,Huaibei Linhuan power station,1260,33.6127,116.5866,Coal,2011
+CN,Huaibei Pingshan power station,1320,33.8339,116.8311,Coal,2016
+CN,Huainan Fengtai power station,2520,32.7579,116.6492,Coal,2011
+CN,Huainan Guqiao power station,660,32.8142,116.5690,Coal,2011
+CN,Huainan Luohe power station,2500,32.6837,117.0753,Coal,1999
+CN,Huainan Tianji power station,2580,32.7456,116.8134,Coal,2010
+CN,Huaneng Anyuan power station,1320,27.6420,114.0058,Coal,2011
+CN,Huaneng Baishan power station,660,42.0319,126.5795,Coal,2011
+CN,Huaneng Baotou-1 power station,950,40.6567,109.6583,Coal,2002
+CN,Huaneng Baotou-2 power station,1000,40.6778,109.8913,Coal,1998
+CN,Huaneng Baotou-3 power station,600,40.6246,110.0028,Coal,2007
+CN,Huaneng Changchun power station,700,44.0400,125.2201,Coal,2010
+CN,Huaneng Changxing power station,1320,30.9144,119.9625,Coal,2011
+CN,Huaneng Chaohu power station,1200,31.6516,117.8225,Coal,2008
+CN,Huaneng Dalian power station,1400,39.0148,121.7244,Coal,1994
+CN,Huaneng Dandong power station,700,39.8385,124.1457,Coal,1998
+CN,Huaneng Daqing power station,700,46.7046,124.8470,Coal,2013
+CN,Huaneng Dezhou power station,2650,37.4493,116.2416,Coal,1998
+CN,Huaneng Fuzhou power station,2720,25.9909,119.4816,Coal,2002
+CN,Huaneng Haikou power station,660,19.9595,110.0317,Coal,1999
+CN,Huaneng Haimen power station,4144,23.1899,116.6553,Coal,2011
+CN,Huaneng Hainan East power station,1400,19.0494,108.6364,Coal,2010
+CN,Huaneng Hegang power station,1200,47.0955,130.2990,Coal,2002
+CN,Huaneng Hohhot power station,1100,40.7934,111.5977,Coal,2006
+CN,Huaneng Huaiyin power station,1320,33.5959,118.9628,Coal,2002
+CN,Huaneng Jiaxiang power station,660,35.3845,116.4432,Coal,2007
+CN,Huaneng Jinggangshan power station,1920,27.0467,115.0203,Coal,2006
+CN,Huaneng Jingmen power station,700,31.0582,112.2487,Coal,2014
+CN,Huaneng Jinling power station,2060,32.1716,119.0195,Coal,2010
+CN,Huaneng Jiutai power station,1340,44.1071,125.9280,Coal,2009
+CN,Huaneng Laiwu power station,2660,36.1339,117.6850,Coal,2009
+CN,Huaneng Linhe power station,600,40.7826,107.4909,Coal,2007
+CN,Huaneng Luntai power station,700,41.8215,84.0036,Coal,2016
+CN,Huaneng Luohuang power station,2640,29.3467,106.4339,Coal,2000
+CN,Huaneng Luoyang power station,970,34.5825,112.4002,Coal,2012
+CN,Huaneng Luoyuan power station,1320,26.4114,119.7643,Coal,2018
+CN,Huaneng Mianchi power station,700,34.7600,111.8080,Coal,2016
+CN,Huaneng Nanjing power station,640,32.2069,118.7532,Coal,1994
+CN,Huaneng Pingliang power station,2520,35.5014,106.7871,Coal,2006
+CN,Huaneng Qinbei power station,4400,35.1679,112.7162,Coal,2009
+CN,Huaneng Qinling power station,1200,34.5333,109.9381,Coal,1998
+CN,Huaneng Ruijin power station,700,25.9241,115.1019,Coal,2008
+CN,Huaneng Shangan power station,2540,38.0570,114.1966,Coal,2001
+CN,Huaneng Shangdu power station,3720,42.2237,116.0293,Coal,2008
+CN,Huaneng Shantou power station,1200,23.3252,116.7364,Coal,2000
+CN,Huaneng Taicang power station,1900,31.6566,121.1799,Coal,2004
+CN,Huaneng Tongchuan power station,1200,34.8494,108.8891,Coal,2007
+CN,Huaneng Wuhai Haibowan power station,1060,39.3174,106.8650,Coal,2003
+CN,Huaneng Wulashan power station,600,40.6512,108.7674,Coal,1998
+CN,Huaneng Xinhua Daqing power station,530,46.1346,124.6006,Coal,1988
+CN,Huaneng Xining power station,700,36.6292,101.6288,Coal,2016
+CN,Huaneng Yangliuqing power station,1300,39.1512,117.0380,Coal,2002
+CN,Huaneng Yangluo power station,2400,30.6931,114.5437,Coal,2000
+CN,Huaneng Yantai power station,590,37.5326,121.3159,Coal,1999
+CN,Huaneng Yichun power station,700,47.7384,128.7506,Coal,2015
+CN,Huaneng Yimin power station,3400,48.5497,119.7739,Coal,2006
+CN,Huaneng Yingkou Coastal power station,700,40.5815,122.1921,Coal,2009
+CN,Huaneng Yingkou power station,1840,40.3042,122.1054,Coal,2003
+CN,Huaneng Yueyang power station,2524,29.4498,113.1623,Coal,2005
+CN,Huaneng Yuhuan power station,4200,28.1142,121.1398,Coal,2006
+CN,Huaneng Yushe power station,600,36.9775,112.9547,Coal,2002
+CN,Huaneng Zuoquan power station,1262,37.0694,113.3526,Coal,2012
+CN,Huangdao power station,1770,36.0390,120.2193,Coal,1999
+CN,Huanghua Cangzhou power station,2520,38.3094,117.8790,Coal,2007
+CN,Huangling waste coal power station,700,35.6603,108.9229,Coal,2015
+CN,Huangtai power station,1360,36.7078,117.0880,Coal,1992
+CN,Huarun Cangnan power station,2000,27.4974,120.6630,Coal,2014
+CN,Huayin Zhuzhou power station,680,27.8581,113.1195,Coal,2001
+CN,Huayingshan power station,600,30.8882,107.0508,Coal,1997
+CN,Huaze Aluminum power station,600,35.6586,110.6691,Coal,2005
+CN,Hubei Ezhou power station,1900,30.5519,114.6425,Coal,2012
+CN,Huinong - Yinglite Coal,660,39.3075,106.7298,Coal,2013
+CN,Huizhou Cogen power station,660,22.7531,114.6271,Coal,2010
+CN,Hunan Lianyuan power station,600,27.7662,111.8937,Coal,2009
+CN,Hunjiang power station,815,41.9655,126.4524,Coal,1998
+CN,Huolinhe Zhanute power station,2380,45.4098,119.5971,Coal,2015
+CN,Huozhou power station,1200,36.5183,111.6823,Coal,2003
+CN,Huxian-2 power station,600,34.0749,108.6185,Coal,2005
+CN,Inner Hangjin power station,660,39.9200,109.1155,Coal,2016
+CN,Inner Mongolia Xilin power station,600,43.9839,116.1314,Coal,2011
+CN,Inner Mongolia Xingan power station,680,46.0944,122.0225,Coal,2016
+CN,Jiamusi-2 power station,600,46.8322,130.4042,Coal,2008
+CN,Jianbi power station,2990,32.1779,119.5755,Coal,2002
+CN,Jiangsu Guohua Chenjiagang power station,1320,34.4242,119.7985,Coal,2011
+CN,Jiangsu Guoxin Jingjiang power station,1320,32.0307,120.3828,Coal,2014
+CN,Jiangsu Nanre Thermal power station,1200,32.2079,118.7531,Coal,2010
+CN,Jiangsu Nantong power station,3404,32.0321,120.7692,Coal,2006
+CN,Jiangsu Sheyanggang power station,1320,33.8185,120.4633,Coal,2012
+CN,Jiangsu Zhenjiang power station,1820,32.1852,119.2709,Coal,2004
+CN,Jiangyin Sulong power station,1214,31.9192,120.2054,Coal,2002
+CN,Jiangyou power station,1260,31.8045,104.7679,Coal,1998
+CN,Jiaozuo - Shenhua 7-8 Coal,1320,35.2234,113.2003,Coal,2015
+CN,Jiaozuo - Wanfang 5-6 Coal,700,35.2502,113.3677,Coal,2013
+CN,Jiaozuo Boai power station,1320,35.2210,113.1022,Coal,2013
+CN,Jiaxing power station,5000,30.6283,121.1436,Coal,2006
+CN,Jiayuguan - Datang Coal,1200,39.7951,98.3084,Coal,2004
+CN,Jiayuguan Aluminum power station,1400,39.8461,98.2122,Coal,2014
+CN,Jilin - Guodian Coal,650,44.0084,126.5367,Coal,1955
+CN,Jinchang - Gepic Coal,660,38.5013,102.2715,Coal,2013
+CN,Jingdezhen power station,1320,29.1866,117.0842,Coal,2006
+CN,Jingmei Wuhai Jinghai Waste Coal power station,660,39.6579,106.8622,Coal,2010
+CN,Jingneng Energy Jining power station,700,41.0533,113.1533,Coal,2016
+CN,Jingtai Zhungeer Suancigou power station,600,39.7121,111.2012,Coal,2010
+CN,Jingxi Xinfa Aluminum power station,825,23.2677,106.3854,Coal,2011
+CN,Jingyuan-2 power station,1240,36.7300,104.7588,Coal,2001
+CN,Jinneng Guojin power station,700,37.3532,112.0027,Coal,2016
+CN,Jinsha Chayuan power station,1320,27.4934,106.4492,Coal,2016
+CN,Jinzhou Datang power station,600,41.1389,121.2154,Coal,2009
+CN,Jinzhushan power station,1950,27.6261,111.4819,Coal,2000
+CN,Jisco-1 power station,850,39.7938,98.3089,Coal,2004
+CN,Jisco-2 power station,700,39.7941,98.3060,Coal,2012
+CN,Jixi power station,850,45.3450,130.8650,Coal,2008
+CN,Junliangcheng power station,700,39.0539,117.4131,Coal,1999
+CN,Junzheng Wuhai power station,500,39.4643,106.7014,Coal,2009
+CN,Kaifeng-2 power station,1260,34.8063,114.4451,Coal,2008
+CN,Kailuan Guye power station,600,39.7300,118.4582,Coal,2015
+CN,Kaiyuan power station,600,23.7434,103.2208,Coal,2006
+CN,Kangbashi power station,700,39.5978,109.9087,Coal,2014
+CN,Kangping power station,1200,42.7009,123.3658,Coal,2008
+CN,Kanshan power station,1200,34.4100,117.5773,Coal,2006
+CN,Karamay power station,700,45.5427,85.0243,Coal,2014
+CN,Kunming power station,600,25.0148,102.3329,Coal,2001
+CN,Laibin power station,1320,23.6949,109.1629,Coal,2001
+CN,Laicheng power station,1200,36.2547,117.6725,Coal,2001
+CN,Lanxi power station,2400,29.1861,119.5068,Coal,2008
+CN,Lanzhou Fanjiaping power station,660,36.0755,103.6774,Coal,2011
+CN,Leiyang power station,1020,26.3851,112.8590,Coal,1998
+CN,Liaocheng Zhonghua power station,1200,36.4659,115.9094,Coal,2002
+CN,Liaoning Nanpiao power station,500,41.1257,120.6967,Coal,2008
+CN,Liaoning-3 power station,700,41.9222,124.0924,Coal,2005
+CN,Liaoyuan Datang power station,660,42.8720,125.1607,Coal,2007
+CN,Ligang power station,3960,31.9403,120.0764,Coal,2003
+CN,Linfen power station,600,36.1534,111.4849,Coal,2010
+CN,Ling Ao,3914,22.6000,114.5500,Nuclear,
+CN,Linyi power station,1260,35.0071,118.3239,Coal,2007
+CN,Liulin 1 Coal,1400,37.4190,110.8243,Coal,1995
+CN,Liulin Liansheng power station,2000,37.4079,110.7761,Coal,2008
+CN,Lixin Banji power station,2000,32.8972,116.2425,Coal,2016
+CN,Liyuan Cogen power station,700,35.1720,119.0370,Coal,2016
+CN,Liyujiang-2A power station,630,25.9428,113.2140,Coal,1999
+CN,Liyujiang-2B power station,1300,25.9404,113.1925,Coal,2007
+CN,Luanhe power station,990,40.9401,117.7610,Coal,2005
+CN,Lubei power station,660,38.0824,117.7420,Coal,2009
+CN,Luoyang Mengjin power station,1200,34.8648,112.5307,Coal,2011
+CN,Luoyang Shouyangshan-3 power station,1260,34.7371,112.6840,Coal,2006
+CN,Lusigang power station,2640,32.0577,121.7267,Coal,2010
+CN,Luzhou Chuannan power station,1200,28.7755,105.2840,Coal,2008
+CN,Maanshan - Masteel Coal,525,31.7328,118.4892,Coal,
+CN,Manas power station,1020,44.3180,86.1689,Coal,2000
+CN,Maoming - Ruineng Coal,510,21.6760,110.8784,Coal,2003
+CN,Mawan power station,1840,22.4818,113.8720,Coal,1998
+CN,Meixin captive power station,700,34.9653,108.9758,Coal,2017
+CN,Meizhou Wan power station,2786,25.1609,119.0334,Coal,2012
+CN,Mengtai Beijiao power station,660,39.8465,109.9844,Coal,2015
+CN,Mudanjiang-2 power station,1230,44.6571,129.6504,Coal,1996
+CN,Nanhai Foshan-2 power station,660,22.8859,112.9178,Coal,2010
+CN,Nanjing Chemical Industrial Park Cogen power station,710,32.2721,118.8161,Coal,2008
+CN,Nanjing Mine power station,600,34.3733,117.3289,Coal,2009
+CN,Nanpu Quanzhou power station,1940,25.2038,118.9439,Coal,2010
+CN,Nanre Coal,1200,31.9473,118.6301,Coal,2009
+CN,Nanshan Aluminum Donghai power station,1730,37.7286,120.4433,Coal,2008
+CN,Nanyang Yahekou power station,1900,33.3082,112.6451,Coal,2004
+CN,Nayong-1 power station,1200,26.6527,105.1822,Coal,2004
+CN,Nayong-2 power station,1200,26.5976,105.2029,Coal,2006
+CN,Neijiang Baima 2 Coal,600,29.5253,105.0136,Coal,2013
+CN,Neijiang Baima power station,900,29.5245,105.0121,Coal,2003
+CN,Ningde,4072,27.0446,120.2855,Nuclear,
+CN,Ningdong - Gangue Coal,600,38.1825,106.5131,Coal,
+CN,Ningdong Maliantai power station,660,38.1734,106.5704,Coal,2006
+CN,Ningdong Younglight power station,660,38.1920,106.6813,Coal,2013
+CN,Ninghai power station,4400,29.4810,121.5109,Coal,2007
+CN,Ningxia Liupanshan power station,660,36.0452,106.2919,Coal,2010
+CN,Ningxia Zhongning-2 power station,660,37.5900,105.7060,Coal,2006
+CN,North United Power Mengxi power station,600,39.8926,106.7661,Coal,2008
+CN,Ordos Junzheng power station,660,39.9041,106.7679,Coal,2015
+CN,Ordos Power Qipanjing power station,1960,39.3857,106.9657,Coal,2009
+CN,Ordos Resources Qipanjing power station,660,39.3503,107.0100,Coal,2015
+CN,Panbei power station,600,26.0645,104.5341,Coal,2014
+CN,Panjin Xinli power station,700,41.1366,122.1361,Coal,2014
+CN,Panshan power station,2260,39.9793,117.4628,Coal,2000
+CN,Panxian-1 power station,1320,26.0106,104.5161,Coal,2006
+CN,Panxian-2 power station,2400,25.4692,104.5924,Coal,2006
+CN,Pingdingshan Luyang power station,2060,33.8211,113.0146,Coal,2010
+CN,Pingshi power station,600,25.2589,113.0655,Coal,2007
+CN,Pingshuo Gangue power station,700,39.4726,112.3225,Coal,2008
+CN,Pucheng power station,2580,34.9783,109.8000,Coal,2004
+CN,Puqi Xianning power station,2600,29.6653,113.8734,Coal,2011
+CN,Puyang Longfeng power station,600,35.7695,115.2547,Coal,2017
+CN,Qianbei power station,1200,27.4757,106.2582,Coal,2002
+CN,Qiandong power station,1200,27.1251,108.7704,Coal,2008
+CN,Qianxi power station,1860,27.0512,106.1261,Coal,2010
+CN,Qingdao power station,1200,36.1123,120.3291,Coal,2001
+CN,Qinghai Datong power station,600,36.9147,101.7061,Coal,2006
+CN,Qinghai Wanxiang A&M power station,700,36.5849,101.4945,Coal,
+CN,Qingshan power station,1030,30.6288,114.4368,Coal,1997
+CN,Qingshuihe captive power station,750,25.2818,104.8661,Coal,2015
+CN,Qingtongxia Aluminum Works power station,660,37.9238,105.9113,Coal,2010
+CN,Qinhuangdao-2 power station,1630,39.9456,119.6433,Coal,1999
+CN,Qinshan 2,4101,30.4330,120.9501,Nuclear,
+CN,Qudong power station,660,35.2446,113.8522,Coal,2012
+CN,Qujing power station,1200,25.6618,104.0667,Coal,2000
+CN,Renqiu power station,700,38.7453,116.1533,Coal,2013
+CN,Rizhao Iron and Steel Cogen power station,660,35.1562,119.3666,Coal,2013
+CN,Rizhao power station,2060,35.3450,119.5111,Coal,2006
+CN,SDIC Dananhu power station,1320,42.3055,93.3519,Coal,2014
+CN,SDIC Jincheng power station,600,35.4605,112.9255,Coal,2011
+CN,SDIC Qinzhou power station,3360,21.7012,108.6250,Coal,2013
+CN,SDIC Yili Yining Cogen power station,660,43.9263,81.2211,Coal,2012
+CN,SGCC Ewenki power station,1200,48.7296,119.9407,Coal,2012
+CN,Salaqi power station,600,40.5334,110.5647,Coal,2011
+CN,Sanhe Yanjiao power station,1300,39.9528,116.8487,Coal,2003
+CN,Sanshui Hengyi power station,1200,23.0178,112.8436,Coal,2011
+CN,Shaanxi Beiyuan power station,500,38.7366,110.1665,Coal,2011
+CN,Shaanxi Youser Yulin power station,1650,38.2158,109.7282,Coal,2013
+CN,Shahe power station,1200,36.8535,114.3243,Coal,2013
+CN,Shanghai Caojing power station,2000,30.7607,121.4008,Coal,2010
+CN,Shanwei Haifeng power station,2000,22.7545,115.0426,Coal,2015
+CN,Shanwei Honghaiwan power station,2520,22.7061,115.5543,Coal,2010
+CN,Shanxi Guofeng power station,600,37.2278,111.7347,Coal,2015
+CN,Shanxi Guojin power station,600,37.5476,112.2322,Coal,2015
+CN,Shanxi Ruiguang power station,660,37.7843,112.7200,Coal,2012
+CN,Shanxi Yuguang power station,600,39.6166,112.7998,Coal,2015
+CN,Shanxi Zhaoguang Phase 1,1800,36.5545,111.6932,Coal,
+CN,Shaoguan Wastecoal power station,700,24.9354,113.5526,Coal,2017
+CN,Shaoxing Binhai power station,800,30.2269,120.7176,Coal,2013
+CN,Shendong Hequ power station,700,39.4125,111.2440,Coal,2015
+CN,Shenery Wuzhong power station,700,37.9374,106.1396,Coal,2016
+CN,Shengle Cogen power station,700,40.5637,111.8639,Coal,2016
+CN,Shengli Dongying power station,1700,37.4013,118.5243,Coal,2004
+CN,Shenhai power station,600,41.8158,123.4939,Coal,1991
+CN,Shenhua Anqing power station,2640,30.5411,117.1717,Coal,2013
+CN,Shenhua Fugu Guojiawan power station,600,39.2226,110.4066,Coal,2010
+CN,Shenhua Fugu power station,1200,39.2092,110.7858,Coal,2008
+CN,Shenhua Guohua Jinjie power station,2400,38.7365,110.1661,Coal,2007
+CN,Shenhua Guoneng Dananhu Power Plant,600,42.7409,93.4452,Coal,2011
+CN,Shenhua Guoneng Hami power station,2640,42.4112,93.0092,Coal,2015
+CN,Shenhua Hequ power station,2400,39.3829,111.1852,Coal,2008
+CN,Shenhua Jiujiang power station,2104,29.8266,116.3760,Coal,2018
+CN,Shenhua Shenmu power station,1530,38.9662,110.4584,Coal,2013
+CN,Shenhua Wanzhou power station,2000,30.6777,108.3990,Coal,2015
+CN,Shenhua Yili power station,800,40.3614,109.9730,Coal,2008
+CN,Shenhua Yuanyang Lake power station,1320,38.0569,106.6910,Coal,2010
+CN,Shenhua Zhundong Wucaiwan power station,700,44.7955,89.1498,Coal,2015
+CN,Shenhua Zhunneng power station,960,39.8279,111.2679,Coal,2009
+CN,Shenhuo Zhundong power station,1400,44.0810,88.5887,Coal,2013
+CN,Shenneng Korla power station,700,41.6642,86.2632,Coal,2017
+CN,Shidongkou power station,3820,31.4651,121.4048,Coal,1997
+CN,Shiheng-2 power station,1890,36.2122,116.5136,Coal,1998
+CN,Shihezi Tianhe power station,660,44.4409,86.0997,Coal,2012
+CN,Shijiazhuang - Luhua Coal,660,37.9513,114.5131,Coal,2011
+CN,Shijiazhuang Liangcun power station,660,38.0060,114.6934,Coal,2011
+CN,Shimen power station,1200,29.5786,111.3940,Coal,2001
+CN,Shuangliao West power station,2060,43.5282,123.4630,Coal,2003
+CN,Shuangyashan power station,2040,46.5629,131.6684,Coal,2000
+CN,Shuidonggou power station,1200,38.2143,106.5439,Coal,2011
+CN,Shunde Desheng power station,600,22.7993,113.3587,Coal,2008
+CN,Siping power station,550,43.1530,124.4025,Coal,2007
+CN,Songhuajiang Coal,730,44.7758,125.8649,Coal,2003
+CN,Songhuajiang power station,730,43.9085,126.5038,Coal,2009
+CN,Suizhong power station,3760,40.0793,120.0089,Coal,2005
+CN,Suzhou Huiyuan power station,700,33.6546,116.9823,Coal,2008
+CN,Taicanggang power station,1300,31.5877,121.2566,Coal,2004
+CN,Taishan Expansion Coal Power Plant,2000,21.8661,112.9213,Coal,2010
+CN,Taiyuan 1 Coal,1275,37.7808,112.4776,Coal,
+CN,Taiyuan Steel Mill power station,600,37.9194,112.5378,Coal,2010
+CN,Taiyuan-2 power station,1260,37.9870,112.5190,Coal,2006
+CN,Tangshan Wangtan power station,1200,39.2002,118.9734,Coal,2005
+CN,Tangzhai power station,1200,26.8295,106.2656,Coal,2012
+CN,Tengzhou Xinyuan power station,930,35.0676,117.1204,Coal,2005
+CN,Tianchi Changji Cogen power station,700,44.0044,87.1720,Coal,2017
+CN,Tianfu North power station,1320,44.4404,86.0940,Coal,2017
+CN,Tianfu South power station,910,44.2593,86.1080,Coal,2012
+CN,Tianfu West power station,505,44.3586,86.0449,Coal,2011
+CN,Tianjin Beijiang power station,3000,39.2193,117.9293,Coal,2012
+CN,Tianjin Dagang power station,1312,38.7765,117.4940,Coal,1998
+CN,Tianjin Guodian Beitang power station,700,39.0964,117.6442,Coal,2014
+CN,Tianjin Northeast power station,660,39.2168,117.3544,Coal,2009
+CN,Tianshan Qitai power station,700,44.0516,89.6509,Coal,2016
+CN,Tianshenggan power station,660,32.0349,120.7526,Coal,1997
+CN,Tianwan,1980,34.6900,119.4600,Nuclear,
+CN,Tianye power station,1800,44.3562,86.0475,Coal,2011
+CN,Tianyuan Shandong power station,600,37.0532,117.8757,Coal,2010
+CN,Tieling power station,2520,42.3450,123.8030,Coal,2002
+CN,Toksun Mahatma power station,600,42.8187,87.9606,Coal,2012
+CN,Tonghua Xuangang power station,1320,38.9146,112.4774,Coal,2010
+CN,Tongliao power station,1670,43.6704,122.1543,Coal,1997
+CN,Tongling Guodian power station,1200,31.0711,117.9634,Coal,2008
+CN,Tongling Wanneng power station,2600,30.8818,117.7644,Coal,2009
+CN,Tongmei Datang power station,660,39.9796,113.1859,Coal,2014
+CN,Tongmei Tashan power station,2520,39.9792,113.1887,Coal,2012
+CN,Tongmei Yongji power station,1300,34.8558,110.4707,Coal,2006
+CN,Tongzi power station,1200,28.1297,106.8464,Coal,2013
+CN,Tuoketuo 9-10 Coal,600,40.1892,111.3596,Coal,2007
+CN,United Laboratories Linhe power station,600,40.8137,107.5092,Coal,
+CN,WEnergy Maanshan Power Station,2640,31.7375,118.4797,Coal,2005
+CN,Waigaoqiao power station,5240,31.3536,121.6003,Coal,2004
+CN,Wangqu power station,1200,36.3485,113.1921,Coal,2006
+CN,Wansheng power station,600,28.8401,106.7757,Coal,2006
+CN,Wanyuan power station,600,31.3245,107.4914,Coal,2008
+CN,Weihai power station,1960,37.4499,122.2072,Coal,2005
+CN,Weihe-2 power station,1200,34.4284,108.9113,Coal,1994
+CN,Weiqiao Huji power station,2640,37.3588,117.7772,Coal,2015
+CN,Weiqiao Town Public Heating power station,1320,37.0255,117.4838,Coal,2013
+CN,Weiqiao Yangxin power station,1320,37.5765,117.5986,Coal,2015
+CN,Weiqiao Zhanhua power station,700,38.0226,117.9712,Coal,2015
+CN,Weiqiao Zouping-1 power station,2640,36.9107,117.7854,Coal,2016
+CN,Weiqiao Zouping-3 power station,1200,36.9077,117.7741,Coal,2008
+CN,Weiqiao Zouping-6 power station,2640,36.8979,117.7844,Coal,2014
+CN,Weiqiao Zouping-7 power station,2640,36.8972,117.8613,Coal,2013
+CN,Weixin Coal,1200,27.8901,104.8748,Coal,2012
+CN,Wuhu Zhongdian power station,1320,31.4528,118.3445,Coal,2008
+CN,Wujiaqu power station,3640,44.2686,87.6881,Coal,2013
+CN,Wujing power station,1800,31.0620,121.4664,Coal,1996
+CN,Wuwei Cogen power station,700,37.9011,102.6859,Coal,2017
+CN,Wuxiang power station,1200,36.8228,112.8370,Coal,2006
+CN,XPCC Shihezi Cogen power station,2120,44.4281,86.0936,Coal,2015
+CN,Xiamen Songyu power station,1200,24.4468,118.0265,Coal,2001
+CN,Xiangfan power station,2400,31.9122,112.1662,Coal,2002
+CN,Xiangtan power station,1800,27.8287,112.9961,Coal,2004
+CN,Xiaolongtan power station,600,23.8377,103.1964,Coal,1999
+CN,Xibaipo power station,2400,38.2451,114.2149,Coal,2001
+CN,Xingtai Cogen power station,700,36.9700,114.6240,Coal,2016
+CN,Xingtai power station,600,37.0089,114.4842,Coal,1994
+CN,Xingyang Integration power station,1260,34.8246,113.3676,Coal,2010
+CN,Xingyi power station,1200,25.2603,104.8560,Coal,2011
+CN,Xinhai power station,2660,34.5782,119.1275,Coal,2009
+CN,Xinjiang Qiya Smelter power station,2160,44.8594,89.0243,Coal,2014
+CN,Xinjiang Zhongtai Fukang Metallurgy Power Station,600,44.0810,88.5889,Coal,2012
+CN,Xinxiang Baoshan power station,1320,35.3268,113.4906,Coal,2007
+CN,Xinxiang Huayu power station,660,35.4055,113.9292,Coal,2005
+CN,Xinyuan Aluminum power station,3960,36.6148,116.2194,Coal,2015
+CN,Xinyuanjieneng Qingshuichuan power station,600,39.1805,111.0845,Coal,2015
+CN,Xishan Gujiao power station,2460,37.8915,112.0886,Coal,2013
+CN,Xishui Erlang power station,1320,28.1634,106.3528,Coal,2015
+CN,Xishui power station,540,28.3567,106.1975,Coal,2002
+CN,Xixia Ningxia power station,1100,38.4439,106.1258,Coal,2014
+CN,Xuanhua power station,600,40.5799,115.0733,Coal,2010
+CN,Xuanwei power station,1800,26.1872,104.1106,Coal,2003
+CN,Xuchang Yulong power station,2020,34.1748,113.3581,Coal,2006
+CN,Xunjiansi power station,735,23.9584,103.1891,Coal,2008
+CN,Xuzhou Huamei power station,700,34.3412,117.1048,Coal,2016
+CN,Xuzhou Pengcheng power station,3340,34.3781,117.1763,Coal,2006
+CN,Yangcheng power station,3300,35.4670,112.5739,Coal,2004
+CN,Yangjiang,4000,21.7100,112.2600,Nuclear,
+CN,Yangquan-2 power station,1280,37.7745,113.6262,Coal,1998
+CN,Yangxi Zhujiang power station,2520,21.5426,111.6703,Coal,2011
+CN,Yangzhou-1 power station,660,32.4299,119.4742,Coal,1999
+CN,Yangzhou-2 power station,2460,32.2684,119.4193,Coal,2002
+CN,Yangzonghai power station,1000,24.9622,103.0277,Coal,2004
+CN,Yaomeng power station,2160,33.7375,113.2419,Coal,1994
+CN,Yaxi power station,1200,27.5785,106.6552,Coal,2005
+CN,Yemazhai power station,600,26.6786,104.8047,Coal,2005
+CN,Yichang East power station,600,30.3269,111.4904,Coal,2009
+CN,Yichang Xiaoting power station,700,30.4969,111.4421,Coal,2014
+CN,Yichuan Longquan Kim Hyung power station,1320,34.4146,112.5011,Coal,2012
+CN,Yichuan-3 power station,900,34.4156,112.5561,Coal,2006
+CN,Yihua Wucaiwan power station,660,44.8931,89.2476,Coal,2014
+CN,Yining Coal,700,43.9492,81.4757,Coal,2015
+CN,Yinxing power station,1320,37.7274,106.7409,Coal,2017
+CN,Yixing - Guoxing Gas,800,31.3976,119.8273,Coal,2015
+CN,Yiyang power station,1920,28.5971,112.2683,Coal,2005
+CN,Yongan power station,600,26.0036,117.3798,Coal,2002
+CN,Yongcheng Coal,600,33.9284,116.5501,Coal,2011
+CN,Youyu power station,660,39.8663,112.5117,Coal,2012
+CN,Yuci power station,660,37.6268,112.7478,Coal,2010
+CN,Yudean Dabu power station,1200,24.4057,116.5878,Coal,2016
+CN,Yuehua Huangpu power station,600,23.0792,113.4951,Coal,1990
+CN,Yuelian Coal,520,22.9657,112.1079,Coal,2000
+CN,Yulin Beijiao power station,700,38.2993,109.8108,Coal,2018
+CN,Yulin Yuheng power station,1200,38.1347,109.5370,Coal,2014
+CN,Yuncheng power station,1200,34.6433,110.2880,Coal,2007
+CN,Yunfu power station,1120,22.9838,112.1005,Coal,2004
+CN,Yunhe power station,1240,35.4867,116.4769,Coal,2004
+CN,Zaozhuang Bayi power station,700,34.8284,117.2711,Coal,2018
+CN,Zhangjiagang Shazhou power station,3260,31.9890,120.6884,Coal,2013
+CN,Zhangjiakou ZTP power station,600,40.7471,114.8122,Coal,2010
+CN,Zhangjiakou power station,2560,40.6597,114.9439,Coal,1996
+CN,Zhangping power station,600,25.2836,117.3989,Coal,2003
+CN,Zhangqiu power station,890,36.7284,117.4036,Coal,2005
+CN,Zhangshan power station,1800,36.3261,113.0814,Coal,2007
+CN,Zhangze Changzhi power station,840,36.3228,113.0807,Coal,1989
+CN,Zhangze Linfen power station,600,36.0867,111.3994,Coal,2012
+CN,Zhanjiang Aoliyou power station,1200,21.3156,110.4091,Coal,2011
+CN,Zhanjiang Coal,1200,21.3102,110.4095,Coal,1995
+CN,Zhejiang Taizhou-1 power station,1260,28.6978,121.4530,Coal,1995
+CN,Zhejiang Taizhou-2 power station,2000,29.0132,121.6955,Coal,2015
+CN,Zhejiang Zhenhai power station,860,29.9445,121.6881,Coal,1988
+CN,Zheneng Changxing power station,1200,30.9919,119.9293,Coal,2004
+CN,Zheneng Liuheng power station,2000,29.7592,122.1262,Coal,2014
+CN,Zheneng Wenzhou power station,2520,27.9963,120.8356,Coal,2007
+CN,Zheneng Yueqing power station,2520,28.1704,121.0889,Coal,2009
+CN,Zhongtai Toksun power station,600,42.7372,88.6450,Coal,2015
+CN,Zhuhai GZP power station,1400,21.9670,113.1812,Coal,2000
+CN,Zhumadian-3 power station,660,33.0419,114.0536,Coal,2011
+CN,Zhunda power station,600,39.7844,111.1595,Coal,2006
+CN,Zhungeer power station,1320,39.8535,111.2563,Coal,2003
+CN,Zouxian power station,4540,35.3256,116.9261,Coal,1998
+CN,Zunhua Coal,600,40.2022,117.9211,Coal,2011
+CZ,Chvaletice power station,820,50.0275,15.4505,Coal,1978
+CZ,Detmarovice power station,800,49.9072,18.4646,Coal,1976
+CZ,Dukonavy,2040,49.0852,16.1479,Nuclear,
+CZ,Ledvice power station,640,50.5763,13.7803,Coal,1969
+CZ,Melnik power station,960,50.4131,14.4158,Coal,1973
+CZ,Pocerady power station,1000,50.4278,13.6777,Coal,1973
+CZ,Prunerov,750,50.4178,13.2592,Coal,2016
+CZ,Temelín,2133,49.1796,14.3795,Nuclear,2002
+CZ,Tusimice power station,800,50.3810,13.3399,Coal,1974
+DK,Asnaes power station,787,55.6615,11.0809,Coal,1975
+DK,Avedoerevaerket (AvedÃ¸re),815,55.6035,12.4812,Coal,
+DK,Enstedvaerket,626,55.0206,9.4419,Coal,1979
+DK,Nordjylland power station,716,57.0736,10.0416,Coal,1989
+DK,Studstrupvaerket,730,56.2521,10.3423,Coal,
+FI,Loviisa Y1,992,60.3708,26.3468,Nuclear,
+FI,Meri-Pori,565,61.6317,21.4068,Coal,
+FI,Olkiluoto 1,1760,61.2371,21.4433,Nuclear,
+FR,BELLEVILLE,2620,47.5103,2.8750,Nuclear,
+FR,BLAYAIS,3640,45.2560,-0.6932,Nuclear,
+FR,BUGEY,3580,45.7973,5.2706,Nuclear,
+FR,CATTENOM,5200,49.4160,6.2169,Nuclear,
+FR,CHINON,3620,47.2254,0.1656,Nuclear,
+FR,CHOOZ,3000,50.0900,4.7894,Nuclear,
+FR,CIVAUX,2990,46.4563,0.6548,Nuclear,
+FR,CORDEMAIS 4,1160,47.2756,-1.8779,Coal,
+FR,CRUAS,3660,44.6325,4.7546,Nuclear,
+FR,DAMPIERRE,3560,47.7321,2.5185,Nuclear,
+FR,EMILE HUCHET,995,49.1510,6.6970,Coal,
+FR,FESSENHEIM,1760,47.9032,7.5631,Nuclear,
+FR,FLAMANVILLE,2660,49.5366,-1.8823,Nuclear,
+FR,GOLFECH,2620,44.1060,0.8443,Nuclear,
+FR,GRAVELINES,5460,51.0141,2.1332,Nuclear,
+FR,HAVRE 4,580,49.4757,0.1491,Coal,
+FR,NOGENT,2620,48.5171,3.5181,Nuclear,
+FR,PALUEL,5320,49.8582,0.6354,Nuclear,
+FR,PENLY,2660,49.9764,1.2107,Nuclear,
+FR,PROVENCE 5,595,43.4672,5.4875,Coal,
+FR,ST ALBAN,2670,45.4043,4.7554,Nuclear,
+FR,ST LAURENT,1830,47.7197,1.5783,Nuclear,
+FR,TRICASTIN 1,3660,44.3311,4.7311,Nuclear,
+DE,Altbach power station,769,48.7176,9.3749,Coal,1992
+DE,BROKDORF,1480,53.8506,9.3450,Nuclear,1986
+DE,Bergkamen power station,717,51.6370,7.6191,Coal,1981
+DE,Berlin-Reuter-West power station,564,52.5351,13.2426,Coal,1988
+DE,BoA 2,2100,51.0365,6.6133,Coal,2012
+DE,Boxberg power station,2585,51.4163,14.5619,Coal,1989
+DE,Braunkohlekraftwerk Lippendorf,875,51.1821,12.3733,Coal,1999
+DE,EMSLAND,1406,52.4716,7.3204,Nuclear,1988
+DE,Frimmersdorf power station,562,51.0574,6.5771,Coal,1962
+DE,GKM (Mannheim) power station,1958,49.4452,8.4891,Coal,1980
+DE,Grohnde,1360,52.0356,9.4135,Nuclear,1985
+DE,Hamburg-Moorburg,1600,53.4890,9.9490,Coal,2015
+DE,Heilbronn power station,778,49.1773,9.2063,Coal,1977
+DE,Herne power station,729,51.5508,7.1875,Coal,1976
+DE,Heyden power station,875,52.3828,8.9960,Coal,1987
+DE,ISAR-2,1485,48.6049,12.2936,Nuclear,1988
+DE,Ibbenbüren-B power station,794,52.2888,7.7479,Coal,1985
+DE,Janschwalde power station,2790,51.8344,14.4590,Coal,1985
+DE,KW Voerde,1390,51.5765,6.6894,Coal,
+DE,KW Walsum,1200,51.5267,6.7187,Coal,
+DE,KW West,640,51.5796,6.6789,Coal,1971
+DE,KWM,690,52.3150,10.0914,Coal,1979
+DE,Kernkraft Gundremmingen,2572,48.5150,10.4016,Nuclear,1984
+DE,Kraftwerk Bexbach,721,49.3635,7.2371,Coal,1983
+DE,Lippendorf power station,875,51.1821,12.3733,Coal,2000
+DE,NECKARWESTHEIM-2,1400,49.0408,9.1759,Nuclear,1989
+DE,Neurath power station,2068,51.0395,6.6150,Coal,1974
+DE,Niederaussem power station,3430,50.9930,6.6685,Coal,1979
+DE,PHILIPPSBURG-2,1468,49.2529,8.4364,Nuclear,1984
+DE,Rheinhafen-Dampfkraftwerk,1547,49.0134,8.3065,Coal,
+DE,Rostock power station,514,54.1428,12.1329,Coal,1994
+DE,Schkopau power station,900,51.3985,11.9504,Coal,1996
+DE,Scholven power station,690,51.6024,7.0099,Coal,1973
+DE,Schwarze Pumpe power station,1500,51.5348,14.3531,Coal,1998
+DE,Staudinger power station,1132,50.0886,8.9534,Coal,1992
+DE,Trianel Kohlekraftwerk Lünen,746,51.6124,7.4653,Coal,2013
+DE,Weiher,656,49.3341,7.0314,Coal,1976
+DE,Weisweiler power station,1800,50.8392,6.3211,Coal,1968
+DE,Westfalen,1049,51.6805,7.9696,Coal,2014
+DE,Wilhelmshaven power station,757,53.5658,8.1462,Coal,1976
+GR,Agios Dimitrios power station,1595,40.3941,21.9256,Coal,1988
+GR,Amyntaio power station,600,40.6192,21.6832,Coal,1987
+GR,Kardia power station,1250,40.4102,21.7856,Coal,1978
+GR,Megalopoli power station,600,37.4174,22.1079,Coal,1979
+GR,Ptolemais,620,40.4809,21.7274,Coal,
+HU,Matra power station,884,47.7886,20.0660,Coal,1983
+HU,Paksi Atomerőmű,1887,46.5739,18.8536,Nuclear,
+IN,AKALTARA TPP,1800,21.9603,82.4091,Coal,2015
+IN,AMARAVATI TPP,1350,21.0782,77.9009,Coal,2014
+IN,"ANAPARA ""C""",1200,24.2007,82.8000,Coal,2011
+IN,ANPARA,2630,24.2010,82.7891,Coal,2000
+IN,ANUPPUR,600,23.0666,81.7841,Coal,
+IN,ANUPUR TPP,1200,23.0655,81.7865,Coal,2015
+IN,AVANTHA BHANDAR TPP,600,21.7438,83.2741,Coal,2017
+IN,BADARPUR,705,28.5060,77.3066,Coal,1977
+IN,BAKRESWAR,1050,23.8285,87.4513,Coal,2003
+IN,BARADARHA TPP,1200,21.9114,83.1889,Coal,2014
+IN,BARAUNI,720,25.3999,86.0218,Coal,2007
+IN,BARH STPP II,1320,25.4865,85.7452,Coal,2014
+IN,BELLARY TPS,1700,15.1932,76.7195,Coal,2012
+IN,BHAVNAGAR TPP,500,21.5837,72.2222,Coal,2016
+IN,BHILAI TPP,500,21.1840,81.4237,Coal,2008
+IN,BHUSAWAL,1210,21.0483,75.8425,Coal,2007
+IN,BINA TPP,500,23.3172,78.1336,Coal,2012
+IN,BINJKOTE,600,22.0103,83.2058,Coal,2017
+IN,BOKARO A ''EXP'',500,23.6783,86.0888,Coal,2016
+IN,BONGAIGAON TPP,750,26.5145,90.5287,Coal,2017
+IN,BUDGE BUDGE,750,22.4673,88.1400,Coal,2001
+IN,BUTIBORI TPP -II,600,20.9286,78.9333,Coal,2013
+IN,CHANDRAPURA,630,23.7376,86.1273,Coal,2000
+IN,CHANDRAPUR_Coal,2920,20.0063,79.2900,Coal,1999
+IN,CHHABRA TPS,2320,24.6217,77.0357,Coal,2015
+IN,D.P.L.,660,23.5211,87.3023,Coal,2005
+IN,DADRI (NCTPP),1820,28.6030,77.6078,Coal,2001
+IN,DAE RAJASTHAN,100,24.8747,75.6189,Nuclear,1972
+IN,DAMODARAM SANJEEVAIAH,1600,14.3444,80.1264,Coal,2014
+IN,DERANG,1200,21.1238,84.9843,Coal,2014
+IN,DHANU,500,19.9545,72.7478,Coal,1995
+IN,DHARIWAL INF TPP,600,20.0102,79.2033,Coal,2013
+IN,DURGAPUR STEEL TPS,1000,23.5800,87.2043,Coal,2011
+IN,FARAKKA STPS,2100,24.7720,87.8940,Coal,1995
+IN,GADARWARA,800,22.8618,78.8648,Coal,2018
+IN,GANDHI NAGAR,630,25.2502,72.6765,Coal,1993
+IN,GHTP (LEH.MOH.),920,30.2666,75.1661,Coal,2003
+IN,GMR WARORA TPP,600,20.2723,78.9793,Coal,2013
+IN,GOINDWAL SAHIB TPP,540,31.3841,75.1464,Coal,2016
+IN,HALDIA,600,22.1042,88.1764,Coal,2015
+IN,H_GANJ B,605,28.0179,78.1326,Coal,2005
+IN,INDRA GANDHI STPP,1500,28.4849,76.3754,Coal,2011
+IN,ITPCL TPP,1200,11.5214,79.7515,Coal,2015
+IN,JALLIPPA KAPURDI TPP,1080,25.8888,71.3236,Coal,2011
+IN,JSW RATNAGIRI TPP,1200,17.2970,73.2120,Coal,2010
+IN,KAHALGAON,2340,25.2349,87.2635,Coal,2003
+IN,KAIGA,880,14.8650,74.4385,Nuclear,2004
+IN,KAKATIYA TPP,1100,18.3835,79.8265,Coal,2012
+IN,KAKRAPARA,440,21.2384,73.3489,Nuclear,1993
+IN,KALISINDH,1200,24.5295,76.0986,Coal,2014
+IN,KAMALANGA,1050,20.8700,85.2671,Coal,2013
+IN,KAWAI TPP,1320,24.7773,76.7370,Coal,2013
+IN,KODERMA,1000,24.3858,85.5517,Coal,2012
+IN,KOLAGHAT,1260,22.4157,87.8713,Coal,1989
+IN,KORADI,2400,21.2414,79.0960,Coal,2009
+IN,KORBA STPS,2600,22.3881,82.6858,Coal,1991
+IN,KORBA-EAST,890,22.3828,82.7188,Coal,1991
+IN,KORBA-WEST,1340,22.4118,82.6888,Coal,1995
+IN,KOTA,1240,25.1712,75.8171,Coal,1993
+IN,KUDGI,2400,16.4994,75.8349,Coal,2017
+IN,KUNDANKULAM,2000,8.1691,77.1327,Nuclear,2015
+IN,K_GUDEM,720,17.6219,80.6936,Coal,1972
+IN,K_GUDEM NEW,1800,17.6219,80.6936,Coal,2010
+IN,K_KHEDA II,1340,21.2818,79.1160,Coal,2000
+IN,Kudankulam,2000,8.1689,77.7126,Nuclear,
+IN,LALITPUR TPP,1980,24.7971,78.6463,Coal,2015
+IN,LARA,800,21.7570,83.4573,Coal,2018
+IN,M.A.P.P.,440,12.5571,80.1754,Nuclear,1984
+IN,MAHADEV PRASAD STPP,540,22.8395,86.0613,Coal,2012
+IN,MAHAN TPP,1200,24.0077,82.4172,Coal,2015
+IN,MAHATMA GANDHI TPP,1320,28.4900,76.3510,Coal,2012
+IN,MAITHON RB TPP,1050,23.8209,86.7600,Coal,2011
+IN,MARWA TPP,1000,22.0708,82.6022,Coal,2015
+IN,MEJA STPP,660,25.1447,81.9415,Coal,2018
+IN,MEJIA,1340,23.4639,87.1311,Coal,2001
+IN,MEJIA TPS EXT,1000,23.4639,87.1311,Coal,2010
+IN,MELAMARUTHUR (MUTHIARA),1200,8.9159,78.1374,Coal,2015
+IN,METTUR,840,11.7696,77.8138,Coal,1988
+IN,METTUR TPS EXT,600,11.7696,77.8138,Coal,2012
+IN,MOUDA STPS,2320,21.1797,79.3978,Coal,2014
+IN,MUNDRA TPP,4620,22.8230,69.5532,Coal,2010
+IN,MUNDRA UMPP,4000,22.8158,69.5281,Coal,2012
+IN,MUZAFFARPUR,610,26.1953,85.3017,Coal,2005
+IN,N.A.P.S,440,28.1560,78.4089,Nuclear,1990
+IN,NABI NAGAR TPP,750,24.7754,84.1588,Coal,2017
+IN,NASIK,630,19.9817,73.8896,Coal,1980
+IN,NASIK TPP  PH 1,1350,19.9817,73.8896,Coal,2016
+IN,NAWAPARA,600,21.9200,83.2788,Coal,2016
+IN,NEYVELI ST I,600,11.5893,79.4704,Coal,1966
+IN,NEYVELI ST II,1470,11.5576,79.4417,Coal,1989
+IN,NEYVELI TPS EXP -II,500,11.5534,79.4408,Coal,2013
+IN,NIGRI,1320,24.1500,81.9045,Coal,2014
+IN,NORTH CHENNAI,630,13.2450,80.3257,Coal,1995
+IN,NORTH CHENNAI EXTENSION,1200,13.2450,80.3257,Coal,2013
+IN,OBRA-A,1094,24.4448,82.9803,Coal,1979
+IN,PAINAMPURAM,1320,14.3512,80.1431,Coal,2015
+IN,PANIPAT,920,29.3975,76.8763,Coal,2000
+IN,PARAS,500,20.7147,76.7948,Coal,2009
+IN,PARICHA,1140,25.5124,78.7588,Coal,2004
+IN,PARLI,1170,18.8685,76.5254,Coal,2002
+IN,PATHADI TPS PH -I,600,22.2454,82.7246,Coal,2009
+IN,PRYAGRAJ (BARA) TPP,1980,25.1960,81.6594,Coal,2016
+IN,R.A.P.S.,1080,24.8747,75.6189,Nuclear,2000
+IN,RAGHUNATHPUR TPP PH-I,1200,23.6220,86.6610,Coal,2015
+IN,RAICHUR,1720,16.3532,77.3422,Coal,1996
+IN,RAIGARH TPP,1000,21.9846,83.2331,Coal,2007
+IN,RAIKHEDA,1370,21.4499,81.8525,Coal,2015
+IN,RAJIV GANDHI  TPS HISAR,1200,29.3560,75.8690,Coal,2010
+IN,RAJPURA TPP,1400,30.5570,76.5770,Coal,2014
+IN,RAYAL SEEMA,1650,14.7040,78.4577,Coal,2008
+IN,RIHAND,3000,24.0270,82.7915,Coal,2002
+IN,ROPAR,840,31.0417,76.5847,Coal,1990
+IN,ROSA TPP PH - 1,1200,27.8180,79.9360,Coal,2010
+IN,R_GUNDEM STPS,2600,18.7572,79.4560,Coal,1990
+IN,SAGARDIGHI TPP,1600,24.3696,88.1046,Coal,2012
+IN,SALAYA TPP,1200,22.3049,69.7101,Coal,2012
+IN,SANJAY GANDHI,1340,23.3026,81.0668,Coal,2000
+IN,SANTALDIH,500,23.6013,86.4666,Coal,2009
+IN,SASAN UMPP,3960,23.9784,82.6275,Coal,2013
+IN,SATPURA,1330,22.1100,78.1730,Coal,1993
+IN,SEIONI TPP,600,22.7355,79.9123,Coal,2016
+IN,SEMBCORP GAYATRI,1320,14.3510,80.1443,Coal,2016
+IN,SIKKA REP.,500,22.4208,69.8276,Coal,2015
+IN,SIMHADRI,2000,17.5910,83.0917,Coal,2006
+IN,SIMHAPURI TPP,600,14.2133,80.0838,Coal,2013
+IN,SINGARENI TPP,1200,18.8372,79.5748,Coal,2016
+IN,SINGRAULI STPS,2000,24.1033,82.7068,Coal,1984
+IN,SIPAT STPS,2980,22.1300,82.2930,Coal,2010
+IN,SOLAPUR STPP,1320,31.7537,77.2460,Coal,2018
+IN,STERLITE TPP,600,21.8144,84.0404,Coal,2010
+IN,SURAT LIG.,500,21.3970,73.1060,Coal,2004
+IN,SURATGARH,1500,29.1790,74.0202,Coal,2002
+IN,Shri Singaji MALWA TPP,2520,22.0971,76.5317,Coal,2016
+IN,TADALI,600,20.0116,79.2036,Coal,
+IN,TALCHER STPS,3000,21.0966,85.0740,Coal,2001
+IN,TALWANDI SABO,1980,29.9240,75.2372,Coal,2015
+IN,TAMNAR TPP,2400,22.0987,83.4513,Coal,2014
+IN,TARAPUR,1400,19.8294,72.6617,Nuclear,1996
+IN,TIRORA TPP,3300,21.4129,79.9671,Coal,2013
+IN,TORANGALLU EXT,600,15.1839,76.6622,Coal,2009
+IN,TROMBAY_Coal,750,19.0004,72.8983,Coal,1992
+IN,TUTICORIN,1050,8.7635,78.1753,Coal,1984
+IN,TUTICORIN JV,1000,8.7603,78.1699,Coal,2015
+IN,UCHPINDA TPP,1440,21.8858,83.1215,Coal,2016
+IN,UDUPI TPP,1200,13.1596,74.8002,Coal,2010
+IN,UKAI_Coal,1110,21.2093,73.5574,Coal,1995
+IN,UNCHAHAR,1550,25.9131,81.3274,Coal,2002
+IN,VALLUR ntpc/ntecl,1500,13.2371,80.3023,Coal,2013
+IN,VIJAYWADA,1260,16.5984,80.5370,Coal,1987
+IN,VIJAYWADA TPP-IV,500,16.5973,80.5382,Coal,2009
+IN,VINDH_CHAL STPS,4760,24.0983,82.6719,Coal,2002
+IN,VIZAG TPP,1040,17.5635,83.1382,Coal,2015
+IN,WANAKBORI,1470,22.8725,73.3588,Coal,1986
+IN,WARDHA WARORA(Sai Wardha Power),540,20.2727,78.9792,Coal,2010
+IN,YAMUNANAGAR TPP,600,30.1081,77.3257,Coal,2007
+IN,YERMARUS TPP,1600,16.2949,77.3568,Coal,2016
+ID,Banten Serang power station,660,-5.8830,106.0459,Coal,2017
+ID,Cilacap Sumber power station,1260,-7.6832,109.0964,Coal,2011
+ID,PLTU Banten 1 - Suralaya unit 8,625,-6.0585,106.4646,Coal,
+ID,PLTU Banten 2 - Labuhan,600,-6.3919,105.8288,Coal,
+ID,PLTU Banten 3 - Teluk Naga/Lontar,945,-6.0585,106.4646,Coal,
+ID,PLTU Cilacap 1 & 2,600,-7.7513,109.0186,Coal,
+ID,PLTU Cirebon,660,-6.7704,108.6151,Coal,
+ID,PLTU Gresik,600,-7.1633,112.6615,Coal,
+ID,PLTU Jabar Selatan - Pelabuhan Ratu,1050,-7.0242,106.5464,Coal,
+ID,PLTU Jawa Barat - Indramayu,990,-6.2747,107.9704,Coal,
+ID,PLTU Jawa Tengah 1 - Rembang,630,-6.6360,111.4749,Coal,
+ID,PLTU Paiton I Unit 7 & 8,5355,-7.7184,113.5827,Coal,
+ID,PLTU Suralaya,3400,-5.8920,106.0300,Coal,
+ID,PLTU Tanjung Jati B,1320,-6.4460,110.7423,Coal,
+ID,PLTU Tanjung Jati B - expansion,1324,-6.4460,110.7423,Coal,
+ID,Pacitan power station,630,-8.2578,111.3736,Coal,2011
+ID,Perawang Mill power station,755,0.6893,101.6191,Coal,2009
+ID,Tanjung Awar-Awar power station,700,-6.8105,111.9955,Coal,2012
+IR,Bushehr,1000,28.8298,50.8857,Nuclear,2011
+IE,Moneypoint power station,915,52.6074,-9.4237,Coal,1986
+IL,Orot Rabin,2590,32.4700,34.8880,Coal,
+IL,Rutenberg,2250,31.6299,34.5216,Coal,
+IT,Andrea Palladio power station (FUSINA),976,45.4314,12.2468,Coal,1971
+IT,Brindisi Nord power station,640,40.6432,17.9802,Coal,1974
+IT,Brindisi Sud power station,2640,40.5632,18.0318,Coal,1992
+IT,Fiume Santo power station,640,40.8461,8.3068,Coal,1992
+IT,La Spezia power station,1300,44.1118,9.8743,Coal,1967
+IT,Torrevaldaliga Nord power station,1980,42.1269,11.7583,Coal,2009
+JP,Fukushima Daina,4400,37.3164,141.0265,Nuclear,
+JP,Genkai,3478,33.5152,129.8360,Nuclear,
+JP,Hamaoka,3617,34.6235,138.1421,Nuclear,
+JP,Haramachi power station,2000,37.6660,141.0165,Coal,1998
+JP,Hekinan power station,4100,34.8352,136.9609,Coal,1997
+JP,Higashi-Dori,1100,41.1880,141.3903,Nuclear,
+JP,Hitachinaka power station,2000,36.4368,140.6138,Coal,2008
+JP,Ikata,2022,33.4909,132.3088,Nuclear,
+JP,Isogo power station,1200,35.4036,139.6419,Coal,2006
+JP,J-POWER Tachibana-wan power station,2100,33.8572,134.6514,Coal,2000
+JP,Kashiwazaki Kariwa,8212,37.4259,138.5941,Nuclear,
+JP,Kobe power station,1400,34.7032,135.2400,Coal,2003
+JP,Maizuru power station,1800,35.5270,135.3420,Coal,2007
+JP,Matsushima power station,1000,32.9409,129.5969,Coal,1981
+JP,Matsuura Kyushu power station,700,33.3552,129.6925,Coal,1989
+JP,Matsuura power station,2000,33.3552,129.6925,Coal,1994
+JP,Mihama,826,35.7024,135.9634,Nuclear,
+JP,Misumi power station,1000,34.7797,131.9215,Coal,1998
+JP,Nakoso power station,1700,36.9128,140.8128,Coal,1986
+JP,Nanao-Ohta Shinko power station,1200,37.0664,137.0040,Coal,1997
+JP,Noshiro power station,1200,40.1912,139.9911,Coal,1994
+JP,Ohi,4710,35.5424,135.6544,Nuclear,
+JP,Onagawa,2174,38.4000,141.5000,Nuclear,
+JP,Reihoku power station,1400,32.4855,130.0429,Coal,1999
+JP,Sakata Kyodo power station,700,38.9686,139.8322,Coal,1978
+JP,Sendai,1780,31.8335,130.1887,Nuclear,
+JP,Shika,1746,37.0609,136.7265,Nuclear,
+JP,Shikoku Tachibana-wan power station,700,33.8560,134.6513,Coal,2000
+JP,Shimane,820,35.5379,132.9991,Nuclear,
+JP,Shin Onoda power station,1000,33.9690,131.1634,Coal,1986
+JP,Shinchi power station,2000,37.8427,140.9456,Coal,1994
+JP,Sumitomo Metals Kashima power station,507,35.9475,140.6900,Coal,2007
+JP,Takahama,3392,35.5223,135.5036,Nuclear,
+JP,Takasago power station,500,34.7535,134.7663,Coal,1968
+JP,Takehara power station,1300,34.3373,132.9572,Coal,1978
+JP,Tokai Daini,1100,36.4215,140.6028,Nuclear,
+JP,Tomari,2000,43.0367,140.5125,Nuclear,
+JP,Tomato-atsuma power station,1650,42.6120,141.8050,Coal,1991
+JP,Toyama Shinko power station,1500,36.7654,137.1286,Coal,1972
+JP,Tsuruga,1160,35.7519,136.0189,Nuclear,
+JP,Tsuruga power station,1200,35.6724,136.0815,Coal,1996
+KZ,Aksu power station,2450,52.1200,76.8750,Coal,1972
+KZ,Almaty TPP-2,510,43.2935,76.7992,Coal,
+KZ,Ekibastuz-1 power station,4000,51.8880,75.3770,Coal,1982
+KZ,Ekibastuz-2 power station,1000,52.0230,75.4750,Coal,1992
+KZ,Karaganda GRES-2,608,52.0230,75.4750,Coal,1996
+KZ,Karaganda TPS-3 power station,590,49.9167,73.2372,Coal,1988
+KZ,MAEK-Kazatoprom TPP-2,1255,52.3670,76.9338,Coal,
+KZ,OJSC Zhambyl GRES,1230,42.9000,71.3667,Coal,
+KZ,Pavlodar TPP-1,855,52.3670,76.9338,Coal,1959
+KG,Bishkek CHP Power Plant Kyrgyzstan,674,42.8730,74.6541,Coal,
+LA,Hongsa,1878,19.6910,101.2800,Coal,2016
+MK,Bitola Coal Power Plant Macedonia,675,41.0580,21.4832,Coal,
+MY,Jimah power station,1400,2.5903,101.7246,Coal,2009
+MY,Manjung power station,4180,4.1586,100.6423,Coal,2009
+MY,Sultan Aziz power station,1600,3.1172,101.3204,Coal,1996
+MY,Tanjung Bin power station,3244,1.3340,103.5422,Coal,2010
+MY,Tg. Bin Energy,2100,1.3348,103.5422,Coal,2016
+MX,Carbón II,1400,28.4682,-100.7003,Coal,
+MX,José López Portillo (Río Escondido),1200,28.4844,-100.6897,Coal,
+MX,Laguna Verde,1510,19.7208,-96.4064,Nuclear,
+MX,Plutarco Elías Calles (Petacalco),2778,17.9837,-102.1154,Coal,
+MD,Moldavskaya GRES,2520,46.6292,29.9407,Coal,
+MN,Ulaanbaatar-4 Thermal Power Plant,570,47.8938,106.8036,Coal,1984
+MA,Centrale Thermique de Jorf Lasfar (JLEC),2020,33.1041,-8.6378,Coal,1994
+MA,Jerada power station,515,34.3098,-2.1902,Coal,2002
+NL,Borssele Nuclear Power Station,485,51.4312,3.7174,Nuclear,1973
+NL,Eemshaven,1600,53.4355,6.8793,Coal,2015
+NL,GELDERLAND,590,51.8561,5.8294,Coal,
+NL,Hemweg power station,685,52.4049,4.8465,Coal,1995
+NL,Maasvlakte (MV1 and MV2),1040,51.9626,4.0217,Coal,1988
+NL,Maasvlakte 3,1100,51.9587,4.0272,Coal,2016
+NZ,Huntly (steam),500,-37.5444,175.1500,Coal,
+KP,East Pyongyang power station,500,38.9695,125.6881,Coal,2006
+KP,Hamhung,500,39.8531,127.5789,Coal,
+KP,Pukchang power station,1600,39.5858,126.3043,Coal,1976
+PK,Chasnupp,1330,32.3920,71.4616,Nuclear,
+PK,Kanupp,137,24.8450,66.7888,Nuclear,1971
+PK,Port Qasim EPC power station,1320,24.7845,67.3694,Coal,2018
+PK,Sahiwal,1320,30.7135,73.2432,Coal,2017
+PH,Calaca power station,900,13.9303,120.7886,Coal,2007
+PH,Mariveles Power Plant,600,14.4252,120.5370,Coal,2013
+PH,Masinloc power station,660,15.5645,119.9233,Coal,1998
+PH,Pagbilao power station,1154,13.8932,121.7450,Coal,2004
+PH,Sual power station,1218,16.1243,120.1012,Coal,1999
+PL,Bełchatów,5472,51.2679,19.3265,Coal,
+PL,Dolna Odra,1362,53.2067,14.4651,Coal,
+PL,EC Siekierki,620,52.1901,21.0873,Coal,1961
+PL,Jaworzno III,1345,50.2064,19.2046,Coal,
+PL,Kozienice,1075,51.5829,21.5478,Coal,2017
+PL,Kozienice,2673,51.6658,21.4647,Coal,
+PL,Kozienice II,1075,51.6668,21.4614,Coal,2017
+PL,Opole,1492,50.7514,17.8845,Coal,
+PL,Ostrołęka B,681,53.1039,21.6118,Coal,1972
+PL,Połaniec,1623,50.4365,21.3377,Coal,
+PL,Pątnów I,1244,52.3013,18.2344,Coal,1967
+PL,Rybnik,1775,50.1331,18.5232,Coal,
+PL,Siersza,546,50.2083,19.4617,Coal,
+PL,Turów,1498,50.9482,14.9128,Coal,
+PL,Łagisza,700,50.3499,19.1412,Coal,
+PL,Łaziska,1155,50.1331,18.8465,Coal,
+PT,Pego power station,682,39.4680,-8.1097,Coal,1994
+PT,Sines power station,1296,37.9322,-8.8038,Coal,1986
+RO,Isalnita power station,630,44.3886,23.7180,Coal,1988
+RO,Mintia-Deva power station,1075,45.9134,22.8254,Coal,1976
+RO,NPP Cernavoda,1298,44.3215,28.0568,Nuclear,
+RO,Rovinari power station,1320,44.9068,23.1383,Coal,1977
+RO,Turceni power station,1650,44.6694,23.4080,Coal,1983
+RU,Balakovo NPP,4000,52.0928,47.9539,Nuclear,
+RU,Beloyarsk,1480,56.8417,61.3225,Nuclear,1964
+RU,Berezovskaya GRES,2400,55.5794,89.0725,Coal,1979
+RU,Bilibino,48,68.0503,166.5389,Nuclear,
+RU,Biysk CHPP-1,535,52.4918,85.0848,Coal,
+RU,CHP-22,1310,55.6341,37.8173,Coal,1960
+RU,Gusinoozyorskaya,1160,51.3008,106.4833,Coal,1976
+RU,KRASNOYARSK CHP-1,1154,56.1097,93.0948,Coal,1943
+RU,Kalinn NPP,4000,57.9050,35.0614,Nuclear,
+RU,Kashirskaya GRES,1910,54.8581,38.2597,Coal,1919
+RU,Khabarovsk cogeneration station-3,720,48.5713,135.1509,Coal,
+RU,Kharanorskaya,655,50.8539,115.7000,Coal,1995
+RU,Kola NPP,1760,67.4667,32.4667,Nuclear,
+RU,Krasnoyarskaya GRES-2,1250,56.1503,94.4806,Coal,1957
+RU,Kursk,4000,51.6750,35.6056,Nuclear,
+RU,Leningrad NPP,4000,59.8528,29.0486,Nuclear,
+RU,NAZAROVO GRES,1243,56.0379,90.3478,Coal,1961
+RU,NOVO-KEMEROVO CHP,565,55.3511,85.9942,Coal,1955
+RU,Nerunginskya TPP,618,56.6689,124.8533,Coal,
+RU,Novo-Irkustsk,655,52.2508,104.2039,Coal,1960
+RU,Novocherkasskaya GRES,2214,47.4000,40.2333,Coal,1956
+RU,Novosibirsk CHP-3,512,55.0081,82.8540,Coal,
+RU,Novosibirsk TPP-5,1200,55.0056,83.0606,Coal,
+RU,Novovoronezh,1880,51.2822,39.2100,Nuclear,
+RU,Primorskaya TPP,1467,46.4625,134.2911,Coal,1974
+RU,Reftinskaya GRES,3800,57.1067,61.7117,Coal,1970
+RU,Rostov NPP,4000,47.5993,42.3717,Nuclear,2001
+RU,Serovskaya GRES,808,59.6334,60.7051,Coal,1954
+RU,Severskaya CHP (CHP CHPP),699,56.6195,84.8123,Coal,
+RU,Smolensk,3000,54.1647,33.2367,Nuclear,
+RU,Southern Kuzbass Power Plant,554,53.5119,87.2669,Coal,
+RU,Thermal Power Station 10,1110,52.4622,103.9791,Coal,
+RU,Thermal Power Station 11,600,56.1227,101.5965,Coal,1959
+RU,Togliatti,620,53.5472,49.4539,Coal,1960
+RU,Troitskaya GRES,2234,54.0369,61.6472,Coal,1960
+RU,Ust Illminsk (TPP),525,58.0492,102.8088,Coal,1978
+RU,West Siberian CHP,600,53.8786,87.2344,Coal,
+RU,Yuzhno-Sakhalinsk TPP-1,593,46.9981,142.7422,Coal,
+RU,Zapadno-Sibirskaya power station,590,53.7695,87.2436,Coal,1976
+RS,TE KOSOVO A,617,42.6773,21.0886,Coal,
+RS,TE KOSOVO B,618,42.6945,21.0590,Coal,
+RS,TE KOSTOLAC B,697,44.7307,21.2104,Coal,
+RS,TENT A,1730,44.6711,20.1593,Coal,
+RS,TENT B,1270,44.6551,20.0053,Coal,
+SK,Bohunice Nuclear Power Plant Slovakia,880,48.4960,17.6816,Nuclear,
+SK,Mochovce Nuclear Power Plant Slovakia,880,48.2621,18.4590,Nuclear,
+SK,Novaky (ENO) Thermal CHP Power Plant Slovakia,518,48.6988,18.5335,Coal,
+SK,Vojany (EVO) Thermal Power Plant Slovakia,880,48.5536,21.9782,Coal,
+SI,Krsko (NEK),696,45.9389,15.5160,Nuclear,
+SI,Sostanj (TEŠ),1099,46.3723,15.0534,Coal,
+ZA,Arnot power station,2352,-25.9444,29.7917,Coal,1973
+ZA,Camden power station,1600,-26.6201,30.0911,Coal,1968
+ZA,Duvha power station,3600,-25.9595,29.3409,Coal,1982
+ZA,Grootvlei power station,1190,-26.7695,28.4995,Coal,1972
+ZA,Hendrina power station,2000,-26.0314,29.6014,Coal,1973
+ZA,Kelvin power station,600,-26.1158,28.1940,Coal,1964
+ZA,Kendal power station,4116,-26.0880,28.9689,Coal,1990
+ZA,Koeberg,1800,-33.6737,18.4281,Nuclear,1984
+ZA,Komati Power Station,1000,-26.0899,29.4725,Coal,1963
+ZA,Kriel power station,3000,-26.2540,29.1801,Coal,1978
+ZA,Kusile Power Station,794,-25.9194,28.9156,Coal,2018
+ZA,Lethabo power station,3708,-26.7403,27.9750,Coal,1987
+ZA,Majuba power station,4110,-27.0955,29.7706,Coal,1999
+ZA,Matimba power station,3990,-23.6678,27.6128,Coal,1989
+ZA,Matla power station,3600,-26.2804,29.1423,Coal,1981
+ZA,Tutuka power station,3654,-26.7767,29.3527,Coal,1987
+KR,Boryeong (poryang),4000,36.4020,126.4900,Coal,
+KR,Bukpyung power station,1190,37.4805,129.1433,Coal,2017
+KR,Dangjin,4000,37.0543,126.5133,Coal,
+KR,Hadong,4000,34.9512,127.8213,Coal,
+KR,Hanbit,5900,35.4105,126.4175,Nuclear,
+KR,Hanul,5900,37.0931,129.3830,Nuclear,
+KR,Honam,500,34.8545,127.7351,Coal,1973
+KR,Kori,3137,35.3199,129.2948,Nuclear,
+KR,Samcheok Green power station,2044,37.1860,129.3418,Coal,2016
+KR,Samcheonpo,3240,34.9103,128.1085,Coal,
+KR,Shin Boryeong power station,2000,36.3846,126.4862,Coal,2017
+KR,Shin-Kori,3340,35.3271,129.3017,Nuclear,
+KR,Shin-Wolsong,2000,35.7221,129.4786,Nuclear,2012
+KR,Taean,4000,36.9040,126.2330,Coal,
+KR,Wolsong,2799,35.7111,129.4743,Nuclear,
+KR,Yeongheung,5080,37.2369,126.4361,Coal,
+KR,Yeosu,678,34.8393,127.6908,Coal,2011
+ES,ABONO 2,878,43.5528,-5.7231,Coal,1985
+ES,ALCUDIA 1  GRUPO N 1,534,39.8106,3.0913,Coal,1981
+ES,ASCO GR,1990,41.2008,0.5679,Nuclear,1983
+ES,CN ALMARAZ 1,2017,39.8070,-5.6986,Nuclear,1984
+ES,CN COFRENTES,1064,39.2134,-1.0509,Nuclear,1985
+ES,COMPOSTILLA II GR 5,1005,42.6125,-6.5647,Coal,1984
+ES,LA ROBLA GRUPO 2,619,42.7924,-5.6340,Coal,1984
+ES,LITORAL DE ALMERIA GR 2,1120,36.9783,-1.9054,Coal,1997
+ES,LOS BARRIOS,570,36.1828,-5.4200,Coal,1985
+ES,MEIRAMA GRUPO 1,557,43.1685,-8.4111,Coal,1980
+ES,NARCEA GRUPO 3,554,43.2924,-6.3937,Coal,1984
+ES,TERUEL GR 3,1056,40.9966,-0.3798,Coal,1980
+ES,TRILLO,1003,40.7016,-2.6227,Nuclear,1988
+ES,VANDELLOS GR 2,1045,40.9511,0.8662,Nuclear,1987
+LK,Lakvijaya,900,8.0178,79.7232,Coal,2013
+SE,Forsmark,3227,60.4028,18.1744,Nuclear,
+SE,Oskarshamn,2603,57.4130,16.6683,Nuclear,
+SE,Ringhals,3932,57.2574,12.1087,Nuclear,
+CH,Kernkraftwerk Beznau,760,47.5520,8.2281,Nuclear,
+CH,Kernkraftwerk Gösgen,1035,47.3656,7.9680,Nuclear,1979
+CH,Kernkraftwerk Leibstadt,1245,47.6012,8.1845,Nuclear,1984
+CH,Kernkraftwerk Mühleberg,390,46.9689,7.2684,Nuclear,1972
+TW,Chinshan,1272,25.2861,121.5874,Nuclear,
+TW,Ho-Ping power station,1296,24.3078,121.7635,Coal,2002
+TW,Hsinta (coal),2200,22.8558,120.1972,Coal,
+TW,Kuosheng,2040,25.2025,121.6629,Nuclear,
+TW,Maanshan,1902,21.9589,120.7501,Nuclear,
+TW,Mailao,4200,23.8033,120.1902,Coal,
+TW,Taizhong Taichung,5500,24.2131,120.4850,Coal,
+TH,BLCP Power,1346,12.6448,101.1605,Coal,2007
+TH,Gheco One power station,660,12.6779,101.1356,Coal,2012
+TH,Glow Energy power complex,526,12.6779,101.1356,Coal,2001
+TH,Mae Mah,2400,18.2963,99.7499,Coal,1995
+TR,Afşin Elbistan Termik Santrali,2795,38.3537,36.9810,Coal,
+TR,Cenal power station,1320,40.4167,27.3183,Coal,2017
+TR,Kangal power station,537,39.0774,37.2958,Coal,1993
+TR,Kemerköy power station,630,37.0354,27.9011,Coal,1994
+TR,Seyitömer power station,600,39.5736,29.8822,Coal,1978
+TR,Soma power station,990,39.1953,27.6357,Coal,1986
+TR,Yatağan power station,630,37.3317,28.1017,Coal,
+TR,Zonguldak Eren (ZETES),2090,41.5035,31.8875,Coal,
+TR,Çayırhan power station,620,40.0970,31.6954,Coal,
+TR,İsken Sugözü power station,1210,36.8346,35.8801,Coal,
+TR,İskenderun Atlas Termik Santrali,1200,36.6904,36.2084,Coal,
+TR,İÇDAŞ Bekirli-2 power station,1200,40.3991,27.0500,Coal,
+TR,İÇDAŞ Biga Termik Santrali,1200,40.0224,26.9777,Coal,
+UA,Burshtyn power station,2334,49.2104,24.6665,Coal,1979
+UA,Dobrotvir power station,500,50.2133,24.3750,Coal,1962
+UA,Khmelnytska,2000,50.3024,26.6473,Nuclear,
+UA,Kryvorizka power station,1764,47.5432,33.6583,Coal,1967
+UA,Kurakhov power station,1517,47.9944,37.2402,Coal,1973
+UA,Ladyzhyn power station,1800,48.7060,29.2202,Coal,1971
+UA,Luhanska,1210,48.7478,39.2624,Coal,1965
+UA,Mironovskaya,815,48.3407,38.4049,Coal,
+UA,Prydniprovska power station,1195,48.4052,35.1135,Coal,1963
+UA,Rivne (Rouno),2835,51.3245,25.8974,Nuclear,
+UA,Slavyansk power station,600,48.8720,37.7657,Coal,1968
+UA,South Ukraine,3000,47.8120,31.2200,Nuclear,
+UA,Starobeshivska,1775,47.7997,38.0061,Coal,
+UA,Trypilska,1800,50.1344,30.7468,Coal,1970
+UA,Vuglegirska power station,3600,48.4652,38.2027,Coal,1973
+UA,Zaporizhia power station,2825,47.5089,34.6253,Coal,1972
+UA,Zaporozhye,6000,47.5119,34.5863,Nuclear,
+UA,Zmiivska power station,2425,49.5853,36.5236,Coal,1965
+UA,Zuevskaya power station,1290,48.0332,38.2887,Coal,1985
+GB,Aberthaw B,1586,51.3873,-3.4049,Coal,
+GB,Cottam,2008,53.3040,-0.7815,Coal,
+GB,Drax,1980,53.7356,-0.9911,Coal,
+GB,Dungeness B,1050,50.9133,0.9640,Nuclear,
+GB,Eggborough,1960,53.7116,-1.1269,Coal,
+GB,Hartlepool,1180,54.6341,-1.1801,Nuclear,
+GB,Heysham 1,1155,54.0285,-2.9160,Nuclear,
+GB,Heysham 2,1230,54.0285,-2.9160,Nuclear,
+GB,Hinkley Point B,955,51.2085,-3.1334,Nuclear,
+GB,Hunterston B,965,55.7204,-4.8964,Nuclear,
+GB,Kilroot,520,54.7255,-5.7653,Coal,
+GB,Ratcliffe,2000,52.8653,-1.2550,Coal,
+GB,Sizewell B,1198,52.2145,1.6206,Nuclear,
+GB,Torness,1185,55.9679,-2.4086,Nuclear,
+GB,West Burton,2012,53.3604,-0.8102,Coal,
+US,A B Brown,707,37.9053,-87.7150,Coal,1985
+US,AES Petersburg,2155,38.5281,-87.2525,Coal,1976
+US,Allen S King,598,45.0300,-92.7786,Coal,1958
+US,Antelope Valley,954,47.3705,-101.8357,Coal,1985
+US,Arkansas Nuclear One,1845,35.3110,-93.2351,Nuclear,1977
+US,Avon Lake,712,41.5045,-82.0546,Coal,1969
+US,Baldwin Energy Complex,1894,38.2050,-89.8544,Coal,1972
+US,Beaver Valley,1847,40.6219,-80.4336,Nuclear,1981
+US,Belews Creek,2491,36.2811,-80.0603,Coal,1975
+US,Belle River,1664,42.7756,-82.4950,Coal,1986
+US,Big Bend,1904,27.7944,-82.4036,Coal,1977
+US,Big Cajun 2,1903,30.7261,-91.3692,Coal,1981
+US,Boardman,642,45.6932,-119.8088,Coal,1979
+US,Bowen,3499,34.1256,-84.9222,Coal,1973
+US,Braidwood Generation Station,2450,41.2435,-88.2286,Nuclear,1988
+US,Brandon Shores,1370,39.1800,-76.5389,Coal,1987
+US,Browns Ferry,3494,34.7042,-87.1189,Nuclear,1975
+US,Brunner Island,1616,40.0961,-76.6962,Coal,1966
+US,Brunswick Nuclear,2003,33.9597,-78.0114,Nuclear,1976
+US,Bull Run,950,36.0211,-84.1567,Coal,1967
+US,Byron Generating Station,2450,42.0742,-89.2819,Nuclear,1986
+US,Callaway,1236,38.7589,-91.7788,Nuclear,1985
+US,Calvert Cliffs Nuclear Power Plant,1850,38.4344,-76.4417,Nuclear,1976
+US,Cardinal,1880,40.2522,-80.6486,Coal,1970
+US,Catawba,2410,35.0514,-81.0694,Nuclear,1985
+US,Cayuga,1185,39.9242,-87.4244,Coal,1973
+US,Charles R Lowman,538,31.4880,-87.9107,Coal,1977
+US,Chesterfield,1500,37.3822,-77.3833,Coal,1974
+US,Cheswick Power Plant,637,40.5383,-79.7906,Coal,1970
+US,Cholla,840,34.9394,-110.3033,Coal,1978
+US,Clay Boswell,923,47.2611,-93.6528,Coal,1977
+US,Clifty Creek,1304,38.7378,-85.4206,Coal,1955
+US,Clinton Power Station,1138,40.1719,-88.8339,Nuclear,1987
+US,Clover,848,36.8690,-78.7040,Coal,1995
+US,Coal Creek,1216,47.3777,-101.1571,Coal,1979
+US,Coleto Creek,622,28.7128,-97.2142,Coal,1980
+US,Colstrip,2363,45.8831,-106.6140,Coal,1982
+US,Columbia (WI),1112,43.4864,-89.4203,Coal,1976
+US,Columbia Generating Station,1200,46.4711,-119.3339,Nuclear,1985
+US,Comanche (CO),1635,38.2081,-104.5747,Coal,1992
+US,Comanche Peak,2430,32.2984,-97.7855,Nuclear,1991
+US,Conemaugh,1963,40.3842,-79.0611,Coal,1970
+US,Conesville,842,40.1842,-81.8811,Coal,1973
+US,Cooper Nuclear Station,801,40.3628,-95.6408,Nuclear,1974
+US,Coronado,822,34.5789,-109.2708,Coal,1980
+US,Craig (CO),1428,40.4627,-107.5912,Coal,1981
+US,Crist,1135,30.5661,-87.2244,Coal,1969
+US,Cross,2390,33.3715,-80.1132,Coal,1998
+US,Cumberland (TN),2600,36.3903,-87.6539,Coal,1973
+US,D B Wilson,509,37.4497,-87.0806,Coal,1984
+US,Dallman,618,39.7548,-89.6024,Coal,1987
+US,Dave Johnston,922,42.8378,-105.7769,Coal,1966
+US,Davis Besse,925,41.5967,-83.0861,Nuclear,1977
+US,Diablo Canyon,2323,35.2115,-120.8555,Nuclear,1985
+US,Dickerson,933,39.2097,-77.4644,Coal,1971
+US,Dolet Hills,721,32.0306,-93.5692,Coal,1986
+US,Donald C Cook,2285,41.9756,-86.5652,Nuclear,1976
+US,Dresden Generating Station,2019,41.3900,-88.2700,Nuclear,1970
+US,Duane Arnold Energy Center,680,42.1011,-91.7781,Nuclear,1975
+US,Dunkirk Generating Plant,627,42.4915,-79.3466,Coal,1956
+US,E D Edwards,644,40.5958,-89.6631,Coal,1970
+US,East Bend,772,38.9036,-84.8514,Coal,1981
+US,Edwardsport,804,38.8067,-87.2472,Coal,2013
+US,Edwin I Hatch,1848,31.9342,-82.3447,Nuclear,1977
+US,Elm Road Generating Station,1403,42.8492,-87.8336,Coal,2010
+US,Fayette Power Project,1690,29.9172,-96.7506,Coal,1981
+US,Fermi,1281,41.9631,-83.2581,Nuclear,1986
+US,FirstEnergy Fort Martin Power Station,1152,39.7108,-79.9275,Coal,1968
+US,FirstEnergy Harrison Power Station,2052,39.3842,-80.3325,Coal,1974
+US,FirstEnergy Pleasants Power Station,1368,39.3667,-81.2944,Coal,1980
+US,FirstEnergy W H Sammis,2468,40.5317,-80.6319,Coal,1966
+US,Flint Creek,558,36.2561,-94.5241,Coal,1978
+US,Four Corners,1636,36.6900,-108.4814,Coal,1969
+US,G G Allen,1148,35.1897,-81.0122,Coal,1959
+US,Gallatin (TN),1918,36.3156,-86.4006,Coal,1968
+US,Gavin Power  LLC,2600,38.9347,-82.1158,Coal,1974
+US,George Neal North,584,42.2998,-96.3617,Coal,1975
+US,George Neal South,696,42.3006,-96.3617,Coal,1978
+US,Gerald Gentleman,1363,41.0808,-101.1408,Coal,1980
+US,Ghent,2226,38.7497,-85.0350,Coal,1978
+US,Gibson,3340,38.3722,-87.7658,Coal,1977
+US,Grand Gulf,1440,32.0081,-91.0478,Nuclear,1985
+US,H B Robinson,769,34.4017,-80.1589,Nuclear,1971
+US,H L Spurlock,1608,38.7000,-83.8181,Coal,1990
+US,Harrington,1080,35.2982,-101.7472,Coal,1978
+US,Harris,951,35.6334,-78.9556,Nuclear,1987
+US,Hawthorn,1046,39.1306,-94.4778,Coal,1982
+US,Herbert A Wagner,1058,39.1781,-76.5268,Coal,1966
+US,Homer City Generating Station,2012,40.5128,-79.1961,Coal,1971
+US,Hunter,1577,39.1747,-111.0289,Coal,1980
+US,Huntington,1037,39.3792,-111.0781,Coal,1975
+US,Iatan,1725,39.4472,-94.9800,Coal,1997
+US,Independence Steam Electric Station,1800,35.6784,-91.4088,Coal,1984
+US,Indian Point 2,1299,41.2706,-73.9527,Nuclear,1973
+US,Indian Point 3,1012,41.2706,-73.9526,Nuclear,1976
+US,Intermountain Power Project,1640,39.5097,-112.5802,Coal,1986
+US,J H Campbell,1561,42.9103,-86.2007,Coal,1973
+US,J K Spruce,1444,29.3097,-98.3203,Coal,2003
+US,J T Deely,932,29.3081,-98.3228,Coal,1977
+US,James A Fitzpatrick,883,43.5214,-76.4084,Nuclear,1976
+US,James E. Rogers Energy Complex,1530,35.2200,-81.7594,Coal,1996
+US,James H Miller Jr,2822,33.6319,-87.0597,Coal,1985
+US,Jeffrey Energy Center,2160,39.2865,-96.1172,Coal,1980
+US,Jim Bridger,2442,41.7378,-108.7875,Coal,1976
+US,John E Amos,2933,38.4731,-81.8233,Coal,1972
+US,John Twitty Energy Center,603,37.1517,-93.3880,Coal,1994
+US,John W Turk Jr Power Plant,609,33.6497,-93.8119,Coal,2013
+US,Joppa Steam,1100,37.2094,-88.8589,Coal,1954
+US,Joseph M Farley,1776,31.2231,-85.1116,Nuclear,1979
+US,Kenneth C Coleman,602,37.9631,-86.7911,Coal,1970
+US,Keystone,1883,40.6604,-79.3411,Coal,1967
+US,Kincaid Generation LLC,1319,39.5906,-89.4964,Coal,1967
+US,Kingston,1700,35.8992,-84.5194,Coal,1954
+US,Kyger Creek,1086,38.9144,-82.1289,Coal,1955
+US,La Cygne,1599,38.3481,-94.6456,Coal,1974
+US,LaSalle Generating Station,2340,41.2455,-88.6691,Nuclear,1984
+US,Labadie,2389,38.5622,-90.8377,Coal,1971
+US,Laramie River Station,1710,42.1089,-104.8825,Coal,1981
+US,Lawrence Energy Center,517,39.0072,-95.2692,Coal,1968
+US,Leland Olds,656,47.2808,-101.3212,Coal,1972
+US,Limerick,2277,40.2243,-75.5874,Nuclear,1988
+US,Limestone,1850,31.4219,-96.2525,Coal,1986
+US,Longview Power Plant,808,39.7079,-79.9590,Coal,2012
+US,Louisa,812,41.3181,-91.0931,Coal,1983
+US,Marshall (NC),2119,35.5975,-80.9658,Coal,1968
+US,Martin Lake,2380,32.2606,-94.5706,Coal,1977
+US,Mayo,763,36.5278,-78.8917,Coal,1983
+US,McGuire,2441,35.4331,-80.9486,Nuclear,1982
+US,Meramec,1041,38.4017,-90.3358,Coal,1961
+US,Merom,1080,39.0694,-87.5108,Coal,1982
+US,Miami Fort,1181,39.1128,-84.8036,Coal,1976
+US,Michigan City,540,41.7208,-86.9086,Coal,1974
+US,Mill Creek (KY),1717,38.0525,-85.9103,Coal,1977
+US,Millstone,2163,41.3107,-72.1677,Nuclear,1981
+US,Milton R Young,734,47.0659,-101.2131,Coal,1974
+US,Mitchell (WV),1633,39.8297,-80.8153,Coal,1970
+US,Monroe (MI),3293,41.8906,-83.3464,Coal,1972
+US,Monticello Nuclear Facility,685,45.3338,-93.8493,Nuclear,1971
+US,Morgantown Generating Plant,1548,38.3592,-76.9767,Coal,1970
+US,Mountaineer,1300,38.9794,-81.9344,Coal,1980
+US,Mt Storm,1681,39.2008,-79.2636,Coal,1968
+US,Naughton,832,41.7581,-110.5983,Coal,1968
+US,Nebraska City,1390,40.6214,-95.7764,Coal,1994
+US,New Madrid,1300,36.5147,-89.5617,Coal,1974
+US,Newton,617,38.9361,-88.2781,Coal,1977
+US,Nine Mile Point Nuclear Station,1901,43.5211,-76.4100,Nuclear,1981
+US,North Anna,1960,38.0600,-77.7897,Nuclear,1979
+US,North Omaha,645,41.3291,-95.9447,Coal,1961
+US,North Valmy,567,40.8813,-117.1516,Coal,1983
+US,Northside Generating Station,1407,30.4172,-81.5525,Coal,1973
+US,Oak Grove (TX),1795,31.1803,-96.4866,Coal,2010
+US,Oconee,2667,34.7939,-82.8986,Nuclear,1974
+US,Oklaunion,720,34.0825,-99.1753,Coal,1987
+US,Ottumwa,726,41.0961,-92.5558,Coal,1981
+US,PSEG Hope Creek Generating Station,1291,39.4666,-75.5377,Nuclear,1986
+US,PSEG Salem Generating Station,2382,39.4625,-75.5358,Nuclear,1978
+US,Palisades,812,42.3230,-86.3146,Nuclear,1972
+US,Palo Verde,4210,33.3881,-112.8617,Nuclear,1986
+US,Pawnee,552,40.2217,-103.6803,Coal,1980
+US,Peach Bottom,2876,39.7589,-76.2687,Nuclear,1974
+US,Perry,1312,41.8006,-81.1439,Nuclear,1987
+US,Pirkey,721,32.4607,-94.4852,Coal,1985
+US,Plum Point Energy Station,720,35.6644,-89.9489,Coal,2010
+US,Point Beach Nuclear Plant,1311,44.2806,-87.5369,Nuclear,1971
+US,Powerton,1786,40.5408,-89.6786,Coal,1973
+US,Prairie Island,1186,44.6220,-92.6333,Nuclear,1974
+US,Prairie State Generating Station,1766,38.2792,-89.6669,Coal,2012
+US,Quad Cities Generating Station,2019,41.7261,-90.3103,Nuclear,1973
+US,R D Green,586,37.6461,-87.5000,Coal,1980
+US,R E Ginna Nuclear Power Plant,614,43.2777,-77.3099,Nuclear,1970
+US,R M Schahfer,2201,41.2164,-87.0261,Coal,1980
+US,R S Nelson,1434,30.2844,-93.2911,Coal,1973
+US,Red Hills Generating Facility,514,33.3761,-89.2183,Coal,2001
+US,River Bend,1036,30.7570,-91.3327,Nuclear,1986
+US,Rockport,2600,37.9256,-87.0372,Coal,1987
+US,Roxboro,2558,36.4833,-79.0731,Coal,1972
+US,Rush Island,1242,38.1312,-90.2632,Coal,1976
+US,San Juan,924,36.8006,-108.4386,Coal,1980
+US,Sandy Creek Energy Station,1008,31.4744,-96.9571,Coal,2013
+US,Scherer,3564,33.0606,-83.8075,Coal,1985
+US,Seabrook,1242,42.8992,-70.8489,Nuclear,1990
+US,Seminole (FL),1472,29.7331,-81.6328,Coal,1984
+US,Sequoyah,2441,35.2267,-85.0917,Nuclear,1981
+US,Seward (PA),585,40.4062,-79.0337,Coal,2004
+US,Shawnee,1575,37.1517,-88.7750,Coal,1954
+US,Sherburne County,2469,45.3808,-93.8931,Coal,1980
+US,Sioux,1099,38.9155,-90.2902,Coal,1967
+US,Somerset Operating Co LLC,655,43.3589,-78.6047,Coal,1984
+US,Sooner,1138,36.4531,-97.0528,Coal,1980
+US,South Oak Creek,1240,42.8457,-87.8294,Coal,1963
+US,South Texas Project,2709,28.7950,-96.0481,Nuclear,1988
+US,Springerville,1779,34.3186,-109.1639,Coal,1998
+US,St Clair,1234,42.7642,-82.4719,Coal,1962
+US,St Lucie,2160,27.3486,-80.2464,Nuclear,1979
+US,Stanton Energy Center,1262,28.4822,-81.1678,Coal,1996
+US,Surry,1695,37.1661,-76.6986,Nuclear,1973
+US,TalenEnergy Montour,1758,41.0714,-76.6672,Coal,1972
+US,TalenEnergy Susquehanna,2532,41.0919,-76.1462,Nuclear,1984
+US,Thomas Hill,1182,39.5522,-92.6381,Coal,1976
+US,Tolk,1136,34.1865,-102.5700,Coal,1983
+US,Transalta Centralia Generation,1460,46.7559,-122.8598,Coal,1973
+US,Trenton Channel,536,42.1217,-83.1808,Coal,1968
+US,Trimble County,2594,38.5847,-85.4117,Coal,2003
+US,Turkey Point,2861,25.4356,-80.3308,Nuclear,1987
+US,V C Summer,1030,34.2983,-81.3153,Nuclear,1984
+US,Virginia City Hybrid Energy Center,668,36.9164,-82.3381,Coal,2012
+US,Vogtle,2430,33.1427,-81.7625,Nuclear,1988
+US,W A Parish,4008,29.4828,-95.6311,Coal,1974
+US,W H Zimmer,1426,38.8675,-84.2289,Coal,1990
+US,Walter Scott Jr Energy Center,1648,41.1800,-95.8408,Coal,1994
+US,Wansley,1957,33.4134,-85.0323,Coal,1977
+US,Warrick,823,37.9150,-87.3328,Coal,1965
+US,Wateree,772,33.8264,-80.6228,Coal,1970
+US,Waterford 3,1200,29.9953,-90.4716,Nuclear,1985
+US,Watts Bar Nuclear Plant,2540,35.6021,-84.7895,Nuclear,2006
+US,Waukegan,794,42.3833,-87.8133,Coal,1961
+US,Welsh,1116,33.0552,-94.8400,Coal,1979
+US,Weston,1103,44.8606,-89.6553,Coal,1993
+US,White Bluff,1800,34.4228,-92.1406,Coal,1980
+US,Will County,598,41.6334,-88.0629,Coal,1963
+US,Williams,714,33.0158,-79.9297,Coal,1972
+US,Winyah,1260,33.3318,-79.3572,Coal,1978
+US,Wolf Creek Generating Station,1268,38.2393,-95.6898,Nuclear,1985
+UZ,Novo-Angren power station,2100,40.9233,69.8174,Coal,1989
+VN,Cam Pha I,600,21.0063,107.3600,Coal,
+VN,Duyen Hai 1,1244,9.5830,106.5200,Coal,
+VN,Duyen Hai 3,622,9.5867,106.5300,Coal,
+VN,Hai Phong 1,600,20.9419,106.7600,Coal,
+VN,Hai Phong 2,600,20.9386,106.7570,Coal,
+VN,Mong Duong 1,1080,21.0728,107.3500,Coal,
+VN,Mong Duong 2,1120,21.0725,107.3500,Coal,
+VN,Nghi Son 1,600,19.3158,105.8000,Coal,
+VN,Pha Lai 2,600,21.1141,106.3100,Coal,
+VN,Quang Ninh 1,1200,21.0118,107.1300,Coal,
+VN,Thai Binh Power Center,600,20.4810,106.5605,Coal,2017
+VN,Uong Bi,735,21.0398,106.7800,Coal,
+VN,Vinh Tan 2,1244,11.3170,108.8100,Coal,
+VN,Vung Ang I,1245,18.0979,106.3800,Coal,
+ZW,Hwange Coal Power Plant Zimbabwe,920,-18.3835,26.4700,Coal,

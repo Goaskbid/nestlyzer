@@ -236,7 +236,7 @@
     // 1991-2020 climatology), so cool-summer coasts (Maine, Brittany) no longer pass as sun destinations
     // for "retiring abroad, sun and coast" the coast is the sea (audit: Willowick, Ohio scored 100 at 480 km from the sea).
     // The separate "coastal living" profile keeps large-lake shores on purpose (Toronto on Lake Ontario).
-    if (key === 'sun_retiree' && fin(out.coast)) { var ckm = (r.factorRaw || {}).geo_coast_km; if (fin(ckm)) out.coast = Math.max(0, Math.min(100, 100 - ckm * 2)); }
+    if (key === 'sun_retiree' && fin(out.coast)) { var ckm = fin((r.factorRaw || {}).geo_sea_km) ? r.factorRaw.geo_sea_km : (r.factorRaw || {}).geo_coast_km; if (fin(ckm)) out.coast = Math.max(0, Math.min(100, 100 - ckm * 2)); }
     if (key === 'sun_retiree' && r.x && SUNK[r.x.kg] != null) out.climate = r.x.kg === 'Cfa' && fin(r.lat) ? Math.max(0, Math.min(100, 100 - (Math.abs(r.lat) - 28) * 4)) : SUNK[r.x.kg];   // humid-subtropical spans Florida to Rhode Island: its winters warm with lower latitude
     if (this.evidence==='fixed' && this.cfg.semanticIntegrity) {
       var fr=r.factorScores||{};
@@ -259,6 +259,9 @@
       if (!(p.business && this.evidence==='fixed' && this.cfg.semanticIntegrity)) {var fv = this.focusScore(r, p); if (fin(fv)) out.focus = fv;}
       // industry cluster of this kind of site (build_clusters.py): where similar companies already operate
       var cl = (r.factorScores || {})['cluster_' + key]; if (fin(cl)) out.cluster = cl;
+      // 2.15.25: outside the US, the cluster comes from official local job statistics by sector (build_local_clusters.js):
+      // industry jobs within 15 km for production profiles, service jobs within 15 km for office and finance profiles
+      else if (r.x && fin(r.x[IND_P[key] ? 'clu_ind' : 'clu_svc'])) out.cluster = r.x[IND_P[key] ? 'clu_ind' : 'clu_svc'];
     }
     return out;
   };
@@ -267,12 +270,14 @@
      Business: where no industry register exists, the regional employment rate (55% -> 0, 80% -> 100) stands in; where
      the industry cluster is measured, that already counts and nothing is added. */
   var OBS_SKIP = { nature: 1, outdoor: 1, coastal: 1 };
+  var IND_P = { biz_manufacturing: 1, biz_energy_intensive: 1, biz_port_industry: 1, biz_logistics: 1, biz_fulfilment: 1, biz_food_processing: 1, biz_pharma_production: 1, biz_semis: 1, biz_auto: 1, biz_aero: 1, biz_cleantech: 1 };
   var SUNK = { Csa: 100, BSh: 95, BWh: 90, Aw: 90, As: 90, Am: 85, Af: 80, Cfa: 80, Csb: 60, Cwa: 75, BSk: 55, BWk: 50, Cfb: 35, Cwb: 45, Csc: 30, Cfc: 15, Dsa: 40, Dwa: 30, Dfa: 30, Dsb: 25, Dwb: 20, Dfb: 15, Dfc: 5, Dfd: 0, Dwc: 5, Dsc: 10, ET: 0, EF: 0 };
   Engine.prototype.observedScore = function (r, p, key) {
     var f = r.factorRaw || {}, s = r.factorScores || {}, v = null;
     if (OBS_SKIP[key]) return null;
     if (p.business) {
       for (var k in s) if (k.indexOf('cluster_') === 0 && fin(s[k])) return null;
+      if (r.x && (fin(r.x.clu_ind) || fin(r.x.clu_svc))) return null;   // the local cluster already is the observed reality
       // 2.15.24: where no industry register exists, firms already operating here (business establishments per resident) are the observed reality
       if (fin(s.workplaces_per_1000_residents)) return s.workplaces_per_1000_residents;
       if (fin(s.jobs_per_1000_residents)) return s.jobs_per_1000_residents;

@@ -201,7 +201,7 @@ function cardCopy(x) {
     if (g != null) b.push(g >= 0.3 ? 'growing (' + signed(g, 1) + '% in 5 years)' : g <= -0.3 ? 'shrinking (' + signed(g, 1) + '% in 5 years)' : 'a stable population');
     if (fin(fr.geo_major_city_km)) b.push(fr.geo_major_city_km === 0 ? 'a city of 100,000+ itself' : pfmt('city', fr.geo_major_city_km) + ' to a city of 100,000+');
     if (fin(xx.rail_km) && xx.rail_km < 5) b.push('a railway line ' + pfmt('rail', xx.rail_km) + ' away');
-    if (fin(fr.geo_coast_km) && fr.geo_coast_km < 10) b.push('near the sea');
+    if (seaKm(r) < 10) b.push('near the sea');
     ENGINE.categories(r);
     var est = Object.keys(r._proxy || {}).map(function (k) { return shortCat(k).toLowerCase(); });
     return 'Ranked on ' + (b.join(', ') || 'size and location') + ' and the official figures for ' + (est.length ? 'its region' : 'the place') + '.';

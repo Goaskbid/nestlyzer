@@ -67,7 +67,7 @@ const ABSCAT0 = { outdoor: 1, border: 1, finhub: 1, insurhub: 1, fundhub: 1, com
 for (const c of meta.countries) {
   const all = D.hydrate(JSON.parse(fs.readFileSync(path.join(ROOT, 'data/c', c.cc + '.json'))));
   const xp = path.join(ROOT, 'data/x', c.cc + '.json'), xs = fs.existsSync(xp) ? JSON.parse(fs.readFileSync(xp)) : null;
-  if (xs) all.forEach((r, i) => { const o = {}; for (const k in xs.cols) { const v = xs.cols[k][i]; if (v != null) o[k] = NM[k] ? xs.strs[v] : v; } r.x = o; });
+  if (xs) all.forEach((r, i) => { const o = {}; for (const k in xs.cols) { const v = xs.cols[k][i]; if (v != null) o[k] = NM[k] ? xs.strs[v] : v; } r.x = o; D.fixShore(r); });
   // 2.14 (owner audit NZ214-09): mark whole-city entries the way the app does (src/js/00-core.js), so a city split into
   // districts is not ranked twice across countries
   const shw = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/c', c.cc + '.json'))).world;

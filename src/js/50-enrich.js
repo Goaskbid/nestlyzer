@@ -162,3 +162,33 @@ function sights(r) {
 /* the printable booklet lives in the lazy module (src/more/booklet.js) to keep the start page small */
 function openBooklet() { moreLoad().then(function (X) { X.openBooklet(); }); }
 function printDoc(h, list, fname) { var w = window.open('', '_blank'), go = function (X) { X.printInto(w, typeof h === 'function' ? h(X) : h, list, fname); }; if (MOREX) go(MOREX); else moreLoad().then(go, function () { if (w && typeof h == 'string') { w.document.write(h); w.document.close(); } }); }
+
+/* 2.15.25 coats of arms everywhere (cards, rows, panel): matched by the exact official municipality code on Wikidata,
+   image from Wikimedia Commons only with an open licence (CC0, CC BY, CC BY-SA, public domain). Commons marks every coat
+   of arms "insignia": that is a reminder not to misuse official symbols, not a copyright limit, and identifying the place
+   is not misuse. Results are cached for 30 days; at most 4 lookups run at once and only for emblems on screen. */
+var ARMS = {}, ARMQ = [], ARMN = 0;
+function armsLic(lic, url) { return /^(CC0|CC[ -]BY(?:[ -]SA)?[ -][1-4]\.[05]\b.*|Public domain|PD\b.*)$/i.test(lic) && !/noncommercial|no ?derivatives|\bNC\b|\bND\b/i.test(lic + ' ' + url); }
+function armsFor(r) {
+  if (ARMS[r.id] !== undefined) return Promise.resolve(ARMS[r.id]);
+  var key = 'arms:' + r.id, c = store(key); if (c && c.t && Date.now() - c.t < 2592e6) return Promise.resolve(ARMS[r.id] = c.v);
+  var prop = WD_PROP[r.country]; if (!prop || r.oid == null || !extOn()) return Promise.resolve(null);
+  var done = function (v) { ARMS[r.id] = v; try { store(key, { t: Date.now(), v: v }); } catch (e) {} return v; };
+  return wdSearch('haswbstatement:' + prop + '=' + r.oid).then(function (ids) { if (ids.length !== 1) return null;
+    return jget('https://www.wikidata.org/w/api.php?action=wbgetentities&ids=' + ids[0] + '&props=claims&format=json&origin=*').then(function (j) { var e = j.entities && j.entities[ids[0]];
+      var codes = ((e && e.claims && e.claims[prop]) || []).map(function (x) { return x.mainsnak && x.mainsnak.datavalue && String(x.mainsnak.datavalue.value); });
+      if (codes.indexOf(String(r.oid)) < 0) return null; var f = (((e.claims || {}).P94 || [])[0] || {}).mainsnak; f = f && f.datavalue && f.datavalue.value; if (!f) return null;
+      return jget('https://commons.wikimedia.org/w/api.php?action=query&titles=' + encodeURIComponent('File:' + f) + '&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=96&format=json&origin=*').then(function (q) {
+        var pg = q.query && q.query.pages, i = pg && Object.values(pg)[0] && Object.values(pg)[0].imageinfo && Object.values(pg)[0].imageinfo[0], m = (i && i.extmetadata) || {};
+        var lic = (m.LicenseShortName || {}).value || '', url = (m.LicenseUrl || {}).value || '', img = i && (i.thumburl || i.url);
+        if (!i || !armsLic(lic, url) || !/^https:\/\/upload\.wikimedia\.org\//.test(img || '')) return null;
+        var art = new DOMParser().parseFromString((m.Artist || {}).value || 'Wikimedia Commons', 'text/html').body.textContent.trim().slice(0, 80);
+        return { src: img, lic: lic, by: art, page: i.descriptionurl || ('https://commons.wikimedia.org/wiki/File:' + encodeURIComponent(f)) }; }); }); })
+    .then(done, function () { return null; });
+}
+function armsPump() { while (ARMN < 4 && ARMQ.length) { var job = ARMQ.shift(); ARMN++; armsFor(job[0]).then(function (v) { return v; }).then((function (slot) { return function (v) { ARMN--; if (v && slot.isConnected) { var im = new Image(); im.alt = 'Coat of arms of ' + (slot.dataset.emblemName || ''); im.src = v.src; im.loading = 'lazy'; im.referrerPolicy = 'no-referrer'; im.title = v.by + ', ' + v.lic + ' (Wikimedia Commons)'; im.className = 'nz-arms-img'; im.onload = function () { slot.innerHTML = ''; slot.appendChild(im); slot.dataset.emblemState = 'shown'; }; } armsPump(); }; })(job[1])); } }
+var ARMIO = typeof IntersectionObserver === 'function' ? new IntersectionObserver(function (es) { es.forEach(function (e) { if (!e.isIntersecting) return; ARMIO.unobserve(e.target); var t = e.target, r = BYID[t.dataset.placeEmblem]; if (r) { ARMQ.push([r, t]); armsPump(); } else if ((+t.dataset.armsTry || 0) < 8) { t.dataset.armsTry = (+t.dataset.armsTry || 0) + 1; setTimeout(function () { if (t.isConnected) ARMIO.observe(t); }, 1000); } }); }, { rootMargin: '200px' }) : null;   // the record may still be loading on first open
+function armsNow(slot, n) { var r = BYID[slot.dataset.placeEmblem]; if (r) { ARMQ.push([r, slot]); armsPump(); } else if (n < 8) setTimeout(function () { if (slot.isConnected) armsNow(slot, n + 1); }, 1000); }
+window.NZ_ARMS = function (slot) { if (!extOn() || !slot || slot.dataset.armsQueued) return; slot.dataset.armsQueued = '1';
+  var b = slot.getBoundingClientRect(); if (b.width && b.bottom > -400 && b.top < innerHeight * 2 && b.left < innerWidth * 2) { armsNow(slot, 0); return; }   // on screen now: load directly
+  if (ARMIO) ARMIO.observe(slot); else { var r = BYID[slot.dataset.placeEmblem]; if (r) { ARMQ.push([r, slot]); armsPump(); } } };

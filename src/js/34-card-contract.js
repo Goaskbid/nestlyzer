@@ -57,7 +57,7 @@ var NZCardUI = (function () {
     return manifest().then(function(m){slots.forEach(function(slot){
       var id=slot.dataset.placeEmblem,item=m.items[id];
       if(!slot.isConnected)return;
-      if(!validEmblem(item,id)){slot.dataset.emblemState='unavailable';return;}
+      if(!validEmblem(item,id)){slot.dataset.emblemState='unavailable';if(typeof window!=='undefined'&&window.NZ_ARMS)window.NZ_ARMS(slot);return;}   // 2.15.25: no local copy -> exact-ID, openly licensed image from Wikimedia
       var img=new Image();img.alt='Coat of arms of '+slot.dataset.emblemName;img.width=32;img.height=38;img.decoding='async';img.loading='eager';
       img.onload=function(){if(!slot.isConnected||slot.dataset.placeEmblem!==id)return;link.hidden=false;slot.replaceChildren(link);slot.dataset.emblemState='available';};
       img.onerror=function(){if(!slot.isConnected||slot.dataset.placeEmblem!==id)return;slot.dataset.emblemState='unavailable';slot.dataset.emblemState='load-error';};

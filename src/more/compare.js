@@ -27,6 +27,16 @@ function openCompare(ids) {
       return '<tr><th scope="row">' + esc(label) + '</th>' + vals.map(function (v, i) { return '<td class="' + (best != null && v === best ? 'best' : '') + '">' + (show ? show(shown[i], i) : fin(shown[i]) ? fmt(shown[i]) : 'Not available') + '</td>'; }).join('') + '</tr>';
     }
     function prow(k, label, better, key) { return row(label, xs.map(function (x) { return pval(x.r, k); }), function (v) { return fin(v) ? esc(pfmt(k, v)) : 'Not available'; }, better, key); }
+    function moneyRows() {
+      var MC = { affordability: 1, tax: 1, realestate: 1, jobs: 1 }, out = '';
+      (META.factors || []).forEach(function (f) {
+        if (!MC[f.category] || /_score$|_balance$|_share$/.test(f.id)) return;
+        var vals = xs.map(function (x) { var v = (x.r.factorRaw || {})[f.id]; return fin(v) ? v : null; });
+        if (vals.filter(fin).length < (xs.length > 2 ? 2 : 1) || (mixed && f.unit && /EUR|USD|CHF|GBP|CAD|AUD|DKK|JPY/.test(f.unit) && new Set(xs.map(function (x) { return x.r.country; })).size > 1 && !/EUR/.test(f.unit))) return;
+        out += row(f.name, vals, function (v) { return fin(v) ? esc(fmt(v, Math.abs(v) < 100 ? 1 : 0) + ' ' + (f.unit || '')) : 'Not available'; }, f.direction === 'higher' ? 'max' : f.direction === 'lower' ? 'min' : null, f.category === 'tax' ? 'taxes' : f.category === 'jobs' ? 'jobs' : 'costs');
+      });
+      return out ? '<tr class="grp"><th colspan="' + (xs.length + 1) + '">Money and work (official figures)</th></tr>' + out : '';
+    }
     var allFar = function (k, lim) { return xs.every(function (x) { var v = pval(x.r, k); return v == null || v > lim; }); };
     var w = ENGINE.weightsFor(xs[0].r, nzProfile);
     var ck = Object.keys(w).filter(function (k) { return xs.some(function (x) { return fin(x.catScores[k]); }); }).sort(function (a, b) { return w[b] - w[a]; });
@@ -41,6 +51,7 @@ function openCompare(ids) {
       ck.map(function (k) { return row(shortCat(k) + ' (weight ' + w[k] + ')', xs.map(function (x) { return x.catScores[k]; }), function (v) { return fin(v) ? fmt(v) : 'Not available'; }, 'max', shortCat(k).toLowerCase(), true); }).join('') +
       '<tr class="grp"><th colspan="' + (xs.length + 1) + '">People</th></tr>' +
       prow('pop', 'Residents') + prow('dens', 'Residents per km²') + prow('g5', 'Change in 5 years', 'max', 'growth') + prow('pop10', 'Residents within 10 km') +
+      moneyRows() +
       '<tr class="grp"><th colspan="' + (xs.length + 1) + '">Getting around</th></tr>' +
       prow('city', 'City of 100,000+', 'min', 'city access') + prow('air', 'Hub airport', 'min', 'flights') + prow('rail', 'Main railway line', 'min', 'rail') + prow('mway', 'Motorway', 'min') + prow('cap', 'Capital', 'min') +
       '<tr class="grp"><th colspan="' + (xs.length + 1) + '">Land and water</th></tr>' +

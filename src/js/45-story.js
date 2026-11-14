@@ -23,7 +23,7 @@ function snacks(r) {
   return out;
 }
 function waterSnack(r) {
-  var x = r.x || {}, sea = (r.factorRaw || {}).geo_coast_km;
+  var x = r.x || {}, sea = seaKm(r);
   var sn = x.sea || 'the coast';
   if (fin(sea) && sea <= 10) return { i: '🌊', k: 'Sea', v: sea < 2 ? 'On the coast' : pfmt('coast', sea), s: sea < 2 ? sn : 'to ' + sn, tone: 'good' };
   if (fin(x.lake_km) && x.lake_km <= 8 && x.lake) return { i: '💧', k: 'Lake', v: x.lake_km < 1 ? 'On the shore' : pfmt('lake', x.lake_km), s: x.lake, tone: 'good' };

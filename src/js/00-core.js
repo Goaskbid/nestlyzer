@@ -105,8 +105,9 @@ function loadMeta() { return getJSON('/data/meta.json?v=' + VERSION).then(functi
 /* the Coastal living profile counts the sea and large lakes (25 km2+) as a shore */
 var LAKE_WORD = /\b(lake|lac|lago|lagoa|see|sjön|sjø|sjo|vatn|vatnet|järvi|jarvi|meer|jezioro|jezero|ezero|tó|ozero|loch|lough|reservoir)\b|see$|sjön$|järvi$|vatnet$/i;
 function lakeLabel(n) { return !n ? 'a large lake' : LAKE_WORD.test(n) ? n : 'Lake ' + n; }
+function seaKm(r) { var fr = r.factorRaw || {}; return fin(fr.geo_sea_km) ? fr.geo_sea_km : fr.geo_coast_km; }
 function shoreKm(r) { var fr = r.factorRaw || {}; return fin(fr.geo_shore_km) ? fr.geo_shore_km : fr.geo_coast_km; }
-function shoreName(r) { var x = r.x || {}, fr = r.factorRaw || {}; return x.shore && !(fr.geo_coast_km <= fr.geo_shore_km) ? lakeLabel(x.shore) : (x.sea ? x.sea.replace(/^The /, 'the ') : 'the sea'); }
+function shoreName(r) { var x = r.x || {}, fr = r.factorRaw || {}; var lk = x.shore || x.lake; return fin(fr.geo_shore_km) && seaKm(r) > fr.geo_shore_km + 1 ? (lk ? lakeLabel(lk) : 'a large lake') : (x.sea ? x.sea.replace(/^The /, 'the ') : 'the sea'); }
 function attachExtra(all, xs) {
   if (!xs || !xs.cols || !Array.isArray(xs.strs)) throw new Error('Invalid supplemental data schema');
   Object.keys(xs.cols).forEach(function (key) {
@@ -117,6 +118,7 @@ function attachExtra(all, xs) {
     var o = {};
     for (var k in C) { var v = C[k][i]; if (v == null) continue; o[k] = names[k] ? T[v] : v; }
     all[i].x = o;
+    if (NestData.fixShore) NestData.fixShore(all[i]);   // a large lake nearby counts as shore
   }
 }
 function loadCountry(cc) {
@@ -282,7 +284,7 @@ function passFilters(r) {
   if (f.popMax && r.population > f.popMax) return false;
   if (f.cityKm && !(fr.geo_major_city_km <= f.cityKm)) return false;
   if (f.airportKm && !(fr.geo_hub_airport_km <= f.airportKm)) return false;
-  if (f.coastKm && !(fr.geo_coast_km <= f.coastKm)) return false;
+  if (f.coastKm && !(seaKm(r) <= f.coastKm)) return false;
   if (!xfiltersPass(r)) return false;
   if (S.lang && !langPass(r)) return false;
   var q = S.q.trim().toLowerCase();

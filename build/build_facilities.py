@@ -136,3 +136,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    subprocess.run(['python3', J('build/build_power_plants.py')], check=True)   # 2.15.26: keep the power stations

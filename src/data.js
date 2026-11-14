@@ -20,6 +20,14 @@
     return n;
   }
   var RG_ORDER = ['n3', 'n2', 'rc', 'n1', 'cc'], RG_LVL = { n3: 3, n2: 2, rc: 2, n1: 1, cc: 9 };
+  /* 2.15.25 shore distance is an absolute fact: 356 km from the sea is never "close" (audit 14 Nov: a Swiss place showed
+     92/100 for 356 km because scores were ranked within the country). Score = 100 at the shore, 0 from 50 km; a large
+     lake counts as shore when its distance is known (x.lake_km). The original sea distance is kept as geo_sea_km. */
+  function fixShore(r) { var fr = r.factorRaw, fs = r.factorScores; if (!fr || !fs || fs.geo_coast_km == null) return;
+    if (!isFinite(fr.geo_sea_km) && isFinite(fr.geo_coast_km)) fr.geo_sea_km = fr.geo_coast_km;
+    var lk = r.x && isFinite(r.x.lake_km) ? r.x.lake_km : Infinity, sh = isFinite(fr.geo_shore_km) ? fr.geo_shore_km : Infinity, km = Math.min(isFinite(fr.geo_sea_km) ? fr.geo_sea_km : Infinity, lk, sh);
+    if (!isFinite(km)) return;
+    fr.geo_shore_km = fr.geo_coast_km = Math.round(km * 10) / 10; fs.geo_coast_km = Math.max(0, Math.min(100, Math.round((100 - 2 * km) * 10) / 10)); }
   function hydrate(sh) {
     var C = {}; sh.cols.forEach(function (c, i) { C[c] = i; });
     var fsKeys = Object.keys(sh.fs || {}), frKeys = Object.keys(sh.fr || {}), flKeys = Object.keys(sh.fl || {}), rgKeys = Object.keys(sh.rg || {});
@@ -64,7 +72,8 @@
       // so the displayed and the scored population are the same observation; no display-only override any more
       out[i] = r;
     }
+    for (var q = 0; q < out.length; q++) if (out[q]) fixShore(out[q]);
     return out;
   }
-  return { hydrate: hydrate, cleanName: cleanName, translit: translit };
+  return { hydrate: hydrate, fixShore: fixShore, cleanName: cleanName, translit: translit };
 });

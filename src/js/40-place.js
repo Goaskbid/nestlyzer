@@ -91,8 +91,8 @@ function accessHTML(r) {
   if (fin(fr.geo_airport_km) && g.airport && g.airport !== g.hubAirport) rows.push(['Nearest scheduled airport', g.airport + ', ' + fmt(fr.geo_airport_km) + ' km']);
   if (fin(fr.geo_major_city_km)) rows.push(['Nearest city of 100,000+', fr.geo_major_city_km === 0 ? 'This place is one' : fmt(fr.geo_major_city_km) + ' km']);
   if (fin(fr.geo_catchment_30km)) rows.push(['Residents within 30 km', fmtInt(fr.geo_catchment_30km)]);
-  if (fin(fr.geo_coast_km)) rows.push(['Sea coast', fr.geo_coast_km < 2 ? 'On the coast' : fmt(fr.geo_coast_km) + ' km']);
-  if (fin(fr.geo_shore_km) && (r.x || {}).shore && !(fr.geo_coast_km <= fr.geo_shore_km)) rows.push(['Lake shore', (fr.geo_shore_km < 2 ? 'On the shore' : fmt(fr.geo_shore_km) + ' km') + ' (' + lakeLabel(r.x.shore) + ')']);
+  var sk = seaKm(r); if (fin(sk)) rows.push(['Sea coast', sk < 2 ? 'On the coast' : fmt(sk) + ' km']);
+  if (fin(fr.geo_shore_km) && seaKm(r) > fr.geo_shore_km + 1) rows.push(['Lake shore', (fr.geo_shore_km < 2 ? 'On the shore' : fmt(fr.geo_shore_km) + ' km') + ' (' + shoreName(r) + ')']);
   if (fin(cats.commuter_access)) rows.push(['Commute access score', fmt(cats.commuter_access) + (g.commuterAnchor ? ' (nearest centre: ' + g.commuterAnchor + ', ' + fmt(fr.commuter_anchor_km) + ' km)' : '')]);
   if (fin(cats.student_access)) rows.push(['Campus access score', fmt(cats.student_access) + (g.studentAnchor ? ' (nearest: ' + g.studentAnchor + ', ' + fmt(fr.student_anchor_km) + ' km)' : '')]);
   if (!rows.length) return '';

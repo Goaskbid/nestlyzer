@@ -72,6 +72,6 @@
  {
   "id": "fallback",
   "ok": true,
-  "check": "module blocked: native comparison complete (31 rows), no upgrade section, no script error"
+  "check": "module blocked: native comparison complete (46 rows), no upgrade section, no script error"
  }
 ]

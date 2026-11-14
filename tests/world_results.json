@@ -27,7 +27,7 @@
  {
   "id": "benchmark",
   "ok": true,
-  "check": "documented hubs found (top 100 metros, and half of them within the top 10% of all metros): biz_hq 12/17 (top 3.8%), biz_tech 14/18 (top 1.4%), expat_professional 10/15 (top 1.2%), student 7/16 (top 9.7%), pensioner 4/17 (top 5.3%), remote 5/16 (top 5.4%), hnw 6/13 (top 3.7%), sun_retiree 5/17 (top 2.6%)"
+  "check": "documented hubs found (top 100 metros, and half of them within the top 10% of all metros): biz_hq 13/17 (top 3.2%), biz_tech 15/18 (top 1.5%), expat_professional 10/15 (top 1.7%), student 7/16 (top 9.8%), pensioner 2/17 (top 5.4%), remote 2/16 (top 4.9%), hnw 4/13 (top 10.2%), sun_retiree 8/17 (top 0.6%)"
  },
  {
   "id": "desktop-load",

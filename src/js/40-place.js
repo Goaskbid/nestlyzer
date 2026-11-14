@@ -231,7 +231,7 @@ function renderPlace() {
     '</div></div>' +
     '<p class="nz-note nz-note-1" role="note">General information, not advice. <a href="/legal/#disclaimer">Limits</a></p>' + (NZ_CNOTE[r.country] || '') +
     (why ? '<p class="small" style="margin:0;color:var(--bad)">' + esc(why) + '</p>' : '') +
-    propertyContextHTML(r, true) + whyHTML(r, x) + evidenceHTML(r, x) + '<div data-kfslot="' + esc(r.id) + '"></div>' + snacksHTML(r) + aroundHereHTML(r) + homeDeltaHTML(r) +
+    propertyContextHTML(r, true) + whyHTML(r, x) + '<div data-kfslot="' + esc(r.id) + '"></div>' + evidenceHTML(r, x) + snacksHTML(r) + aroundHereHTML(r) + homeDeltaHTML(r) +
     '<div class="ptabs" role="tablist" aria-label="Place sections">' + PTABS.map(function (t) { return '<button type="button" role="tab" data-ptab="' + t[0] + '" aria-selected="' + (t[0] === tab) + '">' + t[1] + '</button>'; }).join('') + '</div>' +
     PTABS.map(function (t) { return '<div class="ppanel" role="tabpanel" data-pp="' + t[0] + '"' + (t[0] === tab ? '' : ' hidden') + '>' + panels[t[0]] + '</div>'; }).join('') +
     '<div class="actions"><button class="btn btn-sm" type="button" data-booklet>' + ICON.doc + 'PDF booklet</button><button class="btn btn-sm" type="button" data-print>' + ICON.print + 'Print profile</button><a class="btn btn-sm" href="' + osm + '" target="_blank" rel="noopener">' + ICON.map + 'OpenStreetMap</a><a class="btn btn-sm" href="https://www.google.com/maps/search/?api=1&query=' + mapsQ + '" target="_blank" rel="noopener">' + ICON.pin + 'Google Maps</a>' + '<a class="btn btn-sm" hidden data-pagelink="' + esc(r.id) + '">' + ICON.ext + 'Place page</a>' + '</div>' +

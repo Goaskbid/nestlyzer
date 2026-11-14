@@ -62,7 +62,7 @@ function tzOffsetAt(r, summer) {
 }
 function sunDay(r, summer) {
   if (!fin(r.lat)) return null;
-  var d = (summer ? 23.44 : -23.44) * Math.PI / 180, f = r.lat * Math.PI / 180, h0 = -0.833 * Math.PI / 180;
+  var d = (summer ? 23.44 : -23.44) * (r.lat < 0 ? -1 : 1) * Math.PI / 180, f = r.lat * Math.PI / 180, h0 = -0.833 * Math.PI / 180;   // 2.15.24: winter is June south of the equator (audit: Sydney)
   var c = (Math.sin(h0) - Math.sin(f) * Math.sin(d)) / (Math.cos(f) * Math.cos(d));
   var len = c <= -1 ? 24 : c >= 1 ? 0 : 2 * Math.acos(c) * 180 / Math.PI / 15;
   var eot = summer ? -1.8 : 1.6; // minutes, equation of time at the solstices

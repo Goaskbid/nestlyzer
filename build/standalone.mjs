@@ -102,7 +102,7 @@ if (SPLIT) {
   for (const g of GROUPS) fs.writeFileSync(path.join(SITE, 'nzdata-p-' + g.id + '.json'), '{"g":{' + g.parts.join(',') + '}}');
 }
 
-const VERSION = process.env.NZ_VERSION || (rd('build/build_site.mjs').toString().match(/NZ_VERSION \|\| '([\d.]+)'/) || [0, 'x'])[1];
+const VERSION = process.env.NZ_VERSION || JSON.parse(rd('package.json').toString()).version;
 // 2.15.16: the 145,000 regular place routes (/places/xx/ID/) are derived in the shim instead of listed (keeps the file small)
 const PLACE_RE = /^\/places\/([a-z]{2})\/([^/]+)\/$/;
 const ROUTES = fs.existsSync(path.join(ROOT, 'data/routes.json')) ? JSON.stringify(Object.fromEntries(Object.entries(JSON.parse(rd('data/routes.json'))).filter(([k, v]) => { const m = k.match(PLACE_RE); return !(m && v === '/#/explore?cc=' + m[1].toUpperCase() + '&p=young_family&sel=' + m[1].toUpperCase() + '%3A' + encodeURIComponent(decodeURIComponent(m[2]))); }))) : '{}';

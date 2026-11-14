@@ -82,7 +82,7 @@
  {
   "finding": "ranking",
   "ok": true,
-  "check": "CH biz_energy_intensive: top 6 are where this industry already operates: ['Pratteln', 'Kaiseraugst', 'Muttenz', 'M\u00fcnchenstein', 'Frenkendorf', 'Liestal']"
+  "check": "CH biz_energy_intensive: top 6 are where this industry already operates: ['Kaiseraugst', 'Liestal', 'M\u00fcnchenstein', 'Pratteln', 'Muttenz', 'Frenkendorf']"
  },
  {
   "finding": "errors",

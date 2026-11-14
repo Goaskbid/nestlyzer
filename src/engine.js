@@ -229,9 +229,15 @@
     var nz = p && p.avoid && p.avoid.length && this.method !== 'v1' ? this.nuisances(r, p.avoid) : null;
     if (!p) return cats;
     var ob = this.method !== 'v1' && key !== LOTTERY && key !== 'self_fit' ? this.observedScore(r, p, key) : null;
-    if (!p.focus && !nz && ob == null && !(this.evidence==='fixed' && this.cfg.semanticIntegrity)) return cats;
+    if (!p.focus && !nz && ob == null && key !== 'sun_retiree' && !(this.evidence==='fixed' && this.cfg.semanticIntegrity)) return cats;
     var out = {}; for (var k in cats) out[k] = cats[k];
     if (ob != null) out.observed = ob;
+    // 2.15.24: "sun and coast" means a warm, sunny climate. Its climate category is the Koeppen class of the place (measured
+    // 1991-2020 climatology), so cool-summer coasts (Maine, Brittany) no longer pass as sun destinations
+    // for "retiring abroad, sun and coast" the coast is the sea (audit: Willowick, Ohio scored 100 at 480 km from the sea).
+    // The separate "coastal living" profile keeps large-lake shores on purpose (Toronto on Lake Ontario).
+    if (key === 'sun_retiree' && fin(out.coast)) { var ckm = (r.factorRaw || {}).geo_coast_km; if (fin(ckm)) out.coast = Math.max(0, Math.min(100, 100 - ckm * 2)); }
+    if (key === 'sun_retiree' && r.x && SUNK[r.x.kg] != null) out.climate = r.x.kg === 'Cfa' && fin(r.lat) ? Math.max(0, Math.min(100, 100 - (Math.abs(r.lat) - 28) * 4)) : SUNK[r.x.kg];   // humid-subtropical spans Florida to Rhode Island: its winters warm with lower latitude
     if (this.evidence==='fixed' && this.cfg.semanticIntegrity) {
       var fr=r.factorScores||{};
       // 2.15.16: tax stays in every household ranking, as ONE explicit case per profile (no averaging of unlike cases):
@@ -261,17 +267,24 @@
      Business: where no industry register exists, the regional employment rate (55% -> 0, 80% -> 100) stands in; where
      the industry cluster is measured, that already counts and nothing is added. */
   var OBS_SKIP = { nature: 1, outdoor: 1, coastal: 1 };
+  var SUNK = { Csa: 100, BSh: 95, BWh: 90, Aw: 90, As: 90, Am: 85, Af: 80, Cfa: 80, Csb: 60, Cwa: 75, BSk: 55, BWk: 50, Cfb: 35, Cwb: 45, Csc: 30, Cfc: 15, Dsa: 40, Dwa: 30, Dfa: 30, Dsb: 25, Dwb: 20, Dfb: 15, Dfc: 5, Dfd: 0, Dwc: 5, Dsc: 10, ET: 0, EF: 0 };
   Engine.prototype.observedScore = function (r, p, key) {
     var f = r.factorRaw || {}, s = r.factorScores || {}, v = null;
     if (OBS_SKIP[key]) return null;
     if (p.business) {
       for (var k in s) if (k.indexOf('cluster_') === 0 && fin(s[k])) return null;
-      if (p.focus && fin(this.focusScore(r, p))) return null;   // the local share of jobs in this industry already is observed reality
-      if (fin(f.n_employment_region)) return clamp((f.n_employment_region - 55) * 4, 0, 100);
-      if (fin(f.n_unemployment_region)) return clamp(100 - (f.n_unemployment_region - 2) * 8, 0, 100);
-      return null; }
-    v = fin(f.common_population_growth_5y) ? f.common_population_growth_5y : fin(f.population_growth_pct) ? f.population_growth_pct : (r.trend && fin(r.trend.population_5y_pct) ? r.trend.population_5y_pct : null);
-    if (v == null) v = fin(f.n_net_migration_region) ? f.n_net_migration_region : fin(f.n_pop_change_region) ? f.n_pop_change_region : null;
+      // 2.15.24: where no industry register exists, firms already operating here (business establishments per resident) are the observed reality
+      if (fin(s.workplaces_per_1000_residents)) return s.workplaces_per_1000_residents;
+      if (fin(s.jobs_per_1000_residents)) return s.jobs_per_1000_residents;
+      return null; }   // 2.15.24: regional employment is no longer substituted (its meaning differed from firms actually present)
+    // the newest series first, so the score and its explanation use the same observation (audit: Baar 2010-2019 vs 2019-2024)
+    v = r.trend && fin(r.trend.population_5y_pct) ? r.trend.population_5y_pct : fin(f.common_population_growth_5y) ? f.common_population_growth_5y : fin(f.population_growth_pct) ? f.population_growth_pct : null;
+    if (v != null) return clamp(50 + v * 5, 0, 100);   // population change over five years, in %: -10% -> 0, +10% -> 100
+    // net migration into the region, per 1,000 residents a year: -5 -> 0, +5 -> 100 (its own scale, not mixed with % growth)
+    if (fin(f.n_net_migration_region)) return clamp(50 + f.n_net_migration_region * 10, 0, 100);
+    return null;
+  };
+  Engine.prototype._unused_obs = function () { var v = null;
     return v == null ? null : clamp(50 + v * 5, 0, 100);
   };
   Engine.prototype.weightsFor = function (r, key) {
@@ -518,7 +531,9 @@
        Chinese cities, "jobs" in Hong Kong or Singapore) cannot tell them apart; it only lifts every score. Where 60% or
        more of 30+ places score 100 on it, it is left out of this comparison (shown, not weighted). Not in method v1. */
     this._flat = {};
-    if (this.method !== 'v1' && scope.length >= 30) { var wq = (this.profiles[key] || {}).weights || {}, cq, nq, hq, cv;
+    // 2.15.24: switched off. Dropping categories by what else is in the comparison made a place's fit score change with
+    // the result set (audit: Overland Park 77.14 vs 74.19). A category every place maxes adds the same to all; scores stay scope-independent.
+    if (this.cfg.flatDrop && this.method !== 'v1' && scope.length >= 30) { var wq = (this.profiles[key] || {}).weights || {}, cq, nq, hq, cv;
       var cache = new Array(scope.length);   // 2.15.23: categories computed once per place, not once per category (same result, ~10x faster)
       for (var j0 = 0; j0 < scope.length; j0++) cache[j0] = this.categoriesFor(scope[j0], key);
       for (cq in wq) { if (cq === 'observed') continue; nq = 0; hq = 0;

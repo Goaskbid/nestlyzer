@@ -47,7 +47,7 @@
  {
   "id": "set-aside",
   "ok": true,
-  "check": "\"Not for this search\": 1. CH:293 hidden, next keeps rank 2, undo restores the list"
+  "check": "\"Not for this search\": 1. CH:1059 hidden, next keeps rank 2, undo restores the list"
  },
  {
   "id": "fx",

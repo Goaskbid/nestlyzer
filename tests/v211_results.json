@@ -22,12 +22,12 @@
  {
   "finding": "ties",
   "ok": true,
-  "check": "remote: top 10 not one tied region (9 distinct scores)"
+  "check": "remote: top 10 not one tied region (8 distinct scores)"
  },
  {
   "finding": "plausible",
   "ok": true,
-  "check": "Europe, expat professionals: ['Z\u00fcrich', 'M\u00fcnchen', 'Amsterdam', 'Stavanger', 'Amersfoort', 'Oslo', 'Luxembourg', 'Versailles']"
+  "check": "Europe, expat professionals: ['M\u00fcnchen', 'Amsterdam', 'Stavanger', 'Z\u00fcrich', 'Amersfoort', 'Bergen', 'Luxembourg', 'K\u00f8benhavn']"
  },
  {
   "finding": "plausible",
@@ -37,12 +37,12 @@
  {
   "finding": "benchmark",
   "ok": true,
-  "check": "reference places: mean percentile 72.6 (old model 54.0), in the top 5%: 44% (old 7%)"
+  "check": "reference places: mean percentile 71.7 (old model 54.0), in the top 5%: 43% (old 7%)"
  },
  {
   "finding": "external",
   "ok": true,
-  "check": "published rankings: Prologis logistics 94.7, fDi cities 83.1, EIU liveability 85.3, Bilanz/IAZI separation (DINKs, expats, wealthy) [92.9, 85.7, 82.2], all profiles 56.2, IMD countries 84.5"
+  "check": "published rankings: Prologis logistics 94.7, fDi cities 83.1, EIU liveability 85.3, Bilanz/IAZI separation (DINKs, expats, wealthy) [93.5, 86.4, 82.2], all profiles 56.3, IMD countries 84.5"
  },
  {
   "finding": "clusters",
@@ -77,7 +77,7 @@
  {
   "finding": "profiles",
   "ok": true,
-  "check": "CH car_free: the places this group really chooses lead: ['Z\u00fcrich', 'Gen\u00e8ve', 'Basel', 'Bern', 'Luzern', 'Lausanne']"
+  "check": "CH car_free: the places this group really chooses lead: ['Z\u00fcrich', 'Gen\u00e8ve', 'Basel', 'Bern', 'Luzern', 'Winterthur']"
  },
  {
   "finding": "profiles",
@@ -97,7 +97,7 @@
  {
   "finding": "profiles",
   "ok": true,
-  "check": "CH young families: commute and services count, villages without them no longer lead: ['W\u00e4denswil', 'Kriens', 'Noble-Contr\u00e9e', 'Val-de-Ruz', 'Lenzburg', 'Martigny']"
+  "check": "CH young families: commute and services count, villages without them no longer lead: ['Kriens', 'W\u00e4denswil', 'Noble-Contr\u00e9e', 'Martigny', 'Zwingen', 'Lenzburg']"
  },
  {
   "finding": "search",

@@ -36,7 +36,17 @@ if (!fs.existsSync(path.join(OUT, 'sitemap.xml'))) { console.error('Missing requ
   const urls = idx.includes('<sitemapindex') ? kids.filter((k) => !missKid.includes(k)).flatMap((k) => locs(rd(k))) : locs(idx);
   const missPage = urls.filter((u) => !fs.existsSync(path.join(OUT, u, u === '' || u.endsWith('/') ? 'index.html' : '')));
   console.log(`published check: ${kids.length} sitemap files, ${urls.length} addresses, ${missKid.length + missPage.length} missing`);
-  if (!urls.length || missKid.length || missPage.length) { console.error('Missing in the published folder:', missKid.concat(missPage).slice(0, 10).join(', ')); process.exit(1); } }
+  if (!urls.length || missKid.length || missPage.length) { console.error('Missing in the published folder:', missKid.concat(missPage).slice(0, 10).join(', ')); process.exit(1); }
+  // 2.15.24 SEO gate (owner rules 14 Nov 2026): no duplicate, noindex or non-canonical address; robots.txt names the sitemap
+  const seen = new Set(), dup = [], noidx = [], canon = [];
+  for (const u of urls) { if (seen.has(u)) { dup.push(u); continue; } seen.add(u);
+    const fp = path.join(OUT, u, u === '' || u.endsWith('/') ? 'index.html' : ''); let h = ''; try { const fd = fs.openSync(fp, 'r'), b = Buffer.alloc(6000); h = b.toString('utf8', 0, fs.readSync(fd, b, 0, 6000, 0)); fs.closeSync(fd); } catch (e) {}
+    if (/<meta[^>]+name=["']?robots["']?[^>]+noindex/i.test(h)) noidx.push(u);
+    const c = /<link[^>]+rel=["']?canonical["']?[^>]+href=["']([^"']+)["']/i.exec(h); if (c && c[1] !== 'https://nestlyzer.com/' + u) canon.push(u); }
+  const robots = fs.existsSync(path.join(OUT, 'robots.txt')) ? fs.readFileSync(path.join(OUT, 'robots.txt'), 'utf8') : '';
+  const robotsOk = /^Sitemap:\s*https:\/\/nestlyzer\.com\/sitemap\.xml\s*$/mi.test(robots);
+  console.log(`sitemap SEO gate: ${dup.length} duplicates, ${noidx.length} noindex, ${canon.length} non-canonical, robots.txt ${robotsOk ? 'names the sitemap' : 'MISSING the sitemap line'}`);
+  if (dup.length || noidx.length || canon.length || !robotsOk) { console.error('Sitemap gate failed:', dup.concat(noidx, canon).slice(0, 10).join(', ')); process.exit(1); } }
 // GitHub rules are hard requirements (owner, 9 Nov 2026): the published site stays far below the 1 GB Pages limit, with
 // room for data growth and fast deploys within the 10-minute window. Stop the build instead of publishing anything larger.
 if (bytes > 850e6) { console.error('Stopped: ' + (bytes / 1e6).toFixed(0) + ' MB is above the 850 MB safety budget for GitHub Pages (hard limit 1 GB).'); process.exit(1); }

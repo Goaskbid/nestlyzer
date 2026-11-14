@@ -17,7 +17,7 @@ function snacks(r) {
   var water = waterSnack(r); if (water) out.push(water);
   if (fin(fr.geo_major_city_km)) out.push({ i: '🏙️', k: 'Big city', v: fr.geo_major_city_km === 0 ? 'This is one' : pfmt('city', fr.geo_major_city_km), s: fr.geo_major_city_km === 0 ? '100,000+ residents' : 'to a city of 100,000+' });
   if (fin(x.rail_km)) out.push({ i: '🚆', k: 'Railway', v: pfmt('rail', x.rail_km), s: 'to a main line', tone: x.rail_km < 2 ? 'good' : x.rail_km > 15 ? 'bad' : '' });
-  var sw = sunDay(r, false); if (sw && sw.set != null) out.push({ i: '🌅', k: 'Winter sunset', v: clock(sw.set), s: pfmt('dayw', sw.len) + ' of daylight on 21 Dec' });
+  var sw = sunDay(r, false); if (sw && sw.set != null) out.push({ i: '🌅', k: 'Winter sunset', v: clock(sw.set), s: pfmt('dayw', sw.len) + ' of daylight on 21 ' + (r.lat < 0 ? 'Jun' : 'Dec') });
   if (fin(fr.geo_hub_airport_km)) out.push({ i: '✈️', k: 'Hub airport', v: pfmt('air', fr.geo_hub_airport_km), s: geo.hubAirport || '' });
   if (fin(x.border_km) && x.border_km < 40 && x.border) out.push({ i: '🛂', k: 'Border', v: pfmt('border', x.border_km), s: 'to ' + x.border });
   return out;
@@ -66,7 +66,7 @@ var STORY_T = {
     'If you like it here, look at {t1}. Places like {t2} and {t3} share the same size, setting and terrain.',
     'Look-alikes elsewhere: {t1}, {t2} and {t3} come closest on size, surroundings and terrain.'
   ],
-  light: ['On the shortest day the sun is up for {dw} and sets around {sw}. In late June it sets around {ss}.', 'Winter light: {dw} of daylight and sunset near {sw} in late December. Summer evenings stay bright until about {ss}.', 'Daylight runs from {dw} in December to {ds} in June; the latest summer sunsets come around {ss}.'],
+  light: ['On the shortest day the sun is up for {dw} and sets around {sw}. In midsummer it sets around {ss}.', 'Winter light: {dw} of daylight and sunset near {sw} around the shortest day. Summer evenings stay bright until about {ss}.', 'Daylight runs from {dw} in midwinter to {ds} in midsummer; the latest summer sunsets come around {ss}.'],
   land: ['The landscape here belongs to {theland}.', 'Geographically, this is part of {theland}.', '{Theland} shapes the views and the weather here.'],
   metro: ['It counts as part of Greater {m}, {d} from the centre.', 'Greater {m} starts here: the city centre is {d} away.'],
   lakeOn: ['It sits on {lake}.', '{lake} is right there, under a kilometre away.', 'The shore of {lake} is part of daily life here.'],
@@ -245,7 +245,14 @@ function observedOfRaw(r, biz) {
    age share and industry quotient never called migration), plus plain words for the verdict */
 var OBS_WORDS = { strongH: 'people are moving here or staying', weakH: 'people are leaving', strongB: 'firms of this kind already operate here', weakB: 'little of this industry operates here yet',
   strongA: 'many older residents already live here', weakA: 'few older residents live here' };
-function observedOfDecorated(r, biz) { var o = observedOfRaw(r, biz); if (!o) return null;
+function observedFallback(r, biz) { var f = r.factorRaw || {}, k;
+  if (biz) { for (k of ['workplaces_per_1000_residents', 'jobs_per_1000_residents']) if (fin(f[k])) return { k: k, v: f[k], lab: k === 'workplaces_per_1000_residents' ? 'Business establishments per 1,000 residents (firms already here)' : 'Jobs per 1,000 residents (work already here)', u: '', lvl: 'municipality', period: '', bizAct: 1 };
+    var g = observedOfRaw(r, false); if (g) { g.momentum = 1; return g; } }
+  return null; }
+function evClean(o) { var lab0 = String(o.lab || ''); o.lab = lab0.replace(/ in the factor definition.*$/, '').replace(/;.*$/, '').replace(/,?\s*\d{4}\s*(-|to|–)\s*\d{4}.*$/, ''); var pm = /(\d{4})\D{1,4}(\d{4})/.exec(String(o.period || '') + ' ' + lab0); o.period = pm ? pm[1] + ' to ' + pm[2] : ''; if (!/^(municipality|place|region|county|district|province|state|country)$/i.test(String(o.lvl || ''))) o.lvl = /popul|growth/i.test(o.lab) ? 'municipality' : ''; return o; }
+function observedOfDecorated(r, biz) { var o = observedOfRaw(r, biz) || observedFallback(r, biz); if (!o) return null; evClean(o);
+  if (o.bizAct) { o.sign = 0; o.strong = 'many firms already operate here'; o.weak = 'few firms operate here so far'; o.lab2 = o.lab; return o; }
+  if (o.momentum) { o.sign = 1; o.strong = 'the town is growing'; o.weak = 'the town is shrinking'; o.lab2 = o.lab + (o.period ? ', ' + o.period : ''); return o; }
   var age = /age65/.test(o.k), ind = /^cluster_/.test(o.k);
   o.sign = !age && !ind ? 1 : 0; o.strong = ind ? OBS_WORDS.strongB : age ? OBS_WORDS.strongA : OBS_WORDS.strongH; o.weak = ind ? OBS_WORDS.weakB : age ? OBS_WORDS.weakA : OBS_WORDS.weakH;
   o.lab2 = o.lab + (o.period ? ', ' + o.period : ''); return o; }
@@ -253,8 +260,8 @@ function observedOf(r, biz) { return observedOfDecorated(r, biz); }
 var OBSV = {};
 function evidenceHTML(r, xr) {
   var biz = !!(META.config.profiles[S.profile] || {}).business, o = observedOf(r, biz), ranked = RES && RES.byId[r.id], x = xr || placeX(r);
-  var head = '<div class="evcard"><h3>What the evidence says</h3>', tail = '<div data-evslot="' + esc(r.id) + '"></div></div>';
-  if (!o) return head + '<p>No observed outcome is recorded for this place yet' + (biz ? ' (no industry register or labour data).' : '.') + ' Every score below still shows the measured fact behind it.</p>' + tail;
+  var head = '<div class="evcard"><h3>Evidence: what really happens</h3>', tail = '<div data-evslot="' + esc(r.id) + '"></div></div>';
+  if (!o) return '<div class="evcard ev-empty"><h3>Evidence</h3>' + tail;   // 2.15.24: no filler sentence; only what exists is shown
   var k = S.cc + '|' + S.profile + '|' + o.k + '|' + (RES ? RES.scored.length : 0);
   if (!OBSV[k]) { OBSV = {}; OBSV[k] = (RES ? RES.scored : []).map(function (s) { var q = observedOf(s.r, biz); return q && q.k === o.k ? q.v : null; }).filter(fin).sort(function (a, b) { return a - b; }); }
   var v = OBSV[k], lo = 0, hi = v.length; while (lo < hi) { var m = (lo + hi) >> 1; if (v[m] < o.v) lo = m + 1; else hi = m; }
@@ -263,10 +270,10 @@ function evidenceHTML(r, xr) {
   var w = ENGINE.weightsFor(r, S.profile), tw = 0, wk; for (wk in w) tw += w[wk];
   var share = w.observed && tw ? Math.round(w.observed / tw * 100) : 0, own = o.k === 'cluster' ? 'cluster' : 'observed';
   var cls = q >= 0.6 ? 'ev-ok' : q <= 0.2 ? 'ev-lo' : 'ev-n';
-  var verdict = q >= 0.6 ? 'Backed by what really happens: ' + o.strong + '.' : q <= 0.2 ? 'Weaker on what really happens: ' + o.weak + '.' : 'Observed reality is in the middle range here.';
+  var verdict = q >= 0.6 ? 'Backed by what really happens: ' + o.strong + '.' : q <= 0.2 ? 'Weaker on what really happens: ' + o.weak + '.' : '';
   var counts = own === 'cluster' ? 'Existing industry counts in this score.' : share ? 'It counts ' + share + '% of this score.' : '';
-  return head + '<p class="' + cls + '"><b>' + esc(verdict) + '</b> ' + esc(counts) + '</p>' + evChart(v, o.v, sv, o, q) +
-    '<p class="small muted">' + (!/municipal|place/.test(o.lvl) ? esc('Measured at ' + o.lvl + ' level, not for the place itself. ') : '') + 'Agreement, not proof. <a href="/evidence-lab/">Evidence Lab</a></p>' + tail;
+  return head + (verdict || counts ? '<p class="' + cls + '"><b>' + esc(verdict) + '</b> ' + esc(counts) + '</p>' : '') + evChart(v, o.v, sv, o, q) +
+    '<p class="small muted">' + (o.lvl && !/municipal|place/i.test(o.lvl) ? esc('Measured for the ' + o.lvl.toLowerCase() + ', not the place itself. ') : '') + 'Agreement, not proof. <a href="/evidence-lab/">Evidence Lab</a></p>' + tail;
 }
 
 /* 2.15.22 evidence charts: where this place sits among all places with the same measure, and its rank next to its evidence */

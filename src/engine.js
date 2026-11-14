@@ -59,6 +59,10 @@
     this.evidence = opts.evidence || (meta.config.evidenceScoring && meta.config.evidenceScoring.mode) || 'legacy';   // 'weighted' = true weighted share (NZ-GLOBAL-049), prepared; switch only after the owner approves (docs/rank_change_*.json)
     this.meta = meta;
     this.cfg = meta.config;
+    // 2.15.22: observed reality is a scored category (not only a check): where people actually move, or where business
+    // activity already is. Countries under comprehensive sanctions are never ranked against other countries.
+    if (meta.categoryLabels && !meta.categoryLabels.observed) meta.categoryLabels.observed = 'Observed reality (where people and firms actually go)';
+    this.sanctioned = (meta.config && meta.config.sanctioned) || { RU: 'EU, Swiss, UK and US sanctions against Russia' };
     this.profiles = JSON.parse(JSON.stringify(this.cfg.profiles));
     if (this.method === 'v1') delete this.profiles.coastal;
     var self = this;
@@ -91,11 +95,16 @@
     return fin(v) ? v : null;
   };
 
+  function sumObj(o) { if (!o || typeof o !== 'object') return '-'; var n = 0, t = 0, v; for (var q in o) { n++; v = o[q]; if (typeof v === 'number' && v === v) t += v; else if (typeof v === 'string') t += v.length; } return n + ':' + t; }
+  function catSig(r) { return sumObj(r.factorScores) + '|' + sumObj(r.factorRaw) + '|' + sumObj(r.factorLevel) + '|' + sumObj(r.x) + '|' + sumObj(r.evidence); }
   Engine.prototype.categories = function (r) {
     // 2.15.11 (deep audit MODEL-01): the cache is tied to the evidence it was built from, not only to the method.
     var cacheModel = this.method + ':' + this.evidence + ':' + (this.cfg.semanticIntegrity ? 'semantic1' : 'original');
-    var sig = JSON.stringify([r.factorScores,r.factorRaw,r.factorLevel,r.x,r.population,r.country,r.sourceConfidence,r.evidence]);
-    if (r._cats && r._catsM === cacheModel && r._catsS === sig) return r._cats;
+    // 2.15.23: the cache key compares the evidence objects by identity (they are replaced, never mutated, when data arrives)
+    // instead of serialising the whole record on every call, which made a large country take seconds to rank
+    // plus a cheap content check (key count and value sum of each object), so values changed in place still refresh the cache
+    var k = r._catsK, sig = catSig(r);
+    if (r._cats && r._catsM === cacheModel && k && k[0] === r.factorScores && k[1] === r.factorRaw && k[2] === r.factorLevel && k[3] === r.x && k[4] === r.population && k[5] === r.country && k[6] === r.sourceConfidence && k[7] === r.evidence && r._catsS === sig) return r._cats;
     var out = {}, cats = Object.keys(this.factorIdsByCat);
     for (var i = 0; i < cats.length; i++) {
       var v = this.categoryScore(r, cats[i]);
@@ -164,8 +173,8 @@
     // shore under a ridge scored the same) and altitude adds the high-alpine part (400 m -> 0, 1,500 m -> 100); water nearby
     // is a bonus of up to 15 points (was 35% of the score), so a lake no longer outranks Davos or St. Moritz for an outdoor and mountain lover
     if (fin(rel)) { var rel2 = fin(xx.relief) ? Math.max(0, Math.min(100, (Math.log10(Math.max(1, xx.relief)) - 1.7) / (3.3 - 1.7) * 100)) : rel,
-      alt2 = fin(xx.alt) ? Math.max(0, Math.min(100, (xx.alt - 400) / 11)) : null, mtn = alt2 == null ? rel2 : 0.6 * rel2 + 0.4 * alt2;
-      out.outdoor = Math.min(100, 0.9 * mtn + 0.15 * wat); }   // a lake is a bonus, its absence no penalty
+      alt2 = fin(xx.alt) ? Math.max(0, Math.min(100, (xx.alt - 400) / 11)) : null, mtn = alt2 == null ? rel2 : 0.45 * rel2 + 0.55 * alt2;   // 2.15.23: altitude weighs more (the relief window is short, so high valleys like Davos or the Engadin were under-read)
+      out.outdoor = Math.min(100, Math.max(0.95 * mtn + 0.15 * wat, 0.7 * wat)); }   // 2.15.23: lake and sea country (Finland, Denmark, the Baltics) counts on its own, below the high Alps   // a lake is a bonus, its absence no penalty
     if (fin(xx.xb_s)) out.border = xx.xb_s; else if (fin(xx.border_km)) out.border = lin(xx.border_km, 3, 45);   // a border counts where the neighbour pays more (build_reach.py)
     var fany = Math.max(xx.fin_s || 0, xx.ins_s || 0, xx.fund_s || 0, xx.com_s || 0, xx.cry_s || 0, xx.wlth_s || 0);
     if (fin(xx.fin_s)) out.finhub = fany; // Broad finance screen; specialist roles remain separate.
@@ -198,7 +207,7 @@
       // Country tax rates, property multipliers and unrelated household cases must not be averaged.
       r._taxAll = out.tax; delete out.tax;   // 2.15.16: restored per profile below as one explicit tax case
     }
-    r._cats = out; r._catsM = cacheModel; r._catsS = sig;
+    r._cats = out; r._catsM = cacheModel; r._catsS = sig; r._catsK = [r.factorScores, r.factorRaw, r.factorLevel, r.x, r.population, r.country, r.sourceConfidence, r.evidence];
     return out;
   };
 
@@ -209,13 +218,20 @@
     for (f in p.focus) { v = fs[f]; w = p.focus[f]; if (!fin(v) || !w) continue; num += (w < 0 ? 100 - v : v) * Math.abs(w); den += Math.abs(w); }
     return den ? num / den : null;
   };
+  // 2.15.23: memoised per ranking pass (the saturation check, the score and the sub-ranks each read the same categories)
   Engine.prototype.categoriesFor = function (r, key) {
+    if (this._memo && this._memoKey === key) { var hit = this._memo.get(r); if (hit) return hit; var res0 = this._categoriesFor(r, key); this._memo.set(r, res0); return res0; }
+    return this._categoriesFor(r, key);
+  };
+  Engine.prototype._categoriesFor = function (r, key) {
     var cats = this.categories(r), p = this.profiles[key];
     // what this group dislikes nearby (2.11.3): noise, heavy industry, flooding and heat, crowding, steep terrain, dirty air
     var nz = p && p.avoid && p.avoid.length && this.method !== 'v1' ? this.nuisances(r, p.avoid) : null;
     if (!p) return cats;
-    if (!p.focus && !nz && !(this.evidence==='fixed' && this.cfg.semanticIntegrity)) return cats;
+    var ob = this.method !== 'v1' && key !== LOTTERY && key !== 'self_fit' ? this.observedScore(r, p, key) : null;
+    if (!p.focus && !nz && ob == null && !(this.evidence==='fixed' && this.cfg.semanticIntegrity)) return cats;
     var out = {}; for (var k in cats) out[k] = cats[k];
+    if (ob != null) out.observed = ob;
     if (this.evidence==='fixed' && this.cfg.semanticIntegrity) {
       var fr=r.factorScores||{};
       // 2.15.16: tax stays in every household ranking, as ONE explicit case per profile (no averaging of unlike cases):
@@ -229,6 +245,10 @@
       if (p.business && p.focus) {var fn0=0,fd0=0;for(var fk in p.focus) if(!/^(geo_catchment|working_age|at_working|n_(house|flat|home|rent|price|ch_price))/.test(fk)&&fin(fr[fk])) {var fw0=p.focus[fk];fn0+=(fw0<0?100-fr[fk]:fr[fk])*Math.abs(fw0);fd0+=Math.abs(fw0);}out.focus=fd0?fn0/fd0:null;}
     }
     if (nz) out.quiet = nz.score;
+    // growth cannot make up for a failing core need: where a category carrying 15%+ of the weight is under 40, observed
+    // reality counts at most as neutral (50), so booming but unaffordable or unsafe places are not lifted by it
+    if (out.observed > 50) { var w0 = p.weights || {}, t0 = 0, c0; for (c0 in w0) t0 += w0[c0];
+      for (c0 in w0) if (c0 !== 'observed' && w0[c0] / t0 >= 0.15 && fin(out[c0]) && out[c0] < 40) { out.observed = 50; break; } }
     if (p.focus) {
       if (!(p.business && this.evidence==='fixed' && this.cfg.semanticIntegrity)) {var fv = this.focusScore(r, p); if (fin(fv)) out.focus = fv;}
       // industry cluster of this kind of site (build_clusters.py): where similar companies already operate
@@ -236,12 +256,33 @@
     }
     return out;
   };
+  /* 2.15.22 observed reality, 0-100. Households: population change of the place 2019-2024 (+-10% spans the scale);
+     without it, net migration into its region or the region's population change (per 1,000 residents, +-10 spans it).
+     Business: where no industry register exists, the regional employment rate (55% -> 0, 80% -> 100) stands in; where
+     the industry cluster is measured, that already counts and nothing is added. */
+  var OBS_SKIP = { nature: 1, outdoor: 1, coastal: 1 };
+  Engine.prototype.observedScore = function (r, p, key) {
+    var f = r.factorRaw || {}, s = r.factorScores || {}, v = null;
+    if (OBS_SKIP[key]) return null;
+    if (p.business) {
+      for (var k in s) if (k.indexOf('cluster_') === 0 && fin(s[k])) return null;
+      if (p.focus && fin(this.focusScore(r, p))) return null;   // the local share of jobs in this industry already is observed reality
+      if (fin(f.n_employment_region)) return clamp((f.n_employment_region - 55) * 4, 0, 100);
+      if (fin(f.n_unemployment_region)) return clamp(100 - (f.n_unemployment_region - 2) * 8, 0, 100);
+      return null; }
+    v = fin(f.common_population_growth_5y) ? f.common_population_growth_5y : fin(f.population_growth_pct) ? f.population_growth_pct : (r.trend && fin(r.trend.population_5y_pct) ? r.trend.population_5y_pct : null);
+    if (v == null) v = fin(f.n_net_migration_region) ? f.n_net_migration_region : fin(f.n_pop_change_region) ? f.n_pop_change_region : null;
+    return v == null ? null : clamp(50 + v * 5, 0, 100);
+  };
   Engine.prototype.weightsFor = function (r, key) {
     if (key === LOTTERY && r && r.country !== 'CH') return this.cfg.europeLotteryWeights;
     var p = this.profiles[key];
     // the audited legacy method (v1) keeps a profile's original weights where they were changed later (weightsV1)
     if (p && this.method === 'v1' && p.weightsV1) return p.weightsV1;
-    return (p && p.weights) || {};
+    var w = (p && p.weights) || {};
+    if (this.method !== 'v1' && p && r && key !== LOTTERY && key !== 'self_fit' && !w.observed && this.observedScore(r, p, key) != null) {   // only where it is measured, so coverage never counts it as missing
+       var o = {}; for (var k in w) o[k] = w[k]; o.observed = p.business ? 15 : 8; return o; }
+    return w;
   };
   Engine.prototype.usesAccess = function (key, country) {
     if (key === LOTTERY && country !== 'CH') return true;
@@ -272,11 +313,16 @@
     var cats = this.categoriesFor(r, key), w = this.weightsFor(r, key), num = 0, den = 0, total = 0, c;
     // stand-in categories (no measured data for this place) count half, so measured evidence leads the ranking
     var px = r._proxy || {}, wc, have = 0, meas = 0;
-    for (c in w) { total += w[c]; if (fin(cats[c])) { have += w[c]; if (!px[c]) meas += w[c]; wc = px[c] && this.method !== 'v1' ? w[c] * 0.5 : w[c]; num += cats[c] * wc; den += wc; } }
+    var flat = this._flat || {};
+    for (c in w) { if (flat[c]) continue; total += w[c]; if (fin(cats[c])) { have += w[c]; if (!px[c]) meas += w[c]; wc = px[c] && this.method !== 'v1' ? w[c] * 0.5 : w[c]; num += cats[c] * wc; den += wc; } }
     if (!den) return null;
     var score = num / den;
     total = total || den;
     var coverage = Math.round((den / total) * 100);
+    /* 2.15.23 honest certainty: a score that rests on a small part of the profile's weight is pulled toward the neutral 50,
+       in proportion to what is missing (full effect from 70% of the weight measured). Without this, a budget ranking with no
+       housing-cost data could show 90s from transport alone. Ordering among equally covered places is unchanged. */
+    if (this.method !== 'v1' && key !== LOTTERY && key !== 'self_fit') { var cf = Math.max(0.35, Math.min(1, (den / total) / 0.7)); score = 50 + (score - 50) * cf; }
     var strictCov = coverage;   // 2.13.2: the same measure in every country, before the country-specific adjustments below
     if (key === LOTTERY) score = this.softLotteryPenalty(score, cats, r);
     else { var m = p.min || {}; for (c in m) if (fin(cats[c]) && cats[c] < m[c]) score = Math.min(score, 55 + cats[c] * 0.45); }
@@ -467,18 +513,32 @@
   Engine.prototype.rank = function (scope, key, opts) {
     opts = opts || {};
     var country = opts.country, out = [], reasons = {}, self = this;
+    this._memo = typeof WeakMap === 'function' ? new WeakMap() : null; this._memoKey = key;
+    /* 2.15.23: a category that gives the top mark to most places of this comparison (for example "services" in dense
+       Chinese cities, "jobs" in Hong Kong or Singapore) cannot tell them apart; it only lifts every score. Where 60% or
+       more of 30+ places score 100 on it, it is left out of this comparison (shown, not weighted). Not in method v1. */
+    this._flat = {};
+    if (this.method !== 'v1' && scope.length >= 30) { var wq = (this.profiles[key] || {}).weights || {}, cq, nq, hq, cv;
+      var cache = new Array(scope.length);   // 2.15.23: categories computed once per place, not once per category (same result, ~10x faster)
+      for (var j0 = 0; j0 < scope.length; j0++) cache[j0] = this.categoriesFor(scope[j0], key);
+      for (cq in wq) { if (cq === 'observed') continue; nq = 0; hq = 0;
+        for (var j = 0; j < scope.length; j++) { cv = cache[j][cq]; if (fin(cv)) { nq++; if (cv >= 99.5) hq++; } }
+        if (nq >= 30 && hq / nq >= 0.6) this._flat[cq] = 1; } }
     for (var i = 0; i < scope.length; i++) {
       var r = scope[i];
+      if (this.sanctioned[r.country] && country !== r.country) { reasons['sanctions'] = (reasons['sanctions'] || 0) + 1; continue; }
       var s = this.scoreRaw(r, key, 55, country);
       if (!s) { reasons['coverage'] = (reasons['coverage'] || 0) + 1; continue; }
       var why = this.eligibilityFail(r, key, country);
       if (why) { reasons[why] = (reasons[why] || 0) + 1; continue; }
       out.push({ r: r, id: r.id, overall: s.score, coverage: s.coverage, weighted: s.weighted, measured: s.measured, thin: !!s.thin, upper: s.upper, scoreMeaning: s.scoreMeaning, model: s.model, catScores: s.cats, sourceConfidence: r.sourceConfidence, _i: i, must: this.profiles[key].must ? this.mustStatus(r, this.profiles[key]) : null });
     }
+    this._flatLast = this._flat; this._flat = {};
     out.sort(function (a, b) { return (self.evidence==='fixed' ? ((b.overall-a.overall)||(b.coverage-a.coverage)||a.id.localeCompare(b.id)) : ((a.thin-b.thin)||(b.overall-a.overall)||(b.sourceConfidence-a.sourceConfidence)||(a._i-b._i))); });
     out.forEach(function (x, i) { x.rank = i + 1; });
     var res = { scored: out, reasons: reasons, categoryRanks: {}, factorRanks: {} };
     if (opts.subRanks !== false) this.computeRanks(res);
+    this._memo = null;
     return res;
   };
 

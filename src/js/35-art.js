@@ -1,7 +1,7 @@
 /* Generated art: place postcards (outline + neighbours + pin), score rings, flags, icons */
 function flagImg(cc, h) {
   h = h || 14;
-  return '<img class="flag" src="/assets/flags/' + String(cc).toLowerCase() + '.png" alt="" width="' + Math.round(h * 4 / 3) + '" height="' + h + '" loading="lazy" decoding="async">';
+  return '<img class="flag" src="/assets/flags/' + String(cc).toLowerCase() + '.png" alt="" width="' + (String(cc).toUpperCase() === 'CH' ? h : Math.round(h * 4 / 3)) + '" height="' + h + '" loading="lazy" decoding="async">';
 }
 function profileIcon(k, size) {
   var p = (typeof PICON !== 'undefined' && (PICON[k] || PICON.self_fit)) || '';
@@ -19,12 +19,12 @@ function scoreRing(v, size) {
   return '<div class="ring" style="width:' + size + 'px;height:' + size + 'px" role="img" aria-label="Score ' + (fin(v) ? Math.round(v) : 'not available') + ' of 100">' +
     '<svg viewBox="0 0 ' + size + ' ' + size + '" width="' + size + '" height="' + size + '"><circle cx="' + size / 2 + '" cy="' + size / 2 + '" r="' + r + '" fill="none" stroke="var(--ring-track)" stroke-width="7"/>' +
     '<circle class="ring-arc" cx="' + size / 2 + '" cy="' + size / 2 + '" r="' + r + '" fill="none" stroke="' + col + '" stroke-width="7" stroke-linecap="round" stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + (C * (1 - f)).toFixed(1) + '" style="--c:' + C.toFixed(1) + '" transform="rotate(-90 ' + size / 2 + ' ' + size / 2 + ')"/></svg>' +
-    '<b data-count="' + (fin(v) ? Math.round(v) : '') + '">' + (fin(v) ? Math.round(v) : '–') + '</b><small>of 100</small></div>';
+    '<b' + (fin(v) ? ' data-count="' + Math.round(v) + '"' : '') + '>' + (fin(v) ? Math.round(v) : 'Not scored') + '</b><small>' + (fin(v) ? 'of 100' : 'Inputs unavailable') + '</small></div>';
 }
 function countUp(root) {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   $$('[data-count]', root).forEach(function (el) {
-    var to = +el.dataset.count; if (!fin(to) || el.dataset.counted) return; el.dataset.counted = 1;
+    if (!el.dataset.count || !el.dataset.count.trim()) return; var to = +el.dataset.count; if (!fin(to) || el.dataset.counted) return; el.dataset.counted = 1;
     var t0 = performance.now();
     (function step(t) { var k = Math.min(1, (t - t0) / 650); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(step); })(t0);
   });

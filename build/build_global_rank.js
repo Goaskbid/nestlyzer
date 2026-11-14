@@ -126,7 +126,9 @@ for (const [sk, inScope] of Object.entries(SC)) {
     // national level for this profile (profile weights over the categories with a national figure) and its share alpha
     const ABSCAT = { outdoor: 1, border: 1, finhub: 1, insurhub: 1, fundhub: 1, commodhub: 1, cryptohub: 1, wealthhub: 1, reach300: 1, portaccess: 1, chempark: 1, freight: 1, reach: 1, flatland: 1, climate: 1, services: 1, coast: 1 };   // absolute and comparable everywhere
     let aW = 0, bW = 0; for (const ck in w) { if (ABSCAT[ck]) bW += w[ck]; else if (ALPHA[ck]) aW += w[ck] * ALPHA[ck]; }
+    const SANC = (meta.config && meta.config.sanctioned) || { RU: 1 };   // 2.15.22: never a world or continental leader while sanctions apply
     for (const p of list) {
+      if (SANC[p.cc]) continue;
       const NC0 = (NAT.countries[p.cc] || {}).cats || {}, NC = Object.assign({}, NC0);
       if (pr.business) NC.focus = TALENT[k] ? NC0.focus_talent : NC0.focus_cost; else delete NC.focus;
       let nN = 0, nD = 0, aEff = 0, gN = 0, gD = 0;

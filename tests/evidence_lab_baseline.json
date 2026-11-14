@@ -1,0 +1,590 @@
+{
+  "release": "2.15.21",
+  "engine_sha256": "9ccdde86c6da466182a04aa8f477baea936b732742d96606f99a8adc7884ae3b",
+  "weights": {
+    "young_family": {
+      "family": 24,
+      "safety": 16,
+      "affordability": 16,
+      "commuter_access": 12,
+      "quiet": 8,
+      "services": 8,
+      "foundation": 6,
+      "health": 6,
+      "tax": 2,
+      "environment": 2
+    },
+    "low_income": {
+      "affordability": 40,
+      "jobs": 16,
+      "commuter_access": 14,
+      "services": 12,
+      "safety": 12,
+      "foundation": 6,
+      "demographics": 8
+    },
+    "low_income_family": {
+      "affordability": 30,
+      "family": 20,
+      "safety": 16,
+      "services": 12,
+      "commuter_access": 10,
+      "quiet": 8,
+      "foundation": 4
+    },
+    "single_parent": {
+      "family": 22,
+      "affordability": 24,
+      "safety": 16,
+      "services": 14,
+      "commuter_access": 12,
+      "quiet": 8,
+      "foundation": 4
+    },
+    "pensioner": {
+      "health": 20,
+      "climate": 16,
+      "safety": 14,
+      "services": 12,
+      "affordability": 10,
+      "quiet": 10,
+      "mobility": 13,
+      "tax": 6,
+      "coast": 5
+    },
+    "single_pensioner": {
+      "health": 24,
+      "safety": 18,
+      "services": 16,
+      "affordability": 12,
+      "climate": 10,
+      "quiet": 8,
+      "mobility": 8,
+      "tax": 4
+    },
+    "early_retiree": {
+      "climate": 16,
+      "health": 14,
+      "lifestyle": 14,
+      "tax": 14,
+      "services": 10,
+      "safety": 10,
+      "environment": 8,
+      "quiet": 8,
+      "affordability": 4,
+      "mobility": 2
+    },
+    "single": {
+      "jobs": 24,
+      "city": 18,
+      "commuter_access": 18,
+      "lifestyle": 16,
+      "safety": 8,
+      "affordability": 8,
+      "foundation": 8
+    },
+    "young_professional": {
+      "commuter_access": 24,
+      "jobs": 22,
+      "city": 18,
+      "lifestyle": 16,
+      "foundation": 8,
+      "safety": 6,
+      "affordability": 6
+    },
+    "dinks": {
+      "lifestyle": 26,
+      "jobs": 24,
+      "commuter_access": 18,
+      "city": 16,
+      "safety": 8,
+      "foundation": 6,
+      "tax": 2
+    },
+    "remote": {
+      "services": 16,
+      "affordability": 16,
+      "climate": 14,
+      "mobility": 14,
+      "safety": 10,
+      "lifestyle": 10,
+      "quiet": 8,
+      "tax": 6,
+      "health": 3,
+      "foundation": 3,
+      "demographics": 8
+    },
+    "commuter": {
+      "commuter_access": 44,
+      "jobs": 20,
+      "foundation": 14,
+      "affordability": 10,
+      "safety": 8,
+      "tax": 4
+    },
+    "car_free": {
+      "city": 30,
+      "commuter_access": 26,
+      "services": 14,
+      "lifestyle": 12,
+      "jobs": 10,
+      "safety": 8
+    },
+    "student": {
+      "unitown": 30,
+      "campus": 25,
+      "city": 10,
+      "lifestyle": 10,
+      "student_access": 10,
+      "affordability": 10,
+      "safety": 5
+    },
+    "first_home": {
+      "affordability": 30,
+      "commuter_access": 18,
+      "safety": 12,
+      "jobs": 18,
+      "family": 10,
+      "services": 8,
+      "quiet": 4,
+      "foundation": 4,
+      "tax": 2
+    },
+    "budget": {
+      "affordability": 38,
+      "tax": 10,
+      "safety": 12,
+      "jobs": 12,
+      "services": 10,
+      "foundation": 8,
+      "mobility": 6,
+      "health": 4,
+      "demographics": 8
+    },
+    "urban": {
+      "city": 30,
+      "lifestyle": 22,
+      "commuter_access": 16,
+      "jobs": 20,
+      "safety": 8,
+      "foundation": 6,
+      "health": 4
+    },
+    "expat_professional": {
+      "jobs": 22,
+      "lifestyle": 18,
+      "mobility": 18,
+      "city": 12,
+      "foundation": 12,
+      "safety": 10,
+      "health": 8
+    },
+    "healthcare_first": {
+      "health": 40,
+      "safety": 18,
+      "foundation": 12,
+      "mobility": 10,
+      "affordability": 8,
+      "quiet": 6,
+      "lifestyle": 4,
+      "tax": 2
+    },
+    "nature": {
+      "environment": 30,
+      "quiet": 12,
+      "safety": 12,
+      "affordability": 12,
+      "tax": 8,
+      "health": 8,
+      "services": 8,
+      "mobility": 4,
+      "demographics": 8,
+      "family": 2
+    },
+    "rural_value": {
+      "affordability": 26,
+      "environment": 22,
+      "safety": 14,
+      "quiet": 10,
+      "tax": 10,
+      "foundation": 8,
+      "health": 6,
+      "jobs": 4,
+      "demographics": 10
+    },
+    "hnw": {
+      "tax": 28,
+      "lifestyle": 20,
+      "foundation": 14,
+      "health": 12,
+      "safety": 10,
+      "quiet": 8,
+      "jobs": 4,
+      "mobility": 2,
+      "environment": 2
+    },
+    "swiss_lottery": {
+      "tax": 32,
+      "lifestyle": 20,
+      "foundation": 15,
+      "health": 11,
+      "safety": 10,
+      "environment": 6,
+      "mobility": 4,
+      "jobs": 2
+    },
+    "climate": {
+      "climaterisk": 30,
+      "environment": 14,
+      "safety": 14,
+      "health": 12,
+      "services": 10,
+      "affordability": 10,
+      "foundation": 6,
+      "mobility": 4,
+      "demographics": 8
+    },
+    "self_fit": {
+      "jobs": 18,
+      "lifestyle": 16,
+      "safety": 14,
+      "affordability": 14,
+      "foundation": 12,
+      "commuter_access": 10,
+      "health": 8,
+      "tax": 5,
+      "environment": 3
+    },
+    "coastal": {
+      "coast": 28,
+      "climate": 12,
+      "environment": 10,
+      "affordability": 10,
+      "health": 10,
+      "safety": 10,
+      "mobility": 8,
+      "services": 6,
+      "quiet": 6,
+      "demographics": 8
+    },
+    "business_owner": {
+      "jobs": 26,
+      "tax": 22,
+      "mobility": 18,
+      "commuter_access": 12,
+      "safety": 8,
+      "foundation": 8,
+      "lifestyle": 6
+    },
+    "digital_native": {
+      "city": 22,
+      "campus": 14,
+      "lifestyle": 14,
+      "affordability": 14,
+      "commuter_access": 12,
+      "jobs": 12,
+      "demographics": 6,
+      "mobility": 6
+    },
+    "biz_manufacturing": {
+      "focus": 35,
+      "freight": 30,
+      "flatland": 10,
+      "student_access": 15,
+      "safety": 10,
+      "cluster": 30
+    },
+    "biz_logistics": {
+      "domreach": 25,
+      "reach300": 15,
+      "freight": 30,
+      "focus": 20,
+      "flatland": 10,
+      "cluster": 30
+    },
+    "biz_tech": {
+      "focus": 30,
+      "student_access": 20,
+      "mobility": 25,
+      "lifestyle": 15,
+      "reach": 10,
+      "campus": 15,
+      "cluster": 20
+    },
+    "biz_services": {
+      "focus": 35,
+      "mobility": 25,
+      "student_access": 20,
+      "reach": 10,
+      "safety": 10,
+      "cluster": 15
+    },
+    "biz_lab": {
+      "student_access": 40,
+      "focus": 25,
+      "mobility": 25,
+      "lifestyle": 10,
+      "campus": 15,
+      "cluster": 20
+    },
+    "biz_hq": {
+      "mobility": 35,
+      "focus": 25,
+      "reach": 20,
+      "lifestyle": 20,
+      "cluster": 10
+    },
+    "biz_port_industry": {
+      "portaccess": 40,
+      "chempark": 20,
+      "freight": 15,
+      "focus": 15,
+      "flatland": 10,
+      "cluster": 30
+    },
+    "biz_shop": {
+      "foundation": 35,
+      "focus": 20,
+      "lifestyle": 15,
+      "mobility": 15,
+      "demographics": 5,
+      "safety": 10
+    },
+    "biz_cafe": {
+      "lifestyle": 30,
+      "foundation": 30,
+      "focus": 15,
+      "demographics": 10,
+      "mobility": 5,
+      "safety": 10
+    },
+    "biz_workshop": {
+      "affordability": 35,
+      "focus": 30,
+      "freight": 15,
+      "demographics": 20
+    },
+    "biz_practice": {
+      "focus": 20,
+      "demographics": 20,
+      "health": 20,
+      "affordability": 15,
+      "lifestyle": 15,
+      "safety": 10
+    },
+    "biz_studio": {
+      "lifestyle": 30,
+      "focus": 25,
+      "student_access": 20,
+      "mobility": 15,
+      "affordability": 10
+    },
+    "biz_startup": {
+      "student_access": 25,
+      "focus": 30,
+      "foundation": 20,
+      "lifestyle": 15,
+      "affordability": 10
+    },
+    "biz_guesthouse": {
+      "environment": 30,
+      "coast": 20,
+      "mobility": 20,
+      "lifestyle": 10,
+      "affordability": 10,
+      "safety": 10
+    },
+    "biz_energy_intensive": {
+      "freight": 25,
+      "focus": 30,
+      "chempark": 15,
+      "portaccess": 15,
+      "flatland": 10,
+      "student_access": 5,
+      "cluster": 30
+    },
+    "biz_datacenter": {
+      "mobility": 30,
+      "focus": 35,
+      "climaterisk": 20,
+      "flatland": 15
+    },
+    "biz_pharma_production": {
+      "student_access": 30,
+      "focus": 30,
+      "mobility": 25,
+      "freight": 10,
+      "safety": 5,
+      "campus": 15,
+      "cluster": 25
+    },
+    "biz_food_processing": {
+      "freight": 35,
+      "focus": 35,
+      "reach": 20,
+      "flatland": 10,
+      "cluster": 25
+    },
+    "biz_fulfilment": {
+      "reach": 40,
+      "freight": 25,
+      "focus": 25,
+      "flatland": 10,
+      "cluster": 20
+    },
+    "biz_contact_center": {
+      "focus": 45,
+      "student_access": 30,
+      "mobility": 25,
+      "cluster": 10
+    },
+    "biz_bank": {
+      "finhub": 40,
+      "focus": 20,
+      "mobility": 25,
+      "lifestyle": 15,
+      "cluster": 20
+    },
+    "biz_wealth": {
+      "wealthhub": 40,
+      "mobility": 25,
+      "lifestyle": 15,
+      "quiet": 10,
+      "focus": 10,
+      "cluster": 15
+    },
+    "biz_broker": {
+      "finhub": 35,
+      "fundhub": 10,
+      "focus": 20,
+      "student_access": 10,
+      "mobility": 25,
+      "cluster": 20
+    },
+    "biz_insurer": {
+      "insurhub": 40,
+      "focus": 25,
+      "reach": 10,
+      "mobility": 25,
+      "cluster": 20
+    },
+    "biz_fund": {
+      "fundhub": 45,
+      "focus": 25,
+      "mobility": 20,
+      "lifestyle": 10,
+      "cluster": 15
+    },
+    "biz_commodity": {
+      "commodhub": 45,
+      "mobility": 25,
+      "focus": 15,
+      "lifestyle": 15,
+      "cluster": 15
+    },
+    "biz_crypto": {
+      "cryptohub": 40,
+      "focus": 20,
+      "student_access": 15,
+      "mobility": 15,
+      "lifestyle": 10,
+      "cluster": 10
+    },
+    "biz_swf": {
+      "finhub": 45,
+      "mobility": 30,
+      "focus": 15,
+      "lifestyle": 10,
+      "cluster": 10
+    },
+    "outdoor": {
+      "outdoor": 35,
+      "environment": 15,
+      "quiet": 10,
+      "safety": 10,
+      "health": 8,
+      "services": 8,
+      "affordability": 8,
+      "mobility": 6,
+      "demographics": 8
+    },
+    "cross_border": {
+      "border": 35,
+      "affordability": 14,
+      "services": 13,
+      "safety": 12,
+      "mobility": 12,
+      "commuter_access": 8,
+      "tax": 6
+    },
+    "biz_finance": {
+      "finhub": 40,
+      "focus": 20,
+      "mobility": 25,
+      "lifestyle": 15,
+      "cluster": 20
+    },
+    "biz_semis": {
+      "campus": 20,
+      "focus": 25,
+      "mobility": 20,
+      "freight": 10,
+      "flatland": 15,
+      "climaterisk": 10,
+      "cluster": 25
+    },
+    "biz_auto": {
+      "freight": 25,
+      "reach300": 15,
+      "focus": 30,
+      "flatland": 15,
+      "student_access": 5,
+      "domreach": 10,
+      "cluster": 30
+    },
+    "biz_aero": {
+      "mobility": 25,
+      "campus": 15,
+      "student_access": 10,
+      "focus": 25,
+      "flatland": 15,
+      "freight": 10,
+      "cluster": 25
+    },
+    "biz_cleantech": {
+      "focus": 30,
+      "flatland": 20,
+      "freight": 20,
+      "chempark": 10,
+      "climaterisk": 10,
+      "reach300": 10,
+      "cluster": 15
+    },
+    "biz_media": {
+      "city": 25,
+      "lifestyle": 20,
+      "campus": 15,
+      "mobility": 15,
+      "focus": 25,
+      "cluster": 20
+    },
+    "biz_clinic": {
+      "reach": 25,
+      "demographics": 20,
+      "focus": 25,
+      "mobility": 15,
+      "health": 15,
+      "cluster": 10
+    },
+    "sun_retiree": {
+      "climate": 28,
+      "coast": 18,
+      "health": 16,
+      "safety": 12,
+      "affordability": 10,
+      "services": 8,
+      "mobility": 8,
+      "demographics": 8
+    }
+  }
+}

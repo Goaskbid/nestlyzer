@@ -1,4 +1,5 @@
 // Copies only what visitors need into a publish folder (default: _site). Used by CI and by package.py.
+import {createRequire} from 'node:module';
 import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.resolve(ROOT, process.argv[2] || '_site');
@@ -13,6 +14,7 @@ const protectedRoots = [...dirs, 'src', 'build', 'tools', 'tests', '.git', '.git
 if (!relOut || relOut.startsWith('..') || path.isAbsolute(relOut) || process.argv.length > 3 || (process.argv[2] || '').startsWith('-') || protectedRoots.some(d => relOut === d || relOut.startsWith(d + path.sep))) throw new Error('Unsafe public-output destination: ' + OUT);
 for (let q = OUT; q !== ROOT; q = path.dirname(q)) { if (fs.existsSync(q) && fs.lstatSync(q).isSymbolicLink()) throw new Error('Symlink in public-output path'); }
 if (!fs.existsSync(path.join(ROOT, 'index.html')) || !fs.existsSync(path.join(ROOT, 'sitemap.xml'))) throw new Error('Build the complete source site before publishing');
+console.log('Evidence Lab release gate:', JSON.stringify(createRequire(import.meta.url)('./validate_evidence_lab_release.cjs').verify(ROOT)));
 console.log('Generated-page deduplication:', JSON.stringify(optimize(ROOT)));
 fs.rmSync(OUT, { recursive: true, force: true }); fs.mkdirSync(OUT, { recursive: true });
 let n = 0, bytes = 0;

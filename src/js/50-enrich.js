@@ -131,7 +131,7 @@ function regionContext(r) {
   })(0);
 }
 /* Coats of arms never load automatically or through guessed filenames. */
-function identity(r,e){var box=$('[data-ids]');if(!box||box.dataset.done)return;box.dataset.done='1';box.innerHTML=flagImg(r.country)+' <button class="chip" type="button" data-arms="'+esc(r.id)+'">Load coat of arms</button>';}
+function identity(r,e){var box=$('[data-ids]');if(!box||box.dataset.ids!==r.id)return; NZCardUI.hydrateEmblems(box);}
 function contact(r, e) {
   var el = $('[data-contact]'); if (!el) return;
   var web = claim(e, 'P856'), mail = claim(e, 'P968'), tel = claim(e, 'P1329'), ig = claim(e, 'P2003'), addr = claim(e, 'P6375'), coord = claim(e, 'P625');

@@ -353,7 +353,7 @@ def main():
         'expat_professional': ({'jobs': 22, 'lifestyle': 18, 'mobility': 18, 'city': 12, 'foundation': 12, 'safety': 10, 'health': 8}, 5000),
         'student': ({'unitown': 30, 'campus': 25, 'city': 10, 'lifestyle': 10, 'student_access': 10, 'affordability': 10, 'safety': 5}, 10000),
         'climate': ({'climaterisk': 30, 'environment': 14, 'safety': 14, 'health': 12, 'services': 10, 'affordability': 10, 'foundation': 6, 'mobility': 4}, 2000),
-        'nature': ({'environment': 30, 'quiet': 12, 'safety': 12, 'affordability': 12, 'tax': 8, 'health': 8, 'services': 8, 'mobility': 4, 'demographics': 4, 'family': 2}, 800),
+        'nature': ({'environment': 22, 'outdoor': 16, 'quiet': 12, 'safety': 12, 'affordability': 10, 'tax': 6, 'health': 8, 'services': 6, 'mobility': 4, 'demographics': 2, 'family': 2}, 800),   # 2.15.23: mountains and outdoor access count for nature lovers (Davos, Engadin were ranked below lowland suburbs)
         'rural_value': ({'affordability': 26, 'environment': 22, 'safety': 14, 'quiet': 10, 'tax': 10, 'foundation': 8, 'health': 6, 'jobs': 4}, 800),
         'hnw': ({'tax': 28, 'lifestyle': 20, 'foundation': 14, 'health': 12, 'safety': 10, 'quiet': 8, 'jobs': 4, 'mobility': 2, 'environment': 2}, 1000),
         'healthcare_first': ({'health': 40, 'safety': 18, 'foundation': 12, 'mobility': 10, 'affordability': 8, 'quiet': 6, 'lifestyle': 4, 'tax': 2}, 2000),

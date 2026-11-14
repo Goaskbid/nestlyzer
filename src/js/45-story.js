@@ -228,21 +228,28 @@ function whyHTML(r, xr) {
    (regional migration, regional population change, rents as a sign of demand, older residents for retiree profiles,
    regional employment for business). Nothing is invented: every line names its measure and its level. */
 var RETIRE_P = { pensioner: 1, single_pensioner: 1, early_retiree: 1, sun_retiree: 1, healthcare_first: 1 };
-function observedOf(r, biz) {
-  var f = r.factorRaw || {}, s = r.factorScores || {}, g = function (k) { return fin(f[k]) ? f[k] : null; }, v;
-  if (biz) {
-    if (fin(s['cluster_' + S.profile])) return { k: 'cluster', v: s['cluster_' + S.profile], lab: 'Existing industry presence', u: ' of 100', lvl: 'county', strong: 'firms of this kind already operate here', weak: 'little of this industry operates here yet' };
-    if ((v = g('n_employment_region')) != null) return { k: 'emp', v: v, lab: 'Employment rate in its region (no industry register here, so the labour market stands in)', u: '%', lvl: 'region', strong: 'the regional labour market is strong', weak: 'the regional labour market is weak' };
-    if ((v = g('n_unemployment_region')) != null) return { k: 'unemp', v: -v, show: v, lab: 'Unemployment in its region (stand-in for business activity)', u: '%', lvl: 'region', strong: 'regional unemployment is low', weak: 'regional unemployment is high' };
-    return null; }
-  var own = g('common_population_growth_5y'); if (own == null) own = g('population_growth_pct'); if (own == null && r.trend && fin(r.trend.population_5y_pct)) own = r.trend.population_5y_pct;
-  if (own != null) return { k: 'grow', v: own, lab: 'Population change of this place, 2019 to 2024', u: '%', sign: 1, lvl: 'place', strong: 'people are moving here or staying', weak: 'people are leaving' };
-  if (RETIRE_P[S.profile] && (v = g('n_age65_us')) != null) return { k: 'a65', v: v, lab: 'Share of residents aged 65+ (where retirees already live)', u: '%', lvl: 'place', strong: 'many retirees already live here', weak: 'few retirees live here' };
-  if ((v = g('n_net_migration_region')) != null) return { k: 'mig', v: v, lab: 'Net migration into its region (per 1,000 residents)', u: '', sign: 1, lvl: 'region', strong: 'people move into this region', weak: 'people leave this region' };
-  if ((v = g('n_pop_change_region')) != null) return { k: 'popr', v: v, lab: 'Population change of its region', u: '', sign: 1, lvl: 'region', strong: 'its region is growing', weak: 'its region is shrinking' };
-  var rk = ['n_rent_us', 'n_rent_net_m2_local', 'n_rent_m2_it', 'n_rent_flat_m2', 'n_rent_net_m2'].find(function (k) { return fin(f[k]); });
-  if (rk) return { k: 'rent:' + rk, v: f[rk], lab: 'Rent level (what people pay to live here, a sign of demand)', u: '', lvl: 'place', strong: 'demand to live here is high', weak: 'demand to live here is low' };
-  return null; }
+function evidenceLevel(r, k) { var l=(r.factorLevel||{})[k];return l===9?'country':l===3?'district or county':l===2?'region':l===1?'large region':'geographic support unresolved'; }
+function observedOfRaw(r, biz) {
+  var f=r.factorRaw||{},v,k;
+  if(biz){ k='cluster_'+S.profile;if(fin(f[k]))return {k:k,v:f[k],lab:'Industry concentration (location quotient)',u:' location quotient',lvl:evidenceLevel(r,k),period:'',note:'Existing concentration is not new investment, business success or site feasibility. It may also be an input to this profile.'};return null; }
+  var ap=r.trend&&r.trend.annual_population;
+  if(r.country==='CH'&&Array.isArray(ap)){var a=ap.filter(function(x){return x.year===2019&&fin(x.population)&&x.population>0}),b=ap.filter(function(x){return x.year===2024&&fin(x.population)&&x.population>=0});
+   if(a.length===1&&b.length===1)return {k:'population_2019_2024',v:100*(b[0].population/a[0].population-1),lab:'Resident population change',u:'%',lvl:'municipality',period:'2019-2024',note:'Calculated from retained annual counts. Births, deaths, migration and boundary changes can affect growth; this is not migration by profile.'}; }
+  if(fin(f.common_population_growth_5y))return {k:'common_population_growth_5y',v:f.common_population_growth_5y,lab:'Population change',u:'%',lvl:evidenceLevel(r,'common_population_growth_5y'),period:'2019-2024 in the factor definition; country source period needs reconciliation',note:'All-age context, not evidence that this profile chooses the place.'};
+  if(r.country==='CH'&&fin(f.population_growth_pct))return {k:'population_growth_pct',v:f.population_growth_pct,lab:'Population change',u:'%',lvl:'municipality',period:'2010-2019',note:'Historical all-age context, not profile-specific movement.'};
+  if(RETIRE_P[S.profile]&&fin(f.n_age65_us))return {k:'n_age65_us',v:f.n_age65_us,lab:'Residents aged 65 and over',u:'%',lvl:evidenceLevel(r,'n_age65_us'),period:'',note:'Age share is a population stock, not pension receipt or retiree migration. It is not a ranking-validation outcome.'};
+  if(fin(f.n_net_migration_region))return {k:'n_net_migration_region',v:f.n_net_migration_region,lab:'Net migration into the region',u:' (source units)',lvl:evidenceLevel(r,'n_net_migration_region'),period:'',note:'All-age regional context. Unit and period require the source contract; it cannot certify this municipality or profile.'};
+  return null;
+}
+/* 2.15.23: exact, period-correct outcomes (Swiss annual series first; historical 2010-2019 change labelled as such;
+   age share and industry quotient never called migration), plus plain words for the verdict */
+var OBS_WORDS = { strongH: 'people are moving here or staying', weakH: 'people are leaving', strongB: 'firms of this kind already operate here', weakB: 'little of this industry operates here yet',
+  strongA: 'many older residents already live here', weakA: 'few older residents live here' };
+function observedOfDecorated(r, biz) { var o = observedOfRaw(r, biz); if (!o) return null;
+  var age = /age65/.test(o.k), ind = /^cluster_/.test(o.k);
+  o.sign = !age && !ind ? 1 : 0; o.strong = ind ? OBS_WORDS.strongB : age ? OBS_WORDS.strongA : OBS_WORDS.strongH; o.weak = ind ? OBS_WORDS.weakB : age ? OBS_WORDS.weakA : OBS_WORDS.weakH;
+  o.lab2 = o.lab + (o.period ? ', ' + o.period : ''); return o; }
+function observedOf(r, biz) { return observedOfDecorated(r, biz); }
 var OBSV = {};
 function evidenceHTML(r, xr) {
   var biz = !!(META.config.profiles[S.profile] || {}).business, o = observedOf(r, biz), ranked = RES && RES.byId[r.id], x = xr || placeX(r);
@@ -252,14 +259,29 @@ function evidenceHTML(r, xr) {
   if (!OBSV[k]) { OBSV = {}; OBSV[k] = (RES ? RES.scored : []).map(function (s) { var q = observedOf(s.r, biz); return q && q.k === o.k ? q.v : null; }).filter(fin).sort(function (a, b) { return a - b; }); }
   var v = OBSV[k], lo = 0, hi = v.length; while (lo < hi) { var m = (lo + hi) >> 1; if (v[m] < o.v) lo = m + 1; else hi = m; }
   var q = v.length > 1 ? lo / (v.length - 1) : 0.5, n = RES ? RES.scored.length : 0, rq = ranked && n ? ranked.rank / n : null, sv = o.show != null ? o.show : o.v;
-  var fact = o.lab + ': ' + (o.sign && sv > 0 ? '+' : '') + (Math.round(sv * 10) / 10).toLocaleString('en-GB') + o.u + ', ' + (q >= 0.8 ? 'among the strongest fifth' : q >= 0.6 ? 'above the middle' : q > 0.4 ? 'around the middle' : q > 0.2 ? 'below the middle' : 'among the weakest fifth') + ' of ' + fmtInt(v.length) + ' places with this measure here.' + (o.lvl !== 'place' ? ' Measured for the ' + o.lvl + ', not the place itself.' : '');
-  var cats = function (asc) { return weightedCats(x, asc, 2).map(function (c) { return shortCat(c[0]) + ' ' + Math.round(c[1]); }).join(', '); };
-  var verdict, cls;
-  if (rq == null) { verdict = 'Not ranked for this profile here, so there is no rank to test; the observed signal: ' + (q >= 0.5 ? o.strong : o.weak) + '.'; cls = 'ev-n'; }
-  else if (rq <= 0.33 && q >= 0.6) { verdict = 'The evidence agrees: ranked in the top third, and ' + o.strong + '.'; cls = 'ev-ok'; }
-  else if (rq <= 0.33 && q <= 0.2) { verdict = 'The evidence disagrees: ranked #' + ranked.rank + ', yet ' + o.weak + '. ' + (biz ? 'It may be a greenfield option; check premises, labour and permits first.' : 'Its weakest points (' + cats(true) + ') are a likely reason. Check this before relying on the rank.'); cls = 'ev-no'; }
-  else if (rq > 0.5 && q >= 0.9) { verdict = 'A surprise: ranked in the lower half, yet ' + o.strong + '. Its strongest points (' + cats(false) + ') may explain it' + (biz ? '.' : '; new housing or prices can also drive this.'); cls = 'ev-sur'; }
-  else if (rq > 0.5 && q <= 0.4) { verdict = 'The evidence agrees: ranked in the lower half, and ' + o.weak + '.'; cls = 'ev-ok'; }
-  else { verdict = 'Rank and evidence point the same way or are neutral.'; cls = 'ev-ok'; }
-  return head + '<p class="' + cls + '"><b>' + esc(verdict) + '</b></p><p class="small muted">' + esc(fact) + ' Agreement, not proof. <a href="/evidence-lab/">Evidence Lab</a></p>' + tail;
+  var fact = (o.lab2 || o.lab) + ': ' + (o.sign && sv > 0 ? '+' : '') + (Math.round(sv * 10) / 10).toLocaleString('en-GB') + o.u + ', ' + (q >= 0.8 ? 'among the strongest fifth' : q >= 0.6 ? 'above the middle' : q > 0.4 ? 'around the middle' : q > 0.2 ? 'below the middle' : 'among the weakest fifth') + ' of ' + fmtInt(v.length) + ' places with this measure here.' + (o.lvl !== 'place' ? ' Measured for the ' + o.lvl + ', not the place itself.' : '');
+  var w = ENGINE.weightsFor(r, S.profile), tw = 0, wk; for (wk in w) tw += w[wk];
+  var share = w.observed && tw ? Math.round(w.observed / tw * 100) : 0, own = o.k === 'cluster' ? 'cluster' : 'observed';
+  var cls = q >= 0.6 ? 'ev-ok' : q <= 0.2 ? 'ev-lo' : 'ev-n';
+  var verdict = q >= 0.6 ? 'Backed by what really happens: ' + o.strong + '.' : q <= 0.2 ? 'Weaker on what really happens: ' + o.weak + '.' : 'Observed reality is in the middle range here.';
+  var counts = own === 'cluster' ? 'Existing industry counts in this score.' : share ? 'It counts ' + share + '% of this score.' : '';
+  return head + '<p class="' + cls + '"><b>' + esc(verdict) + '</b> ' + esc(counts) + '</p>' + evChart(v, o.v, sv, o, q) +
+    '<p class="small muted">' + (!/municipal|place/.test(o.lvl) ? esc('Measured at ' + o.lvl + ' level, not for the place itself. ') : '') + 'Agreement, not proof. <a href="/evidence-lab/">Evidence Lab</a></p>' + tail;
+}
+
+/* 2.15.22 evidence charts: where this place sits among all places with the same measure, and its rank next to its evidence */
+function evChart(v, x, shown, o, q) {
+  if (!v || v.length < 10) return '';
+  var lo = v[Math.floor(v.length * 0.02)], hi = v[Math.floor(v.length * 0.98)]; if (!(hi > lo)) return '';
+  var N = 24, bins = new Array(N).fill(0), i; v.forEach(function (y) { var b = Math.floor((Math.min(hi, Math.max(lo, y)) - lo) / (hi - lo) * N); bins[Math.min(N - 1, b)]++; });
+  var mx = Math.max.apply(null, bins), W = 300, H = 64, bw = W / N, px = Math.max(2, Math.min(W - 2, (Math.min(hi, Math.max(lo, x)) - lo) / (hi - lo) * W)), svg = '';
+  for (i = 0; i < N; i++) { var h = Math.max(1, bins[i] / mx * (H - 16)), mid = lo + (i + 0.5) / N * (hi - lo); svg += '<rect x="' + (i * bw + 1).toFixed(1) + '" y="' + (H - 12 - h).toFixed(1) + '" width="' + (bw - 2).toFixed(1) + '" height="' + h.toFixed(1) + '" fill="' + scoreColor(Math.round((i + 0.5) / N * 100)) + '" opacity=".55"/>'; }
+  svg += '<line x1="' + px.toFixed(1) + '" x2="' + px.toFixed(1) + '" y1="2" y2="' + (H - 12) + '" stroke="var(--ink,#132238)" stroke-width="2"/><circle cx="' + px.toFixed(1) + '" cy="4" r="4" fill="var(--ink,#132238)"/>';
+  var f = function (y) { return (o.sign && y > 0 ? '+' : '') + (Math.round(y * 10) / 10).toLocaleString('en-GB') + o.u; };
+  svg += '<text x="0" y="' + (H - 1) + '" font-size="10" fill="currentColor" opacity=".7">' + esc(f(o.show != null ? -lo : lo)) + '</text><text x="' + W + '" y="' + (H - 1) + '" font-size="10" text-anchor="end" fill="currentColor" opacity=".7">' + esc(f(o.show != null ? -hi : hi)) + '</text>';
+  return '<figure class="evfig"><svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc((o.lab2 || o.lab) + ': this place ' + f(shown) + ', higher than ' + Math.round(q * 100) + '% of places') + '">' + svg + '</svg><figcaption>' + esc((o.lab2 || o.lab).replace(/ \(.*$/, '')) + ': this place <b>' + esc(f(shown)) + '</b>, higher than ' + Math.round(q * 100) + '% of places here</figcaption></figure>';
+}
+function evBars(rp, q, rank, n) {
+  var bar = function (lab, p, txt) { p = Math.max(0, Math.min(1, p)); return '<div class="evb"><span>' + lab + '</span><i><b style="width:' + Math.round(p * 100) + '%;background:' + scoreColor(Math.round(p * 100)) + '"></b></i><em>' + txt + '</em></div>'; };
+  return '<div class="evbars">' + bar('Rank', rp, '#' + rank + ' of ' + fmtInt(n)) + bar('Evidence', q, 'top ' + Math.max(1, Math.round((1 - q) * 100)) + '%') + '</div>';
 }

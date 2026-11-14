@@ -1,0 +1,835 @@
+{
+  "schema": "nz-property-factors-1",
+  "version": "candidate-2026-11-13",
+  "count": 46,
+  "policy": "New definitions are not acquired observations or active scoring weights. Display matched retained values, collect gaps, validate before score promotion.",
+  "factors": [
+    {
+      "id": "housing_rent_paid_mean",
+      "name": "Average contracted rent",
+      "group": "residential_costs",
+      "unit": "local currency/dwelling/month",
+      "definition": "Arithmetic mean rent actually paid, with dwelling size and included services specified.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "lower costs can help; not interchangeable with asking rent",
+      "source_families": [
+        "FSO_housing",
+        "national_housing_statistics"
+      ],
+      "existing_factor_ids": [
+        "n_rent_paid_mean"
+      ],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_rent_paid_median",
+      "name": "Median contracted rent",
+      "group": "residential_costs",
+      "unit": "local currency/dwelling/month",
+      "definition": "Median paid rent for a specified tenure and dwelling cohort.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "a distribution statistic, not a mean",
+      "source_families": [
+        "Census_ACS",
+        "national_housing_statistics"
+      ],
+      "existing_factor_ids": [
+        "n_rent_us",
+        "n_rent_au",
+        "n_rent_ca"
+      ],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_rent_net_m2",
+      "name": "Net rent per square metre",
+      "group": "residential_costs",
+      "unit": "local currency/m2/month",
+      "definition": "Paid net rent divided by the source-defined dwelling floor area.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "compare like size, condition and location",
+      "source_families": [
+        "national_housing_statistics"
+      ],
+      "existing_factor_ids": [
+        "n_rent_net_m2",
+        "n_rent_net_m2_local"
+      ],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_rent_asking_m2",
+      "name": "Asking rent per square metre",
+      "group": "residential_costs",
+      "unit": "local currency/m2/month",
+      "definition": "Quoted rent for advertised dwellings, not all occupied stock.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "new-arrival access context; listing-selection bias",
+      "source_families": [
+        "official_rent_observatories"
+      ],
+      "existing_factor_ids": [
+        "n_rent_flat_m2",
+        "n_rent_flat12_m2",
+        "n_rent_flat3_m2",
+        "n_rent_house_m2"
+      ],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_new_lease_rent",
+      "name": "New-lease rent",
+      "group": "residential_costs",
+      "unit": "local currency/dwelling/month",
+      "definition": "Executed rent for leases commencing in the stated period.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "more relevant to newcomers than old tenancies",
+      "source_families": [
+        "official_rent_observatories"
+      ],
+      "existing_factor_ids": [
+        "n_rent_new_lease"
+      ],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_vacancy_all",
+      "name": "Residential vacancy",
+      "group": "housing_access",
+      "unit": "percent",
+      "definition": "Source-defined vacant dwellings divided by its specified total dwelling stock.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "availability and weak demand are different; no universal higher-is-better",
+      "source_families": [
+        "FSO_empty_dwellings",
+        "Census_HVS"
+      ],
+      "existing_factor_ids": [
+        "vacancy_rate_balance"
+      ],
+      "limits": "Swiss existing binding is mainly 2019, not current. Do not relabel total vacancies as rental vacancies.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_vacancy_rental",
+      "name": "Rental vacancy",
+      "group": "housing_access",
+      "unit": "percent",
+      "definition": "Vacant units available to rent divided by the matching rental inventory.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "separate from for-sale, seasonal and uninhabitable vacancies",
+      "source_families": [
+        "Census_ACS",
+        "Census_HVS",
+        "national_housing_statistics"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_rent_yoy",
+      "name": "One-year rent change",
+      "group": "residential_costs",
+      "unit": "percent",
+      "definition": "Change between comparable rental observations at exact one-year endpoints.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "nominal and real series separate; composition effects disclosed",
+      "source_families": [
+        "national_rent_indices"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_rent_3y_cagr",
+      "name": "Three-year rental trend",
+      "group": "residential_costs",
+      "unit": "percent/year",
+      "definition": "Annualised change over exact three-year comparable endpoints.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "no annualised trend from mismatched cohorts",
+      "source_families": [
+        "national_rent_indices"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_vacancy_change",
+      "name": "Vacancy-rate change",
+      "group": "housing_access",
+      "unit": "percentage points",
+      "definition": "End-period vacancy rate minus start-period rate for identical stock and geography.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "not percent growth",
+      "source_families": [
+        "FSO_empty_dwellings",
+        "Census_HVS"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_renter_income",
+      "name": "Disposable renter-household income",
+      "group": "residential_resources",
+      "unit": "local currency/household/year",
+      "definition": "Income after tax for the renter households relevant to the rent observation.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "do not substitute per-capita or equivalised income",
+      "source_families": [
+        "EU_SILC",
+        "national_household_statistics"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_cost_burden",
+      "name": "Observed housing-cost burden",
+      "group": "residential_costs",
+      "unit": "percent of household income",
+      "definition": "Observed cost/income ratio or distribution for matched households.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "use source population and income concept",
+      "source_families": [
+        "Census_ACS",
+        "EU_SILC"
+      ],
+      "existing_factor_ids": [
+        "n_housing_burden_us"
+      ],
+      "limits": "A share of households above a threshold is not the average rent/income ratio.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_cost_overburden",
+      "name": "Housing-cost overburden share",
+      "group": "residential_costs",
+      "unit": "percent of persons or households",
+      "definition": "Share above the source-specific burden threshold.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "EU-SILC over 40% disposable income is distinct from US thresholds",
+      "source_families": [
+        "EU_SILC",
+        "Census_ACS"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_area_ratio",
+      "name": "Area rent/income comparison",
+      "group": "residential_context",
+      "unit": "percent",
+      "definition": "Annualised area rent statistic divided by an area income statistic, only with disclosed comparability.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "context ratio, never an observed household burden",
+      "source_families": [
+        "national_household_statistics"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_total_cost",
+      "name": "All-in housing costs",
+      "group": "residential_costs",
+      "unit": "local currency/household/month",
+      "definition": "Rent, required service charges, energy and mandatory occupancy costs in a fixed scenario.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "show components; do not double count alongside rent burden",
+      "source_families": [
+        "official_tariff_sources",
+        "national_housing_statistics"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_residual_income",
+      "name": "Income left after essential costs",
+      "group": "residential_resources",
+      "unit": "local currency/household/month",
+      "definition": "Fixed household-case disposable income minus housing, travel, childcare and other defined necessities.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "standard scenario with visible assumptions; not personalised advice",
+      "source_families": [
+        "official_tariff_sources",
+        "national_household_statistics"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_new_supply",
+      "name": "New housing supply",
+      "group": "housing_access",
+      "unit": "completed dwellings/1000 residents",
+      "definition": "Completed and usable dwellings, separate from permissions and announced projects.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "supply response context",
+      "source_families": [
+        "FSO_housing",
+        "national_construction_statistics"
+      ],
+      "existing_factor_ids": [
+        "new_housing_per_1000"
+      ],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_size_suitability",
+      "name": "Suitable dwelling availability",
+      "group": "housing_access",
+      "unit": "percent or dwellings",
+      "definition": "Available dwellings matching the selected fixed-profile room/accessibility needs.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "do not infer from population or total housing count",
+      "source_families": [
+        "national_housing_statistics"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_childcare_net",
+      "name": "Childcare cost and available capacity",
+      "group": "essential_services",
+      "unit": "local currency/month; available places",
+      "definition": "Fixed-case childcare bill and separately measured available capacity/opening hours.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "a low fee is not a guaranteed place",
+      "source_families": [
+        "municipal_childcare_sources"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_commute_cost_time",
+      "name": "Essential journey time and cost",
+      "group": "essential_services",
+      "unit": "minutes; local currency/month",
+      "definition": "Actual usable routes to profile-relevant destinations and fixed travel-cost case.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "straight-line distance is labelled separately",
+      "source_families": [
+        "official_transit_schedules",
+        "transport_authorities"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_accessible_supply",
+      "name": "Step-free housing availability",
+      "group": "housing_access",
+      "unit": "percent of suitable dwellings",
+      "definition": "Usable accessible housing supply with source definition and inspection basis.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "not age share or general housing stock",
+      "source_families": [
+        "national_housing_statistics"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_energy_condition",
+      "name": "Building energy performance",
+      "group": "residential_costs",
+      "unit": "source-native rating; kWh/m2/year",
+      "definition": "Published certificate or measured consumption with stock and weather basis.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "certificate, model and measured consumption stay distinct",
+      "source_families": [
+        "official_energy_certificate_registers"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_noise_exposure",
+      "name": "Residential noise exposure",
+      "group": "essential_services",
+      "unit": "dB; percent residents exposed",
+      "definition": "Mapped or measured exposure by source, day/night metric and time.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "unknown noise must not become quiet=100",
+      "source_families": [
+        "official_noise_maps"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "housing_nature_access",
+      "name": "Usable green and outdoor access",
+      "group": "essential_services",
+      "unit": "minutes; accessible area",
+      "definition": "Accessible parks, woodland and alpine recreation separated from agricultural and inaccessible land.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "land cover does not establish public access",
+      "source_families": [
+        "official_land_cover",
+        "municipal_open_space_registers"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "business_rent_office",
+      "name": "Office rent",
+      "group": "commercial_premises",
+      "unit": "local currency/m2/year",
+      "definition": "Office rent for stated grade, location, stock and lease concept.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "asking, contracted, effective and prime rent separate",
+      "source_families": [
+        "official_commercial_property_statistics"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "business_rent_industrial",
+      "name": "Industrial and warehouse rent",
+      "group": "commercial_premises",
+      "unit": "local currency/m2/year",
+      "definition": "Rent for comparable industrial or warehouse premises including size and specification.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "do not use residential rent",
+      "source_families": [
+        "official_commercial_property_statistics"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "business_rent_retail_lab",
+      "name": "Retail and laboratory rent",
+      "group": "commercial_premises",
+      "unit": "local currency/m2/year",
+      "definition": "Use-specific rent, keeping retail, laboratories and other specialist premises in separate cohorts.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "not interchangeable sectors",
+      "source_families": [
+        "official_commercial_property_statistics"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "business_vacancy",
+      "name": "Commercial vacancy",
+      "group": "commercial_access",
+      "unit": "percent of rentable floorspace",
+      "definition": "Vacant lettable floor area divided by matching commercial stock.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "not empty-home rate; distinguish physically vacant from marketed availability",
+      "source_families": [
+        "official_commercial_property_statistics"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "business_availability",
+      "name": "Suitable commercial availability",
+      "group": "commercial_access",
+      "unit": "m2 available",
+      "definition": "Immediately usable and marketed supply matching the site specification.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "headline vacancies do not prove suitability",
+      "source_families": [
+        "official_industrial_site_registers"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "business_rent_trend",
+      "name": "Commercial rental trend",
+      "group": "commercial_premises",
+      "unit": "percent/year",
+      "definition": "Comparable same-use rent series with grade, location and incentives held consistent.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "prime index cannot stand in for all premises",
+      "source_families": [
+        "official_commercial_property_statistics"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "business_occupancy_cost",
+      "name": "Total occupancy cost",
+      "group": "commercial_premises",
+      "unit": "local currency/year",
+      "definition": "Base rent, service charges, property occupancy charges, required insurance and energy in a fixed case.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "lease incentives and nonrecoverable VAT treated explicitly",
+      "source_families": [
+        "official_commercial_property_statistics",
+        "official_tariff_sources"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "business_cost_turnover",
+      "name": "Occupancy cost relative to turnover",
+      "group": "business_resources",
+      "unit": "percent",
+      "definition": "Matched sector and establishment-size occupancy cost divided by turnover at the same statistical unit.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "do not mix local premises with multinational consolidated turnover",
+      "source_families": [
+        "Eurostat_SBS",
+        "national_business_register_statistics"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "business_cost_value_added",
+      "name": "Occupancy cost relative to value added",
+      "group": "business_resources",
+      "unit": "percent",
+      "definition": "Matched operating-unit occupancy cost divided by comparable value added.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "undefined for zero or negative denominator",
+      "source_families": [
+        "Eurostat_SBS",
+        "national_business_register_statistics"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "business_cost_per_worker",
+      "name": "Premises cost per worker",
+      "group": "commercial_premises",
+      "unit": "local currency/FTE/year",
+      "definition": "Same establishment cohort occupancy cost divided by full-time-equivalent labour.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "not an area-wide rent/wage ratio",
+      "source_families": [
+        "Eurostat_SBS",
+        "national_business_register_statistics"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "business_labour_cost",
+      "name": "Employer labour cost",
+      "group": "business_resources",
+      "unit": "local currency/hour or FTE/year",
+      "definition": "Occupation/sector employer costs including employer contributions and consistent paid-hours definition.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "wages alone omit employer costs",
+      "source_families": [
+        "Eurostat_labour_cost",
+        "national_earnings_statistics"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "business_labour_availability",
+      "name": "Relevant labour availability",
+      "group": "business_resources",
+      "unit": "persons; vacancies; fill-time",
+      "definition": "Occupation-specific workforce and recruitment conditions within the practical catchment.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "total population is not qualified labour availability",
+      "source_families": [
+        "official_labour_statistics"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "business_power_delivery",
+      "name": "Deliverable power and connection delay",
+      "group": "business_feasibility",
+      "unit": "MW; months",
+      "definition": "Dated provider evidence for capacity available to the site and connection delivery conditions.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "mandatory gate for power-intensive profiles; not offset by cheap rent",
+      "source_families": [
+        "grid_operators",
+        "industrial_zone_authorities"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "business_power_cost_reliability",
+      "name": "Electricity cost and reliability",
+      "group": "business_feasibility",
+      "unit": "local currency/kWh; outage hours/year",
+      "definition": "Industrial customer tariff and measured interruption metrics for the service area.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "tariff is not deliverable connection capacity",
+      "source_families": [
+        "energy_regulators",
+        "grid_operators"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "business_water_process",
+      "name": "Industrial water and wastewater capacity",
+      "group": "business_feasibility",
+      "unit": "m3/day; local currency/m3",
+      "definition": "Dated supply/discharge rights, capacity, treatment and tariff for the activity.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "no household-price substitution",
+      "source_families": [
+        "utilities",
+        "permit_authorities"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "business_broadband",
+      "name": "Enterprise connectivity",
+      "group": "business_feasibility",
+      "unit": "Mbps; milliseconds; availability",
+      "definition": "Serviceable business connectivity, redundancy, latency and service commitments.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "nominal residential coverage is not an enterprise SLA",
+      "source_families": [
+        "telecom_regulators",
+        "network_operators"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "business_permit_lead_time",
+      "name": "Permits and permitted use",
+      "group": "business_feasibility",
+      "unit": "months; permission state",
+      "definition": "Source-backed process duration and dated site/activity permissions.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "required conditions remain unknown until evidenced",
+      "source_families": [
+        "planning_authorities"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "business_freight_reliability",
+      "name": "Freight access and reliability",
+      "group": "business_feasibility",
+      "unit": "minutes; time variability",
+      "definition": "Usable road/rail/port routes, handling compatibility and reliability.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "not main-line distance without a usable freight terminal",
+      "source_families": [
+        "transport_authorities",
+        "port_authorities"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "business_cluster_operations",
+      "name": "Operating sector activity",
+      "group": "business_resources",
+      "unit": "jobs; establishments; LQ",
+      "definition": "Actual local operating units and sector employment by native classification and period.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "registration addresses and announcements stay separate",
+      "source_families": [
+        "Eurostat_SBS",
+        "national_business_register_statistics"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "business_survival_expansion",
+      "name": "Business survival and expansion outcomes",
+      "group": "business_outcomes",
+      "unit": "percent; establishments",
+      "definition": "Cohort-matched survival, closures, expansion and opened capacity.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "independent validation target; avoid score-input leakage",
+      "source_families": [
+        "official_business_demography"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "business_hazard_insurance",
+      "name": "Operational hazard and insurance exposure",
+      "group": "business_feasibility",
+      "unit": "source-native hazard; local currency/year",
+      "definition": "Relevant flood/heat/fire and insurance availability/cost for the location or site.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "source resolution and uncertainty remain explicit",
+      "source_families": [
+        "official_hazard_maps",
+        "insurance_regulators"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    },
+    {
+      "id": "business_staff_housing",
+      "name": "Housing feasibility for employees",
+      "group": "workforce_context",
+      "unit": "local currency; percent burden",
+      "definition": "Residential access and commuting context for fixed worker cohorts.",
+      "initial_role": "display_and_research_only",
+      "scoring_promotion": "requires cohort-matched held-out validation and current Evidence Lab benchmark gate",
+      "interpretation": "staff attraction context, never substituted for factory rent",
+      "source_families": [
+        "national_housing_statistics",
+        "official_labour_statistics"
+      ],
+      "existing_factor_ids": [],
+      "limits": "Preserve exact period, geographic support, stock, statistic and source lineage. Missing is not zero.",
+      "score_eligible": false
+    }
+  ],
+  "references": [
+    {
+      "id": "Swiss_flag",
+      "url": "https://www.aboutswitzerland.eda.admin.ch/en/swiss-flag",
+      "use": "Square flag and cross proportions; not emblem asset rights."
+    },
+    {
+      "id": "FSO_housing",
+      "url": "https://statistik.admin.ch/en/topics/querschnittsthemen/housing-switzerland",
+      "use": "Housing, average rent and vacancy definitions."
+    },
+    {
+      "id": "FSO_empty_dwellings",
+      "url": "https://statistik.admin.ch/en/news/2026-0221",
+      "use": "Official vacancy-release route, including municipality tables. No new numerical payload acquired."
+    },
+    {
+      "id": "Census_ACS",
+      "url": "https://api.census.gov/data/2023/acs/acs1/groups/B25070.html",
+      "use": "Rent/income distribution table definition; B25064 is median gross rent."
+    },
+    {
+      "id": "Census_HVS",
+      "url": "https://www.census.gov/housing/hvs/definitions.html",
+      "use": "Preserve source-specific rental inventory and denominator."
+    },
+    {
+      "id": "EU_SILC",
+      "url": "https://ec.europa.eu/eurostat/cache/digpub/housing/bloc-2b.html?lang=en",
+      "use": "Housing-cost overburden uses over 40 percent of disposable household income."
+    },
+    {
+      "id": "Eurostat_SBS",
+      "url": "https://ec.europa.eu/eurostat/cache/metadata/en/sbs_esms.htm",
+      "use": "Enterprise vs local-unit definitions and comparable turnover/value-added bases."
+    },
+    {
+      "id": "UK_VOA",
+      "url": "https://www.gov.uk/guidance/how-non-domestic-property-including-plant-and-machinery-is-valued",
+      "use": "Rateable value is not actual rent or the business-rate bill."
+    }
+  ]
+}

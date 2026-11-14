@@ -47,7 +47,7 @@ function scoreColor(v) {
   if (!fin(v)) return cs.getPropertyValue('--novalue').trim();
   return v >= 85 ? stops[5] : v >= 72 ? stops[4] : v >= 60 ? stops[3] : v >= 48 ? stops[2] : v >= 34 ? stops[1] : stops[0];
 }
-function scoreBadge(v) { var c = scoreColor(v); return '<span class="score" style="background:' + c + ';color:' + inkOn(c) + '" title="Score ' + (fin(v) ? Math.round(v) : '–') + ' of 100">' + (fin(v) ? Math.round(v) : '–') + '</span>'; }
+function scoreBadge(v) { if (!fin(v)) return '<span class="score score-unavailable" role="status">Not scored</span>'; var c = scoreColor(v); return '<span class="score" style="background:' + c + ';color:' + inkOn(c) + '" title="Score ' + (fin(v) ? Math.round(v) : '–') + ' of 100">' + (fin(v) ? Math.round(v) : '–') + '</span>'; }
 var ICON = {
   search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>',
   close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>',
@@ -74,7 +74,7 @@ var NZ_NOTE = '<p class="nz-note" role="note"><b>General location information, n
 var NZ_NOTE_S = '<p class="nz-note" role="note"><b>General information, no individual advice.</b> <span class="nz-note-x">Standard profiles, public data; not tax, legal, financial, investment or immigration advice.</span> <a href="/legal/#disclaimer">Limits</a></p>';
 var NZ_NOTE_TAX = '<p class="nz-note" role="note"><b>Tax figures are standard cases for comparison, not your tax bill.</b> They are not tax advice and do not confirm any entitlement. Check your own case with the tax authority or a qualified adviser.</p>';
 /* 2.14: country notices next to results (sanctions are not a ranking factor and are not assessed here) */
-var NZ_CNOTE = { RU: '<p class="nz-note" role="note"><b>Sanctions apply.</b> Switzerland, the EU, the UK, the US and others restrict many business activities, payments, investments and exports involving Russia. These statistics describe places only; they say nothing about whether any activity there is permitted. Check the current sanctions rules (for example SECO in Switzerland) before acting.</p>' };
+var NZ_CNOTE = { RU: '<p class="nz-note" role="note"><b>Sanctions apply.</b> Switzerland, the EU, the UK, the US and others restrict many business activities, payments, investments and exports involving Russia. These statistics describe places only; they say nothing about whether any activity there is permitted. Check the current sanctions rules (for example SECO in Switzerland) before acting. While these sanctions apply, Russian places appear only in Russia\'s own ranking, never in world or continental rankings.</p>' };
 /* ---------------- state ---------------- */
 var S = {
   view: 'landing', cc: 'CH', profile: 'young_family', region: 'ALL', area: 'ALL', q: '', minConf: 0, layer: 'score', sort: 'score',

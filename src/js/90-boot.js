@@ -1,6 +1,7 @@
 /* Orchestration, events, boot */
 var mapWanted = false;
 function update(opts) {
+  if (typeof MAP !== 'undefined' && MAP && MAP.getLayer && MAP.getLayer('nz-observed')) { if (MAP._nzObservedClick) MAP.off('click', 'nz-observed', MAP._nzObservedClick); MAP.removeLayer('nz-observed'); if (MAP.getSource('nz-observed')) MAP.removeSource('nz-observed'); MAP._nzObservedClick=null; }
   opts = opts || {};
   if (!SHARD) return;
   runRanking();

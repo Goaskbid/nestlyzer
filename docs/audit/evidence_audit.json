@@ -1,5 +1,5 @@
 {
-  "version": "2.15.19",
+  "version": "2.15.23",
   "profiles": 65,
   "errors": 0,
   "statistical_validation_claim": false,
@@ -17,7 +17,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -32,7 +32,7 @@
       "weight_sum": 108,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -47,7 +47,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -62,7 +62,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -77,7 +77,7 @@
       "weight_sum": 106,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -92,7 +92,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -107,7 +107,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -119,7 +119,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -133,7 +133,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -147,7 +147,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -162,7 +162,7 @@
       "weight_sum": 108,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -176,7 +176,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -190,7 +190,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -205,7 +205,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -220,7 +220,7 @@
       "weight_sum": 106,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -234,7 +234,7 @@
       "weight_sum": 108,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -246,7 +246,7 @@
       "weight_sum": 106,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -261,7 +261,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -276,7 +276,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -285,10 +285,10 @@
       "contract_present": true,
       "cohort_requirement": "Accessible nature, air/water quality, ecological conditions and services, with household moves only as secondary evidence.",
       "critical_gates": [],
-      "weight_sum": 104,
+      "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -303,7 +303,7 @@
       "weight_sum": 110,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -318,7 +318,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -332,7 +332,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -347,7 +347,7 @@
       "weight_sum": 108,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -359,7 +359,7 @@
       "weight_sum": 108,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -373,7 +373,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -387,7 +387,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -404,7 +404,7 @@
       "weight_sum": 130,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -420,7 +420,7 @@
       "weight_sum": 130,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -434,7 +434,7 @@
       "weight_sum": 135,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -450,7 +450,7 @@
       "weight_sum": 115,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -466,7 +466,7 @@
       "weight_sum": 135,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -481,7 +481,7 @@
       "weight_sum": 110,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -497,7 +497,7 @@
       "weight_sum": 130,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -512,7 +512,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -527,7 +527,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -542,7 +542,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -557,7 +557,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -571,7 +571,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -585,7 +585,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -600,7 +600,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -616,7 +616,7 @@
       "weight_sum": 130,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -633,7 +633,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -649,7 +649,7 @@
       "weight_sum": 140,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -665,7 +665,7 @@
       "weight_sum": 125,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -681,7 +681,7 @@
       "weight_sum": 120,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -697,7 +697,7 @@
       "weight_sum": 110,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -712,7 +712,7 @@
       "weight_sum": 120,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -727,7 +727,7 @@
       "weight_sum": 115,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -742,7 +742,7 @@
       "weight_sum": 120,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -757,7 +757,7 @@
       "weight_sum": 120,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -773,7 +773,7 @@
       "weight_sum": 115,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -788,7 +788,7 @@
       "weight_sum": 115,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -803,7 +803,7 @@
       "weight_sum": 110,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -817,7 +817,7 @@
       "weight_sum": 110,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -829,7 +829,7 @@
       "weight_sum": 108,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -845,7 +845,7 @@
       "weight_sum": 100,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -860,7 +860,7 @@
       "weight_sum": 120,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -877,7 +877,7 @@
       "weight_sum": 125,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -893,7 +893,7 @@
       "weight_sum": 130,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -909,7 +909,7 @@
       "weight_sum": 125,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -925,7 +925,7 @@
       "weight_sum": 115,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -940,7 +940,7 @@
       "weight_sum": 120,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -956,7 +956,7 @@
       "weight_sum": 110,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     },
     {
@@ -971,7 +971,7 @@
       "weight_sum": 108,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
-      "condition_scoring": "fixed-weight screening; observations and proxies disclosed",
+      "condition_scoring": "legacy; software contract audit, not empirical validation",
       "numeric_outcome_calibration": false
     }
   ]

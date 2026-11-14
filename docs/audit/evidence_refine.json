@@ -70,28 +70,21 @@
    "accepted": false
   },
   "nature": {
-   "baseTrain": -0.092,
-   "baseTest": -0.248,
-   "candidate": "+6 services",
-   "train": -0.062,
-   "test": -0.237,
-   "worstTestCountry": [
-    "NL",
-    -0.003678967123833865
-   ],
-   "accepted": false,
+   "accepted": true,
    "weights": {
-    "environment": 30,
+    "environment": 22,
+    "outdoor": 16,
     "quiet": 12,
     "safety": 12,
-    "affordability": 12,
-    "tax": 8,
+    "affordability": 10,
+    "tax": 6,
     "health": 8,
-    "services": 14,
+    "services": 6,
     "mobility": 4,
-    "demographics": 8,
+    "demographics": 2,
     "family": 2
-   }
+   },
+   "basis": "owner-directed plausibility fix 2.15.23 (not a holdout result): the nature profile had no mountain/outdoor category, so Davos and the Engadin ranked below lowland suburbs"
   },
   "budget": {
    "baseTrain": 0.387,

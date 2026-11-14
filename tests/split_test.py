@@ -32,6 +32,7 @@ check(all('/' not in r for r in rel), 'one flat folder: no subfolders that an up
 for r in rel:
     if r.endswith('.json') or r.endswith('.html'):
         t = open(os.path.join(SITE, r), encoding='utf-8', errors='ignore').read()
+        t = re.sub(r'data:[a-z/+.-]+;base64,[A-Za-z0-9+/=]+', '', t)   # 2.15.23: inlined images are random base64 and can contain key-like letter runs by chance
         if re.search(r'(AKIA[0-9A-Z]{16}|ghp_[0-9A-Za-z]{36}|sk-[A-Za-z0-9]{32,}|AIza[0-9A-Za-z_-]{35})', t):
             check(False, 'possible key or token in ' + r)
 check(open(os.path.join(SITE, 'CNAME')).read().strip() == 'nestlyzer.com', 'CNAME is nestlyzer.com')

@@ -32,7 +32,7 @@
  {
   "id": "score",
   "ok": true,
-  "check": "cheaper homes (WOZ factor +60) raise Amsterdam for a first-home buyer 49.12 -> 70.43 through 'affordability' (weight 30); biz_manufacturing unchanged (80.01); restored score reproduces"
+  "check": "cheaper homes (WOZ factor +60) raise Amsterdam for a first-home buyer 49.15 -> 71.77 through 'affordability' (weight 30); biz_manufacturing unchanged (80.01); restored score reproduces"
  },
  {
   "id": "explain",
@@ -47,7 +47,7 @@
  {
   "id": "top",
   "ok": true,
-  "check": "a new place opens at its top (previous panel scrolled to 6690px, new one at 0px)"
+  "check": "a new place opens at its top (previous panel scrolled to 6847px, new one at 0px)"
  },
  {
   "id": "globe",

@@ -224,15 +224,14 @@ function renderPlace() {
     '<div class="scroll" id="placescroll"><div class="ph-hero" data-hero="' + esc(r.id) + '" data-postcard="' + esc(r.id) + '" data-w="480" data-h="240"><div class="shade"></div><button class="ph-count" type="button" data-ptab="photos" hidden>📷 <span></span></button><div class="ttl"><span class="ctry">' + flagImg(r.country, 12) + ' ' + esc(countryName(r.country)) + '</span><h2>' + esc(r.name) + '</h2>' + (r.latin ? '<div class="latin">' + esc(r.latin) + '</div>' : '') + '<div class="sub">' + esc(localAreaOf(r)) + ', ' + popLabel(r) + '</div></div></div>' +
     '<div class="pstrip" data-pstrip="' + esc(r.id) + '"></div>' +
     '<div class="pbody">' +
-    '<div class="ids" data-ids="' + esc(r.id) + '">' + flagImg(r.country) + '<button class="chip" type="button" data-arms="' + esc(r.id) + '">Load coat of arms</button></div>' +
+    '<div class="ids" data-ids="' + esc(r.id) + '"><button type="button" class="arms-auto" data-arms="' + esc(r.id) + '" aria-label="Coat of arms of ' + esc(r.name) + '">' + placeEmblemHTML(r) + '</button>' + flagImg(r.country) + '</div>' +
     '<div class="scorebox">' + scoreRing(x.overall, 96) +
     '<div class="metrics">' +
-    (ranked ? '<div class="metric"><span>Rank</span><b>#' + fmtInt(ranked.rank) + '</b><small>of ' + fmtInt(RES.scored.length) + '</small></div>' : '<div class="metric"><span>Rank</span><b>–</b><small>not ranked</small></div>') +
-    '<button class="metric depth-' + dk[0] + '" type="button" data-def="depthplace"><span>Data depth</span><b>' + esc(dk[1].replace(' data', '')) + '</b><small>' + fmt(x.weighted) + '% inputs' + (fin(x.measured) ? ', ' + x.measured + '% measured' : '') + '</small></button>' +
+    cardMetricHTML(r, x, { reason: why || 'Outside this ranking or eligibility unresolved' }) +
     '</div></div>' +
-    '<div class="inputs">Inputs: ' + esc(inputLabel(r)) + '</div>' + NZ_NOTE + (NZ_CNOTE[r.country] || '') +
+    '<p class="nz-note nz-note-1" role="note">General information, not advice. <a href="/legal/#disclaimer">Limits</a></p>' + (NZ_CNOTE[r.country] || '') +
     (why ? '<p class="small" style="margin:0;color:var(--bad)">' + esc(why) + '</p>' : '') +
-    whyHTML(r, x) + evidenceHTML(r, x) + '<div data-kfslot="' + esc(r.id) + '"></div>' + snacksHTML(r) + aroundHereHTML(r) + homeDeltaHTML(r) +
+    propertyContextHTML(r, true) + whyHTML(r, x) + evidenceHTML(r, x) + '<div data-kfslot="' + esc(r.id) + '"></div>' + snacksHTML(r) + aroundHereHTML(r) + homeDeltaHTML(r) +
     '<div class="ptabs" role="tablist" aria-label="Place sections">' + PTABS.map(function (t) { return '<button type="button" role="tab" data-ptab="' + t[0] + '" aria-selected="' + (t[0] === tab) + '">' + t[1] + '</button>'; }).join('') + '</div>' +
     PTABS.map(function (t) { return '<div class="ppanel" role="tabpanel" data-pp="' + t[0] + '"' + (t[0] === tab ? '' : ' hidden') + '>' + panels[t[0]] + '</div>'; }).join('') +
     '<div class="actions"><button class="btn btn-sm" type="button" data-booklet>' + ICON.doc + 'PDF booklet</button><button class="btn btn-sm" type="button" data-print>' + ICON.print + 'Print profile</button><a class="btn btn-sm" href="' + osm + '" target="_blank" rel="noopener">' + ICON.map + 'OpenStreetMap</a><a class="btn btn-sm" href="https://www.google.com/maps/search/?api=1&query=' + mapsQ + '" target="_blank" rel="noopener">' + ICON.pin + 'Google Maps</a>' + '<a class="btn btn-sm" hidden data-pagelink="' + esc(r.id) + '">' + ICON.ext + 'Place page</a>' + '</div>' +

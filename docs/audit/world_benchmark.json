@@ -1,10 +1,10 @@
 {
  "biz_hq": {
-  "metros": 1194,
+  "metros": 1140,
   "references": 17,
-  "found_ranked": 17,
-  "in_top_100": 13,
-  "median_percentile": 3.1,
+  "found_ranked": 16,
+  "in_top_100": 12,
+  "median_percentile": 3.8,
   "places": [
    {
     "ref": "US:5128581",
@@ -20,7 +20,7 @@
    },
    {
     "ref": "FR:75056",
-    "rank": 62,
+    "rank": 61,
     "as": "Pantin",
     "published": true
    },
@@ -44,9 +44,9 @@
    },
    {
     "ref": "SG:*",
-    "rank": 33,
-    "as": "Woodlands",
-    "published": true
+    "rank": null,
+    "as": null,
+    "published": false
    },
    {
     "ref": "CH:261",
@@ -56,31 +56,31 @@
    },
    {
     "ref": "CH:6621",
-    "rank": 381,
+    "rank": 371,
     "as": "Genève",
     "published": false
    },
    {
     "ref": "NL:GM0363",
-    "rank": 67,
+    "rank": 65,
     "as": "Gooise Meren",
     "published": true
    },
    {
     "ref": "US:4887398",
-    "rank": 141,
+    "rank": 137,
     "as": "Chicago",
     "published": false
    },
    {
     "ref": "DE:09162000",
-    "rank": 182,
+    "rank": 178,
     "as": "München",
     "published": false
    },
    {
     "ref": "DE:06412000",
-    "rank": 66,
+    "rank": 64,
     "as": "Offenbach am Main",
     "published": true
    },
@@ -92,19 +92,19 @@
    },
    {
     "ref": "AU:2147714",
-    "rank": 51,
+    "rank": 50,
     "as": "Sydney",
     "published": true
    },
    {
     "ref": "AE:292223",
-    "rank": 37,
+    "rank": 36,
     "as": "Jebel Ali",
     "published": true
    },
    {
     "ref": "LU:0304",
-    "rank": 396,
+    "rank": 386,
     "as": "Luxembourg",
     "published": false
    }
@@ -123,11 +123,11 @@
   ]
  },
  "biz_tech": {
-  "metros": 1753,
+  "metros": 1681,
   "references": 18,
   "found_ranked": 18,
-  "in_top_100": 15,
-  "median_percentile": 1.3,
+  "in_top_100": 14,
+  "median_percentile": 1.4,
   "places": [
    {
     "ref": "US:5391959",
@@ -167,7 +167,7 @@
    },
    {
     "ref": "DE:11000000",
-    "rank": 100,
+    "rank": 98,
     "as": "Berlin",
     "published": true
    },
@@ -179,37 +179,37 @@
    },
    {
     "ref": "SE:0180",
-    "rank": 33,
+    "rank": 32,
     "as": "Stockholm",
     "published": true
    },
    {
     "ref": "IL:293397",
-    "rank": 161,
+    "rank": 159,
     "as": "Givatayim (גיבעתיים)",
     "published": false
    },
    {
     "ref": "IN:1277333",
-    "rank": 1009,
+    "rank": 962,
     "as": "Bengaluru",
     "published": false
    },
    {
     "ref": "CA:6167865",
-    "rank": 59,
+    "rank": 57,
     "as": "Willowdale (Ontario, 79,440 residents)",
     "published": true
    },
    {
     "ref": "SG:*",
-    "rank": 31,
+    "rank": 1681,
     "as": "Novena",
-    "published": true
+    "published": false
    },
    {
     "ref": "JP:1850147",
-    "rank": 36,
+    "rank": 35,
     "as": "Nakano (中野, Tokyo)",
     "published": true
    },
@@ -233,7 +233,7 @@
    },
    {
     "ref": "US:4671654",
-    "rank": 131,
+    "rank": 129,
     "as": "Austin (Texas)",
     "published": false
    }
@@ -252,216 +252,216 @@
   ]
  },
  "expat_professional": {
-  "metros": 5032,
+  "metros": 4765,
   "references": 15,
-  "found_ranked": 15,
+  "found_ranked": 14,
   "in_top_100": 10,
-  "median_percentile": 1.4,
+  "median_percentile": 1.2,
   "places": [
    {
     "ref": "UK:E09000033",
-    "rank": 86,
+    "rank": 81,
     "as": "Richmond upon Thames",
     "published": true
    },
    {
     "ref": "US:5128581",
-    "rank": 406,
+    "rank": 385,
     "as": "Elizabeth (New Jersey)",
     "published": false
    },
    {
     "ref": "SG:*",
-    "rank": 258,
-    "as": "Woodlands",
+    "rank": null,
+    "as": null,
     "published": false
    },
    {
     "ref": "HK:12747064",
-    "rank": 632,
-    "as": "Tseung Kwan O",
+    "rank": 4765,
+    "as": "Aberdeen (香港仔)",
     "published": false
    },
    {
     "ref": "AE:292223",
-    "rank": 189,
+    "rank": 188,
     "as": "Dubai",
     "published": false
    },
    {
     "ref": "CH:261",
-    "rank": 3,
+    "rank": 1,
     "as": "Zürich",
     "published": true
    },
    {
     "ref": "CH:6621",
-    "rank": 71,
+    "rank": 65,
     "as": "Genève",
     "published": true
    },
    {
     "ref": "NL:GM0363",
-    "rank": 5,
+    "rank": 3,
     "as": "Amsterdam",
     "published": true
    },
    {
     "ref": "DE:09162000",
-    "rank": 1,
+    "rank": 2,
     "as": "München",
     "published": true
    },
    {
     "ref": "LU:0304",
-    "rank": 8,
+    "rank": 7,
     "as": "Luxembourg",
     "published": true
    },
    {
     "ref": "BE:21004",
-    "rank": 10,
+    "rank": 52,
     "as": "Leuven / Louvain",
     "published": true
    },
    {
     "ref": "CA:6167865",
-    "rank": 127,
+    "rank": 129,
     "as": "Vaughan",
     "published": false
    },
    {
     "ref": "AU:2147714",
-    "rank": 88,
+    "rank": 83,
     "as": "Sydney",
     "published": true
    },
    {
     "ref": "JP:1850147",
-    "rank": 45,
+    "rank": 42,
     "as": "Kōtō (江東)",
     "published": true
    },
    {
     "ref": "DE:06412000",
-    "rank": 27,
+    "rank": 23,
     "as": "Frankfurt am Main",
     "published": true
    }
   ],
   "top10": [
-   "München DE",
-   "Stichtse Vecht NL",
    "Zürich CH",
-   "Bergen NO",
+   "München DE",
    "Amsterdam NL",
-   "Stuttgart DE",
    "Stavanger NO",
+   "Amersfoort NL",
+   "Oslo NO",
    "Luxembourg LU",
    "Versailles FR",
-   "Leuven / Louvain BE"
+   "København DK",
+   "Nacka SE"
   ]
  },
  "student": {
-  "metros": 1987,
+  "metros": 1908,
   "references": 16,
   "found_ranked": 16,
   "in_top_100": 7,
-  "median_percentile": 9.4,
+  "median_percentile": 9.7,
   "places": [
    {
     "ref": "UK:E09000007",
-    "rank": 360,
+    "rank": 361,
     "as": "Westminster",
     "published": false
    },
    {
     "ref": "JP:1850147",
-    "rank": 89,
+    "rank": 93,
     "as": "Suginami (杉並)",
     "published": true
    },
    {
     "ref": "KR:1835848",
-    "rank": 198,
+    "rank": 195,
     "as": "Seoul (서울시)",
     "published": false
    },
    {
     "ref": "DE:09162000",
-    "rank": 61,
+    "rank": 44,
     "as": "München",
     "published": true
    },
    {
     "ref": "AU:2158177",
-    "rank": 174,
+    "rank": 175,
     "as": "Melbourne",
     "published": false
    },
    {
     "ref": "FR:75056",
-    "rank": 5,
+    "rank": 20,
     "as": "Paris",
     "published": true
    },
    {
     "ref": "AU:2147714",
-    "rank": 554,
+    "rank": 529,
     "as": "Sydney",
     "published": false
    },
    {
     "ref": "CH:261",
-    "rank": 74,
+    "rank": 45,
     "as": "Zürich",
     "published": true
    },
    {
     "ref": "DE:11000000",
-    "rank": 75,
+    "rank": 35,
     "as": "Berlin",
     "published": true
    },
    {
     "ref": "CA:6077243",
-    "rank": 203,
+    "rank": 200,
     "as": "Le Plateau-Mont-Royal",
     "published": false
    },
    {
     "ref": "US:4930956",
-    "rank": 266,
+    "rank": 254,
     "as": "Cambridge (Massachusetts)",
     "published": false
    },
    {
     "ref": "AT:90001",
-    "rank": 33,
+    "rank": 30,
     "as": "Wien",
     "published": true
    },
    {
     "ref": "UK:S30000008",
-    "rank": 50,
+    "rank": 51,
     "as": "City of Edinburgh",
     "published": true
    },
    {
     "ref": "CA:6167865",
-    "rank": 709,
+    "rank": 702,
     "as": "Willowdale (Ontario, 79,440 residents)",
     "published": false
    },
    {
     "ref": "CA:6173331",
-    "rank": 299,
+    "rank": 284,
     "as": "Vancouver",
     "published": false
    },
    {
     "ref": "UK:E07000008",
-    "rank": 351,
+    "rank": 352,
     "as": "Cambridge",
     "published": false
    }
@@ -471,121 +471,121 @@
    "Madrid ES",
    "Leiden NL",
    "Lausanne CH",
-   "Paris FR",
-   "Bytom PL",
-   "Chemnitz DE",
-   "Reggio di Calabria IT",
+   "Marseille FR",
+   "Warszawa PL",
+   "Leipzig DE",
    "Barcelona ES",
-   "Enschede NL"
+   "Anderlecht BE",
+   "Lyon FR"
   ]
  },
  "pensioner": {
-  "metros": 8625,
+  "metros": 8222,
   "references": 17,
   "found_ranked": 17,
-  "in_top_100": 1,
-  "median_percentile": 5.6,
+  "in_top_100": 4,
+  "median_percentile": 5.3,
   "places": [
    {
     "ref": "PT:080508",
-    "rank": 1330,
+    "rank": 1233,
     "as": "Quelfes",
     "published": false
    },
    {
     "ref": "PT:080808",
-    "rank": 1330,
+    "rank": 1233,
     "as": "Quelfes",
     "published": false
    },
    {
     "ref": "PT:080106",
-    "rank": 1588,
+    "rank": 1531,
     "as": "Albufeira e Olhos de Água",
     "published": false
    },
    {
     "ref": "ES:29069",
-    "rank": 286,
+    "rank": 249,
     "as": "Estepona",
     "published": false
    },
    {
     "ref": "ES:29067",
-    "rank": 516,
-    "as": "Málaga",
-    "published": false
+    "rank": 64,
+    "as": "Benalmádena",
+    "published": true
    },
    {
     "ref": "ES:03133",
-    "rank": 122,
+    "rank": 101,
     "as": "Torrevieja",
     "published": false
    },
    {
     "ref": "ES:03031",
-    "rank": 349,
+    "rank": 284,
     "as": "Altea",
     "published": false
    },
    {
     "ref": "ES:03014",
-    "rank": 473,
+    "rank": 434,
     "as": "San Vicente del Raspeig",
     "published": false
    },
    {
     "ref": "FR:06088",
-    "rank": 148,
+    "rank": 94,
     "as": "Vallauris",
-    "published": false
+    "published": true
    },
    {
     "ref": "FR:06029",
-    "rank": 148,
+    "rank": 94,
     "as": "Vallauris",
-    "published": false
+    "published": true
    },
    {
     "ref": "FR:06083",
-    "rank": 205,
+    "rank": 128,
     "as": "Menton",
     "published": false
    },
    {
     "ref": "US:4172131",
-    "rank": 1603,
-    "as": "Bradenton",
+    "rank": 1626,
+    "as": "South Bradenton",
     "published": false
    },
    {
     "ref": "US:4165565",
-    "rank": 2286,
+    "rank": 2153,
     "as": "Naples (Florida)",
     "published": false
    },
    {
     "ref": "US:4155995",
-    "rank": 2279,
+    "rank": 2180,
     "as": "North Fort Myers",
     "published": false
    },
    {
     "ref": "US:5313457",
-    "rank": 3335,
-    "as": "Paradise Valley",
+    "rank": 3320,
+    "as": "Tempe Junction",
     "published": false
    },
    {
     "ref": "CY:5000",
-    "rank": 109,
+    "rank": 62,
     "as": "Μέσα Γειτονιά",
     "published": true
    },
    {
     "ref": "MT:*",
-    "rank": 479,
-    "as": "Tas-Sliema / Sliema",
+    "rank": 492,
+    "as": "Birkirkara",
     "published": false
    }
   ],
@@ -595,42 +595,42 @@
    "Marín ES",
    "Realejos, Los ES",
    "Ferrol ES",
+   "Wohlen (AG) CH",
    "Lloret de Mar ES",
    "Langreo ES",
-   "Wohlen (AG) CH",
-   "Wädenswil CH",
-   "Seregno IT"
+   "Oostende / Ostende BE",
+   "Wädenswil CH"
   ]
  },
  "remote": {
-  "metros": 11548,
+  "metros": 10670,
   "references": 16,
   "found_ranked": 16,
-  "in_top_100": 4,
-  "median_percentile": 4.7,
+  "in_top_100": 5,
+  "median_percentile": 5.4,
   "places": [
    {
     "ref": "PT:110657",
-    "rank": 77,
-    "as": "Pinhal Novo",
+    "rank": 29,
+    "as": "Montijo e Afonsoeiro",
     "published": true
    },
    {
     "ref": "PT:131217",
-    "rank": 140,
-    "as": "Gondomar (São Cosme), Valbom e Jovim",
-    "published": false
+    "rank": 80,
+    "as": "Valongo",
+    "published": true
    },
    {
     "ref": "ES:08019",
-    "rank": 261,
+    "rank": 32,
     "as": "Sant Just Desvern",
-    "published": false
+    "published": true
    },
    {
     "ref": "ES:46250",
-    "rank": 441,
-    "as": "Picassent",
+    "rank": 112,
+    "as": "Alfafar",
     "published": false
    },
    {
@@ -641,90 +641,90 @@
    },
    {
     "ref": "ES:35016",
-    "rank": 419,
-    "as": "Teror",
+    "rank": 240,
+    "as": "Arucas",
     "published": false
    },
    {
     "ref": "DE:11000000",
-    "rank": 89,
-    "as": "Neuenhagen bei Berlin",
+    "rank": 70,
+    "as": "Bernau bei Berlin",
     "published": true
    },
    {
     "ref": "EE:0784",
-    "rank": 1687,
-    "as": "Saue vald",
+    "rank": 1017,
+    "as": "Rae vald",
     "published": false
    },
    {
     "ref": "HR:04090",
-    "rank": 80,
+    "rank": 125,
     "as": "Solin",
-    "published": true
+    "published": false
    },
    {
     "ref": "MX:3530597",
-    "rank": 2299,
-    "as": "Xochimilco",
+    "rank": 4775,
+    "as": "Gustavo Adolfo Madero",
     "published": false
    },
    {
     "ref": "CO:3674962",
-    "rank": 1703,
+    "rank": 4651,
     "as": "Bello",
     "published": false
    },
    {
     "ref": "AR:3435910",
-    "rank": 639,
+    "rank": 4257,
     "as": "Lanús",
     "published": false
    },
    {
     "ref": "TH:1609350",
-    "rank": 1040,
-    "as": "Pak Kret",
+    "rank": 4367,
+    "as": "Samut Prakan",
     "published": false
    },
    {
     "ref": "TH:1153671",
-    "rank": 2660,
-    "as": "Lamphun",
+    "rank": 4983,
+    "as": "Chiang Mai",
     "published": false
    },
    {
     "ref": "MY:1735161",
-    "rank": 1652,
+    "rank": 4633,
     "as": "Puchong",
     "published": false
    },
    {
     "ref": "AE:292223",
-    "rank": 1235,
+    "rank": 919,
     "as": "Dubai",
     "published": false
    }
   ],
   "top10": [
-   "Marseille FR",
    "Langreo ES",
+   "Grasse FR",
    "Kitzingen DE",
+   "Braga (São Vítor) PT",
    "Liestal CH",
-   "Elda ES",
-   "Margaride (Santa Eulália), Várzea, Lagares, Varziela e Moure PT",
+   "Corvera de Asturias ES",
    "Realejos, Los ES",
    "Tres Cantos ES",
-   "Grasse FR",
-   "Corvera de Asturias ES"
+   "Rudolstadt DE",
+   "Aarau CH"
   ]
  },
  "hnw": {
-  "metros": 11560,
+  "metros": 10668,
   "references": 13,
   "found_ranked": 13,
-  "in_top_100": 4,
-  "median_percentile": 10.3,
+  "in_top_100": 6,
+  "median_percentile": 3.7,
   "places": [
    {
     "ref": "CH:1711",
@@ -734,73 +734,73 @@
    },
    {
     "ref": "CH:6621",
-    "rank": 43,
+    "rank": 29,
     "as": "Bonneville",
     "published": true
    },
    {
     "ref": "CH:5192",
-    "rank": 70,
+    "rank": 54,
     "as": "Lugano",
     "published": true
    },
    {
     "ref": "CH:843",
-    "rank": 2813,
+    "rank": 1290,
     "as": "Bulle",
     "published": false
    },
    {
     "ref": "UK:E09000020",
-    "rank": 162,
+    "rank": 83,
     "as": "Bromley",
-    "published": false
+    "published": true
    },
    {
     "ref": "US:5128581",
-    "rank": 668,
-    "as": "Woodrow",
-    "published": false
+    "rank": 103,
+    "as": "Far Rockaway",
+    "published": true
    },
    {
     "ref": "US:4164138",
-    "rank": 1193,
-    "as": "Miami Lakes",
+    "rank": 496,
+    "as": "Miami Beach",
     "published": false
    },
    {
     "ref": "US:4167505",
-    "rank": 1408,
-    "as": "Wellington (Florida)",
+    "rank": 622,
+    "as": "West Palm Beach",
     "published": false
    },
    {
     "ref": "SG:*",
-    "rank": 3955,
+    "rank": 2384,
     "as": "Woodlands",
     "published": false
    },
    {
     "ref": "HK:12747064",
-    "rank": 4092,
+    "rank": 2850,
     "as": "Discovery Bay (愉景灣)",
     "published": false
    },
    {
     "ref": "AE:292223",
-    "rank": 4080,
+    "rank": 2815,
     "as": "Dubai Investments Park",
     "published": false
    },
    {
     "ref": "FR:06088",
-    "rank": 19,
-    "as": "Vallauris",
+    "rank": 4,
+    "as": "Valbonne",
     "published": true
    },
    {
     "ref": "LU:0304",
-    "rank": 1212,
+    "rank": 400,
     "as": "Arlon / Aarlen",
     "published": false
    }
@@ -809,121 +809,121 @@
    "Zug CH",
    "Unterföhring DE",
    "Saint-Germain-en-Laye FR",
+   "Valbonne FR",
+   "Herzogenaurach DE",
+   "Saint-Jean-de-Luz FR",
+   "Ingelheim am Rhein DE",
    "Biberach an der Riß DE",
-   "Herrsching a.Ammersee DE",
-   "Neumarkt i.d.OPf. DE",
-   "Leuven / Louvain BE",
-   "Wörgl AT",
-   "Rumilly FR",
-   "Neusäß DE"
+   "Zaventem BE",
+   "Nacka SE"
   ]
  },
  "sun_retiree": {
-  "metros": 11710,
+  "metros": 10805,
   "references": 17,
   "found_ranked": 17,
   "in_top_100": 5,
-  "median_percentile": 2.7,
+  "median_percentile": 2.6,
   "places": [
    {
     "ref": "PT:080508",
-    "rank": 311,
+    "rank": 281,
     "as": "Faro (Sé e São Pedro)",
     "published": false
    },
    {
     "ref": "PT:080808",
-    "rank": 311,
+    "rank": 281,
     "as": "Faro (Sé e São Pedro)",
     "published": false
    },
    {
     "ref": "PT:080106",
-    "rank": 345,
+    "rank": 288,
     "as": "Albufeira e Olhos de Água",
     "published": false
    },
    {
     "ref": "ES:29069",
-    "rank": 53,
+    "rank": 46,
     "as": "Estepona",
     "published": false
    },
    {
     "ref": "ES:29067",
-    "rank": 73,
+    "rank": 70,
     "as": "Málaga",
     "published": false
    },
    {
     "ref": "ES:03133",
-    "rank": 353,
+    "rank": 317,
     "as": "Torrevieja",
     "published": false
    },
    {
     "ref": "ES:03031",
-    "rank": 34,
+    "rank": 26,
     "as": "Calp",
     "published": true
    },
    {
     "ref": "ES:03014",
-    "rank": 451,
+    "rank": 407,
     "as": "Santa Pola",
     "published": false
    },
    {
     "ref": "FR:06088",
-    "rank": 74,
+    "rank": 77,
     "as": "Menton",
     "published": true
    },
    {
     "ref": "FR:06029",
-    "rank": 70,
+    "rank": 69,
     "as": "Cannes",
     "published": true
    },
    {
     "ref": "FR:06083",
-    "rank": 74,
+    "rank": 77,
     "as": "Menton",
     "published": true
    },
    {
     "ref": "US:4172131",
-    "rank": 819,
+    "rank": 729,
     "as": "Bradenton",
     "published": false
    },
    {
     "ref": "US:4165565",
-    "rank": 1551,
+    "rank": 1338,
     "as": "Naples (Florida)",
     "published": false
    },
    {
     "ref": "US:4155995",
-    "rank": 1516,
+    "rank": 1306,
     "as": "North Fort Myers",
     "published": false
    },
    {
     "ref": "US:5313457",
-    "rank": 10040,
+    "rank": 8085,
     "as": "Fountain Hills",
     "published": false
    },
    {
     "ref": "CY:5000",
-    "rank": 24,
+    "rank": 23,
     "as": "Γερμασόγεια",
     "published": true
    },
    {
     "ref": "MT:*",
-    "rank": 11697,
+    "rank": 642,
     "as": "Birkirkara",
     "published": false
    }
@@ -931,14 +931,14 @@
   "top10": [
    "Realejos, Los ES",
    "Marseille FR",
-   "Narón ES",
-   "Ficarazzi IT",
-   "Mascali IT",
-   "Marín ES",
-   "Corvera de Asturias ES",
-   "Scicli IT",
    "Castel Volturno IT",
-   "Línea de la Concepción, La ES"
+   "Narón ES",
+   "Corvera de Asturias ES",
+   "Marín ES",
+   "Mascali IT",
+   "Carini IT",
+   "Ficarazzi IT",
+   "Lloret de Mar ES"
   ]
  }
 }

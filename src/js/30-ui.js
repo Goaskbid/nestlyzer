@@ -232,10 +232,10 @@ function rowHTML(x) {
   var facs = ENGINE.allFactors.filter(function (f) { return wts[f.category]; }).map(function (f) { return { f: f, v: ENGINE.factorValue(r, f) }; }).filter(function (o) { return fin(o.v); }).sort(function (a, b) { return b.v - a.v; }).slice(0, 3)
     .map(function (o) { return chipHTML(o.f.name, o.v, frk[o.f.id] && frk[o.f.id][x.id], 'factor:' + o.f.id); }).join('');
   var tl = trendLine(r);
-  return '<li class="row" data-id="' + esc(x.id) + '" tabindex="0" aria-current="' + (S.selected === x.id) + '">' +
+  return '<li class="row" data-nz-card="ranking" data-id="' + esc(x.id) + '" tabindex="0" aria-current="' + (S.selected === x.id) + '">' +
     '<span class="rk" title="Rank for this profile">' + x.rank + '</span>' +
-    '<div><div class="nm">' + esc(r.name) + '</div><div class="meta">' + esc(localAreaOf(r)) + (isWorld(r.country) || inEurope(r) ? '' : ' (overseas)') + ', ' + fmtInt(r.popNow) + ' residents, ' + fmt(x.weighted) + '% of profile inputs covered' + (fin(x.measured) && assessKind(x)[0] !== 'assessed' ? ' · <span class="assess ' + assessKind(x)[0] + '" title="' + esc(evidenceLine(x)) + '">' + esc(assessKind(x)[1]) + '</span>' : '') + '</div>' +
-    '<div class="subs">' + cats + '</div><div class="subs f">' + facs + '</div>' + mustHTML(x) + (tl && !x.must ? '<div class="trend">' + esc(tl) + '</div>' : '') + '</div>' +
+    '<div><div class="nm nz-place-name">' + placeEmblemHTML(r) + esc(r.name) + '</div><div class="meta">' + esc(localAreaOf(r)) + (isWorld(r.country) || inEurope(r) ? '' : ' (overseas)') + ', ' + (fin(r.popNow) ? fmtInt(r.popNow) + ' residents' : 'Population unavailable') + ', ' + (fin(x.weighted) ? fmt(x.weighted) + '% of profile weight covered' : 'Input coverage unavailable') + '' + '</div>' +
+    cardMetaHTML(r, x) + propertyContextHTML(r) + '<div class="subs">' + cats + '</div><div class="subs f">' + facs + '</div>' + mustHTML(x) + (tl && !x.must ? '<div class="trend">' + esc(tl) + '</div>' : '') + '</div>' +
     '<div class="right">' + scoreBadge(x.overall) + nestBars(x) + '<span class="rowacts">' + saveBtn(x.id, true) + hideBtn(x.id) + '</span></div></li>';
 }
 /* 2.13.3 "Not for this search" (owner package 6 Nov, T03): a visitor can set a place aside for the current profile and
@@ -282,7 +282,7 @@ function renderResults() {
   var vis = function (x) { return !hset[x.id]; };
   var nHid = (RES.view || RES.scored).filter(function (x) { return hset[x.id]; }).length;
   var picks = RES.scored.filter(vis).slice(0, 9).map(function (x) {
-    return '<div class="pick" role="button" tabindex="0" data-id="' + esc(x.id) + '"><div class="ph" data-photo="' + esc(x.id) + '" data-postcard="' + esc(x.id) + '" data-w="420" data-h="230"><span class="rk" title="Rank for this profile">#' + x.rank + '</span>' + scoreBadge(x.overall) + '<span class="pickacts">' + saveBtn(x.id, true) + '</span></div><div class="bd"><div class="nm"><b>' + esc(x.r.name) + '</b></div><div class="small muted">' + flagImg(x.r.country, 11) + ' ' + esc(localAreaOf(x.r)) + ', ' + fmtInt(x.r.popNow) + ' residents</div>' + snackLine(x.r) + mustHTML(x) + nestBars(x) + '<p>' + esc(cardCopy(x)) + '</p></div></div>';
+    return '<div class="pick" data-nz-card="featured" role="button" tabindex="0" data-id="' + esc(x.id) + '"><div class="ph" data-photo="' + esc(x.id) + '" data-postcard="' + esc(x.id) + '" data-w="420" data-h="230"><span class="rk" title="Rank for this profile">#' + x.rank + '</span>' + scoreBadge(x.overall) + '<span class="pickacts">' + saveBtn(x.id, true) + '</span></div><div class="bd"><div class="nm nz-place-name">' + placeEmblemHTML(x.r) + '<b>' + esc(x.r.name) + '</b></div><div class="small muted">' + flagImg(x.r.country, 11) + ' ' + esc(localAreaOf(x.r)) + ', ' + (fin(x.r.popNow) ? fmtInt(x.r.popNow) + ' residents' : 'Population unavailable') + '</div>' + cardMetaHTML(x.r, x) + propertyContextHTML(x.r) + snackLine(x.r) + mustHTML(x) + nestBars(x) + '<p>' + esc(cardCopy(x)) + '</p></div></div>';
   }).join('');
   var view = (RES.view || RES.scored).filter(vis);
   var shown = view.slice(0, S.shown);

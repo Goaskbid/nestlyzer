@@ -678,7 +678,7 @@ function kfLevel(r, lv) {
   if (!lv || lv === 1) return '';
   if (lv === 9) return 'national';
   if (lv === 2) return 'regional';
-  if (lv === 3) return r.country === 'US' ? 'county' : r.country === 'IL' ? 'regional council' : r.country === 'PT' ? 'municipality' : r.country === 'UK' ? 'council area' : 'district';
+  if (lv === 3) return r.country === 'CH' ? 'canton' : r.country === 'US' ? 'county' : r.country === 'IL' ? 'regional council' : r.country === 'PT' ? 'municipality' : r.country === 'UK' ? 'council area' : 'district';
   return '';
 }
 function keyFactsHTML(r) {
@@ -697,8 +697,16 @@ function keyFactsHTML(r) {
   // key figures for the site type come first
   var bizk = isBizKey(S.profile);
   if (bizk) { var pw = (META.config.profiles[S.profile] || {}), wc = pw.weights || {}, fo = pw.focus || {}; cand = cand.filter(function (c) { return (wc[c.f.category] || fo[c.f.id]) && !/^(family|health|safety|tax|lifestyle|environment|affordability|demographics)$/.test(c.f.category) || fo[c.f.id]; }); }
-  var near = cand.filter(function (c) { return c.lv === 1 || c.lv === 3; });
+  var all0 = cand, near = cand.filter(function (c) { return c.lv === 1 || c.lv === 3; });
   if (near.length < 6) cand = near.concat(cand.filter(function (c) { return c.lv !== 1 && c.lv !== 3; }).sort(function (a, b) { return a.lv - b.lv; }).slice(0, 8 - near.length)); else cand = near;
+  // 2.15.28 (owner: taxes and costs everywhere): a household card always shows one tax and one cost figure, the most local
+  // one available, even when it is a regional or national estimate (it carries the "est." mark)
+  if (!bizk) ['tax', 'affordability'].forEach(function (cat) {
+    var have = cand.filter(function (c) { return c.f.category === cat; }).sort(function (a, b) { return (a.lv === 3 ? 1.5 : a.lv) - (b.lv === 3 ? 1.5 : b.lv) || b.w - a.w; });
+    if (have.length) { have[0].pin = 1; return; }
+    var best = all0.filter(function (c) { return c.f.category === cat; }).sort(function (a, b) { return (a.lv === 3 ? 1.5 : a.lv) - (b.lv === 3 ? 1.5 : b.lv); })[0];
+    if (best) cand.push(Object.assign({}, best, { w: Math.max(best.w, 1), pin: 1 }));
+  });
   // a short list fills up with the place's measured site data (2.11): people nearby, climate class, altitude, reach
   if (!bizk && cand.length < 4) {
     var xx = r.x || {}, xf = function (id, name, val, src) { if (val != null) cand.push({ f: { id: id, name: name, category: 'foundation' }, val: val, lv: 1, w: -1, yr: '', src: src }); };
@@ -708,21 +716,22 @@ function keyFactsHTML(r) {
     if (fin(xx.reach100k)) xf('x_reach', 'Residents within 100 km', fmtInt(xx.reach100k * 1000), 'Nestlyzer, all countries');
   }
   if (!cand.length || bizk && cand.length < 3) return (bizk ? bizClimHTML(r) : '') + housingWorkHTML(r) + histHTML(r);
-  cand.sort(function (a, b) { return ((a.lv === 3 ? 1.5 : a.lv) - (b.lv === 3 ? 1.5 : b.lv)) || (b.w - a.w) || a.f.name.localeCompare(b.f.name); });
+  cand.sort(function (a, b) { return ((b.pin || 0) - (a.pin || 0)) || ((a.lv === 3 ? 1.5 : a.lv) - (b.lv === 3 ? 1.5 : b.lv)) || (b.w - a.w) || a.f.name.localeCompare(b.f.name); });
   var seen = {}, pick = [];
-  cand.forEach(function (c) { var k = c.f.name.toLowerCase(); if (seen[k] || pick.length >= 12) return; seen[k] = 1; pick.push(c); });
+  cand.forEach(function (c) { var k = c.f.name.toLowerCase(), v = 'v:' + c.f.unit + ':' + (r.factorRaw || {})[c.f.id]; if (seen[k] || seen[v] || pick.length >= 12) return; seen[k] = 1; if (fin((r.factorRaw || {})[c.f.id])) seen[v] = 1; pick.push(c); });   // 2.15.28: the same figure under two names is shown once
   pick.sort(function (a, b) { return (b.w - a.w) || (a.lv - b.lv); });
   var local = cand.filter(function (c) { return c.lv === 1; }).length;
   var kfHTML = '<section class="sec keyfacts"><h3>Key facts for ' + esc(r.name) + '</h3><p class="sub">' + fmtInt(cand.length) + ' official figures for ' + esc(r.name) + (local < cand.length ? ' and its wider area' : '') + ', most relevant for ' + esc(profileName(S.profile)) + ' first: <span class="kfkey good">helps</span> <span class="kfkey bad">weak</span> <span class="kfkey dim">does not count for this profile</span>. Hover or tap a figure for its source. <button class="linkbtn" type="button" data-ptab="data">All data</button></p><div class="kfgrid">' +
     pick.map(function (c) {
-      var tag = kfLevel(r, c.lv), yr = String(c.yr || '').replace(/\s*snapshot in embedded build/i, '').replace(/^(\d{4})-\d\d-\d\d$/, '$1');
+      var tag = (r.factorEst || {})[c.f.id] ? (c.lv === 9 ? 'national estimate' : r.country === 'CH' && c.lv === 3 ? 'canton median, estimate' : 'regional estimate') : kfLevel(r, c.lv), yr = String(c.yr || '').replace(/\s*snapshot in embedded build/i, '').replace(/^(\d{4})-\d\d-\d\d$/, '$1');
       var src = String(c.src || '').replace(/\s*\(as above\)/i, '').split(/ - | \/ |; |, from | \(/)[0].trim(); if (src.length > 44) src = src.slice(0, 42).replace(/\s+\S*$/, '') + '…';
       // tone for the profile in focus (2.11.2): green helps, red hurts, grey does not count for this profile
       var sc = (r.factorScores || {})[c.f.id], rel = !c.f.not_scored && (w[c.f.category] || 0) > 0 || (bizk && ((META.config.profiles[S.profile] || {}).focus || {})[c.f.id]);
       var tn = !rel ? 'dim' : !fin(sc) ? '' : sc >= 60 ? 'good' : sc <= 40 ? 'bad' : 'mid';
-      var tq = fin(sc) && rel ? truePct(r, c.f.id) : null, vd = fin(sc) && rel ? (tq == null ? 'model score ' + Math.round(sc) + ' of 100 in ' : tq >= 50 ? 'better than ' + tq + '% of places in ' : 'weaker than ' + (100 - tq) + '% of places in ') + countryName(r.country) : !rel ? 'does not count for ' + profileName(S.profile).toLowerCase() : 'counts for this profile; no comparison with other places';
+      var isEst = !!(r.factorEst || {})[c.f.id], natEst = isEst && c.lv === 9;
+      var tq = fin(sc) && rel && !natEst ? truePct(r, c.f.id) : null, vd = natEst && fin(sc) ? estSay(sc, c.f, r) : fin(sc) && rel ? (tq == null ? 'model score ' + Math.round(sc) + ' of 100 in ' + countryName(r.country) : cmpSay(tq, r.country, c.f.id)) : !rel ? 'does not count for ' + profileName(S.profile).toLowerCase() : 'counts for this profile; no comparison with other places';
       var st = [c.f.description || c.f.name, [yr, tag ? tag + ' value' : '', c.src ? 'Source: ' + c.src : ''].filter(Boolean).join(' · ')].join(' ');
-      return '<div class="kf ' + tn + '" data-k="' + esc(c.f.id) + '" data-src="' + esc(st) + '" title="' + esc(st) + '"><b>' + esc(c.val) + '</b><span>' + esc(c.f.name) + '</span>' + (vd || tag ? '<em>' + esc([vd, tag ? tag + ' figure' : ''].filter(Boolean).join(' · ')) + '</em>' : '') + '</div>';
+      return '<div class="kf ' + tn + '" data-k="' + esc(c.f.id) + '" data-src="' + esc(st) + '" title="' + esc(st) + '"><b>' + esc(c.val) + (isEst ? '<i class="kfest" title="Estimate: ' + esc(tag) + '">est.</i>' : '') + '</b><span>' + esc(c.f.name) + '</span>' + (vd || tag ? '<em>' + esc([vd, tag && !isEst ? tag + ' figure' : isEst ? tag : ''].filter(Boolean).join(' · ')) + '</em>' : '') + '</div>';
     }).join('') + '</div></section>';
   return fitHTML(r) + (bizk ? bizClimHTML(r) : '') + econHTML(r) + needsHTML(r) + (bizk ? housingWorkHTML(r) + kfHTML.replace(/^<section class="sec keyfacts"><h3>Key facts for /, '<section class="sec keyfacts"><h3>Site facts for ') : kfHTML + housingWorkHTML(r)) + histHTML(r);
 }
@@ -992,6 +1001,21 @@ function cxDir(id, biz) { id = String(id || ''); var pk = S.profile || '';
   if (/unemploy/.test(id) && biz) return /contact|services|logistics|fulfilment|manufactur|food/.test(pk) ? 0 : -1;   // more people looking for work is not a defect for a labour-hungry site
   if (/kindergarten|childcare/.test(id)) return 1;
   for (var i = 0; i < CX_DIR.length; i++) if (CX_DIR[i][0].test(id)) { var d = CX_DIR[i][1]; return d === 'pay' ? (biz ? -1 : 1) : d; } return 0; }
+/* 2.15.28: varied, plain comparisons. The wording is picked by the figure's id, so it stays the same on every visit
+   but neighbouring rows do not all read "better than x% of places in ..." */
+function sayPick(key, a) { var h = 0; key = String(key || ''); for (var i = 0; i < key.length; i++) h = (h * 31 + key.charCodeAt(i)) | 0; return a[Math.abs(h) % a.length]; }
+function cmpSay(tq, cc, key) {
+  var d = demonym(cc), u = unitWord(cc, 2), pl = d + ' ' + u, q = Math.max(1, Math.min(99, tq));
+  if (q >= 90) return sayPick(key, ['in the top ' + (100 - q) + '% of ' + pl, 'beats ' + q + '% of ' + pl, 'few ' + pl + ' do better (top ' + (100 - q) + '%)']);
+  if (q >= 60) return sayPick(key, ['better than ' + q + '% of ' + pl, 'ahead of ' + q + '% of ' + pl, 'beats ' + q + '% of ' + pl]);
+  if (q > 40) return sayPick(key, ['about average for ' + pl, 'close to the ' + d + ' middle', 'mid-field among ' + pl]);
+  if (q > 10) return sayPick(key, ['weaker than ' + (100 - q) + '% of ' + pl, 'behind ' + (100 - q) + '% of ' + pl, 'trails ' + (100 - q) + '% of ' + pl]);
+  return sayPick(key, ['among the weakest ' + q + '% of ' + pl, 'near the bottom of ' + pl + ' (' + q + '%)']);
+}
+function natSay(p, n, key) {
+  var q = Math.max(1, Math.min(99, p)), hi = q >= 50, x = hi ? q : 100 - q;
+  return sayPick(key, [(hi ? 'higher' : 'lower') + ' than ' + x + '% of the ' + n + ' countries with data', (hi ? 'above' : 'below') + ' ' + x + '% of ' + n + ' reporting countries', (hi ? 'higher' : 'lower') + ' than in ' + x + '% of ' + n + ' countries']);
+}
 function hiLo(p) { p = Math.max(1, Math.min(99, p)); return p >= 50 ? 'higher than ' + p + '%' : 'lower than ' + (100 - p) + '%'; }
 var PK_DIST = { city: 1, air: 1, rail: 1, mway: 1, cap: 1, border: 1, coast: 1, lake: 1, river: 1, port: 1, metro: 1 };
 function pkTxt(k, p) { p = Math.max(1, Math.min(99, p)); return PK_DIST[k] ? (p >= 50 ? 'further than ' + p + '%' : 'closer than ' + (100 - p) + '%') : k === 'setw' || k === 'sets' ? (p >= 50 ? 'later than ' + p + '%' : 'earlier than ' + (100 - p) + '%') : hiLo(p); }
@@ -1005,7 +1029,7 @@ function cxTone(o, cx, biz) {
   var dir = cxDir(o.indicator_id, biz), cn = countryName(String(o.country || '').toUpperCase()) || 'the country';
   if (o.source_geo_level === 'multicountry_aggregate') return ['ref', 'benchmark to compare against'];
   if (o.source_geo_level === 'country' || o.source_geo_level === 'country_scenario') {
-    if (o.xc) return [(toneOf(o.xc[0], dir) + ' nat').trim(), hiLo(o.xc[0]) + ' of the ' + o.xc[1] + ' countries that publish it'];
+    if (o.xc) return [(toneOf(o.xc[0], dir) + ' nat').trim(), natSay(o.xc[0], o.xc[1], o.indicator_id)];
     var eu = cx && cxPeer(o, cx, function (x) { return x.source_geo_id === 'EUROSTAT:EU27_2020'; });
     return eu ? [(cxVs(o, eu, dir)[0] + ' nat').trim(), cxVs(o, eu, dir)[1] + ' the EU average (' + cxVal(eu) + ')'] : ['nat', 'national figure; too few countries publish it to rank'];
   }
@@ -1339,6 +1363,13 @@ function needEvidence(r, c, what) {
 var FIT_BAND = [[92, 'among the very best in '], [82, 'in the top fifth of '], [70, 'well above the average for '], [60, 'above the average for ']];
 var FIT_WEAK = [[8, 'among the weakest in '], [20, 'in the bottom fifth of '], [32, 'well below the average for '], [40, 'below the average for ']];
 var FIT_CAT = { freight: 1, reach: 1, reach300: 1, domreach: 1, portaccess: 1, flatland: 1, chempark: 1, climate: 1, city: 1, services: 1, climaterisk: 1, campus: 1, unitown: 1, quiet: 1, cluster: 1, coast: 1, commuter_access: 1, student_access: 1, outdoor: 1, border: 1, finhub: 1, insurhub: 1, fundhub: 1, commodhub: 1, cryptohub: 1, wealthhub: 1, focus: 1 };
+/* 2.15.28: national figures used as estimates are compared across countries, not within one */
+function estSay(sc, f, r) {
+  var tx = f.category === 'tax', k = f.id + ':' + r.country;
+  if (sc >= 67) return sayPick(k, tx ? ['lighter than in most countries we cover', 'among the lower tax loads we track', 'a comparatively light national tax load'] : ['cheaper than most countries we cover', 'among the more affordable countries we track', 'everyday prices sit below most peers']);
+  if (sc <= 33) return sayPick(k, tx ? ['heavier than in most countries we cover', 'among the higher tax loads we track', 'a comparatively heavy national tax load'] : ['pricier than most countries we cover', 'among the more expensive countries we track', 'everyday prices sit above most peers']);
+  return sayPick(k, tx ? ['mid-table among the countries we cover', 'close to the middle of the countries we track'] : ['mid-priced among the countries we cover', 'close to the middle on prices']);
+}
 var NZ_NAME = { mway: 'motorway', air: 'hub airport', chem: 'chemical park', port: 'major port', flood: 'flood or heat exposure', crowd: 'dense building', steep: 'steep terrain', air_quality: 'fine dust' };
 function quietEv(r, avoid, max) {
   avoid = avoid || []; var nz = ENGINE.nuisances(r, avoid), x = r.x || {}, fr = r.factorRaw || {}, out = [];
@@ -1814,7 +1845,7 @@ function sheetHTML(r, k) {
   var f = ENGINE.factorById && ENGINE.factorById[k]; if (!f) return '';
   var v = fr[k], sc = fs[k], dir = f.direction === 'higher_better' || f.direction === 'higher' ? 1 : f.direction === 'lower_better' || f.direction === 'lower' ? -1 : 0;
   var fv = function (x) { var t = adFmtRaw(f, x); return t == null ? fmt(x) : t; };
-  var lv = LV[(r.factorLevel || {})[k]] || 'municipality';
+  var lv = (r.factorEst || {})[k] ? ((r.factorLevel || {})[k] === 9 ? 'national figure, used as an estimate for this place' : (r.country === 'CH' && (r.factorLevel || {})[k] === 3) ? 'canton median, used as an estimate for this place' : 'regional figure, used as an estimate for this place') : (r.country === 'CH' && (r.factorLevel || {})[k] === 3) ? 'canton' : LV[(r.factorLevel || {})[k]] || 'municipality';
   return '<h3 id="nzsh-t">' + esc(f.name) + '</h3><p class="sub">' + esc(r.name) + ', ' + esc(countryName(r.country)) + '</p>' +
     '<div class="big"><b>' + esc(fin(v) ? fv(v) : 'no value') + '</b>' + (fin(sc) ? '<span>score ' + Math.round(sc) + ' of 100</span>' : '') + '</div>' +
     sheetDist(r, function (q) { return (q.factorRaw || {})[k]; }, fv, dir) +
@@ -1836,6 +1867,92 @@ var ST_POS = /\b(restor\w*|renovat\w*|regenerat\w*|revitali[sz]\w*|redevelop\w*|
 var ST_ORDER = [1, 0, 2];   // a sentence about industry is filed under Work and change even when it names a century
 // history is not a plus or a minus; work and life today are. A closure followed by a new use reads as renewal.
 function stTone(t, i) { if (i === 0) return ''; var neg = ST_NEG.test(t), pos = ST_POS.test(t); if (neg && /redevelop|regenerat|convert|revitali|renovat/i.test(t)) return 'pos'; return neg && !pos ? 'neg' : pos && !neg ? 'pos' : ''; }
+/* 2.15.28: "At a glance" on the Overview: a radar of this profile's categories against the national middle,
+   and up to four headline figures with how the place compares inside its country. Only figures already shown elsewhere. */
+function glanceMed(c) {
+  var R = typeof RES !== 'undefined' && RES; if (!R || !R.scored || !R.scored.length) return null;
+  R._gmed = R._gmed || {}; if (R._gmed[c] !== undefined) return R._gmed[c];
+  var a = []; R.scored.forEach(function (x) { var v = (x.catScores || {})[c]; if (fin(v)) a.push(v); }); a.sort(function (p, q) { return p - q; });
+  return (R._gmed[c] = a.length >= 6 ? a[a.length >> 1] : null);
+}
+function glanceRadar(r) {
+  var x = placeX(r), w = ENGINE.weightsFor(r, S.profile) || {}, cs = x.catScores || {};
+  var ks = Object.keys(w).filter(function (k) { return w[k] > 0 && fin(cs[k]) && !(k === 'coast' && typeof coastRelevant === 'function' && !coastRelevant(r)); })
+    .sort(function (a, b) { return w[b] - w[a]; }).slice(0, 8);
+  if (ks.length < 3) return '';
+  var W = 300, H = 286, cx = W / 2, cy = 138, R0 = 84, n = ks.length;
+  var pt = function (i, v) { var a = -Math.PI / 2 + 2 * Math.PI * i / n, rr = R0 * Math.max(0, Math.min(100, v)) / 100; return [cx + rr * Math.cos(a), cy + rr * Math.sin(a)]; };
+  var poly = function (vals) { return vals.map(function (v, i) { var p = pt(i, v); return p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' '); };
+  var grid = [25, 50, 75, 100].map(function (g) { return '<polygon points="' + poly(ks.map(function () { return g; })) + '" class="gr' + (g === 50 ? ' gm' : '') + '"/>'; }).join('');
+  var spokes = ks.map(function (k, i) { var p = pt(i, 100); return '<line x1="' + cx + '" y1="' + cy + '" x2="' + p[0].toFixed(1) + '" y2="' + p[1].toFixed(1) + '"/>'; }).join('');
+  var meds = ks.map(glanceMed), hasMed = meds.every(fin);
+  var dots = ks.map(function (k, i) { var p = pt(i, cs[k]); return '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="3.2" style="fill:' + scoreColor(cs[k]) + '"/>'; }).join('');
+  var labs = ks.map(function (k, i) { var p = pt(i, 116), lo = p[1] > cy + 20, anc = Math.abs(p[0] - cx) < 8 ? 'middle' : p[0] < cx ? 'end' : 'start';
+    return '<g data-k="cat:' + esc(k) + '" data-src="' + esc(catLabel(k) + ': ' + Math.round(cs[k]) + ' of 100' + (fin(meds[i]) ? ', national middle ' + Math.round(meds[i]) : '') + '. Weight in this profile ×' + w[k] + '.') + '" class="gl"><text x="' + p[0].toFixed(1) + '" y="' + (p[1] + (lo ? 10 : -3)).toFixed(1) + '" text-anchor="' + anc + '">' + esc(shortCat(k)) + '</text><text x="' + p[0].toFixed(1) + '" y="' + (p[1] + (lo ? 23 : 11)).toFixed(1) + '" text-anchor="' + anc + '" class="gv">' + Math.round(cs[k]) + '</text></g>'; }).join('');
+  return '<figure class="glr"><svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc('Category scores of ' + r.name + ' for this profile' + (hasMed ? ', compared with the national middle' : '')) + '"><g class="grid">' + grid + spokes + '</g>' +
+    (hasMed ? '<polygon points="' + poly(meds) + '" class="med"/>' : '') + '<polygon points="' + poly(ks.map(function (k) { return cs[k]; })) + '" class="me"/>' + dots + labs + '</svg>' +
+    '<figcaption><span class="k me"></span>' + esc(r.name) + (hasMed ? '<span class="k med"></span>Middle of ' + esc(countryName(r.country)) : '') + '</figcaption></figure>';
+}
+function glanceSay(pc, cc) {   // plain words instead of the same "better than x%" four times
+  var d = demonym(cc), u = unitWord(cc, 2);
+  if (pc >= 90) return 'Top ' + Math.max(1, 100 - pc) + '% of ' + d + ' ' + u;
+  if (pc >= 70) return 'Ahead of ' + pc + '% of ' + d + ' ' + u;
+  if (pc >= 45) return 'About average for ' + d + ' ' + u;
+  if (pc >= 20) return 'Behind ' + (100 - pc) + '% of ' + d + ' ' + u;
+  return 'In the weakest ' + Math.max(1, pc) + '% of ' + d + ' ' + u;
+}
+function glanceTiles(r) {
+  var it = fitItems(r).filter(function (o) { return o.val && !/^cat:/.test(o.k) && ENGINE.factorById[o.k]; }).sort(function (a, b) { return b.imp - a.imp; });
+  var seen = {}, out = [];
+  it.forEach(function (o) { if (out.length >= 4 || seen[o.lab]) return; seen[o.lab] = 1;
+    var pc = shPctOf(r, 's:' + o.k, function (q) { return (q.factorScores || {})[o.k]; }); if (pc == null) return;
+    var who = unitWord(r.country, 2), f = ENGINE.factorById[o.k];
+    out.push('<div class="gt" data-k="' + esc(o.k) + '" data-src="' + esc(f.name + ': ' + o.val + '. Scores ' + Math.round(o.s) + ' of 100 for this profile; better than ' + pc + '% of ' + demonym(r.country) + ' ' + who + '.' + (f.description ? ' ' + f.description : '')) + '">' +
+      '<b>' + esc(o.val) + '</b><span class="gn">' + esc(o.lab) + '</span><span class="gb" aria-hidden="true"><i style="width:' + Math.max(3, pc) + '%;background:' + scoreColor(Math.max(pc, 18)) + '"></i></span><span class="gp">' + esc(glanceSay(pc, r.country)) + '</span></div>'); });
+  return out.join('');
+}
+function glanceText(r) {   // the radar in words: where the place leads and where it gives ground
+  var x = placeX(r), w = ENGINE.weightsFor(r, S.profile) || {}, cs = x.catScores || {}, d = demonym(r.country), u = unitWord(r.country, 1), nm = esc(r.name);
+  var ks = Object.keys(w).filter(function (k) { return w[k] > 0 && fin(cs[k]) && fin(glanceMed(k)) && !(k === 'coast' && typeof coastRelevant === 'function' && !coastRelevant(r)); });
+  if (ks.length < 3) return '';
+  var gap = function (k) { return cs[k] - glanceMed(k); }, lab = function (k) { return '<b>' + esc(shortCat(k).toLowerCase()) + '</b>'; };
+  var up = ks.filter(function (k) { return cs[k] >= 60 && gap(k) >= 8; }).sort(function (a, b) { return gap(b) - gap(a); }).slice(0, 2);
+  var dn = ks.filter(function (k) { return gap(k) <= -8 || cs[k] < 40; }).sort(function (a, b) { return gap(a) - gap(b); }).slice(0, 2);
+  var who = profileName(S.profile).toLowerCase(), out = [];
+  if (up.length) { var a = lab(up[0]) + ' (' + Math.round(cs[up[0]]) + ')', b = up[1] ? lab(up[1]) + ' (' + Math.round(cs[up[1]]) + ')' : '';
+    out.push(sayPick(r.id + 'u', [nm + ' stands out on ' + a + (b ? ' and ' + b : '') + ', well above the typical ' + d + ' ' + u + '.',
+      'For a ' + esc(who) + ', its strongest suits are ' + a + (b ? ' and ' + b : '') + '.',
+      'Where ' + nm + ' clearly leads: ' + a + (b ? ', then ' + b : '') + '.'])); }
+  else out.push(sayPick(r.id + 'u', ['No single category lifts ' + nm + ' far above the ' + d + ' middle; its score comes from being solid across the board.', nm + ' wins on balance rather than on one standout strength.']));
+  if (dn.length) { var c = dn[0], m = Math.round(glanceMed(c)), e = dn[1] ? lab(dn[1]) + ' (' + Math.round(cs[dn[1]]) + ')' : '';
+    out.push(sayPick(r.id + 'd', ['The weak spot is ' + lab(c) + ': ' + Math.round(cs[c]) + ', where a typical ' + d + ' ' + u + ' scores ' + m + '.',
+      'It gives ground on ' + lab(c) + ' (' + Math.round(cs[c]) + ' against a national middle of ' + m + ')' + (e ? ' and on ' + e : '') + '.',
+      'Less convincing: ' + lab(c) + ' at ' + Math.round(cs[c]) + (e ? ', and ' + e : '') + '. Worth a closer look before deciding.'])); }
+  else out.push(sayPick(r.id + 'd', ['Nothing this profile weighs falls clearly below the ' + d + ' middle.', 'There is no category where it trails the typical ' + d + ' ' + u + ' by much.']));
+  return '<div class="glt">' + out.map(function (t) { return '<p>' + t + '</p>'; }).join('') + '<p class="glh">Hover a category for the detail, double-click for the data.</p></div>';
+}
+function glanceFill(r, el) {
+  if (!el || !r) return;
+  var rad = '', til = '';
+  try { rad = glanceRadar(r); } catch (e) {}
+  try { til = glanceText(r); } catch (e) {}
+  if (!rad && !til) { el.hidden = true; return; }
+  if (!document.getElementById('nzglcss')) { var st = document.createElement('style'); st.id = 'nzglcss'; st.textContent =
+    '.glwrap{container-type:inline-size}.glance{display:grid;grid-template-columns:1fr;gap:14px;align-items:center}@container (min-width:640px){.glance:not(.solo){grid-template-columns:300px 1fr}}' +
+    '.glr{margin:0 auto;max-width:340px;width:100%}.glr svg{width:100%;height:auto;display:block;overflow:visible}.glr .grid polygon,.glr .grid line{fill:none;stroke:var(--line);stroke-width:1}.glr .grid .gm{stroke:var(--line-2);stroke-dasharray:2 3}' +
+    '.glr .med{fill:none;stroke:var(--ink-3);stroke-width:1.4;stroke-dasharray:4 3}.glr .me{fill:color-mix(in srgb,var(--accent,#1f7a8c) 22%,transparent);stroke:var(--accent,#1f7a8c);stroke-width:2;stroke-linejoin:round}' +
+    '.glr text{font-size:11px;fill:var(--ink-2)}.glr .gv{font-weight:700;font-size:12px;fill:var(--ink);font-variant-numeric:tabular-nums}.glr circle{stroke:var(--surface,#fff);stroke-width:1.2}.glr .gl{cursor:help}' +
+    '.glr figcaption{display:flex;gap:6px;align-items:center;justify-content:center;font-size:11.5px;color:var(--ink-2);flex-wrap:wrap}.glr .k{display:inline-block;width:14px;height:0;border-top:2px solid var(--accent,#1f7a8c);margin-left:6px}.glr .k.med{border-top:2px dashed var(--ink-3)}' +
+    '.glt p{margin:0 0 9px;font-size:15px;line-height:1.55;color:var(--ink)}.glt b{font-weight:650}.glt .glh{font-size:12px;color:var(--ink-3);margin:0}' +
+    '.gts{display:grid;grid-template-columns:1fr 1fr;gap:8px}.gt{border:1px solid var(--line);border-radius:12px;padding:10px 11px;background:var(--surface);cursor:help;min-width:0}' +
+    '.gt b{display:block;font-size:19px;line-height:1.2;font-variant-numeric:tabular-nums;letter-spacing:-.01em;overflow-wrap:break-word;hyphens:none}.gt .gn{display:block;font-size:12px;color:var(--ink-2);margin:2px 0 7px;line-height:1.3}' +
+    '.gt .gb{display:block;height:6px;border-radius:3px;background:var(--line)}.gt .gb i{display:block;height:100%;border-radius:3px;transform-origin:left;animation:nzgrow .7s cubic-bezier(.2,.8,.2,1) both}' +
+    '.gt .gp{display:block;font-size:11px;color:var(--ink-3);margin-top:4px}@keyframes nzgrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}' +
+    '@media (prefers-reduced-motion:reduce){.gt .gb i{animation:none}}@media(max-width:640px){.glance{grid-template-columns:1fr}.glr{max-width:320px;margin:0 auto}}';
+    document.head.appendChild(st); }
+  el.innerHTML = '<section class="sec"><h3>At a glance</h3><p class="sub">How ' + esc(r.name) + ' does on what this profile weighs, against the middle of ' + esc(countryName(r.country)) + '. Hover for an explanation, double-click for the data.</p>' +
+    '<div class="glwrap"><div class="glance' + (rad && til ? '' : ' solo') + '">' + rad + til + '</div></div></section>';
+}
 function storyFill(r, el) {
   if (!document.getElementById('story-css')) { var st = document.createElement('style'); st.id = 'story-css'; st.textContent =
     '.story .sth{display:flex;align-items:center;gap:10px;margin:18px 0 8px}.story .sth h4{margin:0;font-size:16px}.story .sth i{flex:1;height:1px;background:var(--line)}' +

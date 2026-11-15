@@ -765,7 +765,7 @@ async def main():
             await pg.wait_for_function("NZ.state.profile==='self_fit' && NZ.res && NZ.res.scored.length", timeout=20000); await pg.wait_for_timeout(500)
             cant = await nz(pg, "[...new Set(NZ.scope.map(r=>r.canton))].sort().join(',')"); chip = await pg.locator('[data-droplang]').count()
             await pg.click('[data-droplang]'); await pg.wait_for_timeout(500); n2 = await nz(pg, 'NZ.scope.length')
-            rec('R54', 'Builder language choice really filters (French: French-speaking and bilingual cantons only), removable with one tap', set(cant.split(',')) <= {'GE', 'VD', 'NE', 'JU', 'FR', 'VS', 'BE', 'GR'} and chip == 1 and n2 == 2172, f'cantons={cant}, chip={chip}, after removing={n2}')
+            rec('R54', 'Builder language choice really filters (French: French-speaking and bilingual cantons only), removable with one tap', set(cant.split(',')) <= {'GE', 'VD', 'NE', 'JU', 'FR', 'VS', 'BE', 'GR'} and chip == 1 and n2 == 2110, f'cantons={cant}, chip={chip}, after removing={n2}')
         await check('R54', 'Builder language', r54)
 
         # ---------------- 2.2 ----------------

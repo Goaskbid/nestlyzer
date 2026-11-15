@@ -51,3 +51,14 @@ Access date for every quoted clause: **7 November 2026**. Treat all use as comme
 - Snapshot the licence pages for Natural Earth, OurAirports, NASA POWER, USGS and each national statistics office (FR, US, CA, AU, JP, KR, TW, SG, NZ).
 - Check the AdSense programme policies.
 - Write a NOTICE file, a Sources page section and a takedown contact (the report address already exists on /legal/).
+
+## Additions in 2.15.28
+
+| Source | Use | Licence (quoted or checked 15 November 2026) | Status |
+|---|---|---|---|
+| OECD Taxing Wages 2026 | national tax wedge for an average single earner, an estimate where no local tax figure exists | CC BY 4.0 (OECD data since 2024) | Green |
+| World Bank WDI GC.TAX.TOTL.GD.ZS | tax revenue share of GDP, national estimate | CC BY 4.0 | Green |
+| Amt für Statistik Liechtenstein, *Liechtenstein in Zahlen 2025* | Liechtenstein tax revenue and GDP | CC BY 4.0 | Green |
+| Penn World Table 11.0 (Groningen Growth and Development Centre) | Taiwan national price level, scaled to the World Bank series | "licensed under a Creative Commons Attribution 4.0 International License" (rug.nl PWT 11.0 page) | Green |
+| BFS official municipality register, mutation records | which Swiss municipalities merged, when, and their new numbers (facts only) | official register; facts are not protected; BFS results may be used commercially with credit (item 5) | Green |
+| swiss-maps npm package (interactivethings) | used once at build time to list the official numbers per year; its geometry is **not** used or shipped (README: geodata non-commercial) | code BSD-3-Clause; geometry not used | Green (facts only) |

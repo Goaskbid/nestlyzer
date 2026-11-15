@@ -502,3 +502,12 @@ html.bizmode,body.bizmode{--navy:#0B4D4C;--blue:#0F7C7A;--cyan:#2AA59F;--r0:#E5E
 #place .nz-note-1{background:none!important;border:0!important;padding:0!important;margin:6px 0!important;font-size:13px;color:var(--ink-2)}
 .evpr{display:grid;grid-template-columns:64px 1fr;gap:4px 8px;align-items:center;font-size:13px;margin:6px 0}.evpr i{height:10px;border-radius:5px;overflow:hidden;display:flex;background:var(--line)}.evpr i b{display:block;height:100%}.evpr .evp0{background:#5b8def}.evpr .evp1{background:#2bb3a3}.evpr .evp2{background:#e0a33a}.evpr em{grid-column:2;font-style:normal;color:var(--ink-2)}.evprog summary{cursor:pointer;margin:8px 0}.evnear h4{margin-top:12px}
 .nz-emblem .nz-arms-img{width:auto;height:34px;max-width:40px;object-fit:contain;display:block}#place .ids .nz-arms-img{height:40px}
+
+/* 2.15.28: no arms on record (or blocked) -> no empty outline; arms of the parent region are drawn slightly smaller */
+.nz-emblem[data-emblem-state=none]{display:none}.nz-emblem .nz-arms-up{opacity:.92;height:30px}
+/* 2.15.28: content first, sources second. Credit lines stay (licences require them) but read as footnotes */
+#place p.src,#place .facsrc,#place .stsrc,#place .credit,#place .attrib{font-size:11px!important;line-height:1.45;color:var(--ink-3)!important;opacity:.85;margin-top:10px}
+#place p.src a,#place .facsrc a{color:inherit;text-decoration-color:color-mix(in srgb,currentColor 40%,transparent)}
+.whycard .watch.unknown{border-left:3px solid var(--ink-3);padding-left:8px;color:var(--ink-2)}
+/* 2.15.28 estimate badge on key facts */
+.kf .kfest{font-style:normal;font-size:10px;font-weight:600;letter-spacing:.02em;margin-left:6px;padding:1px 6px;border-radius:9px;background:var(--bg-2,#eef1f4);color:var(--ink-2,#555);vertical-align:2px;border:1px dashed currentColor;opacity:.85}

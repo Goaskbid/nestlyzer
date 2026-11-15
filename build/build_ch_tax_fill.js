@@ -9,7 +9,7 @@ const med = (a) => { a = a.filter(Number.isFinite).sort((x, y) => x - y); if (!a
 let filled = 0;
 for (const k of KEYS) {
   const by = {}; sh.rows.forEach((row, i) => { if (row[C.sup]) return; const n3 = row[C.n3]; if (!n3) return; (by[n3] = by[n3] || { r: [], s: [] }); if (sh.fr[k][i] != null) by[n3].r.push(sh.fr[k][i]); if (sh.fs[k][i] != null) by[n3].s.push(sh.fs[k][i]); });
-  const t = {}; for (const n3 in by) { const r = med(by[n3].r), s = med(by[n3].s); if (r != null) t[n3] = [Math.round(r * 100) / 100, s == null ? null : Math.round(s * 10) / 10]; }
+  const t = {}; for (const n3 in by) { const r = med(by[n3].r), s = med(by[n3].s); if (r != null) t[n3] = [Math.round(r * 100) / 100, s == null ? null : Math.round(s * 100) / 100, 'm']; /* 2.15.28 (owner: "estimates matter"): the canton median is scored and always labelled as an estimate */ }
   sh.rg = sh.rg || {}; sh.rg[k] = { n3: t };
   filled += sh.rows.filter((row, i) => !row[C.sup] && sh.fr[k][i] == null && t[row[C.n3]]).length;
 }

@@ -38,6 +38,7 @@
       var fs = {}, fr = {}, geoN = 0, k, v;
       for (var a = 0; a < fsKeys.length; a++) { k = fsKeys[a]; v = sh.fs[k][i]; if (v != null) { fs[k] = v; if (k.slice(0, 4) === 'geo_') geoN++; } }
       for (var b = 0; b < frKeys.length; b++) { k = frKeys[b]; v = sh.fr[k][i]; if (v != null) fr[k] = v; }
+      var est = null;   // 2.15.28: figures that are estimates (e.g. a canton median standing in for a merged municipality)
       var fl = null; for (var c2 = 0; c2 < flKeys.length; c2++) { k = flKeys[c2]; v = sh.fl[k][i]; if (typeof v === 'string') v = v === '0' ? null : +v; if (v != null) (fl = fl || {})[k] = v; }
       // regional figures (stored once per region): district (n3), region (n2 or the region code), large region (n1), country
       if (rgKeys.length) {
@@ -47,7 +48,7 @@
           var tb = sh.rg[k];
           for (var l2 = 0; l2 < RG_ORDER.length; l2++) {
             var t2 = tb[RG_ORDER[l2]], e = t2 && t2[codes[RG_ORDER[l2]]];
-            if (e) { fr[k] = e[0]; if (e[1] != null) fs[k] = e[1]; (fl = fl || {})[k] = RG_LVL[RG_ORDER[l2]]; break; }
+            if (e) { fr[k] = e[0]; if (e[1] != null) fs[k] = e[1]; /* 2.15.28 (owner: "estimates matter"): estimates are scored and flagged */ (fl = fl || {})[k] = RG_LVL[RG_ORDER[l2]]; if (e[2] === 'm') (est = est || {})[k] = 1; break; }
           }
         }
       }
@@ -59,7 +60,7 @@
         population: row[C.pop], area_km2: row[C.area], density: row[C.dens], lat: row[C.lat], lon: row[C.lon],
         sourceConfidence: row[C.conf] == null ? 62 : row[C.conf], availableFactorCount: row[C.nf], dataReadiness: row[C.ready],
         locMethod: row[C.loc], gisco: row[C.gisco] || (sh.cc + '_' + row[C.oid]),
-        region: strs[row[C.regionName]] || '', factorScores: fs, factorRaw: fr, factorLevel: fl, geoFactorCount: geoN, superseded: !!(C.sup != null && row[C.sup])
+        region: strs[row[C.regionName]] || '', factorScores: fs, factorRaw: fr, factorLevel: fl, factorEst: est, geoFactorCount: geoN, superseded: !!(C.sup != null && row[C.sup])
       };
       for (k in fb) if (fs[k] != null && fr[k] == null) fr[k] = r[fb[k] === 'pop' ? 'population' : 'density'];
       var g = row[C.geoNames];

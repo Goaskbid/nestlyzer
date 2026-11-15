@@ -78,7 +78,18 @@ def browser(meta):
     check(not errors, 'no JavaScript errors' + ('' if not errors else ': ' + '; '.join(errors[:3])))
 
 
+def pages_size():
+    # 2.15.28: GitHub Pages publishes at most 1 GB; public.mjs and this check stop the deploy at 850 MB, a 15% margin
+    if os.path.exists(os.path.join(SITE, 'package.json')): return   # a working copy, not the published site
+    tot = n = 0
+    for d, _, fs in os.walk(SITE):
+        for f in fs:
+            tot += os.path.getsize(os.path.join(d, f)); n += 1
+    mb = tot / 1e6
+    (fails if mb > 850 else notes).append(f'{"FAIL" if mb > 850 else "ok"}   published site {mb:.0f} MB in {n} files (GitHub Pages limit 1,000 MB, our stop 850 MB)')
+
 if __name__ == '__main__':
+    pages_size()
     m = files()
     if not fails:
         browser(m)

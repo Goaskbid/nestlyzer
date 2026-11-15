@@ -116,6 +116,15 @@
     // (everything not built-up): 95% natural or more -> 100, 60% -> 0.
     var bu0 = (r.factorRaw || {}).settlement_area_balance;
     if (this.method !== 'v1' && fin(bu0) && fin(out.environment)) out.environment = 0.4 * out.environment + 0.6 * Math.max(0, Math.min(100, (40 - bu0) / 35 * 100));
+    // 2.15.28: a category backed only by estimates (regional or canton medians standing in for a missing local figure)
+    // counts, but at half strength: it moves halfway from the midpoint, so an estimate never lifts or sinks a place
+    // as far as a measurement would
+    var fe = r.factorEst, fsE = r.factorScores || {}, lvE = r.factorLevel || {};
+    if (fe) for (var ek in out) {
+      var eids = this.factorIdsByCat[ek] || [], nE = 0, nM = 0;
+      for (var eq = 0; eq < eids.length; eq++) if (fin(fsE[eids[eq]]) && lvE[eids[eq]] !== 9) { if (fe[eids[eq]]) nE++; else nM++; }
+      if (nE && !nM && fin(out[ek])) out[ek] = 50 + (out[ek] - 50) / 2;
+    }
     if (r.country !== 'CH') {
       var fs = r.factorScores || {};
       var pop = fs.common_population_scale, density = fs.common_density_balance, calm = fs.common_low_crowding;
@@ -150,6 +159,9 @@
       for (var k in out) if (!fin(out[k])) delete out[k];
       // categories without their own measures here are stand-ins (e.g. costs estimated from density); the app labels them
       var px = null; for (var pk in out) if (!real[pk] && PROXY_NOTE[pk]) (px = px || {})[pk] = natl[pk] != null ? 'national price level combined with a model ' + PROXY_NOTE[pk].replace('modelled ', '') : PROXY_NOTE[pk];
+      // 2.15.28: a category known here only from a national figure (e.g. the country's tax level) is a stand-in too:
+      // it counts half and never triggers the weak-core-need penalty, the same rule as the national price level
+      for (var pn in natl) if (!real[pn] && !PROXY_NOTE[pn] && fin(out[pn])) (px = px || {})[pn] = 'national figure, used as an estimate';
       r._proxy = px;
     }
     var fsr = r.factorScores || {};
@@ -225,6 +237,7 @@
   };
   Engine.prototype._categoriesFor = function (r, key) {
     var cats = this.categories(r), p = this.profiles[key];
+    if (p && p.custom && p.baseProfile && this.profiles[p.baseProfile]) key = p.baseProfile;   // 2.15.28: sector and case semantics from the base profile
     // what this group dislikes nearby (2.11.3): noise, heavy industry, flooding and heat, crowding, steep terrain, dirty air
     var nz = p && p.avoid && p.avoid.length && this.method !== 'v1' ? this.nuisances(r, p.avoid) : null;
     if (!p) return cats;
@@ -298,7 +311,10 @@
     // the audited legacy method (v1) keeps a profile's original weights where they were changed later (weightsV1)
     if (p && this.method === 'v1' && p.weightsV1) return p.weightsV1;
     var w = (p && p.weights) || {};
-    if (this.method !== 'v1' && p && r && key !== LOTTERY && key !== 'self_fit' && !p.custom && !w.observed && this.observedScore(r, p, key) != null) {   // only where it is measured, so coverage never counts it as missing
+    // 2.15.28: business priorities keep the meaning of the profile they start from (sector, cluster, tax case, observed reality);
+    // only the weights are the user's. A custom profile without a base gets nothing added.
+    var sk = p && p.custom && p.baseProfile && this.profiles[p.baseProfile] ? p.baseProfile : key;
+    if (this.method !== 'v1' && p && r && key !== LOTTERY && key !== 'self_fit' && (!p.custom || sk !== key) && !w.observed && this.observedScore(r, p, sk) != null) {   // only where it is measured, so coverage never counts it as missing
        var o = {}; for (var k in w) o[k] = w[k]; o.observed = p.business ? 15 : 8; return o; }
     return w;
   };
@@ -509,7 +525,7 @@
     chem: function (r, x) { var d = x.chem_km; return fin(d) ? [d <= 3 ? 90 : d < 10 ? 90 * (10 - d) / 7 : 0, d] : null; },
     port: function (r, x) { var d = x.mport_km; return fin(d) ? [d <= 2 ? 50 : d < 5 ? 50 * (5 - d) / 3 : 0, d] : null; },
     flood: function (r, x) { var c = x.climrisk_s; return fin(c) ? [Math.max(0, 60 - c), c] : null; },
-    crowd: function (r, x) { var v = (r.factorRaw || {}).geo_density10_km2; return fin(v) ? [v > 4000 ? 60 : v > 1500 ? 60 * (v - 1500) / 2500 : 0, v] : null; },
+    crowd: function (r, x) { var v = (r.factorRaw || {}).geo_density10_km2; if (!fin(v)) v = r.density; /* 2.15.28: municipal density where the 10 km figure is not built (Europe), as the key facts already show */ return fin(v) ? [v > 4000 ? 60 : v > 1500 ? 60 * (v - 1500) / 2500 : 0, v] : null; },
     steep: function (r, x) { var v = x.relief; return fin(v) ? [v > 900 ? 60 : v > 400 ? 60 * (v - 400) / 500 : 0, v] : null; },
     air_quality: function (r, x) { var s = (r.factorScores || {}).n_pm25; return fin(s) ? [Math.max(0, 50 - s), s] : null; }
   };
@@ -517,7 +533,10 @@
     var x = r.x || {}, hits = [], any = false, mx = 0, sum = 0, known = 0;
     (list || []).forEach(function (k) { var f = NZ_RULES[k], v = f && f(r, x); if (!v) return; any = true; known++; var pen = Math.round(v[0]); if (pen > 0) hits.push({ k: k, pen: pen, d: v[1] }); mx = Math.max(mx, pen); sum += pen; });
     if (!any) return null;
-    return { known: known, requested: (list || []).length, score: Math.max(0, Math.round(100 - Math.min(100, mx + 0.5 * (sum - mx)))), hits: hits.sort(function (a, b) { return b.pen - a.pen; }) };
+    /* 2.15.28 (audit 2.15.27, finding 9): a check without data is not a clean check. Each selected check that cannot be made
+       lowers the ceiling by 12 points, so "few nuisances" is never a perfect 100 when only part of the list was checked. */
+    var req = (list || []).length, cap = 100 - 12 * Math.max(0, req - known);
+    return { known: known, requested: req, unknown: Math.max(0, req - known), score: Math.max(0, Math.min(cap, Math.round(100 - Math.min(100, mx + 0.5 * (sum - mx))))), hits: hits.sort(function (a, b) { return b.pen - a.pen; }) };
   };
 
   Engine.prototype.factorValue = function (r, f) {

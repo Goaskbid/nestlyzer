@@ -47,6 +47,16 @@ if (!fs.existsSync(path.join(OUT, 'sitemap.xml'))) { console.error('Missing requ
   const robotsOk = /^Sitemap:\s*https:\/\/nestlyzer\.com\/sitemap\.xml\s*$/mi.test(robots);
   console.log(`sitemap SEO gate: ${dup.length} duplicates, ${noidx.length} noindex, ${canon.length} non-canonical, robots.txt ${robotsOk ? 'names the sitemap' : 'MISSING the sitemap line'}`);
   if (dup.length || noidx.length || canon.length || !robotsOk) { console.error('Sitemap gate failed:', dup.concat(noidx, canon).slice(0, 10).join(', ')); process.exit(1); } }
+// 2.15.28: a merged Swiss municipality's former page forwards to the new municipality (old links and search results keep working)
+{ const zlib = await import('zlib'); const lp = path.join(ROOT, 'build', 'seo-legacy-paths.json.gz'), rp = path.join(ROOT, '.cache', 'seo', 'registry.json'), sp = path.join(ROOT, 'data', 'search.json');
+  if (fs.existsSync(lp) && fs.existsSync(rp) && fs.existsSync(sp)) {
+    const legacy = JSON.parse(zlib.gunzipSync(fs.readFileSync(lp)).toString('utf8')).paths, reg = JSON.parse(fs.readFileSync(rp, 'utf8')).byId || {}, sj = JSON.parse(fs.readFileSync(sp, 'utf8'));
+    const e = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); let fwd = 0;
+    for (const r of sj.rows) { if (r.length < 6) continue; const from = legacy[r[0] + ':' + r[1]], to = reg[r[0] + ':' + r[4]]; if (!from || !to || !to.url) continue;
+      const f = path.join(OUT, from, 'index.html'); if (fs.existsSync(f)) continue; fs.mkdirSync(path.dirname(f), { recursive: true });
+      const u = 'https://nestlyzer.com' + to.url;
+      fs.writeFileSync(f, '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>' + e(r[2]) + ' is now part of ' + e(r[5]) + ' | Nestlyzer</title><meta name="robots" content="noindex"><link rel="canonical" href="' + e(u) + '"><meta http-equiv="refresh" content="0;url=' + e(to.url) + '"></head><body><p>' + e(r[2]) + ' merged into <a href="' + e(to.url) + '">' + e(r[5]) + '</a>.</p></body></html>'); fwd++; }
+    console.log('forwarding pages for merged municipalities:', fwd); } }
 // GitHub rules are hard requirements (owner, 9 Nov 2026): the published site stays far below the 1 GB Pages limit, with
 // room for data growth and fast deploys within the 10-minute window. Stop the build instead of publishing anything larger.
 if (bytes > 850e6) { console.error('Stopped: ' + (bytes / 1e6).toFixed(0) + ' MB is above the 850 MB safety budget for GitHub Pages (hard limit 1 GB).'); process.exit(1); }

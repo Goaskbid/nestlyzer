@@ -347,7 +347,7 @@ function openPalette() {
 var SEARCH_BY = {}, SEARCH_P = null;
 function ensureSearch() {
   if (!SEARCH_P) SEARCH_P = getJSON('/data/search.json?v=' + VERSION).then(function (j) {
-    SEARCH = j.rows.map(function (r) { var nm = NestData.cleanName(r[2], r[0]); var o = { cc: r[0], oid: r[1], name: nm, latin: /[\u0370-\u04ff]/.test(nm) ? NestData.translit(nm) : '', pop: r[3], f: fold(nm) }; SEARCH_BY[r[0] + ':' + r[1]] = o; return o; });
+    SEARCH = j.rows.map(function (r) { var nm = NestData.cleanName(r[2], r[0]); var o = { cc: r[0], oid: r[1], name: nm, latin: /[\u0370-\u04ff]/.test(nm) ? NestData.translit(nm) : '', pop: r[3], f: fold(nm) }; if (r[4]) { o.oid = r[4]; o.name = nm + ' (now part of ' + r[5] + ')'; o.formerly = 1; } else SEARCH_BY[r[0] + ':' + r[1]] = o; return o; });   /* 2.15.28: a merged municipality's former name leads to the new one */
     REGIONS = (j.regions || []).map(function (r) { return { cc: r[0], code: r[1], name: r[2], n: r[3], f: fold(r[2]) + (/^M:/.test(r[1]) ? ' ' + fold(r[1].slice(2)) : '') }; });
     CITY_GROUPS.forEach(function (g) { var n = SEARCH.filter(function (o) { return o.cc === g.cc && g.test(o); }).length; if (n) REGIONS.unshift({ cc: g.cc, code: 'G:' + g.name, name: g.name + ', the whole city', n: n, f: fold(g.name) + ' ' + g.alias.join(' '), group: g }); });
     return SEARCH;

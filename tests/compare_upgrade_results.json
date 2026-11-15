@@ -17,7 +17,7 @@
  {
   "id": "desktop-chart",
   "ok": true,
-  "check": "desktop: linked chart: the 3 compared places highlighted among 782 ranked places"
+  "check": "desktop: linked chart: the 3 compared places highlighted among 778 ranked places"
  },
  {
   "id": "desktop-linked",
@@ -52,7 +52,7 @@
  {
   "id": "phone-chart",
   "ok": true,
-  "check": "phone: linked chart: the 3 compared places highlighted among 782 ranked places"
+  "check": "phone: linked chart: the 3 compared places highlighted among 778 ranked places"
  },
  {
   "id": "phone-linked",

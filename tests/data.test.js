@@ -9,7 +9,7 @@ ok(n === 99995, `all 99,993 legacy records plus 2 added successors (BCP, Dorset)
 ok(nw === 29939, `the 10 countries outside Europe hold 29,939 places (${nw}; 31 Tokyo neighbourhoods are inside the corrected ward entries)`);
 ok(nw2 === 10538, `the 9 countries added in 2.12.1 hold 10,538 places (${nw2})`);
 ok(nw3 === 6591 && NEW214.every((cc) => meta.countries.some((c) => c.cc === cc && c.world)), `the 9 countries added in 2.14 hold 6,591 places (Tabuk, Philippines, was listed twice) (${nw3})`);
-ok(sup === 1468, 'superseded: older generations of the same municipality (455) plus the 2.8 roster repair from official change records (1013)');
+ok(sup === 1530, 'superseded: older generations of the same municipality (455), the 2.8 roster repair from official change records (1013) and the Swiss mergers 2021-2026 from the BFS register (62, Turgi-Baden included)');
 ok(located <= act && located / act > 0.98, `located share ${(100 * located / act).toFixed(2)}% of ${act} active places (all 63 countries)`);
 ok(nuts >= n + nw - sup - 1, `NUTS3 or region assigned to ${nuts} of ${n + nw}`);
 const z = by['Zürich|CH'], nice = by['Nice|FR'], mei = by['Meilen|CH'];

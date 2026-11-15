@@ -220,7 +220,15 @@ function whyHTML(r, xr) {
   if (!reasons.length && !watch) return '';
   return '<div class="whycard"><h3>' + (ranked ? 'Why #' + ranked.rank + ' for ' + esc(profileName(S.profile).toLowerCase()) : 'How it fits ' + esc(profileName(S.profile).toLowerCase())) + '</h3>' +
     (reasons.length ? '<ul class="plus">' + reasons.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>' : '') +
-    (watch ? '<p class="watch"><b>Watch out:</b> ' + esc(watch) + '</p>' : '') + '</div>';
+    (watch ? '<p class="watch"><b>Watch out:</b> ' + esc(watch) + '</p>' : '') + unknownCostHTML(r, x) + '</div>';
+}
+/* 2.15.28 (audit 2.15.27, finding 1): when this profile weighs housing costs and none are known for the place, the result
+   has not been tested on them. Say so where the result is explained, instead of letting the gap pass silently. */
+function unknownCostHTML(r, x) {
+  var w = ENGINE.weightsFor(r, S.profile) || {}, t = 0, k; for (k in w) t += w[k] || 0;
+  if (!t || !((w.affordability || 0) / t >= 0.08)) return '';
+  var c = (x && x.catScores) || ENGINE.categoriesFor(r, S.profile); if (fin(c.affordability)) return '';
+  return '<p class="watch unknown"><b>Housing costs not yet checked.</b> We hold no rent or price figure for ' + esc(r.name) + ' yet, so this result has not been tested on cost. Check local rents before you shortlist it.</p>';
 }
 
 /* 2.15.20 "What the evidence says" on every place, every profile: the rank set against what people (households) or
@@ -228,7 +236,7 @@ function whyHTML(r, xr) {
    (regional migration, regional population change, rents as a sign of demand, older residents for retiree profiles,
    regional employment for business). Nothing is invented: every line names its measure and its level. */
 var RETIRE_P = { pensioner: 1, single_pensioner: 1, early_retiree: 1, sun_retiree: 1, healthcare_first: 1 };
-function evidenceLevel(r, k) { var l=(r.factorLevel||{})[k];return l===9?'country':l===3?'district or county':l===2?'region':l===1?'large region':'geographic support unresolved'; }
+function evidenceLevel(r, k) { var l=(r.factorLevel||{})[k];if((r.factorEst||{})[k])return l===9?'national figure, used as an estimate':(l===3&&r.country==='CH')?'canton median, used as an estimate':'regional figure, used as an estimate';if(l===3&&r.country==='CH')return 'canton';return l===9?'country':l===3?'district or county':l===2?'region':l===1?'large region':'geographic support unresolved'; }
 function observedOfRaw(r, biz) {
   var f=r.factorRaw||{},v,k;
   if(biz){ k='cluster_'+S.profile;if(fin(f[k]))return {k:k,v:f[k],lab:'Industry concentration (location quotient)',u:' location quotient',lvl:evidenceLevel(r,k),period:'',note:'Existing concentration is not new investment, business success or site feasibility. It may also be an input to this profile.'};return null; }

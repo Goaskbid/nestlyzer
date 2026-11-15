@@ -113,3 +113,12 @@ GitHub starts a first run straight away. It ends after about a minute with a not
    - **Admin → Data retention** to 2 months.
 
 Before a visitor presses "Accept all", nothing loads from Google. After "Accept all", light Analytics and non-personalised ads load.
+
+## Update mechanism decision (2.15.28)
+
+Alternatives to GitHub Pages were checked against the size of the published site (834 MB, about 153,000 files):
+
+- Cloudflare Pages: 20,000 files per site on the free plan, 100,000 on paid plans (Cloudflare changelog, 23 January 2026). The site does not fit.
+- Netlify Drop and similar drag-and-drop hosts have comparable file-count limits.
+
+Decision: stay on GitHub Pages with the existing release-zip flow. It is within every GitHub limit (Pages site under 1 GB, one build per release, no crawling or scheduled data jobs on Actions, no large files in the repository). Moving off GitHub would first need the site packed into far fewer files (place-detail buckets merged), which is listed as a future option.

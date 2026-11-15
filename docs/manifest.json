@@ -1,10 +1,10 @@
 {
- "version": "2.15.27",
- "places_ranked": 145595,
+ "version": "2.15.28",
+ "places_ranked": 145533,
  "countries": 63,
  "residents": 3043063477,
- "official_measures": 210,
- "all_measures": 279,
+ "official_measures": 212,
+ "all_measures": 281,
  "household_profiles": 26,
  "business_profiles": 16,
  "by_depth": {

@@ -157,12 +157,12 @@
    "note": "Advertising, photographs and other presentation elements never enter the score."
   },
   {
-   "q": "You also build CurveScout, DipMapper and mnemika. Where do they stand, and what connects them with Nestlyzer?",
+   "q": "You also build CurveScout, DipMapper and Stoffknacker. Where do they stand, and what connects them with Nestlyzer?",
    "a": [
     "They begin with different interests, but the common idea is helping someone understand a place, or a subject, before deciding what to do.",
     "CurveScout concerns riding and discovering roads. It has grown from a few hundred scouted routes to more than 30,000 rides, each with its scenic stretches marked, a roadbook, photos and the passes along the way. The part I am proudest of is that you can bend a route yourself by pulling the road on the map, and CurveScout Ride now works as a navigator and tour guide while you ride.",
     "DipMapper concerns swimming places. It started as a swim-spot finder and is growing into a guide for water activities in general: paddling, diving, sailing and boat trips, meant to work as well anywhere in the world as it does at home.",
-    "mnemika.com is a learning and exam trainer. It began as a trainer for the Swiss Passerelle exam and is widening to the Matura and the vocational baccalaureate. It is free, needs no account and keeps your progress in your own browser. Its idea is close to Nestlyzer’s: take a large, hard-to-survey body of information and turn it into something you can work through step by step.",
+    "Stoffknacker.com, which started life as mnemika, is a learning and exam trainer. It began with the Swiss Passerelle exam and is widening to the Matura and the vocational baccalaureate. It is free, needs no account and keeps your progress in your own browser. Its idea is close to Nestlyzer’s: take a large, hard-to-survey body of material and turn it into something you can work through one step at a time.",
     "Nestlyzer applies the same approach to municipalities, and now to company sites. The decision there carries more weight, so I would expect people to investigate more deeply.",
     "I enjoy finding these applications for publicly available information. Each project still has to justify itself on its own. A person considering a move does not need to share my enthusiasm for motorcycles to find Nestlyzer useful."
    ]
@@ -217,9 +217,10 @@
   {
    "q": "What has changed most in Nestlyzer recently?",
    "a": [
-    "Mostly honesty about the evidence. Every country now follows the same rule: when a place’s result rests mainly on estimates rather than measured data, it says “Thin evidence” and comes after the places with solid data. Historical figures carry their year in the heading, so a 2018 tax figure is never presented as today’s.",
-    "Each place now gives one reason per need instead of listing the same point twice, and the cross-country scores stay on a clear 0 to 100 scale.",
-    "And it says plainly what it is: general information on fixed standard profiles, not tax, legal or financial advice. A ranking helps you decide where to look; your own visit and the people responsible on the ground help you decide."
+    "Two things: honesty about the evidence, and a page you can actually read at a glance.",
+    "On evidence, every country follows the same rule. When a result rests mainly on estimates, the place says “Thin evidence” and comes after the places with solid data. Taxes and living costs now reach every place: where no local figure exists, a canton or regional median or a national figure stands in, counts in the score at half strength and carries a clear “est.” mark, so an estimate never passes for a measurement. Every number now has a short explanation when you hover over it, and a double-click opens the data behind it: the value, how it is scored, where it sits among all the places in the country, and its source and licence.",
+    "On reading, each place now opens with a chart of how it does on what your profile weighs, against the middle of the country, and a few plain sentences on where it leads and where it gives ground. There is a Story tab that tells how the place came about, from its founding year to how its population has moved, and which parts of that history matter for your search. Coats of arms now appear for places in every country where one is on record, and businesses can set their own priorities and come back to them.",
+    "And it still says plainly what it is: general information on standard profiles, not tax, legal or financial advice. A ranking helps you decide where to look; your own visit and the people responsible on the ground help you decide."
    ]
   },
   {

@@ -33,3 +33,5 @@ import subprocess, sys as _sys
 _R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 subprocess.run(['node', os.path.join(_R, 'build/build_ch_tax_fill.js')], check=True)
 subprocess.run([_sys.executable, os.path.join(_R, 'build/build_price_level_fill.py')], check=True)
+subprocess.run([_sys.executable, os.path.join(_R, 'build/build_ch_mergers.py')], check=True)  # 2.15.28: Swiss mergers 2021-2026 and the Moutier canton change
+subprocess.run([_sys.executable, os.path.join(_R, 'build/build_national_tax_fill.py')], check=True)  # 2.15.28: national tax and cost estimates

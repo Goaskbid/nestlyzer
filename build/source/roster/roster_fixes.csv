@@ -1386,3 +1386,82 @@ UK,E07000201,Forest Heath,a,E07000245,no,,,UK_ONS_CODES;UK_LEGISLATION,"West Suf
 UK,E07000204,St Edmundsbury,a,E07000245,no,,,UK_ONS_CODES;UK_LEGISLATION,"West Suffolk (Local Government Changes) Order 2018, 2019-04-01; file n3 UKH23 (Hertfordshire) on these rows is also wrong"
 UK,E07000205,Suffolk Coastal,a,E07000244,no,,,UK_ONS_CODES;UK_LEGISLATION,"SI 2018/640 East Suffolk (Local Government Changes) Order 2018, 2019-04-01; file n3 UKH23 (Hertfordshire) on these rows is also wrong"
 UK,E07000206,Waveney,a,E07000244,no,,,UK_ONS_CODES;UK_LEGISLATION,"SI 2018/640 East Suffolk (Local Government Changes) Order 2018, 2019-04-01; file n3 UKH23 (Hertfordshire) on these rows is also wrong"
+CH,4042,Turgi,a,4021,yes,,,CH_BADEN_MERGER_2024,merged 2024-01-01 into Baden (BFS 4021); Baden figures before 2024 describe the old boundary
+CH,5178,Croglio,a,5239,no,,,CH_BFS_MUTATIONS,founded Tresa (BFS 5239) on 2021-04-18; build_ch_mergers.py applies it
+CH,5202,Monteggio,a,5239,no,,,CH_BFS_MUTATIONS,founded Tresa (BFS 5239) on 2021-04-18; build_ch_mergers.py applies it
+CH,5213,Ponte Tresa,a,5239,no,,,CH_BFS_MUTATIONS,founded Tresa (BFS 5239) on 2021-04-18; build_ch_mergers.py applies it
+CH,5222,Sessa,a,5239,no,,,CH_BFS_MUTATIONS,founded Tresa (BFS 5239) on 2021-04-18; build_ch_mergers.py applies it
+CH,5421,Apples,a,5656,no,,,CH_BFS_MUTATIONS,founded Hautemorges (BFS 5656) on 2021-07-01; build_ch_mergers.py applies it
+CH,5478,Cottens (VD),a,5656,no,,,CH_BFS_MUTATIONS,founded Hautemorges (BFS 5656) on 2021-07-01; build_ch_mergers.py applies it
+CH,5494,Pampigny,a,5656,no,,,CH_BFS_MUTATIONS,founded Hautemorges (BFS 5656) on 2021-07-01; build_ch_mergers.py applies it
+CH,5500,Sévery,a,5656,no,,,CH_BFS_MUTATIONS,founded Hautemorges (BFS 5656) on 2021-07-01; build_ch_mergers.py applies it
+CH,5625,Bussy-Chardonney,a,5656,no,,,CH_BFS_MUTATIONS,founded Hautemorges (BFS 5656) on 2021-07-01; build_ch_mergers.py applies it
+CH,5644,Reverolle,a,5656,no,,,CH_BFS_MUTATIONS,founded Hautemorges (BFS 5656) on 2021-07-01; build_ch_mergers.py applies it
+CH,5513,Bioley-Orjulaz,a,5511,yes,,,CH_BFS_MUTATIONS,merged into Assens (BFS 5511) on 2021-07-01; build_ch_mergers.py applies it
+CH,661,Clavaleyres,a,2275,yes,,,CH_BFS_MUTATIONS,merged into Murten (BFS 2275) on 2022-01-01; build_ch_mergers.py applies it
+CH,2259,Galmiz,a,2275,yes,,,CH_BFS_MUTATIONS,merged into Murten (BFS 2275) on 2022-01-01; build_ch_mergers.py applies it
+CH,2260,Gempenach,a,2275,yes,,,CH_BFS_MUTATIONS,merged into Murten (BFS 2275) on 2022-01-01; build_ch_mergers.py applies it
+CH,4094,Bözen,a,4185,no,,,CH_BFS_MUTATIONS,founded Böztal (BFS 4185) on 2022-01-01; build_ch_mergers.py applies it
+CH,4096,Effingen,a,4185,no,,,CH_BFS_MUTATIONS,founded Böztal (BFS 4185) on 2022-01-01; build_ch_mergers.py applies it
+CH,4097,Elfingen,a,4185,no,,,CH_BFS_MUTATIONS,founded Böztal (BFS 4185) on 2022-01-01; build_ch_mergers.py applies it
+CH,4167,Hornussen,a,4185,no,,,CH_BFS_MUTATIONS,founded Böztal (BFS 4185) on 2022-01-01; build_ch_mergers.py applies it
+CH,4301,Baldingen,a,4324,no,,,CH_BFS_MUTATIONS,founded Zurzach (BFS 4324) on 2022-01-01; build_ch_mergers.py applies it
+CH,4302,Böbikon,a,4324,no,,,CH_BFS_MUTATIONS,founded Zurzach (BFS 4324) on 2022-01-01; build_ch_mergers.py applies it
+CH,4308,Kaiserstuhl,a,4324,no,,,CH_BFS_MUTATIONS,founded Zurzach (BFS 4324) on 2022-01-01; build_ch_mergers.py applies it
+CH,4315,Rekingen (AG),a,4324,no,,,CH_BFS_MUTATIONS,founded Zurzach (BFS 4324) on 2022-01-01; build_ch_mergers.py applies it
+CH,4316,Rietheim,a,4324,no,,,CH_BFS_MUTATIONS,founded Zurzach (BFS 4324) on 2022-01-01; build_ch_mergers.py applies it
+CH,4317,Rümikon,a,4324,no,,,CH_BFS_MUTATIONS,founded Zurzach (BFS 4324) on 2022-01-01; build_ch_mergers.py applies it
+CH,4322,Wislikofen,a,4324,no,,,CH_BFS_MUTATIONS,founded Zurzach (BFS 4324) on 2022-01-01; build_ch_mergers.py applies it
+CH,4323,Bad Zurzach,a,4324,no,,,CH_BFS_MUTATIONS,founded Zurzach (BFS 4324) on 2022-01-01; build_ch_mergers.py applies it
+CH,5788,Essertes,a,5805,yes,,,CH_BFS_MUTATIONS,merged into Oron (BFS 5805) on 2022-01-01; build_ch_mergers.py applies it
+CH,5881,Blonay,a,5892,no,,,CH_BFS_MUTATIONS,founded Blonay - Saint-Légier (BFS 5892) on 2022-01-01; build_ch_mergers.py applies it
+CH,5888,Saint-Légier-La Chiésaz,a,5892,no,,,CH_BFS_MUTATIONS,founded Blonay - Saint-Légier (BFS 5892) on 2022-01-01; build_ch_mergers.py applies it
+CH,5195,Maroggia,a,5240,no,,,CH_BFS_MUTATIONS,founded Val Mara (BFS 5240) on 2022-04-10; build_ch_mergers.py applies it
+CH,5197,Melano,a,5240,no,,,CH_BFS_MUTATIONS,founded Val Mara (BFS 5240) on 2022-04-10; build_ch_mergers.py applies it
+CH,5219,Rovio,a,5240,no,,,CH_BFS_MUTATIONS,founded Val Mara (BFS 5240) on 2022-04-10; build_ch_mergers.py applies it
+CH,3103,Rüte,a,3112,no,,,CH_BFS_MUTATIONS,founded Schwende-Rüte (BFS 3112) on 2022-05-01; build_ch_mergers.py applies it
+CH,3105,Schwende,a,3112,no,,,CH_BFS_MUTATIONS,founded Schwende-Rüte (BFS 3112) on 2022-05-01; build_ch_mergers.py applies it
+CH,21,Adlikon,a,291,no,,,CH_BFS_MUTATIONS,founded Andelfingen (BFS 291) on 2023-01-01; build_ch_mergers.py applies it
+CH,30,Andelfingen,a,291,no,,,CH_BFS_MUTATIONS,founded Andelfingen (BFS 291) on 2023-01-01; build_ch_mergers.py applies it
+CH,32,Humlikon,a,291,no,,,CH_BFS_MUTATIONS,founded Andelfingen (BFS 291) on 2023-01-01; build_ch_mergers.py applies it
+CH,536,Diemerswil,a,546,yes,,,CH_BFS_MUTATIONS,merged into Münchenbuchsee (BFS 546) on 2023-01-01; build_ch_mergers.py applies it
+CH,3372,Hemberg,a,3396,no,,,CH_BFS_MUTATIONS,founded Neckertal (BFS 3396) on 2023-01-01; build_ch_mergers.py applies it
+CH,3375,Oberhelfenschwil,a,3396,no,,,CH_BFS_MUTATIONS,founded Neckertal (BFS 3396) on 2023-01-01; build_ch_mergers.py applies it
+CH,3378,Neckertal,a,3396,no,,,CH_BFS_MUTATIONS,founded Neckertal (BFS 3396) on 2023-01-01; build_ch_mergers.py applies it
+CH,6744,La Chaux-des-Breuleux,a,6743,yes,,,CH_BFS_MUTATIONS,merged into Les Breuleux (BFS 6743) on 2023-01-01; build_ch_mergers.py applies it
+CH,4133,Burg (AG),a,4139,yes,,,CH_BFS_MUTATIONS,merged into Menziken (BFS 4139) on 2023-01-01; build_ch_mergers.py applies it
+CH,4166,Herznach,a,4186,no,,,CH_BFS_MUTATIONS,founded Herznach-Ueken (BFS 4186) on 2023-01-01; build_ch_mergers.py applies it
+CH,4179,Ueken,a,4186,no,,,CH_BFS_MUTATIONS,founded Herznach-Ueken (BFS 4186) on 2023-01-01; build_ch_mergers.py applies it
+CH,6787,Damphreux,a,6811,no,,,CH_BFS_MUTATIONS,founded Damphreux-Lugnez (BFS 6811) on 2023-01-01; build_ch_mergers.py applies it
+CH,6793,Lugnez,a,6811,no,,,CH_BFS_MUTATIONS,founded Damphreux-Lugnez (BFS 6811) on 2023-01-01; build_ch_mergers.py applies it
+CH,947,Zwieselberg,a,767,yes,,,CH_BFS_MUTATIONS,merged into Reutigen (BFS 767) on 2024-01-01; build_ch_mergers.py applies it
+CH,993,Wangenried,a,992,yes,,,CH_BFS_MUTATIONS,merged into Wangen an der Aare (BFS 992) on 2024-01-01; build_ch_mergers.py applies it
+CH,2456,Lüterswil-Gächliwil,a,2465,yes,,,CH_BFS_MUTATIONS,merged into Buchegg (BFS 2465) on 2024-01-01; build_ch_mergers.py applies it
+CH,6773,Beurnevésin,a,6812,no,,,CH_BFS_MUTATIONS,founded Basse-Vendline (BFS 6812) on 2024-01-01; build_ch_mergers.py applies it
+CH,6775,Bonfol,a,6812,no,,,CH_BFS_MUTATIONS,founded Basse-Vendline (BFS 6812) on 2024-01-01; build_ch_mergers.py applies it
+CH,3932,Tschiertschen-Praden,a,3901,yes,,,CH_BFS_MUTATIONS,merged into Chur (BFS 3901) on 2025-01-01; build_ch_mergers.py applies it
+CH,1057,Honau,a,1065,yes,,,CH_BFS_MUTATIONS,merged into Root (BFS 1065) on 2025-01-01; build_ch_mergers.py applies it
+CH,2061,Auboranges,a,2097,yes,,,CH_BFS_MUTATIONS,merged into Rue (BFS 2097) on 2025-01-01; build_ch_mergers.py applies it
+CH,2066,Chapelle (Glâne),a,2097,yes,,,CH_BFS_MUTATIONS,merged into Rue (BFS 2097) on 2025-01-01; build_ch_mergers.py applies it
+CH,2072,Ecublens (FR),a,2097,yes,,,CH_BFS_MUTATIONS,merged into Rue (BFS 2097) on 2025-01-01; build_ch_mergers.py applies it
+CH,2089,Montet (Glâne),a,2102,yes,,,CH_BFS_MUTATIONS,merged into Ursy (BFS 2102) on 2025-01-01; build_ch_mergers.py applies it
+CH,2200,Grolley,a,2239,no,,,CH_BFS_MUTATIONS,founded Grolley-Ponthaux (BFS 2239) on 2025-01-01; build_ch_mergers.py applies it
+CH,2217,Ponthaux,a,2239,no,,,CH_BFS_MUTATIONS,founded Grolley-Ponthaux (BFS 2239) on 2025-01-01; build_ch_mergers.py applies it
+CH,6453,Enges,a,6513,no,,,CH_BFS_MUTATIONS,founded Laténa (BFS 6513) on 2025-01-01; build_ch_mergers.py applies it
+CH,6454,Hauterive (NE),a,6513,no,,,CH_BFS_MUTATIONS,founded Laténa (BFS 6513) on 2025-01-01; build_ch_mergers.py applies it
+CH,6459,Saint-Blaise,a,6513,no,,,CH_BFS_MUTATIONS,founded Laténa (BFS 6513) on 2025-01-01; build_ch_mergers.py applies it
+CH,6461,La Tène,a,6513,no,,,CH_BFS_MUTATIONS,founded Laténa (BFS 6513) on 2025-01-01; build_ch_mergers.py applies it
+CH,5064,Bodio,a,5073,yes,,,CH_BFS_MUTATIONS,merged into Giornico (BFS 5073) on 2025-04-06; build_ch_mergers.py applies it
+CH,5078,Prato (Leventina),a,5079,yes,,,CH_BFS_MUTATIONS,merged into Quinto (BFS 5079) on 2025-04-06; build_ch_mergers.py applies it
+CH,5146,Astano,a,5395,no,,,CH_BFS_MUTATIONS,founded Lema (BFS 5395) on 2025-04-06; build_ch_mergers.py applies it
+CH,5149,Bedigliora,a,5395,no,,,CH_BFS_MUTATIONS,founded Lema (BFS 5395) on 2025-04-06; build_ch_mergers.py applies it
+CH,5181,Curio,a,5395,no,,,CH_BFS_MUTATIONS,founded Lema (BFS 5395) on 2025-04-06; build_ch_mergers.py applies it
+CH,5200,Miglieglia,a,5395,no,,,CH_BFS_MUTATIONS,founded Lema (BFS 5395) on 2025-04-06; build_ch_mergers.py applies it
+CH,5207,Novaggio,a,5395,no,,,CH_BFS_MUTATIONS,founded Lema (BFS 5395) on 2025-04-06; build_ch_mergers.py applies it
+CH,2016,Fétigny,a,2056,no,,,CH_BFS_MUTATIONS,founded Fétigny-Ménières (BFS 2056) on 2026-01-01; build_ch_mergers.py applies it
+CH,2027,Ménières,a,2056,no,,,CH_BFS_MUTATIONS,founded Fétigny-Ménières (BFS 2056) on 2026-01-01; build_ch_mergers.py applies it
+CH,2278,Ulmiz,a,2262,yes,,,CH_BFS_MUTATIONS,merged into Gurmels (BFS 2262) on 2026-01-01; build_ch_mergers.py applies it
+CH,2520,Halten,a,2525,yes,,,CH_BFS_MUTATIONS,merged into Kriegstetten (BFS 2525) on 2026-01-01; build_ch_mergers.py applies it
+CH,2529,Oekingen,a,2525,yes,,,CH_BFS_MUTATIONS,merged into Kriegstetten (BFS 2525) on 2026-01-01; build_ch_mergers.py applies it
+CH,4122,Villnachern,a,4095,yes,,,CH_BFS_MUTATIONS,merged into Brugg (BFS 4095) on 2026-01-01; build_ch_mergers.py applies it
+CH,700,Moutier,a,6831,no,,,CH_BFS_MUTATIONS,founded Moutier (BFS 6831) on 2026-01-01; build_ch_mergers.py applies it

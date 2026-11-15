@@ -198,7 +198,7 @@ function renderPlace() {
   var acts = saveBtnL(r.id) + cmpBtn(r.id) + '<button class="icon-btn" type="button" data-sethome="' + esc(r.id) + '" aria-pressed="' + isHome + '" aria-label="' + (isHome ? 'This is your home' : 'Set as my home') + '" title="' + (isHome ? 'Your home' : 'Set as my home') + '">🏠</button><button class="icon-btn" type="button" data-share aria-label="Share link" title="Share">' + ICON.share + '</button>';
   var panels = {
     score: '<div data-scslot="' + esc(r.id) + '"><div class="skeleton"><i></i><i></i></div></div>',
-    overview: storyHTML(r, x) +
+    overview: storyHTML(r, x) + '<div data-glance="' + esc(r.id) + '"></div>' +
       '<section class="sec"><h3>Decision facts</h3><div class="why">' + catBars(x) + '<div><p style="margin:0 0 6px">' + (ranked ? '<b>#' + ranked.rank + '.</b> ' : '') + esc(cardCopy(x)) + '</p><div class="small muted">Profile: ' + esc(p.name) + '. ' + esc(p.intro || '') + '</div>' + (languageSensitive() ? '<div class="small" style="margin-top:4px">Language reality: ' + esc(languageText(r)) + '</div>' : '') + '</div></div>' + trendChipsInline(r) + '</section>' +
       lotteryHTML(r) +
       '<section class="sec"><h3>Local explainer</h3><p class="sub">' + (isWorld(r.country) ? 'Place' : 'Municipality') + ' and ' + esc(areaKind(r.country).toLowerCase()) + ' context. Text and images never affect the score.</p><div class="cards2">' +
@@ -236,6 +236,8 @@ function renderPlace() {
     '<div class="ptabs" role="tablist" aria-label="Place sections">' + PTABS.map(function (t) { return '<button type="button" role="tab" data-ptab="' + t[0] + '" aria-selected="' + (t[0] === tab) + '">' + t[1] + '</button>'; }).join('') + '</div>' +
     PTABS.map(function (t) { return '<div class="ppanel" role="tabpanel" data-pp="' + t[0] + '"' + (t[0] === tab ? '' : ' hidden') + '>' + panels[t[0]] + '</div>'; }).join('') +
     '<div class="actions"><button class="btn btn-sm" type="button" data-booklet>' + ICON.doc + 'PDF booklet</button><button class="btn btn-sm" type="button" data-print>' + ICON.print + 'Print profile</button><a class="btn btn-sm" href="' + osm + '" target="_blank" rel="noopener">' + ICON.map + 'OpenStreetMap</a><a class="btn btn-sm" href="https://www.google.com/maps/search/?api=1&query=' + mapsQ + '" target="_blank" rel="noopener">' + ICON.pin + 'Google Maps</a>' + '<a class="btn btn-sm" hidden data-pagelink="' + esc(r.id) + '">' + ICON.ext + 'Place page</a>' + '</div>' +
+    /* 2.15.28 public test: one tap to report a wrong or missing figure, with the place, search and link filled in */
+    '<p class="small report-row"><a href="' + esc(reportMail(r)) + '">' + ICON.doc + 'Report a problem with this place</a></p>' +
     '<p class="small muted">Photos, flags, coats of arms, public text, contact links and sights never affect the score. Data: ' + esc(isWorld(r.country) ? 'GeoNames places and population (CC BY 4.0); regions Natural Earth admin-1' : (r.country === 'CH' ? 'Swiss FSO regional portraits, ESTV tax burden, Eurostat GISCO LAU' : 'Eurostat GISCO LAU ' + ((META.population || {}).year || 2024) + (r.country === 'AT' ? ', Statistics Austria' : '')) + '; locations EDJNet LAU centres') + '; airports OurAirports; coastline, lakes, rivers, railways, roads and ports Natural Earth; terrain Mapzen; climate zones Köppen-Geiger (Rubel et al. 2017).</p>' +
     '</div></div>' +
     '<div class="place-actions">' + saveBtnL(r.id) + cmpBtn(r.id) + '<button class="icon-btn" type="button" data-sethome="' + esc(r.id) + '" aria-pressed="' + isHome + '" aria-label="' + (isHome ? 'This is your home' : 'Set as my home') + '">🏠</button><button class="icon-btn" type="button" data-share aria-label="Share link">' + ICON.share + '</button><button class="btn btn-sm btn-primary pa-cmp" type="button" data-opencmp' + (S.compare.length < 2 ? ' hidden' : '') + '><span>Compare <span class="n">' + S.compare.length + '</span></span></button></div>';
@@ -246,6 +248,7 @@ function renderPlace() {
   resolveTwinNames((r.x && r.x.twin) || [], el);
   if (tab === 'data') adHydrate(r);
   if (tab === 'score') scHydrate(r);
+  if (tab === 'overview') moreLoad().then(function (X) { var el = $('#place [data-glance]'); if (el && S.selected === r.id) X.glanceFill(r, el); }, function () {});
   if (tab === 'story') moreLoad().then(function (X) { var el = $('#place [data-story]'); if (el && S.selected === r.id) X.storyFill(r, el); }, function () {});
   kfHydrate(r);
 }
@@ -260,6 +263,7 @@ function setPlaceTab(t) {
   $$('#place .ppanel').forEach(function (p) { p.hidden = p.dataset.pp !== t; });
   if (t === 'data' && selected()) adHydrate(selected());
   if (t === 'score' && selected()) scHydrate(selected());
+  if (t === 'overview' && selected()) { var rg = selected(); moreLoad().then(function (X) { var el = $('#place [data-glance]'); if (el && S.selected === rg.id) X.glanceFill(rg, el); }, function () {}); }
   if (t === 'story' && selected()) { var rs = selected(); moreLoad().then(function (X) { var el = $('#place [data-story]'); if (el && S.selected === rs.id) X.storyFill(rs, el); }, function () {}); }
   var tabs = $('#place .ptabs'); if (tabs && $('#placescroll')) { var top = tabs.offsetTop - 8; if ($('#placescroll').scrollTop > top) $('#placescroll').scrollTop = top; }
 }
@@ -319,4 +323,9 @@ function catBars(x) {
 function popLabel(r) {
   var t = r.trend && r.trend.annual_population, last = t && t[t.length - 1];
   return last ? fmtInt(last.population) + ' residents (' + last.year + ')' : fmtInt(r.popNow) + ' residents';
+}
+
+function reportMail(r) {
+  var b = 'Place: ' + r.name + ' (' + countryName(r.country) + ', ' + r.id + ')\nSearch: ' + profileName(S.profile) + '\nLink: ' + location.href + '\nVersion: ' + VERSION + '\n\nWhat looks wrong or is missing:\n';
+  return 'mailto:torsten.sauter@icloud.com?subject=' + encodeURIComponent('Nestlyzer report: ' + r.name) + '&body=' + encodeURIComponent(b);
 }

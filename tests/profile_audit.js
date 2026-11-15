@@ -11,7 +11,7 @@ const profiles = Object.entries(meta.config.profiles).filter(([k, p]) => p.weigh
 // affluent enclaves: never a fit for people on a tight budget
 const RICH = /^(Zumikon|Küsnacht \(ZH\)|Küsnacht|Zollikon|Erlenbach \(ZH\)|Herrliberg|Kilchberg \(ZH\)|Rüschlikon|Meilen|Uetikon am See|Wollerau|Freienbach|Feusisberg|Zug|Baar|Walchwil|Risch|Oberägeri|Saanen|St\. Moritz|Val de Bagnes|Zermatt|Davos|Crans-Montana|Cologny|Vandœuvres|Genthod|Anières|Collonge-Bellerive|Pully|Grünwald|Starnberg|Pullach i\.Isartal|Pullach|Kronberg im Taunus|Königstein im Taunus|Bad Homburg v\.d\.Höhe|Feldafing|Kampen \(Sylt\)|Tegernsee|Rottach-Egern|Neuilly-sur-Seine|Saint-Cloud|Saint-Jean-Cap-Ferrat|Megève|Courchevel|Le Vésinet|Marnes-la-Coquette|Ramatuelle|Portofino|Cortina d'Ampezzo|Forte dei Marmi|Capri|Wassenaar|Bloemendaal|Laren|Blaricum|Elmbridge|Kensington and Chelsea|Westminster|Pozuelo de Alarcón|Marbella|Beverly Hills|Atherton|Palo Alto|Hillsborough|Greenwich|Scarsdale|Aspen)$/;
 const BUDGET = new Set(['low_income', 'low_income_family', 'single_parent', 'budget', 'first_home']);
-const out = { checked: 0, issues: [] };
+const out = { checked: 0, issues: [], blind: 0 };
 function issue(p, cc, kind, msg) { out.issues.push({ p, cc, kind, msg }); }
 for (const cc of CCS) {
   const all = D.hydrate(JSON.parse(fs.readFileSync(path.join(ROOT, 'data/c', cc + '.json'))));
@@ -26,6 +26,7 @@ for (const cc of CCS) {
     for (const c of core) {
       const vals = top.map((s) => (s.catScores || eng.categoriesFor(s.r, k))[c]);
       const have = vals.filter((v) => v != null);
+      out.blind += vals.length - have.length;   // 2.15.28: top-10 places whose core need is not known at all
       if (!have.length) continue;
       const mean = have.reduce((a, b) => a + b, 0) / have.length;
       const weak = top.filter((s, i) => vals[i] != null && vals[i] < 40).map((s, i) => s.r.name + ' ' + Math.round((s.catScores || {})[c]));
@@ -47,6 +48,10 @@ for (const p of Object.keys(by).sort()) { console.log('\n== ' + p + ' (' + by[p]
 console.log('\nprofiles x countries checked:', out.checked, ' issues:', out.issues.length, ' profiles with issues:', Object.keys(by).length, 'of', profiles.length);
 fs.writeFileSync(path.join(ROOT, 'tests/profile_audit.json'), JSON.stringify(out, null, 1));
 // gate (2.11.3): no affluent enclave in a budget profile's top 20; weak core needs in a top 10 stay rare
+// 2.15.28: costs and taxes now reach every place, so top-10 places whose core need was simply unknown (708 slots in
+// 2.15.27) give way to places with known figures (562); a few known weaknesses become visible instead of hidden. The gate
+// now holds both: unknown core needs may not grow back (limit 600) and known weak ones stay rare (limit 20, was 15).
 const rich = out.issues.filter((i) => i.kind === 'rich-enclave').length, weak = out.issues.filter((i) => i.kind === 'core-weak').length;
-console.log(`PROFILE AUDIT: ${rich === 0 && weak <= 15 ? 'PASS' : 'FAIL'} (rich enclaves in budget top 20: ${rich}; weak core needs in a top 10: ${weak}, limit 15)`);
-process.exitCode = rich === 0 && weak <= 15 ? 0 : 1;
+const okA = rich === 0 && weak <= 20 && out.blind <= 600;
+console.log(`PROFILE AUDIT: ${okA ? 'PASS' : 'FAIL'} (rich enclaves in budget top 20: ${rich}; weak core needs in a top 10: ${weak}, limit 20; unknown core needs in a top 10: ${out.blind}, limit 600)`);
+process.exitCode = okA ? 0 : 1;

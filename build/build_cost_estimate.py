@@ -26,3 +26,10 @@ f = {'id': FID, 'name': 'Housing cost pressure (estimate from local incomes)', '
 meta['factors'] = [x for x in meta['factors'] if x['id'] != FID] + [f]
 json.dump(meta, open(mp, 'w'), separators=(',', ':'), ensure_ascii=False)
 print('income-based cost estimate for', done)
+
+# 2.15.27: the yearly data rebuild recreates every country file, so the two cost fills run again right here
+# (canton tax medians for merged Swiss municipalities; World Bank national price level where a country has no cost figure)
+import subprocess, sys as _sys
+_R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+subprocess.run(['node', os.path.join(_R, 'build/build_ch_tax_fill.js')], check=True)
+subprocess.run([_sys.executable, os.path.join(_R, 'build/build_price_level_fill.py')], check=True)

@@ -151,7 +151,7 @@ function storyFor(r, xr) {
   });
   var fr = r.factorRaw || {}, xx = r.x || {}, g = growth5(r);
   var hh = !isBizKey(S.profile);   // household advice (noise, flight paths, schools) does not belong on a business site
-  if (hh && fin(xx.mway_km) && xx.mway_km < 0.8) out.bad.push('A motorway passes within ' + pfmt('mway', xx.mway_km) + '. Handy for driving, but check traffic noise street by street.');
+  if (hh && fin(xx.mway_km) && xx.mway_km < 0.8) out.bad.push('A motorway passes ' + (xx.mway_km < 1 ? 'less than 1 km away' : 'within ' + pfmt('mway', xx.mway_km)) + '. Handy for driving, but check traffic noise street by street.');
   if (hh && fin(fr.geo_hub_airport_km) && fr.geo_hub_airport_km < 9) out.bad.push('The hub airport is only ' + pfmt('air', fr.geo_hub_airport_km) + ' away. Look up the flight paths before you sign anything.');
   if (hh && g != null && g < -4) out.bad.push('The population fell ' + fmt(-g, 1) + '% in five years. Shops, schools and services tend to follow people out.');
   if (fin(fr.geo_major_city_km) && fr.geo_major_city_km > 70) out.bad.push('The nearest city of 100,000+ is ' + pfmt('city', fr.geo_major_city_km) + ' away, so specialist doctors, big shops and airports take planning.');

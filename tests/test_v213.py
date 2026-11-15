@@ -26,8 +26,11 @@ cdir = os.path.join(ROOT, 'insights/country'); nc = len(os.listdir(cdir)) if os.
 check('countries', nc >= 50, f'{nc} country business-climate pages')
 h = rd('insights/labour-cost-vs-talent/index.html'); m = re.search(r'<div class="ins-take">(.*?)</div>', h, re.S)
 check('annotation', m and 'sweet spot' in m.group(1).lower() and re.search(r'[A-Z][a-z]+', re.sub('<[^>]+>', '', m.group(1))), 'the scatter is explained with the countries it shows: ' + (re.sub('<[^>]+>', '', m.group(1))[:140] if m else '-'))
-sm = rd('sitemap.xml'); si = rd('sitemap-insights.xml') if os.path.exists(os.path.join(ROOT, 'sitemap-insights.xml')) else ''
-check('sitemap', 'sitemap-insights.xml' in sm and si.count('<loc>') >= 60, f'insights sitemap with {si.count("<loc>")} URLs')
+sys.path.insert(0, os.path.join(ROOT, 'build'))
+from check_sitemaps import check as check_site_sitemaps
+site_root = os.path.join(ROOT, '_site') if os.path.isdir(os.path.join(ROOT, '_site')) else ROOT
+sm_result = check_site_sitemaps(site_root)
+check('sitemap', sm_result['passed'], 'all built indexable Insights pages reachable: ' + json.dumps(sm_result))
 S = os.path.join(ROOT, '_site')
 if os.path.isdir(S):
     smi = open(os.path.join(S, 'sitemap.xml')).read(); kids = re.findall(r'<loc>https://nestlyzer.com/([^<]+)</loc>', smi)
@@ -42,7 +45,8 @@ ch = json.load(open(os.path.join(ROOT, 'data/c/CH.json'))); ci = ch['cols'].inde
 mism = sum(1 for i, r in enumerate(ch['rows']) if (ch['trend'][i] or {}).get('annual_population') and r[ci] != ch['trend'][i]['annual_population'][-1]['population'])
 check('ch-population', mism <= 1, f'Swiss core population = latest year of its own series in all but {mism} place (boundary change kept)')
 eng = open(os.path.join(ROOT, 'src/engine.js')).read()
-check('evidence-rule', "thin: this.method !== 'v1' && (measured < 50 || strictCov < 55)" in eng and '(a.thin - b.thin)' in eng, 'one evidence rule in every country: thin places flagged and ranked after the others (method v2)')
+order_check = subprocess.run(['node', os.path.join(ROOT, 'tests/open_items_order.test.cjs')], capture_output=True, text=True)
+check('evidence-rule', order_check.returncode == 0, 'behavioural thin-data ordering: ' + order_check.stdout[-1500:] + order_check.stderr[-500:])
 ht = rd('insights/switzerland-income-tax-by-commune/index.html'); hi = rd('insights/italy-rental-yields/index.html')
 check('dated', '2018</h1>' in ht and 'direct federal tax is not included' in ht and '2018</h1>' in hi, 'historical analyses carry the year in the heading; Swiss tax components match the source')
 q = os.path.join(ROOT, 'docs/audit/publication_review_queue.csv')

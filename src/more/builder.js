@@ -2,6 +2,7 @@
 var BSTATE = null, BWEIGHTS = null;
 var BNOTE = '';
 function openBuilder() {
+  if (isBizKey(S.profile)) return openBusinessPriority();
   var B = META.config.builder;
   BSTATE = S.builder ? JSON.parse(JSON.stringify(S.builder)) : JSON.parse(JSON.stringify(B.defaults));
   BSTATE.targets = [S.cc].concat((BSTATE.targets || []).filter(function (c) { return c !== S.cc; }));
@@ -65,6 +66,7 @@ function answersChanged() {
   if (BWEIGHTS) { BNOTE = 'Your answers changed, so the weights were recomputed and your fine-tuning was replaced.'; BWEIGHTS = null; delete BSTATE.manual; }
 }
 function builderClick(t) {
+  if (businessPriorityClick(t)) return true;
   var b;
   if ((b = t.closest('[data-bq]'))) { BSTATE[b.dataset.bq] = b.dataset.v; answersChanged(); renderBuilder(); return true; }
   if ((b = t.closest('[data-bx]'))) { BSTATE[b.dataset.bx] = !BSTATE[b.dataset.bx]; answersChanged(); renderBuilder(); return true; }
@@ -87,6 +89,7 @@ function builderClick(t) {
   return false;
 }
 function builderInput(t) {
+  if (businessPriorityInput(t)) return true;
   if (t.matches('[data-w]')) {
     var g = builderProfile(); BWEIGHTS = Object.assign({}, g.weights); BWEIGHTS[t.dataset.w] = +t.value; if (!+t.value) delete BWEIGHTS[t.dataset.w];
     t.nextElementSibling.textContent = t.value;
@@ -94,4 +97,67 @@ function builderInput(t) {
     return true;
   }
   return false;
+}
+
+/* Business editor. No household questionnaire and no mutation of standard weights. */
+var BUSINESS_DRAFT = null;
+function openBusinessPriority() {
+  var existing = S.profile === 'biz_custom_fit' ? S.businessScenario : null;
+  var baseId = existing ? existing.baseProfile : S.profile;
+  BUSINESS_DRAFT = window.NZBusinessPriority.create(ENGINE.profiles, baseId,
+    existing ? existing.weights : ENGINE.profiles[baseId].weights);
+  openModal('Business priorities', '<div id="nz-business-editor"></div>');
+  renderBusinessPriority();
+}
+function renderBusinessPriority() {
+  var host = $('#nz-business-editor'); if (!host || !BUSINESS_DRAFT) return;
+  var d = BUSINESS_DRAFT, base = ENGINE.profiles[d.baseProfile], total = Object.values(d.weights).reduce(function(a,b){return a+b;},0);
+  // 2.15.27: a clear, visual editor. Each priority shows its share of the whole as a percentage and a coloured segment
+  // in one bar on top, so the effect of a slider is visible at once.
+  var keys = Object.keys(base.weights), COL = ['#0f766e', '#d97706', '#2563eb', '#7c3aed', '#be123c', '#4d7c0f', '#0369a1', '#a16207', '#475569', '#c026d3'];
+  host.innerHTML = '<p class="bpi">Based on <b>' + esc(base.name) + '</b>. Move a slider to say how much a need matters to you; the bar shows how your search is now split. Site requirements (permits, utilities) still apply.</p>' +
+    '<div class="bpbar" aria-hidden="true">' + keys.map(function (k, i) { return '<i data-bpseg="' + esc(k) + '" style="background:' + COL[i % COL.length] + ';flex-grow:' + d.weights[k] + '"></i>'; }).join('') + '</div>' +
+    keys.map(function (k, i) { var pc = total ? Math.round(d.weights[k] / total * 100) : 0; return '<div class="wsl" style="--c:' + COL[i % COL.length] + '"><label for="bp-' + esc(k) + '"><span class="dot"></span>' + esc(shortCat(k)) + '<small>' + esc(catLabel(k).replace(/^[^(]*\(?/, '').replace(/\)$/, '')) + '</small></label><input id="bp-' + esc(k) + '" type="range" min="0" max="100" step="1" data-bizweight="' + esc(k) + '" value="' + d.weights[k] + '" style="--p:' + d.weights[k] + '%"><output aria-label="Share of the search">' + pc + '%</output></div>'; }).join('') +
+    '<p id="nz-biz-status" role="status" class="small muted">Your priorities are kept on this device, so they are here when you come back. Missing data stays missing; a higher priority adds no data.</p>' +
+    '<div class="actions"><button type="button" class="btn btn-sun" data-bizapply>Use these priorities</button><button type="button" class="btn" data-bizreset>Reset to standard</button><button type="button" class="btn" data-bizshare>Copy scenario link</button></div>';
+  if (!document.getElementById('bp-css')) { var st = document.createElement('style'); st.id = 'bp-css'; st.textContent =
+    '#nz-business-editor .bpi{margin:0 0 12px;color:var(--ink-2)}#nz-business-editor .bpbar{display:flex;height:14px;border-radius:999px;overflow:hidden;margin:0 0 14px;background:var(--line)}#nz-business-editor .bpbar i{display:block;min-width:0;transition:flex-grow .2s ease}' +
+    '#nz-business-editor .wsl{display:grid;grid-template-columns:minmax(0,1fr) minmax(110px,1.2fr) 3.2rem;align-items:center;gap:6px 12px;padding:8px 0;border-bottom:1px solid var(--line)}#nz-business-editor .wsl label{font-weight:650;line-height:1.25}#nz-business-editor .wsl label small{display:block;font-weight:400;color:var(--ink-3);font-size:12px;margin-top:1px}#nz-business-editor .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--c);margin-right:7px;vertical-align:1px}' +
+    '#nz-business-editor output{font:700 15px/1 var(--font-display);text-align:right;color:var(--c)}' +
+    '#nz-business-editor input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:28px;background:transparent;cursor:pointer}#nz-business-editor input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:999px;background:linear-gradient(90deg,var(--c) var(--p),var(--line) var(--p))}#nz-business-editor input[type=range]::-moz-range-track{height:6px;border-radius:999px;background:linear-gradient(90deg,var(--c) var(--p),var(--line) var(--p))}' +
+    '#nz-business-editor input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-8px;border-radius:50%;background:#fff;border:3px solid var(--c);box-shadow:0 1px 4px rgba(0,0,0,.25)}#nz-business-editor input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--c)}#nz-business-editor input[type=range]:focus-visible{outline:2px solid var(--c);outline-offset:2px;border-radius:6px}' +
+    '@media(max-width:600px){#nz-business-editor .wsl{grid-template-columns:1fr 3rem}#nz-business-editor .wsl input{grid-column:1/-1;grid-row:2}}';
+    document.head.appendChild(st); }
+}
+function businessPriorityInput(t) {
+  if (!t.matches('[data-bizweight]')) return false;
+  if (!BUSINESS_DRAFT) return true;
+  var k=t.dataset.bizweight,v=Number(t.value);
+  if(!Object.prototype.hasOwnProperty.call(BUSINESS_DRAFT.weights,k)||!Number.isFinite(v)||v<0||v>100)return true;
+  BUSINESS_DRAFT.weights[k]=v;t.style.setProperty('--p',v+'%');
+  var sum=Object.values(BUSINESS_DRAFT.weights).reduce(function(a,b){return a+b;},0);
+  $$('#nz-business-editor [data-bizweight]').forEach(function(x){var w=BUSINESS_DRAFT.weights[x.dataset.bizweight];x.nextElementSibling.textContent=(sum?Math.round(w/sum*100):0)+'%';var g=$('#nz-business-editor [data-bpseg="'+x.dataset.bizweight+'"]');if(g)g.style.flexGrow=w;});
+  $('#nz-biz-status').textContent=sum>0?'Your priorities are kept on this device, so they are here when you come back.':'Choose at least one positive priority.';
+  $('#nz-business-editor [data-bizapply]').disabled=sum<=0;
+  $('#nz-business-editor [data-bizshare]').disabled=sum<=0;
+  return true;
+}
+function businessPriorityClick(t) {
+  var b=t.closest('[data-bizapply],[data-bizreset],[data-bizshare]');if(!b)return false;
+  if(!BUSINESS_DRAFT)return true;
+  if(b.hasAttribute('data-bizreset')){BUSINESS_DRAFT=window.NZBusinessPriority.create(ENGINE.profiles,BUSINESS_DRAFT.baseProfile,ENGINE.profiles[BUSINESS_DRAFT.baseProfile].weights);renderBusinessPriority();return true;}
+  var clean;
+  try{clean=window.NZBusinessPriority.create(ENGINE.profiles,BUSINESS_DRAFT.baseProfile,BUSINESS_DRAFT.weights);}catch(e){$('#nz-biz-status').textContent=e.message;return true;}
+  if(b.hasAttribute('data-bizshare')){
+    var params=new URLSearchParams({cc:S.cc,p:'biz_custom_fit',bp:window.NZBusinessPriority.encode(clean)});
+    var url=location.origin+location.pathname+'#/explore?'+params.toString();
+    var done=function(){$('#nz-biz-status').textContent='Scenario link copied. Standard profiles are unchanged.';};
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(url).then(done,function(){window.prompt('Copy scenario link',url);});else window.prompt('Copy scenario link',url);
+    return true;
+  }
+  S.businessScenario=clean;ENGINE.profiles.biz_custom_fit=clean.profile;
+  store('business-priority',window.NZBusinessPriority.encode(clean));
+  S.profile='biz_custom_fit';S.gscope='';S.selected=null;S.listTab='ranking';
+  if(window.innerWidth<900)S.tab='list';
+  closeModal();update({push:true});return true;
 }

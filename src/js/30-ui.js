@@ -79,7 +79,7 @@ function renderProfileBar() {
   }).join('');
   var seg = '<span class="modeseg" role="group" aria-label="Places to live or business locations"><button type="button" data-mode="home" aria-pressed="' + !biz + '">' + profileIcon('mode_home', 15) + 'Homes</button><button type="button" data-mode="biz" aria-pressed="' + biz + '">' + profileIcon('mode_biz', 15) + 'Business</button></span>';
   var ms = $('#modeseg'); if (ms) ms.innerHTML = seg; var lb = $('.profilebar .lbl'); if (lb) lb.textContent = biz ? 'Site for' : 'Moving as';
-  html = biz ? html + '<a class="pchip" href="/business/?cc=' + S.cc + '"><span aria-hidden="true">🌐</span>Country context</a>'
+  html = biz ? '<button class="pchip custom" type="button" data-builder aria-pressed="' + (S.profile === 'biz_custom_fit') + '"><span aria-hidden="true">🎚️</span>' + (S.profile === 'biz_custom_fit' ? 'My priorities' : 'Set my priorities') + '</button>' + html + '<a class="pchip" href="/business/?cc=' + S.cc + '"><span aria-hidden="true">🌐</span>Country context</a>'
     : '<button class="pchip custom" type="button" data-builder aria-pressed="' + (S.profile === 'self_fit') + '"><span aria-hidden="true">✨</span>' + (S.profile === 'self_fit' ? 'My guided fit' : 'Build my own') + '</button>' + html;
   $('#pchips').innerHTML = html;
   var a = $('.pchip[aria-pressed="true"]'); if (a && a.scrollIntoView) a.scrollIntoView({ block: 'nearest', inline: 'center' });
@@ -321,6 +321,7 @@ function defineTerm(key) {
 function scrollHome(el) { if (!el) return; el.scrollTop = 0; el.scrollLeft = 0; var k = el.querySelectorAll('*'); for (var i = 0; i < k.length; i++) if (k[i].scrollTop || k[i].scrollLeft) { k[i].scrollTop = 0; k[i].scrollLeft = 0; } }
 function openModal(title, html, onClose) {
   var tt = $('#toast'); if (tt) tt.classList.remove('open');
+  var ti = $('#tour-invite'); if (ti) ti.remove();
   if (typeof closeTools === 'function') closeTools(true);
   if ($('#palette').classList.contains('open')) closePalette(true);
   layerPush();

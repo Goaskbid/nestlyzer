@@ -1,0 +1,14 @@
+'use strict';
+const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
+const P=require('../src/js/26-business-priority.js');
+const profiles={biz_logistics:{business:true,name:'Logistics',weights:{freight:30,focus:20},weightsV1:{freight:7},must:[{k:'none'}],strict:{health:1}},family:{business:false,weights:{tax:100}}};
+test('creates separate custom scenario',()=>{const before=JSON.stringify(profiles),x=P.create(profiles,'biz_logistics',{freight:80,focus:20});assert.equal(x.profile.business,true);assert.equal(x.profile.custom,true);assert.deepEqual(x.profile.must,profiles.biz_logistics.must);assert.equal(JSON.stringify(profiles),before);assert.equal(x.profile.weightsV1,undefined);});
+test('missing explicit weight becomes zero, not inherited positive',()=>assert.equal(P.create(profiles,'biz_logistics',{freight:5}).weights.focus,0));
+for(const bad of [{freight:-1},{freight:101},{freight:NaN},{freight:Infinity},{freight:'30'},{children:10},{freight:0,focus:0},[],null]) test('rejects invalid weights '+String(JSON.stringify(bad)),()=>assert.throws(()=>P.create(profiles,'biz_logistics',bad)));
+test('rejects household base',()=>assert.throws(()=>P.create(profiles,'family',{tax:10})));
+test('rejects recursive custom base',()=>assert.throws(()=>P.create({...profiles,biz_custom_fit:profiles.biz_logistics},'biz_custom_fit',{freight:10})));
+test('share round trip',()=>{const a=P.create(profiles,'biz_logistics',{freight:1,focus:9});assert.deepEqual(P.decode(profiles,P.encode(a)),a);});
+test('rejects unsupported schema',()=>assert.throws(()=>P.decode(profiles,'{"version":9}')));
+test('rejects oversized shared state',()=>assert.throws(()=>P.decode(profiles,'x'.repeat(8001))));
+test('scenario keeps strict and feasibility constraints',()=>{const a=P.create(profiles,'biz_logistics',{freight:10});assert.deepEqual(a.profile.strict,profiles.biz_logistics.strict);assert.deepEqual(a.profile.must,profiles.biz_logistics.must);});
+test('standard weightsFor remains identical; custom gets no hidden observed factor',()=>{const Engine=require('../src/engine.js'),meta=JSON.parse(fs.readFileSync(path.join(__dirname,'../data/meta.json'))),e=new Engine(meta),id='biz_office',base=e.profiles[id]||e.profiles.biz_logistics;const selected=e.profiles[id]?id:'biz_logistics';const raw={country:'CH',factorRaw:{n_employment_region:80},x:{}};const original=JSON.stringify(e.profiles[selected]);const x=P.create(e.profiles,selected,base.weights);e.profiles.biz_custom_fit=x.profile;assert.deepEqual(e.weightsFor(raw,'biz_custom_fit'),x.weights);assert.equal(JSON.stringify(e.profiles[selected]),original);});

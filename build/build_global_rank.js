@@ -62,7 +62,7 @@ const LCAP = +(process.env.NZ_LCAP || 0.0001), LSD = +(process.env.NZ_LSD || 18)
 const BOUND = (x) => 50 + 50 * Math.tanh((x - 50) / 50);
 const dormant = new Set([...(meta.config.bizDormant || []), ...(meta.config.hhDormant || [])]);
 const profiles = Object.entries(meta.config.profiles).filter(([k, p]) => p.weights && k !== 'self_fit' && k !== 'swiss_lottery' && !dormant.has(k));
-const rows = {}, CTRY = {}, DEPTH = {}, XY = {};
+const rows = {}, CTRYS = {}, CTRY = {}, DEPTH = {}, XY = {};
 const ABSCAT0 = { outdoor: 1, border: 1, finhub: 1, insurhub: 1, fundhub: 1, commodhub: 1, cryptohub: 1, wealthhub: 1, reach300: 1, portaccess: 1, chempark: 1, freight: 1, reach: 1, flatland: 1, climate: 1, services: 1, coast: 1 };   // profile -> [{id, name, cc, cont, pop, cats}]
 for (const c of meta.countries) {
   const all = D.hydrate(JSON.parse(fs.readFileSync(path.join(ROOT, 'data/c', c.cc + '.json'))));
@@ -77,6 +77,8 @@ for (const c of meta.countries) {
     const res = eng.rank(scope, k, { country: c.cc, subRanks: false });
     const list = rows[k] = rows[k] || [];
     if (process.env.NZ_BENCH) ((CTRY[k] = CTRY[k] || {})[c.cc] = res.scored.map((s) => s.r.name));
+    // 2.15.27: scores alongside, so the benchmark ranks tied places at the middle of their tie (tie order is arbitrary)
+    if (process.env.NZ_BENCH) ((CTRYS[k] = CTRYS[k] || {})[c.cc] = res.scored.map((s) => Math.round(s.overall * 100) / 100));
     const nS = res.scored.length;
     res.scored.forEach((s, i) => { s._pct = nS > 1 ? 100 * (1 - i / (nS - 1)) : 100; s._L = LZ(nS ? (nS - i - 0.5) / nS : 0.5); s._c = Object.assign({}, eng.categoriesFor(s.r, k)); });
     /* 2.14 (world-4): a place's standing inside its country says only as much as the country's local data. Depth = the
@@ -172,5 +174,5 @@ fs.mkdirSync(path.join(ROOT, 'data/rank'), { recursive: true });
 fs.writeFileSync(path.join(ROOT, 'data/rank/global.json'), JSON.stringify(res));
 // one file per scope for the app, so opening Europe does not load the world list as well
 for (const sk of Object.keys(res.scopes)) fs.writeFileSync(path.join(ROOT, 'data/rank', sk + '.json'), JSON.stringify({ version: res.version, model: MODEL, method: res.method, scope: sk, profiles: res.scopes[sk].profiles }));
-if (process.env.NZ_BENCH) { fs.mkdirSync(path.join(ROOT, 'build/.cache'), { recursive: true }); full.country = CTRY; fs.writeFileSync(path.join(ROOT, 'build/.cache/global_full.json'), JSON.stringify(full)); }
+if (process.env.NZ_BENCH) { fs.mkdirSync(path.join(ROOT, 'build/.cache'), { recursive: true }); full.country = CTRY; full.country_scores = CTRYS; fs.writeFileSync(path.join(ROOT, 'build/.cache/global_full.json'), JSON.stringify(full)); }
 console.log('\nglobal rank v2', Object.entries(res.scopes).map(([k, v]) => k + ': young_family ' + (v.profiles.young_family || {}).ranked + ', logistics ' + (v.profiles.biz_logistics || {}).ranked).join('; '), (fs.statSync(path.join(ROOT, 'data/rank/global.json')).size / 1024).toFixed(0) + ' KB');

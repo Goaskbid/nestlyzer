@@ -97,7 +97,7 @@ GitHub starts a first run straight away. It ends after about a minute with a not
 |---|---|---|
 | Browser upload | 25 MB per file | parts of 21 MB and 5 MB |
 | File size in the repository | 100 MB | largest file 8.4 MB |
-| Published site | 1 GB | about 205 MB |
+| Published site | 1 GB | about 835 MB (2.15.27: 834 MB, 153,057 files; the 25,000-file limit is for commits, the site is never committed) |
 | Pages deployments | 10 per hour (soft limit) | 1 per upload or edit, at most 1 data refresh per month |
 | Actions minutes | free for public repositories | about 7 minutes per run |
 

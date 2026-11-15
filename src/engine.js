@@ -298,7 +298,7 @@
     // the audited legacy method (v1) keeps a profile's original weights where they were changed later (weightsV1)
     if (p && this.method === 'v1' && p.weightsV1) return p.weightsV1;
     var w = (p && p.weights) || {};
-    if (this.method !== 'v1' && p && r && key !== LOTTERY && key !== 'self_fit' && !w.observed && this.observedScore(r, p, key) != null) {   // only where it is measured, so coverage never counts it as missing
+    if (this.method !== 'v1' && p && r && key !== LOTTERY && key !== 'self_fit' && !p.custom && !w.observed && this.observedScore(r, p, key) != null) {   // only where it is measured, so coverage never counts it as missing
        var o = {}; for (var k in w) o[k] = w[k]; o.observed = p.business ? 15 : 8; return o; }
     return w;
   };
@@ -538,7 +538,7 @@
     this._flat = {};
     // 2.15.24: switched off. Dropping categories by what else is in the comparison made a place's fit score change with
     // the result set (audit: Overland Park 77.14 vs 74.19). A category every place maxes adds the same to all; scores stay scope-independent.
-    if (this.cfg.flatDrop && this.method !== 'v1' && scope.length >= 30) { var wq = (this.profiles[key] || {}).weights || {}, cq, nq, hq, cv;
+    if ((this.cfg || {}).flatDrop && this.method !== 'v1' && scope.length >= 30) { var wq = (this.profiles[key] || {}).weights || {}, cq, nq, hq, cv;
       var cache = new Array(scope.length);   // 2.15.23: categories computed once per place, not once per category (same result, ~10x faster)
       for (var j0 = 0; j0 < scope.length; j0++) cache[j0] = this.categoriesFor(scope[j0], key);
       for (cq in wq) { if (cq === 'observed') continue; nq = 0; hq = 0;
@@ -554,7 +554,16 @@
       out.push({ r: r, id: r.id, overall: s.score, coverage: s.coverage, weighted: s.weighted, measured: s.measured, thin: !!s.thin, upper: s.upper, scoreMeaning: s.scoreMeaning, model: s.model, catScores: s.cats, sourceConfidence: r.sourceConfidence, _i: i, must: this.profiles[key].must ? this.mustStatus(r, this.profiles[key]) : null });
     }
     this._flatLast = this._flat; this._flat = {};
-    out.sort(function (a, b) { return (self.evidence==='fixed' ? ((b.overall-a.overall)||(b.coverage-a.coverage)||a.id.localeCompare(b.id)) : ((a.thin-b.thin)||(b.overall-a.overall)||(b.sourceConfidence-a.sourceConfidence)||(a._i-b._i))); });
+    out.sort(function (a, b) {
+      var fa = fin(a.overall), fb = fin(b.overall);
+      if (fa !== fb) return fa ? -1 : 1;
+      if (self.method !== 'v1' && !!a.thin !== !!b.thin) return a.thin ? 1 : -1;
+      if (fa && a.overall !== b.overall) return b.overall - a.overall;
+      var qa = fin(a.sourceConfidence) ? a.sourceConfidence : -1;
+      var qb = fin(b.sourceConfidence) ? b.sourceConfidence : -1;
+      if (qa !== qb) return qb - qa;
+      return self.method === 'v1' ? a._i - b._i : String(a.id).localeCompare(String(b.id));
+    });
     out.forEach(function (x, i) { x.rank = i + 1; });
     var res = { scored: out, reasons: reasons, categoryRanks: {}, factorRanks: {} };
     if (opts.subRanks !== false) this.computeRanks(res);

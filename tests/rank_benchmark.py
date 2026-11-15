@@ -16,11 +16,16 @@ def fold(s):
     return re.sub(r'[^a-z0-9]+', ' ', s).strip()
 
 
-def pos(names, ref):
+def pos(names, ref, sc=None):
     f = fold(ref); n = len(names)
     for i, nm in enumerate(names):
         g = fold(nm)
-        if g == f or g.startswith(f + ' '): return (100 * (1 - i / (n - 1)) if n > 1 else 100), i + 1, n
+        if g == f or g.startswith(f + ' '):
+            # 2.15.27: a place tied with others on the same score sits at the middle of the tie; the order inside a tie is arbitrary
+            m = i
+            if sc and len(sc) == n:
+                t = [k for k in range(n) if sc[k] == sc[i]]; m = (t[0] + t[-1]) / 2
+            return (100 * (1 - m / (n - 1)) if n > 1 else 100), i + 1, n
     return None
 
 
@@ -45,7 +50,7 @@ for sk in ('world', 'europe'):
 for prof, refs in REF['country'].items():
     C = F.get('country', {}).get(prof, {}); rows = []
     for cc, nm in refs:
-        p = pos(C.get(cc, []), nm)
+        p = pos(C.get(cc, []), nm, F.get('country_scores', {}).get(prof, {}).get(cc))
         rows.append([cc, nm, round(p[0], 1) if p else 0, p[1] if p else None, p[2] if p else len(C.get(cc, []))])
     out['country'][prof] = {'mean_pct': round(sum(r[2] for r in rows) / len(rows), 1), 'top5': round(sum(r[2] >= 95 for r in rows) / len(rows) * 100), 'refs': rows}
 # external rankings (tests/rank_refs.json 'external'): published lists, with their sources
@@ -63,9 +68,9 @@ for key, e in REF.get('external', {}).items():
     elif e['scope'].startswith('country:'):
         cc = e['scope'].split(':')[1]; r['profiles'] = {}
         for pf in e['profiles']:
-            C = F.get('country', {}).get(pf, {}).get(cc, [])
+            C = F.get('country', {}).get(pf, {}).get(cc, []); CS = F.get('country_scores', {}).get(pf, {}).get(cc)
             # places below the profile's minimum size are not ranked: left out, reported as coverage
-            t = [x for x in (pos(C, n) for n in e['top']) if x]; b2 = [x for x in (pos(C, n) for n in e['bottom']) if x]
+            t = [x for x in (pos(C, n, CS) for n in e['top']) if x]; b2 = [x for x in (pos(C, n, CS) for n in e['bottom']) if x]
             mt = sum(x[0] for x in t) / len(t) if t else 0; mb = sum(x[0] for x in b2) / len(b2) if b2 else 0
             r['profiles'][pf] = {'top10_pct': round(mt, 1), 'bottom10_pct': round(mb, 1), 'separation': round(mt - mb, 1), 'ranked': '%d+%d of 20' % (len(t), len(b2)), 'top_ranks': [x[1] for x in t]}
         r['pct'] = round(sum(v['separation'] for v in r['profiles'].values()) / len(r['profiles']), 1)

@@ -8,7 +8,7 @@
   "places": [
    {
     "ref": "US:5128581",
-    "rank": 17,
+    "rank": 16,
     "as": "Bayonne",
     "published": true
    },
@@ -32,7 +32,7 @@
    },
    {
     "ref": "KR:1835848",
-    "rank": 16,
+    "rank": 15,
     "as": "Seoul (서울시)",
     "published": true
    },
@@ -69,7 +69,7 @@
    {
     "ref": "US:4887398",
     "rank": 138,
-    "as": "Chicago",
+    "as": "Berwyn (Illinois)",
     "published": false
    },
    {
@@ -363,11 +363,11 @@
   ]
  },
  "student": {
-  "metros": 1907,
+  "metros": 1909,
   "references": 16,
   "found_ranked": 16,
   "in_top_100": 7,
-  "median_percentile": 9.8,
+  "median_percentile": 9.7,
   "places": [
    {
     "ref": "UK:E09000007",
@@ -480,7 +480,7 @@
   ]
  },
  "pensioner": {
-  "metros": 8199,
+  "metros": 8198,
   "references": 17,
   "found_ranked": 17,
   "in_top_100": 2,
@@ -518,7 +518,7 @@
    },
    {
     "ref": "ES:03133",
-    "rank": 98,
+    "rank": 97,
     "as": "Torrevieja",
     "published": false
    },
@@ -595,9 +595,9 @@
    "Marín ES",
    "Realejos, Los ES",
    "Ferrol ES",
+   "Wädenswil CH",
    "Lloret de Mar ES",
    "Langreo ES",
-   "Wädenswil CH",
    "Wohlen (AG) CH",
    "Morlaix FR"
   ]
@@ -740,7 +740,7 @@
    },
    {
     "ref": "CH:5192",
-    "rank": 86,
+    "rank": 87,
     "as": "Lugano",
     "published": true
    },
@@ -819,7 +819,7 @@
   ]
  },
  "sun_retiree": {
-  "metros": 10741,
+  "metros": 10742,
   "references": 17,
   "found_ranked": 17,
   "in_top_100": 8,

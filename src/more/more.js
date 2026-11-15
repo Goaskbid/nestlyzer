@@ -722,7 +722,7 @@ function keyFactsHTML(r) {
       var tn = !rel ? 'dim' : !fin(sc) ? '' : sc >= 60 ? 'good' : sc <= 40 ? 'bad' : 'mid';
       var tq = fin(sc) && rel ? truePct(r, c.f.id) : null, vd = fin(sc) && rel ? (tq == null ? 'model score ' + Math.round(sc) + ' of 100 in ' : tq >= 50 ? 'better than ' + tq + '% of places in ' : 'weaker than ' + (100 - tq) + '% of places in ') + countryName(r.country) : !rel ? 'does not count for ' + profileName(S.profile).toLowerCase() : 'counts for this profile; no comparison with other places';
       var st = [c.f.description || c.f.name, [yr, tag ? tag + ' value' : '', c.src ? 'Source: ' + c.src : ''].filter(Boolean).join(' · ')].join(' ');
-      return '<div class="kf ' + tn + '" data-src="' + esc(st) + '" title="' + esc(st) + '"><b>' + esc(c.val) + '</b><span>' + esc(c.f.name) + '</span>' + (vd || tag ? '<em>' + esc([vd, tag ? tag + ' figure' : ''].filter(Boolean).join(' · ')) + '</em>' : '') + '</div>';
+      return '<div class="kf ' + tn + '" data-k="' + esc(c.f.id) + '" data-src="' + esc(st) + '" title="' + esc(st) + '"><b>' + esc(c.val) + '</b><span>' + esc(c.f.name) + '</span>' + (vd || tag ? '<em>' + esc([vd, tag ? tag + ' figure' : ''].filter(Boolean).join(' · ')) + '</em>' : '') + '</div>';
     }).join('') + '</div></section>';
   return fitHTML(r) + (bizk ? bizClimHTML(r) : '') + econHTML(r) + needsHTML(r) + (bizk ? housingWorkHTML(r) + kfHTML.replace(/^<section class="sec keyfacts"><h3>Key facts for /, '<section class="sec keyfacts"><h3>Site facts for ') : kfHTML + housingWorkHTML(r)) + histHTML(r);
 }
@@ -1270,7 +1270,10 @@ function catDetailHTML(r, k) {
     var old = document.getElementById('srcpop'), t = e.target.closest && e.target.closest('[data-src]');
     if (old) { old.remove(); if (old._for === t) return; }
     if (!t || e.target.closest('a,button,summary,[data-def],[data-catopen],input,select')) return;
-    var d = document.createElement('div'); d.id = 'srcpop'; d.setAttribute('role', 'tooltip'); d.textContent = t.dataset.src; d._for = t; document.body.appendChild(d);
+    var d = document.createElement('div'); d.id = 'srcpop'; d.setAttribute('role', 'tooltip'); d.textContent = t.dataset.src; d._for = t;
+    // 2.15.27: on touch screens there is no double-click, so the tap popup offers the data sheet as a button
+    if (t.dataset.k && t.closest('#place')) { var b = document.createElement('button'); b.type = 'button'; b.className = 'shbtn'; b.textContent = 'Show the data'; b.setAttribute('data-sheet', t.dataset.k); d.appendChild(b); }
+    document.body.appendChild(d);
     var r = t.getBoundingClientRect(), h = d.offsetHeight, w = d.offsetWidth;
     d.style.left = Math.max(12, Math.min(window.innerWidth - w - 12, r.left)) + 'px';
     d.style.top = (r.bottom + h + 8 < window.innerHeight ? r.bottom + 6 : Math.max(8, r.top - h - 6)) + 'px';
@@ -1290,6 +1293,9 @@ var NZ_TXT = {
   steep: function (d) { return 'steep terrain: ' + fmtInt(d) + ' m height difference within 15 km'; },
   air_quality: function () { return 'more fine dust in the air than most places'; }
 };
+/* 2.15.27 (owner audit, Wädenswil): the nuisance line said "no motorway ... close by" for a profile that does not check
+   motorways, next to a watch-out about a motorway under 1 km. The line now names only what the profile checks, and a
+   motorway or hub airport close by that the profile does not count is still stated, so the card never contradicts itself. */
 // categories built from distances and counts rather than a table figure: the decisive number in words
 var NEED_FB = {
   finhub: function (r) { var x = r.x || {}; return x.fin ? x.fin + ' within commuting distance' : ''; },
@@ -1333,6 +1339,16 @@ function needEvidence(r, c, what) {
 var FIT_BAND = [[92, 'among the very best in '], [82, 'in the top fifth of '], [70, 'well above the average for '], [60, 'above the average for ']];
 var FIT_WEAK = [[8, 'among the weakest in '], [20, 'in the bottom fifth of '], [32, 'well below the average for '], [40, 'below the average for ']];
 var FIT_CAT = { freight: 1, reach: 1, reach300: 1, domreach: 1, portaccess: 1, flatland: 1, chempark: 1, climate: 1, city: 1, services: 1, climaterisk: 1, campus: 1, unitown: 1, quiet: 1, cluster: 1, coast: 1, commuter_access: 1, student_access: 1, outdoor: 1, border: 1, finhub: 1, insurhub: 1, fundhub: 1, commodhub: 1, cryptohub: 1, wealthhub: 1, focus: 1 };
+var NZ_NAME = { mway: 'motorway', air: 'hub airport', chem: 'chemical park', port: 'major port', flood: 'flood or heat exposure', crowd: 'dense building', steep: 'steep terrain', air_quality: 'fine dust' };
+function quietEv(r, avoid, max) {
+  avoid = avoid || []; var nz = ENGINE.nuisances(r, avoid), x = r.x || {}, fr = r.factorRaw || {}, out = [];
+  if (nz && nz.hits.length) out = nz.hits.slice(0, max || 2).map(function (h) { return NZ_TXT[h.k] ? NZ_TXT[h.k](h.d) : h.k; });
+  else if (nz) { var ck = avoid.filter(function (k) { return NZ_NAME[k]; }).map(function (k) { return NZ_NAME[k]; });
+    out.push(ck.length ? 'none of what this profile checks is close by (' + ck.join(', ') + ')' : 'no nuisance flagged'); }
+  if (avoid.indexOf('mway') < 0 && fin(x.mway_km) && x.mway_km < 1) out.push('a motorway ' + 'less than 1 km away' + ' (its noise is not counted for this profile)');
+  if (avoid.indexOf('air') < 0 && fin(fr.geo_hub_airport_km) && fr.geo_hub_airport_km < 9) out.push('a hub airport ' + (Math.round(fr.geo_hub_airport_km * 10) / 10) + ' km away (not counted for this profile)');
+  return out;
+}
 function fitItems(r) {
   var w = ENGINE.weightsFor(r, S.profile) || {}, cats = (placeX(r).catScores) || ENGINE.categoriesFor(r, S.profile), fs = r.factorScores || {}, fr = r.factorRaw || {}, what = demonym(r.country) + ' ' + unitWord(r.country);
   var tot = 0; for (var k0 in w) tot += w[k0] || 0; if (!tot) return [];
@@ -1346,8 +1362,8 @@ function fitItems(r) {
         out.push({ k: id, s: sc, imp: w[c] / tot / ids.length, lab: /city/.test(id) && /_km$/.test(id) && fr[id] < 1 ? 'A city of 100,000+ itself' : f.name, val: /city/.test(id) && /_km$/.test(id) && fr[id] < 1 ? '' : adFmtRaw(f, fr[id]), cmp: /city/.test(id) && /_km$/.test(id) && fr[id] < 1 ? 'big-city jobs, schools and services on the doorstep' : pc != null ? hiLo(pc) + ' of ' + what : '', why: needLab[c] || '', src: f.description || '' }); });
     } else if (fin(cats[c])) {
       var ev = c === 'quiet' ? '' : needEvidence(r, c, what);
-      if (c === 'quiet') { var nz = ENGINE.nuisances(r, (profileDef(S.profile) || {}).avoid || []); ev = nz && nz.hits.length ? nz.hits.slice(0, 2).map(function (h) { return NZ_TXT[h.k] ? NZ_TXT[h.k](h.d) : h.k; }).join('; ') : 'no motorway, flight path or heavy industry close by'; }
-      out.push({ k: 'cat:' + c, s: cats[c], imp: w[c] / tot, lab: needLab[c] || shortCat(c), val: '', cmp: ev, why: '', src: catLabel(c) });
+      if (c === 'quiet') ev = quietEv(r, (profileDef(S.profile) || {}).avoid, 2).join('; ');
+      out.push({ k: 'cat:' + c, s: cats[c], imp: w[c] / tot, lab: c === 'quiet' ? (cats[c] >= 60 ? 'Clear of what this profile avoids' : 'Near something this profile avoids') : needLab[c] || shortCat(c), val: '', cmp: ev, why: c === 'quiet' && needLab[c] ? needLab[c] : '', src: catLabel(c) });   // 2.15.27: the need ("No traffic noise") is the wish, not a finding; the line states what was found
     }
   });
   return fitMerge(out);
@@ -1365,7 +1381,7 @@ function fitMerge(out) {
     var main = ps.slice().sort(function (a, b) { return b.imp - a.imp; })[0], hi = ps.filter(function (o) { return o.s >= 60; }), lo = ps.filter(function (o) { return o.s <= 40; });
     var nm = function (l) { return l.map(function (o) { return o.src || o.lab; }).filter(function (v, i, a) { return v && a.indexOf(v) === i; }).join(', '); };
     var cmp = hi.length && lo.length ? 'A trade-off: strong on ' + nm(hi) + ', weak on ' + nm(lo) : (main.cmp || '');
-    return { k: 'need:' + key, s: I ? T / I : main.s, imp: I, lab: main.lab, val: ps.length === ps.filter(function (o) { return o.val === main.val; }).length ? main.val : '', cmp: cmp, why: main.why, src: nm(ps), parts: ps.length, mixed: !!(hi.length && lo.length) };
+    return { k: 'need:' + key, s: I ? Math.max(0, Math.min(100, Math.round(T / I * 100) / 100)) : main.s, imp: I, lab: main.lab, val: ps.length === ps.filter(function (o) { return o.val === main.val; }).length ? main.val : '', cmp: cmp, why: main.why, src: nm(ps), parts: ps.length, mixed: !!(hi.length && lo.length) };
   });
 }
 function fitPhrase(sc, cn, good) { var B = good ? FIT_BAND : FIT_WEAK; for (var i = 0; i < B.length; i++) if (good ? sc >= B[i][0] : sc <= B[i][0]) return B[i][1] + cn; return ''; }
@@ -1394,7 +1410,7 @@ function fitHTML(r) {
   var con = it.filter(function (o) { return o.s <= 40; }).sort(function (a, b) { return b.imp * (50 - b.s) - a.imp * (50 - a.s); }).slice(0, 3);
   var li = function (o, good) {
     var ph = o.cmp ? o.cmp : fitPhrase(o.s, cn, good), st = [o.src, o.why ? 'Counts for: ' + o.why : ''].filter(Boolean).join(' ');
-    return '<li class="fi ' + (good ? 'good' : 'bad') + '" data-src="' + esc(st) + '" title="' + esc(st) + '"><span class="fs">' + Math.round(o.s) + '</span><div><b>' + esc(o.lab) + (o.val ? ' <i>' + esc(o.val) + '</i>' : '') + '</b><small>' + esc(ph) + '</small></div></li>';
+    return '<li class="fi ' + (good ? 'good' : 'bad') + '" data-k="' + esc(o.k) + '" data-src="' + esc(st) + '" title="' + esc(st) + '"><span class="fs">' + Math.round(o.s) + '</span><div><b>' + esc(o.lab) + (o.val ? ' <i>' + esc(o.val) + '</i>' : '') + '</b><small>' + esc(ph) + '</small></div></li>';
   };
   return '<section class="sec fit"><h3>For and against</h3><p class="sub">What weighs most for ' + esc(who) + ', strongest first. Each number is a score out of 100 against the rest of ' + esc(cn) + '; tap a line to see what it measures.</p>' +
     (pro.length ? '<h4>For</h4><ol class="fil">' + pro.map(function (o) { return li(o, true); }).join('') + '</ol>' : '') +
@@ -1410,7 +1426,7 @@ function needsHTML(r) {
     if (!cs.length || !vals.length) return '';
     var v = vals.reduce(function (a, b) { return a + b; }, 0) / vals.length, t = v >= 60 ? 'good' : v <= 40 ? 'bad' : 'mid';
     var ev = [];
-    if (cs.indexOf('quiet') >= 0) { var nz = ENGINE.nuisances(r, p.avoid || []); if (nz) ev = nz.hits.slice(0, 3).map(function (h) { return NZ_TXT[h.k] ? NZ_TXT[h.k](h.d) : h.k; }); if (nz && !nz.hits.length) ev.push('none of these nearby: motorway, flight path, chemical park, flood risk'); }
+    if (cs.indexOf('quiet') >= 0) ev = quietEv(r, p.avoid, 3);
     else cs.forEach(function (c) { var e = needEvidence(r, c, what); if (e) ev.push(e); });
     return '<li class="nd ' + t + '"><b>' + esc(lab) + '</b><span class="nv">' + (t === 'good' ? 'strong' : t === 'bad' ? 'weak' : 'average') + ' · ' + Math.round(v) + '/100</span>' + (ev.length ? '<small>' + esc(ev.slice(0, 2).join('; ')) + '</small>' : '') + '</li>';
   }).join('');
@@ -1523,19 +1539,36 @@ function bizClimBody(B, cc, pk) {
 }
 
 /* 2.15: infrastructure and industry within 60 km (data/facilities.json: public lists, points of reference only) */
-var FAC = null;
+var FAC = null, FACROWS = [];
 function facKm(a, b, c, d) { var R = 6371, x = (c - a) * Math.PI / 180, y = (d - b) * Math.PI / 180, h = Math.sin(x / 2) * Math.sin(x / 2) + Math.cos(a * Math.PI / 180) * Math.cos(c * Math.PI / 180) * Math.sin(y / 2) * Math.sin(y / 2); return 2 * R * Math.asin(Math.sqrt(h)); }
 function facilitiesHTML(r) {
   try { scoreContext(r); } catch (e) {}
-  if (!document.getElementById('fac-css')) { var st = document.createElement('style'); st.id = 'fac-css'; st.textContent = '.fac{list-style:none;margin:0;padding:0;display:grid;gap:6px}.fac li{display:grid;grid-template-columns:30px 1fr auto;gap:10px;align-items:center;padding:8px 10px;border:1px solid var(--line,#e2e8f0);border-radius:10px;background:var(--card,#fff)}.fac .fi{font-size:18px;line-height:1;text-align:center}.fac b{display:block;font-weight:600}.fac small{color:var(--muted,#64748b)}.fac .km{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}.fac li.k-nuclear{border-left:3px solid #d97706}.fac li.k-chemical{border-left:3px solid #b91c1c}.fac li.k-seaport{border-left:3px solid #0369a1}.fac li.k-terminal{border-left:3px solid #4d7c0f}.fac li.k-learning{border-left:3px solid #7c3aed}.fac li.k-zone{border-left:3px solid #0f766e}'; document.head.appendChild(st); }
+  if (!document.getElementById('fac-css')) { var st = document.createElement('style'); st.id = 'fac-css'; st.textContent = '.fac{list-style:none;margin:0;padding:0;display:grid;gap:0;border:1px solid var(--line,#e2e8f0);border-radius:12px;overflow:hidden;background:var(--card,#fff)}.fac li+li{border-top:1px solid var(--line,#e2e8f0)}.fac li.closed{opacity:.62}.fac .fn{min-width:0}.fac .fn b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.fac .fst{font-style:normal;font-size:11px;font-weight:650;padding:1px 6px;border-radius:999px;margin-left:4px;background:var(--line,#e2e8f0)}.fac .fst.part{background:#fef3c7;color:#92400e}.facmore{margin-top:6px}.facmore summary{cursor:pointer;font-size:13px;font-weight:600;padding:4px 0}.facsrc{margin-top:8px}.fac li{display:grid;grid-template-columns:22px 1fr auto;gap:8px;align-items:center;padding:6px 10px;border-left:3px solid transparent}.fac .fi{line-height:1;text-align:center;color:var(--muted,#64748b)}.fac .fi svg{width:18px;height:18px}.fac b{display:block;font-weight:600}.fac small{display:block;color:var(--muted,#64748b);font-size:12px;line-height:1.35}.fac .km{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}.fac li.k-nuclear{border-left-color:#d97706}.fac li.k-coal{border-left-color:#57534e}.fac li.k-chemical{border-left-color:#b91c1c}.fac li.k-seaport{border-left-color:#0369a1}.fac li.k-terminal{border-left-color:#4d7c0f}.fac li.k-learning{border-left-color:#7c3aed}.fac li.k-zone{border-left-color:#0f766e}'; document.head.appendChild(st); }
   if (!Number.isFinite(r.lat) || !Number.isFinite(r.lon)) return Promise.resolve('<p class="small muted">No usable location recorded for this place.</p>');
   FAC = FAC || getJSON('/data/facilities.json?v=__VERSION__').catch(function () { FAC = null; return null; });
   return FAC.then(function (d) {
     if (!d || !Array.isArray(d.items)) { FAC = null; return '<p class="small muted" role="status">Facility data could not be loaded. Reopen this place to retry. No conclusion about nearby facilities can be drawn.</p>'; }
     var IC = { nuclear: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 10V3a9 9 0 0 1 7.8 4.5L13.7 11M10.3 11 4.2 7.5A9 9 0 0 1 12 3M13.7 13l6.1 3.5A9 9 0 0 1 4.2 16.5L10.3 13"/></svg>', coal: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V11l5 3V11l5 3V5h4v16z"/><path d="M7 18h2M12 18h2"/></svg>', chemical: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/><path d="M7.5 15h9"/></svg>', seaport: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M12 7v14M5 13a7 7 0 0 0 14 0M8 10h8"/></svg>', terminal: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="14" rx="3"/><path d="M6 11h12M9 21l1.5-4M15 21l-1.5-4"/></svg>', learning: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg>', zone: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12V3h9l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg>' };
-    var near = d.items.map(function (f) { return [facKm(r.lat, r.lon, f.lat, f.lon), f]; }).filter(function (x) { return x[0] <= 60; }).sort(function (a, b) { return a[0] - b[0]; }).slice(0, 12);
+    var near = d.items.map(function (f) { return [facKm(r.lat, r.lon, f.lat, f.lon), f]; }).filter(function (x) { return x[0] <= 60; }).sort(function (a, b) { return a[0] - b[0]; });
+    // 2.15.27: one row per site. A list can name a site twice (a port and one of its terminals): same kind, within 2 km,
+    // same first word of the name -> one row, the other name shown as "also listed as".
+    var w1 = function (n) { return String(n).toLowerCase().split(/[^a-zà-ÿ0-9]+/).filter(function (t) { return t.length >= 4; })[0] || ''; }, kept = [];
+    near.forEach(function (x) { var f = x[1], dup = kept.filter(function (y) { var g = y[1]; return g.kind === f.kind && facKm(g.lat, g.lon, f.lat, f.lon) <= 2 && w1(f.name) && w1(g.name) === w1(f.name); })[0];
+      if (dup) (dup.also = dup.also || []).push(f.name); else kept.push(x); });
+    near = kept.slice(0, 12);
     if (!near.length) return '<p class="small muted">No matching reference points were returned within 60 km from this partial inventory. Coverage is incomplete; this is not evidence that no facilities exist. Nuclear power stations are covered worldwide, coal power stations from 500 MW.</p>';
-    return '<ul class="fac">' + near.map(function (x) { var f = x[1]; return '<li class="k-' + f.kind + '"><span class="fi" aria-hidden="true">' + (IC[f.kind] || '•') + '</span><span><b>' + esc(f.name) + '</b><small>' + esc(f.label + (f.detail ? ', ' + f.detail : '')) + '. ' + (f.source ? '<a href="' + esc(f.source) + '" target="_blank" rel="noopener">' + esc(f.by) + '</a>' : esc(f.by)) + (f.period ? ' (' + esc(f.period) + ')' : '') + '</small></span><span class="km">' + fmt(x[0]) + ' km</span></li>'; }).join('') + '</ul><p class="small muted">' + esc(d.note || '') + ' Nuclear stations: so far the US operating list only; worldwide lists are being added.</p>';
+    // 2.15.27 (owner: "the section is too big"): one compact line per site, name and distance first; the type, size and
+    // status in one short line; sources once, below the list. Five rows open, the rest one tap away.
+    FACROWS = []; var KIND = { nuclear: 'Nuclear power', coal: 'Coal power', chemical: 'Chemical park', seaport: 'Seaport', terminal: 'Rail-road terminal', learning: 'Learning city', zone: 'Free zone' };
+    var srcs = {}, row = function (x) { var f = x[1], det = String(f.detail || ''), mw = /^([\d,]+ MW(?: in \d+ units)?)/.exec(det), closed = /shut down|decommission/.test(det) && !/life extension/.test(det), part = /life extension/.test(det);
+      var rest = mw ? det.slice(mw[0].length).replace(/^,\s*/, '') : det; if (/^in the 2021 database; check current status/.test(rest)) rest = '';
+      srcs[f.by] = f.source || srcs[f.by] || '';
+      var meta = [KIND[f.kind] || f.label, mw ? mw[1] : ''].filter(Boolean).join(', ');
+      var tip = [f.label, det, x.also ? 'Also listed as ' + x.also.join(', ') : '', 'Source: ' + f.by + (f.period ? ' (' + f.period + ')' : '')].filter(Boolean).join('. ');
+      FACROWS.push([x[0], f, x.also]); return '<li class="k-' + f.kind + (closed ? ' closed' : '') + '" data-k="fac:' + (FACROWS.length - 1) + '" data-src="' + esc(tip) + '" title="' + esc(tip) + '"><span class="fi" aria-hidden="true">' + (IC[f.kind] || '•') + '</span><span class="fn"><b>' + esc(f.name) + '</b><small>' + esc(meta) + (closed ? ' <em class="fst off">closed</em>' : part ? ' <em class="fst part">partly closed</em>' : '') + (rest && !closed && !part && f.kind !== 'nuclear' && f.kind !== 'coal' ? ', ' + esc(rest) : '') + '</small></span><span class="km">' + fmt(x[0]) + ' km</span></li>'; };
+    var head = near.slice(0, 5).map(row).join(''), more = near.slice(5).map(row).join('');
+    var sl = Object.keys(srcs).map(function (b) { return srcs[b] ? '<a href="' + esc(srcs[b]) + '" target="_blank" rel="noopener">' + esc(b) + '</a>' : esc(b); }).join('; ');
+    return '<ul class="fac">' + head + '</ul>' + (more ? '<details class="facmore"><summary>Show ' + (near.length - 5) + ' more within 60 km</summary><ul class="fac">' + more + '</ul></details>' : '') + '<p class="small muted facsrc">' + esc(d.note || '') + ' Power stations: nuclear worldwide, coal from 500 MW; status as in the 2021 database unless a closure was announced since. Hover a row for details. Sources: ' + sl + '.</p>';
   });
 }
 /* 2.15.3: clearer place pages. What decides the fit stays open; background sections fold into tap-to-open panels,
@@ -1689,3 +1722,175 @@ function programmesHTML(r) {
     return zone + (biz ? inc + imm : imm + inc) + '<p class="small muted">Shown for context; these programmes do not change the score. General information, not tax or immigration advice.</p>';
   });
 }
+
+/* 2.15.27 (owner request): hover a figure for a short explainer; double-click it for the data behind it.
+   Hover shows the same text a tap shows (the source and what it measures), styled, after a short pause.
+   Double-click opens a data sheet: the value, its score, where it ranks in the country with a distribution chart,
+   the level it was measured at, the period and the source with its licence page. Only data already in Nestlyzer. */
+(function () {
+  if (window.NZ_SHEET) return;
+  var st = document.createElement('style');
+  st.textContent = "#srcpop.hov{pointer-events:none;animation:nzfade .12s ease-out}#srcpop .dh{display:block;margin-top:5px;color:var(--ink-3);font-size:11px}@keyframes nzfade{from{opacity:0;transform:translateY(-2px)}to{opacity:1}}" +
+    "#nzsheet{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;background:rgba(15,23,42,.38);padding:16px}#nzsheet>div{width:min(560px,100%);max-height:min(86vh,760px);overflow:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line-2);border-radius:16px;box-shadow:0 18px 60px rgba(0,0,0,.28);padding:18px 20px 16px}" +
+    "#nzsheet h3{margin:0 34px 2px 0;font-size:18px;line-height:1.25}#nzsheet .sub{margin:0 0 12px;color:var(--ink-3);font-size:13px}#nzsheet .x{position:absolute;margin:-6px 0 0;right:auto;float:right;border:0;background:transparent;font-size:22px;line-height:1;cursor:pointer;color:var(--ink-3)}" +
+    "#nzsheet .big{display:flex;gap:18px;align-items:baseline;flex-wrap:wrap;margin:4px 0 10px}#nzsheet .big b{font:700 30px/1.1 var(--font-display)}#nzsheet .big span{color:var(--ink-2);font-size:13.5px}" +
+    "#nzsheet dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 14px;margin:10px 0 0;font-size:13.5px}#nzsheet dt{color:var(--ink-3)}#nzsheet dd{margin:0}#nzsheet table{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px}#nzsheet td,#nzsheet th{padding:5px 4px;border-bottom:1px solid var(--line);text-align:left}#nzsheet td.n{text-align:right;font-variant-numeric:tabular-nums}" +
+    "#srcpop .shbtn{display:block;margin-top:8px;padding:6px 10px;border:1px solid var(--line-2);border-radius:8px;background:var(--surface-2,var(--surface));color:var(--ink);font:inherit;font-weight:600;cursor:pointer}#srcpop{pointer-events:auto}#srcpop.hov{pointer-events:none}" +
+    "@media (max-width:640px){#nzsheet{place-items:end center;padding:0}#nzsheet>div{width:100%;max-height:88vh;border-radius:16px 16px 0 0;padding:16px 16px calc(16px + env(safe-area-inset-bottom))}#nzsheet dl{grid-template-columns:1fr}#nzsheet dt{margin-top:4px}}" +
+    "#nzsheet svg.dist{width:100%;height:auto;display:block;margin:6px 0 2px}#nzsheet .cap{font-size:12px;color:var(--ink-3)}";
+  document.head.appendChild(st);
+  var tm = null, hovEl = null;
+  function hidePop() { var o = document.getElementById('srcpop'); if (o && o.classList.contains('hov')) o.remove(); }
+  document.addEventListener('mouseover', function (e) {
+    var t = e.target.closest && e.target.closest('[data-src]'); if (t === hovEl) return; hovEl = t; clearTimeout(tm); hidePop(); if (!t) return;
+    if (t.hasAttribute('title')) { t.setAttribute('data-title', t.getAttribute('title')); t.removeAttribute('title'); }   // the styled popup replaces the plain browser tooltip
+    tm = setTimeout(function () {
+      if (document.getElementById('srcpop') || !t.isConnected) return;
+      var d = document.createElement('div'); d.id = 'srcpop'; d.className = 'hov'; d.setAttribute('role', 'tooltip'); d.textContent = t.dataset.src; d._for = t;
+      if (t.dataset.k) { var h = document.createElement('span'); h.className = 'dh'; h.textContent = 'Double-click for the data behind it'; d.appendChild(h); }
+      document.body.appendChild(d);
+      var r = t.getBoundingClientRect(), hh = d.offsetHeight, w = d.offsetWidth;
+      d.style.left = Math.max(12, Math.min(window.innerWidth - w - 12, r.left)) + 'px';
+      d.style.top = (r.bottom + hh + 8 < window.innerHeight ? r.bottom + 6 : Math.max(8, r.top - hh - 6)) + 'px';
+    }, 280);
+  });
+  document.addEventListener('mouseleave', function () { clearTimeout(tm); hidePop(); hovEl = null; });
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('#srcpop [data-sheet]'); if (!b) return;
+    e.stopPropagation(); var pop = document.getElementById('srcpop'), back = pop && pop._for; if (pop) pop.remove();
+    var r = BYID[S.selected], html = r && sheetHTML(r, b.getAttribute('data-sheet')); if (html) openSheet(html, back);
+  }, true);
+  document.addEventListener('dblclick', function (e) {
+    var t = e.target.closest && e.target.closest('#place [data-k]'); if (!t) return;
+    var r = BYID[S.selected]; if (!r) return;
+    e.preventDefault(); var o = document.getElementById('srcpop'); if (o) o.remove();
+    var html = sheetHTML(r, t.dataset.k); if (html) openSheet(html, t);
+  });
+  window.NZ_SHEET = function (k) { var r = BYID[S.selected]; return r ? sheetHTML(r, k) : ''; };
+})();
+function openSheet(html, back) {
+  var old = document.getElementById('nzsheet'); if (old) old.remove();
+  var w = document.createElement('div'); w.id = 'nzsheet'; w.innerHTML = '<div role="dialog" aria-modal="true" aria-labelledby="nzsh-t" tabindex="-1"><button class="x" type="button" aria-label="Close">×</button>' + html + '</div>';
+  document.body.appendChild(w); var box = w.firstChild; box.focus();
+  function close() { w.remove(); document.removeEventListener('keydown', key); if (back && back.focus) try { back.focus({ preventScroll: true }); } catch (e) {} }
+  function key(e) { if (e.key === 'Escape') close(); }
+  document.addEventListener('keydown', key);
+  w.addEventListener('click', function (e) { if (e.target === w || e.target.closest('.x')) close(); });
+}
+function sheetDist(r, get, fmtV, better) {
+  var sh = SHARDS[r.country], recs = sh && sh.records ? sh.records.filter(function (q) { return !q.superseded; }) : [], vals = [];
+  recs.forEach(function (q) { var v = get(q); if (fin(v)) vals.push(v); });
+  var me = get(r); if (vals.length < 10 || !fin(me)) return '';
+  vals.sort(function (a, b) { return a - b; });
+  var lo = vals[Math.floor(vals.length * 0.01)], hi = vals[Math.ceil(vals.length * 0.99) - 1]; if (!(hi > lo)) { lo = vals[0]; hi = vals[vals.length - 1]; } if (!(hi > lo)) return '';
+  var B = 32, bins = new Array(B).fill(0); vals.forEach(function (v) { var i = Math.floor((Math.min(hi, Math.max(lo, v)) - lo) / (hi - lo) * (B - 0.0001)); bins[i]++; });
+  var mx = Math.max.apply(null, bins), W = 520, H = 92, bw = W / B, mi = Math.floor((Math.min(hi, Math.max(lo, me)) - lo) / (hi - lo) * (B - 0.0001));
+  var below = 0; for (var i = 0; i < vals.length; i++) if (vals[i] < me) below++;
+  var pct = Math.round(below / (vals.length - 1 || 1) * 100), med = vals[Math.floor(vals.length / 2)];
+  var bars = bins.map(function (n, i) { var h = n ? Math.max(2, n / mx * (H - 24)) : 0; return '<rect x="' + (i * bw + 1).toFixed(1) + '" y="' + (H - 18 - h).toFixed(1) + '" width="' + (bw - 2).toFixed(1) + '" height="' + h.toFixed(1) + '" rx="2" fill="' + (i === mi ? 'var(--accent,#2563eb)' : 'var(--line-2,#cbd5e1)') + '"/>'; }).join('');
+  var mxp = ((Math.min(hi, Math.max(lo, me)) - lo) / (hi - lo) * W).toFixed(1);
+  var pos = better === 1 ? 'higher than ' + pct + '%' : better === -1 ? 'lower than ' + (100 - pct) + '%' : 'above ' + pct + '%';
+  return '<svg class="dist" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Distribution across ' + esc(countryName(r.country)) + '; ' + esc(r.name) + ' is ' + pos + ' of places"><line x1="' + mxp + '" x2="' + mxp + '" y1="4" y2="' + (H - 18) + '" stroke="var(--accent,#2563eb)" stroke-width="2"/>' + bars +
+    '<text x="0" y="' + (H - 4) + '" font-size="11" fill="currentColor" opacity=".6">' + esc(fmtV(lo)) + '</text><text x="' + W + '" y="' + (H - 4) + '" font-size="11" text-anchor="end" fill="currentColor" opacity=".6">' + esc(fmtV(hi)) + '</text></svg>' +
+    '<p class="cap">' + fmtInt(vals.length) + ' places in ' + esc(countryName(r.country)) + ' with this figure. ' + esc(r.name) + ' (blue) is ' + pos + ' of them; the middle place has ' + esc(fmtV(med)) + '.</p>';
+}
+function sheetHTML(r, k) {
+  var fr = r.factorRaw || {}, fs = r.factorScores || {}, LV = { 1: 'large region', 2: 'region', 3: 'district or county', 9: 'whole country' };
+  if (/^fac:\d+$/.test(k)) {
+    var row = FACROWS[+k.slice(4)]; if (!row) return ''; var f = row[1];
+    return '<h3 id="nzsh-t">' + esc(f.name) + '</h3><p class="sub">' + esc(f.label) + ', ' + fmt(row[0]) + ' km from ' + esc(r.name) + ' in a straight line</p><dl>' +
+      '<dt>Details</dt><dd>' + esc(f.detail || '') + '</dd>' + (row[2] ? '<dt>Also listed as</dt><dd>' + esc(row[2].join(', ')) + '</dd>' : '') +
+      '<dt>Location</dt><dd>' + fmt(f.lat, 2) + ', ' + fmt(f.lon, 2) + ' (rounded)</dd><dt>Source</dt><dd>' + (f.source ? '<a href="' + esc(f.source) + '" target="_blank" rel="noopener">' + esc(f.by) + '</a>' : esc(f.by)) + (f.period ? ', ' + esc(f.period) : '') + '</dd></dl><p class="cap">A point of reference, not a hazard or safety assessment.</p>';
+  }
+  if (/^cat:/.test(k)) {
+    var c = k.slice(4), ids = ((ENGINE.factorIdsByCat || {})[c] || []).filter(function (id) { return fin(fs[id]); }), cats = ENGINE.categoriesFor(r, S.profile) || {};
+    var extra = c === 'quiet' ? '<p>' + esc(quietEv(r, (profileDef(S.profile) || {}).avoid, 4).join('; ')) + '.</p><table><tr><th>Checked nearby</th><th class="n">Distance or level</th></tr>' +
+      [['Motorway', (r.x || {}).mway_km, 'km'], ['Hub airport', fr.geo_hub_airport_km, 'km'], ['Chemical park', (r.x || {}).chem_km, 'km'], ['Major port', (r.x || {}).mport_km, 'km'], ['People per km² within 10 km', fr.geo_density10_km2, ''], ['Height difference within 15 km', (r.x || {}).relief, 'm']]
+        .filter(function (a) { return fin(a[1]); }).map(function (a) { return '<tr><td>' + a[0] + '</td><td class="n">' + (a[2] === 'km' ? (a[1] < 1 ? 'less than 1 km' : fmt(a[1]) + ' km') : fmtInt(a[1]) + (a[2] ? ' ' + a[2] : '')) + '</td></tr>'; }).join('') + '</table>' : '';
+    return '<h3 id="nzsh-t">' + esc(catLabel(c)) + '</h3><p class="sub">' + esc(r.name) + ', score ' + (fin(cats[c]) ? Math.round(cats[c]) : 'not available') + ' of 100 against the rest of ' + esc(countryName(r.country)) + '</p>' + extra +
+      (ids.length ? '<table><tr><th>Measure</th><th class="n">Value</th><th class="n">Score</th></tr>' + ids.map(function (id) { var f = ENGINE.factorById[id]; return '<tr><td>' + esc(f.name) + '</td><td class="n">' + esc(fin(fr[id]) ? adFmtRaw(f, fr[id]) || fmt(fr[id]) : '') + '</td><td class="n">' + Math.round(fs[id]) + '</td></tr>'; }).join('') + '</table>' : '') +
+      '<p class="cap">Scores run from 0 (weakest in the country) to 100 (strongest) for this need.</p>';
+  }
+  var f = ENGINE.factorById && ENGINE.factorById[k]; if (!f) return '';
+  var v = fr[k], sc = fs[k], dir = f.direction === 'higher_better' || f.direction === 'higher' ? 1 : f.direction === 'lower_better' || f.direction === 'lower' ? -1 : 0;
+  var fv = function (x) { var t = adFmtRaw(f, x); return t == null ? fmt(x) : t; };
+  var lv = LV[(r.factorLevel || {})[k]] || 'municipality';
+  return '<h3 id="nzsh-t">' + esc(f.name) + '</h3><p class="sub">' + esc(r.name) + ', ' + esc(countryName(r.country)) + '</p>' +
+    '<div class="big"><b>' + esc(fin(v) ? fv(v) : 'no value') + '</b>' + (fin(sc) ? '<span>score ' + Math.round(sc) + ' of 100</span>' : '') + '</div>' +
+    sheetDist(r, function (q) { return (q.factorRaw || {})[k]; }, fv, dir) +
+    '<dl>' + (f.description ? '<dt>What it measures</dt><dd>' + esc(f.description) + '</dd>' : '') + '<dt>Measured for</dt><dd>' + esc(lv === 'municipality' ? 'the municipality itself' : 'the ' + lv + ' around it (no municipal figure published)') + '</dd>' +
+    (f.methodology_note ? '<dt>How it is scored</dt><dd>' + esc(f.methodology_note) + '</dd>' : '') +
+    '<dt>Source</dt><dd>' + (f.source_url ? '<a href="' + esc(f.source_url) + '" target="_blank" rel="noopener">' + esc(f.source_name || f.source_id || 'source') + '</a>' : esc(f.source_name || f.source_id || '')) + (f.source_period ? ', ' + esc(f.source_period) : '') + '</dd></dl>';
+}
+
+/* 2.15.27 (owner request): the Story tab. How the place came to be and how it changed, read from Wikipedia (CC BY-SA 4.0,
+   quoted with a link) and Wikidata (CC0), sorted into three themes: Origins, Work and change, Life today. Each line is
+   marked when it speaks for or against the search in focus (a growing town for families, a closed plant for jobs), and
+   the population curve from Wikidata shows the long view. Quotes are what is written about the place, not measured. */
+var ST_THEMES = [
+  ['origins', 'Origins', /\b(first (mentioned|recorded|documented|attested)|founded|foundation|settle(d|ment)|Roman|Romans|medieval|Middle Ages|\d{1,2}(st|nd|rd|th) century|castle|monastery|abbey|convent|charter|market rights|town rights|city rights|prehistoric|Celtic|Bronze Age|Iron Age|Neolithic|archaeolog|Habsburg|Carolingian|Frankish|Viking|Ottoman|colonial|Hanseatic)\b/i],
+  ['work', 'Work and change', /\b(industr\w*|factor(y|ies)|mills?|textile|silk|cotton|wool|mining|mines?|coal|brewer(y|ies)|shipyard|steel|iron ?works|tannery|watchmak\w*|engineering works|port|harbou?r|railway (arrived|reached|opened|line)|redevelop\w*|regenerat\w*|gentrif\w*|converted|former (factory|industrial|mill)|closed|closure|decline|unemployment|headquarter\w*|employer|companies|business park|technology park|start-?ups?)\b/i],
+  ['today', 'Life today', /\b(commut\w*|residential|suburb\w*|tourism|tourists?|popular|growing|grew|schools?|universit\w*|hospital|shopping|festival|museum|vineyards?|wine|lake ?shore|beach|ski|hiking|trails?|park|nature reserve|quality of life|old town|car-free|tram|S-Bahn|metro|motorway|airport)\b/i]];
+var ST_NEG = /\b(declin\w*|closed|closure|shut down|flood\w*|pollut\w*|contaminat\w*|crime|unemploy\w*|poverty|abandon\w*|depopulat\w*|landslide|earthquake|noise|congest\w*|fire destroyed|destroyed|bankrupt\w*|shrank|emigrat\w*)\b/i;
+var ST_POS = /\b(restor\w*|renovat\w*|regenerat\w*|revitali[sz]\w*|redevelop\w*|popular|growing|grew|award\w*|protected|heritage|attractive|prosper\w*|thriv\w*|boom\w*|new (school|station|line)|expan\w*|UNESCO|picturesque|well preserved)\b/i;
+var ST_ORDER = [1, 0, 2];   // a sentence about industry is filed under Work and change even when it names a century
+// history is not a plus or a minus; work and life today are. A closure followed by a new use reads as renewal.
+function stTone(t, i) { if (i === 0) return ''; var neg = ST_NEG.test(t), pos = ST_POS.test(t); if (neg && /redevelop|regenerat|convert|revitali|renovat/i.test(t)) return 'pos'; return neg && !pos ? 'neg' : pos && !neg ? 'pos' : ''; }
+function storyFill(r, el) {
+  if (!document.getElementById('story-css')) { var st = document.createElement('style'); st.id = 'story-css'; st.textContent =
+    '.story .sth{display:flex;align-items:center;gap:10px;margin:18px 0 8px}.story .sth h4{margin:0;font-size:16px}.story .sth i{flex:1;height:1px;background:var(--line)}' +
+    '.story ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}.story li{position:relative;padding:10px 12px 10px 14px;border-radius:12px;background:var(--surface-2,var(--surface));border:1px solid var(--line);line-height:1.5;font-size:14.5px}' +
+    '.story li::before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:3px;background:var(--line-2)}.story li.pos::before{background:var(--good)}.story li.neg::before{background:var(--bad)}' +
+    '.story li .tg{display:inline-block;margin:0 0 4px;font-size:11.5px;font-weight:650;padding:1px 8px;border-radius:999px}.story li.pos .tg{background:color-mix(in srgb,var(--good) 14%,transparent);color:var(--good)}.story li.neg .tg{background:color-mix(in srgb,var(--bad) 14%,transparent);color:var(--bad)}.story li.rel{border-color:color-mix(in srgb,var(--accent,#2563eb) 45%,var(--line))}' +
+    '.story .sfacts{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 6px}.story .sfacts span{padding:6px 10px;border-radius:10px;background:var(--surface-2,var(--surface));border:1px solid var(--line);font-size:13px}.story .sfacts b{display:block;font:700 17px/1.2 var(--font-display)}' +
+    '.story svg.spop{width:100%;height:auto;display:block;margin:6px 0 0}.story .src{margin-top:14px}';
+    document.head.appendChild(st); }
+  if (typeof extOn === 'function' && !extOn()) { el.innerHTML = EXT_OFF_HTML; return; }
+  var prof = S.profile, who = profFor ? profFor() : 'this search', kw = evKw();
+  // a slow or blocked network must end in a clear message, not an endless skeleton (15 s)
+  var late = function (p) { return Promise.race([p, new Promise(function (_, no) { setTimeout(function () { no(new Error('timeout')); }, 15000); })]); };
+  late(placeContext(r)).then(function (c) {
+    if (S.selected !== r.id) return;
+    var e = c && c.entity, facts = [], chart = '';
+    var inc = claim(e, 'P571'), y0 = inc && inc.time ? parseInt(String(inc.time).replace(/^\+/, '').slice(0, 4), 10) : null;
+    if (y0 && y0 > 0 && y0 <= new Date().getFullYear()) facts.push('<span><b>' + (y0 < 1000 ? 'about ' : '') + y0 + '</b>first recorded or founded</span>');
+    var pop = ((e && e.claims && e.claims.P1082) || []).map(function (cl) { var v = cl.mainsnak && cl.mainsnak.datavalue && cl.mainsnak.datavalue.value, t = cl.qualifiers && cl.qualifiers.P585 && cl.qualifiers.P585[0].datavalue; var y = t ? parseInt(String(t.value.time).slice(1, 5), 10) : null; return v && y ? [y, +v.amount] : null; }).filter(function (x) { return x && x[1] > 0; }).sort(function (a, b) { return a[0] - b[0]; });
+    var by = {}; pop.forEach(function (p) { by[p[0]] = p; }); pop = Object.keys(by).map(function (k) { return by[k]; }).sort(function (a, b) { return a[0] - b[0]; });
+    if (pop.length >= 3) {
+      var a = pop[0], b = pop[pop.length - 1], ch = (b[1] / a[1] - 1) * 100;
+      facts.push('<span><b>' + (ch > 0 ? '+' : '') + Math.round(ch) + '%</b>residents ' + a[0] + ' to ' + b[0] + '</span>');
+      var W = 520, H = 120, x0 = a[0], x1 = b[0], mx = Math.max.apply(null, pop.map(function (p) { return p[1]; })), X = function (y) { return 8 + (y - x0) / ((x1 - x0) || 1) * (W - 16); }, Y = function (v) { return H - 22 - v / mx * (H - 34); };
+      var d = pop.map(function (p, i) { return (i ? 'L' : 'M') + X(p[0]).toFixed(1) + ' ' + Y(p[1]).toFixed(1); }).join(' ');
+      chart = '<svg class="spop" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Population of ' + esc(r.name) + ' from ' + a[0] + ' to ' + b[0] + '"><path d="' + d + ' L' + X(x1).toFixed(1) + ' ' + (H - 22) + ' L' + X(x0).toFixed(1) + ' ' + (H - 22) + 'Z" fill="var(--accent,#2563eb)" opacity=".12"/><path d="' + d + '" fill="none" stroke="var(--accent,#2563eb)" stroke-width="2.2" stroke-linejoin="round"/>' +
+        pop.map(function (p) { return '<circle cx="' + X(p[0]).toFixed(1) + '" cy="' + Y(p[1]).toFixed(1) + '" r="2.6" fill="var(--accent,#2563eb)"><title>' + p[0] + ': ' + fmtInt(p[1]) + '</title></circle>'; }).join('') +
+        '<text x="8" y="' + (H - 6) + '" font-size="11" fill="currentColor" opacity=".6">' + x0 + '</text><text x="' + (W - 8) + '" y="' + (H - 6) + '" font-size="11" text-anchor="end" fill="currentColor" opacity=".6">' + x1 + ', ' + fmtInt(b[1]) + ' residents</text></svg>';
+    }
+    var m = c && c.url ? /^https:\/\/([a-z]+)\.wikipedia\.org\/wiki\/(.+)$/.exec(c.url) : null;
+    var render = function (groups, lang) {
+      if (S.selected !== r.id || S.profile !== prof) return;
+      var any = groups.some(function (g) { return g.length; });
+      var html = '<div class="story">' + (facts.length ? '<div class="sfacts">' + facts.join('') + '</div>' : '') + chart +
+        ST_THEMES.map(function (t, i) { var g = groups[i]; if (!g.length) return ''; return '<div class="sth"><h4>' + t[1] + '</h4><i></i></div><ul>' + g.map(function (o) {
+          var tag = o.tone === 'pos' ? (o.rel ? 'Speaks for ' + who : 'A plus') : o.tone === 'neg' ? (o.rel ? 'Worth checking for ' + who : 'Worth knowing') : o.rel ? 'Relevant for ' + who : '';
+          return '<li class="' + (o.tone || '') + (o.rel ? ' rel' : '') + '">' + (tag ? '<span class="tg">' + esc(tag) + '</span><br>' : '') + '“' + esc(o.t) + '”</li>'; }).join('') + '</ul>'; }).join('') +
+        (!any ? '<p class="small muted">' + (m && lang !== 'en' ? 'Only a ' + esc(lang) + ' Wikipedia article exists for ' + esc(r.name) + '; read it <a href="' + esc(c.url) + '" target="_blank" rel="noopener">on Wikipedia</a>.' : 'Little has been written about ' + esc(r.name) + ' yet.') + '</p>' : '') +
+        '<p class="small muted src">' + (any ? 'Quoted from <a href="' + esc(c.url) + '" target="_blank" rel="noopener">Wikipedia</a> (CC BY-SA 4.0): what is written about the place, not measured by Nestlyzer. ' : '') + (e && e.qid ? 'Dates and population from <a href="https://www.wikidata.org/wiki/' + esc(e.qid) + '" target="_blank" rel="noopener">Wikidata</a> (CC0), with sources there.' : '') + '</p></div>';
+      el.innerHTML = html;
+    };
+    if (!m) { el.innerHTML = '<p class="small muted">' + (e ? 'No Wikipedia article was found for ' + esc(r.name) + '.' : 'Wikipedia could not be reached just now. Open the tab again to retry.') + '</p>'; if (!e) delete WP['ctx:' + r.id]; return; }
+    var lang = m[1];
+    if (lang !== 'en') { render([[], [], []], lang); return; }
+    late(jget('https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=1&exsectionformat=plain&redirects=1&format=json&origin=*&titles=' + m[2])).then(function (j) {
+      var pg = j && j.query && j.query.pages, tx = ''; for (var k in pg) tx = pg[k].extract || '';
+      tx = tx.split(/\n(References|External links|See also|Notes|Further reading|Twin towns|Sister cities|Notable people)\n/)[0];
+      var seen = {}, groups = [[], [], []];
+      tx.split(/\n+/).forEach(function (par) { par.replace(/([.!?])\s+(?=[A-Z])/g, '$1\u0001').split('\u0001').forEach(function (t) {
+        t = t.trim(); if (t.length < 50 || t.length > 340 || seen[t] || /^(It|This|The (municipality|town|city|village)) (has|had) an? (area|population)/.test(t) || /\d+(\.\d+)?\s?%/.test(t) && /population|inhabitants|residents/.test(t)) return;
+        for (var q = 0; q < ST_ORDER.length; q++) { var i = ST_ORDER[q]; if (ST_THEMES[i][2].test(t)) { seen[t] = 1; groups[i].push({ t: t, tone: stTone(t, i), rel: kw.test(t) }); break; } }
+      }); });
+      groups = groups.map(function (g) { return g.sort(function (a, b) { return (b.rel - a.rel) || (!!b.tone - !!a.tone); }).slice(0, 4); });
+      render(groups, 'en');
+    }).catch(function () { render([[], [], []], 'en'); });
+  }).catch(function () { el.innerHTML = '<p class="small muted">Wikipedia could not be reached just now. Open the tab again to retry.</p>'; });
+}
+window.NZ_FIT = function (r) { return fitItems(r); };   // test hook: the audit reads For and against without rendering a card

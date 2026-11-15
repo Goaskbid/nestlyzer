@@ -461,3 +461,15 @@ body.bizmode .modeseg button[aria-pressed="true"]{background:#EA580C;color:#fff}
 
 .nz-depth-detail{margin-top:3px;font-weight:400}.nz-depth-detail summary{font-size:11px;cursor:pointer;min-height:24px;line-height:1.4}.nz-depth-detail small{margin-top:5px}.nz-card-meta dt{font-size:12px}.nz-card-meta dd{font-size:13px}
 @media(max-width:600px){.row[data-nz-card]{grid-template-columns:30px minmax(0,1fr);row-gap:6px}.row[data-nz-card]>.right{grid-column:2;display:flex;flex-direction:row;align-items:center;justify-content:flex-end;gap:10px}.row[data-nz-card]>.right .rowacts{display:flex;gap:6px}.row[data-nz-card]>.right>.nbars{display:none}.row[data-nz-card]>.rk{font-size:13px}.row[data-nz-card=excluded]>.rk{font-size:10px;line-height:1.2}.row[data-nz-card] .nm{white-space:normal;overflow-wrap:anywhere}.row[data-nz-card] .nz-card-meta{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.row[data-nz-card] .nz-market summary{min-height:36px}}
+
+/* Open-items repair: results first without removing identity, rank or data depth. */
+.nz-results-options summary,.nz-picks-disclosure summary { cursor:pointer; padding:.5rem 0; font-weight:600; min-height:44px; }
+.nz-results-options .pills { margin:.4rem 0; }
+#nz-business-editor .wsl { display:grid; grid-template-columns:minmax(8rem,1fr) minmax(6rem,2fr) 3rem; align-items:center; gap:.5rem; }
+#nz-business-editor .wsl label { overflow-wrap:anywhere; }
+#nz-business-editor input[type=range] { width:100%; min-width:0; min-height:44px; }
+#nz-business-editor output { text-align:right; }
+#nz-business-editor .actions { display:flex; flex-wrap:wrap; gap:.5rem; }
+@media(max-width:899px){ .nz-results-options:not(:has(details[open])){margin-block:0} .nz-picks-disclosure:not([open]){margin-bottom:.25rem} #nz-business-editor .wsl{grid-template-columns:minmax(6rem,1fr) minmax(5rem,1.3fr) 2rem} }
+#nz-business-editor .actions .btn { min-height:44px; }
+#nz-business-editor .actions { position:sticky; bottom:0; padding-block:.5rem; background:var(--surface,#fff); z-index:1; }

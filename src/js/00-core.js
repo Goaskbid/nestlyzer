@@ -324,6 +324,7 @@ function runRanking() {
   if (isBizKey(S.profile)) { store('lastbiz', S.profile); if (ENGINE.profiles[S.profile]) ENGINE.profiles[S.profile].unknownMust = S.unknownExclude ? 'exclude' : 'flag'; } else if (S.profile !== 'self_fit') store('lasthome', S.profile);
   SCOPE = SHARD.records.filter(function (r) { return inScope(r) && passFilters(r); });
   if (S.profile === 'self_fit' && S.custom) ENGINE.profiles.self_fit = S.custom;
+  if (S.profile === 'biz_custom_fit' && S.businessScenario) ENGINE.profiles.biz_custom_fit = S.businessScenario.profile;
   var t0 = performance.now();
   RES = ENGINE.rank(SCOPE, S.profile, { country: S.cc });
   RES.ms = performance.now() - t0;
@@ -356,6 +357,7 @@ function languageSensitive() {
 function toHash() {
   var p = new URLSearchParams();
   p.set('cc', S.cc); p.set('p', S.profile);
+  if (S.profile === 'biz_custom_fit' && S.businessScenario) p.set('bp', window.NZBusinessPriority.encode(S.businessScenario));
   if(S.areaEncoded)p.set('ma',S.areaEncoded);
   if (S.region !== 'ALL') p.set('r', S.region);
   if (S.area !== 'ALL') p.set('a', S.area);
@@ -381,6 +383,18 @@ function fromHash() {
   var p = new URLSearchParams(h.split('?')[1] || '');
   var sc0 = document.getElementById('start-country'); S.cc = (p.get('cc') || store('homecc') || (sc0 && sc0.value) || 'CH').toUpperCase();   // 2.15.6: no cc in the link means the visitor's country
   S.profile = p.get('p') || 'young_family';
+  if (S.profile === 'biz_custom_fit') {
+    try {
+      var sharedBusiness = p.get('bp');
+      if (!sharedBusiness) sharedBusiness = store('business-priority');
+      if (!sharedBusiness) throw Error('The custom business priorities are missing.');
+      S.businessScenario = window.NZBusinessPriority.decode(ENGINE.profiles, sharedBusiness);
+      ENGINE.profiles.biz_custom_fit = S.businessScenario.profile;
+    } catch (e) {
+      S.linkError = 'Business priorities could not be restored: ' + e.message;
+      S.profile = Object.keys(ENGINE.profiles).filter(function(k){ return /^biz_/.test(k) && k !== 'biz_custom_fit' && ENGINE.profiles[k].business; })[0] || 'young_family';
+    }
+  }
   var sharedArea=p.get('ma')||'';if(sharedArea!==S.areaEncoded){S.areaEncoded=sharedArea;S.areaDecoded=!sharedArea;S.areaSelection=null;}
   S.region = p.get('r') || 'ALL'; S.area = p.get('a') || 'ALL';
   S.layer = p.get('l') || 'score'; S.minConf = +p.get('conf') || 0; S.sort = p.get('sort') || 'score';

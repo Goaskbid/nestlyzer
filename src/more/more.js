@@ -152,8 +152,8 @@ function adRows(r) {
   if (fin(d10)) add('people', 'd10', 'People per km² within 10 km', fmtInt(d10), 'GeoNames places within 10 km (whole-city entries not counted twice); measures crowding' + (fin(fsc.common_low_crowding) ? '; calm scored ' + fmt(fsc.common_low_crowding) : ''));
   /* population trend */
   var tr = r.trend || {};
-  if (fin(tr.population_yoy_pct)) add('people', 'yoy', 'Population change in the last year', (tr.population_yoy_pct > 0 ? '+' : '') + fmt(tr.population_yoy_pct, 2) + '%', 'Eurostat GISCO LAU');
-  if (fin(tr.recent_annualized_pct)) add('people', 'ann', 'Average yearly change, recent years', (tr.recent_annualized_pct > 0 ? '+' : '') + fmt(tr.recent_annualized_pct, 2) + '%', 'Eurostat GISCO LAU');
+  if (fin(tr.population_yoy_pct)) add('people', 'yoy', 'Population change in the last year', (tr.population_yoy_pct > 0 ? '+' : '') + fmt(tr.population_yoy_pct, 2) + '%', 'Eurostat LAU statistics');
+  if (fin(tr.recent_annualized_pct)) add('people', 'ann', 'Average yearly change, recent years', (tr.recent_annualized_pct > 0 ? '+' : '') + fmt(tr.recent_annualized_pct, 2) + '%', 'Eurostat LAU statistics');
   /* neighbours, look-alikes and cross-border context */
   if (fin(r.lat) && SHARD && SHARD.records) {
     var nb = SHARD.records.filter(function (o) { return o.id !== r.id && fin(o.lat); }).map(function (o) { return { r: o, d: km([r.lon, r.lat], [o.lon, o.lat]) }; }).filter(function (o) { return o.d <= 12; }).sort(function (a, b) { return a.d - b.d; });
@@ -164,7 +164,7 @@ function adRows(r) {
   try { var xb = crossBorderForRecord(r); if (xb && xb.length) add('move', 'xb', 'Across the border, often part of daily life', xb.map(function (o) { return o.label + ' (' + countryName(o.country) + ', about ' + Math.round(o.distance) + ' km)'; }).join('; '), 'Nestlyzer cross-border notes'); } catch (e) {}
   /* population history */
   var ap = r.trend && r.trend.annual_population;
-  if (ap && ap.length) ap.forEach(function (o) { add('people', 'py:' + o.year, 'Residents in ' + o.year, fmtInt(o.population), 'Eurostat GISCO LAU'); });
+  if (ap && ap.length) ap.forEach(function (o) { add('people', 'py:' + o.year, 'Residents in ' + o.year, fmtInt(o.population), 'Eurostat LAU statistics'); });
   /* every scored factor, by theme */
   ENGINE.allFactors.forEach(function (f) {
     if (AD_DUPF[f.id]) return;
@@ -1256,7 +1256,7 @@ function catDetailHTML(r, k) {
   } else if (k === 'services') {
     if (fin(x.pop10)) add('People within 10 km', fmtInt(x.pop10), v, 'this place', 'stand-in for shops, doctors, cafés and transport in reach; 3,000 = 0, 60,000+ = 100 (log scale)');
   } else if (k === 'reach') {
-    if (fin(x.reach100k)) add('Residents within 100 km (all countries)', fmtInt(x.reach100k * 1000), x.reach_pct, 'this place', 'straight line; population of all places in the 54 countries (Eurostat GISCO, national censuses, GeoNames); percentile within ' + countryName(r.country));
+    if (fin(x.reach100k)) add('Residents within 100 km (all countries)', fmtInt(x.reach100k * 1000), x.reach_pct, 'this place', 'straight line; population of all places in the 54 countries (Eurostat LAU statistics, national censuses, GeoNames); percentile within ' + countryName(r.country));
     note = 'Network centrality: how many customers and workers a site here reaches, across borders.';
   } else if (k === 'flatland') {
     if (fin(x.relief)) add('Terrain relief around the place', fmt(x.relief, 0) + ' m', x.flat_pct, 'this place', 'height range within about 15 km; flatter = higher score; percentile within ' + countryName(r.country));

@@ -395,10 +395,12 @@ async def main():
         await check('R24', 'Mobile', r24)
 
         async def r25():
+            # 2.15.29: GISCO geodata may not be used commercially. No live GISCO download any more; the region layer is
+            # the open file (Natural Earth borders, regions drawn from our place locations) and the map says so
             await explore(pg, '#/explore?cc=LU&p=young_family')
-            await pg.click('[data-gisco]'); await pg.wait_for_timeout(4000)
-            t = await pg.inner_text('#toast')
-            rec('R25', 'Official GISCO polygons on demand for Europe (runtime fetch). Offline: fails soft with a message', 'Boundaries' in t or 'boundaries' in t, t[:120].replace('\n', ' '), status='PASS' if t else 'FAIL')
+            btn = await pg.evaluate("!!document.querySelector('[data-gisco]')")
+            op = await pg.evaluate("fetch('/data/geo/nuts3.topo.json').then(r=>r.json()).then(t=>(t.open||'')+'|'+Object.keys(t.objects).join(','))")
+            rec('R25', 'Licence: no Eurostat GISCO geometry shipped or downloaded; open region outlines with credit', (not btn) and op.startswith('Natural Earth') and 'nutsrg' in op and 'nutsbn' not in op, f'gisco button {btn}; file: {op[:90]}')
         await check('R25', 'GISCO', r25)
 
         async def r26():

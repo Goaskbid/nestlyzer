@@ -116,7 +116,6 @@ function onClick(ev) {
   if ((b = t.closest('[data-near="ALL|R"]'))) { S.region = 'ALL'; S.area = 'ALL'; update({ fit: true, push: true }); return; }
   if ((b = t.closest('[data-near]'))) { var nb = b.dataset.near.split('|'); S.region = nb[1] === 'M' ? 'M:' + nb[0] : 'N:' + nb[0] + ':' + nb[1]; S.area = 'ALL'; S.listTab = 'ranking'; if (window.innerWidth < 900) S.tab = 'map'; update({ fit: true, push: true }); toast(scopeName(), fmtInt(SCOPE.length) + ' places in this scope. Pick “All regions” in the Region menu to go back.'); return; }
   if (t.closest('[data-fit]')) return fitScope();
-  if (t.closest('[data-gisco]')) return loadGiscoBoundaries();
   if (t.id === 'scrim' && !$('#tools').hidden) return closeTools();
   if (t.closest('[data-close]') || t.id === 'scrim') return closeModal();
   if (t.closest('[data-search]')) return openPalette();

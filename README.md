@@ -1,6 +1,6 @@
 # Nestlyzer
 
-Find where you fit. <!-- counts -->Nestlyzer ranks 145,533 places in 63 countries for households and businesses: 26 household profiles, 16 business profiles and 212 official measures, each with its source (version 2.15.28, counts from docs/manifest.json).<!-- /counts -->
+Find where you fit. <!-- counts -->Nestlyzer ranks 145,533 places in 63 countries for households and businesses: 26 household profiles, 16 business profiles and 212 official measures, each with its source (version 2.15.29, counts from docs/manifest.json).<!-- /counts -->
 
 Live site: https://nestlyzer.com
 

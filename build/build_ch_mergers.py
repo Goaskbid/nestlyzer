@@ -115,10 +115,12 @@ for o, (s, sname, date) in sorted(redirect.items()):
     nm = name_of.get(o)
     if o not in done and nm and nm != sname: keep.append(['CH', o, nm, 0, s, sname])
 sj['rows'] = keep; json.dump(sj, open(qp, 'w'), separators=(',', ':'), ensure_ascii=False)
-# map: former outlines carry the successor's number
-tp = os.path.join(D, 'geo', 'ch.topo.json'); t = json.load(open(tp)); moved = 0
-for g in t['objects']['municipalities']['geometries']:
-    if str(g.get('id')) in redirect: g['id'] = int(redirect[str(g['id'])][0]); moved += 1
+# map (2.15.29): the FSO generalised boundaries of 2026 (opendata.swiss "terms_by": open use, source required, commercial
+# use allowed), via the swiss-maps package; they already carry the merged municipalities under their new numbers
+tp = os.path.join(D, 'geo', 'ch.topo.json'); moved = 0
+t = json.load(open(os.path.join(R, 'build', 'source', 'swissmaps_2026_ch-combined.topo.json')))
+t['objects'] = {k: v for k, v in t['objects'].items() if k in ('municipalities', 'cantons', 'lakes', 'country')}
+t['source'] = 'Swiss Federal Statistical Office (FSO), GEOSTAT generalised boundaries 2026'
 json.dump(t, open(tp, 'w'), separators=(',', ':'))
 # meta: Swiss count and per-source place counts
 mp = os.path.join(D, 'meta.json'); meta = json.load(open(mp))
@@ -138,4 +140,4 @@ with open(rp, 'a', encoding='utf-8', newline='') as f:
             if ('CH', str(p)) in known: continue
             w.writerow(['CH', p, name_of.get(str(p), ''), 'a', sid, 'no' if found else 'yes', '', '', 'CH_BFS_MUTATIONS',
                         f'{"founded" if found else "merged into"} {sname} (BFS {sid}) on {date}; build_ch_mergers.py applies it'])
-print(f'CH mergers: {founded} new municipalities, {newsup} former ones superseded, {moved} outlines renumbered, {act} active')
+print(f'CH mergers: {founded} new municipalities, {newsup} former ones superseded, FSO 2026 outlines installed, {act} active')

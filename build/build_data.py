@@ -573,19 +573,18 @@ sw['objects'] = {k: v for k, v in swiss['objects'].items() if k in ('municipalit
 with open(os.path.join(OUT, 'geo', 'ch.topo.json'), 'w') as f:
     json.dump(sw, f, separators=(',', ':'))
 # Europe NUTS3 (10M) regions + country outlines
-n10 = jload('nuts2021_10M_3.topo.json')
-n10['objects'] = {k: v for k, v in n10['objects'].items() if k in ('nutsrg', 'cntrg', 'cntbn', 'nutsbn')}
-with open(os.path.join(OUT, 'geo', 'nuts3.topo.json'), 'w') as f:
-    json.dump(n10, f, separators=(',', ':'))
+# 2.15.29: no longer written from Eurostat GISCO (not for commercial use). data/geo/nuts3.topo.json is drawn by
+# build/build_open_regions.py from the place locations within Natural Earth borders; rerun it after this script.
+print('nuts3.topo.json: kept (open regions); rerun build/build_open_regions.py if places moved')
 
 # ---------------------------------------------------------------- meta
 SOURCES = dict(appdata['sources'])
 SOURCES.update({
     'ourairports': {'name': 'OurAirports open data', 'url': 'https://ourairports.com/data/', 'licence': 'Public domain', 'note': 'Large and medium airports with scheduled service.'},
     'natural_earth': {'name': 'Natural Earth 1:50m land', 'url': 'https://www.naturalearthdata.com/', 'licence': 'Public domain', 'note': 'Coastline for sea-distance.'},
-    'edjnet_lau_centres': {'name': 'EDJNet population-weighted LAU centres (LAU 2020, NUTS 2021)', 'url': 'https://github.com/EDJNet/lau_centres', 'licence': 'Derived from Eurostat GISCO (© EuroGeographics) and the GEOSTAT population grid', 'note': 'Location of each municipality for distances and the map dots.'},
-    'nuts2json': {'name': 'Eurostat Nuts2json NUTS 2021', 'url': 'https://github.com/eurostat/Nuts2json', 'licence': '© EuroGeographics for the administrative boundaries', 'note': 'Region names and regional outlines.'},
-    'swiss_maps': {'name': 'swiss-maps 2021 (swisstopo swissBOUNDARIES3D)', 'url': 'https://github.com/interactivethings/swiss-maps', 'licence': 'swisstopo open data', 'note': 'Swiss municipality polygons, cantons and lakes.'},
+    'edjnet_lau_centres': {'name': 'EDJNet population-weighted LAU centres (LAU 2020, NUTS 2021)', 'url': 'https://github.com/EDJNet/lau_centres', 'licence': 'Identifiers and statistics only, as EDJNet publishes them (no boundary data); centres computed from the JRC/DG REGIO population grid', 'note': 'Location of each municipality for distances and the map dots.'},
+    'nuts2json': {'name': 'Region outlines drawn by Nestlyzer (2.15.29)', 'url': 'https://www.naturalearthdata.com/', 'licence': 'Natural Earth 1:10m borders: public domain. NUTS 3 codes and names: Eurostat statistical classification', 'note': 'Each region is the area nearest to its places, clipped to Natural Earth country borders; inland region edges are approximate. Replaces the Eurostat GISCO outlines, which may not be used commercially.'},
+    'swiss_maps': {'name': 'Swiss Federal Statistical Office (FSO), GEOSTAT generalised boundaries 2026', 'url': 'https://opendata.swiss/en/dataset/generalisierte-gemeindegrenzen', 'licence': 'opendata.swiss terms_by: open use, source required, commercial use allowed', 'note': 'Swiss municipality polygons, cantons and lakes, via the swiss-maps package.'},
 })
 meta = {
     'v': DATA_VERSION,

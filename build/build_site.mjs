@@ -593,7 +593,7 @@ ${hl.length ? `<section class="card" style="margin-top:18px"><h2 style="font-siz
 ${note ? `<h3 style="margin-top:18px">Local context</h3><p>${esc(note.setting)} ${esc(note.background || '')}</p>${note.proximity ? `<p>${esc(note.proximity)}</p>` : ''}${note.watch ? `<p><b>Watch:</b> ${esc(note.watch)}</p>` : ''}` : ''}
 ${t.annual_population ? `<h3 style="margin-top:18px">Residents by year</h3>${popChart(t.annual_population)}` : ''}
 ${near.length ? `<h3 style="margin-top:18px">Nearby</h3><ul class="linklist">${near.map((o) => `<li>${placeLink(o.r)} <span class="small muted">${Math.round(o.d)} km</span></li>`).join('')}</ul>` : ''}</section></div>
-<p class="small muted" style="margin-top:20px">Data: ${cc === 'CH' ? 'Swiss FSO regional portraits, ESTV tax burden 2018, Eurostat GISCO LAU; locations EDJNet LAU centres' : GISCO_CC.has(cc) ? 'Eurostat GISCO LAU ' + ((meta.population || {}).year || 2024) + (cc === 'AT' ? ', Statistics Austria' : '') + '; locations EDJNet LAU centres' : 'national statistics office and other public sources, each named with its period on the method page'}; airports OurAirports; coastline Natural Earth. Updated ${TODAY}. Rankings are decision aids, not advice.</p>`;
+<p class="small muted" style="margin-top:20px">Data: ${cc === 'CH' ? 'Swiss FSO regional portraits and boundaries, ESTV tax burden 2018, Eurostat LAU statistics; locations EDJNet LAU centres' : GISCO_CC.has(cc) ? 'Eurostat LAU statistics ' + ((meta.population || {}).year || 2024) + (cc === 'AT' ? ', Statistics Austria' : '') + '; locations EDJNet LAU centres' : 'national statistics office and other public sources, each named with its period on the method page'}; airports OurAirports; coastline Natural Earth. Updated ${TODAY}. Rankings are decision aids, not advice.</p>`;
   const jsonld = [{ '@context': 'https://schema.org', '@type': 'Place', name: r.name, url: SITE + PAGES[r.id], additionalProperty: [{ '@type': 'PropertyValue', name: 'Residents', value: r.popNow }], address: { '@type': 'PostalAddress', addressRegion: reg ? reg.name : undefined, addressCountry: FLAG[cc] || cc }, ...(Number.isFinite(r.lat) ? { geo: { '@type': 'GeoCoordinates', latitude: r.lat, longitude: r.lon } } : {}), containedInPlace: { '@type': 'AdministrativeArea', name: reg ? reg.name : cname } }];
   page({ p: PAGES[r.id], cc, appHref: ctaHref, title: fitTitle([`Living in ${latinName(r)}${kindSuffix(r)}`, DUPNAME.has(cc + '|' + r.name) && reg ? `, ${reg.name}` : '', `, ${cname}`, ': ranks and facts']), desc: `${r.name} (${fmtInt(r.popNow)} residents): how it ranks for families, retirees, commuters, remote workers and ${profiles.length - 4} more profiles, with distances, growth${cc === 'CH' ? ' and tax burden' : ''}.`, body, jsonld, crumbs: [['Home', '/'], [cname, countryPath(cc)], ...(reg ? [[reg.name, regionPath(cc, reg)]] : []), [r.name, PAGES[r.id]]] });
 }
@@ -798,8 +798,9 @@ function legalPage() {
 <h3>1. Controller</h3>
 <p>Torsten Sauter, Alte Landstrasse 77, 8706 Meilen, Switzerland, <a href="mailto:torsten.sauter@icloud.com">torsten.sauter@icloud.com</a>. Write to this address for any privacy request.</p>
 
-<h3>2. No account, no form, nothing stored on our side</h3>
+<h3>2. No account, no form, nothing stored on our side unless you email us</h3>
 <p>Nestlyzer has no user accounts, no contact forms and no database of visitors. Your profile choice, filters, shortlist, guided-profile answers, theme and privacy choice are saved only in your own browser (local storage) so that the site remembers them. They are never sent to us. You can delete them at any time by clearing this site's data in your browser.</p>
+<p>If you email us, for example through “Report a problem with this place” (it opens your own email program with the place, the search and the page link filled in, and sends nothing by itself), we receive your email address and your message. We use them only to answer you and to correct the data, never for marketing, and we never sell or pass on email addresses. We delete the message once the matter is closed, at the latest after 12 months. Legal basis: our legitimate interest in correct data and in answering you (GDPR Art. 6(1)(f); Swiss FADP Art. 31).</p>
 
 <h3>3. Hosting</h3>
 <p>The site is hosted on GitHub Pages, a service of GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. When you open a page, your browser sends technical data to GitHub, including your IP address, the page requested, date and time, and browser type. GitHub uses these data to deliver the site and to keep it secure and may keep them in server logs. Legal basis: our legitimate interest in a reliable and secure website (Art. 6(1)(f) GDPR). See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub Privacy Statement</a>.</p>
@@ -813,7 +814,7 @@ function legalPage() {
 <li>Regional and national statistics (for example economic output, income, unemployment, age structure, foreign citizens, education, life expectancy, doctors and reported neighbourhood crime): the Eurostat dissemination API of the European Commission, Luxembourg.</li>
 <li>Earthquakes recorded near a place, only when you open “All data” or show all data in a comparison: the earthquake catalogue of the US Geological Survey, USA.</li>
 <li>Monthly weather averages: NASA POWER, a service of the US National Aeronautics and Space Administration, USA.</li>
-<li>Detailed municipal boundaries, only when you click “Boundaries”: Eurostat GISCO, European Commission, Luxembourg.</li>
+<li>The outline of a place on its card: OpenStreetMap via the Overpass API (overpass-api.de, Germany), only when you open a place card.</li>
 </ul>
 <p>Fonts, icons and the map software are hosted on nestlyzer.com itself. No fonts are loaded from Google.</p>
 
@@ -942,7 +943,7 @@ function landing() {
     ['Is it free and do I need an account?', 'It is free and there is no account. Your shortlist and custom profile stay in your browser.'],
     ['Can I build my own profile?', 'Yes. Answer a few short questions about household, budget, daily anchor, mobility, tax sensitivity, climate, language and target countries, then fine-tune the weights. Nestlyzer shows which standard profiles are closest to yours.'],
     ['Is this financial, tax or legal advice?', 'No. Nestlyzer is a decision aid built on public statistics. Check taxes, permits, schools, healthcare and housing with the responsible authority or a qualified adviser.'],
-    ['Where does the data come from?', 'Eurostat GISCO LAU, the Swiss Federal Statistical Office, the Swiss Federal Tax Administration, Statistics Austria, EDJNet population-weighted centres, OurAirports and Natural Earth. Photos and descriptions come from Wikimedia projects and never affect scores.'],
+    ['Where does the data come from?', 'Eurostat LAU statistics, the Swiss Federal Statistical Office, the Swiss Federal Tax Administration, Statistics Austria, EDJNet population-weighted centres, OurAirports and Natural Earth. Photos and descriptions come from Wikimedia projects and never affect scores.'],
   ];
   const CH = RANK.CH && RANK.CH.young_family ? RANK.CH.young_family.list.slice(0, 5) : [];
   const html = `<section class="cine" id="cine" aria-labelledby="cine-h">

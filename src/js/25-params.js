@@ -101,7 +101,7 @@ var PARAMS = [
 ];
 var PARAM = {}; PARAMS.forEach(function (p) { PARAM[p.k] = p; });
 var PARAM_SOURCES = {
-  stat: 'Official statistics (Eurostat GISCO LAU, Swiss FSO, Statistics Austria)',
+  stat: 'Official statistics (Eurostat LAU statistics, Swiss FSO, Statistics Austria)',
   world: 'GeoNames places and population (CC BY 4.0)',
   ne: 'Computed from Natural Earth 1:10m (public domain)',
   terrain: 'Mapzen terrain, 5 arc-minute grid (coarse: describes the surroundings, not the village itself)',

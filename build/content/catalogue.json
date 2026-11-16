@@ -6,7 +6,7 @@
    "label": "Residents, area, density",
    "level": "Municipality",
    "cover": "All 35 European countries",
-   "src": "Eurostat GISCO LAU (Swiss FSO for Switzerland)",
+   "src": "Eurostat LAU statistics (Swiss FSO for Switzerland)",
    "url": "https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units/local-administrative-units",
    "period": "POPYEAR",
    "score": "yes"
@@ -16,7 +16,7 @@
    "label": "Population change over five years",
    "level": "Municipality",
    "cover": "All 35 European countries",
-   "src": "Eurostat GISCO LAU releases",
+   "src": "Eurostat LAU statistics releases",
    "url": "https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units/local-administrative-units",
    "period": "BASEYEAR to POPYEAR",
    "score": "yes"

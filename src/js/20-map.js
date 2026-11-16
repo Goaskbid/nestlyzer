@@ -368,24 +368,8 @@ function renderLegend() {
   if (note) {
     var n = SCOPE.length, colored = SCOPE.filter(function (r) { return fin(surfaceValue(r)); }).length;
     if (!colored && n) { var w = document.createElement('div'); w.className = 'small'; w.style.marginTop = '4px'; w.innerHTML = 'Pick another layer to colour the map for ' + esc(countryName(S.cc)) + '.'; el.appendChild(w); }
-    note.textContent = scopeName() + ': ' + fmtInt(n) + ' ' + unitWord(S.cc, n) + ' in scope, ' + fmtInt(colored) + ' coloured. ' + (S.cc === 'CH' ? 'Boundaries: swisstopo via swiss-maps 2021.' : isWorld(S.cc) ? 'Dots sit at the place centres from GeoNames; shaded areas are ' + (LOCAL_KIND[S.cc] || 'region').toLowerCase().replace(/^[a-z]{2} /, '') + ' outlines (Natural Earth).' : (MAPSTATE.gisco ? 'Boundaries: Eurostat GISCO LAU 2024.' : 'Dots sit at population-weighted centres (EDJNet / GISCO); shaded areas are NUTS 3 regions.')) + (MAPSTATE.basemap === 'offline' ? ' Basemap unavailable, data layers still shown.' : '');
+    note.textContent = scopeName() + ': ' + fmtInt(n) + ' ' + unitWord(S.cc, n) + ' in scope, ' + fmtInt(colored) + ' coloured. ' + (S.cc === 'CH' ? 'Boundaries: Swiss Federal Statistical Office (FSO), generalised boundaries 2026.' : isWorld(S.cc) ? 'Dots sit at the place centres from GeoNames; shaded areas are ' + (LOCAL_KIND[S.cc] || 'region').toLowerCase().replace(/^[a-z]{2} /, '') + ' outlines (Natural Earth).' : 'Dots sit at population-weighted centres (EDJNet); shaded areas are NUTS 3 regions drawn from these places within Natural Earth borders, so inland region edges are approximate.') + (MAPSTATE.basemap === 'offline' ? ' Basemap unavailable, data layers still shown.' : '');
   }
 }
 
-/* Optional: official GISCO LAU polygons for the current European scope (large download, off the main thread) */
-var GISCO_URL = 'https://gisco-services.ec.europa.eu/distribution/v2/lau/topojson/LAU_RG_01M_2024_4326.json';
-function loadGiscoBoundaries() {
-  if (S.cc === 'CH' || !SHARD) return;
-  var ids = {}; SHARD.records.forEach(function (r, i) { if (inScope(r)) ids[r.gisco] = i; });
-  var n = Object.keys(ids).length;
-  if (n > 6000) { toast('Pick a smaller region first', 'Detailed boundaries load for up to 6,000 municipalities at a time. This scope has ' + fmtInt(n) + '.'); return; }
-  mapProgress(5, 'Downloading official GISCO boundaries (large file, about a minute)');
-  var src = "self.onmessage=async function(e){try{var r=await fetch(e.data.url);if(!r.ok)throw new Error('HTTP '+r.status);var t=await r.json();postMessage({p:70});var ids=e.data.ids,obj=t.objects[Object.keys(t.objects)[0]],tr=t.transform,arcs=t.arcs.map(function(a){var x=0,y=0;return a.map(function(p){x+=p[0];y+=p[1];return tr?[Math.round((x*tr.scale[0]+tr.translate[0])*1e5)/1e5,Math.round((y*tr.scale[1]+tr.translate[1])*1e5)/1e5]:p})});function ring(ix){var out=[];ix.forEach(function(i){var a=i>=0?arcs[i]:arcs[~i].slice().reverse();out=out.concat(out.length?a.slice(1):a)});return out}var feats=[];(obj.geometries||[]).forEach(function(g){var p=g.properties||{};var id=ids[p.GISCO_ID];if(id==null)return;var geom=null;if(g.type==='Polygon')geom={type:'Polygon',coordinates:g.arcs.map(ring)};else if(g.type==='MultiPolygon')geom={type:'MultiPolygon',coordinates:g.arcs.map(function(pl){return pl.map(ring)})};if(geom)feats.push({type:'Feature',id:id,properties:{},geometry:geom})});postMessage({done:feats})}catch(err){postMessage({error:String(err&&err.message||err)})}}";
-  var w = new Worker(URL.createObjectURL(new Blob([src], { type: 'text/javascript' })));
-  w.onmessage = function (e) {
-    if (e.data.p) mapProgress(e.data.p, 'Matching boundaries to municipalities');
-    if (e.data.error) { mapProgress(100); toast('Boundaries unavailable', 'The GISCO service did not respond (' + e.data.error + '). The dot map keeps working.'); w.terminate(); }
-    if (e.data.done) { MAPSTATE.gisco = true; var gb = $('[data-gisco]'); if (gb) { gb.setAttribute('aria-pressed', 'true'); gb.classList.add('on'); gb.textContent = 'Boundaries on'; } setSource('gisco', { type: 'FeatureCollection', features: e.data.done }); mapProgress(100); paintMap(); toast('Official boundaries loaded', fmtInt(e.data.done.length) + ' municipal polygons from Eurostat GISCO LAU 2024.'); w.terminate(); }
-  };
-  w.postMessage({ url: GISCO_URL, ids: ids });
-}
+/* 2.15.29: the optional live download of Eurostat GISCO municipal polygons was removed: GISCO geodata may not be used commercially. */

@@ -37,6 +37,21 @@ with sync_playwright() as pw:
         pg.locator('#results .row[data-id]').first.evaluate('e=>e.click()'); pg.wait_for_timeout(4000)
         m = pg.evaluate("document.querySelectorAll('#place .ids .nz-arms-img').length")
         check(f'panel-{cc}', m >= 1, f'{cc}: coat of arms shown in the place panel')
+    # 2.15.30: static place pages (search landings) show the coat of arms too, with credit and licence
+    sp = ctx.new_page(); sp.on('pageerror', lambda e: errs.append(str(e)))
+    sp.goto(B + '/switzerland/zurich/adliswil/', wait_until='load')
+    try: sp.wait_for_selector('.nz-sarms img', timeout=15000)
+    except Exception: pass
+    st = sp.evaluate("(()=>{const s=document.querySelector('.nz-sarms');const a=s&&s.querySelector('a');return {img:!!(s&&s.querySelector('img')),shown:!!(s&&!s.hidden),title:a?a.title:''}})()")
+    check('static-page', st['img'] and st['shown'] and 'Public domain' in st['title'], 'static place page shows the coat of arms with licence credit: ' + json.dumps(st))
+    # a failed lookup (rate limit) must not be remembered: the next visit tries again
+    ctx2 = br.new_context(); n = {'c': 0}
+    def busy(route): n['c'] += 1; route.fulfill(status=503, body='')
+    ctx2.route('**/*wikidata.org/**', busy)
+    p2 = ctx2.new_page(); p2.goto(B + '/switzerland/zurich/adliswil/', wait_until='load'); p2.wait_for_timeout(5500)
+    cached = p2.evaluate("Object.keys(localStorage).filter(k=>k.startsWith('nz:arms3:')).length")
+    check('no-fail-cache', cached == 0 and n['c'] >= 3, f'busy Wikidata: {n["c"]} tries with back-off, nothing cached ({cached})')
+    ctx2.close()
     check('errors', not errs, 'no script errors' + (': ' + errs[0][:150] if errs else ''))
     br.close()
 print(f'ARMS: {sum(res)} of {len(res)} passed'); sys.exit(0 if all(res) else 1)

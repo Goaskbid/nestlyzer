@@ -27,7 +27,7 @@
  {
   "id": "iphone-place",
   "ok": true,
-  "check": "iPhone 13: place page opens at its top, fits the screen, notice visible, 8 tabs"
+  "check": "iPhone 13: place page opens at its top, fits the screen, notice visible, 9 tabs"
  },
  {
   "id": "iphone-tabs",
@@ -72,7 +72,7 @@
  {
   "id": "pixel-place",
   "ok": true,
-  "check": "Pixel 7: place page opens at its top, fits the screen, notice visible, 8 tabs"
+  "check": "Pixel 7: place page opens at its top, fits the screen, notice visible, 9 tabs"
  },
  {
   "id": "pixel-tabs",

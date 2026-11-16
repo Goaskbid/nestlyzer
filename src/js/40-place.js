@@ -137,7 +137,7 @@ function lotteryHTML(r) {
 
 function selected() { return S.selected ? BYID[S.selected] : null; }
 function placeX(r) { return (RES && RES.byId[r.id]) || { r: r, id: r.id, catScores: ENGINE.categoriesFor(r, S.profile), overall: S.profile ? ((ENGINE.scoreRaw(r, S.profile, 0, S.cc) || {}).score) : null, coverage: (ENGINE.scoreRaw(r, S.profile, 0, S.cc) || {}).coverage, weighted: (ENGINE.scoreRaw(r, S.profile, 0, S.cc) || {}).weighted, measured: (ENGINE.scoreRaw(r, S.profile, 0, S.cc) || {}).measured }; }
-var PTABS = [['overview', 'Overview'], ['score', 'Scorecard'], ['story', 'Story'], ['photos', 'Photos'], ['facts', 'Facts'], ['around', 'Around'], ['similar', 'Similar'], ['data', 'All data']];
+var PTABS = [['overview', 'Overview'], ['score', 'Scorecard'], ['story', 'Story'], ['politics', 'Politics'], ['photos', 'Photos'], ['facts', 'Facts'], ['around', 'Around'], ['similar', 'Similar'], ['data', 'All data']];
 function factsTableHTML(r) {
   var groups = [['people', 'People and size'], ['access', 'Getting around'], ['nature', 'Land and water'], ['sky', 'Light through the year']];
   return '<section class="sec"><h3>All the numbers</h3><p class="sub">Each bar shows where ' + esc(r.name) + ' sits among all ' + esc(demonym(r.country)) + ' ' + unitWord(r.country) + '.</p>' + groups.map(function (g) {
@@ -217,6 +217,7 @@ function renderPlace() {
       '<section class="sec"><h3>Weather through the year</h3><div data-clim="' + esc(r.id) + '"><div class="skeleton"><i></i></div></div></section>' +
       neighboursHTML(r) + crossBorderHTML(r) + '<div data-contact="' + esc(r.id) + '"></div>',
     story: '<div data-story="' + esc(r.id) + '"><div class="skeleton"><i></i></div></div>',
+    politics: '<div data-politics="' + esc(r.id) + '"><div class="skeleton"><i></i></div></div>',
     similar: lookalikesHTML(r) + comparablesHTML(x) + '<p class="small muted">To put places side by side, tick <b>Compare</b> on two or three of them. They stay on your shortlist.</p>',
     data: allDataHTML(r)
   };
@@ -250,6 +251,7 @@ function renderPlace() {
   if (tab === 'score') scHydrate(r);
   if (tab === 'overview') moreLoad().then(function (X) { var el = $('#place [data-glance]'); if (el && S.selected === r.id) X.glanceFill(r, el); }, function () {});
   if (tab === 'story') moreLoad().then(function (X) { var el = $('#place [data-story]'); if (el && S.selected === r.id) X.storyFill(r, el); }, function () {});
+  if (tab === 'politics') moreLoad().then(function (X) { var el = $('#place [data-politics]'); if (el && S.selected === r.id) X.politicsFill(r, el); }, function () {});
   kfHydrate(r);
 }
 function aroundHereHTML(r) {
@@ -264,6 +266,7 @@ function setPlaceTab(t) {
   if (t === 'data' && selected()) adHydrate(selected());
   if (t === 'score' && selected()) scHydrate(selected());
   if (t === 'overview' && selected()) { var rg = selected(); moreLoad().then(function (X) { var el = $('#place [data-glance]'); if (el && S.selected === rg.id) X.glanceFill(rg, el); }, function () {}); }
+  if (t === 'politics' && selected()) { var rp = selected(); moreLoad().then(function (X) { var el = $('#place [data-politics]'); if (el && S.selected === rp.id && !el.dataset.done) { el.dataset.done = '1'; X.politicsFill(rp, el); } }, function () {}); }
   if (t === 'story' && selected()) { var rs = selected(); moreLoad().then(function (X) { var el = $('#place [data-story]'); if (el && S.selected === rs.id) X.storyFill(rs, el); }, function () {}); }
   var tabs = $('#place .ptabs'); if (tabs && $('#placescroll')) { var top = tabs.offsetTop - 8; if ($('#placescroll').scrollTop > top) $('#placescroll').scrollTop = top; }
 }

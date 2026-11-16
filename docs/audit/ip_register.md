@@ -78,3 +78,6 @@ Access date for every quoted clause: **7 November 2026**. Treat all use as comme
 | Eurostat gov_10dd_edpt1 and gov_10a_exp (COFOG GF0405 transport, GF0603 water supply), live from the visitor's browser | budget balance, debt and infrastructure spending on European cards, context only | Eurostat reuse policy: commercial reuse allowed with acknowledgement | Green |
 
 All are national figures. They enter only the country part of the world and continental rankings; the order of places inside a country is unchanged.
+| Politics tab: memberships, agreements, state structure (data/politics.json, build/build_politics.py) | context on the place panel, never scored | public facts from official member and treaty lists; own compilation | Green |
+| Wikidata live: heads of government (P6), parties (P102), alignment (P1387) and ideology (P1142), parliament seats (P1410/P1268) | Politics tab, from the visitor's browser | CC0 | Green |
+| Coats of arms on static place pages (assets/arms.js) | same rules as in the app: Wikidata P94, Commons file with open licence only, credited | per-file open licence checked at runtime | Green |

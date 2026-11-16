@@ -2,7 +2,11 @@
    Runtime only, cached, never affects scores. Every call fails soft. */
 var WD = {}, WP = {}, CM = {}, IMGCACHE = store('img') || {};
 var WD_PROP = { CH: 'P771', DE: 'P439', FR: 'P374', IT: 'P635', ES: 'P772', AT: 'P964', NL: 'P382', BE: 'P1567' };
-function jget(url) { return liveFetch(url).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }); }
+/* 2.15.30: Wikimedia and Eurostat can answer 429/5xx in busy moments; retry twice (0.9 s, 3.6 s) before giving up */
+function jget(url, n) { n = n || 0; return liveFetch(url).then(function (r) { if (!r.ok) { var e = new Error(r.status); e.retry = r.status === 429 || r.status >= 500; throw e; } return r.json(); }).catch(function (e) {
+  if (n < 2 && (!e || e.retry || e instanceof TypeError) && extOn()) return new Promise(function (ok) { setTimeout(ok, 900 * (n + 1) * (n + 1)); }).then(function () { return jget(url, n + 1); });
+  throw e; }); }
+var WD_FAIL = {};   // places whose Wikidata lookup failed (network, rate limit): such an empty answer is never cached
 var queue = [], active = 0;
 function limited(fn) { return new Promise(function (res, rej) { queue.push([fn, res, rej]); pump(); }); }
 function pump() { while (active < 4 && queue.length) { var q = queue.shift(); active++; q[0]().then(q[1], q[2]).then(function () { active--; pump(); }, function () { active--; pump(); }); } }
@@ -20,7 +24,7 @@ function wikidataFor(r) {
   })(0).then(function (qid) {
     if (!qid) return null;
     return jget('https://www.wikidata.org/w/api.php?action=wbgetentities&ids=' + qid + '&props=claims|sitelinks&format=json&origin=*').then(function (j) { var e = j.entities[qid]; e.qid = qid; return e; });
-  }).catch(function () { return null; });
+  }).catch(function () { WD_FAIL[r.id] = 1; delete WD[r.id]; return null; });
   function nameSearch() {
     return jget('https://www.wikidata.org/w/api.php?action=wbsearchentities&search=' + encodeURIComponent(stripParen(r.name)) + '&language=en&limit=7&format=json&origin=*').then(function (j) {
       var hit = (j.search || []).find(function (x) { return /municip|commune|comune|gemeinde|city|town|village|municipio|gmina|obec/i.test(x.description || '') && (x.description || '').toLowerCase().indexOf(countryName(r.country).toLowerCase()) >= 0; }) || (j.search || []).find(function (x) { return /municip|commune|city|town|village/i.test(x.description || ''); });
@@ -172,9 +176,9 @@ function armsLic(lic, url) { return /^(CC0|CC[ -]BY(?:[ -]SA)?[ -][1-4]\.[05]\b.
 function armsFor(r) {
   if (ARMS[r.id] !== undefined) return Promise.resolve(ARMS[r.id]);
   // 2.15.28: key 'arms2' so empty results cached by the 8-country lookup before 2.15.28 are asked again
-  var key = 'arms2:' + r.id, c = store(key); if (c && c.t && Date.now() - c.t < 2592e6) return Promise.resolve(ARMS[r.id] = c.v);
+  var key = 'arms3:' + r.id, c = store(key); if (c && c.t && Date.now() - c.t < 2592e6) return Promise.resolve(ARMS[r.id] = c.v);
   if (!extOn()) return Promise.resolve(null);
-  var done = function (v) { ARMS[r.id] = v; try { store(key, { t: Date.now(), v: v }); } catch (e) {} return v; };
+  var done = function (v) { if (!v && WD_FAIL[r.id]) { delete WD_FAIL[r.id]; return null; } ARMS[r.id] = v; try { store(key, { t: Date.now(), v: v }); } catch (e) {} return v; };
   var p94 = function (e) { var f = e && e.claims && ((e.claims.P94 || [])[0] || {}).mainsnak; return f && f.datavalue && f.datavalue.value; };
   var near = function (e) { var g = e && e.claims && ((e.claims.P625 || [])[0] || {}).mainsnak; g = g && g.datavalue && g.datavalue.value;   // a name match far away is another place
     if (!g || r.lat == null) return true; var dy = (g.latitude - r.lat) * 111, dx = (g.longitude - r.lon) * 111 * Math.cos(r.lat * Math.PI / 180); return Math.sqrt(dx * dx + dy * dy) < 30; };

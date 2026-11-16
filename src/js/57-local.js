@@ -81,7 +81,12 @@ var ESJ = {};
 function esGet(ds, geo, q) {
   // q: optional server-side filters for very large tables (e.g. '&unit=PC_GDP&sector=S13'), so the answer stays small
   var u = EUROSTAT + ds + '?format=JSON&lang=EN&geo=' + encodeURIComponent(geo) + '&sinceTimePeriod=2015' + (q || '');
-  if (!ESJ[u]) ESJ[u] = liveFetch(u).then(function (res) { if (!res.ok) throw new Error(res.status); return res.json(); }).catch(function (e) { delete ESJ[u]; throw e; });
+  // 2.15.30: busy moments (429/5xx) are retried by jget; if Eurostat rejects a filter (400/404), ask again with only the
+  // function filter (or none), and the row still picks its exact codes from the larger answer
+  if (!ESJ[u]) ESJ[u] = jget(u).catch(function (e) {
+    var keep = (q || '').match(/&cofog99=[^&]+/g), q2 = keep ? keep.join('') : '';
+    if (q && /^(400|404|413)$/.test(e && e.message) && q2 !== q) return esGet(ds, geo, q2);
+    throw e; }).catch(function (e) { delete ESJ[u]; throw e; });
   return ESJ[u];
 }
 /* the extra indicators (children, foreign citizens, income, poverty, education, crime ...) come with /assets/more.js */

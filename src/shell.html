@@ -20,36 +20,8 @@
 __TRACKING__
 <style>__CSS__ .pre-explore .landing,.pre-explore .site-footer{display:none}</style>
 <script type="application/ld+json">__JSONLD__</script>
-<script>/* 2.15.30 opening trailer: two seconds, first visit to the start page only, skipped for reduced motion and automated browsers (?intro=1 forces it) */try{var nzI=/[?&]intro=1/.test(location.search);if(nzI||(!localStorage.getItem('nz:intro')&&!navigator.webdriver&&(location.pathname==='/'||location.pathname==='/index.html')&&!location.hash&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))){document.documentElement.classList.add('nz-intro');localStorage.setItem('nz:intro','1')}}catch(e){}</script>
-<style>
-.intro{display:none}
-.nz-intro .intro{display:grid;position:fixed;inset:0;z-index:2147483000;place-items:center;background:#0B2E5C;color:#fff;font-family:var(--font-display,system-ui);cursor:pointer}.intro.go{animation:nzOut .3s ease-in 1.8s forwards}
-.intro-in{width:min(92vw,760px);display:grid;gap:22px}
-.intro-lines{position:relative;height:2.6em;font-size:clamp(1.7rem,5.6vw,3.4rem);font-weight:700;line-height:1.08;letter-spacing:-.01em}
-.intro-lines p{position:absolute;inset:0;margin:0;opacity:0;transform:translateY(.25em)}.go .intro-lines p{animation:nzLine .6s cubic-bezier(.2,.7,.2,1) forwards}
-.go .intro-lines p:nth-child(1){animation-delay:.05s}.go .intro-lines p:nth-child(2){animation-delay:.6s}.go .intro-lines p:nth-child(3){animation-delay:1.15s;animation-name:nzLast;animation-duration:.6s}
-.intro-lines small{display:block;margin-top:.45em;font:500 clamp(.9rem,2.2vw,1.1rem)/1.3 var(--font-ui,system-ui);color:#B9CBE4;letter-spacing:0}
-.intro-row{display:flex;gap:6px;align-items:center;height:22px}
-.intro-row i{flex:1;height:6px;border-radius:3px;background:#3D6699;opacity:0}.go .intro-row i{animation:nzDot .3s ease-out forwards;animation-delay:calc(var(--i) * 35ms)}
-.intro-row i.you{flex:0 0 22px;height:22px;border-radius:50%;background:#F5B700}.go .intro-row i.you{animation:nzDot .3s ease-out .02s forwards,nzYou .45s cubic-bezier(.3,1.6,.5,1) 1.15s forwards}
-.intro-skip{position:absolute;right:16px;bottom:max(16px,env(safe-area-inset-bottom));background:none;border:1px solid #5B82B5;color:#DCE7F5;border-radius:999px;padding:6px 14px;font:500 .9rem var(--font-ui,system-ui);cursor:pointer}
-.intro-skip:focus-visible{outline:2px solid #F5B700;outline-offset:2px}
-@keyframes nzLine{0%{opacity:0;transform:translateY(.25em)}18%,80%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-.2em)}}
-@keyframes nzLast{0%{opacity:0;transform:translateY(.25em)}30%,100%{opacity:1;transform:none}}
-@keyframes nzDot{to{opacity:1}}
-@keyframes nzYou{0%{transform:scale(1)}100%{transform:scale(1.45);box-shadow:0 0 0 8px rgba(245,183,0,.22)}}
-@keyframes nzOut{to{opacity:0;visibility:hidden}}
-.intro.gone{display:none!important}
-@media (prefers-reduced-motion:reduce){.nz-intro .intro{display:none}}
-</style>
 </head>
 <body>
-<div class="intro" id="intro" role="presentation" aria-hidden="true"><div class="intro-in"><div class="intro-lines">
-<p>Every town and city<small>__TOTAL__ places in __COUNTRIES__ countries</small></p>
-<p>Ranked for how you live<small>or what your business needs</small></p>
-<p>Find where you fit.<small>Public data, open method, free</small></p>
-</div><div class="intro-row"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i class="you"></i><i style="--i:15"></i><i style="--i:16"></i><i style="--i:17"></i><i style="--i:18"></i><i style="--i:19"></i><i style="--i:20"></i><i style="--i:21"></i><i style="--i:22"></i><i style="--i:23"></i></div></div><button class="intro-skip" type="button" tabindex="-1">Skip</button></div>
-<script>(function(){var e=document.getElementById('intro');if(!e||!document.documentElement.classList.contains('nz-intro'))return;var done=function(){e.classList.add('gone');document.documentElement.classList.remove('nz-intro')};e.addEventListener('click',done);addEventListener('keydown',function k(){done();removeEventListener('keydown',k)});requestAnimationFrame(function(){requestAnimationFrame(function(){e.classList.add('go');setTimeout(done,2150)})});setTimeout(done,6000)})()</script>
 <a class="skip" href="#main">Skip to content</a>
 __CONSENT_HTML__
 __HEADER__

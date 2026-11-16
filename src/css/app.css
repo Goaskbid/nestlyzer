@@ -473,3 +473,6 @@ body.bizmode .modeseg button[aria-pressed="true"]{background:#EA580C;color:#fff}
 @media(max-width:899px){ .nz-results-options:not(:has(details[open])){margin-block:0} .nz-picks-disclosure:not([open]){margin-bottom:.25rem} #nz-business-editor .wsl{grid-template-columns:minmax(6rem,1fr) minmax(5rem,1.3fr) 2rem} }
 #nz-business-editor .actions .btn { min-height:44px; }
 #nz-business-editor .actions { position:sticky; bottom:0; padding-block:.5rem; background:var(--surface,#fff); z-index:1; }
+/* 2.15.30: the report link's icon had no size and filled the screen width on phones */
+.report-row a{display:inline-flex;align-items:center;gap:6px}
+.report-row svg{width:16px;height:16px;flex:none}

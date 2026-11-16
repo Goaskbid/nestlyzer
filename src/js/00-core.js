@@ -405,7 +405,7 @@ function fromHash() {
   S.selected = p.get('sel') || null;
   if (['saved', 'records', 'board'].indexOf(p.get('lt')) >= 0) S.pendingTab = p.get('lt');
   // every link decodes to a complete panel state: no tab or an unknown one means Overview (NZ-GLOBAL-046)
-  S.ptab = ['overview', 'score', 'photos', 'facts', 'around', 'similar', 'data'].indexOf(p.get('pt')) >= 0 ? p.get('pt') : 'overview';
+  S.ptab = ['overview', 'score', 'story', 'politics', 'photos', 'facts', 'around', 'similar', 'data'].indexOf(p.get('pt')) >= 0 ? p.get('pt') : 'overview';
   if (p.get('list')) S.pendingList = p.get('list').split(',').filter(function (x) { return /^[A-Z]{2}:/.test(x); }).slice(0, 30);
   if (p.get('cmp')) S.pendingCmp = p.get('cmp').split(',').filter(function (x) { return /^[A-Z]{2}:/.test(x); }).slice(0, 3);
   S.method = p.get('method') === 'v1' ? 'v1' : 'v2';

@@ -23,7 +23,7 @@ const CONT = { americas: ['US', 'CA', 'BR', 'MX', 'AR', 'CL', 'CO', 'UY', 'CR', 
 const contOf = (cc) => CONT.americas.includes(cc) ? 'americas' : CONT.asia_pacific.includes(cc) ? 'asia_pacific' : CONT.mideast_africa.includes(cc) ? 'mideast_africa' : 'europe';
 // company sites: the national part of 'site fit' is labour cost for cost-driven sites and talent for skills-driven ones
 const TALENT = { biz_tech: 1, biz_lab: 1, biz_hq: 1, biz_services: 1, biz_pharma_production: 1, biz_finance: 1, biz_semis: 1, biz_aero: 1, biz_media: 1 };
-const ALPHA = { focus: 0.5,  safety: 0.6, health: 0.6, governance: 0.6, jobs: 0.5, affordability: 0.5, environment: 0.4, family: 0.4, foundation: 0.35, mobility: 0.25, freight: 0.25 };
+const ALPHA = { focus: 0.5,  safety: 0.6, health: 0.6, governance: 0.6, jobs: 0.5, affordability: 0.5, environment: 0.4, family: 0.4, foundation: 0.35, mobility: 0.25, freight: 0.25, tax: 0.3 };   // 2.15.30: tax gains a national part (tax take, government debt and budget balance)
 // a country without a national figure for a category gets the median country (no gain from a gap, no penalty)
 const MED = {}; for (const ck of Object.keys(ALPHA)) { const v = Object.values(NAT.countries).map((c) => c.cats[ck]).filter((x) => x != null).sort((a, b) => a - b); if (v.length) MED[ck] = v[Math.floor(v.length / 2)]; }
 /* 2.13 business climate: what companies weigh between countries (owner's list, 1 Nov 2026) as national levels from

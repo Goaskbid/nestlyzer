@@ -313,7 +313,7 @@ function adLive(r) {
     var regs = a[0] || [], natGeo = r.country === 'EL' ? 'EL' : r.country;
     return Promise.all(regs.map(function (p) {
       if (p.d.lvl === 0 || p.d.k === 'gdp' || p.d.ratio) return null;
-      return esGet(p.d.ds, natGeo).then(function (j) { return jsPick(j, p.d.prefs); }).catch(function () { return null; });
+      return esGet(p.d.ds, natGeo, p.d.q).then(function (j) { return jsPick(j, p.d.prefs); }).catch(function () { return null; });
     })).then(function (nats) {
     regs.forEach(function (p, i) {
       var dir = cxDir(p.d.k === 'life' ? 'life_exp' : p.d.k === 'unemp' ? 'unemploy' : p.d.k === 'docs' ? 'docs' : p.d.k === 'poverty' ? 'poverty' : p.d.k === 'crime' ? 'crime' : p.d.k === 'income' ? 'income_x' : p.d.k === 'tert' ? 'tertiary' : '', biz);
@@ -544,6 +544,7 @@ function jsRatio(j, d) {
   if (!den || !(den.v > 0)) return null;
   return { v: 100 * num.v / den.v, year: num.year };
 }
+function pliFmt(v) { var d = Math.round(v - 100); return Math.abs(d) < 3 ? 'about the EU average' : Math.abs(d) + '% ' + (d > 0 ? 'above' : 'below') + ' the EU average'; }
 var REG_MORE = [
   { k: 'kids', ds: 'demo_r_pjanind3', lvl: 3, prefs: { indic_de: ['PC_Y0_14'], unit: ['PC'] }, label: 'Children under 15', fmt: function (v) { return fmt(v, 1) + '% of residents'; } },
   { k: 'old', ds: 'demo_r_pjanind3', lvl: 3, prefs: { indic_de: ['PC_Y65_MAX'], unit: ['PC'] }, label: 'Residents aged 65 and over', fmt: function (v) { return fmt(v, 1) + '% of residents'; } },
@@ -552,6 +553,29 @@ var REG_MORE = [
   { k: 'income', ds: 'nama_10r_2hhinc', lvl: 2, prefs: { unit: ['EUR_HAB'], direct: ['BAL'], na_item: ['B6N'] }, label: 'Household disposable income per person', fmt: function (v) { return '€' + fmtInt(v) + ' a year'; } },
   { k: 'poverty', ds: 'ilc_peps11n', lvl: 2, prefs: { unit: ['PC'] }, label: 'At risk of poverty or social exclusion', fmt: function (v) { return fmt(v, 1) + '% of residents'; } },
   { k: 'tert', ds: 'edat_lfse_04', lvl: 2, prefs: { sex: ['T'], age: ['Y25-64'], isced11: ['ED5-8'], unit: ['PC'] }, label: 'Adults aged 25 to 64 with a university degree', fmt: function (v) { return fmt(v, 1) + '%'; } },
+  /* 2.15.29: everyday prices by spending category, Eurostat price level indices (EU average = 100), national */
+  { k: 'pli_all', ds: 'prc_ppp_ind', lvl: 0, prefs: { na_item: ['PLI_EU27_2020'], ppp_cat: ['E011'] }, label: 'Prices of everyday household spending', fmt: pliFmt },
+  { k: 'pli_food', ds: 'prc_ppp_ind', lvl: 0, prefs: { na_item: ['PLI_EU27_2020'], ppp_cat: ['A0101'] }, label: 'Food and drink prices (groceries)', fmt: pliFmt },
+  { k: 'pli_rest', ds: 'prc_ppp_ind', lvl: 0, prefs: { na_item: ['PLI_EU27_2020'], ppp_cat: ['A0111'] }, label: 'Restaurant and hotel prices', fmt: pliFmt },
+  { k: 'pli_trans', ds: 'prc_ppp_ind', lvl: 0, prefs: { na_item: ['PLI_EU27_2020'], ppp_cat: ['A010703'] }, label: 'Public transport, taxi and other transport services', fmt: pliFmt },
+  { k: 'pli_alc', ds: 'prc_ppp_ind', lvl: 0, prefs: { na_item: ['PLI_EU27_2020'], ppp_cat: ['A0102'] }, label: 'Alcohol and tobacco prices', fmt: pliFmt },
+  { k: 'pli_cloth', ds: 'prc_ppp_ind', lvl: 0, prefs: { na_item: ['PLI_EU27_2020'], ppp_cat: ['A010301'] }, label: 'Clothing prices', fmt: pliFmt },
+  { k: 'pli_elec', ds: 'prc_ppp_ind', lvl: 0, prefs: { na_item: ['PLI_EU27_2020'], ppp_cat: ['A010405'] }, label: 'Electricity prices', fmt: pliFmt },
+  { k: 'pli_comm', ds: 'prc_ppp_ind', lvl: 0, prefs: { na_item: ['PLI_EU27_2020'], ppp_cat: ['A0108'] }, label: 'Phone and internet prices', fmt: pliFmt },
+  /* 2.15.30: everyday price signals everyone understands, Eurostat, national, newest period */
+  { k: 'p_elec', ds: 'nrg_pc_204', lvl: 0, prefs: { siec: [/./], product: [/./], nrg_cons: ['KWH2500-4999', 'KWH1000-2499'], unit: ['KWH'], tax: ['I_TAX'], currency: ['EUR'] }, label: 'Household electricity price', fmt: function (v) { return '€' + fmt(v, 3) + ' per kWh, all taxes included'; } },
+  { k: 'p_gas', ds: 'nrg_pc_202', lvl: 0, prefs: { siec: [/./], product: [/./], nrg_cons: ['GJ20-199'], unit: ['KWH'], tax: ['I_TAX'], currency: ['EUR'] }, label: 'Household gas price', fmt: function (v) { return '€' + fmt(v, 3) + ' per kWh, all taxes included'; } },
+  { k: 'p_minw', ds: 'earn_mw_cur', lvl: 0, prefs: { currency: ['EUR'] }, label: 'Statutory minimum wage', fmt: function (v) { return '€' + fmtInt(v) + ' a month'; } },
+  { k: 'p_infl', ds: 'prc_hicp_aind', lvl: 0, prefs: { unit: ['RCH_A_AVG'], coicop: ['CP00'], coicop18: ['TOTAL', 'CP00'] }, label: 'Inflation (consumer prices, yearly average)', fmt: function (v) { return (v > 0 ? '+' : '') + fmt(v, 1) + '% a year'; } },
+  /* 2.15.30: business costs, national, Eurostat (VAT excluded: firms reclaim it) */
+  { k: 'b_labour', ds: 'lc_lci_lev', lvl: 0, prefs: { lcstruct: ['D1_D4_MD5'], nace_r2: ['B-S_X_O', 'B-N'], unit: ['EUR'] }, label: 'Labour cost per hour (business economy)', fmt: function (v) { return '€' + fmt(v, 1) + ' an hour'; } },
+  { k: 'b_elec', ds: 'nrg_pc_205', lvl: 0, prefs: { siec: [/./], product: [/./], nrg_cons: ['MWH500-1999', 'MWH2000-19999', 'MWH20-499'], unit: ['KWH'], tax: ['X_VAT'], currency: ['EUR'] }, label: 'Electricity price for businesses', fmt: function (v) { return '€' + fmt(v, 3) + ' per kWh, without VAT'; } },
+  { k: 'b_gas', ds: 'nrg_pc_203', lvl: 0, prefs: { siec: [/./], product: [/./], nrg_cons: ['GJ10000-99999'], unit: ['KWH'], tax: ['X_VAT'], currency: ['EUR'] }, label: 'Gas price for businesses', fmt: function (v) { return '€' + fmt(v, 3) + ' per kWh, without VAT'; } },
+  /* 2.15.30: public finances (where taxes are heading) and infrastructure spending, general government, national */
+  { k: 'f_bal', ds: 'gov_10dd_edpt1', lvl: 0, q: '&unit=PC_GDP&sector=S13&na_item=B9&na_item=GD', prefs: { na_item: ['B9'], sector: ['S13'], unit: ['PC_GDP'] }, label: 'Government budget balance (a deficit today means higher taxes or cuts later)', fmt: function (v) { return (v >= 0 ? 'surplus of ' : 'deficit of ') + fmt(Math.abs(v), 1) + '% of GDP'; } },
+  { k: 'f_debt', ds: 'gov_10dd_edpt1', lvl: 0, q: '&unit=PC_GDP&sector=S13&na_item=B9&na_item=GD', prefs: { na_item: ['GD'], sector: ['S13'], unit: ['PC_GDP'] }, label: 'Government debt', fmt: function (v) { return fmt(v, 1) + '% of GDP'; } },
+  { k: 'f_trans', ds: 'gov_10a_exp', lvl: 0, q: '&unit=PC_GDP&sector=S13&na_item=TE&cofog99=GF0405&cofog99=GF0603', prefs: { cofog99: ['GF0405'], na_item: ['TE'], sector: ['S13'], unit: ['PC_GDP'] }, label: 'Public spending on transport (roads, rail, public transport)', fmt: function (v) { return fmt(v, 1) + '% of GDP'; } },
+  { k: 'f_water', ds: 'gov_10a_exp', lvl: 0, q: '&unit=PC_GDP&sector=S13&na_item=TE&cofog99=GF0405&cofog99=GF0603', prefs: { cofog99: ['GF0603'], na_item: ['TE'], sector: ['S13'], unit: ['PC_GDP'] }, label: 'Public spending on water supply', fmt: function (v) { return fmt(v, 2) + '% of GDP'; } },
   { k: 'crime', ds: 'ilc_mddw03', lvl: 0, prefs: { hhcomp: ['TOTAL'], rskpovth: ['TOTAL'], unit: ['PC'] }, label: 'People who report crime, violence or vandalism in their area', fmt: function (v) { return fmt(v, 1) + '% (national survey)'; } }
 ];
 
@@ -736,6 +760,23 @@ function keyFactsHTML(r) {
   return fitHTML(r) + (bizk ? bizClimHTML(r) : '') + econHTML(r) + needsHTML(r) + (bizk ? housingWorkHTML(r) + kfHTML.replace(/^<section class="sec keyfacts"><h3>Key facts for /, '<section class="sec keyfacts"><h3>Site facts for ') : kfHTML + housingWorkHTML(r)) + histHTML(r);
 }
 (function () { var st = document.createElement('style'); st.textContent = ".keyfacts .kfgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}.keyfacts .kf{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--surface)}.keyfacts .kf b{display:block;font:700 1.15rem/1.2 var(--font-display);color:var(--ink)}.keyfacts .kf span{display:block;font-size:13px;line-height:1.3;margin-top:2px}.keyfacts .kf small{display:block;color:var(--ink-3);font-size:11px;margin-top:4px;line-height:1.3}"; document.head.appendChild(st); })();
+
+
+/* 2.15.30: the Big Mac price, a price signal everyone understands (The Economist, CC BY 4.0). Context only, never scored. */
+var BMAC = null;
+function bigMacFor(r) {
+  if (!BMAC) BMAC = getJSON('/data/bigmac.json?v=__VERSION__').catch(function () { BMAC = null; return null; });
+  return BMAC.then(function (d) {
+    if (!d || !d.c) return '';
+    var euro = (d.euro || []).indexOf(r.country) >= 0, e = d.c[r.country] || (euro ? d.c.EUZ : null);
+    if (!e || !fin(e.usd)) return '';
+    var us = d.usd_us, diff = us ? Math.round((e.usd / us - 1) * 100) : null;
+    var cmp = r.country === 'US' || diff == null ? '' : Math.abs(diff) < 3 ? ', about the same as in the US' : ', ' + Math.abs(diff) + '% ' + (diff > 0 ? 'more' : 'less') + ' than in the US ($' + us.toFixed(2) + ')';
+    var loc = e.cur === 'USD' ? '' : ' (' + (e.local >= 100 ? Math.round(e.local).toLocaleString('en-US') : e.local.toFixed(2)) + ' ' + esc(e.cur) + ')';
+    var when = String(d.date || '').slice(0, 7);
+    return '<tr data-rk="bigmac" class="bigmac"><th scope="row">Big Mac price<div class="small muted">' + (euro && !d.c[r.country] ? 'Euro-area average' : esc(countryName(r.country))) + ', ' + esc(when) + ', The Economist Big Mac index (CC BY 4.0)</div></th><td class="num"><b>$' + e.usd.toFixed(2) + '</b>' + loc + '<div class="small muted">' + esc(cmp.replace(/^, /, '')) + '</div>' + (e.h && e.h.length > 3 ? '<div class="rs-spark" title="Big Mac in US dollars, ' + esc(e.h[0][0] + ' to ' + e.h[e.h.length - 1][0]) + '">' + histSpark(e.h) + '<span>' + esc(e.h[0][0].slice(0, 4) + '–' + e.h[e.h.length - 1][0].slice(0, 4)) + '</span></div>' : '') + '</td></tr>';
+  });
+}
 
 /* Evidence export for the shortlist (NZ-GLOBAL-042): purpose, profile, weights and scope, then for every saved place its
    score, rank, the data behind the score and every official figure with its period, level and source. */
@@ -1145,7 +1186,7 @@ function factsDecorate() {
       var put = function (c) { if (c[0]) tr.className += ' ' + c[0]; td.insertAdjacentHTML('beforeend', '<em>' + esc(c[1]) + '</em>'); };
       if (p.d.k === 'gdp') { var d0 = p.v - 100; put([toneOf(d0 > 5 ? 75 : d0 < -5 ? 25 : 50, 1), Math.abs(d0) < 2 ? 'about the EU average' : Math.round(Math.abs(d0)) + '% ' + (d0 > 0 ? 'above' : 'below') + ' the EU average']); return; }
       if (p.d.lvl === 0 || p.d.ratio) { put(['nat', 'national figure']); return; }
-      esGet(p.d.ds, r.country).then(function (j) { return jsPick(j, p.d.prefs); }).then(function (nat) {
+      esGet(p.d.ds, r.country, p.d.q).then(function (j) { return jsPick(j, p.d.prefs); }).then(function (nat) {
         if (!nat || !fin(nat.v)) { put(['', 'regional figure; the national figure did not load']); return; }
         var dir = p.d.k === 'income' || p.d.k === 'tert' || p.d.k === 'life' || p.d.k === 'docs' ? 1 : /unemp|poverty|crime/.test(p.d.k) ? -1 : 0;
         var v = cxVs({ value: p.v, unit: /%$/.test(p.d.fmt(1)) ? '%' : '' }, { value: nat.v }, dir); put([v[0], v[1] + ' the ' + countryName(r.country) + ' figure (' + p.d.fmt(nat.v) + ')']);
@@ -1535,7 +1576,7 @@ function histBody(H, cc) {
     var u = s.kind === 'pct' ? '%' : '';
     return '<td class="num"><span class="trend ' + good + '">' + (c > 0 ? '▲ +' : c < 0 ? '▼ ' : '► ') + fmt(c, Math.abs(c) < 10 ? 1 : 0) + u + '</span></td>';
   };
-  return head + '<p class="sub">National figures, the same for every place in ' + esc(countryName(cc)) + ' and not part of any score. Changes compare the latest year with exactly 3, 5 and 10 years earlier; changes in rates are in percentage points, changes in levels in %. Green means better for residents and firms, red worse, grey neither.</p>' +
+  return head + '<p class="sub">National figures, the same for every place in ' + esc(countryName(cc)) + ' so they never change the order of places inside the country; the latest values of some (debt, budget balance, rail, servers, water) feed the country part of the world and continent rankings. Changes compare the latest year with exactly 3, 5 and 10 years earlier; changes in rates are in percentage points, changes in levels in %. Green means better for residents and firms, red worse, grey neither.</p>' +
     groups.map(function (g, gi) {
       return '<details class="adg"><summary><b>' + esc(g[0]) + '</b> <span class="muted small">' + g[1].length + ' series</span></summary><div class="tablewrap"><table class="table hist-t"><thead><tr><th>Measure</th><th>Latest</th><th>Since 2010</th><th class="num">3 yrs</th><th class="num">5 yrs</th><th class="num">10 yrs</th></tr></thead><tbody>' +
         g[1].map(function (s) { var l = s.y[s.y.length - 1]; return '<tr title="' + esc(s.code + ', ' + s.y[0][0] + '–' + l[0]) + '"><th scope="row">' + esc(s.label) + '<small>' + esc(s.unit) + '</small></th><td><b>' + fmt(l[1], Math.abs(l[1]) < 10 ? 2 : Math.abs(l[1]) < 1000 ? 1 : 0) + '</b> <span class="muted small">' + l[0] + '</span></td><td>' + histSpark(s.y) + '</td>' + chg(s, '3') + chg(s, '5') + chg(s, '10') + '</tr>'; }).join('') +

@@ -12,37 +12,37 @@
  {
   "finding": "ties",
   "ok": true,
-  "check": "young_family: top 10 not one tied region (9 distinct scores)"
+  "check": "young_family: top 10 not one tied region (8 distinct scores)"
  },
  {
   "finding": "ties",
   "ok": true,
-  "check": "dinks: top 10 not one tied region (10 distinct scores)"
+  "check": "dinks: top 10 not one tied region (9 distinct scores)"
  },
  {
   "finding": "ties",
   "ok": true,
-  "check": "remote: top 10 not one tied region (9 distinct scores)"
+  "check": "remote: top 10 not one tied region (6 distinct scores)"
  },
  {
   "finding": "plausible",
   "ok": true,
-  "check": "Europe, expat professionals: ['M\u00fcnchen', 'Amsterdam', 'Stavanger', 'Z\u00fcrich', 'Amersfoort', 'Bergen', 'Luxembourg', 'K\u00f8benhavn']"
+  "check": "Europe, expat professionals: ['M\u00fcnchen', 'Amsterdam', 'Z\u00fcrich', 'Stavanger', 'Amersfoort', 'Luxembourg', 'K\u00f8benhavn', 'Stuttgart']"
  },
  {
   "finding": "plausible",
   "ok": true,
-  "check": "world, port industry: ['Corpus Christi', 'Port Arthur', 'Muttenz', 'Baton Rouge', 'Deer Park (Texas)', 'Dunkerque', 'Telok Blangah', 'Lake Charles', 'Saint-Fons', 'Southampton', 'Punta Umbr\u00eda', '\u0411\u0443\u0440\u0433\u0430\u0441']"
+  "check": "world, port industry: ['Corpus Christi', 'Muttenz', 'Port Arthur', 'Baton Rouge', 'Dunkerque', 'Deer Park (Texas)', 'Saint-Fons', 'Telok Blangah', 'Lake Charles', 'Southampton', 'Punta Umbr\u00eda', 'Moerdijk']"
  },
  {
   "finding": "benchmark",
   "ok": true,
-  "check": "reference places: mean percentile 71.6 (old model 54.0), in the top 5%: 43% (old 7%)"
+  "check": "reference places: mean percentile 71.6 (old model 54.0), in the top 5%: 42% (old 7%)"
  },
  {
   "finding": "external",
   "ok": true,
-  "check": "published rankings: Prologis logistics 94.3, fDi cities 83.1, EIU liveability 85.1, Bilanz/IAZI separation (DINKs, expats, wealthy) [89.2, 86.4, 83.7], all profiles 54.7, IMD countries 84.5"
+  "check": "published rankings: Prologis logistics 94.3, fDi cities 85.0, EIU liveability 85.2, Bilanz/IAZI separation (DINKs, expats, wealthy) [89.2, 86.4, 83.7], all profiles 54.7, IMD countries 84.5"
  },
  {
   "finding": "clusters",

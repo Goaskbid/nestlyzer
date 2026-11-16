@@ -34,7 +34,53 @@ SERIES = [
     ('broadband', 'it.net.bbnd.p2', 'Fixed broadband subscriptions', 'per 100 people', 'Environment and energy', 1, 'abs'),
     ('gini', 'si.pov.gini', 'Income inequality (Gini)', 'index 0-100', 'Economy', -1, 'abs'),
     ('real_interest', 'fr.inr.rinr', 'Real interest rate', '%', 'Economy', 0, 'pp'),
+    # 2.15.30: business conditions
+    ('lending_rate', 'fr.inr.lend', 'Bank lending rate', '%', 'Business conditions', -1, 'pp'),
+    ('logistics', 'lp.lpi.ovrl.xq', 'Logistics performance (World Bank LPI)', 'score 1-5', 'Business conditions', 1, 'abs'),
+    ('tax_revenue', 'gc.tax.totl.gd.zs', 'Tax revenue', '% of GDP', 'Business conditions', 0, 'pp'),
+    ('price_level', 'pa.nus.pppc.rf', 'Price level (United States = 1)', 'ratio', 'Business conditions', 0, 'abs'),
+    # 2.15.30: public finances (where taxes are heading) and infrastructure
+    ('gov_debt', 'gc.dod.totl.gd.zs', 'Central government debt', '% of GDP', 'Public finances', -1, 'pp'),
+    ('gov_revenue', 'gc.rev.xgrt.gd.zs', 'Government revenue (excluding grants)', '% of GDP', 'Public finances', 0, 'pp'),
+    ('gov_expense', 'gc.xpn.totl.gd.zs', 'Government expense', '% of GDP', 'Public finances', 0, 'pp'),
+    ('budget_balance', 'gc.rev.xgrt.gd.zs-gc.xpn.totl.gd.zs', 'Budget balance (revenue minus expense)', '% of GDP', 'Public finances', 1, 'pp'),
+    ('rail_density', 'is.rrs.totl.km/ag.lnd.totl.k2', 'Railway lines per 1,000 km² of land', 'km', 'Infrastructure', 1, 'abs'),
+    ('rail_km', 'is.rrs.totl.km', 'Railway lines', 'km', 'Infrastructure', 0, 'pct'),
+    ('secure_servers', 'it.net.secr.p6', 'Secure internet servers', 'per million people', 'Infrastructure', 1, 'pct'),
+    ('water_stress', 'er.h2o.fwtl.zs', 'Freshwater withdrawals (water stress)', '% of internal resources', 'Infrastructure', -1, 'pp'),
 ]
+
+
+# the secure-server count changed method in 2017 (a tenfold jump that is a counting change, not growth): from 2018 only
+SINCE = {'secure_servers': 2018}
+
+
+def _read(f):
+    by = {}
+    p = os.path.join(WDI, f + '.csv')
+    if not os.path.exists(p): return None
+    for r in csv.DictReader(open(p, encoding='utf-8')):
+        try: by.setdefault(r['Country Code'], {})[int(r['Year'])] = float(r['Value'])
+        except Exception: continue
+    return by
+
+
+def _load(f):
+    # 'a-b' is a difference of two series, 'a/b' a ratio per 1,000 (rail km per 1,000 km² of land; land area is nearly
+    # constant, so its latest value stands in for years it is missing)
+    if '-' in f or '/' in f:
+        op = '-' if '-' in f else '/'; a, b = (_read(x) for x in f.split(op))
+        if a is None or b is None: return None
+        out = {}
+        for c, s in a.items():
+            t = b.get(c) or {}
+            for y, v in s.items():
+                if op == '-' and y in t: out.setdefault(c, {})[y] = v - t[y]
+                elif op == '/' and t:
+                    d = t.get(y) or t[max(t)]
+                    if d: out.setdefault(c, {})[y] = v / d * 1000
+        return out
+    return _read(f)
 
 
 def main():
@@ -46,14 +92,11 @@ def main():
     data = {}
     used = []
     for sid, f, label, unit, group, better, kind in SERIES:
-        p = os.path.join(WDI, f + '.csv')
-        if not os.path.exists(p): continue
-        used.append(sid); by = {}
-        for r in csv.DictReader(open(p, encoding='utf-8')):
-            try: y, v = int(r['Year']), float(r['Value'])
-            except Exception: continue
-            if y >= 2010: by.setdefault(r['Country Code'], {})[y] = v
-        data[sid] = by
+        raw = _load(f)
+        if raw is None: continue
+        used.append(sid)
+        y0 = SINCE.get(sid, 2010)
+        data[sid] = {c: {y: v for y, v in s.items() if y >= y0} for c, s in raw.items()}
     os.makedirs(OUT, exist_ok=True)
     stats = {'countries_with_values': 0, 'series_rows': 0, 'observations': 0, 'changes': {3: 0, 5: 0, 10: 0}}
     for cc in ccs:
@@ -72,7 +115,7 @@ def main():
                     a, b = s[last - k], s[last]
                     ch[k] = round(b - a, 2) if kind in ('pp', 'abs') else (round((b / a - 1) * 100, 1) if a else None)
                     stats['changes'][k] += 1
-            out['series'].append({'id': sid, 'label': label, 'unit': unit, 'group': group, 'better': better, 'kind': kind, 'code': f.upper(),
+            out['series'].append({'id': sid, 'label': label, 'unit': unit, 'group': group, 'better': better, 'kind': kind, 'code': f.upper().replace('-', ' minus ').replace('/', ' per '),
                                   'y': [[y, round(s[y], 3 if abs(s[y]) < 100 else 0)] for y in ys], 'change': ch})
             stats['series_rows'] += 1; stats['observations'] += len(ys)
         if not out['series']: out['note'] = 'The World Bank publishes no series for this economy; no other country\'s figures are used instead.'

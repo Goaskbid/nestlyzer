@@ -297,7 +297,7 @@ function hydratePlaceMore(r) {
   // everyday life nearby and the regional snapshot load with the on-demand module (moved out of the start page in 2.10.1)
   moreLoad().then(function (X) {
     X.amenitiesFor(r).then(function (a) { if (!still()) return; var el = $('#place [data-amen]'); if (el) el.innerHTML = X.amenitiesHTML(r, a); });
-    X.regionStatsFor(r).then(function (l) { if (!still()) return; var el = $('#place [data-regstat]'); if (el) el.innerHTML = X.regionStatsHTML(r, l); });
+    X.regionStatsFor(r).then(function (l) { if (!still()) return; var el = $('#place [data-regstat]'); if (el) el.innerHTML = X.regionStatsHTML(r, l); if (X.bigMacFor) X.bigMacFor(r).then(function (h) { var e2 = $('#place [data-regstat]'); if (!h || !still() || !e2 || e2.querySelector('.bigmac')) return; var tb = e2.querySelector('[data-rsg-body="prices"]'); if (tb) tb.insertAdjacentHTML('afterbegin', h); else e2.insertAdjacentHTML('afterbegin', '<h4 class="rs-group">Prices and living costs</h4><div class="tablewrap"><table class="table facts"><tbody data-rsg-body="prices">' + h + '</tbody></table></div>'); }); });
   }, function () {});
   wdFacts(r).then(function (f) {
     if (!still()) return; var ul = $('[data-nice]'); if (!ul) return;

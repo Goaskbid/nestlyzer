@@ -62,7 +62,10 @@ function jsPick(j, prefs) {
   }
   if (timeDim < 0) { var v0 = val[base]; return fin(v0) ? { v: v0 } : null; }
   var tidx = j.dimension.time.category.index, tcodes = Array.isArray(tidx) ? tidx : Object.keys(tidx).sort(function (a, b) { return tidx[a] - tidx[b]; });
-  for (var t = tcodes.length - 1; t >= 0; t--) { var v = val[base + t * stride[timeDim]]; if (fin(v)) return { v: v, year: tcodes[t] }; }
+  /* 2.15.30: keep the whole series for a trend line; the newest value stays the headline */
+  var ser = [];
+  for (var u = 0; u < tcodes.length; u++) { var w = val[base + u * stride[timeDim]]; if (fin(w)) ser.push([tcodes[u], w]); }
+  if (ser.length) { var last = ser[ser.length - 1]; return { v: last[1], year: last[0], s: ser }; }
   return null;
 }
 var EUROSTAT = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/';
@@ -75,21 +78,22 @@ var REG_DEF = [
 ];
 /* one request per dataset and region, shared by the indicators that use it */
 var ESJ = {};
-function esGet(ds, geo) {
-  var u = EUROSTAT + ds + '?format=JSON&lang=EN&geo=' + encodeURIComponent(geo) + '&sinceTimePeriod=2015';
+function esGet(ds, geo, q) {
+  // q: optional server-side filters for very large tables (e.g. '&unit=PC_GDP&sector=S13'), so the answer stays small
+  var u = EUROSTAT + ds + '?format=JSON&lang=EN&geo=' + encodeURIComponent(geo) + '&sinceTimePeriod=2015' + (q || '');
   if (!ESJ[u]) ESJ[u] = liveFetch(u).then(function (res) { if (!res.ok) throw new Error(res.status); return res.json(); }).catch(function (e) { delete ESJ[u]; throw e; });
   return ESJ[u];
 }
 /* the extra indicators (children, foreign citizens, income, poverty, education, crime ...) come with /assets/more.js */
 function regionStatsFor(r) {
-  var key = (r.n3 || '') + '|' + (r.n2 || '');
+  var key = (r.n3 || '') + '|' + (r.n2 || '') + (/^biz/.test(S.profile || '') ? '|biz' : '');
   if ((!r.n3 && !r.n2) || isWorld(r.country)) return Promise.resolve(null);   // Eurostat covers Europe only
   if (REGSTAT[key]) return REGSTAT[key];
-  REGSTAT[key] = Promise.resolve(REG_DEF.concat(REG_MORE)).then(function (defs) { return Promise.all(defs.map(function (d) {
+  REGSTAT[key] = Promise.resolve(REG_DEF.concat(REG_MORE)).then(function (defs) { return Promise.all(defs.filter(function (d) { return !/^b_/.test(d.k) || /^biz/.test(S.profile || ''); }).map(function (d) {
     var codes = d.lvl === 0 ? [r.country === 'UK' ? 'UK' : r.country] : d.lvl === 3 ? [r.n3, r.n2] : [r.n2, r.n1];
     var tryCode = function (k) {
       var geo = codes[k]; if (!geo) return Promise.resolve(null);
-      return esGet(d.ds, geo)
+      return esGet(d.ds, geo, d.q)
         .then(function (j) { var p = d.ratio ? d.ratio.pick(j, d) : jsPick(j, d.prefs); if (p) { p.geo = geo; p.d = d; } return p || (k === 0 ? tryCode(1) : null); })
         .catch(function () { return k === 0 ? tryCode(1) : null; });
     };
@@ -100,7 +104,31 @@ function regionStatsFor(r) {
 function regionStatsHTML(r, list) {
   if (isWorld(r.country)) return '<p class="small muted">The regional figures here come from Eurostat, which covers Europe only. For ' + esc(countryName(r.country)) + ', see the national statistics office; the place figures above, the weather, nearby places and everyday-life counts work everywhere.</p>';
   if (!list) return '<p class="small muted">Regional statistics could not be loaded right now (Eurostat did not answer). <button class="linkbtn" type="button" data-retry>Try again</button></p>';
-  return '<div class="tablewrap"><table class="table facts"><tbody>' + list.map(function (p) {
-    return '<tr data-rk="' + p.d.k + '"><th scope="row">' + esc(p.d.label) + '<div class="small muted">' + esc(p.d.lvl === 0 ? countryName(r.country) + ' as a whole' : nutsName(p.geo)) + (p.year ? ', ' + esc(p.year) : '') + '</div></th><td class="num"><b>' + esc(p.d.fmt(p.v)) + '</b></td></tr>';
-  }).join('') + '</tbody></table></div><p class="small muted">Eurostat regional statistics for the wider ' + (r.country === 'CH' ? 'canton or region' : 'region') + ', not for ' + esc(r.name) + ' alone. They do not change the score. Source: Eurostat (' + list.map(function (p) { return p.d.ds; }).filter(function (v, i, a) { return a.indexOf(v) === i; }).join(', ') + '), reuse permitted with attribution.</p>';
+  /* 2.15.30: rows grouped into categories; business searches see business costs first, households do not see them */
+  var biz = /^biz/.test(S.profile || ''), groups = biz ? RS_GROUPS_BIZ : RS_GROUPS;
+  var rows = function (p) { return '<tr data-rk="' + p.d.k + '"><th scope="row">' + esc(p.d.label) + '<div class="small muted">' + esc(p.d.lvl === 0 ? countryName(r.country) + ' as a whole' : nutsName(p.geo)) + (p.year ? ', ' + esc(p.year) : '') + '</div></th><td class="num"><b>' + esc(p.d.fmt(p.v)) + '</b>' + rsSpark(p.s) + '</td></tr>'; };
+  var html = groups.map(function (g) {
+    var ps = list.filter(function (p) { return rsGroup(p.d.k) === g[0]; });
+    return ps.length || g[0] === 'prices' ? '<h4 class="rs-group" data-rsg="' + g[0] + '">' + esc(g[1]) + '</h4><div class="tablewrap"><table class="table facts"><tbody data-rsg-body="' + g[0] + '">' + ps.map(rows).join('') + '</tbody></table></div>' : '';
+  }).join('');
+  return html + '<p class="small muted">Eurostat statistics for the wider ' + (r.country === 'CH' ? 'canton or region' : 'region') + ' or the whole country, not for ' + esc(r.name) + ' alone. They do not change the score. Source: Eurostat (' + list.map(function (p) { return p.d.ds; }).filter(function (v, i, a) { return a.indexOf(v) === i; }).join(', ') + '), reuse permitted with attribution.</p>';
+}
+/* small trend line for a Eurostat series: one point per period, first and last period labelled */
+function rsSpark(sr) {
+  if (!sr || sr.length < 3) return '';
+  sr = sr.slice(-24);
+  var v = sr.map(function (p) { return p[1]; }), lo = Math.min.apply(null, v), hi = Math.max.apply(null, v), W = 110, H = 26, n = sr.length;
+  var pts = sr.map(function (p, i) { return (i / (n - 1) * W).toFixed(1) + ',' + (hi > lo ? H - 3 - (p[1] - lo) / (hi - lo) * (H - 6) : H / 2).toFixed(1); }).join(' ');
+  return '<div class="rs-spark" title="' + esc(sr[0][0] + ' to ' + sr[n - 1][0]) + '"><svg viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" aria-hidden="true"><polyline points="' + pts + '" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="' + W + '" cy="' + pts.split(' ').pop().split(',')[1] + '" r="2.4" fill="currentColor"/></svg><span>' + esc(String(sr[0][0]).replace(/-?S?(\d)$/, function (m) { return m; })) + '–' + esc(sr[n - 1][0]) + '</span></div>';
+}
+var RS_GROUPS = [['prices', 'Prices and living costs'], ['work', 'Work and income'], ['fin', 'Public finances and infrastructure'], ['people', 'People'], ['health', 'Health'], ['safety', 'Safety']];
+var RS_GROUPS_BIZ = [['biz', 'Business costs'], ['fin', 'Public finances and infrastructure'], ['work', 'Work and income'], ['prices', 'Prices and living costs'], ['people', 'People'], ['health', 'Health'], ['safety', 'Safety']];
+function rsGroup(k) {
+  if (/^b_/.test(k)) return 'biz';
+  if (/^f_/.test(k)) return 'fin';
+  if (/^pli_|^p_(elec|gas|infl)$/.test(k)) return 'prices';
+  if (/^(p_minw|gdp|unemp|income|poverty|tert)$/.test(k)) return 'work';
+  if (/^(life|docs)$/.test(k)) return 'health';
+  if (k === 'crime') return 'safety';
+  return 'people';
 }

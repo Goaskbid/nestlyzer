@@ -41,7 +41,13 @@ WDI = {  # file -> (id, label, unit, direction)
     'ic.tax.totl.cp.zs': ('total_tax_rate', 'Total tax and contribution rate on commercial profits', '% of profit', -1),
     'fr.inr.lend': ('lending_rate', 'Bank lending interest rate', '%', -1),
     'fr.inr.rinr': ('real_interest', 'Real interest rate', '%', -1),
+    # 2.15.30 proxies for future tax and economic conditions and for infrastructure quality (owner, 16 Nov 2026)
+    'gc.dod.totl.gd.zs': ('gov_debt', 'Central government debt', '% of GDP', -1),
+    'it.net.secr.p6': ('secure_servers', 'Secure internet servers (digital infrastructure)', 'per million people', 1),
+    'er.h2o.fwtl.zs': ('water_stress', 'Freshwater withdrawals (water stress)', '% of internal resources', -1),
 }
+# skewed measures are scored on a log scale so a few extreme countries do not flatten everyone else
+LOG = {'secure_servers', 'water_stress', 'rail_density'}
 CTX = {  # context indicator -> (id, label, unit, direction)
     'bready_regulatory': ('bready_regulatory', 'Regulatory framework (World Bank B-READY 2025)', '0-100', 1),
     'bready_entry': ('bready_entry', 'Business entry (B-READY)', '0-100', 1),
@@ -79,21 +85,23 @@ CATS = {
     'affordability': [('price_level', 1)],
     'safety': [('homicide', 2), ('road_deaths', 1), ('corruption_perception', 1)],
     'health': [('life_expectancy', 2), ('infant_mortality', 1), ('hospital_beds', 0.5)],
-    'environment': [('pm25', 2), ('renewable_power', 0.5), ('climate_readiness', 0.5)],
+    'environment': [('pm25', 2), ('renewable_power', 0.5), ('climate_readiness', 0.5), ('water_stress', 0.5)],
+    # 2.15.30: tax outlook. Today's tax take plus the public finances that decide tomorrow's (debt and deficit)
+    'tax': [('tax_revenue', 1), ('gov_debt', 0.5), ('budget_balance', 0.5)],
     'family': [('infant_mortality', 1), ('childcare_support', 1), ('parenthood_support', 1), ('tertiary', 0.5), ('female_lfp', 0.5)],
     'foundation': [('corruption_perception', 1), ('liberal_democracy', 1), ('gini', 0.5)],
-    'mobility': [('broadband', 1), ('lpi', 0.5)],
-    'freight': [('lpi', 1)],
+    'mobility': [('broadband', 1), ('lpi', 0.5), ('rail_density', 1), ('secure_servers', 0.5)],
+    'freight': [('lpi', 1), ('rail_density', 0.5)],
     'governance': [('corruption_perception', 1), ('liberal_democracy', 1)],
     'focus_cost': [('wage_level', 3), ('corruption_perception', 0.5)],      # site fit, cost-driven company sites
     'focus_talent': [('tertiary', 1), ('gni_pc_ppp', 1), ('corruption_perception', 0.5)],  # site fit, skills-driven company sites
     # 2.13 business climate: each a national level that companies compare across countries
     'red_tape': [('bready_regulatory', 1), ('bready_entry', 1), ('bready_services', 0.5), ('startup_days', 1), ('startup_procedures', 0.5), ('ease_rank', 1)],
     'rule_of_law': [('liberal_democracy', 1), ('corruption_perception', 1), ('legal_rights', 0.5), ('bready_disputes', 0.5)],
-    'biz_tax': [('cit_rate', 1), ('total_tax_rate', 1), ('bready_tax', 0.5)],
+    'biz_tax': [('cit_rate', 1), ('total_tax_rate', 1), ('bready_tax', 0.5), ('gov_debt', 0.25), ('budget_balance', 0.25)],
     'capital_cost': [('real_interest', 1), ('lending_rate', 1), ('bready_finance', 0.5)],
     'energy_cost': [('power_price_business', 1)],
-    'momentum': [('growth_5y', 1), ('growth_change', 0.5), ('fdi_inflows', 0.5)],
+    'momentum': [('growth_5y', 1), ('growth_change', 0.5), ('fdi_inflows', 0.5), ('secure_servers', 0.25)],
 }
 
 
@@ -149,6 +157,27 @@ for cc in CC:
         last = ys[-1]; recent5 = [g[y] for y in ys if y > last - 5]; recent3 = [g[y] for y in ys if y > last - 3]; base = [g[y] for y in ys if 2015 <= y <= 2019]
         val[cc]['growth_5y'] = [round(sum(recent5) / len(recent5), 2), last]
         if base: val[cc]['growth_change'] = [round(sum(recent3) / len(recent3) - sum(base) / len(base), 2), last]
+# 2.15.30: budget balance (government revenue minus expense, % of GDP; a deficit today points to higher taxes or
+# cuts later) and rail density (km of railway lines per 1,000 km² of land, a proxy for transport infrastructure)
+def _wdi_raw(f):
+    p = os.path.join(ROOT, 'build', 'source', 'wdi', f + '.csv'); out = {}
+    if not os.path.exists(p): return out
+    for r in csv.DictReader(open(p, encoding='utf-8')):
+        try: out.setdefault(r['Country Code'], {})[int(r['Year'])] = float(r['Value'])
+        except Exception: pass
+    return out
+REV, EXP, RAIL, LAND = (_wdi_raw(f) for f in ('gc.rev.xgrt.gd.zs', 'gc.xpn.totl.gd.zs', 'is.rrs.totl.km', 'ag.lnd.totl.k2'))
+info['budget_balance'] = {'label': 'Government budget balance (revenue minus expense)', 'unit': '% of GDP', 'dir': 1, 'source': 'World Bank WDI GC.REV.XGRT.GD.ZS minus GC.XPN.TOTL.GD.ZS (CC BY 4.0)'}
+info['rail_density'] = {'label': 'Railway density (rail lines per 1,000 km² of land)', 'unit': 'km per 1,000 km²', 'dir': 1, 'source': 'World Bank WDI IS.RRS.TOTL.KM / AG.LND.TOTL.K2 (CC BY 4.0)'}
+for cc in CC:
+    i3 = ISO3.get(cc, ''); r, e = REV.get(i3, {}), EXP.get(i3, {})
+    ys = [y for y in r if y in e and y >= 2018]
+    if ys: y = max(ys); val[cc]['budget_balance'] = [round(r[y] - e[y], 2), y]
+    rl, ld = RAIL.get(i3, {}), LAND.get(i3, {})
+    ys = [y for y in rl if y >= 2010 and ld]
+    if ys:
+        y = max(ys); la = ld.get(y) or ld[max(ld)]
+        if la: val[cc]['rail_density'] = [round(rl[y] / la * 1000, 2), y]
 # labour cost level: income per person at market prices (PPP income x price level), lower = cheaper to employ people
 info['wage_level'] = {'label': 'Income per person at market prices (national proxy for labour cost, not a wage)', 'unit': 'US $', 'dir': -1, 'source': 'World Bank WDI NY.GNP.PCAP.PP.CD x PA.NUS.PPPC.RF (CC BY 4.0)'}
 for cc in CC:
@@ -162,13 +191,15 @@ for mid in info:
 
 
 def score(mid):
-    xs = sorted(v[mid][0] for v in val.values() if mid in v)
+    import math
+    tf = (lambda x: math.log10(max(x, 0.01))) if mid in LOG else (lambda x: x)
+    xs = sorted(tf(v[mid][0]) for v in val.values() if mid in v)
     if len(xs) < 5: return {}
     lo, hi = xs[max(0, int(len(xs) * 0.05))], xs[min(len(xs) - 1, int(len(xs) * 0.95))]   # 5th-95th percentile range, outliers clipped
     d = info[mid]['dir']; out = {}
     for cc, v in val.items():
         if mid in v and hi > lo:
-            s = max(0, min(1, (v[mid][0] - lo) / (hi - lo))); out[cc] = round(100 * (s if d > 0 else 1 - s), 1)
+            s = max(0, min(1, (tf(v[mid][0]) - lo) / (hi - lo))); out[cc] = round(100 * (s if d > 0 else 1 - s), 1)
     return out
 
 

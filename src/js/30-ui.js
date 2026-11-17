@@ -115,6 +115,8 @@ function renderScope() {
   $('#f-area').disabled = ao.length < 2;
   $('#l-area').textContent = S.cc === 'CH' ? 'Canton' : 'Local area';
   var lopt = function (l) { var has = layerHasData(l[0]); if (!has && l[0] !== S.layer) return ''; return '<option value="' + l[0] + '"' + (l[0] === S.layer ? ' selected' : '') + '>' + (l[0] === 'score' ? 'Fit for ' + esc(profileName(S.profile).toLowerCase()) : l[1]) + '</option>'; };
+  // 2.15.30 owner review: on the map, always show which country and which ranking you are looking at
+  var mc = $('#mapctx'); if (mc) { var cc0 = String(S.cc || ''); mc.innerHTML = (/^[A-Z]{2}$/.test(cc0) ? flagImg(cc0, 18) + '<span class="mc-c">' + esc(countryName(cc0)) + '</span><i class="mc-sep"></i>' : '') + '<span class="mc-p">' + profileIcon(S.profile, 18) + '<b>' + esc(profileName(S.profile)) + '</b></span>'; }
   $('#f-layer').innerHTML = '<optgroup label="Scores">' + LAYERS.map(lopt).join('') + '</optgroup><optgroup label="Place facts">' + PLAYERS.map(lopt).join('') + '</optgroup>';
   $('#f-sort').value = S.sort;
   $('#f-conf').value = S.minConf; $('#o-conf').textContent = S.minConf + '%';

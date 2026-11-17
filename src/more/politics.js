@@ -81,7 +81,7 @@ function polLive(r, P) {
 /* visuals */
 function polCol(p) { return POL_COL[p == null ? 'x' : String(p)]; }
 function polSpectrum(marks) {   // horizontal left-right scale with a marker per level of government
-  var W = 560, x = function (p) { return 30 + (p + 3) / 6 * (W - 60); };
+  var W = 420, x = function (p) { return 30 + (p + 3) / 6 * (W - 60); };
   var g = '<svg class="pol-spec" viewBox="0 0 ' + W + ' 92" role="img" aria-label="Where the governing parties stand, left to right"><defs><linearGradient id="polg" x1="0" x2="1"><stop offset="0" stop-color="#9b1c1c"/><stop offset=".33" stop-color="#e8756a"/><stop offset=".5" stop-color="#a58bc9"/><stop offset=".67" stop-color="#6f9bd6"/><stop offset="1" stop-color="#173a7a"/></linearGradient></defs>' +
     '<rect x="30" y="40" width="' + (W - 60) + '" height="10" rx="5" fill="url(#polg)"/>' +
     ['Left', 'Centre', 'Right'].map(function (t, i) { return '<text x="' + x(-3 + i * 3) + '" y="72" text-anchor="' + ['start', 'middle', 'end'][i] + '" class="pol-ax">' + t + '</text>'; }).join('');
@@ -104,11 +104,11 @@ function polHemicycle(h) {   // seats as dots in rows of a half circle, left to 
 }
 function polRecord(rec) {   // timeline of heads of government, coloured by party position
   rec = rec.filter(function (x) { return x && x.since; }).slice(0, 8).reverse(); if (rec.length < 2) return '';
-  var y0 = +rec[0].since.slice(0, 4), y1 = new Date().getFullYear() + 1, W = 560, sx = function (d) { var y = +d.slice(0, 4) + ((+d.slice(5, 7) || 1) - 1) / 12; return 10 + (y - y0) / (y1 - y0) * (W - 20); };
+  var y0 = +rec[0].since.slice(0, 4), y1 = new Date().getFullYear() + 1, W = 400, sx = function (d) { var y = +d.slice(0, 4) + ((+d.slice(5, 7) || 1) - 1) / 12; return 10 + (y - y0) / (y1 - y0) * (W - 20); };
   var now = new Date().toISOString().slice(0, 10);
   return '<svg class="pol-rec" viewBox="0 0 ' + W + ' ' + (rec.length * 26 + 22) + '" role="img" aria-label="Heads of government since ' + y0 + '">' + rec.map(function (x, i) {
     var a = sx(x.since), b = sx(x.until || now), y = i * 26 + 4;
-    return '<rect x="' + a.toFixed(1) + '" y="' + y + '" width="' + Math.max(3, b - a).toFixed(1) + '" height="18" rx="4" fill="' + polCol(x.pos) + '"/><text x="' + (b + 6 > W - 150 ? a - 6 : b + 6).toFixed(1) + '" y="' + (y + 13) + '" text-anchor="' + (b + 6 > W - 150 ? 'end' : 'start') + '" class="pol-rl">' + esc(x.name) + (x.partyName ? ' (' + esc(x.partyName) + ')' : '') + '</text>';
+    return '<rect x="' + a.toFixed(1) + '" y="' + y + '" width="' + Math.max(3, b - a).toFixed(1) + '" height="18" rx="4" fill="' + polCol(x.pos) + '"/><text x="' + (b + 6 > W - 130 ? a - 6 : b + 6).toFixed(1) + '" y="' + (y + 13) + '" text-anchor="' + (b + 6 > W - 130 ? 'end' : 'start') + '" class="pol-rl">' + esc(x.name) + (x.partyName ? ' (' + esc(x.partyName) + ')' : '') + '</text>';
   }).join('') + '<text x="10" y="' + (rec.length * 26 + 18) + '" class="pol-ax">' + y0 + '</text><text x="' + (W - 10) + '" y="' + (rec.length * 26 + 18) + '" text-anchor="end" class="pol-ax">today</text></svg>';
 }
 function polGauge(lvl, L) {
@@ -125,7 +125,7 @@ function polOrgs(P, D) {
 function politicsFill(r, el) {
   if (!document.getElementById('pol-css')) { var st = document.createElement('style'); st.id = 'pol-css'; st.textContent =
     '.pol h4{margin:20px 0 8px;font-size:16px}.pol .sub{margin-top:-4px}.pol svg{width:100%;height:auto;display:block;color:var(--ink-2,#556)}' +
-    '.pol-ax{font-size:11px;fill:var(--muted,#667)}.pol-mk{font-size:11.5px;font-weight:650;fill:var(--ink,#123)}.pol-tot{font-size:22px;font-weight:750;fill:var(--ink,#123)}.pol-rl{font-size:11.5px;fill:var(--ink,#123)}' +
+    '.pol-ax{font-size:11px;fill:var(--muted,#667)}.pol-mk{font-size:11.5px;font-weight:650;fill:var(--ink,#123)}.pol-tot{font-size:22px;font-weight:750;fill:var(--ink,#123)}.pol-rl{font-size:12px;font-weight:600;fill:var(--ink,#123)}' +
     '.pol-govs{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}.pol-gov{border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--surface-2,var(--surface));position:relative;overflow:hidden}' +
     '.pol-gov::before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:var(--pc)}.pol-gov small{display:block;color:var(--muted);font-size:12px}.pol-gov b{display:block;font-size:15.5px;margin:2px 0}.pol-gov em{font-style:normal;font-size:12.5px;padding:1px 8px;border-radius:999px;background:color-mix(in srgb,var(--pc) 18%,transparent);color:var(--ink)}' +
     '.pol-legend{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:12.5px;margin-top:6px}.pol-legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}.pol-legend small{color:var(--muted)}' +

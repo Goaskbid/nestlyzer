@@ -221,21 +221,23 @@ function renderPlace() {
     similar: lookalikesHTML(r) + comparablesHTML(x) + '<p class="small muted">To put places side by side, tick <b>Compare</b> on two or three of them. They stay on your shortlist.</p>',
     data: allDataHTML(r)
   };
+  // 2.15.30 owner review: the tabs sit right under the score, so every section is one tap away; the key facts,
+  // evidence and surroundings lead the Overview tab instead of pushing the tabs 5,000 px down on a phone
+  var ovTop = propertyContextHTML(r, true) + '<div data-kfslot="' + esc(r.id) + '"></div>' + evidenceHTML(r, x) + snacksHTML(r) + aroundHereHTML(r) + homeDeltaHTML(r);
   var html =
     '<div class="place-top"><button class="icon-btn" type="button" data-closeplace aria-label="Close place">' + ICON.back + '</button><span class="grow small muted pt-n"><b>' + esc(r.name) + '</b> · ' + (ranked ? '#' + ranked.rank + ' · ' : '') + esc(p ? p.name : '') + '</span>' + acts + '</div>' +
-    '<div class="scroll" id="placescroll"><div class="ph-hero" data-hero="' + esc(r.id) + '" data-postcard="' + esc(r.id) + '" data-w="480" data-h="240"><div class="shade"></div><button class="ph-count" type="button" data-ptab="photos" hidden>📷 <span></span></button><div class="ttl"><span class="ctry">' + flagImg(r.country, 12) + ' ' + esc(countryName(r.country)) + '</span><h2>' + esc(r.name) + '</h2>' + (r.latin ? '<div class="latin">' + esc(r.latin) + '</div>' : '') + '<div class="sub">' + esc(localAreaOf(r)) + ', ' + popLabel(r) + '</div></div></div>' +
+    '<div class="scroll" id="placescroll"><div class="ph-hero" data-hero="' + esc(r.id) + '" data-postcard="' + esc(r.id) + '" data-w="480" data-h="240"><div class="shade"></div><button class="ph-count" type="button" data-ptab="photos" hidden>📷 <span></span></button><div class="ttl"><div class="ids" data-ids="' + esc(r.id) + '"><button type="button" class="arms-auto" data-arms="' + esc(r.id) + '" aria-label="Coat of arms of ' + esc(r.name) + '">' + placeEmblemHTML(r) + '</button></div><div class="ttl-t"><span class="ctry">' + flagImg(r.country, 12) + ' ' + esc(countryName(r.country)) + '</span><h2>' + esc(r.name) + '</h2>' + (r.latin ? '<div class="latin">' + esc(r.latin) + '</div>' : '') + '<div class="sub">' + esc(localAreaOf(r)) + ', ' + popLabel(r) + '</div></div></div></div>' +
     '<div class="pstrip" data-pstrip="' + esc(r.id) + '"></div>' +
     '<div class="pbody">' +
-    '<div class="ids" data-ids="' + esc(r.id) + '"><button type="button" class="arms-auto" data-arms="' + esc(r.id) + '" aria-label="Coat of arms of ' + esc(r.name) + '">' + placeEmblemHTML(r) + '</button>' + flagImg(r.country) + '</div>' +
     '<div class="scorebox">' + scoreRing(x.overall, 96) +
     '<div class="metrics">' +
     cardMetricHTML(r, x, { reason: why || 'Outside this ranking or eligibility unresolved' }) +
     '</div></div>' +
     '<p class="nz-note nz-note-1" role="note">General information, not advice. <a href="/legal/#disclaimer">Limits</a></p>' + (NZ_CNOTE[r.country] || '') +
     (why ? '<p class="small" style="margin:0;color:var(--bad)">' + esc(why) + '</p>' : '') +
-    propertyContextHTML(r, true) + whyHTML(r, x) + '<div data-kfslot="' + esc(r.id) + '"></div>' + evidenceHTML(r, x) + snacksHTML(r) + aroundHereHTML(r) + homeDeltaHTML(r) +
+    whyHTML(r, x) +
     '<div class="ptabs" role="tablist" aria-label="Place sections">' + PTABS.map(function (t) { return '<button type="button" role="tab" data-ptab="' + t[0] + '" aria-selected="' + (t[0] === tab) + '">' + t[1] + '</button>'; }).join('') + '</div>' +
-    PTABS.map(function (t) { return '<div class="ppanel" role="tabpanel" data-pp="' + t[0] + '"' + (t[0] === tab ? '' : ' hidden') + '>' + panels[t[0]] + '</div>'; }).join('') +
+    PTABS.map(function (t) { return '<div class="ppanel" role="tabpanel" data-pp="' + t[0] + '"' + (t[0] === tab ? '' : ' hidden') + '>' + (t[0] === 'overview' ? ovTop : '') + panels[t[0]] + '</div>'; }).join('') +
     '<div class="actions"><button class="btn btn-sm" type="button" data-booklet>' + ICON.doc + 'PDF booklet</button><button class="btn btn-sm" type="button" data-print>' + ICON.print + 'Print profile</button><a class="btn btn-sm" href="' + osm + '" target="_blank" rel="noopener">' + ICON.map + 'OpenStreetMap</a><a class="btn btn-sm" href="https://www.google.com/maps/search/?api=1&query=' + mapsQ + '" target="_blank" rel="noopener">' + ICON.pin + 'Google Maps</a>' + '<a class="btn btn-sm" hidden data-pagelink="' + esc(r.id) + '">' + ICON.ext + 'Place page</a>' + '</div>' +
     /* 2.15.28 public test: one tap to report a wrong or missing figure, with the place, search and link filled in */
     '<p class="small report-row"><a href="' + esc(reportMail(r)) + '">' + ICON.doc + 'Report a problem with this place</a></p>' +
@@ -268,7 +270,7 @@ function setPlaceTab(t) {
   if (t === 'overview' && selected()) { var rg = selected(); moreLoad().then(function (X) { var el = $('#place [data-glance]'); if (el && S.selected === rg.id) X.glanceFill(rg, el); }, function () {}); }
   if (t === 'politics' && selected()) { var rp = selected(); moreLoad().then(function (X) { var el = $('#place [data-politics]'); if (el && S.selected === rp.id && !el.dataset.done) { el.dataset.done = '1'; X.politicsFill(rp, el); } }, function () {}); }
   if (t === 'story' && selected()) { var rs = selected(); moreLoad().then(function (X) { var el = $('#place [data-story]'); if (el && S.selected === rs.id) X.storyFill(rs, el); }, function () {}); }
-  var tabs = $('#place .ptabs'); if (tabs && $('#placescroll')) { var top = tabs.offsetTop - 8; if ($('#placescroll').scrollTop > top) $('#placescroll').scrollTop = top; }
+  var tabs = $('#place .ptabs'), ps = $('#placescroll'); if (tabs && ps) { var pv = tabs.previousElementSibling, top = (pv ? pv.offsetTop + pv.offsetHeight : tabs.offsetTop) - 8; /* the sticky bar's own offsetTop moves while it sticks */ if (ps.scrollTop > top || (ps.scrollTop < top - 40 && ps.scrollHeight - ps.clientHeight > top)) ps.scrollTop = top; }   // 2.15.30: a chosen tab always opens at its start
 }
 function hydratePlaceMore(r) {
   // 2.15: own reference list (no third-party request), so it also loads when external content is off

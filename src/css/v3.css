@@ -516,3 +516,23 @@ html.bizmode,body.bizmode{--navy:#0B4D4C;--blue:#0F7C7A;--cyan:#2AA59F;--r0:#E5E
 .rs-group:first-child{margin-top:4px}
 .rs-spark{display:flex;align-items:center;justify-content:flex-end;gap:6px;color:var(--accent,#2b6cb0);margin-top:3px}
 .rs-spark span{font-size:.72rem;color:var(--muted)}
+
+/* 2.15.30 owner review: coat of arms in the hero next to the name; tabs on phones in two even rows */
+.ph-hero .ttl{display:flex;align-items:flex-end;gap:14px}
+.ph-hero .ttl .ttl-t{min-width:0}
+#place .ph-hero .ids{flex:none;margin:0;background:rgba(255,255,255,.94);border-radius:14px;padding:6px 7px;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+#place .ph-hero .ids .nz-arms-img,#place .ph-hero .ids img{height:58px;max-width:52px;width:auto;object-fit:contain;display:block}
+@media (max-width:600px){
+  .ptabs{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .ptabs button{padding:10px 2px;font-size:12px}
+  #place .ph-hero .ids .nz-arms-img,#place .ph-hero .ids img{height:48px;max-width:42px}
+}
+
+.map-ctx{flex-basis:100%;display:flex;align-items:center;gap:8px;flex-wrap:wrap;width:max-content;max-width:100%;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:7px 12px;box-shadow:var(--shadow);font-size:14px;line-height:1.25}
+.map-ctx:empty{display:none}
+.map-ctx .flag{height:18px;width:auto;border-radius:3px;box-shadow:0 0 0 1px var(--line)}
+.map-ctx .mc-c{font-weight:600;color:var(--ink-2)}
+.map-ctx .mc-sep{width:1px;height:18px;background:var(--line-2)}
+.map-ctx .mc-p{display:inline-flex;align-items:center;gap:6px;color:var(--navy)}
+.map-ctx .mc-p svg{width:18px;height:18px;flex:none}
+.map-ctx b{font-weight:750}

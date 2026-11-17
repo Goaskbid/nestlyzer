@@ -287,6 +287,13 @@ function boot() {
   S.builder = store('builder'); var cu = store('custom'); if (cu && !S.custom) S.custom = cu;
   if ('serviceWorker' in navigator && !window.NZ_STANDALONE && (location.protocol === 'https:' || /[?&]sw=1/.test(location.search))) window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); });
   window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); window.NZ_INSTALL = e; });
+  // 2.15.30: a phone that keeps the app open for days must not stay on an old version. When the page comes back to the
+  // foreground (at most every 10 minutes) it asks the server which version is live and offers a reload if it is newer.
+  if (!window.NZ_STANDALONE && location.protocol === 'https:') { var nzChk = 0; document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState !== 'visible' || Date.now() - nzChk < 6e5) return; nzChk = Date.now();
+    fetch('/sw.js?t=' + nzChk, { cache: 'no-store' }).then(function (r) { return r.ok ? r.text() : ''; }).then(function (t) { var m = /nz-(\d+\.\d+\.\d+)/.exec(t || '');
+      if (m && m[1] !== VERSION) toast('A new version of Nestlyzer is ready', ' Reload to see it.', { label: 'Reload now', attr: 'data-nzreload' }); }).catch(function () {}); });
+    document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('[data-nzreload]')) location.reload(); }); }
   loadMeta().then(function () { route(); landingReady(); var q0 = new URLSearchParams(location.search).get('q'); if (q0) { openPalette(); var inp = $('#pal-q'); inp.value = q0; ensureSearch().then(function () { renderPalette(q0); }); } }).catch(function (e) { toast('Could not load Nestlyzer data', e.message + '. Reload the page to try again.'); });
 }
 function route() {

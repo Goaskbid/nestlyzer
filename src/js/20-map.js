@@ -211,7 +211,7 @@ function paintMap() {
   } else {
     var agg = {};
     SHARD.records.forEach(function (r, i) {
-      if (!fin(r.lat)) return;
+      if (!fin(r.lat)||!fin(r.lon)) return;
       var out = !inScope(r);
       var v = out ? null : surfaceValue(r);
       MAP.setFeatureState({ source: 'pts', id: i }, { out: out, v: fin(v) ? v : -1 });
@@ -316,7 +316,7 @@ function leaderSet() {
 }
 function scopeBounds() {
   var xs = [], ys = [];
-  var pts = SCOPE.filter(function (r) { return fin(r.lat); });
+  var pts = SCOPE.filter(function (r) { return fin(r.lat)&&fin(r.lon); });
   if (pts.length > 20) { // leave out islands far from the main cluster (Azores, Madeira, Canaries, overseas France) when they are a small minority
     var mx = pts.map(function (r) { return r.lon; }).sort(function (a, b) { return a - b; })[pts.length >> 1], my = pts.map(function (r) { return r.lat; }).sort(function (a, b) { return a - b; })[pts.length >> 1];
     var near = pts.filter(function (r) { return km([mx, my], [r.lon, r.lat]) < 900; });

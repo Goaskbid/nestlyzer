@@ -145,9 +145,9 @@ with sync_playwright() as p:
         tot = sum(r[1] for r in rows); have = sum(r[1] for r in rows if r[2])
         true = round(have / tot * 100) if tot else 0
         head = pg.inner_text('#place .ptcard .pthead')
-        m = _re.search(r'(\d+)% of (?:the|your) weights', head)
+        m = _re.search(r'(\d+)% of (?:the|your|declared profile) weights?', head)   # 2.15.30 audit wording: 'Inputs cover N% of declared profile weight'
         claim = int(m.group(1)) if m else None
-        check('049', claim is not None and abs(claim - true) <= 1 and ('modelled' in head or 'official statistics' in head), f'{cc} #1 ({pg.evaluate("NZ.record(" + json.dumps(sel) + ").name")}): headline says {claim}% of the weights, the criteria with data carry {true}%; estimated share stated: {"estimated" in head}')
+        check('049', claim is not None and abs(claim - true) <= 1 and ('modelled' in head or 'official statistics' in head or 'estimates' in head), f'{cc} #1 ({pg.evaluate("NZ.record(" + json.dumps(sel) + ").name")}): headline says {claim}% of the weights, the criteria with data carry {true}%; estimated share stated: {"estimated" in head}')
     ctx.close()
 
     # ---------- 050 keyboard focus stays inside search and the phone filter sheet ----------

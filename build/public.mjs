@@ -1,12 +1,15 @@
 // Copies only what visitors need into a publish folder (default: _site). Used by CI and by package.py.
 import {createRequire} from 'node:module';
 import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath } from 'node:url';
+const OutputContract=createRequire(import.meta.url)('./release_output_contract.cjs');
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.resolve(ROOT, process.argv[2] || '_site');
 import { optimize } from './deduplicate_static_assets.mjs';
+import {slimPages,inventory} from './slim_place_pages.mjs';
+import {packRows} from './pack_place_rows.mjs';
 const meta = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/meta.json'), 'utf8'));
 const slug = (s) => String(s || '').normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/ß/g, 'ss').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-const dirs = ['assets', 'vendor', 'data', 'best', 'method', 'legal', 'about', 'business', 'insights', 'world', 'incentives', 'districts', 'immigration', 'evidence-lab', 'places', 'rankings', 'sources', ...meta.countries.map((c) => slug(c.name))];
+const dirs = ['assets', 'vendor', 'data', 'best', 'method', 'legal', 'about', 'press', 'business', 'insights', 'world', 'incentives', 'districts', 'immigration', 'evidence-lab', 'places', 'rankings', 'sources', ...meta.countries.map((c) => slug(c.name))];
 const files = ['index.html', '404.html', 'ads.txt', 'favicon.ico', 'favicon.svg', 'robots.txt', 'site.webmanifest', 'sw.js', 'offline.html', 'CNAME', '.nojekyll', 'VERSION.txt'];
 // Reject destructive destinations BEFORE removing any output. This command never writes outside this checkout.
 const relOut = path.relative(ROOT, OUT);
@@ -17,16 +20,27 @@ if (!fs.existsSync(path.join(ROOT, 'index.html')) || !fs.existsSync(path.join(RO
 console.log('Evidence Lab release gate:', JSON.stringify(createRequire(import.meta.url)('./validate_evidence_lab_release.cjs').verify(ROOT)));
 console.log('Generated-page deduplication:', JSON.stringify(optimize(ROOT)));
 fs.rmSync(OUT, { recursive: true, force: true }); fs.mkdirSync(OUT, { recursive: true });
-let n = 0, bytes = 0;
+let n = 0, bytes = 0, claimCopyRepairs = 0;
 function copy(src, dst) {
   const st = fs.lstatSync(src); if (st.isSymbolicLink()) throw new Error("Symlink in public input: " + src);
   if (st.isDirectory()) { fs.mkdirSync(dst, { recursive: true }); for (const f of fs.readdirSync(src)) copy(path.join(src, f), path.join(dst, f)); return; }
   if (path.relative(ROOT, src) === path.join('data', 'routes.json')) return;   // 2.15.16: build-time list only (the app never reads it)
+  if(src.endsWith('.html')){const fix=OutputContract.repairClaimCopy(fs.readFileSync(src,'utf8'));if(fix.replacements){fs.writeFileSync(dst,fix.text);claimCopyRepairs+=fix.replacements;n++;bytes+=Buffer.byteLength(fix.text);return;}}
   fs.copyFileSync(src, dst); n++; bytes += st.size;
 }
 for (const d of dirs) if (fs.existsSync(path.join(ROOT, d))) copy(path.join(ROOT, d), path.join(OUT, d));
 for (const f of files) if (fs.existsSync(path.join(ROOT, f))) copy(path.join(ROOT, f), path.join(OUT, f));
 for (const f of fs.readdirSync(ROOT)) if (/^sitemap(-[a-z0-9-]+)?\.xml$/.test(f)) copy(path.join(ROOT, f), path.join(OUT, f));
+// Lossless footprint pass on the deployment copy. Raw data and authored source are untouched.
+const registryFile=path.join(ROOT,'.cache/seo/pages.json');
+if(!fs.existsSync(registryFile))throw Error('Complete generated-page registry is required');
+const auditDir=path.join(ROOT,'.cache/size-audit');fs.mkdirSync(auditDir,{recursive:true});
+const registry=JSON.parse(fs.readFileSync(registryFile,'utf8')), beforeSlim=inventory(OUT);
+const syntax=slimPages(OUT,registry,{apply:true,manifestPath:path.join(auditDir,'page-syntax.jsonl.gz')});
+const packed=packRows(OUT,registry,{apply:true,manifestPath:path.join(auditDir,'profile-rows.jsonl.gz')});
+const afterSlim=inventory(OUT);n=afterSlim.files;bytes=afterSlim.bytes;
+fs.writeFileSync(path.join(auditDir,'summary.json'),JSON.stringify({schema:'release-230-footprint',before:beforeSlim,after:afterSlim,syntax,packed,bytes_saved:beforeSlim.bytes-afterSlim.bytes,claimCopyRepairs},null,2));
+console.log('Verified footprint reduction:',JSON.stringify({before:beforeSlim.bytes,after:afterSlim.bytes,saved:beforeSlim.bytes-afterSlim.bytes,claimCopyRepairs}));
 console.log(`public folder ${path.relative(ROOT, OUT)}: ${n} files, ${(bytes / 1e6).toFixed(1)} MB`);
 if (!fs.existsSync(path.join(OUT, 'sitemap.xml'))) { console.error('Missing required sitemap.xml in the published artifact'); process.exit(1); }
 // 2.13: check the published folder itself: every sitemap child exists and every listed address has its page
@@ -40,9 +54,8 @@ if (!fs.existsSync(path.join(OUT, 'sitemap.xml'))) { console.error('Missing requ
   // 2.15.24 SEO gate (owner rules 14 Nov 2026): no duplicate, noindex or non-canonical address; robots.txt names the sitemap
   const seen = new Set(), dup = [], noidx = [], canon = [];
   for (const u of urls) { if (seen.has(u)) { dup.push(u); continue; } seen.add(u);
-    const fp = path.join(OUT, u, u === '' || u.endsWith('/') ? 'index.html' : ''); let h = ''; try { const fd = fs.openSync(fp, 'r'), b = Buffer.alloc(6000); h = b.toString('utf8', 0, fs.readSync(fd, b, 0, 6000, 0)); fs.closeSync(fd); } catch (e) {}
-    if (/<meta[^>]+name=["']?robots["']?[^>]+noindex/i.test(h)) noidx.push(u);
-    const c = /<link[^>]+rel=["']?canonical["']?[^>]+href=["']([^"']+)["']/i.exec(h); if (c && c[1] !== 'https://nestlyzer.com/' + u) canon.push(u); }
+    const fp = path.join(OUT, u, u === '' || u.endsWith('/') ? 'index.html' : ''); let h = ''; try { const fd = fs.openSync(fp, 'r'), b = Buffer.alloc(65536); h = b.toString('utf8', 0, fs.readSync(fd, b, 0, 65536, 0)); fs.closeSync(fd); } catch (e) {}
+    const head=OutputContract.headContract(h,'https://nestlyzer.com/'+u);if(head.noindex)noidx.push(u);if(!head.canonical_ok)canon.push(u); }
   const robots = fs.existsSync(path.join(OUT, 'robots.txt')) ? fs.readFileSync(path.join(OUT, 'robots.txt'), 'utf8') : '';
   const robotsOk = /^Sitemap:\s*https:\/\/nestlyzer\.com\/sitemap\.xml\s*$/mi.test(robots);
   console.log(`sitemap SEO gate: ${dup.length} duplicates, ${noidx.length} noindex, ${canon.length} non-canonical, robots.txt ${robotsOk ? 'names the sitemap' : 'MISSING the sitemap line'}`);
@@ -57,6 +70,10 @@ if (!fs.existsSync(path.join(OUT, 'sitemap.xml'))) { console.error('Missing requ
       const u = 'https://nestlyzer.com' + to.url;
       fs.writeFileSync(f, '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>' + e(r[2]) + ' is now part of ' + e(r[5]) + ' | Nestlyzer</title><meta name="robots" content="noindex"><link rel="canonical" href="' + e(u) + '"><meta http-equiv="refresh" content="0;url=' + e(to.url) + '"></head><body><p>' + e(r[2]) + ' merged into <a href="' + e(to.url) + '">' + e(r[5]) + '</a>.</p></body></html>'); fwd++; }
     console.log('forwarding pages for merged municipalities:', fwd); } }
+// Count the final artifact, including forwarders added after the initial copy.
+const finalTree=OutputContract.sizeTree(OUT);n=finalTree.files;bytes=finalTree.bytes;
+console.log('Final publication receipt:',JSON.stringify(finalTree));
+if(finalTree.headroom<50000000)console.warn('Publication headroom below 50 MB; keep new raw archives outside this artifact.');
 // GitHub rules are hard requirements (owner, 9 Nov 2026): the published site stays far below the 1 GB Pages limit, with
 // room for data growth and fast deploys within the 10-minute window. Stop the build instead of publishing anything larger.
 if (bytes > 850e6) { console.error('Stopped: ' + (bytes / 1e6).toFixed(0) + ' MB is above the 850 MB safety budget for GitHub Pages (hard limit 1 GB).'); process.exit(1); }

@@ -10,7 +10,7 @@ from urllib.parse import urlsplit
 import xml.etree.ElementTree as ET
 
 NS={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
-HREF=re.compile(r'\bhref\s*=\s*[\"\']([^\"\']+)[\"\']',re.I)
+# Anchor extraction below uses the HTML parser, including valid unquoted attributes.
 H1=re.compile(r'<h1(?:\s[^>]*)?>',re.I)
 TITLE=re.compile(r'<title[^>]*>(.*?)</title>',re.I|re.S)
 class Head(HTMLParser):
@@ -26,6 +26,23 @@ class Head(HTMLParser):
             n=a.get('name','').lower()
             if n in ('robots','googlebot'):self.robots.append(a.get('content','').lower())
             if n=='description':self.description.append(a.get('content',''))
+
+class Links(HTMLParser):
+    """Actual static anchor/area links, not strings inside scripts or comments."""
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.links=[]
+        self.template_depth=0
+    def handle_starttag(self,tag,attrs):
+        if tag=='template':self.template_depth+=1
+        if tag not in ('a','area') or self.template_depth:return
+        value=dict(attrs).get('href')
+        if isinstance(value,str):self.links.append(value)
+    def handle_endtag(self,tag):
+        if tag=='template' and self.template_depth:self.template_depth-=1
+
+def static_links(document: str) -> list[str]:
+    parser=Links();parser.feed(document);parser.close();return parser.links
 
 def safe_path(url: str, origin: str) -> str:
     if not url.startswith(origin+'/'):raise ValueError('Foreign or relative sitemap URL: '+url)
@@ -80,7 +97,7 @@ def validate(root: Path, origin: str, *, allow_missing_native: bool=False, max_b
         else:titles[title]=p
         if len(H1.findall(h))!=1:error('H1 count not one '+p)
         edges=set()
-        for v in HREF.findall(h):
+        for v in static_links(h):
             v=html.unescape(v)
             if v.startswith(origin+'/'):v=v[len(origin):]
             if not v.startswith('/') or v.startswith('//'):continue
@@ -111,9 +128,14 @@ def validate(root: Path, origin: str, *, allow_missing_native: bool=False, max_b
     if unreachable:error(str(len(unreachable))+' sitemap pages not reachable through static HTML links: '+str(unreachable[:8]))
     coverage=None
     if registry:
-        r=json.loads(registry.read_text());locs=r['byId'];missing_records=[k for k,v in locs.items() if v['url'] not in ids]
+        r=json.loads(registry.read_text());locs=r['byId'];missing_records=[k for k,v in locs.items() if v.get('legacy') and v['url'] not in ids]   # 2.15.30 SEO brief R7: full place pages must be indexed; compact record pages are noindex,follow by design
+        thin_noindex=[k for k,v in locs.items() if not v.get('legacy') and not (root/v['url'].strip('/')/'index.html').exists()]
+        if thin_noindex:error('Compact record pages missing on disk: '+str(thin_noindex[:8]))
         if missing_records:error('Active place records absent from indexable sitemap: '+str(missing_records[:8]))
-        coverage={'active_records':len(locs),'with_indexable_page':len(locs)-len(missing_records),'legacy_preserved':sum(bool(v['legacy']) for v in locs.values())}
+        unlisted=[k for k,v in locs.items() if v['url'] not in ids and (root/v['url'].strip('/')/'index.html').exists() and not re.search(r'<meta[^>]+name=["\']?robots["\']?[^>]+noindex',(root/v['url'].strip('/')/'index.html').read_text(encoding='utf-8',errors='replace')[:4000],re.I)]   # 2.15.30-r4: an indexable place page must be in the sitemap
+        if unlisted:error(str(len(unlisted))+' indexable place pages absent from the sitemap: '+str(unlisted[:8]))
+        listed=sum(1 for v in locs.values() if v['url'] in ids)
+        coverage={'active_records':len(locs),'full_pages_indexed':listed,'compact_pages_noindex':len(locs)-listed,'legacy_preserved':sum(bool(v['legacy']) for v in locs.values())}
     robots=(root/'robots.txt').read_text() if (root/'robots.txt').exists() else ''
     if 'Sitemap: '+origin+'/sitemap.xml' not in robots:error('robots.txt missing sitemap declaration')
     if re.search(r'^\s*Disallow:\s*/\s*$',robots,re.M):error('Root blocked in robots.txt')

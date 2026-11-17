@@ -1,9 +1,9 @@
 {
-  "sha256": "54b2168ceabd6ac62b5f3a11b18a93a502b288a811bb3354f8fc67c48bb42216",
+  "sha256": "ceb52eb22d83ef022f3bc8afbb98d62b8ccd5ec8da12a805e66807cd23c274b3",
   "files": {
     "build/build_clusters.py": "c964896cfe92ac135a2ff2aa18189d44e3cb43b769b2af9002360ef3ef46cbda",
-    "build/build_evidence_lab.js": "d6dfda3d826f1456f83f98dc50abbcfd40f72c78c80d414fef7691a3ab6302c1",
-    "build/evidence_lab_core.cjs": "a493bb119ce5f4a68b23550383e827d997cf3c94d58d1674689b3e196b647dd7",
+    "build/build_evidence_lab.js": "383630f8f498bd5f04ad76a67a5c1fa146822fcc4775002371e16bd5fc2c78e8",
+    "build/evidence_lab_core.cjs": "9c4ba88f1e26967ab31fb894d21edee89847756ac35e4136401a99731daa29f0",
     "build/evidence_lab_references.json": "5345ad20188341ba45af0eec9484c058c9c47e4fc53349b6a8dff32f43e30506",
     "build/evidence_lab_validation.cjs": "ff303c4149aa7e6f1fe85bca51777c8475864233bbca4e85eac6da38679423c2",
     "build/fix_provenance.py": "4eed986fd9f910e22dbd92a4631f0cb43b556220a87d5980db9c8dcbcdf53872",
@@ -139,7 +139,7 @@
     "data/x/US.json": "355fd5c8a3e8001e2899d4a7818fc6d12ef51de04f380a8a95afca10c4b627c8",
     "data/x/VN.json": "598269ec7fb00cb20a226e9e9867039913cdc4384dcc9df9bd7a2513711c38d7",
     "data/x/ZA.json": "1093f121b519e6a66d0cdbf589427aa053c7f09e7d5f6ff82b2eb6a11faa8b72",
-    "src/data.js": "817b14bc0251ae1b2b6938a1041ffaf0ad1a9a9e074464615ad4a761cf656791",
-    "src/engine.js": "c2d659cd17cdc918d107b0e48b6b4105f5aba13b65e23b7c0c06f9a362b27714"
+    "src/data.js": "a61a335b0f901ae9d12594d8820a911769ef08a3060128286758dca6a117b264",
+    "src/engine.js": "84b00a95817c2c0218d1113a556a0b23c62f6ba957fdb6721cbc96c903e8ff08"
   }
 }

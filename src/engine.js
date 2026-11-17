@@ -55,13 +55,14 @@
     foundation: '', demographics: '' };
   function Engine(meta, opts) {
     opts = opts || {};
+    this._cacheIdentity = ++ENGINE_CACHE_SEQUENCE;
     this.method = opts.method || 'v2';
     this.evidence = opts.evidence || (meta.config.evidenceScoring && meta.config.evidenceScoring.mode) || 'legacy';   // 'weighted' = true weighted share (NZ-GLOBAL-049), prepared; switch only after the owner approves (docs/rank_change_*.json)
     this.meta = meta;
     this.cfg = meta.config;
     // 2.15.22: observed reality is a scored category (not only a check): where people actually move, or where business
     // activity already is. Countries under comprehensive sanctions are never ranked against other countries.
-    if (meta.categoryLabels && !meta.categoryLabels.observed) meta.categoryLabels.observed = 'Observed reality (where people and firms actually go)';
+    if (meta.categoryLabels && !meta.categoryLabels.observed) meta.categoryLabels.observed = 'Population and economic context';
     this.sanctioned = (meta.config && meta.config.sanctioned) || { RU: 'EU, Swiss, UK and US sanctions against Russia' };
     this.profiles = JSON.parse(JSON.stringify(this.cfg.profiles));
     if (this.method === 'v1') delete this.profiles.coastal;
@@ -95,11 +96,12 @@
     return fin(v) ? v : null;
   };
 
-  function sumObj(o) { if (!o || typeof o !== 'object') return '-'; var n = 0, t = 0, v; for (var q in o) { n++; v = o[q]; if (typeof v === 'number' && v === v) t += v; else if (typeof v === 'string') t += v.length; } return n + ':' + t; }
-  function catSig(r) { return sumObj(r.factorScores) + '|' + sumObj(r.factorRaw) + '|' + sumObj(r.factorLevel) + '|' + sumObj(r.x) + '|' + sumObj(r.evidence); }
+  var ENGINE_CACHE_SEQUENCE = 0;
+  // Content identity, including estimator provenance. A numeric sum is not a safe cache key.
+  function catSig(r) { return JSON.stringify([r.factorScores,r.factorRaw,r.factorLevel,r.factorEst,r.x,r.evidence,r.trend]); }
   Engine.prototype.categories = function (r) {
     // 2.15.11 (deep audit MODEL-01): the cache is tied to the evidence it was built from, not only to the method.
-    var cacheModel = this.method + ':' + this.evidence + ':' + (this.cfg.semanticIntegrity ? 'semantic1' : 'original');
+    var cacheModel = this._cacheIdentity + ':' + this.method + ':' + this.evidence + ':' + (this.cfg.semanticIntegrity ? 'semantic1' : 'original');
     // 2.15.23: the cache key compares the evidence objects by identity (they are replaced, never mutated, when data arrives)
     // instead of serialising the whole record on every call, which made a large country take seconds to rank
     // plus a cheap content check (key count and value sum of each object), so values changed in place still refresh the cache
@@ -339,7 +341,7 @@
   };
 
   /* Legacy profileScoreRaw (s03 V48), with `country` = the active scope country (legacy read it from state). */
-  Engine.prototype.scoreRaw = function (r, key, minCoverage, country) {
+  Engine.prototype.scoreRaw = function (r, key, minCoverage, country, collectReceipt) {
     if (minCoverage == null) minCoverage = 55;
     country = country || r.country;
     var p = this.profiles[key];
@@ -351,22 +353,39 @@
     for (c in w) { if (flat[c]) continue; total += w[c]; if (fin(cats[c])) { have += w[c]; if (!px[c]) meas += w[c]; wc = px[c] && this.method !== 'v1' ? w[c] * 0.5 : w[c]; num += cats[c] * wc; den += wc; } }
     if (!den) return null;
     var score = num / den;
+    var receipt = collectReceipt ? {schema:'nz-score-receipt-1',profile:key,place_id:r.id,country:r.country,
+      method:this.method,evidenceMode:this.evidence,weightedAverage:score,declaredWeight:total,effectiveKnownWeight:den,
+      inputs:[],adjustments:[],validation:'not-independently-validated'} : null;
+    if (receipt) { for (c in w) { if (!fin(w[c]) || w[c]<=0) continue;
+      var included=!flat[c]&&fin(cats[c]),ew=included?(px[c]&&this.method!=='v1'?w[c]*.5:w[c]):0;
+      receipt.inputs.push({category:c,declaredWeight:w[c],effectiveWeight:ew,value:included?cats[c]:null,
+        points:included?cats[c]*ew/den:0,status:included?'model-input':'missing',proxy:!!px[c],
+        provenance:this.categoryProvenance(r,c,key),scopeExcluded:!!flat[c]});
+    } }
+    var previousStage = score;
+    function stage(name) { if(receipt)receipt.adjustments.push({stage:name,before:previousStage,after:score,points:score-previousStage}); previousStage=score; }
+
     total = total || den;
     var coverage = Math.round((den / total) * 100);
     /* 2.15.23 honest certainty: a score that rests on a small part of the profile's weight is pulled toward the neutral 50,
        in proportion to what is missing (full effect from 70% of the weight measured). Without this, a budget ranking with no
        housing-cost data could show 90s from transport alone. Ordering among equally covered places is unchanged. */
     if (this.method !== 'v1' && key !== LOTTERY && key !== 'self_fit') { var cf = Math.max(0.35, Math.min(1, (den / total) / 0.7)); score = 50 + (score - 50) * cf; }
+    stage('missing_weight_neutral_shrink');
     var strictCov = coverage;   // 2.13.2: the same measure in every country, before the country-specific adjustments below
     if (key === LOTTERY) score = this.softLotteryPenalty(score, cats, r);
     else { var m = p.min || {}; for (c in m) if (fin(cats[c]) && cats[c] < m[c]) score = Math.min(score, 55 + cats[c] * 0.45); }
+    stage('lottery_or_minimum_cap');
     /* a weak core need is not made up for by strengths elsewhere (2.11.3): every category that carries 15% or more of the
        weight costs 1.5 x its share for each point under 50 (measured values only; legacy method unchanged) */
     if (this.method !== 'v1' && key !== LOTTERY && r.country === 'CH') { var st0 = p.strict || {}; for (c in st0) if (c !== 'foundation' && c !== 'coast' && fin(cats[c]) && cats[c] < st0[c]) score -= (st0[c] - cats[c]) * 0.5; }
+    stage('swiss_strict_penalty');
     // 2.15.16 budget reality: a fixed income cannot pay for the most expensive housing markets, however good the doctors
     // and safety are; profiles with softFloors (budget, and the defining climate of a sun retiree) lose points below them in every country (not only the Swiss floors above)
     if (this.method !== 'v1' && p.softFloors) { var sf = p.softFloors; for (c in sf) { var f0 = Array.isArray(sf[c]) ? sf[c][0] : sf[c], k0 = Array.isArray(sf[c]) ? sf[c][1] : 0.5; if (fin(cats[c]) && cats[c] < f0) score -= (f0 - cats[c]) * k0; } }
+    stage('profile_soft_floors');
     if (this.method !== 'v1' && key !== LOTTERY) { var tw0 = 0, pen = 0; for (c in w) tw0 += w[c]; for (c in w) if (w[c] / tw0 >= 0.15 && fin(cats[c]) && cats[c] < 50 && !px[c]) pen += w[c] / tw0 * (50 - cats[c]) * 1.5; score = Math.max(0, score - pen); }
+    stage('weak_core_penalty');
     if (r.country !== 'CH') {
       var sourceCount = Number(r.availableFactorCount || Object.keys(r.factorScores || {}).length || 0);
       if (this.method !== 'v1') sourceCount = Number(r.availableFactorCount || 0) + (r.geoFactorCount || 0);
@@ -374,6 +393,7 @@
       if (this.evidence !== 'weighted') coverage = Math.max(coverage, Math.min(78, Math.round(sourceCount * 9 + accessBonus)));
       score = score * (0.8 + 0.2 * (coverage / 100));
     }
+    stage('country_coverage_multiplier');
     /* 2.13.2 (owner decision 2 Nov 2026): one evidence rule for every country. Method v2 ranks a place when it reaches the
        common floor (8; 6 for the lottery profile) and marks it `thin` when less than half of the profile's weight rests on
        measured data or less than 55% is covered once estimates count half. Thin places stay ranked, after the others.
@@ -385,7 +405,11 @@
        `measured`: the part of it backed by measured data rather than an estimate (NZ-GLOBAL-049). */
     var tw = 0; for (c in w) tw += w[c];
     var measured = tw ? Math.round(meas / tw * 100) : 0;
-    return { score: score, coverage: coverage, weighted: tw ? Math.round(have / tw * 100) : 0, measured: measured, cats: cats, thin: this.method !== 'v1' && (measured < 50 || strictCov < 55) };
+    if(receipt) { receipt.score=score;receipt.modelCoverage=coverage;
+      receipt.legacyMeasured=measured;receipt.coverageMeaning='Legacy model weight indicator, not a measured-data percentage';
+      receipt.reconciled=Math.abs(receipt.inputs.reduce(function(a,d){return a+d.points;},0)+receipt.adjustments.reduce(function(a,d){return a+d.points;},0)-score)<1e-8;
+    }
+    return { receipt:receipt, score: score, coverage: coverage, weighted: tw ? Math.round(have / tw * 100) : 0, measured: measured, cats: cats, thin: this.method !== 'v1' && (measured < 50 || strictCov < 55) };
   };
 
 
@@ -430,16 +454,32 @@
       evidenceStatus:unresolved>0?'incomplete':'complete-inputs-not-empirical-validation'};
   };
   Engine.prototype.scoreLegacyRaw = Engine.prototype.scoreRaw;
-  Engine.prototype.scoreRaw = function (r,key,minCoverage,country) {
-    return this.method !== 'v1' && this.evidence === 'fixed' ? this.scoreEvidence(r,key,minCoverage,country) : this.scoreLegacyRaw(r,key,minCoverage,country);
+  Engine.prototype.scoreRaw = function (r,key,minCoverage,country,collectReceipt) {
+    return this.method !== 'v1' && this.evidence === 'fixed' ? this.scoreEvidence(r,key,minCoverage,country) : this.scoreLegacyRaw(r,key,minCoverage,country,collectReceipt);
   };
   Engine.prototype.explainEvidence = function (r,key) {
-    var x=this.scoreRaw(r,key,0,r.country);if(!x)return null;
+    var x=this.scoreRaw(r,key,0,r.country,true);if(!x)return null;
     return {profile:key,model:x.model||this.method,data:this.meta.v,country:r.country,
       comparison:'within-country:'+r.country,score:x.score,upper:x.upper==null?x.score:x.upper,
-      coverage:x.coverage,measured:x.measured,contributions:x.contributions||[],
+      coverage:x.coverage,measured:x.measured,receipt:x.receipt||null,contributions:x.contributions||[],
       readiness:this.profiles[key].must?this.mustStatus(r,this.profiles[key]):[],
       validation:(this.cfg.profileEvidence||{})[key]||{status:'not-empirically-validated'}};
+  };
+  Engine.prototype.categoryProvenance = function(r,category,key) {
+    var ids=this.factorIdsByCat[category]||[], fs=r.factorScores||{},fe=r.factorEst||{},fr=r.factorRaw||{},fl=r.factorLevel||{},self=this;
+    var rows=ids.filter(function(id){return fin(fs[id]);}).map(function(id){
+      var f=self.factorById[id]||{},specific=f.by_country&&f.by_country[r.country],m=f.by_country&&Object.keys(f.by_country).length?(specific||{}):f;
+      var estimated=!!fe[id]||id==='n_cost_est_income'||id==='n_ch_price_pressure'||/estimate|modelled|modeled|imput/i.test([f.name,f.description,f.methodology_note,m.methodology_note].join(' '));
+      return {factor:id,value:fin(fr[id])?fr[id]:null,normalisedValue:fs[id],estimated:estimated,
+        support:fl[id]===0?'local':[1,2,3].indexOf(fl[id])>=0?'regional':fl[id]===9?'national':'unresolved',
+        source:m.source_url||m.url||null,period:m.period||m.source_period||null,unit:f.unit||null};
+    });
+    var modelCategories={observed:1,quiet:1,services:1,climate:1,climaterisk:1,outdoor:1,focus:1,freight:1,city:1,environment:1,cluster:1};
+    var notes={quiet:'Distance-based nuisance screen, not measured noise exposure.',services:'Population and catchment proxy, not verified service capacity.',climate:'Climate-class and daylight model, not a measured municipal climate panel.',environment:'Composite environment model, including settlement and land shares; not measured access to green space.',cluster:'Derived cluster screen. Inspect the sector, statistical unit, area and year before using it as site evidence.',observed:'Contextual population or economic input; not independently validated preference or business success.'};
+    var note=notes[category]||'Category scores are model transformations. Geographic support and measurement status are separate.';
+    if(category==='quiet'){var q=this.nuisances(r,(this.profiles[key]||{}).avoid||[]);if(q)note+=' '+q.known+' of '+q.requested+' selected distance/risk checks known. Missing-check penalties are heuristic, not decibel estimates.';}
+    return {kind:modelCategories[category]?'derived-model':rows.some(function(x){return x.estimated;})?'contains-estimates':r._proxy&&r._proxy[category]?'proxy':rows.length?'sourced-inputs-not-independently-verified':'derived-or-unresolved',inputs:rows,
+      note:note};
   };
   Engine.prototype.shortCat = function (k) {
     var L = this.meta.categoryLabels[k] || k;

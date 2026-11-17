@@ -40,6 +40,7 @@ WDI = {  # file -> (id, label, unit, direction)
     'ic.lgl.cred.xq': ('legal_rights', 'Strength of legal rights for borrowers and lenders', '0-12', 1),
     'ic.tax.totl.cp.zs': ('total_tax_rate', 'Total tax and contribution rate on commercial profits', '% of profit', -1),
     'fr.inr.lend': ('lending_rate', 'Bank lending interest rate', '%', -1),
+    'fp.cpi.totl.zg': ('inflation', 'Inflation (consumer prices)', '% a year', -1),
     'fr.inr.rinr': ('real_interest', 'Real interest rate', '%', -1),
     # 2.15.30 proxies for future tax and economic conditions and for infrastructure quality (owner, 16 Nov 2026)
     'gc.dod.totl.gd.zs': ('gov_debt', 'Central government debt', '% of GDP', -1),
@@ -82,7 +83,8 @@ except Exception: CIT = {}
 # category -> [(measure, weight)]; how much of a place's global category score is national (alpha) is set in build_global_rank.js
 CATS = {
     'jobs': [('gni_pc_ppp', 2), ('unemployment', 1), ('female_lfp', 0.5)],
-    'affordability': [('price_level', 1)],
+    # 2.15.30 owner review: owners and buyers carry rates and inflation (mortgage cost, real value of savings)
+    'affordability': [('price_level', 1), ('inflation', 0.5), ('lending_rate', 0.5)],
     'safety': [('homicide', 2), ('road_deaths', 1), ('corruption_perception', 1)],
     'health': [('life_expectancy', 2), ('infant_mortality', 1), ('hospital_beds', 0.5)],
     'environment': [('pm25', 2), ('renewable_power', 0.5), ('climate_readiness', 0.5), ('water_stress', 0.5)],

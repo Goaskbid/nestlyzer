@@ -69,7 +69,7 @@ function leaveExplore() { S.view = 'landing'; document.body.classList.remove('ex
 function onClick(ev) {
   var t = ev.target, b;
   if (t.closest('[data-mt]')) document.body.classList.remove('chrome-hide');   // 2.15.6: switching tabs always brings the header back
-  if ((b = t.closest('[data-rhmore]'))) { b.closest('.results-head').classList.toggle('open'); return; }
+  if ((b = t.closest('[data-rhmore]'))) { var opened=b.closest('.results-head').classList.toggle('open'); b.setAttribute('aria-expanded',String(opened)); return; }
   if (t.closest('.menu-panel a')) { var md = t.closest('details'); if (md) md.open = false; }
   var openMenus = $$('details.menu[open]').filter(function (d) { return !d.contains(t); });
   if (openMenus.length) { openMenus.forEach(function (d) { d.open = false; }); ev.preventDefault(); return; }

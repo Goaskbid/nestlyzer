@@ -31,13 +31,37 @@ function cantonSentence(r) {
   if (r.canton === 'VS') return 'In Valais, valley position, mountain access, heat exposure and distance to larger service centres matter.';
   return 'In canton ' + r.cantonName + ', compare the municipality with nearby centres and check the exact transport corridor, local services and landscape setting.';
 }
+/* 2.15.30 owner review: place and area text written from the place's own figures, about twice as long, with several
+   phrasings per sentence picked by the place ID, so neighbouring places never read alike. Curated notes still lead. */
+function pickV(r, salt, arr) { var h = 0, k = String(r.id) + salt; for (var i = 0; i < k.length; i++) h = (h * 31 + k.charCodeAt(i)) | 0; return arr[Math.abs(h) % arr.length]; }
+function popChange(r) {
+  var t = r.trend && r.trend.annual_population; if (!t || t.length < 2) return null;
+  var a = t[0], b = t[t.length - 1]; if (!a.population || !b.population || b.year - a.year < 3) return null;
+  return { from: a.year, to: b.year, pct: (b.population / a.population - 1) * 100, n: b.population };
+}
 function storyParagraphs(r) {
-  var f = placeFacts(r), near = nearbyNames(r, 3), lang = languageLabel(r);
-  return [
-    (f.setting || (r.name + ' sits in ' + localAreaOf(r) + ', with daily life shaped by its local scale, access routes and surrounding settlement pattern.')) + ' The everyday language setting is ' + lang + ', which matters for schools, administration and local networks.',
-    ((f.background || (r.name + ' should be read through its wider ' + areaKind(r.country).toLowerCase() + ' context. Administration, schools, taxes, housing pressure and public services change quickly across borders and neighbouring ' + unitWord(r.country, 2) + '.')) + ' ' + (f.proximity || ('For orientation, compare it with ' + (near.join(', ') || 'nearby ' + unitWord(r.country, 2)) + ' before treating the ranking as a final answer.'))).trim(),
-    f.watch || 'The final decision depends on micro-location: noise, slope, school route, rail access, walking distance to shops and the exact housing stock.'
-  ];
+  var f = placeFacts(r), near = nearbyNames(r, 3), lang = languageLabel(r), area = localAreaOf(r), size = sizeLabel(r);
+  var t = typeof terrainOf === 'function' ? terrainOf(r) : null, w = typeof waterSnack === 'function' ? waterSnack(r) : null, cl = typeof climateOf === 'function' ? climateOf(r) : null, x = r.x || {};
+  var pc = popChange(r), n = fmtInt(r.popNow);
+  var land = t && t.cls !== 'flat' ? t.name.toLowerCase() : 'fairly level', water = !w ? '' : w.k === 'River' ? 'the river ' + w.v : w.k === 'Lake' ? (/shore/i.test(w.v) ? w.s + ' right at the shore' : w.s + ', ' + w.v + ' away') : (/coast/i.test(w.v) ? 'the sea on the doorstep' : 'the sea about ' + w.v + ' away');
+  var lg = /speaking/i.test(lang) ? lang : lang + '-speaking';
+  var p1 = f.setting && !/is best checked through/.test(f.setting) ? f.setting : pickV(r, 'a', [
+    r.name + ' is a ' + size + ' of about ' + n + ' people in ' + area + '. The ground is ' + land + (water ? ', with ' + water + ' close by' : '') + '.',
+    'With around ' + n + ' residents, ' + r.name + ' counts as a ' + size + ' in ' + area + '. ' + (water ? 'Water is part of the picture here: ' + water + '. ' : '') + 'The surrounding land is ' + land + '.',
+    'Home to roughly ' + n + ' people, ' + r.name + ' lies in ' + area + ' on ' + land + ' ground' + (water ? ', near ' + water : '') + '.']);
+  var p2 = (pc ? pickV(r, 'b', [
+    'The population ' + (pc.pct >= 1 ? 'grew by ' + fmt(pc.pct, 1) + '%' : pc.pct <= -1 ? 'fell by ' + fmt(-pc.pct, 1) + '%' : 'held steady') + ' between ' + pc.from + ' and ' + pc.to + '.',
+    'Between ' + pc.from + ' and ' + pc.to + ' the number of residents ' + (pc.pct >= 1 ? 'rose ' + fmt(pc.pct, 1) + '%' : pc.pct <= -1 ? 'dropped ' + fmt(-pc.pct, 1) + '%' : 'barely moved') + '.',
+    (pc.pct >= 1 ? 'People have been moving in: ' : pc.pct <= -1 ? 'The town has been shrinking: ' : 'Numbers are stable: ') + fmt(pc.pct, 1) + '% from ' + pc.from + ' to ' + pc.to + '.']) + ' ' : '') +
+    pickV(r, 'c', ['It is a ' + lg + ' area, which shapes schooling, paperwork and how quickly newcomers settle in.', 'Schools, the town hall and the local clubs work in a ' + lg + ' setting.', 'Expect a ' + lg + ' everyday life, from the bakery to the school gate and the council office.']) +
+    (f.background ? ' ' + f.background : '');
+  var p3 = (fin(x.rail_km) ? pickV(r, 'd', [
+    (x.rail_km < 2 ? 'A railway line passes within ' + pfmt('rail', x.rail_km) + ', so trains are a realistic daily option.' : 'The nearest railway line is ' + pfmt('rail', x.rail_km) + ' away, so most trips start by car or bus.'),
+    (x.rail_km < 2 ? 'Rail is close at hand (' + pfmt('rail', x.rail_km) + ').' : 'Rail is ' + pfmt('rail', x.rail_km) + ' off, which makes a car more important.')]) + ' ' : '') +
+    (near.length ? pickV(r, 'e', ['Neighbouring places worth comparing are ' + near.join(', ') + '.', 'If ' + r.name + ' is close but not quite right, look at ' + near.join(', ') + '.', 'Nearby alternatives: ' + near.join(', ') + '.']) : '') +
+    (cl ? ' ' + (function (b) { return pickV(r, 'f', ['The climate is ' + b + '.', 'Weather-wise it is ' + b + '.', 'The climate here is classed as ' + b + '.']); })(cl.name.replace(/\s*\(.*\)/, '').replace(/ climate$/i, '').toLowerCase()) : '');
+  var p4 = f.watch || 'Before deciding, walk the streets you would actually live on: noise, slope, the school route, train frequency and the housing on offer.';
+  return [p1, p2, p3, p4].map(function (s) { return String(s || '').replace(/\s+/g, ' ').trim(); }).filter(Boolean);
 }
 function regionParagraphs(r) {
   var a;
@@ -46,7 +70,24 @@ function regionParagraphs(r) {
       'Canton ' + r.cantonName + ' sets the tax frame, school system and many public services.', 'Municipal tax multipliers and housing pressure can differ sharply between neighbours.',
       'Transport corridors decide daily access more than straight-line distance.', 'Compare within the canton before comparing across Switzerland.',
       'Language and school tracks matter for families.', 'Check local services, childcare and doctors before committing.'];
-  } else a = [localAreaOf(r) + ' is the local comparison frame for ' + r.name + '. Use it before comparing across the whole country.', 'The relevant trade-offs usually come from transport corridors, service depth, housing pressure and proximity to a real regional centre.', 'For cross-border or language-sensitive moves, check the neighbouring country and the local administrative language before treating distance as simple access.'];
+  } else {
+    // 2.15.30 owner review: the area text comes from the area's own places (count, people, largest towns, how this place
+    // compares), in varied wording, instead of one generic paragraph for every region
+    var ar = localAreaOf(r), peers = SHARD.records.filter(function (y) { return y.n3 && y.n3 === r.n3; });
+    if (peers.length > 2) {
+      var pop = peers.reduce(function (s, y) { return s + (y.popNow || 0); }, 0), big = peers.slice().sort(function (p, q) { return (q.popNow || 0) - (p.popNow || 0); });
+      var rk = big.findIndex(function (y) { return y.id === r.id; }) + 1, top3 = big.slice(0, 3).filter(function (y) { return y.id !== r.id; }).map(function (y) { return y.name; });
+      var share = pop ? (r.popNow || 0) / pop * 100 : 0;
+      return [
+        pickV(r, 'r1', [ar + ' has ' + fmtInt(peers.length) + ' municipalities and about ' + fmtInt(pop) + ' residents in all.', 'Around ' + fmtInt(pop) + ' people live across the ' + fmtInt(peers.length) + ' municipalities of ' + ar + '.', ar + ' brings together ' + fmtInt(peers.length) + ' municipalities with roughly ' + fmtInt(pop) + ' inhabitants.']) + ' ' +
+        (top3.length ? pickV(r, 'r2', ['The largest are ' + top3.join(', ') + '.', 'Its biggest towns are ' + top3.join(', ') + '.', top3.join(', ') + ' are the main centres.']) : ''),
+        pickV(r, 'r3', [r.name + ' is number ' + rk + ' by size here and holds ' + fmt(share, 1) + '% of the area\'s people.', 'By population ' + r.name + ' ranks ' + rk + ' of ' + peers.length + ' in the area (' + fmt(share, 1) + '% of residents).', 'Of the ' + peers.length + ' municipalities, ' + r.name + ' is the ' + (rk === 1 ? 'largest' : rk + (rk === 2 ? 'nd' : rk === 3 ? 'rd' : 'th') + ' largest') + ', with ' + fmt(share, 1) + '% of the population.']) + ' ' +
+        pickV(r, 'r4', ['Jobs, hospitals and secondary schools tend to cluster in the bigger towns, so the distance to them shapes daily life.', 'Larger services such as hospitals, upper schools and specialist shops sit mostly in the main centres.', 'How far you live from the main centres decides much of the commute, the school run and access to specialists.']),
+        pickV(r, 'r5', ['Neighbouring municipalities can differ sharply in rents, taxes and services, so compare a few side by side before you decide.', 'Rents, local taxes and services can change from one municipality to the next; the Similar and Compare tools help here.', 'It pays to compare two or three neighbours: prices and services rarely stop at the municipal border.'])
+      ];
+    }
+    a = [localAreaOf(r) + ' is the local comparison frame for ' + r.name + '. Use it before comparing across the whole country.', 'The relevant trade-offs usually come from transport corridors, service depth, housing pressure and proximity to a real regional centre.', 'For cross-border or language-sensitive moves, check the neighbouring country and the local administrative language before treating distance as simple access.'];
+  }
   return [(a[0] || '') + ' ' + (a[1] || ''), (a[2] || '') + ' ' + (a[3] || ''), (a[4] || '') + ' ' + (a[5] || '')].map(function (s) { return s.trim(); }).filter(Boolean);
 }
 function inputLabel(r) {
@@ -200,14 +241,7 @@ function renderPlace() {
     score: '<div data-scslot="' + esc(r.id) + '"><div class="skeleton"><i></i><i></i></div></div>',
     overview: storyHTML(r, x) + '<div data-glance="' + esc(r.id) + '"></div>' +
       '<section class="sec"><h3>Decision facts</h3><div class="why">' + catBars(x) + '<div><p style="margin:0 0 6px">' + (ranked ? '<b>#' + ranked.rank + '.</b> ' : '') + esc(cardCopy(x)) + '</p><div class="small muted">Profile: ' + esc(p.name) + '. ' + esc(p.intro || '') + '</div>' + (languageSensitive() ? '<div class="small" style="margin-top:4px">Language reality: ' + esc(languageText(r)) + '</div>' : '') + '</div></div>' + trendChipsInline(r) + '</section>' +
-      lotteryHTML(r) +
-      '<section class="sec"><h3>Local explainer</h3><p class="sub">' + (isWorld(r.country) ? 'Place' : 'Municipality') + ' and ' + esc(areaKind(r.country).toLowerCase()) + ' context. Text and images never affect the score.</p><div class="cards2">' +
-      '<article class="ctx"><div class="cv" data-story-photo="' + esc(r.id) + '"><span>' + (isWorld(r.country) ? 'Place' : 'Municipality') + '</span></div><div class="cb"><div class="wiki" data-wiki="' + esc(r.id) + '"></div>' + (placeCurated(r) ? storyParagraphs(r) : storyParagraphs(r).slice(1)).map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('') +
-      '<div class="pills"><span class="chip">' + fmtInt(r.popNow) + ' residents</span><span class="chip">' + esc(languageLabel(r)) + '</span><span class="chip">' + esc(sizeLabel(r)) + '</span>' + (r.country === 'CH' ? '<span class="chip">' + esc(settingLabel(r)) + '</span>' : '') + '</div>' +
-      (f.sights && f.sights.length ? '<p class="small" style="margin-top:8px"><b>Known for:</b> ' + esc(f.sights.join(', ')) + '</p>' : '') +
-      '<div class="sights" data-sights="' + esc(r.id) + '"></div>' +
-      (f.sources && f.sources.length ? '<p class="small">Curated local checks: ' + f.sources.map(function (s) { return '<a href="' + esc(s[1]) + '" target="_blank" rel="noopener">' + esc(s[0]) + '</a>'; }).join(', ') + '</p>' : '') + '</div></article>' +
-      '<article class="ctx"><div class="cv" data-region-photo="' + esc(r.id) + '"><span>' + esc(localKind(r.country)) + ': ' + esc(localAreaOf(r)) + '</span></div><div class="cb">' + regionParagraphs(r).map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('') + '<div class="pills"><span class="chip">' + esc(localAreaOf(r)) + '</span><span class="chip">' + esc(languageLabel(r)) + '</span><span class="chip">' + (r.country === 'CH' ? 'Swiss canton context' : isWorld(r.country) ? localKind(r.country) + ' context' : 'European local region') + '</span></div><div class="wiki" data-wiki-region="' + esc(r.id) + '"></div></div></article></div></section>',
+      lotteryHTML(r),
     photos: '<section class="sec"><h3>Photos in and around ' + esc(r.name) + '</h3><p class="sub">Taken within a few kilometres, from Wikimedia Commons. ' + TAP + ' a photo for the author and licence.</p><div class="pgrid" data-pgrid="' + esc(r.id) + '"><div class="skeleton"><i></i><i></i></div></div></section><div data-gallery="' + esc(r.id) + '"></div>',
     facts: factsTableHTML(r) + '<section class="sec"><h3>The wider region at a glance</h3><div data-regstat="' + esc(r.id) + '"><div class="skeleton"><i></i></div></div></section>' + accessHTML(r) + '<div data-radar="' + esc(r.id) + '"></div>' + trendsHTML(r) + companyHTML(r) + breakdownHTML(x),
     around: '<section class="sec"><h3>Everyday life within walking distance</h3><div data-amen="' + esc(r.id) + '"><div class="skeleton"><i></i></div></div></section>' +
@@ -216,7 +250,16 @@ function renderPlace() {
       '<section class="sec"><h3>Worth a look nearby</h3><p class="sub">Well-known places within about 12 km, from Wikidata, most famous first.</p><div class="nearby" data-nearby="' + esc(r.id) + '"><div class="skeleton"><i></i><i></i></div></div></section>' +
       '<section class="sec"><h3>Weather through the year</h3><div data-clim="' + esc(r.id) + '"><div class="skeleton"><i></i></div></div></section>' +
       neighboursHTML(r) + crossBorderHTML(r) + '<div data-contact="' + esc(r.id) + '"></div>',
-    story: '<div data-story="' + esc(r.id) + '"><div class="skeleton"><i></i></div></div>',
+    // 2.15.30 owner review: the Story tab opens with the place and area portraits (with their photos), then the history
+    story:
+      '<section class="sec"><h3>Local explainer</h3><p class="sub">' + (isWorld(r.country) ? 'Place' : 'Municipality') + ' and ' + esc(areaKind(r.country).toLowerCase()) + ' context. Text and images never affect the score.</p><div class="cards2">' +
+      '<article class="ctx"><div class="cv" data-story-photo="' + esc(r.id) + '"><span>' + (isWorld(r.country) ? 'Place' : 'Municipality') + '</span></div><div class="cb"><div class="wiki" data-wiki="' + esc(r.id) + '"></div>' + (placeCurated(r) ? storyParagraphs(r) : storyParagraphs(r).slice(1)).map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('') +
+      '<div class="pills"><span class="chip">' + fmtInt(r.popNow) + ' residents</span><span class="chip">' + esc(languageLabel(r)) + '</span><span class="chip">' + esc(sizeLabel(r)) + '</span>' + (r.country === 'CH' ? '<span class="chip">' + esc(settingLabel(r)) + '</span>' : '') + '</div>' +
+      (f.sights && f.sights.length ? '<p class="small" style="margin-top:8px"><b>Known for:</b> ' + esc(f.sights.join(', ')) + '</p>' : '') +
+      '<div class="sights" data-sights="' + esc(r.id) + '"></div>' +
+      (f.sources && f.sources.length ? '<p class="small">Curated local checks: ' + f.sources.map(function (s) { return '<a href="' + esc(s[1]) + '" target="_blank" rel="noopener">' + esc(s[0]) + '</a>'; }).join(', ') + '</p>' : '') + '</div></article>' +
+      '<article class="ctx"><div class="cv" data-region-photo="' + esc(r.id) + '"><span>' + esc(localKind(r.country)) + ': ' + esc(localAreaOf(r)) + '</span></div><div class="cb">' + regionParagraphs(r).map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('') + '<div class="pills"><span class="chip">' + esc(localAreaOf(r)) + '</span><span class="chip">' + esc(languageLabel(r)) + '</span><span class="chip">' + (r.country === 'CH' ? 'Swiss canton context' : isWorld(r.country) ? localKind(r.country) + ' context' : 'European local region') + '</span></div><div class="wiki" data-wiki-region="' + esc(r.id) + '"></div></div></article></div></section>' +
+      '<div data-story="' + esc(r.id) + '"><div class="skeleton"><i></i></div></div>',
     politics: '<div data-politics="' + esc(r.id) + '"><div class="skeleton"><i></i></div></div>',
     similar: lookalikesHTML(r) + comparablesHTML(x) + '<p class="small muted">To put places side by side, tick <b>Compare</b> on two or three of them. They stay on your shortlist.</p>',
     data: allDataHTML(r)
@@ -321,7 +364,7 @@ function catBars(x) {
   var keys = Object.keys(w).filter(function (k) { return !(k === 'coast' && !coastRelevant(x.r)); }).sort(function (a, b) { return w[b] - w[a]; });
   return '<p class="cb-legend small muted">Bar = score out of 100 · small number = how much this profile weighs it · tap a bar to see what is in it</p><div class="catbars" aria-label="Category scores for this profile">' + keys.map(function (k) {
     var v = c[k];
-    return '<div role="button" tabindex="0" aria-expanded="false" data-catopen="' + k + '" title="' + esc(catLabel(k)) + ', weight ' + w[k] + ': show the measures behind it"><b>' + (fin(v) ? Math.round(v) : '–') + '</b><span class="b">' + (fin(v) ? '<i style="height:' + Math.max(4, v) + '%;background:' + scoreColor(v) + '"></i>' : '') + '</span><span>' + esc(shortCat(k)) + '</span><span class="w">×' + w[k] + '</span></div>';
+    return '<div role="button" tabindex="0" aria-expanded="false" data-catopen="' + k + '" title="' + esc(catLabel(k)) + ', weight ' + w[k] + ': show the measures behind it"><b>' + (fin(v) ? Math.round(v) : '–') + '</b><span class="b">' + (fin(v) ? '<i style="height:' + Math.max(4, v) + '%;opacity:' + (0.45 + 0.55 * Math.max(0, Math.min(1, v / 100))).toFixed(2) + '"></i>' : '') + '</span><span>' + esc(shortCat(k)) + '</span><span class="w">×' + w[k] + '</span></div>';
   }).join('') + '</div><div class="catdetail" data-catdetail hidden></div>';
 }
 

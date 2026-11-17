@@ -31,11 +31,14 @@ function openCompare(ids) {
       var MC = { affordability: 1, tax: 1, realestate: 1, jobs: 1 }, out = '';
       (META.factors || []).forEach(function (f) {
         if (!MC[f.category] || /_score$|_balance$|_share$/.test(f.id)) return;
-        var vals = xs.map(function (x) { var v = (x.r.factorRaw || {})[f.id]; return fin(v) ? v : null; });
-        if (vals.filter(fin).length < (xs.length > 2 ? 2 : 1) || (mixed && f.unit && /EUR|USD|CHF|GBP|CAD|AUD|DKK|JPY/.test(f.unit) && new Set(xs.map(function (x) { return x.r.country; })).size > 1 && !/EUR/.test(f.unit))) return;
-        out += row(f.name, vals, function (v) { return fin(v) ? esc(fmt(v, Math.abs(v) < 100 ? 1 : 0) + ' ' + (f.unit || '')) : 'Not available'; }, f.direction === 'higher' ? 'max' : f.direction === 'lower' ? 'min' : null, f.category === 'tax' ? 'taxes' : f.category === 'jobs' ? 'jobs' : 'costs');
+        var ds=xs.map(function(x){return NZComparisonFacts.datum(f,x.r);}),vals=ds.map(function(d){return d.value;});
+        if (!vals.some(fin)) return;
+        out += row(f.name, vals, function (v,i) {
+          if(!fin(v))return 'Not available';var d=ds[i];
+          return esc(fmt(v, Math.abs(v)<100?1:0)+' '+d.unit)+'<small class="muted" style="display:block">'+esc((d.estimated?'Estimated; ':'')+d.support+'; '+(d.period||'Period unresolved'))+'</small><small style="display:block">'+(d.url?'<a target="_blank" rel="noopener noreferrer" href="'+esc(d.url)+'">'+esc(d.publisher||'Source')+'</a>':'Source unresolved')+(f.category==='tax'?'; case-specific context, not an effective-tax comparison':'')+'</small>';
+        }, NZComparisonFacts.direction(f,ds), f.category === 'jobs' ? 'jobs' : 'costs');
       });
-      return out ? '<tr class="grp"><th colspan="' + (xs.length + 1) + '">Money and work (official figures)</th></tr>' + out : '';
+      return out ? '<tr class="grp"><th colspan="' + (xs.length + 1) + '">Money and work: reported and estimated inputs</th></tr>' + out : '';
     }
     var allFar = function (k, lim) { return xs.every(function (x) { var v = pval(x.r, k); return v == null || v > lim; }); };
     var w = ENGINE.weightsFor(xs[0].r, nzProfile);
@@ -62,7 +65,7 @@ function openCompare(ids) {
       '</tbody>';
     var verdict = (mixed ? '<p class="small cmp-note">These places are in different countries. Scores and category values are measured against each place\'s own country, so they are not compared here; distances, sizes and the setting are.</p>' : '') + '<div class="verdicts">' + xs.map(function (x, i) { var wl = wins[i].filter(function (v, j, a) { return a.indexOf(v) === j; }), tl = ties[i].filter(function (v, j, a) { return a.indexOf(v) === j && wl.indexOf(v) < 0; }); return '<div class="verdict"><b>' + esc(x.r.name) + '</b> ' + (wl.length ? 'wins on ' + esc(wl.slice(0, 5).join(', ')) + (tl.length ? '; ties on ' + esc(tl.slice(0, 3).join(', ')) : '') + '.' : tl.length ? 'ties on ' + esc(tl.slice(0, 3).join(', ')) + '.' : 'wins no single row, but check the details.') + '</div>'; }).join('') + '</div>';
     var nzNotice = '<p class="nz-note" role="note"><b>General location information, no individual advice.</b> Fixed standard profiles; not tax, legal, financial, investment or immigration advice. <a href="/legal/#disclaimer">Limits</a></p>';
-    openModal('Compare places', nzNotice + verdict + '<div class="tablewrap"><table class="cmp">' + head + body + '</table></div>' + I.cmpAllHTML(list) + '<div class="actions" style="margin-top:12px"><button class="btn btn-sm" type="button" data-savecmp="' + esc(ids.join(',')) + '">♡ Save these places</button><button class="btn btn-sm" type="button" data-share-cmp="' + esc(ids.join(',')) + '">' + ICON.share + 'Share this comparison</button><button class="btn btn-sm" type="button" data-cmppdf="' + esc(ids.join(',')) + '">' + ICON.doc + 'PDF</button><button class="btn btn-sm" type="button" data-cmp2nd>' + ICON.doc + 'Second-opinion file</button></div><section class="cmp-seas" id="cmp-seas"></section><p class="small muted" style="margin-top:12px">Green marks the best value in a row when the places differ. Scores use the ' + esc(profileName(nzProfile)) + ' profile; places in other countries are scored with their own country\'s data depth.</p>');
+    openModal('Compare places', nzNotice + verdict + '<div class="tablewrap"><table class="cmp">' + head + body + '</table></div>' + I.cmpAllHTML(list) + '<div class="actions" style="margin-top:12px"><button class="btn btn-sm" type="button" data-savecmp="' + esc(ids.join(',')) + '">♡ Save these places</button><button class="btn btn-sm" type="button" data-share-cmp="' + esc(ids.join(',')) + '">' + ICON.share + 'Share this comparison</button><button class="btn btn-sm" type="button" data-cmppdf="' + esc(ids.join(',')) + '">' + ICON.doc + 'PDF</button><button class="btn btn-sm" type="button" data-cmp2nd>' + ICON.doc + 'Second-opinion file</button></div><section class="cmp-seas" id="cmp-seas"></section><p class="small muted" style="margin-top:12px">Green marks a comparable preferred value, not an overall verdict. Money rows are highlighted only for matching source, period, unit and support, with no estimates or missing cells. Tax rows are not awarded a best-value label. Scores use the ' + esc(profileName(nzProfile)) + ' profile; places in other countries are scored with their own country\'s data depth.</p>');
     hydratePostcards($('#modal')); hydratePhotos($('#modal'));
     // 2.15.1: seasons side by side (NASA POWER climatology, loaded only with external content on)
     var seas = $('#cmp-seas');

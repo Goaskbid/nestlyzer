@@ -15,7 +15,7 @@ def wd(route):
         body = {'query': {'search': [{'title': 'Q' + (code.group(1) if code else '1')}]}}
     elif 'wbgetentities' in u and re.search(r'ids=(Q[^&]+)', u):
         q = re.search(r'ids=(Q[^&]+)', u).group(1); code = q[1:]
-        body = {'entities': {q: {'claims': {**{pp: [{'mainsnak': {'datavalue': {'value': code}}}] for pp in ['P771', 'P439', 'P374', 'P635', 'P772', 'P964', 'P382', 'P1567']}, 'P94': [{'mainsnak': {'datavalue': {'value': 'Arms ' + code + '.svg'}}}]}}}}
+        body = {'entities': {q: {'claims': {**{pp: [{'mainsnak': {'datavalue': {'value': code}}}] for pp in ['P771', 'P439', 'P374', 'P635', 'P772', 'P964', 'P382', 'P1567']}, 'P94': [{'mainsnak': {'datavalue': {'value': 'Arms ' + code + '.svg'}}}], 'P17': [{'mainsnak': {'datavalue': {'value': {'id': c}}}} for c in ('Q39', 'Q183', 'Q142')]}}}}
     else:
         body = {}
     route.fulfill(status=200, content_type='application/json', body=json.dumps(body))

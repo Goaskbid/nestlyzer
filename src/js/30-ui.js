@@ -141,30 +141,31 @@ function renderScope() {
 }
 function xfLabel(k, v) { if (!v) return 'any'; if (k === 'pop10Min' || k === 'popMin') return fmtInt(v); if (k === 'daywMin') { var m = Math.round(v * 60); return Math.floor(m / 60) + ' h ' + ('0' + m % 60).slice(-2) + ' min'; } return v + ' km'; }
 function depthKind(cc) {
-  var cm = countryMeta(cc), d = cm.depth2, m = (cm.measured || []).map(function (k) { return shortCat(k).toLowerCase(); }), ms = m.length ? m.slice(0, -1).join(', ') + (m.length > 1 ? ' and ' : '') + m[m.length - 1] : '';
-  if (cm.depth === 'detailed' || d === 'rich') return ['rich', 'Rich local data', 'Official local statistics on taxes, jobs, age, land use and more, plus regional health, safety and income figures.'];
-  if (d === 'good') return ['good', 'Local data', 'Official statistics on ' + ms + ' for most places (local or regional figures, each with its source on the place page), plus geography.'];
-  if (d === 'regional') return ['partial', 'Regional data', 'Official figures on ' + ms + ', population and geography. Other criteria are modelled from population and location.'];
-  return ['early', 'Regional overview', 'Population, geography' + (ms ? ', ' + ms : '') + ' and modelled indicators for costs, schools and safety: a good first comparison.'];
+  var cm = countryMeta(cc), d = cm.depth2;
+  if (cm.depth === 'detailed' || d === 'rich') return ['rich', 'Broader input coverage', 'Local, regional and estimated inputs are available. Coverage is not proof of recency, measurement quality or independent model validation.'];
+  if (d === 'good') return ['good', 'Mixed input coverage', 'Local and broader-area inputs are mixed. Check each place for missing fields, dates, sources and estimates.'];
+  if (d === 'regional') return ['partial', 'Regional input coverage', 'Broader-area statistics and geographic inputs dominate. They are not measurements of every municipality.'];
+  return ['early', 'Limited input coverage', 'Mainly geographic and broad-area context. Important profile-specific costs, services or outcomes may be missing.'];
 }
 function renderDepthNote() {
   var cm = countryMeta(S.cc);
   var el = $('#depthnote');
-  var dk = depthKind(S.cc), depth = cm.depth === 'detailed' ? '<b>Detailed module.</b> 28 official Swiss factors (FSO portraits, ESTV tax burden), regional Eurostat health, income and safety figures and geographic measures.' :
-    '<b>' + esc(dk[1]) + '.</b> ' + esc(dk[2]) + (cm.measuredFactors ? ' A typical place here has ' + cm.measuredFactors + ' measured official figures; open a place and choose \u201cAll data\u201d to see each one with its source.' : '');
+  var dk = depthKind(S.cc), depth = cm.depth === 'detailed' ? '<b>Swiss input module.</b> Retained municipal statistics, historical tax scenarios, housing estimates, regional context and geographic measures. Their periods and measurement types differ.' :
+    '<b>' + esc(dk[1]) + '.</b> ' + esc(dk[2]) + (cm.measuredFactors ? ' The country catalogue lists ' + cm.measuredFactors + ' typical input fields; open a place and choose \u201cAll data\u201d to see each one with its source.' : '');
   var p = profileDef(S.profile);
   var cov = RES && RES.scored.length ? Math.round(RES.scored.reduce(function (a, x) { return a + (fin(x.measured) ? x.measured : 0); }, 0) / RES.scored.length) : null;
-  el.innerHTML = '<details class="dn"><summary>' + flagImg(S.cc) + ' <span>' + esc(depthKind(S.cc)[1]) + ' for ' + esc(countryName(S.cc)) + '</span><span class="muted"> · what is in the score?</span></summary><p>' + depth + (cov != null ? ' On average ' + cov + '% of what ' + esc(p.name) + ' weighs is measured for these places from official local and regional statistics; other weight is modelled, proxied or unresolved; unresolved weight does not transfer to known factors.' : '') + ' <button class="info" type="button" data-def="method" aria-label="How scores work">i</button></p></details>';
+  el.innerHTML = '<details class="dn"><summary>' + flagImg(S.cc) + ' <span>' + esc(depthKind(S.cc)[1]) + ' for ' + esc(countryName(S.cc)) + '</span><span class="muted"> · what is in the score?</span></summary><p>' + depth + (cov != null ? ' The retained legacy coverage indicator averages ' + cov + '%. It is not a measured-data percentage. Inputs can be local, regional, national, estimated or unresolved. ' + (ENGINE.evidence==='fixed'?'Declared weights stay allocated when inputs are missing.':'The active legacy model reweights available inputs. Open a place for its exact score receipt.') : '') + ' <button class="info" type="button" data-def="method" aria-label="How scores work">i</button></p></details>';
   var db = $('#depthbadge'); if (db) { var k = depthKind(S.cc); db.innerHTML = '<button class="dbadge ' + k[0] + '" type="button" data-def="depth" title="' + esc(k[2]) + '">' + esc(k[1]) + '</button>'; }
 }
 function renderResultsHead() {
   var rn = $('#rnote'); if (rn && !rn.firstChild) rn.innerHTML = NZ_NOTE_S;   // 2.13.3 advice notice above the results (kept out of the start-page HTML for its size budget)
+  var rh = document.querySelector('[data-rhmore]'); if(rh) rh.setAttribute('aria-expanded', String(rh.closest('.results-head').classList.contains('open')));
   var n = RES ? RES.scored.length : 0;
   var hidden = RES ? SCOPE.length - n : 0;
   $('#rcount').innerHTML = RES ? fmtInt(n) + ' of ' + fmtInt(SCOPE.length) + (SCOPE.length === 1 ? ' place screened' : ' places screened') + (hidden > 0 ? ' · <button class="linkbtn" type="button" data-showall>' + (S.showAll ? 'hide the other ' + fmtInt(hidden) : 'why not the other ' + fmtInt(hidden) + '?') + '</button>' : '') : '';
   var mh = $('#musthead'); if (mh) mh.innerHTML = isBizKey(S.profile) ? 'Requirements to confirm on site: <button class="chip" type="button" data-unknownmust="flag" aria-pressed="' + !S.unknownExclude + '">flag them</button> <button class="chip" type="button" data-unknownmust="exclude" aria-pressed="' + !!S.unknownExclude + '">leave them out</button>' : '';
   var gs = $('#gscope'); if (gs) gs.innerHTML = [['', countryName(S.cc)], ['europe', 'Europe'], ['americas', 'Americas'], ['asia_pacific', 'Asia-Pacific'], ['mideast_africa', 'Middle East and Africa'], ['world', 'World']].map(function (g) { return '<button type="button" data-gscope="' + g[0] + '" aria-pressed="' + ((S.gscope || '') === g[0]) + '">' + esc(g[1]) + '</button>'; }).join('');
-  var lg = $('#rlegend'); if (lg) lg.innerHTML = '<i class="tone-good"></i>Supported points: 70+ <i class="tone-mid"></i>50 to 69 <i class="tone-bad"></i>under 50, for ' + esc(profileName(S.profile).toLowerCase()) + ' · #12 = rank on that criterion';
+  var lg = $('#rlegend'); if (lg) lg.innerHTML = '<i class="tone-good"></i>' + (ENGINE.evidence === 'fixed' ? 'Supported lower-bound points' : 'Model fit') + ': 70+ <i class="tone-mid"></i>50 to 69 <i class="tone-bad"></i>under 50, for ' + esc(profileName(S.profile).toLowerCase()) + ' · #12 = rank on that criterion';
   var ea=$('#nz-evidence-actions');if(!ea){ea=document.createElement('div');ea.id='nz-evidence-actions';ea.className='pills';$('#rcount').parentNode.appendChild(ea);}ea.innerHTML='<button class="chip" data-multi-area>Several areas</button><button class="chip" data-evidence>Evidence behind this profile</button><button class="chip" data-district-evidence>District evidence</button><button class="chip" data-observed>Observed reality</button>'+(['pensioner','single_pensioner','early_retiree','healthcare_first'].indexOf(S.profile)>=0?'<button class="chip" data-retirement-hotspots>Observed retirement hotspots</button>':'');
   $('#scopename').innerHTML = esc(scopeName()) + (S.lang ? ' <button class="chip langchip" type="button" data-droplang title="Remove the language filter">' + esc(LANG_NAMES[S.lang]) + '-speaking only ✕</button>' : '');
 }
@@ -197,7 +198,7 @@ function cardCopy(x) {
   var top = weightedCats(x, false, 3), weak = weightedCats(x, true, 1), r = x.r;
   if (!top.length) return '';
   var t0 = shortCat(top[0][0]).toLowerCase(), t1 = top[1] ? shortCat(top[1][0]).toLowerCase() : 'local fit', w0 = weak[0] ? shortCat(weak[0][0]).toLowerCase() : 'local detail';
-  if (x.must) { var unk = x.must.filter(function (m) { return m.status === 'unknown'; }).length; return r.name + ' leads on ' + t0 + ' and ' + t1 + '; weakest on ' + w0 + '. ' + (unk ? 'Measured must-haves are met; ' + unk + ' site check' + (unk > 1 ? 's' : '') + ' for the visit.' : 'Every must-have is met on measured data.'); }
+  if (x.must) { var unk = x.must.filter(function (m) { return m.status === 'unknown'; }).length; return r.name + ' leads on ' + t0 + ' and ' + t1 + '; weakest on ' + w0 + '. ' + (unk ? unk + ' site requirement' + (unk > 1 ? 's remain' : ' remains') + ' unverified.' : 'Evaluated checks pass in this model. Verify site-specific conditions.'); }
   if (depthKind(r.country)[0] === 'early') {
     var b = [], g = growth5(r), fr = r.factorRaw || {}, xx = r.x || {};
     if (g != null) b.push(g >= 0.3 ? 'growing (' + signed(g, 1) + '% in 5 years)' : g <= -0.3 ? 'shrinking (' + signed(g, 1) + '% in 5 years)' : 'a stable population');
@@ -289,7 +290,7 @@ function renderResults() {
   var view = (RES.view || RES.scored).filter(vis);
   var shown = view.slice(0, S.shown);
   var ma = multiAnswer() ? '<div class="banner"><span>' + (S.profile === 'student' ? 'Students rarely have one answer: campus, language and city matter.' : S.profile === 'expat_professional' ? 'Expat moves depend on language and employer location.' : esc(countryName(S.cc)) + ' is multilingual, so the best place depends on your language.') + ' Compare the groups side by side.</span><button class="btn btn-sm" type="button" data-lt="board">Regional reality</button></div>' : '';
-  box.innerHTML = ma + (S.sort === 'score' ? '<div class="picks-wrap"><button class="pk-nav prev" type="button" data-pkscroll="-1" aria-label="Previous top picks">‹</button><div class="picks" aria-label="Top picks">' + picks + '</div><button class="pk-nav next" type="button" data-pkscroll="1" aria-label="More top picks">›</button></div>' : '') +
+  box.innerHTML = ma + (S.sort === 'score' ? '<details class="nz-top-preview"' + (window.innerWidth >= 900 ? ' open' : '') + '><summary>Top places at a glance</summary><div class="picks-wrap"><button class="pk-nav prev" type="button" data-pkscroll="-1" aria-label="Previous top picks">‹</button><div class="picks" aria-label="Top picks">' + picks + '</div><button class="pk-nav next" type="button" data-pkscroll="1" aria-label="More top picks">›</button></div></details>' : '') +
     (nHid ? '<p class="hid-note small">' + fmtInt(nHid) + (nHid === 1 ? ' place' : ' places') + ' set aside for this search (ranks unchanged). <button class="linkish" type="button" data-unhideall>Show them again</button></p>' : '') +
     '<ol class="list" aria-label="Ranking">' + shown.map(rowHTML).join('') + '</ol>' +
     (view.length > S.shown ? '<button class="btn more-btn" type="button" data-more>Show ' + Math.min(100, view.length - S.shown) + ' more of ' + fmtInt(view.length - S.shown) + '</button>' : '') +

@@ -1,15 +1,15 @@
-/* Nestlyzer 2.15.30: coat of arms on static place pages. Same rules as the app (src/js/50-enrich.js): the exact official
-   municipality code on Wikidata, else the LAU code, else a name search checked by distance; image only from Wikimedia
-   Commons and only under an open licence (CC0, CC BY, CC BY-SA, public domain); credited with author and licence.
-   No cookies are sent, "Live content off" in the privacy settings is respected, answers are cached for 30 days and a
-   failed lookup is never cached, so a busy moment at Wikimedia does not hide a coat of arms for a month. */
+/* Exact-code municipal emblem discovery; no name or parent-region fallback.
+   Per-file Commons attribution and copyright licence are required; official-symbol restrictions remain applicable.
+   External-content consent is rechecked before requests and before image insertion. */
 (function () {
   var slot = document.querySelector('[data-sarms]'); if (!slot || !window.fetch) return;
   try { if (JSON.parse(localStorage.getItem('nz:ext')) === false) return; } catch (e) {}
-  var d = slot.dataset, KEY = 'nz:arms3:' + d.id;
+  var d = slot.dataset, KEY = 'nz:arms4:' + d.id;
   var PROP = { CH: 'P771', DE: 'P439', FR: 'P374', IT: 'P635', ES: 'P772', AT: 'P964', NL: 'P382', BE: 'P1567' };
   var FAIL = {};
+  function allowed(){try{return JSON.parse(localStorage.getItem('nz:ext'))!==false;}catch(e){return false;}}
   function get(u, n) {
+    if(!allowed())return Promise.reject(FAIL);
     n = n || 0;
     return fetch(u, { credentials: 'omit', referrerPolicy: 'no-referrer' }).then(function (r) {
       if (r.status === 429 || r.status >= 500) throw { retry: 1 };
@@ -35,27 +35,20 @@
     });
   }
   function resolve() {
-    var tries = [];
-    if (PROP[d.cc]) tries.push('haswbstatement:' + PROP[d.cc] + '=' + d.oid);
-    if (d.gisco) tries.push('haswbstatement:P782=' + d.gisco.replace(/^[A-Z]{2}_/, ''));
-    return (function next(i) {
-      if (i >= tries.length) return get(WD + 'action=wbsearchentities&language=en&limit=7&search=' + encodeURIComponent(d.name)).then(function (j) {
-        var h = (j.search || []).find(function (x) { return /municip|commune|comune|gemeinde|city|town|village|municipio|gmina|obec/i.test(x.description || '') && (x.description || '').toLowerCase().indexOf((d.cname || '').toLowerCase()) >= 0; });
-        return h ? h.id : null; });
-      return search(tries[i]).then(function (ids) { return ids.length === 1 ? ids[0] : next(i + 1); });
-    })(0).then(function (q) { return q ? entity(q) : null; }).then(function (e) {
-      if (!e || !near(e)) return null;
-      var own = val(e, 'P94'); if (own) return commons(own, '');
-      var up = val(e, 'P131'); up = up && up.id; if (!up) return null;
-      return entity(up).then(function (pe) { var f = val(pe, 'P94'); return f ? commons(f, ((pe.labels || {}).en || {}).value || 'the region') : null; });
+    var r={country:d.cc,oid:d.oid,id:d.id},request=NZEmblemIdentity.request(r);
+    if(!request||!allowed())return Promise.resolve(null);
+    return search('haswbstatement:'+request.property+'='+request.value).then(function(ids){return ids.length===1&&allowed()?entity(ids[0]):null;}).then(function(e){
+      if(!allowed()||!NZEmblemIdentity.verify(e,request))return null;
+      var own=val(e,'P94');if(!own)return null;
+      return commons(own,'').then(function(v){if(v)v.identity={property:request.property,code:request.value,country:d.cc};return v;});
     });
   }
   function show(v) {
-    if (!v) return;
+    if (!v || !v.identity || !allowed() || !slot.isConnected) return;
     var a = document.createElement('a'); a.href = v.page || '#'; a.target = '_blank'; a.rel = 'noopener';
-    a.title = (v.of ? 'Coat of arms of ' + v.of + ' (no own arms on record). ' : 'Coat of arms. ') + v.by + ', ' + v.lic + ', Wikimedia Commons';
-    var im = new Image(); im.src = v.src; im.alt = 'Coat of arms of ' + (v.of || d.name); im.width = 40; im.height = 48; im.decoding = 'async'; im.referrerPolicy = 'no-referrer';
-    im.onload = function () { slot.hidden = false; }; a.appendChild(im); slot.appendChild(a);
+    a.title='Coat of arms. '+v.by+', '+v.lic+', Wikimedia Commons. Official-symbol restrictions may apply.';
+    var im = new Image(); im.alt = 'Coat of arms of ' + (v.of || d.name); im.width = 40; im.height = 48; im.decoding = 'async'; im.referrerPolicy = 'no-referrer';
+    im.onload = function () { if(!allowed()||!slot.isConnected)return;slot.hidden=false;slot.replaceChildren(a); }; a.appendChild(im); im.src = v.src;
   }
   var c; try { c = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
   if (c && c.t && Date.now() - c.t < 2592e6) return show(c.v);

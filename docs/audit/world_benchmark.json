@@ -366,7 +366,7 @@
   "metros": 1907,
   "references": 16,
   "found_ranked": 16,
-  "in_top_100": 6,
+  "in_top_100": 5,
   "median_percentile": 9.9,
   "places": [
    {
@@ -379,7 +379,7 @@
     "ref": "JP:1850147",
     "rank": 100,
     "as": "Suginami (杉並)",
-    "published": true
+    "published": false
    },
    {
     "ref": "KR:1835848",
@@ -606,7 +606,7 @@
   "metros": 10629,
   "references": 16,
   "found_ranked": 16,
-  "in_top_100": 3,
+  "in_top_100": 2,
   "median_percentile": 4.7,
   "places": [
    {
@@ -661,7 +661,7 @@
     "ref": "HR:04090",
     "rank": 111,
     "as": "Solin",
-    "published": true
+    "published": false
    },
    {
     "ref": "MX:3530597",

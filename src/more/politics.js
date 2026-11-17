@@ -122,6 +122,64 @@ function polOrgs(P, D) {
   }).join('');
   return rows ? '<div class="pol-orgs">' + rows + '</div>' : '<p class="muted">No membership of the blocs listed here.</p>';
 }
+
+/* 2.15.30 owner review: who decides what, layer by layer (EU, ECB, nation, region, municipality), and the money side:
+   currency and its regime, live exchange rates against the dollar, euro and yuan (ECB reference rates via Frankfurter),
+   the 10-year government bond yield (Eurostat, EU members) and inflation and lending rates (World Bank). */
+var POL_FXOK = 'AUD BGN BRL CAD CHF CNY CZK DKK EUR GBP HKD HUF IDR ILS INR ISK JPY KRW MXN MYR NOK NZD PHP PLN RON SEK SGD THB TRY USD ZAR'.split(' ');
+function polLayers(P, D) {
+  var L = D.layers, o = P.orgs, rows = [];
+  if (o.indexOf('EU') >= 0) rows.push(['European Union', L.eu, '#1f4e9e']);
+  else if (P.iso2 === 'NO' || P.iso2 === 'IS' || P.iso2 === 'LI') rows.push(['EU single market (EEA)', L.eea, '#1f4e9e']);
+  if (o.indexOf('EZ') >= 0) rows.push(['European Central Bank', L.ecb, '#b8860b']);
+  rows.push(['National government', L.national[P.structure], '#0f7b6c']);
+  if (P.structure >= 3) rows.push([P.structure === 4 ? 'States, cantons or Länder' : 'Regions', L.regional[P.structure], '#5a4fcf']);
+  rows.push(['Municipality', L.local[P.structure], '#e8756a']);
+  return '<div class="pol-layers">' + rows.map(function (x, i) { return '<div class="pol-layer" style="--lc:' + x[2] + ';--li:' + i + '"><b>' + esc(x[0]) + '</b><span>' + esc(x[1]) + '</span></div>'; }).join('') + '</div>' +
+    (o.indexOf('EU') >= 0 ? '<p class="small">In the EU, national, regional and local governments mostly apply rules made in Brussels; for a business, permits and inspections are local, but the rule book is European.</p>' : '');
+}
+function polSpark(pts, col) {
+  pts = (pts || []).filter(function (p) { return p && fin(p[1]); }); if (pts.length < 2) return '';
+  var ys = pts.map(function (p) { return p[1]; }), mn = Math.min.apply(null, ys.concat([0])), mx = Math.max.apply(null, ys), W = 120, H = 32;
+  return '<svg class="pol-sp" viewBox="0 0 ' + W + ' ' + H + '" aria-hidden="true"><polyline fill="none" stroke="' + col + '" stroke-width="2" vector-effect="non-scaling-stroke" points="' + pts.map(function (p, i) { return (2 + i * (W - 4) / (pts.length - 1)).toFixed(1) + ',' + (H - 3 - (p[1] - mn) / ((mx - mn) || 1) * (H - 6)).toFixed(1); }).join(' ') + '"/></svg>';
+}
+function polMoney(r, P, box) {
+  var cur = P.cur || [], code = cur[0];
+  var tile = function (k, v, sub, sp) { return '<div class="pol-tile"><small>' + esc(k) + '</small><b>' + v + '</b>' + (sub ? '<span>' + sub + '</span>' : '') + (sp || '') + '</div>'; };
+  box.innerHTML = '<div class="pol-cur"><div class="pol-badge pol-money">' + esc(code || '?') + '</div><div><b>' + esc(cur[1] || '') + '</b><em>' + esc(cur[2] || '') + '</em></div></div><div class="pol-tiles" data-poltiles><p class="muted small">Loading rates…</p></div>' +
+    '<p class="small">High inflation and interest rates raise the cost of capital for buying a home or financing a business; a pegged or managed currency moves less day to day but can adjust suddenly.</p>';
+  var out = box.querySelector('[data-poltiles]'), jobs = [], live = typeof extOn !== 'function' || extOn();
+  if (code) {
+    var to = ['USD', 'EUR', 'CNY'].filter(function (c) { return c !== code; });
+    if (POL_FXOK.indexOf(code) >= 0 && live) {
+      var d1 = new Date(Date.now() - 365 * 864e5).toISOString().slice(0, 10), u = 'https://api.frankfurter.app/';
+      jobs.push(Promise.all([jget(u + 'latest?from=' + code + '&to=' + to.join(',')), jget(u + d1 + '?from=' + code + '&to=' + to.join(',')).catch(function () { return null; })]).then(function (a) {
+        var now = (a[0] && a[0].rates) || {}, then = (a[1] && a[1].rates) || {};
+        return to.map(function (c) { var v = now[c], o = then[c], ch = fin(v) && fin(o) ? (v / o - 1) * 100 : null;
+          return tile('1 ' + code + ' in ' + c, fin(v) ? fmt(v, v < 0.1 ? 4 : v < 10 ? 3 : 2) : '–', (ch == null ? '' : (ch >= 0 ? '+' : '') + fmt(ch, 1) + '% in a year, ') + 'ECB rate ' + esc((a[0] && a[0].date) || '')); }).join('');
+      }).catch(function () { return tile('Exchange rates', '–', 'not available right now'); }));
+    } else jobs.push(Promise.resolve(tile('Exchange rates', '–', live ? 'no ECB reference rate for ' + esc(code) : 'live content is off')));
+  }
+  if (P.orgs.indexOf('EU') >= 0 && live && typeof esGet === 'function') jobs.push(Promise.all([esGet('irt_lt_mcby_m', r.country, ''), r.country === 'DE' ? null : esGet('irt_lt_mcby_m', 'DE', '').catch(function () { return null; }), esGet('irt_lt_mcby_m', 'EA', '').catch(function () { return null; })]).then(function (a) {
+    var pk = jsPick(a[0], {}); if (!pk || !fin(pk.v)) return '';
+    var de = a[1] ? jsPick(a[1], {}) : null, sp = de && fin(de.v) ? Math.round((pk.v - de.v) * 100) : null;
+    // the gap to German Bunds: what investors charge this state on top of the euro area's benchmark borrower
+    return tile('10-year government bond yield', fmt(pk.v, 2) + '%', esc(String(pk.year || '')) + ', Eurostat', polSpark((pk.s || []).slice(-36), '#1f4e9e')) +
+      (function () { // 2.15.30: a second yardstick that does not lean on one country: the gap to the euro-area average, and the 12-month move
+        var ea = a[2] ? jsPick(a[2], {}) : null, g = ea && fin(ea.v) ? Math.round((pk.v - ea.v) * 100) : null, ser = pk.s || [], yr = ser.length > 12 ? ser[ser.length - 13] : null, mv = yr && fin(yr[1]) ? Math.round((pk.v - yr[1]) * 100) : null;
+        return (g != null ? tile('Gap to the euro-area average', (g > 0 ? '+' : '') + g + ' bp', g > 50 ? 'pays more than the average euro-area state' : g < -50 ? 'borrows more cheaply than the average' : 'about the euro-area average') : '') +
+          (mv != null ? tile('Change in 12 months', (mv > 0 ? '+' : '') + mv + ' bp', mv > 50 ? 'borrowing has become clearly dearer' : mv < -50 ? 'borrowing has become clearly cheaper' : 'little changed') : ''); })() +
+      (sp != null ? tile('Spread to Germany (10 years)', (sp > 0 ? '+' : '') + sp + ' bp', sp > 150 ? 'wide: investors see more risk; borrowing and investing cost more' : sp > 60 ? 'moderate risk premium' : 'close to the euro-area benchmark') : '');
+  }).catch(function () { return ''; }));
+  jobs.push(getJSON('/data/h/' + r.country + '.json?v=__VERSION__').then(function (h) {
+    var S2 = {}, res = ''; ((h && h.series) || []).forEach(function (x) { S2[x.id] = x; });
+    [['inflation', 'Inflation', '#c2410c'], ['lending_rate', 'Bank lending rate', '#0f7b6c'], ['real_interest', 'Real interest rate', '#5a4fcf']].forEach(function (k) {
+      var x = S2[k[0]]; if (!x || !x.y || !x.y.length) return; var last = x.y[x.y.length - 1];
+      res += tile(k[1], fmt(last[1], 1) + '%', esc(String(last[0])) + ', World Bank', polSpark(x.y.slice(-12), k[2])); });
+    return res;
+  }).catch(function () { return ''; }));
+  Promise.all(jobs).then(function (a) { if (out.isConnected) out.innerHTML = a.join('') || '<p class="muted small">No rates available.</p>'; });
+}
 function politicsFill(r, el) {
   if (!document.getElementById('pol-css')) { var st = document.createElement('style'); st.id = 'pol-css'; st.textContent =
     '.pol h4{margin:20px 0 8px;font-size:16px}.pol .sub{margin-top:-4px}.pol svg{width:100%;height:auto;display:block;color:var(--ink-2,#556)}' +
@@ -132,6 +190,9 @@ function politicsFill(r, el) {
     '.pol-gauge{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:6px 0}.pol-gauge span{font-size:12px;text-align:center;color:var(--muted)}.pol-gauge i{display:block;height:12px;border-radius:6px;background:var(--line);margin-bottom:5px}.pol-gauge .fill i{background:color-mix(in srgb,var(--accent,#2f62b3) 45%,var(--line))}.pol-gauge .on i{background:var(--accent,#2f62b3);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent,#2f62b3) 25%,transparent)}.pol-gauge .on{color:var(--ink);font-weight:700}' +
     '.pol-orgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}.pol-org{display:flex;gap:12px;border:1px solid var(--line);border-radius:14px;padding:12px;background:var(--surface-2,var(--surface))}.pol-org p{margin:6px 0 0;font-size:13px;line-height:1.45}.pol-org small{display:block;color:var(--muted);font-size:11.5px}' +
     '.pol-badge{flex:0 0 52px;height:52px;border-radius:14px;display:grid;place-items:center;font-weight:800;font-size:12px;color:#fff;background:#2f62b3;letter-spacing:.02em}.pol-market .pol-badge{background:#1f4e9e}.pol-trade .pol-badge{background:#0f7b6c}.pol-money .pol-badge{background:#b8860b}.pol-mobility .pol-badge{background:#5a4fcf}.pol-security .pol-badge{background:#374151}.pol-standards .pol-badge{background:#0e7490}.pol-forum .pol-badge{background:#7c3aed}' +
+'.pol-layers{display:grid;gap:6px}.pol-layer{display:grid;grid-template-columns:minmax(120px,170px) 1fr;gap:12px;align-items:start;padding:10px 12px;border-radius:12px;background:var(--surface-2,var(--surface));border:1px solid var(--line);border-left:5px solid var(--lc);margin-left:calc(var(--li) * 10px)}.pol-layer b{font-size:13.5px}.pol-layer span{font-size:13px;line-height:1.45}@media (max-width:600px){.pol-layer{grid-template-columns:1fr;gap:3px;margin-left:calc(var(--li) * 5px)}}' +
+    '.pol-cur{display:flex;gap:12px;align-items:center;margin:4px 0 10px}.pol-cur em{display:block;font-style:normal;font-size:13px;color:var(--ink-2)}.pol-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}.pol-tile{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--surface-2,var(--surface));display:grid;gap:2px}.pol-tile small{font-size:12px;color:var(--ink-3)}.pol-tile b{font:700 20px/1.15 var(--font-display)}.pol-tile span{font-size:12px;color:var(--ink-2)}.pol-sp{width:100%;height:32px;margin-top:4px}' +
+    '.pol-mandate{display:flex;gap:12px;align-items:center;margin:12px 0 0;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--surface-2,var(--surface))}.pol-mandate b{font:750 24px/1 var(--font-display);color:var(--navy)}.pol-mandate span{font-size:13px;line-height:1.45}' +
     '.pol-who{display:inline-block;font-size:11px;font-weight:700;margin-right:6px;color:var(--muted)}.pol-fta{display:flex;flex-wrap:wrap;gap:6px}.pol-fta span{font-size:12.5px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2,var(--surface))}';
     document.head.appendChild(st); }
   el.innerHTML = '<p class="muted">Loading politics…</p>';
@@ -139,11 +200,13 @@ function politicsFill(r, el) {
     var P = D.countries[r.country]; if (!P) { el.innerHTML = '<p class="muted">No political data for this country yet.</p>'; return; }
     var cn = countryName(r.country), L = D.structure_levels;
     var html = '<div class="pol"><h4>Who governs</h4><div data-polgov><p class="muted">Looking up the current governments on Wikidata…</p></div>' +
-      '<h4>How power is shared</h4><p class="sub small muted">' + esc(cn) + ' is ' + esc(L[P.structure].toLowerCase()) + ': ' + esc(['', 'most decisions are taken nationally', 'national law with strong local government', 'regions with their own parliaments and powers', 'states or cantons with their own constitutions and taxes'][P.structure]) + '.</p>' + polGauge(P.structure, L) + (P.note ? '<p class="small">' + esc(P.note) + '</p>' : '') +
+      '<h4>How power is shared</h4><p class="sub small muted">' + esc(cn) + ' is ' + esc(L[P.structure].toLowerCase()) + ': ' + esc(['', 'most decisions are taken nationally', 'national law with strong local government', 'regions with their own parliaments and powers', 'states or cantons with their own constitutions and taxes'][P.structure]) + '.</p>' + polGauge(P.structure, L) + (P.note ? '<p class="small">' + esc(P.note) + '</p>' : '') + '<h4>Who decides what</h4>' + polLayers(P, D) +
+      '<h4>Money and the cost of capital</h4><div data-polmoney></div>' +
       '<h4>Memberships</h4>' + polOrgs(P, D) +
       (P.fta && P.fta.length ? '<h4>Trade agreements in force</h4><div class="pol-fta">' + P.fta.map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + '</div>' : '') +
       '<p class="small muted" style="margin-top:16px">Nothing here changes a score. Memberships, agreements and state structure: official member and treaty lists, as of ' + esc(D.as_of) + '. Governments, parties, seats and the record: Wikidata (CC0), live; left-right positions follow each party\'s political alignment or ideology as recorded there.</p></div>';
     el.innerHTML = html;
+    try { polMoney(r, P, el.querySelector('[data-polmoney]')); } catch (e) {}
     var box = el.querySelector('[data-polgov]');
     if (typeof extOn === 'function' && !extOn()) { box.innerHTML = EXT_OFF_HTML; return; }
     var late = new Promise(function (_, no) { setTimeout(function () { no(new Error('timeout')); }, 20000); });
@@ -158,6 +221,9 @@ function politicsFill(r, el) {
       box.innerHTML = '<div class="pol-govs">' + card('Head of government, ' + cn, g.national) + card('Head of ' + (g.region && g.region.of ? g.region.of : 'the region'), g.region) + card('Mayor or head of ' + r.name, g.local) + '</div>' +
         (g.local ? '' : '<p class="small muted">The head of ' + esc(r.name) + ' is not on record on Wikidata.</p>') +
         (marks.length ? polSpectrum(marks) : '') +
+        (function () { if (!g.house || !g.national || !g.national.party) return ''; var tot = g.house.seats.reduce(function (t, x) { return t + x.n; }, 0), own = g.house.seats.filter(function (x) { return x.party === g.national.party; })[0];
+          if (!tot || !own) return ''; var sh = own.n / tot * 100;
+          return '<div class="pol-mandate"><b>' + fmt(sh, 1) + '%</b><span>of seats held by the head of government\'s party (' + esc(own.name) + '). ' + (sh > 50 ? 'A majority on its own: decisions are easier to pass.' : sh > 35 ? 'Governs with partners: policy depends on the coalition.' : 'A small base: coalitions and votes are harder to hold.') + ' A mandate measure from the last election, not an opinion poll.</span></div>'; })() +
         (g.house && g.house.seats.length > 1 ? '<h4>' + esc(g.house.name) + '</h4><p class="sub small muted">Seats by party' + (g.house.at ? ', ' + esc(g.house.at.slice(0, 4)) : '') + ', ordered left to right.</p>' + polHemicycle(g.house) : '') +
         (polRecord(g.record) ? '<h4>Track record</h4><p class="sub small muted">Heads of government of ' + esc(cn) + ', coloured by where their party stands.</p>' + polRecord(g.record) : '');
     }, function () { if (box.isConnected) box.innerHTML = '<p class="muted">Wikidata did not answer in time. Open the tab again to retry.</p>'; });

@@ -105,13 +105,41 @@ FTA = {
  'TW': [], 'HK': ['RCEP application pending; Hong Kong is a free port with no tariffs'], 'SA': ['GCC customs union'],
  'MY': ['CPTPP', 'RCEP', 'ASEAN'], 'TH': ['RCEP', 'ASEAN'], 'ID': ['RCEP', 'ASEAN'], 'PH': ['RCEP', 'ASEAN'], 'RU': ['Eurasian Economic Union'],
 }
+
+# 2.15.30: currency and exchange-rate regime (IMF de facto arrangements, simplified; June 2026)
+EURO = 'AT BE BG CY DE EE EL ES FI FR HR IE IT LT LU LV MT NL PT SI SK'.split()
+CUR = {'AE': ('AED', 'UAE dirham', 'Pegged to the US dollar'), 'AL': ('ALL', 'Albanian lek', 'Floating'), 'AR': ('ARS', 'Argentine peso', 'Managed within a band'),
+ 'AU': ('AUD', 'Australian dollar', 'Floating'), 'BR': ('BRL', 'Brazilian real', 'Floating'), 'CA': ('CAD', 'Canadian dollar', 'Floating'), 'CH': ('CHF', 'Swiss franc', 'Floating'),
+ 'LI': ('CHF', 'Swiss franc', 'Uses the Swiss franc'), 'CN': ('CNY', 'Chinese yuan', 'Managed float around a daily fixing'), 'CO': ('COP', 'Colombian peso', 'Floating'),
+ 'CZ': ('CZK', 'Czech koruna', 'Floating'), 'DK': ('DKK', 'Danish krone', 'Pegged to the euro (ERM II)'), 'EG': ('EGP', 'Egyptian pound', 'Floating since 2024'),
+ 'HK': ('HKD', 'Hong Kong dollar', 'Linked to the US dollar (7.75 to 7.85)'), 'HU': ('HUF', 'Hungarian forint', 'Floating'), 'ID': ('IDR', 'Indonesian rupiah', 'Managed float'),
+ 'IL': ('ILS', 'Israeli shekel', 'Floating'), 'IN': ('INR', 'Indian rupee', 'Managed float'), 'IS': ('ISK', 'Icelandic krona', 'Floating'), 'JP': ('JPY', 'Japanese yen', 'Floating'),
+ 'KR': ('KRW', 'South Korean won', 'Floating'), 'MA': ('MAD', 'Moroccan dirham', 'Pegged to a euro and dollar basket'), 'MK': ('MKD', 'Macedonian denar', 'Pegged to the euro in practice'),
+ 'MX': ('MXN', 'Mexican peso', 'Floating'), 'MY': ('MYR', 'Malaysian ringgit', 'Managed float'), 'NO': ('NOK', 'Norwegian krone', 'Floating'), 'NZ': ('NZD', 'New Zealand dollar', 'Floating'),
+ 'PH': ('PHP', 'Philippine peso', 'Floating'), 'PL': ('PLN', 'Polish zloty', 'Floating'), 'RO': ('RON', 'Romanian leu', 'Managed float'), 'RS': ('RSD', 'Serbian dinar', 'Managed float'),
+ 'RU': ('RUB', 'Russian rouble', 'Floating, with capital controls'), 'SA': ('SAR', 'Saudi riyal', 'Pegged to the US dollar'), 'SE': ('SEK', 'Swedish krona', 'Floating'),
+ 'SG': ('SGD', 'Singapore dollar', 'Managed against a basket of currencies'), 'TH': ('THB', 'Thai baht', 'Managed float'), 'TR': ('TRY', 'Turkish lira', 'Floating, heavily managed'),
+ 'TW': ('TWD', 'New Taiwan dollar', 'Managed float'), 'UK': ('GBP', 'British pound', 'Floating'), 'US': ('USD', 'US dollar', 'Floating'), 'VN': ('VND', 'Vietnamese dong', 'Managed within a band'),
+ 'ZA': ('ZAR', 'South African rand', 'Floating')}
+for cc in EURO: CUR[cc] = ('EUR', 'Euro', 'Euro area member: interest rates set by the ECB')
+# who decides what, by layer; the EU layer applies to members (and to EEA/EFTA states for single-market rules)
+LAYERS = {
+ 'eu': 'Trade with the world, customs, competition and state aid, product and food rules, data protection, agriculture and fisheries; most business regulation starts here.',
+ 'ecb': 'Short-term interest rates and money supply for the whole euro area. Long-term borrowing costs are set by markets country by country: the 10-year yield below, and its gap to Germany, show what investors charge this state.',
+ 'eea': 'Single-market rules for goods, services, capital and people are taken over from the EU without a vote on them.',
+ 'national': {1: 'Almost everything: taxes, schools, health, police, planning rules and most public money.', 2: 'Taxes, law, health and most spending; local councils run services within national rules.',
+              3: 'Law, most taxes, defence and foreign policy; regions share health, schools and planning.', 4: 'Defence, foreign policy, currency and the main federal taxes; much else is shared with the states.'},
+ 'regional': {3: 'Regional governments run health care, schools or planning and in places set part of the income tax.', 4: 'States, cantons or Länder have their own constitutions, parliaments, courts or taxes: schools, police, health and planning sit mostly here.'},
+ 'local': {1: 'Councils run local services with little own money; most decisions come from the capital.', 2: 'Municipalities run schools, care, planning permits and local roads, often with their own share of tax.',
+           3: 'Municipalities run local services and planning within regional rules.', 4: 'Municipalities run local services; in some federations (Switzerland above all) they also set a large part of the income tax.'},
+}
 countries = {}
 for cc, q in QID.items():
     lvl = next(k for k, v in S.items() if cc in v.split())
     orgs = [o for o in ORGS if cc in M.get(o, [])]
     if 'EU' in orgs: orgs = [o for o in orgs if o != 'EEA']
-    countries[cc] = {'qid': q, 'iso2': ISO2.get(cc, cc), 'structure': lvl, 'note': NOTE.get(cc, ''), 'orgs': orgs, 'fta': FTA.get('EU', []) if 'EU' in orgs else FTA.get(cc, [])}
-out = {'as_of': '2026-06', 'structure_levels': {'1': 'Centralised', '2': 'Decentralised', '3': 'Regionalised', '4': 'Federal'},
+    countries[cc] = {'qid': q, 'iso2': ISO2.get(cc, cc), 'structure': lvl, 'note': NOTE.get(cc, ''), 'orgs': orgs, 'fta': FTA.get('EU', []) if 'EU' in orgs else FTA.get(cc, []), 'cur': CUR.get(cc)}
+out = {'as_of': '2026-06', 'layers': LAYERS, 'structure_levels': {'1': 'Centralised', '2': 'Decentralised', '3': 'Regionalised', '4': 'Federal'},
        'orgs': {k: {'name': v[0], 'group': v[1], 'res': v[2], 'biz': v[3], 'src': v[4]} for k, v in ORGS.items()}, 'countries': countries,
        'note': 'Memberships, trade agreements and state structure: public treaty and member lists, compiled June 2026. Who governs, parties and seats: Wikidata (CC0), live.'}
 json.dump(out, open(os.path.join(ROOT, 'data', 'politics.json'), 'w'), ensure_ascii=False, separators=(',', ':'))

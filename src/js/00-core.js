@@ -15,20 +15,16 @@ function fold(s) { return NestData.translit(String(s || '')).replace(/[\u00f8\u0
 function stripParen(s) { return String(s || '').replace(/\s*\(.*?\)\s*/g, ' ').replace(/,\s*(Stadt|Markt|Gemeinde|Landeshauptstadt|Hansestadt|Stadt der.*)$/i, '').trim(); }
 function debounce(fn, ms) { var t; return function () { var a = arguments, s = this; clearTimeout(t); t = setTimeout(function () { fn.apply(s, a); }, ms); }; }
 function km(a, b) { var R = 6371, la1 = a[1] * Math.PI / 180, la2 = b[1] * Math.PI / 180, dl = la2 - la1, dn = (b[0] - a[0]) * Math.PI / 180; var h = Math.sin(dl / 2) * Math.sin(dl / 2) + Math.cos(la1) * Math.cos(la2) * Math.sin(dn / 2) * Math.sin(dn / 2); return 2 * R * Math.asin(Math.sqrt(h)); }
-/* Evidence behind a fit score (NZ-GLOBAL-049): weighted = share of the profile's weight whose category has a value,
-   measured = the part backed by measured data, the rest is estimated from stand-ins. Readiness follows from both. */
+/* Availability and legacy model diagnostics are not independent measurement assurance. */
 function assessKind(x) {
-  var w = x && fin(x.weighted) ? x.weighted : null, m = x && fin(x.measured) ? x.measured : null;
-  if (w == null) return ['unknown', 'Not scored', 'This place has no score for the profile.'];
-  if (x.thin) return ['screening', 'Thin evidence', 'Less than half of what this profile weighs is measured for this place; the rest is estimated from population and location. The same rule applies in every country: such places are ranked after those with stronger evidence.'];
-  if (m >= 60 && w >= 80) return ['assessed', 'Detailed local data', 'Most of what this profile weighs comes from official figures for this place or its region.'];
-  if (m >= 30) return ['partial', 'Local and modelled data', 'Part of what this profile weighs comes from official figures for this place or its region; the rest is modelled from population and location.'];
-  return ['screening', 'Regional overview', 'This score combines official regional figures with indicators modelled from population and location: a good first comparison.'];
+  var w=x&&fin(x.weighted)?x.weighted:null;
+  if(w===null)return ['unknown','Not scored','No compatible score is available for this profile.'];
+  if(x.thin)return ['screening','Thin model support','The legacy support rule flags limited inputs. Missing conditions are unknown, not adverse observations. Inspect the evidence before comparing.'];
+  return ['partial','Screening model','Inputs may include estimates and regional or national values. Input availability does not establish local measurement or independent validation.'];
 }
 function evidenceLine(x) {
-  if (!x || !fin(x.weighted)) return '';
-  var est = Math.max(0, x.weighted - (x.measured || 0));
-  return 'Scored on ' + x.weighted + '% of your weights: ' + (x.measured || 0) + '% official statistics' + (est ? ', ' + est + '% modelled (estimated from population and location)' : '');
+ if(!x||!fin(x.weighted))return '';
+ return 'Inputs cover '+x.weighted+'% of declared profile weight. Includes model transformations; inspect estimates, geography and dates in the evidence receipt.';
 }
 function store(k, v) {
   var memory = store.memory || (store.memory = Object.create(null));

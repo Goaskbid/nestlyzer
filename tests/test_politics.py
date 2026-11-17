@@ -35,7 +35,8 @@ c = {}
 with sync_playwright() as pw:
     br = pw.chromium.launch(); ctx = br.new_context(viewport={'width': 1300, 'height': 900})
     ctx.add_init_script("try{localStorage.setItem('nz:consent2',JSON.stringify({v:2,a:false,d:false,t:1}));localStorage.setItem('nz:toured','1')}catch(e){}")
-    ctx.route('**/*wikidata.org/**', wd); ctx.route('**/commons.wikimedia.org/**', lambda r: r.fulfill(status=200, content_type='application/json', body='{}'))
+    ctx.route('**/*wikidata.org/**', wd); ctx.route('**/api.frankfurter.app/**', lambda r: r.fulfill(status=200, content_type='application/json', body=json.dumps({'date': '2026-11-16', 'rates': {'USD': 1.26, 'EUR': 1.07, 'CNY': 8.95}})))
+    ctx.route('**/commons.wikimedia.org/**', lambda r: r.fulfill(status=200, content_type='application/json', body='{}'))
     pg = ctx.new_page(); errs = []; pg.on('pageerror', lambda e: errs.append(str(e)))
     pg.goto(B + '/#/explore?cc=CH&p=young_family', wait_until='load')
     pg.wait_for_function("document.querySelectorAll('#results .row[data-id]').length>2", timeout=120000)
@@ -43,12 +44,12 @@ with sync_playwright() as pw:
     pg.locator('#results .row[data-id] .nm').first.click(); pg.wait_for_selector('#place.open', timeout=30000)
     c['Politics tab present'] = pg.locator('#place [data-ptab=politics][role=tab]').count() == 1
     pg.locator('#place [data-ptab=politics][role=tab]').click()
-    pg.wait_for_selector('#place .pol-govs', timeout=30000)
+    pg.wait_for_selector('#place .pol-govs', timeout=30000); pg.wait_for_function("document.querySelectorAll('#place .pol-tile').length>=3", timeout=20000)
     d = pg.evaluate("""(()=>{const e=document.querySelector('#place [data-politics]');return {
       govs:[...e.querySelectorAll('.pol-gov')].map(x=>x.innerText.replace(/\\s+/g,' ')), spec:e.querySelectorAll('.pol-spec circle').length,
       seats:e.querySelectorAll('.pol-hemi circle').length, legend:e.querySelector('.pol-legend')?e.querySelector('.pol-legend').innerText.replace(/\\s+/g,' '):'',
       rec:e.querySelectorAll('.pol-rec rect').length, gauge:(e.querySelector('.pol-gauge .on')||{}).innerText||'',
-      orgs:[...e.querySelectorAll('.pol-org b')].map(x=>x.textContent), fta:e.querySelectorAll('.pol-fta span').length, text:e.innerText}})()""")
+      orgs:[...e.querySelectorAll('.pol-org b')].map(x=>x.textContent), layers:[...e.querySelectorAll('.pol-layer b')].map(x=>x.textContent), cur:(e.querySelector('.pol-cur')||{}).innerText||'', mandate:(e.querySelector('.pol-mandate')||{}).innerText||'', tiles:[...e.querySelectorAll('.pol-tile')].map(x=>x.innerText.replace(/\\s+/g,' ')), fta:e.querySelectorAll('.pol-fta span').length, text:e.innerText}})()""")
     print(json.dumps({k: v for k, v in d.items() if k != 'text'}, indent=1, ensure_ascii=False)[:1500])
     c['three governments: country, canton, municipality'] = len(d['govs']) == 3 and 'Anna Muster' in d['govs'][0] and 'Centre-right' in d['govs'][0] and 'Dario Kanton' in d['govs'][1] and 'Carla Gemeinde' in d['govs'][2] and 'Left' in d['govs'][2]
     c['left-right spectrum with 3 markers'] = d['spec'] == 3
@@ -56,6 +57,10 @@ with sync_playwright() as pw:
     c['track record of heads of government'] = d['rec'] == 2
     c['state structure: Switzerland federal'] = d['gauge'].strip() == 'Federal'
     c['memberships with meaning (EFTA, Schengen, OECD)'] = all(x in d['orgs'] for x in ['EFTA', 'Schengen area', 'OECD']) and 'Living here' in d['text'] and 'Business' in d['text']
+    c['who decides what: national, cantons, municipality'] = d['layers'] == ['National government', 'States, cantons or Länder', 'Municipality']
+    c['mandate proxy: governing party seat share'] = '41.7%' in d['mandate'] and 'not an opinion poll' in d['mandate']
+    c['currency and regime'] = 'Swiss franc' in d['cur'] and 'Floating' in d['cur']
+    c['FX tiles vs USD, EUR, CNY'] = sum(1 for t in d['tiles'] if t.startswith('1 CHF in')) == 3
     c['trade agreements listed'] = d['fta'] >= 4
     c['no score changed'] = pg.evaluate("document.querySelector('#results .row[data-id]').innerText") == score0
     pg.goto(B + '/#/explore?cc=DE&p=young_family&pt=politics', wait_until='load')

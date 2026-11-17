@@ -13,9 +13,10 @@ var NZCardUI = (function () {
   }
   function depth(record, result) {
     record = record || {}; result = result || {};
-    var counts = {local:0,regional:0,national:0,unresolved:0}, raw = record.factorRaw || {}, levels = record.factorLevel || {};
+    var estimateCount=0; var counts = {local:0,regional:0,national:0,unresolved:0}, raw = record.factorRaw || {}, levels = record.factorLevel || {};
     Object.keys(raw).forEach(function (key) {
       if (!finite(raw[key])) return;
+      if ((record.factorEst||{})[key] || key==='n_cost_est_income' || key==='n_ch_price_pressure') estimateCount++;
       var v = levels[key];
       if (v === 0) counts.local++;
       else if ([1,2,3].indexOf(v) >= 0) counts.regional++;
@@ -27,16 +28,18 @@ var NZCardUI = (function () {
     var details = [];
     ['local','regional','national','unresolved'].forEach(function (k) { if(counts[k]) details.push(counts[k] + ' ' + k); });
     if (finite(result.weighted) && result.weighted >= 0 && result.weighted <= 100) details.push(Math.round(result.weighted) + '% of profile weight covered');
+    if(estimateCount) details.push(estimateCount+' estimated inputs');
+    details.push('Input availability is not independent validation');
     if (!details.length) details.push('No resolved input support supplied');
-    return {label:label,detail:details.join('; '),counts:counts,state:known.length ? (counts.unresolved ? 'partial' : 'described') : 'unresolved'};
+    return {label:label,detail:details.join('; '),counts:counts,estimated:estimateCount,state:known.length ? (counts.unresolved ? 'partial' : 'described') : 'unresolved'};
   }
   function metadata(input) {   // 2.15.23: two short facts, details on hover/tap only
     var r=rank(input),d=input.depth || depth(input.record,input.result);
-    return '<dl class="nz-card-meta" data-card-required="rank depth"><div data-card-rank="'+r.state+'" title="'+escape(r.detail)+'"><dt>Rank</dt><dd>'+escape(r.label)+'</dd></div><div data-card-depth="'+d.state+'" title="'+escape(d.detail)+'"><dt>Data depth</dt><dd>'+escape(d.label)+((/(\d+)% of profile weight/.exec(d.detail)||[])[1]?'<small> · '+(/(\d+)% of profile weight/.exec(d.detail))[1]+'% inputs</small>':'')+'</dd></div></dl>';
+    return '<dl class="nz-card-meta" data-card-required="rank depth"><div data-card-rank="'+r.state+'" title="'+escape(r.detail)+'"><dt>Rank</dt><dd>'+escape(r.label)+'</dd></div><div data-card-depth="'+d.state+'"><dt>Data depth</dt><dd><details class="nz-depth-disclosure"><summary>'+escape(d.label)+((/(\d+)% of profile weight/.exec(d.detail)||[])[1]?'<small> · '+(/(\d+)% of profile weight/.exec(d.detail))[1]+'% inputs</small>':'')+(d.estimated?' <small>includes estimates</small>':'')+'</summary><p>'+escape(d.detail)+'</p></details></dd></div></dl>';
   }
   function emblem(record) {
     record=record||{};
-    return '<span class="nz-emblem" data-place-emblem="'+escape(record.id||'')+'" data-emblem-name="'+escape(record.name||'this place')+'" aria-label="Coat of arms of '+escape(record.name||'this place')+'"><svg class="nz-shield" viewBox="0 0 24 28" width="22" height="26" aria-hidden="true"><path d="M2 2h20v11c0 7-5 11-10 13C7 24 2 20 2 13z" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".45"/></svg></span>';
+    return '<span class="nz-emblem" data-place-emblem="'+escape(record.id||'')+'" data-emblem-name="'+escape(record.name||'this place')+'" aria-label="Municipal arms unavailable for '+escape(record.name||'this place')+'"><svg class="nz-shield" viewBox="0 0 24 28" width="22" height="26" aria-hidden="true"><path d="M2 2h20v11c0 7-5 11-10 13C7 24 2 20 2 13z" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".45"/></svg></span>';
   }
   function validEmblem(item,id) {
     return !!(item && item.place_id===id && item.permitted_use_reviewed===true && /^\/assets\/arms\/[A-Za-z0-9_.-]+\.(svg|png|webp)$/.test(item.asset||'') && !item.asset.includes('..') && /^[a-f0-9]{64}$/.test(item.sha256||'') && item.attribution && item.licence && /^https:\/\//.test(item.source_url||'') && item.reviewed_by && /^\d{4}-\d{2}-\d{2}$/.test(item.reviewed_on||''));
@@ -59,7 +62,7 @@ var NZCardUI = (function () {
       if(!slot.isConnected)return;
       if(!validEmblem(item,id)){slot.dataset.emblemState='unavailable';if(typeof window!=='undefined'&&window.NZ_ARMS)window.NZ_ARMS(slot);return;}   // 2.15.25: no local copy -> exact-ID, openly licensed image from Wikimedia
       var img=new Image();img.alt='Coat of arms of '+slot.dataset.emblemName;img.width=32;img.height=38;img.decoding='async';img.loading='eager';
-      img.onload=function(){if(!slot.isConnected||slot.dataset.placeEmblem!==id)return;link.hidden=false;slot.replaceChildren(link);slot.dataset.emblemState='available';};
+      img.onload=function(){if(!slot.isConnected||slot.dataset.placeEmblem!==id)return;link.hidden=false;slot.replaceChildren(link);slot.dataset.emblemState='available';slot.setAttribute('aria-label',img.alt);};
       img.onerror=function(){if(!slot.isConnected||slot.dataset.placeEmblem!==id)return;slot.dataset.emblemState='unavailable';slot.dataset.emblemState='load-error';};
       var link=document.createElement('a');link.href=item.source_url;link.target='_blank';link.rel='noopener noreferrer';link.title=item.attribution+'; '+item.licence;link.setAttribute('aria-label',img.alt+'; source and attribution');link.addEventListener('click',function(e){e.stopPropagation();});link.appendChild(img);
       slot.dataset.emblemState='loading';img.src=item.asset;

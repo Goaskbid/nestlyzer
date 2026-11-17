@@ -85,7 +85,7 @@ function generate({ifNeeded=false,check=false}={}){
   const summaries=out.countries[cc]={activePlaces:rows.length,profiles:{}};
   for(const p of active){const biz=!!cfg.profiles[p].business,base=biz?bBiz:bHH,allOutcome=rows.reduce((n,r)=>n+(outcome(r,biz,p)!==null),0),res=eng.rank(rows,p,{country:cc,subRanks:false}).scored;
    const pairs=[];for(const [i,s] of res.entries()){const o=outcome(s.r,biz,p);if(o&&Number.isFinite(s.overall??s.score))pairs.push({id:s.r.id,name:s.r.name,x:s.overall??s.score,y:o.y,group:o.group,groupName:o.groupName,rank:i+1});}
-   const st=C.stats(pairs),overlap=C.inputOverlap(cfg.profiles[p],base.id,cc,cfg.semanticIntegrity===true);
+   const st=C.stats(pairs),overlap=C.inputOverlap(cfg.profiles[p],base.id,cc,cfg.semanticIntegrity===true,res.reduce((weights,s)=>{if(outcome(s.r,biz,p)!==null)Object.assign(weights,eng.weightsFor(s.r,p));return weights;},Object.assign({},cfg.profiles[p].weights)));
    const ds={sample:st.sample.map(compactPoint),examples:st.examples.map(x=>({...x,x:+x.x.toFixed(6),y:+x.y.toFixed(6)}))};
    delete st.sample;delete st.examples;
    summaries.profiles[p]={...st,activePlaces:rows.length,rankedPlaces:res.length,excludedPlaces:rows.length-res.length,outcomePlaces:allOutcome,

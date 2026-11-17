@@ -745,7 +745,7 @@ function keyFactsHTML(r) {
   cand.forEach(function (c) { var k = c.f.name.toLowerCase(), v = 'v:' + c.f.unit + ':' + (r.factorRaw || {})[c.f.id]; if (seen[k] || seen[v] || pick.length >= 12) return; seen[k] = 1; if (fin((r.factorRaw || {})[c.f.id])) seen[v] = 1; pick.push(c); });   // 2.15.28: the same figure under two names is shown once
   pick.sort(function (a, b) { return (b.w - a.w) || (a.lv - b.lv); });
   var local = cand.filter(function (c) { return c.lv === 1; }).length;
-  var kfHTML = '<section class="sec keyfacts"><h3>Key facts for ' + esc(r.name) + '</h3><p class="sub">' + fmtInt(cand.length) + ' official figures for ' + esc(r.name) + (local < cand.length ? ' and its wider area' : '') + ', most relevant for ' + esc(profileName(S.profile)) + ' first: <span class="kfkey good">helps</span> <span class="kfkey bad">weak</span> <span class="kfkey dim">does not count for this profile</span>. Hover or tap a figure for its source. <button class="linkbtn" type="button" data-ptab="data">All data</button></p><div class="kfgrid">' +
+  var kfHTML = '<section class="sec keyfacts"><h3>Key facts for ' + esc(r.name) + '</h3><p class="sub">' + fmtInt(cand.length) + ' reported or derived inputs for ' + esc(r.name) + (local < cand.length ? ' and its wider area' : '') + ', most relevant for ' + esc(profileName(S.profile)) + ' first: <span class="kfkey good">helps</span> <span class="kfkey bad">weak</span> <span class="kfkey dim">does not count for this profile</span>. Hover or tap a figure for its source. <button class="linkbtn" type="button" data-ptab="data">All data</button></p><div class="kfgrid">' +
     pick.map(function (c) {
       var tag = (r.factorEst || {})[c.f.id] ? (c.lv === 9 ? 'national estimate' : r.country === 'CH' && c.lv === 3 ? 'canton median, estimate' : 'regional estimate') : kfLevel(r, c.lv), yr = String(c.yr || '').replace(/\s*snapshot in embedded build/i, '').replace(/^(\d{4})-\d\d-\d\d$/, '$1');
       var src = String(c.src || '').replace(/\s*\(as above\)/i, '').split(/ - | \/ |; |, from | \(/)[0].trim(); if (src.length > 44) src = src.slice(0, 42).replace(/\s+\S*$/, '') + '…';
@@ -1024,7 +1024,7 @@ function housingWorkHTML(r, traceOnly) {
     return nat ? '<details class="cxnat"><summary>' + esc(g[0]) + ' (' + g[1].length + ')</summary>' + tableOf(g).replace('<h4>', '<h4 hidden>') + '</details>' : tableOf(g);
   }).join('') + (key.length ? '</details>' : '') : '');
   if (!body) return '';
-  return '<section class="sec cxw"><h3>' + (biz ? 'Costs and key figures for this site' : 'Housing and work') + '</h3><p class="sub">Official figures for ' + esc(r.name) + ', its zone or metro area, and ' + esc(countryName(r.country)) + ', each with its period and area. Context only: they do not change the score.</p>' + cxKey() + '' + body + '</section>';
+  return '<section class="sec cxw"><h3>' + (biz ? 'Costs and key figures for this site' : 'Housing and work') + '</h3><p class="sub">Reported and derived context for ' + esc(r.name) + ', its zone or metro area, and ' + esc(countryName(r.country)) + ', each with its period and area. Context only: they do not change the score.</p>' + cxKey() + '' + body + '</section>';
 }
 /* how a context figure compares (2.11.2): its percentile among the same indicator, unit and breakdown in this country's
    data (at least 6 areas); green or red where the direction is clear for the mode (pay: good for households, a cost for
@@ -1811,7 +1811,7 @@ function programmesHTML(r) {
   var st = document.createElement('style');
   st.textContent = "#srcpop.hov{pointer-events:none;animation:nzfade .12s ease-out}#srcpop .dh{display:block;margin-top:5px;color:var(--ink-3);font-size:11px}@keyframes nzfade{from{opacity:0;transform:translateY(-2px)}to{opacity:1}}" +
     "#nzsheet{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;background:rgba(15,23,42,.38);padding:16px}#nzsheet>div{width:min(560px,100%);max-height:min(86vh,760px);overflow:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line-2);border-radius:16px;box-shadow:0 18px 60px rgba(0,0,0,.28);padding:18px 20px 16px}" +
-    "#nzsheet h3{margin:0 34px 2px 0;font-size:18px;line-height:1.25}#nzsheet .sub{margin:0 0 12px;color:var(--ink-3);font-size:13px}#nzsheet .x{position:absolute;margin:-6px 0 0;right:auto;float:right;border:0;background:transparent;font-size:22px;line-height:1;cursor:pointer;color:var(--ink-3)}" +
+    "#nzsheet h3{margin:0 34px 2px 0;font-size:18px;line-height:1.25}#nzsheet .sub{margin:0 0 12px;color:var(--ink-3);font-size:13px}#nzsheet>div{position:relative}#nzsheet .x{position:sticky;top:0;float:right;margin:-4px -4px 0 8px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--surface-2);font-size:22px;line-height:1;cursor:pointer;color:var(--ink);z-index:2}#nzsheet .x:hover{background:var(--line)}#nzsheet .sh-foot{display:flex;justify-content:flex-end;margin-top:14px}" +
     "#nzsheet .big{display:flex;gap:18px;align-items:baseline;flex-wrap:wrap;margin:4px 0 10px}#nzsheet .big b{font:700 30px/1.1 var(--font-display)}#nzsheet .big span{color:var(--ink-2);font-size:13.5px}" +
     "#nzsheet dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 14px;margin:10px 0 0;font-size:13.5px}#nzsheet dt{color:var(--ink-3)}#nzsheet dd{margin:0}#nzsheet table{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px}#nzsheet td,#nzsheet th{padding:5px 4px;border-bottom:1px solid var(--line);text-align:left}#nzsheet td.n{text-align:right;font-variant-numeric:tabular-nums}" +
     "#srcpop .shbtn{display:block;margin-top:8px;padding:6px 10px;border:1px solid var(--line-2);border-radius:8px;background:var(--surface-2,var(--surface));color:var(--ink);font:inherit;font-weight:600;cursor:pointer}#srcpop{pointer-events:auto}#srcpop.hov{pointer-events:none}" +
@@ -1849,12 +1849,12 @@ function programmesHTML(r) {
 })();
 function openSheet(html, back) {
   var old = document.getElementById('nzsheet'); if (old) old.remove();
-  var w = document.createElement('div'); w.id = 'nzsheet'; w.innerHTML = '<div role="dialog" aria-modal="true" aria-labelledby="nzsh-t" tabindex="-1"><button class="x" type="button" aria-label="Close">×</button>' + html + '</div>';
+  var w = document.createElement('div'); w.id = 'nzsheet'; w.innerHTML = '<div role="dialog" aria-modal="true" aria-labelledby="nzsh-t" tabindex="-1"><button class="x" type="button" aria-label="Close">×</button>' + html + '<div class="sh-foot"><button class="btn btn-sm x2" type="button">Close</button></div></div>';
   document.body.appendChild(w); var box = w.firstChild; box.focus();
   function close() { w.remove(); document.removeEventListener('keydown', key); if (back && back.focus) try { back.focus({ preventScroll: true }); } catch (e) {} }
   function key(e) { if (e.key === 'Escape') close(); }
   document.addEventListener('keydown', key);
-  w.addEventListener('click', function (e) { if (e.target === w || e.target.closest('.x')) close(); });
+  w.addEventListener('click', function (e) { if (e.target === w || e.target.closest('.x') || e.target.closest('.x2')) close(); });
 }
 function sheetDist(r, get, fmtV, better) {
   var sh = SHARDS[r.country], recs = sh && sh.records ? sh.records.filter(function (q) { return !q.superseded; }) : [], vals = [];
@@ -1873,6 +1873,29 @@ function sheetDist(r, get, fmtV, better) {
     '<text x="0" y="' + (H - 4) + '" font-size="11" fill="currentColor" opacity=".6">' + esc(fmtV(lo)) + '</text><text x="' + W + '" y="' + (H - 4) + '" font-size="11" text-anchor="end" fill="currentColor" opacity=".6">' + esc(fmtV(hi)) + '</text></svg>' +
     '<p class="cap">' + fmtInt(vals.length) + ' places in ' + esc(countryName(r.country)) + ' with this figure. ' + esc(r.name) + ' (blue) is ' + pos + ' of them; the middle place has ' + esc(fmtV(med)) + '.</p>';
 }
+/* 2.15.30 owner review: a category sheet never opens empty. Categories computed from context (observed reality) show
+   what fed them, this place's own figure and where the score sits among all places in the current ranking. */
+function catSheetExtra(r, c, sc) {
+  var out = '', f = r.factorRaw || {}, x = r.trend || {};
+  if (c === 'observed') {
+    var biz = isBizKey(S.profile), v = fin(x.population_5y_pct) ? x.population_5y_pct : fin(f.common_population_growth_5y) ? f.common_population_growth_5y : f.population_growth_pct;
+    out += '<p>' + (biz ? 'Where firms already operate: business establishments or jobs per 1,000 residents, against the rest of the country. Where an industry cluster is measured, that counts instead and nothing is added here.'
+      : 'Where people actually move: the change in population over the last five years (-10% scores 0, +10% scores 100). Without a local series, net migration into the region stands in.') + '</p>';
+    if (!biz && fin(v)) out += '<div class="big"><b>' + (v > 0 ? '+' : '') + fmt(v, 1) + '%</b><span>population change over five years</span></div>';
+    else if (!biz && fin(f.n_net_migration_region)) out += '<div class="big"><b>' + fmt(f.n_net_migration_region, 1) + '</b><span>net migration into the region per 1,000 residents a year</span></div>';
+    out += '<p class="cap">It is context about what others choose, not a measure of quality; it never outweighs a failing core need.</p>';
+  }
+  var R = typeof RES !== 'undefined' && RES, vals = [];
+  if (R && R.scored) R.scored.forEach(function (q) { var v2 = (q.catScores || {})[c]; if (fin(v2)) vals.push(v2); });
+  if (vals.length >= 10 && fin(sc)) {
+    var B = 20, bins = new Array(B).fill(0); vals.forEach(function (v2) { bins[Math.min(B - 1, Math.floor(v2 / 100 * B))]++; });
+    var mx = Math.max.apply(null, bins), W = 520, H = 92, bw = W / B, mi = Math.min(B - 1, Math.floor(sc / 100 * B)), below = vals.filter(function (v2) { return v2 < sc; }).length;
+    out += '<svg class="dist" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Scores of all ranked places">' + bins.map(function (n, i) { var h = n ? Math.max(2, n / mx * (H - 24)) : 0; return '<rect x="' + (i * bw + 1).toFixed(1) + '" y="' + (H - 18 - h).toFixed(1) + '" width="' + (bw - 2).toFixed(1) + '" height="' + h.toFixed(1) + '" rx="2" fill="' + (i === mi ? 'var(--blue)' : 'var(--line-2)') + '"/>'; }).join('') +
+      '<text x="0" y="' + (H - 4) + '" font-size="11" fill="currentColor" opacity=".6">0</text><text x="' + W + '" y="' + (H - 4) + '" font-size="11" text-anchor="end" fill="currentColor" opacity=".6">100</text></svg>' +
+      '<p class="cap">' + fmtInt(vals.length) + ' places in this ranking. ' + esc(r.name) + ' (blue) scores higher than ' + Math.round(below / vals.length * 100) + '% of them.</p>';
+  }
+  return out;
+}
 function sheetHTML(r, k) {
   var fr = r.factorRaw || {}, fs = r.factorScores || {}, LV = { 1: 'large region', 2: 'region', 3: 'district or county', 9: 'whole country' };
   if (/^fac:\d+$/.test(k)) {
@@ -1888,6 +1911,7 @@ function sheetHTML(r, k) {
         .filter(function (a) { return fin(a[1]); }).map(function (a) { return '<tr><td>' + a[0] + '</td><td class="n">' + (a[2] === 'km' ? (a[1] < 1 ? 'less than 1 km' : fmt(a[1]) + ' km') : fmtInt(a[1]) + (a[2] ? ' ' + a[2] : '')) + '</td></tr>'; }).join('') + '</table>' : '';
     return '<h3 id="nzsh-t">' + esc(catLabel(c)) + '</h3><p class="sub">' + esc(r.name) + ', score ' + (fin(cats[c]) ? Math.round(cats[c]) : 'not available') + ' of 100 against the rest of ' + esc(countryName(r.country)) + '</p>' + extra +
       (ids.length ? '<table><tr><th>Measure</th><th class="n">Value</th><th class="n">Score</th></tr>' + ids.map(function (id) { var f = ENGINE.factorById[id]; return '<tr><td>' + esc(f.name) + '</td><td class="n">' + esc(fin(fr[id]) ? adFmtRaw(f, fr[id]) || fmt(fr[id]) : '') + '</td><td class="n">' + Math.round(fs[id]) + '</td></tr>'; }).join('') + '</table>' : '') +
+      (ids.length ? '' : catSheetExtra(r, c, cats[c])) +
       '<p class="cap">Scores run from 0 (weakest in the country) to 100 (strongest) for this need.</p>';
   }
   var f = ENGINE.factorById && ENGINE.factorById[k]; if (!f) return '';

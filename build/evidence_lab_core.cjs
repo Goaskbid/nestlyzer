@@ -48,8 +48,9 @@ function stats(rows,minN=30) {
   result.examples=[...highs,...lows];result.sample=sample(u,60);return result;
 }
 function sample(u,max){if(u.length<=max)return u;return Array.from({length:max},(_,i)=>u[Math.round(i*(u.length-1)/(max-1))]);}
-function inputOverlap(profile,outcome,cc,semantic=false){
-  const w=profile.weights||{}, paths=[];let kind='none_detected';
+function inputOverlap(profile,outcome,cc,semantic=false,effectiveWeights){
+  const w=effectiveWeights||profile.weights||{}, paths=[];let kind='none_detected';
+  if((w.observed||0)>0 && ['population_change','industry_lq'].includes(outcome)){paths.push('observed');kind='related_construct';}
   if(outcome==='industry_lq'&&(w.cluster||0)>0){paths.push('cluster');kind='direct';}
   if(outcome==='population_change'&&!semantic){
     if((w.demographics||0)>0){paths.push('demographics');kind=cc==='CH'?'related_construct':'direct';}

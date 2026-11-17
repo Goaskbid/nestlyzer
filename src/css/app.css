@@ -476,3 +476,9 @@ body.bizmode .modeseg button[aria-pressed="true"]{background:#EA580C;color:#fff}
 /* 2.15.30: the report link's icon had no size and filled the screen width on phones */
 .report-row a{display:inline-flex;align-items:center;gap:6px}
 .report-row svg{width:16px;height:16px;flex:none}
+
+/* Results first; the alternative postcard presentation remains optional. */
+.nz-top-preview{margin:8px 0 12px}.nz-top-preview>summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:600}.nz-top-preview[open]>summary{margin-bottom:8px}
+
+/* Intermediate desktops retain navigation while the search control becomes compact. */
+@media(min-width:861px) and (max-width:1250px){.site-header{gap:8px}.site-header .search-trigger{min-width:40px;width:40px;padding:0;justify-content:center}.site-header .search-trigger span,.site-header .search-trigger kbd{display:none}.site-header .nav{margin-left:0}.site-header .nav a{padding-left:6px;padding-right:6px}.site-header .header-tools{gap:4px}}

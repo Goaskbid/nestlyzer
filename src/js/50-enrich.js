@@ -109,7 +109,7 @@ function hydratePlace(r) {
     fillPhoto($('#place [data-hero]'), r, lead, 0, r.name + ', public image');
     fillPhoto($('[data-story-photo]'), r, lead, 0, r.name);
     var w = $('[data-wiki]');
-    if (w && c.extract) { var t = c.extract.split('. ').slice(0, 2).join('. '); w.innerHTML = '<p>' + esc(t) + (/\.$/.test(t) ? '' : '.') + '</p>' + (c.url ? '<a class="small" href="' + esc(c.url) + '" target="_blank" rel="noopener">Public article</a>' : '') + ' <span class="small muted">Text: Wikipedia, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, first sentences.</span>'; }
+    if (w && c.extract) { var t = c.extract.split('. ').slice(0, 4).join('. '); w.innerHTML = '<p>' + esc(t) + (/\.$/.test(t) ? '' : '.') + '</p>' + '<p class="src">' + (c.url ? '<a class="small" href="' + esc(c.url) + '" target="_blank" rel="noopener">Public article</a>' : '') + ' <span class="small muted">Text: Wikipedia, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, opening paragraph.</span></p>'; }
     identity(r, c.entity);
     contact(r, c.entity);
   });
@@ -123,7 +123,7 @@ function hydratePlace(r) {
   sights(r);
   commonsImages(r, 6).then(function (imgs) {
     if (!still()) return; var el = $('[data-gallery]'); if (!el || !imgs.length) return;
-    el.innerHTML = '<section class="sec"><h3>Image gallery</h3><p class="sub">Wikimedia Commons search results. Check each image page for the licence and author.</p><div class="gallery">' + imgs.map(function (x) { return '<a href="' + esc(x.page || x.src) + '" target="_blank" rel="noopener"><img src="' + esc(x.src) + '" alt="' + esc(r.name) + ' public image" loading="lazy" referrerpolicy="no-referrer"></a>'; }).join('') + '</div></section>';
+    el.innerHTML = '<div class="gallery">' + imgs.map(function (x) { return '<a href="' + esc(x.page || x.src) + '" target="_blank" rel="noopener"><img src="' + esc(x.src) + '" alt="' + esc(r.name) + ' public image" loading="lazy" referrerpolicy="no-referrer"></a>'; }).join('') + '</div><p class="src">More photos found by name on Wikimedia Commons; open one for its author and licence.</p>';
   });
 }
 function regionContext(r) {
@@ -169,16 +169,43 @@ function printDoc(h, list, fname) { var w = window.open('', '_blank'), go = func
 
 /* 2.15.25 coats of arms everywhere (cards, rows, panel): matched by the exact official municipality code on Wikidata,
    image from Wikimedia Commons only with an open licence (CC0, CC BY, CC BY-SA, public domain). Commons marks every coat
-   of arms "insignia": that is a reminder not to misuse official symbols, not a copyright limit, and identifying the place
-   is not misuse. Results are cached for 30 days; at most 4 lookups run at once and only for emblems on screen. */
+   of arms "insignia": copyright permission does not resolve every official-symbol restriction. Results are cached for 30 days; at most 4 lookups run at once and only for emblems on screen. */
 var ARMS = {}, ARMQ = [], ARMN = 0;
 function armsLic(lic, url) { return /^(CC0|CC[ -]BY(?:[ -]SA)?[ -][1-4]\.[05]\b.*|Public domain|PD\b.*)$/i.test(lic) && !/noncommercial|no ?derivatives|\bNC\b|\bND\b/i.test(lic + ' ' + url); }
+/* 2.15.30 owner review: countries without an official municipal code on Wikidata (USA, Japan, Colombia and most of the world)
+   still get their coat of arms, but never by name alone: the entity must carry the right country (P17), lie within 8 km of
+   the place and be described as a town, city or municipality. No parent region is ever substituted. */
+var NZ_CQ = {AE:'Q878',AL:'Q222',AR:'Q414',AU:'Q408',BG:'Q219',CA:'Q16',CN:'Q148',CO:'Q739',CY:'Q229',CZ:'Q213',DK:'Q35',EE:'Q191',EG:'Q79',EL:'Q41',FI:'Q33',HK:'Q8646',HR:'Q224',HU:'Q28',ID:'Q252',IE:'Q27',IL:'Q801',IN:'Q668',IS:'Q189',JP:'Q17',KR:'Q884',LI:'Q347',LT:'Q37',LU:'Q32',LV:'Q211',MA:'Q1028',MK:'Q221',MT:'Q233',MX:'Q96',MY:'Q833',NZ:'Q664',PH:'Q928',PT:'Q45',RO:'Q218',RS:'Q403',RU:'Q159',SA:'Q851',SG:'Q334',SI:'Q215',SK:'Q214',TH:'Q869',TR:'Q43',TW:'Q865',US:'Q30',VN:'Q881',ZA:'Q258'};
+function wikidataPlaceFor(r) {
+  var cq = NZ_CQ[r.country]; if (!cq || r.lat == null || !r.name) return Promise.resolve(null);
+  return jget('https://www.wikidata.org/w/api.php?action=wbsearchentities&language=en&type=item&limit=6&format=json&origin=*&search=' + encodeURIComponent(r.name)).then(function (j) {
+    var hits = (j.search || []).filter(function (h) { return /town|city|municipal|village|commune|county seat|borough|prefecture|district|ward|comune|municipio/i.test(h.description || ''); }).map(function (h) { return h.id; }).slice(0, 4);
+    if (!hits.length) return null;
+    return jget('https://www.wikidata.org/w/api.php?action=wbgetentities&ids=' + hits.join('|') + '&props=claims|sitelinks&format=json&origin=*').then(function (j2) {
+      var ok = hits.map(function (q) { return j2.entities && j2.entities[q]; }).filter(function (e) {
+        if (!e || !NZEmblemIdentity.values(e, 'P17').some(function (v) { return v && v.id === cq; })) return false;
+        var g = NZEmblemIdentity.values(e, 'P625')[0]; if (!g) return false;
+        var dy = (g.latitude - r.lat) * 111, dx = (g.longitude - r.lon) * 111 * Math.cos(r.lat * Math.PI / 180); return Math.sqrt(dx * dx + dy * dy) < 8; });
+      if (ok.length !== 1) return null;   // ambiguous or none: show nothing rather than a wrong emblem
+      ok[0].nzExactIdentity = { qid: ok[0].id, property: 'P17+P625', code: 'within 8 km', country: r.country }; return ok[0];
+    });
+  });
+}
+function wikidataExactFor(r) {
+ var request=NZEmblemIdentity.request(r);if(!extOn())return Promise.resolve(null);if(!request)return wikidataPlaceFor(r);
+ return wdSearch('haswbstatement:'+request.property+'='+request.value).then(function(ids){
+  if(ids.length!==1||!extOn())return null;
+  return jget('https://www.wikidata.org/w/api.php?action=wbgetentities&ids='+ids[0]+'&props=claims|sitelinks&format=json&origin=*').then(function(j){
+   var e=j.entities&&j.entities[ids[0]];if(!NZEmblemIdentity.verify(e,request))return null;e.nzExactIdentity={qid:ids[0],property:request.property,code:request.value,country:r.country};return e;
+  });
+ });
+}
 function armsFor(r) {
   if (ARMS[r.id] !== undefined) return Promise.resolve(ARMS[r.id]);
   // 2.15.28: key 'arms2' so empty results cached by the 8-country lookup before 2.15.28 are asked again
-  var key = 'arms3:' + r.id, c = store(key); if (c && c.t && Date.now() - c.t < 2592e6) return Promise.resolve(ARMS[r.id] = c.v);
+  var key = 'arms4:' + r.id, c = store(key); if (c && c.t && Date.now() - c.t < 2592e6) return Promise.resolve(ARMS[r.id] = c.v);
   if (!extOn()) return Promise.resolve(null);
-  var done = function (v) { if (!v && WD_FAIL[r.id]) { delete WD_FAIL[r.id]; return null; } ARMS[r.id] = v; try { store(key, { t: Date.now(), v: v }); } catch (e) {} return v; };
+  var done = function (v) { if(!extOn())return null; if (!v && WD_FAIL[r.id]) { delete WD_FAIL[r.id]; return null; } ARMS[r.id] = v; try { store(key, { t: Date.now(), v: v }); } catch (e) {} return v; };
   var p94 = function (e) { var f = e && e.claims && ((e.claims.P94 || [])[0] || {}).mainsnak; return f && f.datavalue && f.datavalue.value; };
   var near = function (e) { var g = e && e.claims && ((e.claims.P625 || [])[0] || {}).mainsnak; g = g && g.datavalue && g.datavalue.value;   // a name match far away is another place
     if (!g || r.lat == null) return true; var dy = (g.latitude - r.lat) * 111, dx = (g.longitude - r.lon) * 111 * Math.cos(r.lat * Math.PI / 180); return Math.sqrt(dx * dx + dy * dy) < 30; };
@@ -190,19 +217,27 @@ function armsFor(r) {
       var art = new DOMParser().parseFromString((m.Artist || {}).value || 'Wikimedia Commons', 'text/html').body.textContent.trim().slice(0, 80);
       return { src: img, lic: lic, by: art, of: of || '', page: i.descriptionurl || ('https://commons.wikimedia.org/wiki/File:' + encodeURIComponent(f)) }; }); };
   // every country: the same exact-ID / LAU-code / name resolver the Story and facts use (shared cache, no extra lookup)
-  return wikidataFor(r).then(function (e) {
-    if (!e || !near(e)) return null;
-    var own = p94(e); if (own) return commons(own, '');
-    // no arms of its own: the arms of the district, canton or region it belongs to, labelled as such
-    var up = ((e.claims.P131 || [])[0] || {}).mainsnak; up = up && up.datavalue && up.datavalue.value && up.datavalue.value.id; if (!up) return null;
-    return jget('https://www.wikidata.org/w/api.php?action=wbgetentities&ids=' + up + '&props=claims|labels&languages=en&format=json&origin=*').then(function (j) {
-      var pe = j.entities && j.entities[up], f = p94(pe); if (!f) return null;
-      return commons(f, ((pe.labels || {}).en || {}).value || 'the region'); }); })
+  return wikidataExactFor(r).then(function (e) {
+    if (!e || !extOn()) return null;
+    var own=p94(e);if(!own)return null;
+    return commons(own,'').then(function(v){if(v)v.identity=e.nzExactIdentity;return v;}); })
     .then(done, function () { return null; });
 }
-function armsPump() { while (ARMN < 4 && ARMQ.length) { var job = ARMQ.shift(); ARMN++; armsFor(job[0]).then(function (v) { return v; }).then((function (slot) { return function (v) { ARMN--; if (v && slot.isConnected) { var im = new Image(); im.alt = 'Coat of arms of ' + (v.of || slot.dataset.emblemName || ''); im.src = v.src; im.loading = 'lazy'; im.referrerPolicy = 'no-referrer'; im.title = (v.of ? 'Coat of arms of ' + v.of + ' (' + (slot.dataset.emblemName || 'this place') + ' has none on record). ' : '') + v.by + ', ' + v.lic + ' (Wikimedia Commons)'; im.className = 'nz-arms-img' + (v.of ? ' nz-arms-up' : ''); im.onload = function () { slot.innerHTML = ''; slot.appendChild(im); slot.dataset.emblemState = 'shown'; }; im.onerror = function () { slot.dataset.emblemState = 'none'; }; } else if (slot.isConnected) slot.dataset.emblemState = 'none'; armsPump(); }; })(job[1])); } }
+function armsPump() {
+ while(ARMN<4&&ARMQ.length){var job=ARMQ.shift();if(!extOn())continue;ARMN++;
+  (function(r,slot,id){armsFor(r).then(function(v){
+   if(!extOn()||!slot.isConnected||slot.dataset.placeEmblem!==id||!v||!v.identity)return;
+   var im=new Image();im.alt='Coat of arms of '+(slot.dataset.emblemName||r.name);im.referrerPolicy='no-referrer';im.className='nz-arms-img';
+   var link=document.createElement('a');link.href=v.page;link.target='_blank';link.rel='noopener noreferrer';link.title=v.by+'; '+v.lic+'; Wikimedia Commons. Official-symbol restrictions may apply.';link.addEventListener('click',function(e){e.stopPropagation();});link.appendChild(im);
+   im.onload=function(){if(!extOn()||!slot.isConnected||slot.dataset.placeEmblem!==id)return;slot.replaceChildren(link);slot.dataset.emblemState='shown';slot.setAttribute('aria-label',im.alt);};
+   im.onerror=function(){if(slot.isConnected&&slot.dataset.placeEmblem===id)slot.dataset.emblemState='load-error';};
+   im.src=v.src;
+  }).catch(function(){if(slot.isConnected)slot.dataset.emblemState='load-error';}).finally(function(){ARMN--;armsPump();});
+  })(job[0],job[1],job[0].id);
+ }
+}
 var ARMIO = typeof IntersectionObserver === 'function' ? new IntersectionObserver(function (es) { es.forEach(function (e) { if (!e.isIntersecting) return; ARMIO.unobserve(e.target); var t = e.target, r = BYID[t.dataset.placeEmblem]; if (r) { ARMQ.push([r, t]); armsPump(); } else if ((+t.dataset.armsTry || 0) < 8) { t.dataset.armsTry = (+t.dataset.armsTry || 0) + 1; setTimeout(function () { if (t.isConnected) ARMIO.observe(t); }, 1000); } }); }, { rootMargin: '200px' }) : null;   // the record may still be loading on first open
-function armsNow(slot, n) { var r = BYID[slot.dataset.placeEmblem]; if (r) { ARMQ.push([r, slot]); armsPump(); } else if (n < 8) setTimeout(function () { if (slot.isConnected) armsNow(slot, n + 1); }, 1000); }
+function armsNow(slot, n) { if(!extOn()||!slot.isConnected)return; var r = BYID[slot.dataset.placeEmblem]; if (r) { ARMQ.push([r, slot]); armsPump(); } else if (n < 8) setTimeout(function () { if (slot.isConnected) armsNow(slot, n + 1); }, 1000); }
 window.NZ_ARMS = function (slot) { if (!extOn() || !slot || slot.dataset.armsQueued) return; slot.dataset.armsQueued = '1';
   // 2.15.28: a slot queued while the card was still sliding in could be missed; check again after 4 s and 10 s (cached, so no extra lookups)
   [4000, 10000].forEach(function (ms) { setTimeout(function () { if (slot.isConnected && slot.dataset.emblemState === 'unavailable' && !slot.querySelector('img')) armsNow(slot, 0); }, ms); });

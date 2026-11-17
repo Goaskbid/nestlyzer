@@ -12,7 +12,7 @@
  {
   "finding": "ties",
   "ok": true,
-  "check": "young_family: top 10 not one tied region (8 distinct scores)"
+  "check": "young_family: top 10 not one tied region (9 distinct scores)"
  },
  {
   "finding": "ties",
@@ -22,7 +22,7 @@
  {
   "finding": "ties",
   "ok": true,
-  "check": "remote: top 10 not one tied region (6 distinct scores)"
+  "check": "remote: top 10 not one tied region (9 distinct scores)"
  },
  {
   "finding": "plausible",

@@ -1,0 +1,57 @@
+{
+  "source_id": "GITHUB_MAIN_COMMIT",
+  "request_url": "https://api.github.com/repos/Goaskbid/nestlyzer/commits/main",
+  "retrieved_at": "2026-11-19T09:05:13.737001+00:00",
+  "status": "acquired_format_checked",
+  "kind": "json",
+  "payload_role": "repository_snapshot",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 0.292,
+      "result": "success"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://api.github.com/repos/Goaskbid/nestlyzer/commits/main",
+  "bytes": 396641,
+  "sha256": "2c4f55afb9b5bc9e5aa69581b83478e13d237777c7de9453acc5881a87f38b04",
+  "path": "originals/GITHUB_MAIN_COMMIT.json",
+  "headers": {
+    "Date": "Thu, 19 Nov 2026 09:05:13 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "Cache-Control": "public, max-age=60, s-maxage=60",
+    "Vary": "Accept,Accept-Encoding, Accept, X-Requested-With",
+    "ETag": "W/\"2c4f55afb9b5bc9e5aa69581b83478e13d237777c7de9453acc5881a87f38b04\"",
+    "Last-Modified": "Thu, 19 Nov 2026 09:05:00 GMT",
+    "X-GitHub-Media-Type": "github.v3; format=json",
+    "x-github-api-version-selected": "2022-11-28",
+    "Access-Control-Expose-Headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset, Warning",
+    "Access-Control-Allow-Origin": "*",
+    "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+    "X-Frame-Options": "deny",
+    "X-Content-Type-Options": "nosniff",
+    "X-XSS-Protection": "0",
+    "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+    "Content-Security-Policy": "default-src 'none'",
+    "Server": "github.com",
+    "Accept-Ranges": "bytes",
+    "X-RateLimit-Limit": "60",
+    "X-RateLimit-Remaining": "0",
+    "X-RateLimit-Used": "60",
+    "X-RateLimit-Resource": "core",
+    "X-RateLimit-Reset": "1795079989",
+    "Transfer-Encoding": "chunked",
+    "X-GitHub-Request-Id": "E367:931F9:493C09:721408:6AFEBBC9",
+    "x-github-edge-region": "westus2",
+    "connection": "close"
+  },
+  "format_check": {
+    "format": "json",
+    "root_type": "dict"
+  }
+}

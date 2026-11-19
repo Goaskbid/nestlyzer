@@ -1,0 +1,1439 @@
+{
+  "finished_at": "2026-11-19T09:09:32.115323+00:00",
+  "sources_attempted": 31,
+  "original_data_files_acquired": 14,
+  "metadata_or_snapshot_files_acquired": 13,
+  "source_native_numeric_cells_staged": 3897412,
+  "validated_place_joins": 0,
+  "production_changes": 0,
+  "all_data_gaps_closed": false,
+  "live_gap_audit_completed": false,
+  "staging": {
+    "EU_demo_r_gind3": {
+      "status": "staged_not_published",
+      "rows": 631314,
+      "numeric_rows": 490793,
+      "missing_rows": 140521,
+      "path": "staging/EU_demo_r_gind3.jsonl.gz",
+      "sha256": "03413f7b24d458526a94e6cee065cab8e8d9f047a187f3248261531902957866"
+    },
+    "EU_demo_r_pjanaggr3": {
+      "status": "staged_not_published",
+      "rows": 1185300,
+      "numeric_rows": 735643,
+      "missing_rows": 449657,
+      "path": "staging/EU_demo_r_pjanaggr3.jsonl.gz",
+      "sha256": "7016d898b21877417e260473049bcc9a96da8fe3c2bb9d855ef29dbf8a13b70e"
+    },
+    "EU_demo_r_pjanind3": {
+      "status": "staged_not_published",
+      "rows": 1327452,
+      "numeric_rows": 1177469,
+      "missing_rows": 149983,
+      "path": "staging/EU_demo_r_pjanind3.jsonl.gz",
+      "sha256": "e548df32bc335e7a4b163202fdf920c1baca47182593000f79eeb3cfc74186e0"
+    },
+    "EU_ilc_caindformal": {
+      "status": "staged_not_published",
+      "rows": 7371,
+      "numeric_rows": 6480,
+      "missing_rows": 891,
+      "path": "staging/EU_ilc_caindformal.jsonl.gz",
+      "sha256": "6d400042f4de5ad3a479285624d88a33d31e16f2420a3b68a59b6b4e6494afaa"
+    },
+    "EU_nama_10r_3empers": {
+      "status": "staged_not_published",
+      "rows": 1541975,
+      "numeric_rows": 1485615,
+      "missing_rows": 56360,
+      "path": "staging/EU_nama_10r_3empers.jsonl.gz",
+      "sha256": "72c7fba19c9d771e7a877eb0400ba16ee2bf9cf69c367dec7c300f9515fa6ce2"
+    },
+    "FR_CNAF_COVERAGE": {
+      "status": "original_preserved_native_adapter_review_required",
+      "new_observations": 0
+    },
+    "MY_ITEMS": {
+      "status": "original_preserved_native_adapter_review_required",
+      "new_observations": 0
+    },
+    "MY_PREMISES": {
+      "status": "original_preserved_native_adapter_review_required",
+      "new_observations": 0
+    },
+    "MY_PRICECATCHER_2026_10": {
+      "status": "original_preserved_native_adapter_review_required",
+      "new_observations": 0
+    },
+    "NL_CBS_81575": {
+      "status": "original_preserved_native_adapter_review_required",
+      "new_observations": 0
+    },
+    "PT_INE_0012600_ORIGINAL": {
+      "status": "staged_not_published",
+      "rows": 638,
+      "numeric_rows": 425,
+      "missing_rows": 213,
+      "path": "staging/PT_INE_0012600_ORIGINAL.jsonl.gz",
+      "sha256": "83995b998660544edb089f67767ab51b6c45e579c0ed3157176a9ee9c9beef88"
+    },
+    "PT_INE_0014698": {
+      "status": "staged_not_published",
+      "rows": 638,
+      "numeric_rows": 487,
+      "missing_rows": 151,
+      "path": "staging/PT_INE_0014698.jsonl.gz",
+      "sha256": "4c27cb952f3656c0f3380a8ac3e0c0f306d888a9bba1b1e3b789d7f01035101c"
+    },
+    "PT_INE_0014773": {
+      "status": "staged_not_published",
+      "rows": 679,
+      "numeric_rows": 500,
+      "missing_rows": 179,
+      "path": "staging/PT_INE_0014773.jsonl.gz",
+      "sha256": "797730182f9915fc120c33d0e041a991cf6d367813a7d3ef281c206c40b23c44"
+    },
+    "US_COUNTY_CHANGE_2025": {
+      "status": "original_preserved_native_adapter_review_required",
+      "new_observations": 0
+    }
+  },
+  "acquisitions": [
+    {
+      "source_id": "CH_NOISE_PUBLISHER",
+      "request_url": "https://www.bafu.admin.ch/en/noise-geodata",
+      "retrieved_at": "2026-11-19T09:06:32.705205+00:00",
+      "status": "acquired_format_checked",
+      "kind": "html",
+      "payload_role": "discovery",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 2.481,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://www.bafu.admin.ch/en/noise-geodata",
+      "bytes": 397660,
+      "sha256": "468ed1ba5ee423e938e1ea12b174fbf96d688c6f1f3adccf5c3c69ce4c36403e",
+      "path": "originals/CH_NOISE_PUBLISHER.html",
+      "headers": {
+        "date": "Thu, 19 Nov 2026 09:06:33 GMT",
+        "content-type": "text/html;charset=utf-8",
+        "content-length": "397660",
+        "vary": "Accept-Encoding",
+        "x-powered-by": "Nuxt",
+        "cache-control": "public,max-age=0,s-maxage=20,stale-while-revalidate=60",
+        "x-cache-status": "MISS",
+        "content-security-policy": "upgrade-insecure-requests; default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' *.ws-old.parlament.ch *.admin.ch *.alexandria.ch *.baspomedia.ch *.cloudflare.com *.codepen.io *.dwcdn.net *.everviz.com *.fliphtml5.com *.googleapis.com *.infogram.com *.issuu.com *.media.dma.swiss *.media.zem.ch/ *.polyfill.io *.youtube.com analytics.sefri.ch api.mailxpert.ch cdn.syndication.twimg.com ch-bar.bubble-chat.ch connect.facebook.net embed-cdn.surveyhero.com embed.ticketpark.ch embed.typeform.com estv.jaxforms.dev fliphtml5.com issuu.com livingdocs-assets.s3-eu-west-1.amazonaws.com media.dma.swiss platform.instagram.com platform.twitter.com platform.x.com player.vimeo.com scripts.silktide.com snap.licdn.com webstats.ch.ch webstat.2edaadmin.ch siteimproveanalytics.com plugin.passolution.eu 360.swiss360-media.ch www.instagram.com ; style-src-elem 'self' 'unsafe-inline' * ; style-src 'self' 'unsafe-inline' ; object-src 'self' poc.energieforschung-schweiz.ch ; base-uri 'self' ; connect-src 'self' data: *.geo.admin.ch *.scs-sdweb.ch *.admin.ch *.imgix.net a.eu.silktide.com analytics.bit.admin.ch analytics.sefri.ch backend.berufsbildung-schweiz.ch backend.cadastre.ch backend.cstenero.ch backend.defensio-vtg.ch backend.erwachsenen-sport.ch backend.geoinformation.ch backend.info.geocat.ch backend.jugendundsport.ch backend.mont-terri.ch backend.npoc.ch backend.sdc-cde.ch backend.sdc-cva.ch backend.sdc-economy-education.ch backend.sdc-foodsystems.ch backend.sdc-health.ch backend.sdc-migration.ch backend.sdc-multilateral.ch backend.sdc-pge.ch backend.sdc-regions.ch backend.svs-rns.ch backend.sdc-water.ch backend.shk.ch backend.tbbk-ctfp.ch estv.jaxforms.dev iframe.ly px.ads.linkedin.com webstats.ch.ch webstat.2edaadmin.ch plugin.passolution.eu wss://ws-eu.pusher.com ; font-src 'self' data: *.digitaloceanspaces.com *.scs.scs-sdweb.ch *.ch cdnjs.cloudflare.com estv.jaxforms.dev fonts.gstatic.com plugin.passolution.eu ; frame-src 'self' *.ws-old.parlament.ch *.admin.ch *.adminevents.ch *.admintravel.ch *.agroscope.info *.alexandria.ch *.bagapps.ch *.baspomedia.ch *.cloudfront.net *.dwcdn.net *.ehsm.ch *.everviz.com *.fliphtml5.com *.googleapis.com *.quicksight.aws.amazon.com *.infogram.com *.issuu.com *.jaxforms.com *.media.dma.swiss *.media.zem.ch *.media-flow.ch *.seco.amboss.liip.cloud *.secowe-microsite.ch *.share.connect.posit.cloud *.soziale-sicherheit-chss.ch *.vollprecht.com *.youtube.com *.webflow.io alexhub28.github.io api.ticketpark.ch app.digital.swiss app.everviz.com app.fabric.microsoft.com app.powerbi.com app.jobportal.abaservices.ch appmedia.zem.ch are.gines.ch are-npvm-grafik-2.netlify.app are-npvm-grafik-3.netlify.app are.frappant.ch assets.website-files.com avenue.argusdatainsights.ch bafu.meteotest.ch bafu.meteotest.review bakom-media-transparency-dashboard.vercel.app bav.azurewebsites.net bern-einfach.podigee.io c.go-mpulse.net calendar.google.com cc-1000050.prospective.ch cercle-indicateurs-grafik.netlify.app cdn.amcharts.com cdn.prod.website-files.com cdnpg.ilcdn.net ch-bar.bubble-chat.ch chatbotarmee.ch chatbot-blw-web.azurewebsites.net database.prod.bwo.clients.liip.ch digital.swiss digitalswiss-ida.visions.page display.contentfry.com dma.swiss ebgb-self-assessment.amboss.liip.ch ee3f176b.sibforms.com embed.ticketpark.ch engage.cloud.microsoft estv.jaxforms.dev esv.deimos.ch fafwpgovch.sharepoint.com fedro.maps.arcgis.com fliphtml5.com forms.cloud.microsoft form.typeform.com forms.office.com fragesi.ch frb.novu.ch fwpgovch.sharepoint.com github.com hazu.swiss holzdatenbank.chili.ch infogram.com innosuisse.founders-hive.ch innosuisse.guide innosuisse-impact.github.io ira.agroscope.ch issuu.com live.solique.ch login.microsoftonline.com mail.bafu.ch map.geo.admin.ch media.dma.swiss media.zem.ch mw.weaver.ch mx824.clients.liip.ch my.visme.co ndp-explained.ch newsroom.consilium.europa.eu ofas.shinyapps.io ohws.prospective.ch open.spotify.com par-pcache.simplex.tv platform.twitter.com player.podigee-cdn.net player.vimeo.com player.vod2.infomaniak.com playout.3qsdn.com plugin.passolution.eu po.dma.swiss poc.energieforschung-schweiz.ch podcasters.spotify.com preview.shorthand.com prod.mpseuropa.ch sasdb.clients.liip.ch scnem.com scnem2.com share.dma.swiss sitereview.bluecoat.com status.uptrends.com streaming.interlake.net spa.energieforschung-schweiz.ch swisscom-onmicrosoft-com.access.mcas.ms syndication.twitter.com s71zo.mjt.lu test.akisnet.ch tools.regiosuisse.ch user.ticketpark.ch video.zem.ch view.genially.com view.genial.ly vimeo.com vod.dma.swiss vp2050.netlify.app w.soundcloud.com web.swissnewsletter.ch webform.statslive.info webstats.ch.ch willkommen-im-bundesasylzentrum.podigee.io www.agroscope.ch www.agrarforschungschweiz.ch www.armee.ch www.bafu-daten.ch www.bfe-anw.admin.ch www.canva.com www.cmsp-t2.admin.ch www.data.finance.admin.ch www.datalakes-eawag.ch www.db-agroscope.ch www.event.blackpearlproduction.com www.facebook.com/ www.fragesi.ch www.gottfried-keller-stiftung.ch www.instagram.com www.linkedin.com www.microsoft.com www.menti.com www.parlament.ch www.privasphere.com www.rsi.ch www.rtr.ch www.rts.ch www.srf.ch www.swissgeo.ch www.ticketpark.ch www.twogo.com www.umfrageonline.com www.umfrageonline.ch www.youtube-nocookie.com zivildienst-quiz.typeform.com 74uit.infras.ch 360.swiss360-media.ch ; img-src 'self' blob: data: *.dwcdn.net *.googleapis.com *.ws-old.parlament.ch *.admin.ch *.alexandria.ch *.baspomedia.ch *.everviz.com *.fliphtml5.com *.imgix.net *.issuu.com *.media.dma.swiss *.media.zem.ch *.scs-sdweb.ch *.siteimproveanalytics.io *.twimg.com ch-bar.bubble-chat.ch estv.jaxforms.dev fliphtml5.com issuu.com livingdocs-assets.s3-eu-west-1.amazonaws.com livingdocsio.github.io media.dma.swiss platform.twitter.com px.ads.linkedin.com syndication.twitter.com webstats.ch.ch www.facebook.com ; manifest-src 'self' ; media-src * blob: 'self' ; worker-src 'self' ;",
+        "connection": "close",
+        "Strict-Transport-Security": "max-age=16070400; includeSubDomains"
+      },
+      "format_check": {
+        "format": "html_or_metadata",
+        "data_payload": false
+      }
+    },
+    {
+      "source_id": "CH_NOISE_STAC",
+      "request_url": "https://data.geo.admin.ch/api/stac/v1/collections/ch.bafu.laerm-strassenlaerm_tag/items",
+      "retrieved_at": "2026-11-19T09:06:32.144212+00:00",
+      "status": "acquired_format_checked",
+      "kind": "json",
+      "payload_role": "metadata",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 0.557,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://data.geo.admin.ch/api/stac/v1/collections/ch.bafu.laerm-strassenlaerm_tag/items",
+      "bytes": 2463,
+      "sha256": "6f804354893a90ec462232be3e2eb20e628cd2d329044c01d4302171e61d44ed",
+      "path": "originals/CH_NOISE_STAC.json",
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "2463",
+        "Connection": "close",
+        "Date": "Thu, 19 Nov 2026 09:06:32 GMT",
+        "apigw-requestid": "HFJT6jCtFiAEPcA=",
+        "Server": "gunicorn",
+        "access-control-allow-headers": "Content-Type,Accept,Accept-Language",
+        "access-control-allow-methods": "GET,HEAD",
+        "access-control-allow-origin": "*",
+        "Allow": "GET, POST, HEAD, OPTIONS",
+        "Cache-Control": "max-age=600, public",
+        "Cross-Origin-Opener-Policy": "same-origin",
+        "Expires": "Thu, 19 Nov 2026 09:16:32 GMT",
+        "referrer-policy": "same-origin",
+        "x-content-type-options": "nosniff",
+        "x-frame-options": "DENY",
+        "Vary": "Accept",
+        "X-Cache": "Miss from cloudfront",
+        "Via": "1.1 949f02beb00874a68d9d2ac605c9b938.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Pop": "HIO52-P5",
+        "X-Amz-Cf-Id": "MEDsojfRZJlXwwReIe3hJMR3yR-0BZ38JNPv2wxLbJh6fJF8Uxz8VA=="
+      },
+      "format_check": {
+        "format": "json",
+        "root_type": "dict"
+      }
+    },
+    {
+      "source_id": "ES_SERPAVI_LANDING",
+      "request_url": "https://www.mivau.gob.es/vivienda/alquiler/atlas-del-alquiler",
+      "retrieved_at": "2026-11-19T09:06:32.081575+00:00",
+      "status": "not_acquired",
+      "kind": "html",
+      "payload_role": "discovery",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 0.059,
+          "error_type": "HTTPError",
+          "message": "HTTP Error 403: Forbidden"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1"
+    },
+    {
+      "source_id": "EU_NOISE_LANDING",
+      "request_url": "https://www.eea.europa.eu/en/datahub/datahubitem-view/c952f520-8d71-42c9-b74c-b7eb002f939b",
+      "retrieved_at": "2026-11-19T09:06:35.189704+00:00",
+      "status": "acquired_format_checked",
+      "kind": "html",
+      "payload_role": "discovery",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 2.046,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://www.eea.europa.eu/en/datahub/datahubitem-view/c952f520-8d71-42c9-b74c-b7eb002f939b",
+      "bytes": 4669912,
+      "sha256": "0b34f846d05fdf10d8060aac7ccb3660692114dbfa316280b5330e7c6aa5e526",
+      "path": "originals/EU_NOISE_LANDING.html",
+      "headers": {
+        "Date": "Thu, 19 Nov 2026 09:06:36 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "close",
+        "Server": "nginx/1.31.1",
+        "Content-Security-Policy": "default-src 'none'; base-uri 'self'; worker-src 'self' blob:; script-src 'self' 'nonce-qfHLS/aOQMK5pMTMzzEuVg==' https://public.tableau.com https://*.discomap.eea.europa.eu https://api.openaire.eu https://api.openaire.com https://api.zotero.org https://taskman.eionet.europa.eu https://matomo.eea.europa.eu https://openlayers.org https://js.arcgis.com https://geocode.arcgis.com https://services.arcgis.com https://*.eea.europa.eu; style-src 'self' 'unsafe-inline' https://api.openaire.eu https://*.discomap.eea.europa.eu https://api.openaire.com https://api.zotero.org https://taskman.eionet.europa.eu https://openlayers.org https://js.arcgis.com https://*.eea.europa.eu; img-src 'self' https: data: blob:; font-src 'self' data: https://js.arcgis.com https://*.eea.europa.eu; media-src 'self' https://*.eea.europa.eu blob: data:; frame-src 'self' https://*.europa.eu https://europa.eu https://*.discomap.eea.europa.eu https://*.eea.europa.eu; connect-src 'self' https://*.arcgis.com https://*.arcgisonline.com https://*.discomap.eea.europa.eu https://api.openaire.eu https://api.openaire.com https://api.zotero.org https://taskman.eionet.europa.eu https://api.friendlycaptcha.com/api/v1/ https://*.openstreetmap.org https://*.eea.europa.eu https://*.ec.europa.eu; form-action 'self' https://*.eea.europa.eu; frame-ancestors 'self' https://biodiversity.europa.eu https://*.eea.europa.eu; object-src 'none'; manifest-src 'self'; upgrade-insecure-requests; report-uri https://sentry.eea.europa.eu/api/22/security/?sentry_key=c2d7a7ca8deb46909d3bfc1bd468eb3d",
+        "X-Backend-Name": "cluster(172.20.252.31:3000)",
+        "x-url": "/en/datahub/datahubitem-view/c952f520-8d71-42c9-b74c-b7eb002f939b",
+        "X-Cacheable": "YES",
+        "Vary": "Origin",
+        "X-Varnish": "985407",
+        "Age": "0",
+        "Via": "1.1 frontend-dpl-varnish-788ff875b9-gc2bx (Varnish/9.1)",
+        "Accept-Ranges": "bytes",
+        "grace": "",
+        "X-Backend": "cluster(frontend-volto:(null))",
+        "X-Cache": "MISS",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Permissions-Policy": "accelerometer=(), autoplay=(), camera=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), usb=()"
+      },
+      "format_check": {
+        "format": "html_or_metadata",
+        "data_payload": false
+      }
+    },
+    {
+      "source_id": "EU_demo_r_gind3",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/demo_r_gind3?format=TSV&compressed=true",
+      "retrieved_at": "2026-11-19T09:05:18.917297+00:00",
+      "status": "acquired_format_checked",
+      "kind": "tsv.gz",
+      "payload_role": "data",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 3.534,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/demo_r_gind3?format=TSV&compressed=true",
+      "bytes": 1059556,
+      "sha256": "2785fd12846753adbe79f7c2239cfc2f33525bfe912dbbb3220601e2ee9c5180",
+      "path": "originals/EU_demo_r_gind3.tsv.gz",
+      "headers": {
+        "Date": "Thu, 19 Nov 2026 09:05:19 GMT",
+        "Transfer-Encoding": "chunked",
+        "Content-Type": "text/tab-separated-values",
+        "Content-Disposition": "attachment; filename=\"estat_demo_r_gind3.tsv.gz\"",
+        "X-ORACLE-DMS-ECID": "5374ef80-1a20-4ab7-91e2-9403bceb73ef-002cb6a8",
+        "Access-Control-Allow-Headers": "Content-Type, Accept, X-Requested-With",
+        "Access-Control-Allow-Methods": "GET",
+        "X-ORACLE-DMS-RID": "0",
+        "Access-Control-Allow-Origin": "*",
+        "Connection": "close",
+        "Set-Cookie": "rps=!0Nn8r40LVlsQyxkJ1l7j19/F6MRRhIIH6iCS5gqYGg3SZeF+s+HQh1bWn5dVpFs3qDi97wWaZ8p46ZfigM+UI1JvOvq07oVhbGNIyvQ2; path=/; Httponly; Secure"
+      },
+      "format_check": {
+        "format": "tsv.gz",
+        "header": "freq,indic_de,geo\\TIME_PERIOD\t2000 \t2001 \t2002 \t2003 \t2004 \t2005 \t2006 \t2007 \t2008 \t2009 \t2010 \t2011 \t2012 \t2013 \t2014 \t2015 \t2016 \t2017 \t2018 \t2019 \t2020 \t2021 \t2022 \t2023 \t2024 \t2025 \t2026"
+      }
+    },
+    {
+      "source_id": "EU_demo_r_pjanaggr3",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/demo_r_pjanaggr3?format=TSV&compressed=true",
+      "retrieved_at": "2026-11-19T09:05:22.455075+00:00",
+      "status": "acquired_format_checked",
+      "kind": "tsv.gz",
+      "payload_role": "data",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 3.598,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/demo_r_pjanaggr3?format=TSV&compressed=true",
+      "bytes": 2020817,
+      "sha256": "ce8f6ee514d30e1e417582513f8df12029adb9cb1c8dea2eb337a76756d4a773",
+      "path": "originals/EU_demo_r_pjanaggr3.tsv.gz",
+      "headers": {
+        "Date": "Thu, 19 Nov 2026 09:05:22 GMT",
+        "Transfer-Encoding": "chunked",
+        "Content-Type": "text/tab-separated-values",
+        "Content-Disposition": "attachment; filename=\"estat_demo_r_pjanaggr3.tsv.gz\"",
+        "Access-Control-Allow-Headers": "Content-Type, Accept, X-Requested-With",
+        "Access-Control-Allow-Methods": "GET",
+        "Access-Control-Allow-Origin": "*",
+        "Connection": "close",
+        "Set-Cookie": "rps=!URg7cch97ODMJJbbA+6l1zXkw7/S2bZt/UcBiI9soJF/KgxN3UPj8o/LHKaz4y67kIuGWccMmvgB/6kSj4NOCCD+NVgWYiw0N1ymui9m; path=/; Httponly; Secure"
+      },
+      "format_check": {
+        "format": "tsv.gz",
+        "header": "freq,unit,sex,age,geo\\TIME_PERIOD\t1990 \t1991 \t1992 \t1993 \t1994 \t1995 \t1996 \t1997 \t1998 \t1999 \t2000 \t2001 \t2002 \t2003 \t2004 \t2005 \t2006 \t2007 \t2008 \t2009 \t2010 \t2011 \t2012 \t2013 \t2014 \t2015 \t2016 \t2017 \t2018 \t2019 \t2020 \t2021 \t2022 \t2023 \t2024 \t2025"
+      }
+    },
+    {
+      "source_id": "EU_demo_r_pjanind3",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/demo_r_pjanind3?format=TSV&compressed=true",
+      "retrieved_at": "2026-11-19T09:05:26.056814+00:00",
+      "status": "acquired_format_checked",
+      "kind": "tsv.gz",
+      "payload_role": "data",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 3.412,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/demo_r_pjanind3?format=TSV&compressed=true",
+      "bytes": 1527636,
+      "sha256": "bc7a2997caf9f3cc7c80776a88c5a23f8fee825ad38a62333c9073f33a086cc7",
+      "path": "originals/EU_demo_r_pjanind3.tsv.gz",
+      "headers": {
+        "Date": "Thu, 19 Nov 2026 09:05:26 GMT",
+        "Transfer-Encoding": "chunked",
+        "Content-Type": "text/tab-separated-values",
+        "Content-Disposition": "attachment; filename=\"estat_demo_r_pjanind3.tsv.gz\"",
+        "Access-Control-Allow-Headers": "Content-Type, Accept, X-Requested-With",
+        "Access-Control-Allow-Methods": "GET",
+        "Access-Control-Allow-Origin": "*",
+        "Connection": "close",
+        "Set-Cookie": "rps=!Dd9KqQkf3x3eXP0J1l7j19/F6MRRhEdQRDRoVIzpqf8QN3/4eIrkVI6v7X0eRog3MLe64+mEddcRswt0kJorjnqKrPXUnqTrZE7gbhXC; path=/; Httponly; Secure"
+      },
+      "format_check": {
+        "format": "tsv.gz",
+        "header": "freq,indic_de,unit,geo\\TIME_PERIOD\t2014 \t2015 \t2016 \t2017 \t2018 \t2019 \t2020 \t2021 \t2022 \t2023 \t2024 \t2025"
+      }
+    },
+    {
+      "source_id": "EU_ilc_caindformal",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/ilc_caindformal?format=TSV&compressed=true",
+      "retrieved_at": "2026-11-19T09:05:29.473237+00:00",
+      "status": "acquired_format_checked",
+      "kind": "tsv.gz",
+      "payload_role": "data",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 0.775,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/ilc_caindformal?format=TSV&compressed=true",
+      "bytes": 13633,
+      "sha256": "13b31b99da52954072c0020cbb74096eef772b5341eacf3effaafeb221f504d8",
+      "path": "originals/EU_ilc_caindformal.tsv.gz",
+      "headers": {
+        "Date": "Thu, 19 Nov 2026 09:05:30 GMT",
+        "Transfer-Encoding": "chunked",
+        "Content-Type": "text/tab-separated-values",
+        "Content-Disposition": "attachment; filename=\"estat_ilc_caindformal.tsv.gz\"",
+        "Access-Control-Allow-Headers": "Content-Type, Accept, X-Requested-With",
+        "Access-Control-Allow-Methods": "GET",
+        "Access-Control-Allow-Origin": "*",
+        "Connection": "close",
+        "Set-Cookie": "rps=!lMJq4Gwss52tg84J1l7j19/F6MRRhDI3WyUkQXJOgGBPx4nR0XVzxumZUmqoclNTxhca99N0HV686OdCUhUXlV6xEjeVh00BalxTLF6g; path=/; Httponly; Secure"
+      },
+      "format_check": {
+        "format": "tsv.gz",
+        "header": "freq,age,duration,unit,geo\\TIME_PERIOD\t2005 \t2006 \t2007 \t2008 \t2009 \t2010 \t2011 \t2012 \t2013 \t2014 \t2015 \t2016 \t2017 \t2018 \t2019 \t2020 \t2021 \t2022 \t2023 \t2024 \t2025"
+      }
+    },
+    {
+      "source_id": "EU_nama_10r_3empers",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nama_10r_3empers?format=TSV&compressed=true",
+      "retrieved_at": "2026-11-19T09:05:30.252585+00:00",
+      "status": "acquired_format_checked",
+      "kind": "tsv.gz",
+      "payload_role": "data",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 3.87,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nama_10r_3empers?format=TSV&compressed=true",
+      "bytes": 2777607,
+      "sha256": "848d90a7d9037b65408d76da4bef3b75ef35c72097d333a9ae90221c668ef1a7",
+      "path": "originals/EU_nama_10r_3empers.tsv.gz",
+      "headers": {
+        "Date": "Thu, 19 Nov 2026 09:05:30 GMT",
+        "Transfer-Encoding": "chunked",
+        "Content-Type": "text/tab-separated-values",
+        "Content-Disposition": "attachment; filename=\"estat_nama_10r_3empers.tsv.gz\"",
+        "Access-Control-Allow-Headers": "Content-Type, Accept, X-Requested-With",
+        "Access-Control-Allow-Methods": "GET",
+        "Access-Control-Allow-Origin": "*",
+        "Connection": "close",
+        "Set-Cookie": "rps=!FCEemJ/C88+6/GvbA+6l1zXkw7/S2WdnDV/TRHIMGJw261EPOCWlZGLhHcZ8CVjkL8Rf3e3UbkEYDq9tRh1LSYYfm0V0SWEVis+EjDdg; path=/; Httponly; Secure"
+      },
+      "format_check": {
+        "format": "tsv.gz",
+        "header": "freq,unit,wstatus,nace_r2,geo\\TIME_PERIOD\t2000 \t2001 \t2002 \t2003 \t2004 \t2005 \t2006 \t2007 \t2008 \t2009 \t2010 \t2011 \t2012 \t2013 \t2014 \t2015 \t2016 \t2017 \t2018 \t2019 \t2020 \t2021 \t2022 \t2023 \t2024"
+      }
+    },
+    {
+      "source_id": "FR_CNAF_COVERAGE",
+      "request_url": "https://data.caf.fr/api/explore/v2.1/catalog/datasets/txcouv_pe_com/exports/csv",
+      "retrieved_at": "2026-11-19T09:05:34.126197+00:00",
+      "status": "acquired_format_checked",
+      "kind": "csv",
+      "payload_role": "data",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 1.321,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://data.caf.fr/api/explore/v2.1/catalog/datasets/txcouv_pe_com/exports/csv",
+      "bytes": 130736,
+      "sha256": "21d4dcafcdad19d42c0aaeeca3a11cc7d65da1b4464780a8c04301e508151dc8",
+      "path": "originals/FR_CNAF_COVERAGE.csv",
+      "headers": {
+        "Server": "openresty",
+        "Date": "Thu, 19 Nov 2026 09:05:34 GMT",
+        "Content-Type": "text/csv; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "close",
+        "Content-Disposition": "attachment; filename=\"txcouv_pe_com.csv\"",
+        "Cache-Control": "public, max-age=60",
+        "X-RateLimit-Remaining": "4999",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Reset": "2026-11-20 00:00:00+00:00",
+        "Vary": "Accept-Language, Cookie, Host",
+        "Content-Language": "fr-fr",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+        "Access-Control-Max-Age": "1000",
+        "Access-Control-Allow-Headers": "Authorization, X-Requested-With, Origin, ODS-API-Analytics-App, ODS-API-Analytics-Embed-Type, ODS-API-Analytics-Embed-Referrer, ODS-Widgets-Version, Accept",
+        "Access-Control-Expose-Headers": "ODS-Explore-API-Deprecation, Link, X-RateLimit-Remaining, X-RateLimit-Limit, X-RateLimit-Reset, X-RateLimit-dataset-Remaining, X-RateLimit-dataset-Limit, X-RateLimit-dataset-Reset",
+        "Strict-Transport-Security": "max-age=31536000;includeSubdomains",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Content-Security-Policy": "upgrade-insecure-requests; ",
+        "X-UA-Compatible": "IE=edge",
+        "Permissions-Policy": "midi=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()"
+      },
+      "format_check": {
+        "format": "csv",
+        "header": "annee;numcom;nomcom;txcouv_psu_col_com;txcouv_hors_psu_col_com;txcouv_eaje_com;txcouv_prescol_com;txcouv_am_ind_com;txcouv_gad_ind_com;txcouv_ind_com;txcouv_com"
+      }
+    },
+    {
+      "source_id": "FR_CNAF_METADATA",
+      "request_url": "https://data.caf.fr/api/explore/v2.1/catalog/datasets/txcouv_pe_com",
+      "retrieved_at": "2026-11-19T09:05:35.450617+00:00",
+      "status": "acquired_format_checked",
+      "kind": "json",
+      "payload_role": "metadata",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 0.586,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://data.caf.fr/api/explore/v2.1/catalog/datasets/txcouv_pe_com",
+      "bytes": 4914,
+      "sha256": "4ee079d8ca46b778556d7435c80539cfb9bb0b9b171c773feb5a9bc6de0357ff",
+      "path": "originals/FR_CNAF_METADATA.json",
+      "headers": {
+        "Server": "openresty",
+        "Date": "Thu, 19 Nov 2026 09:05:35 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "4914",
+        "Connection": "close",
+        "X-RateLimit-Remaining": "4998",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Reset": "2026-11-20 00:00:00+00:00",
+        "Cache-Control": "public, max-age=60",
+        "Vary": "Accept-Language, Cookie, Host",
+        "Content-Language": "fr-fr",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+        "Access-Control-Max-Age": "1000",
+        "Access-Control-Allow-Headers": "Authorization, X-Requested-With, Origin, ODS-API-Analytics-App, ODS-API-Analytics-Embed-Type, ODS-API-Analytics-Embed-Referrer, ODS-Widgets-Version, Accept",
+        "Access-Control-Expose-Headers": "ODS-Explore-API-Deprecation, Link, X-RateLimit-Remaining, X-RateLimit-Limit, X-RateLimit-Reset, X-RateLimit-dataset-Remaining, X-RateLimit-dataset-Limit, X-RateLimit-dataset-Reset",
+        "Strict-Transport-Security": "max-age=31536000;includeSubdomains",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Content-Security-Policy": "upgrade-insecure-requests; ",
+        "X-UA-Compatible": "IE=edge",
+        "Permissions-Policy": "midi=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()"
+      },
+      "format_check": {
+        "format": "json",
+        "root_type": "dict"
+      }
+    },
+    {
+      "source_id": "FR_FLORES_A88",
+      "request_url": "https://api.insee.fr/melodi/file/DS_FLORES_A88/DS_FLORES_A88_2024_CSV_FR",
+      "retrieved_at": "2026-11-19T09:05:36.286030+00:00",
+      "status": "not_acquired",
+      "kind": "csv_or_zip",
+      "payload_role": "data",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 94.029,
+          "error_type": "TimeoutError",
+          "message": "The read operation timed out"
+        },
+        {
+          "number": 2,
+          "elapsed_seconds": 93.909,
+          "error_type": "TimeoutError",
+          "message": "The read operation timed out"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1"
+    },
+    {
+      "source_id": "GITHUB_MAIN_COMMIT",
+      "request_url": "https://api.github.com/repos/Goaskbid/nestlyzer/commits/main",
+      "retrieved_at": "2026-11-19T09:05:13.737001+00:00",
+      "status": "acquired_format_checked",
+      "kind": "json",
+      "payload_role": "repository_snapshot",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 0.292,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://api.github.com/repos/Goaskbid/nestlyzer/commits/main",
+      "bytes": 396641,
+      "sha256": "2c4f55afb9b5bc9e5aa69581b83478e13d237777c7de9453acc5881a87f38b04",
+      "path": "originals/GITHUB_MAIN_COMMIT.json",
+      "headers": {
+        "Date": "Thu, 19 Nov 2026 09:05:13 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Cache-Control": "public, max-age=60, s-maxage=60",
+        "Vary": "Accept,Accept-Encoding, Accept, X-Requested-With",
+        "ETag": "W/\"2c4f55afb9b5bc9e5aa69581b83478e13d237777c7de9453acc5881a87f38b04\"",
+        "Last-Modified": "Thu, 19 Nov 2026 09:05:00 GMT",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "x-github-api-version-selected": "2022-11-28",
+        "Access-Control-Expose-Headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset, Warning",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Frame-Options": "deny",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "0",
+        "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+        "Content-Security-Policy": "default-src 'none'",
+        "Server": "github.com",
+        "Accept-Ranges": "bytes",
+        "X-RateLimit-Limit": "60",
+        "X-RateLimit-Remaining": "0",
+        "X-RateLimit-Used": "60",
+        "X-RateLimit-Resource": "core",
+        "X-RateLimit-Reset": "1795079989",
+        "Transfer-Encoding": "chunked",
+        "X-GitHub-Request-Id": "E367:931F9:493C09:721408:6AFEBBC9",
+        "x-github-edge-region": "westus2",
+        "connection": "close"
+      },
+      "format_check": {
+        "format": "json",
+        "root_type": "dict"
+      }
+    },
+    {
+      "source_id": "GITHUB_MAIN_TREE",
+      "request_url": "https://api.github.com/repos/Goaskbid/nestlyzer/git/trees/main?recursive=1",
+      "retrieved_at": "2026-11-19T09:05:13.967136+00:00",
+      "status": "not_acquired",
+      "kind": "json",
+      "payload_role": "repository_snapshot",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 0.075,
+          "error_type": "HTTPError",
+          "message": "HTTP Error 403: rate limit exceeded"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1"
+    },
+    {
+      "source_id": "GITHUB_PACKAGE",
+      "request_url": "https://raw.githubusercontent.com/Goaskbid/nestlyzer/main/package.json",
+      "retrieved_at": "2026-11-19T09:05:14.034395+00:00",
+      "status": "acquired_format_checked",
+      "kind": "json",
+      "payload_role": "repository_snapshot",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 0.152,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://raw.githubusercontent.com/Goaskbid/nestlyzer/main/package.json",
+      "bytes": 848,
+      "sha256": "a9e41dee27c94846dc72129c0b385f75ca5a9fb9f520b1fbbeb8a5b9bd0d6e41",
+      "path": "originals/GITHUB_PACKAGE.json",
+      "headers": {
+        "Connection": "close",
+        "Content-Length": "848",
+        "Cache-Control": "max-age=300",
+        "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+        "Content-Type": "text/plain; charset=utf-8",
+        "ETag": "\"4ebc86d2fe6cc16be6d4dbf2384df34fd9e187b5eb7436cb067c66228a67c252\"",
+        "Strict-Transport-Security": "max-age=31536000",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-GitHub-Request-Id": "8EF8:1BBDCA:262E3:9FCF0:6AFEBBC9",
+        "x-github-edge-region": "westus2",
+        "Accept-Ranges": "bytes",
+        "Date": "Thu, 19 Nov 2026 09:05:14 GMT",
+        "Via": "1.1 varnish",
+        "X-Served-By": "cache-bfi-krnt7300080-BFI",
+        "X-Cache": "MISS",
+        "X-Cache-Hits": "0",
+        "X-Timer": "S1795079114.060397,VS0,VE126",
+        "Vary": "Authorization,Accept-Encoding",
+        "Access-Control-Allow-Origin": "*",
+        "Cross-Origin-Resource-Policy": "cross-origin",
+        "X-Fastly-Request-ID": "04b6191ccff1e04435dd63527961a65886cd3671",
+        "Expires": "Thu, 19 Nov 2026 09:10:14 GMT",
+        "Source-Age": "0"
+      },
+      "format_check": {
+        "format": "json",
+        "root_type": "dict"
+      }
+    },
+    {
+      "source_id": "GITHUB_RELEASE",
+      "request_url": "https://raw.githubusercontent.com/Goaskbid/nestlyzer/main/RELEASE.json",
+      "retrieved_at": "2026-11-19T09:05:14.045700+00:00",
+      "status": "not_acquired",
+      "kind": "json",
+      "payload_role": "repository_snapshot",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 0.105,
+          "error_type": "HTTPError",
+          "message": "HTTP Error 404: Not Found"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1"
+    },
+    {
+      "source_id": "GITHUB_REPOSITORY",
+      "request_url": "https://api.github.com/repos/Goaskbid/nestlyzer",
+      "retrieved_at": "2026-11-19T09:05:13.654840+00:00",
+      "status": "acquired_format_checked",
+      "kind": "json",
+      "payload_role": "repository_snapshot",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 0.309,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://api.github.com/repos/Goaskbid/nestlyzer",
+      "bytes": 5343,
+      "sha256": "74977717ccd39e5286fd113155fb86fbe97538c2a2d274f07e1e634a3347481f",
+      "path": "originals/GITHUB_REPOSITORY.json",
+      "headers": {
+        "Date": "Thu, 19 Nov 2026 09:05:13 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Cache-Control": "public, max-age=60, s-maxage=60",
+        "Vary": "Accept,Accept-Encoding, Accept, X-Requested-With",
+        "ETag": "W/\"74977717ccd39e5286fd113155fb86fbe97538c2a2d274f07e1e634a3347481f\"",
+        "Last-Modified": "Thu, 12 Nov 2026 18:45:32 GMT",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "x-github-api-version-selected": "2022-11-28",
+        "Access-Control-Expose-Headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset, Warning",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Frame-Options": "deny",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "0",
+        "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+        "Content-Security-Policy": "default-src 'none'",
+        "Server": "github.com",
+        "Accept-Ranges": "bytes",
+        "X-RateLimit-Limit": "60",
+        "X-RateLimit-Remaining": "1",
+        "X-RateLimit-Used": "59",
+        "X-RateLimit-Resource": "core",
+        "X-RateLimit-Reset": "1795079989",
+        "Content-Length": "5343",
+        "X-GitHub-Request-Id": "9D74:11E6F6:47696D:702D23:6AFEBBC9",
+        "x-github-edge-region": "westus2",
+        "connection": "close"
+      },
+      "format_check": {
+        "format": "json",
+        "root_type": "dict"
+      }
+    },
+    {
+      "source_id": "LIVE_HOME",
+      "request_url": "https://nestlyzer.com/",
+      "retrieved_at": "2026-11-19T09:05:13.382532+00:00",
+      "status": "acquired_format_checked",
+      "kind": "html",
+      "payload_role": "live_snapshot",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 0.217,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://nestlyzer.com/",
+      "bytes": 54031,
+      "sha256": "cfc88ef2025eea6101edf02c7b55d8ce82bec87ccdeee49e9ac4b69cb996fbfe",
+      "path": "originals/LIVE_HOME.html",
+      "headers": {
+        "Connection": "close",
+        "Content-Length": "54031",
+        "Server": "GitHub.com",
+        "Content-Type": "text/html; charset=utf-8",
+        "Last-Modified": "Thu, 19 Nov 2026 04:39:01 GMT",
+        "Access-Control-Allow-Origin": "*",
+        "ETag": "\"6afe7d65-d30f\"",
+        "expires": "Thu, 19 Nov 2026 09:15:13 GMT",
+        "Cache-Control": "max-age=600",
+        "x-proxy-cache": "MISS",
+        "X-GitHub-Request-Id": "82C8:27FAE0:3E404:5A26F:6AFEBBC9",
+        "x-github-edge-region": "westus2",
+        "Accept-Ranges": "bytes",
+        "Age": "0",
+        "Date": "Thu, 19 Nov 2026 09:05:13 GMT",
+        "Via": "1.1 varnish",
+        "X-Served-By": "cache-bfi-krnt7300090-BFI",
+        "X-Cache": "MISS",
+        "X-Cache-Hits": "0",
+        "X-Timer": "S1795079113.483325,VS0,VE113",
+        "Vary": "Accept-Encoding",
+        "X-Fastly-Request-ID": "72cec9ba152473ef4f4c395e9be5588d40373adf"
+      },
+      "format_check": {
+        "format": "html_or_metadata",
+        "data_payload": false
+      }
+    },
+    {
+      "source_id": "LIVE_METHOD",
+      "request_url": "https://nestlyzer.com/method/",
+      "retrieved_at": "2026-11-19T09:05:13.383009+00:00",
+      "status": "acquired_format_checked",
+      "kind": "html",
+      "payload_role": "live_snapshot",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 0.267,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://nestlyzer.com/method/",
+      "bytes": 874766,
+      "sha256": "10767ff601ba3bf9944063545c45e709ef98434a6488b2525e57a897802e81c0",
+      "path": "originals/LIVE_METHOD.html",
+      "headers": {
+        "Connection": "close",
+        "Content-Length": "874766",
+        "Server": "GitHub.com",
+        "Content-Type": "text/html; charset=utf-8",
+        "x-origin-cache": "HIT",
+        "Last-Modified": "Thu, 19 Nov 2026 04:39:14 GMT",
+        "Access-Control-Allow-Origin": "*",
+        "ETag": "\"6afe7d72-d590e\"",
+        "expires": "Thu, 19 Nov 2026 09:15:13 GMT",
+        "Cache-Control": "max-age=600",
+        "x-proxy-cache": "MISS",
+        "X-GitHub-Request-Id": "D2E8:2B359F:3CB59:589E8:6AFEBBC9",
+        "x-github-edge-region": "westus2",
+        "Accept-Ranges": "bytes",
+        "Age": "0",
+        "Date": "Thu, 19 Nov 2026 09:05:13 GMT",
+        "Via": "1.1 varnish",
+        "X-Served-By": "cache-bfi-krnt7300028-BFI",
+        "X-Cache": "MISS",
+        "X-Cache-Hits": "0",
+        "X-Timer": "S1795079113.486434,VS0,VE125",
+        "Vary": "Accept-Encoding",
+        "X-Fastly-Request-ID": "3cc985d7e25685914b846764440de669c15f6308"
+      },
+      "format_check": {
+        "format": "html_or_metadata",
+        "data_payload": false
+      }
+    },
+    {
+      "source_id": "LIVE_SITEMAP",
+      "request_url": "https://nestlyzer.com/sitemap.xml",
+      "retrieved_at": "2026-11-19T09:05:13.605494+00:00",
+      "status": "acquired_format_checked",
+      "kind": "text",
+      "payload_role": "live_snapshot",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 0.127,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://nestlyzer.com/sitemap.xml",
+      "bytes": 580,
+      "sha256": "6f5cdce8823571dfa66ce4cc7fb9ae49a93e455b44c83b11c50c8ad4e10773f6",
+      "path": "originals/LIVE_SITEMAP.xml",
+      "headers": {
+        "Connection": "close",
+        "Content-Length": "580",
+        "Server": "GitHub.com",
+        "Content-Type": "application/xml",
+        "Last-Modified": "Thu, 19 Nov 2026 04:39:00 GMT",
+        "Access-Control-Allow-Origin": "*",
+        "ETag": "\"6afe7d64-244\"",
+        "expires": "Thu, 19 Nov 2026 09:15:13 GMT",
+        "Cache-Control": "max-age=600",
+        "x-proxy-cache": "MISS",
+        "X-GitHub-Request-Id": "6A74:F6967:3E5BC:5A3D4:6AFEBBC9",
+        "x-github-edge-region": "westus2",
+        "Accept-Ranges": "bytes",
+        "Age": "0",
+        "Date": "Thu, 19 Nov 2026 09:05:13 GMT",
+        "Via": "1.1 varnish",
+        "X-Served-By": "cache-bfi-krnt7300033-BFI",
+        "X-Cache": "MISS",
+        "X-Cache-Hits": "0",
+        "X-Timer": "S1795079114.632344,VS0,VE101",
+        "Vary": "Accept-Encoding",
+        "X-Fastly-Request-ID": "32320f96947ba4d6ddcce8cc19c4003d7d0f3cbe"
+      },
+      "format_check": {
+        "format": "text",
+        "data_payload": false
+      }
+    },
+    {
+      "source_id": "MY_ITEMS",
+      "request_url": "https://storage.data.gov.my/pricecatcher/lookup_item.csv",
+      "retrieved_at": "2026-11-19T09:06:26.542174+00:00",
+      "status": "acquired_format_checked",
+      "kind": "csv",
+      "payload_role": "data",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 1.053,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://storage.data.gov.my/pricecatcher/lookup_item.csv",
+      "bytes": 56042,
+      "sha256": "c93f5b291f7de310da3f1c6f81a4f077b4456fb33f98dca4d3628a2f9ac47b64",
+      "path": "originals/MY_ITEMS.csv",
+      "headers": {
+        "Content-Type": "binary/octet-stream",
+        "Content-Length": "56042",
+        "Connection": "close",
+        "Accept-Ranges": "bytes",
+        "Date": "Thu, 19 Nov 2026 09:06:27 GMT",
+        "Server": "AmazonS3",
+        "Last-Modified": "Wed, 09 Sep 2026 09:54:25 GMT",
+        "ETag": "\"261caa5c3bf107aee58caa9e0349e2d8\"",
+        "x-amz-version-id": "Ht4ix_JiUdSOMMehPaTIlJivZju2LTlX",
+        "x-amz-server-side-encryption": "AES256",
+        "X-Cache": "Miss from cloudfront",
+        "Via": "1.1 6a31d7747628574e9fa26dd40efa100a.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Pop": "HIO52-P4",
+        "Alt-Svc": "h3=\":443\"; ma=86400",
+        "X-Amz-Cf-Id": "KjM2gNnhtKNq0Qp4pxRHxiY9CLxzQDH9UNm6Jnwx_GbHP3PEl2H4gQ=="
+      },
+      "format_check": {
+        "format": "csv",
+        "header": "item_code,item,unit,item_group,item_category"
+      }
+    },
+    {
+      "source_id": "MY_PREMISES",
+      "request_url": "https://storage.data.gov.my/pricecatcher/lookup_premise.csv",
+      "retrieved_at": "2026-11-19T09:06:27.598945+00:00",
+      "status": "acquired_format_checked",
+      "kind": "csv",
+      "payload_role": "data",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 1.126,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://storage.data.gov.my/pricecatcher/lookup_premise.csv",
+      "bytes": 486619,
+      "sha256": "28fdc9e7143aa55a41eacaeea391b7e985e718df3bc07ce52f0f77374c9f1c84",
+      "path": "originals/MY_PREMISES.csv",
+      "headers": {
+        "Content-Type": "binary/octet-stream",
+        "Content-Length": "486619",
+        "Connection": "close",
+        "Accept-Ranges": "bytes",
+        "Date": "Thu, 19 Nov 2026 09:06:28 GMT",
+        "Server": "AmazonS3",
+        "Last-Modified": "Mon, 02 Nov 2026 12:00:27 GMT",
+        "ETag": "\"0b744e39773c8f9c391971e2f4a85267\"",
+        "x-amz-version-id": "CkL61ofyUudrTpMiLiC5Iz4E0aSRzd0f",
+        "x-amz-server-side-encryption": "AES256",
+        "X-Cache": "Miss from cloudfront",
+        "Via": "1.1 9a4713706b0c5d2719c0ce83795d8ec2.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Pop": "HIO52-P4",
+        "Alt-Svc": "h3=\":443\"; ma=86400",
+        "X-Amz-Cf-Id": "bFCQVMyZM4gyknk2wjHyJ1a54oJqGBvp_3LjjOI23H5QtgsNCFCnqg=="
+      },
+      "format_check": {
+        "format": "csv",
+        "header": "premise_code,premise,address,premise_type,state,district"
+      }
+    },
+    {
+      "source_id": "MY_PRICECATCHER_2026_10",
+      "request_url": "https://storage.data.gov.my/pricecatcher/pricecatcher_2026-10.csv",
+      "retrieved_at": "2026-11-19T09:06:28.729325+00:00",
+      "status": "acquired_format_checked",
+      "kind": "csv",
+      "payload_role": "data",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 3.069,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://storage.data.gov.my/pricecatcher/pricecatcher_2026-10.csv",
+      "bytes": 35231128,
+      "sha256": "a2b9e0ef33f9e70f4d237dbab04839cadb6addc0398d8cc20e2882e599c830e6",
+      "path": "originals/MY_PRICECATCHER_2026_10.csv",
+      "headers": {
+        "Content-Type": "binary/octet-stream",
+        "Content-Length": "35231128",
+        "Connection": "close",
+        "Accept-Ranges": "bytes",
+        "Date": "Thu, 19 Nov 2026 09:06:29 GMT",
+        "Server": "AmazonS3",
+        "Last-Modified": "Sat, 31 Oct 2026 12:00:29 GMT",
+        "ETag": "\"d1ed3bb4815c550dcbf52afcc75b361d-5\"",
+        "x-amz-version-id": "KGOG1UpZ5sH7lM30zOkdP_C3f7MuC9Mq",
+        "x-amz-server-side-encryption": "AES256",
+        "X-Cache": "Miss from cloudfront",
+        "Via": "1.1 caca3796a9753caf000b1d1a5f744530.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Pop": "HIO52-P4",
+        "Alt-Svc": "h3=\":443\"; ma=86400",
+        "X-Amz-Cf-Id": "0x1P-2lV1SRqvGhTUBYrlHd1vWSDWI1zALAMIXEqI70lpFhCWYWxbg=="
+      },
+      "format_check": {
+        "format": "csv",
+        "header": "date,premise_code,item_code,price"
+      }
+    },
+    {
+      "source_id": "NL_CBS_81575",
+      "request_url": "https://datasets.cbs.nl/CSV/CBS/nl/81575NED",
+      "retrieved_at": "2026-11-19T09:06:21.937181+00:00",
+      "status": "acquired_format_checked",
+      "kind": "csv_or_zip",
+      "payload_role": "data",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 4.601,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://datasets.cbs.nl/CSV/CBS/nl/81575NED",
+      "bytes": 1685553,
+      "sha256": "0d4469badb5f1061f6a84d584c86adbc580dcb6ca1888efb7714f013b4e060bd",
+      "path": "originals/NL_CBS_81575.download",
+      "headers": {
+        "content-length": "1685553",
+        "content-type": "application/octet-stream",
+        "date": "Thu, 19 Nov 2026 09:06:22 GMT",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "etag": "\"78b1fe7826d0dc1:0\"",
+        "last-modified": "Sun, 19 Apr 2026 18:00:57 GMT",
+        "content-disposition": "attachment; filename=81575NED-202604200000.zip",
+        "x-envoy-upstream-service-time": "18",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      },
+      "format_check": {
+        "format": "zip",
+        "members": 15,
+        "expanded_bytes": 11714185
+      }
+    },
+    {
+      "source_id": "PT_INE_0012600_ORIGINAL",
+      "request_url": "https://www.ine.pt/ine/json_indicador/pindica.jsp?op=2&varcd=0012600&lang=PT",
+      "retrieved_at": "2026-11-19T09:05:16.972775+00:00",
+      "status": "acquired_format_checked",
+      "kind": "json",
+      "payload_role": "data",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 1.941,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://www.ine.pt/ine/json_indicador/pindica.jsp?op=2&varcd=0012600&lang=PT",
+      "bytes": 94801,
+      "sha256": "0f055c12761febb93063cbb0411b30b943b04cc9651e066c529ecf67d3f46a6a",
+      "path": "originals/PT_INE_0012600_ORIGINAL.json",
+      "headers": {
+        "Date": "Thu, 19 Nov 2026 09:05:18 GMT",
+        "Content-Type": "application/json;charset=UTF-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "close",
+        "Set-Cookie": "JSESSIONID=SXB7nJahkPZrKh0R0MRd65Yn0YWfesa4a5i5Rk23.portal-prod01; path=/ine; HttpOnly; secure; SameSite=Strict",
+        "Content-Disposition": "attachment; filename=\"indica.json\"",
+        "Strict-Transport-Security": "max-age=31536000",
+        "Content-Security-Policy": "upgrade-insecure-requests"
+      },
+      "format_check": {
+        "format": "json",
+        "root_type": "list"
+      }
+    },
+    {
+      "source_id": "PT_INE_0014698",
+      "request_url": "https://www.ine.pt/ine/json_indicador/pindica.jsp?op=2&varcd=0014698&lang=PT",
+      "retrieved_at": "2026-11-19T09:05:14.154753+00:00",
+      "status": "acquired_format_checked",
+      "kind": "json",
+      "payload_role": "data",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 2.814,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://www.ine.pt/ine/json_indicador/pindica.jsp?op=2&varcd=0014698&lang=PT",
+      "bytes": 91363,
+      "sha256": "7c780dd24caf1561342722bc6f4244e85aa289ca684c09f8b2909d55bd587196",
+      "path": "originals/PT_INE_0014698.json",
+      "headers": {
+        "Date": "Thu, 19 Nov 2026 09:05:16 GMT",
+        "Content-Type": "application/json;charset=UTF-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "close",
+        "Set-Cookie": "JSESSIONID=geppTnCKAseT-UOX4M88OGBkinU8HURwaC244cmv.portal-prod01; path=/ine; HttpOnly; secure; SameSite=Strict",
+        "Content-Disposition": "attachment; filename=\"indica.json\"",
+        "Strict-Transport-Security": "max-age=31536000",
+        "Content-Security-Policy": "upgrade-insecure-requests"
+      },
+      "format_check": {
+        "format": "json",
+        "root_type": "list"
+      }
+    },
+    {
+      "source_id": "PT_INE_0014698_METADATA",
+      "request_url": "https://www.ine.pt/ine/json_indicador/pindicaMeta.jsp?varcd=0014698&lang=PT",
+      "retrieved_at": "2026-11-19T09:05:18.265701+00:00",
+      "status": "acquired_format_checked",
+      "kind": "json",
+      "payload_role": "metadata",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 60.061,
+          "error_type": "URLError",
+          "message": "<urlopen error timed out>"
+        },
+        {
+          "number": 2,
+          "elapsed_seconds": 2.605,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://www.ine.pt/ine/json_indicador/pindicaMeta.jsp?varcd=0014698&lang=PT",
+      "bytes": 150884,
+      "sha256": "e8fcc8a36df363dfd230549d50161eb8e75a61da9c3cf24a1a43a1f413e73b88",
+      "path": "originals/PT_INE_0014698_METADATA.json",
+      "headers": {
+        "Date": "Thu, 19 Nov 2026 09:06:20 GMT",
+        "Content-Type": "application/json;charset=UTF-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "close",
+        "Set-Cookie": "JSESSIONID=-3kFDwtE6Ae0pjGKQkFWBrMU5vdteRPJx6N4RhMY.portal-prod02; path=/ine; HttpOnly; secure; SameSite=Strict",
+        "Content-Disposition": "attachment; filename=\"indicaMeta.json\"",
+        "Strict-Transport-Security": "max-age=31536000",
+        "Content-Security-Policy": "upgrade-insecure-requests"
+      },
+      "format_check": {
+        "format": "json",
+        "root_type": "list"
+      }
+    },
+    {
+      "source_id": "PT_INE_0014773",
+      "request_url": "https://www.ine.pt/ine/json_indicador/pindica.jsp?op=2&varcd=0014773&lang=PT",
+      "retrieved_at": "2026-11-19T09:05:14.190473+00:00",
+      "status": "acquired_format_checked",
+      "kind": "json",
+      "payload_role": "data",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 4.071,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://www.ine.pt/ine/json_indicador/pindica.jsp?op=2&varcd=0014773&lang=PT",
+      "bytes": 96716,
+      "sha256": "7e7b13c21f33cfe5f8b054655114fb776b6d9b116af6cbc4d9623cf05f3b6577",
+      "path": "originals/PT_INE_0014773.json",
+      "headers": {
+        "Date": "Thu, 19 Nov 2026 09:05:17 GMT",
+        "Content-Type": "application/json;charset=UTF-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "close",
+        "Set-Cookie": "JSESSIONID=litdVUzXC22vCFvQ2CzSlXJ3r4Oemsrp7guTHUhY.portal-prod01; path=/ine; HttpOnly; secure; SameSite=Strict",
+        "Content-Disposition": "attachment; filename=\"indica.json\"",
+        "Strict-Transport-Security": "max-age=31536000",
+        "Content-Security-Policy": "upgrade-insecure-requests"
+      },
+      "format_check": {
+        "format": "json",
+        "root_type": "list"
+      }
+    },
+    {
+      "source_id": "UK_PIPR_LANDING",
+      "request_url": "https://www.ons.gov.uk/economy/inflationandpriceindices/datasets/priceindexofprivaterentsukmonthlypricestatistics",
+      "retrieved_at": "2026-11-19T09:06:31.802204+00:00",
+      "status": "acquired_format_checked",
+      "kind": "html",
+      "payload_role": "discovery",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 0.275,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://www.ons.gov.uk/economy/inflationandpriceindices/datasets/priceindexofprivaterentsukmonthlypricestatistics",
+      "bytes": 92452,
+      "sha256": "71cde384fc12a3025797d11fde2f1181e04c2ad71e10a3264a2d00e16f844e7c",
+      "path": "originals/UK_PIPR_LANDING.html",
+      "headers": {
+        "Date": "Thu, 19 Nov 2026 09:06:32 GMT",
+        "Content-Type": "text/html; charset=UTF-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "close",
+        "allow": "DELETE, GET, HEAD, POST, PUT, OPTIONS, PATCH",
+        "cache-control": "public, s-maxage=900, max-age=900, stale-while-revalidate=10",
+        "set-cookie": "_cfuvid=en9xpa9FBUDxtM1gqdibnvyOwhPLNPK.dEbxoXwzTxY-1795079191.8460653-1.0.1.1-Iq6XCrZChNdtAg6cad0hzyy.z8OSfBL75JgqhWOgCeU; HttpOnly; SameSite=None; Secure; Path=/; Domain=ons.gov.uk",
+        "Server": "cloudflare",
+        "strict-transport-security": "max-age=31536000; includeSubDomains",
+        "x-frame-options": "SAMEORIGIN",
+        "x-xss-protection": "1",
+        "vary": "accept-encoding",
+        "cf-cache-status": "HIT",
+        "CF-RAY": "a5ce0f35096e53d9-PDX"
+      },
+      "format_check": {
+        "format": "html_or_metadata",
+        "data_payload": false
+      }
+    },
+    {
+      "source_id": "US_COUNTY_CHANGE_2025",
+      "request_url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/counties/totals/co-est2025-alldata.csv",
+      "retrieved_at": "2026-11-19T09:05:36.040030+00:00",
+      "status": "acquired_format_checked",
+      "kind": "csv",
+      "payload_role": "data",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 0.242,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/counties/totals/co-est2025-alldata.csv",
+      "bytes": 2071735,
+      "sha256": "4f5a499d851e2cb48fd7a5405e5a9235453a8a66933657aacd10df0e264f35d5",
+      "path": "originals/US_COUNTY_CHANGE_2025.csv",
+      "headers": {
+        "Date": "Thu, 19 Nov 2026 09:05:36 GMT",
+        "Content-Type": "text/csv",
+        "Content-Length": "2071735",
+        "Connection": "close",
+        "Content-Security-Policy": "default-src 'self' 'unsafe-inline' 'unsafe-eval' census.gov *.census.gov http://www.census.gov assets.adobedtm.com www.googletagmanager.com https://dpm.demdex.net https://cm.everesttech.net https://uscensusbureau.demdex.net dap.digitalgov.gov www.google-analytics.com https://static.cloudflareinsights.com; frame-ancestors 'self';",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "public, max-age=14400",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Last-Modified": "Thu, 26 Mar 2026 12:15:28 GMT",
+        "Accept-Ranges": "bytes",
+        "Server-Timing": "cfEdge;dur=6,cfOrigin;dur=0",
+        "Vary": "Accept-Encoding",
+        "X-XSS-Protection": "1; mode=block",
+        "set-cookie": "__cf_bm=y21rqgrXJ1cLxml1RhMrRNO7Bsiy3ns5m7JKvwD4Tn4-1795079136.1812532-1.0.1.1-E1iHAGtHZHM4ARmTVsHemyQ3WfaDQzCPmoBy85k4dWxvp.e6cuWvRrvEqKaR4f859M6n36GKe6mwb0f8ZsYF_tTwZ8MjttqFo7ju7WDGF5TniewsbkJaoxBsSW25pRVM; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=www2.census.gov; Expires=Thu, 19 Nov 2026 09:35:36 GMT",
+        "Strict-Transport-Security": "max-age=31536000",
+        "Age": "334441",
+        "expires": "Thu, 19 Nov 2026 13:05:36 GMT",
+        "cf-cache-status": "HIT",
+        "Server": "cloudflare",
+        "CF-RAY": "a5ce0dd92efeacec-SJC"
+      },
+      "format_check": {
+        "format": "csv",
+        "header": "SUMLEV,REGION,DIVISION,STATE,COUNTY,STNAME,CTYNAME,ESTIMATESBASE2020,POPESTIMATE2020,POPESTIMATE2021,POPESTIMATE2022,POPESTIMATE2023,POPESTIMATE2024,POPESTIMATE2025,NPOPCHG2020,NPOPCHG2021,NPOPCHG2022,NPOPCHG2023,NPOPCHG2024,NPOPCHG2025,BIRTHS2020,BIRTHS2021,BIRTHS2022,BIRTHS2023,BIRTHS2024,BIRTHS2025,DEATHS2020,DEATHS2021,DEATHS2022,DEATHS2023,DEATHS2024,DEATHS2025,NATURALCHG2020,NATURALCHG2021,NATURALCHG2022,NATURALCHG2023,NATURALCHG2024,NATURALCHG2025,INTERNATIONALMIG2020,INTERNATIONALMIG2021,INTERNATION"
+      }
+    },
+    {
+      "source_id": "WORLDCOVER_PUBLISHER",
+      "request_url": "https://esa-worldcover.org/en/data-access",
+      "retrieved_at": "2026-11-19T09:06:37.239245+00:00",
+      "status": "acquired_format_checked",
+      "kind": "html",
+      "payload_role": "discovery",
+      "attempts": [
+        {
+          "number": 1,
+          "elapsed_seconds": 0.983,
+          "result": "success"
+        }
+      ],
+      "licence_status": "requires_source_specific_review",
+      "publication_approved": false,
+      "score_eligible": false,
+      "collector_version": "2026-11-19.1",
+      "http_status": 200,
+      "effective_url": "https://esa-worldcover.org/en/data-access",
+      "bytes": 49907,
+      "sha256": "8d3f1f1cc53527e548077593ce820506b55a496729ac33d5ea57f448cbfd95e0",
+      "path": "originals/WORLDCOVER_PUBLISHER.html",
+      "headers": {
+        "Cache-Control": "must-revalidate, no-cache, private",
+        "Content-Language": "en",
+        "Content-Length": "49907",
+        "Content-Security-Policy": "frame-ancestors 'self'",
+        "Content-Type": "text/html; charset=UTF-8",
+        "Date": "Fri, 13 Nov 2026 08:17:23 GMT",
+        "Expires": "Sun, 19 Nov 1978 05:00:00 GMT",
+        "Vary": "Accept-Encoding",
+        "X-Content-Type-Options": "nosniff",
+        "X-Drupal-Cache": "HIT",
+        "X-Drupal-Dynamic-Cache": "MISS",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Xss-Protection": "1; mode=block",
+        "Connection": "close",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      },
+      "format_check": {
+        "format": "html_or_metadata",
+        "data_payload": false
+      }
+    }
+  ],
+  "limitations": [
+    "Format checks are not semantic validation or permission to publish.",
+    "No name-based joins; place matching requires publisher keys, geographic vintage and official crosswalks.",
+    "HTML snapshots cannot verify JavaScript journeys or current scoring.",
+    "All configured sources attempted is not all countries or all gaps completed."
+  ]
+}

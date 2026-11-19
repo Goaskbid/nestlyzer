@@ -1,0 +1,53 @@
+{
+  "source_id": "LIVE_METHOD",
+  "request_url": "https://nestlyzer.com/method/",
+  "retrieved_at": "2026-11-19T09:05:13.383009+00:00",
+  "status": "acquired_format_checked",
+  "kind": "html",
+  "payload_role": "live_snapshot",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 0.267,
+      "result": "success"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://nestlyzer.com/method/",
+  "bytes": 874766,
+  "sha256": "10767ff601ba3bf9944063545c45e709ef98434a6488b2525e57a897802e81c0",
+  "path": "originals/LIVE_METHOD.html",
+  "headers": {
+    "Connection": "close",
+    "Content-Length": "874766",
+    "Server": "GitHub.com",
+    "Content-Type": "text/html; charset=utf-8",
+    "x-origin-cache": "HIT",
+    "Last-Modified": "Thu, 19 Nov 2026 04:39:14 GMT",
+    "Access-Control-Allow-Origin": "*",
+    "ETag": "\"6afe7d72-d590e\"",
+    "expires": "Thu, 19 Nov 2026 09:15:13 GMT",
+    "Cache-Control": "max-age=600",
+    "x-proxy-cache": "MISS",
+    "X-GitHub-Request-Id": "D2E8:2B359F:3CB59:589E8:6AFEBBC9",
+    "x-github-edge-region": "westus2",
+    "Accept-Ranges": "bytes",
+    "Age": "0",
+    "Date": "Thu, 19 Nov 2026 09:05:13 GMT",
+    "Via": "1.1 varnish",
+    "X-Served-By": "cache-bfi-krnt7300028-BFI",
+    "X-Cache": "MISS",
+    "X-Cache-Hits": "0",
+    "X-Timer": "S1795079113.486434,VS0,VE125",
+    "Vary": "Accept-Encoding",
+    "X-Fastly-Request-ID": "3cc985d7e25685914b846764440de669c15f6308"
+  },
+  "format_check": {
+    "format": "html_or_metadata",
+    "data_payload": false
+  }
+}

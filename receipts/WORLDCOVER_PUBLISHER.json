@@ -1,0 +1,45 @@
+{
+  "source_id": "WORLDCOVER_PUBLISHER",
+  "request_url": "https://esa-worldcover.org/en/data-access",
+  "retrieved_at": "2026-11-19T09:06:37.239245+00:00",
+  "status": "acquired_format_checked",
+  "kind": "html",
+  "payload_role": "discovery",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 0.983,
+      "result": "success"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://esa-worldcover.org/en/data-access",
+  "bytes": 49907,
+  "sha256": "8d3f1f1cc53527e548077593ce820506b55a496729ac33d5ea57f448cbfd95e0",
+  "path": "originals/WORLDCOVER_PUBLISHER.html",
+  "headers": {
+    "Cache-Control": "must-revalidate, no-cache, private",
+    "Content-Language": "en",
+    "Content-Length": "49907",
+    "Content-Security-Policy": "frame-ancestors 'self'",
+    "Content-Type": "text/html; charset=UTF-8",
+    "Date": "Fri, 13 Nov 2026 08:17:23 GMT",
+    "Expires": "Sun, 19 Nov 1978 05:00:00 GMT",
+    "Vary": "Accept-Encoding",
+    "X-Content-Type-Options": "nosniff",
+    "X-Drupal-Cache": "HIT",
+    "X-Drupal-Dynamic-Cache": "MISS",
+    "X-Frame-Options": "SAMEORIGIN",
+    "X-Xss-Protection": "1; mode=block",
+    "Connection": "close",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+  },
+  "format_check": {
+    "format": "html_or_metadata",
+    "data_payload": false
+  }
+}

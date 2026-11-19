@@ -1,0 +1,26 @@
+{
+  "source_id": "FR_FLORES_A88",
+  "request_url": "https://api.insee.fr/melodi/file/DS_FLORES_A88/DS_FLORES_A88_2024_CSV_FR",
+  "retrieved_at": "2026-11-19T09:05:36.286030+00:00",
+  "status": "not_acquired",
+  "kind": "csv_or_zip",
+  "payload_role": "data",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 94.029,
+      "error_type": "TimeoutError",
+      "message": "The read operation timed out"
+    },
+    {
+      "number": 2,
+      "elapsed_seconds": 93.909,
+      "error_type": "TimeoutError",
+      "message": "The read operation timed out"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1"
+}

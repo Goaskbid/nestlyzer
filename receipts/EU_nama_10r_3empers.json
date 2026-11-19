@@ -1,0 +1,39 @@
+{
+  "source_id": "EU_nama_10r_3empers",
+  "request_url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nama_10r_3empers?format=TSV&compressed=true",
+  "retrieved_at": "2026-11-19T09:05:30.252585+00:00",
+  "status": "acquired_format_checked",
+  "kind": "tsv.gz",
+  "payload_role": "data",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 3.87,
+      "result": "success"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nama_10r_3empers?format=TSV&compressed=true",
+  "bytes": 2777607,
+  "sha256": "848d90a7d9037b65408d76da4bef3b75ef35c72097d333a9ae90221c668ef1a7",
+  "path": "originals/EU_nama_10r_3empers.tsv.gz",
+  "headers": {
+    "Date": "Thu, 19 Nov 2026 09:05:30 GMT",
+    "Transfer-Encoding": "chunked",
+    "Content-Type": "text/tab-separated-values",
+    "Content-Disposition": "attachment; filename=\"estat_nama_10r_3empers.tsv.gz\"",
+    "Access-Control-Allow-Headers": "Content-Type, Accept, X-Requested-With",
+    "Access-Control-Allow-Methods": "GET",
+    "Access-Control-Allow-Origin": "*",
+    "Connection": "close",
+    "Set-Cookie": "rps=!FCEemJ/C88+6/GvbA+6l1zXkw7/S2WdnDV/TRHIMGJw261EPOCWlZGLhHcZ8CVjkL8Rf3e3UbkEYDq9tRh1LSYYfm0V0SWEVis+EjDdg; path=/; Httponly; Secure"
+  },
+  "format_check": {
+    "format": "tsv.gz",
+    "header": "freq,unit,wstatus,nace_r2,geo\\TIME_PERIOD\t2000 \t2001 \t2002 \t2003 \t2004 \t2005 \t2006 \t2007 \t2008 \t2009 \t2010 \t2011 \t2012 \t2013 \t2014 \t2015 \t2016 \t2017 \t2018 \t2019 \t2020 \t2021 \t2022 \t2023 \t2024"
+  }
+}

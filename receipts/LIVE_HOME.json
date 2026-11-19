@@ -1,0 +1,52 @@
+{
+  "source_id": "LIVE_HOME",
+  "request_url": "https://nestlyzer.com/",
+  "retrieved_at": "2026-11-19T09:05:13.382532+00:00",
+  "status": "acquired_format_checked",
+  "kind": "html",
+  "payload_role": "live_snapshot",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 0.217,
+      "result": "success"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://nestlyzer.com/",
+  "bytes": 54031,
+  "sha256": "cfc88ef2025eea6101edf02c7b55d8ce82bec87ccdeee49e9ac4b69cb996fbfe",
+  "path": "originals/LIVE_HOME.html",
+  "headers": {
+    "Connection": "close",
+    "Content-Length": "54031",
+    "Server": "GitHub.com",
+    "Content-Type": "text/html; charset=utf-8",
+    "Last-Modified": "Thu, 19 Nov 2026 04:39:01 GMT",
+    "Access-Control-Allow-Origin": "*",
+    "ETag": "\"6afe7d65-d30f\"",
+    "expires": "Thu, 19 Nov 2026 09:15:13 GMT",
+    "Cache-Control": "max-age=600",
+    "x-proxy-cache": "MISS",
+    "X-GitHub-Request-Id": "82C8:27FAE0:3E404:5A26F:6AFEBBC9",
+    "x-github-edge-region": "westus2",
+    "Accept-Ranges": "bytes",
+    "Age": "0",
+    "Date": "Thu, 19 Nov 2026 09:05:13 GMT",
+    "Via": "1.1 varnish",
+    "X-Served-By": "cache-bfi-krnt7300090-BFI",
+    "X-Cache": "MISS",
+    "X-Cache-Hits": "0",
+    "X-Timer": "S1795079113.483325,VS0,VE113",
+    "Vary": "Accept-Encoding",
+    "X-Fastly-Request-ID": "72cec9ba152473ef4f4c395e9be5588d40373adf"
+  },
+  "format_check": {
+    "format": "html_or_metadata",
+    "data_payload": false
+  }
+}

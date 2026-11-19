@@ -1,0 +1,20 @@
+{
+  "source_id": "ES_SERPAVI_LANDING",
+  "request_url": "https://www.mivau.gob.es/vivienda/alquiler/atlas-del-alquiler",
+  "retrieved_at": "2026-11-19T09:06:32.081575+00:00",
+  "status": "not_acquired",
+  "kind": "html",
+  "payload_role": "discovery",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 0.059,
+      "error_type": "HTTPError",
+      "message": "HTTP Error 403: Forbidden"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1"
+}

@@ -1,0 +1,44 @@
+{
+  "source_id": "PT_INE_0014698_METADATA",
+  "request_url": "https://www.ine.pt/ine/json_indicador/pindicaMeta.jsp?varcd=0014698&lang=PT",
+  "retrieved_at": "2026-11-19T09:05:18.265701+00:00",
+  "status": "acquired_format_checked",
+  "kind": "json",
+  "payload_role": "metadata",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 60.061,
+      "error_type": "URLError",
+      "message": "<urlopen error timed out>"
+    },
+    {
+      "number": 2,
+      "elapsed_seconds": 2.605,
+      "result": "success"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://www.ine.pt/ine/json_indicador/pindicaMeta.jsp?varcd=0014698&lang=PT",
+  "bytes": 150884,
+  "sha256": "e8fcc8a36df363dfd230549d50161eb8e75a61da9c3cf24a1a43a1f413e73b88",
+  "path": "originals/PT_INE_0014698_METADATA.json",
+  "headers": {
+    "Date": "Thu, 19 Nov 2026 09:06:20 GMT",
+    "Content-Type": "application/json;charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "close",
+    "Set-Cookie": "JSESSIONID=-3kFDwtE6Ae0pjGKQkFWBrMU5vdteRPJx6N4RhMY.portal-prod02; path=/ine; HttpOnly; secure; SameSite=Strict",
+    "Content-Disposition": "attachment; filename=\"indicaMeta.json\"",
+    "Strict-Transport-Security": "max-age=31536000",
+    "Content-Security-Policy": "upgrade-insecure-requests"
+  },
+  "format_check": {
+    "format": "json",
+    "root_type": "list"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "source_id": "LIVE_SITEMAP",
+  "request_url": "https://nestlyzer.com/sitemap.xml",
+  "retrieved_at": "2026-11-19T09:05:13.605494+00:00",
+  "status": "acquired_format_checked",
+  "kind": "text",
+  "payload_role": "live_snapshot",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 0.127,
+      "result": "success"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://nestlyzer.com/sitemap.xml",
+  "bytes": 580,
+  "sha256": "6f5cdce8823571dfa66ce4cc7fb9ae49a93e455b44c83b11c50c8ad4e10773f6",
+  "path": "originals/LIVE_SITEMAP.xml",
+  "headers": {
+    "Connection": "close",
+    "Content-Length": "580",
+    "Server": "GitHub.com",
+    "Content-Type": "application/xml",
+    "Last-Modified": "Thu, 19 Nov 2026 04:39:00 GMT",
+    "Access-Control-Allow-Origin": "*",
+    "ETag": "\"6afe7d64-244\"",
+    "expires": "Thu, 19 Nov 2026 09:15:13 GMT",
+    "Cache-Control": "max-age=600",
+    "x-proxy-cache": "MISS",
+    "X-GitHub-Request-Id": "6A74:F6967:3E5BC:5A3D4:6AFEBBC9",
+    "x-github-edge-region": "westus2",
+    "Accept-Ranges": "bytes",
+    "Age": "0",
+    "Date": "Thu, 19 Nov 2026 09:05:13 GMT",
+    "Via": "1.1 varnish",
+    "X-Served-By": "cache-bfi-krnt7300033-BFI",
+    "X-Cache": "MISS",
+    "X-Cache-Hits": "0",
+    "X-Timer": "S1795079114.632344,VS0,VE101",
+    "Vary": "Accept-Encoding",
+    "X-Fastly-Request-ID": "32320f96947ba4d6ddcce8cc19c4003d7d0f3cbe"
+  },
+  "format_check": {
+    "format": "text",
+    "data_payload": false
+  }
+}

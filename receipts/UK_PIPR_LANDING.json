@@ -1,0 +1,44 @@
+{
+  "source_id": "UK_PIPR_LANDING",
+  "request_url": "https://www.ons.gov.uk/economy/inflationandpriceindices/datasets/priceindexofprivaterentsukmonthlypricestatistics",
+  "retrieved_at": "2026-11-19T09:06:31.802204+00:00",
+  "status": "acquired_format_checked",
+  "kind": "html",
+  "payload_role": "discovery",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 0.275,
+      "result": "success"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://www.ons.gov.uk/economy/inflationandpriceindices/datasets/priceindexofprivaterentsukmonthlypricestatistics",
+  "bytes": 92452,
+  "sha256": "71cde384fc12a3025797d11fde2f1181e04c2ad71e10a3264a2d00e16f844e7c",
+  "path": "originals/UK_PIPR_LANDING.html",
+  "headers": {
+    "Date": "Thu, 19 Nov 2026 09:06:32 GMT",
+    "Content-Type": "text/html; charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "close",
+    "allow": "DELETE, GET, HEAD, POST, PUT, OPTIONS, PATCH",
+    "cache-control": "public, s-maxage=900, max-age=900, stale-while-revalidate=10",
+    "set-cookie": "_cfuvid=en9xpa9FBUDxtM1gqdibnvyOwhPLNPK.dEbxoXwzTxY-1795079191.8460653-1.0.1.1-Iq6XCrZChNdtAg6cad0hzyy.z8OSfBL75JgqhWOgCeU; HttpOnly; SameSite=None; Secure; Path=/; Domain=ons.gov.uk",
+    "Server": "cloudflare",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "x-frame-options": "SAMEORIGIN",
+    "x-xss-protection": "1",
+    "vary": "accept-encoding",
+    "cf-cache-status": "HIT",
+    "CF-RAY": "a5ce0f35096e53d9-PDX"
+  },
+  "format_check": {
+    "format": "html_or_metadata",
+    "data_payload": false
+  }
+}

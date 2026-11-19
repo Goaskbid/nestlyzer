@@ -1,0 +1,45 @@
+{
+  "source_id": "MY_ITEMS",
+  "request_url": "https://storage.data.gov.my/pricecatcher/lookup_item.csv",
+  "retrieved_at": "2026-11-19T09:06:26.542174+00:00",
+  "status": "acquired_format_checked",
+  "kind": "csv",
+  "payload_role": "data",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 1.053,
+      "result": "success"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://storage.data.gov.my/pricecatcher/lookup_item.csv",
+  "bytes": 56042,
+  "sha256": "c93f5b291f7de310da3f1c6f81a4f077b4456fb33f98dca4d3628a2f9ac47b64",
+  "path": "originals/MY_ITEMS.csv",
+  "headers": {
+    "Content-Type": "binary/octet-stream",
+    "Content-Length": "56042",
+    "Connection": "close",
+    "Accept-Ranges": "bytes",
+    "Date": "Thu, 19 Nov 2026 09:06:27 GMT",
+    "Server": "AmazonS3",
+    "Last-Modified": "Wed, 09 Sep 2026 09:54:25 GMT",
+    "ETag": "\"261caa5c3bf107aee58caa9e0349e2d8\"",
+    "x-amz-version-id": "Ht4ix_JiUdSOMMehPaTIlJivZju2LTlX",
+    "x-amz-server-side-encryption": "AES256",
+    "X-Cache": "Miss from cloudfront",
+    "Via": "1.1 6a31d7747628574e9fa26dd40efa100a.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Pop": "HIO52-P4",
+    "Alt-Svc": "h3=\":443\"; ma=86400",
+    "X-Amz-Cf-Id": "KjM2gNnhtKNq0Qp4pxRHxiY9CLxzQDH9UNm6Jnwx_GbHP3PEl2H4gQ=="
+  },
+  "format_check": {
+    "format": "csv",
+    "header": "item_code,item,unit,item_group,item_category"
+  }
+}

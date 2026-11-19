@@ -1,0 +1,53 @@
+{
+  "source_id": "FR_CNAF_COVERAGE",
+  "request_url": "https://data.caf.fr/api/explore/v2.1/catalog/datasets/txcouv_pe_com/exports/csv",
+  "retrieved_at": "2026-11-19T09:05:34.126197+00:00",
+  "status": "acquired_format_checked",
+  "kind": "csv",
+  "payload_role": "data",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 1.321,
+      "result": "success"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://data.caf.fr/api/explore/v2.1/catalog/datasets/txcouv_pe_com/exports/csv",
+  "bytes": 130736,
+  "sha256": "21d4dcafcdad19d42c0aaeeca3a11cc7d65da1b4464780a8c04301e508151dc8",
+  "path": "originals/FR_CNAF_COVERAGE.csv",
+  "headers": {
+    "Server": "openresty",
+    "Date": "Thu, 19 Nov 2026 09:05:34 GMT",
+    "Content-Type": "text/csv; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "close",
+    "Content-Disposition": "attachment; filename=\"txcouv_pe_com.csv\"",
+    "Cache-Control": "public, max-age=60",
+    "X-RateLimit-Remaining": "4999",
+    "X-RateLimit-Limit": "5000",
+    "X-RateLimit-Reset": "2026-11-20 00:00:00+00:00",
+    "Vary": "Accept-Language, Cookie, Host",
+    "Content-Language": "fr-fr",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+    "Access-Control-Max-Age": "1000",
+    "Access-Control-Allow-Headers": "Authorization, X-Requested-With, Origin, ODS-API-Analytics-App, ODS-API-Analytics-Embed-Type, ODS-API-Analytics-Embed-Referrer, ODS-Widgets-Version, Accept",
+    "Access-Control-Expose-Headers": "ODS-Explore-API-Deprecation, Link, X-RateLimit-Remaining, X-RateLimit-Limit, X-RateLimit-Reset, X-RateLimit-dataset-Remaining, X-RateLimit-dataset-Limit, X-RateLimit-dataset-Reset",
+    "Strict-Transport-Security": "max-age=31536000;includeSubdomains",
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Content-Security-Policy": "upgrade-insecure-requests; ",
+    "X-UA-Compatible": "IE=edge",
+    "Permissions-Policy": "midi=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()"
+  },
+  "format_check": {
+    "format": "csv",
+    "header": "annee;numcom;nomcom;txcouv_psu_col_com;txcouv_hors_psu_col_com;txcouv_eaje_com;txcouv_prescol_com;txcouv_am_ind_com;txcouv_gad_ind_com;txcouv_ind_com;txcouv_com"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "source_id": "EU_demo_r_pjanind3",
+  "request_url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/demo_r_pjanind3?format=TSV&compressed=true",
+  "retrieved_at": "2026-11-19T09:05:26.056814+00:00",
+  "status": "acquired_format_checked",
+  "kind": "tsv.gz",
+  "payload_role": "data",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 3.412,
+      "result": "success"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/demo_r_pjanind3?format=TSV&compressed=true",
+  "bytes": 1527636,
+  "sha256": "bc7a2997caf9f3cc7c80776a88c5a23f8fee825ad38a62333c9073f33a086cc7",
+  "path": "originals/EU_demo_r_pjanind3.tsv.gz",
+  "headers": {
+    "Date": "Thu, 19 Nov 2026 09:05:26 GMT",
+    "Transfer-Encoding": "chunked",
+    "Content-Type": "text/tab-separated-values",
+    "Content-Disposition": "attachment; filename=\"estat_demo_r_pjanind3.tsv.gz\"",
+    "Access-Control-Allow-Headers": "Content-Type, Accept, X-Requested-With",
+    "Access-Control-Allow-Methods": "GET",
+    "Access-Control-Allow-Origin": "*",
+    "Connection": "close",
+    "Set-Cookie": "rps=!Dd9KqQkf3x3eXP0J1l7j19/F6MRRhEdQRDRoVIzpqf8QN3/4eIrkVI6v7X0eRog3MLe64+mEddcRswt0kJorjnqKrPXUnqTrZE7gbhXC; path=/; Httponly; Secure"
+  },
+  "format_check": {
+    "format": "tsv.gz",
+    "header": "freq,indic_de,unit,geo\\TIME_PERIOD\t2014 \t2015 \t2016 \t2017 \t2018 \t2019 \t2020 \t2021 \t2022 \t2023 \t2024 \t2025"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "source_id": "PT_INE_0014773",
+  "request_url": "https://www.ine.pt/ine/json_indicador/pindica.jsp?op=2&varcd=0014773&lang=PT",
+  "retrieved_at": "2026-11-19T09:05:14.190473+00:00",
+  "status": "acquired_format_checked",
+  "kind": "json",
+  "payload_role": "data",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 4.071,
+      "result": "success"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://www.ine.pt/ine/json_indicador/pindica.jsp?op=2&varcd=0014773&lang=PT",
+  "bytes": 96716,
+  "sha256": "7e7b13c21f33cfe5f8b054655114fb776b6d9b116af6cbc4d9623cf05f3b6577",
+  "path": "originals/PT_INE_0014773.json",
+  "headers": {
+    "Date": "Thu, 19 Nov 2026 09:05:17 GMT",
+    "Content-Type": "application/json;charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "close",
+    "Set-Cookie": "JSESSIONID=litdVUzXC22vCFvQ2CzSlXJ3r4Oemsrp7guTHUhY.portal-prod01; path=/ine; HttpOnly; secure; SameSite=Strict",
+    "Content-Disposition": "attachment; filename=\"indica.json\"",
+    "Strict-Transport-Security": "max-age=31536000",
+    "Content-Security-Policy": "upgrade-insecure-requests"
+  },
+  "format_check": {
+    "format": "json",
+    "root_type": "list"
+  }
+}

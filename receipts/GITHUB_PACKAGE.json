@@ -1,0 +1,55 @@
+{
+  "source_id": "GITHUB_PACKAGE",
+  "request_url": "https://raw.githubusercontent.com/Goaskbid/nestlyzer/main/package.json",
+  "retrieved_at": "2026-11-19T09:05:14.034395+00:00",
+  "status": "acquired_format_checked",
+  "kind": "json",
+  "payload_role": "repository_snapshot",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 0.152,
+      "result": "success"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://raw.githubusercontent.com/Goaskbid/nestlyzer/main/package.json",
+  "bytes": 848,
+  "sha256": "a9e41dee27c94846dc72129c0b385f75ca5a9fb9f520b1fbbeb8a5b9bd0d6e41",
+  "path": "originals/GITHUB_PACKAGE.json",
+  "headers": {
+    "Connection": "close",
+    "Content-Length": "848",
+    "Cache-Control": "max-age=300",
+    "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "Content-Type": "text/plain; charset=utf-8",
+    "ETag": "\"4ebc86d2fe6cc16be6d4dbf2384df34fd9e187b5eb7436cb067c66228a67c252\"",
+    "Strict-Transport-Security": "max-age=31536000",
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "deny",
+    "X-XSS-Protection": "1; mode=block",
+    "X-GitHub-Request-Id": "8EF8:1BBDCA:262E3:9FCF0:6AFEBBC9",
+    "x-github-edge-region": "westus2",
+    "Accept-Ranges": "bytes",
+    "Date": "Thu, 19 Nov 2026 09:05:14 GMT",
+    "Via": "1.1 varnish",
+    "X-Served-By": "cache-bfi-krnt7300080-BFI",
+    "X-Cache": "MISS",
+    "X-Cache-Hits": "0",
+    "X-Timer": "S1795079114.060397,VS0,VE126",
+    "Vary": "Authorization,Accept-Encoding",
+    "Access-Control-Allow-Origin": "*",
+    "Cross-Origin-Resource-Policy": "cross-origin",
+    "X-Fastly-Request-ID": "04b6191ccff1e04435dd63527961a65886cd3671",
+    "Expires": "Thu, 19 Nov 2026 09:10:14 GMT",
+    "Source-Age": "0"
+  },
+  "format_check": {
+    "format": "json",
+    "root_type": "dict"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "source_id": "EU_NOISE_LANDING",
+  "request_url": "https://www.eea.europa.eu/en/datahub/datahubitem-view/c952f520-8d71-42c9-b74c-b7eb002f939b",
+  "retrieved_at": "2026-11-19T09:06:35.189704+00:00",
+  "status": "acquired_format_checked",
+  "kind": "html",
+  "payload_role": "discovery",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 2.046,
+      "result": "success"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://www.eea.europa.eu/en/datahub/datahubitem-view/c952f520-8d71-42c9-b74c-b7eb002f939b",
+  "bytes": 4669912,
+  "sha256": "0b34f846d05fdf10d8060aac7ccb3660692114dbfa316280b5330e7c6aa5e526",
+  "path": "originals/EU_NOISE_LANDING.html",
+  "headers": {
+    "Date": "Thu, 19 Nov 2026 09:06:36 GMT",
+    "Content-Type": "text/html; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "close",
+    "Server": "nginx/1.31.1",
+    "Content-Security-Policy": "default-src 'none'; base-uri 'self'; worker-src 'self' blob:; script-src 'self' 'nonce-qfHLS/aOQMK5pMTMzzEuVg==' https://public.tableau.com https://*.discomap.eea.europa.eu https://api.openaire.eu https://api.openaire.com https://api.zotero.org https://taskman.eionet.europa.eu https://matomo.eea.europa.eu https://openlayers.org https://js.arcgis.com https://geocode.arcgis.com https://services.arcgis.com https://*.eea.europa.eu; style-src 'self' 'unsafe-inline' https://api.openaire.eu https://*.discomap.eea.europa.eu https://api.openaire.com https://api.zotero.org https://taskman.eionet.europa.eu https://openlayers.org https://js.arcgis.com https://*.eea.europa.eu; img-src 'self' https: data: blob:; font-src 'self' data: https://js.arcgis.com https://*.eea.europa.eu; media-src 'self' https://*.eea.europa.eu blob: data:; frame-src 'self' https://*.europa.eu https://europa.eu https://*.discomap.eea.europa.eu https://*.eea.europa.eu; connect-src 'self' https://*.arcgis.com https://*.arcgisonline.com https://*.discomap.eea.europa.eu https://api.openaire.eu https://api.openaire.com https://api.zotero.org https://taskman.eionet.europa.eu https://api.friendlycaptcha.com/api/v1/ https://*.openstreetmap.org https://*.eea.europa.eu https://*.ec.europa.eu; form-action 'self' https://*.eea.europa.eu; frame-ancestors 'self' https://biodiversity.europa.eu https://*.eea.europa.eu; object-src 'none'; manifest-src 'self'; upgrade-insecure-requests; report-uri https://sentry.eea.europa.eu/api/22/security/?sentry_key=c2d7a7ca8deb46909d3bfc1bd468eb3d",
+    "X-Backend-Name": "cluster(172.20.252.31:3000)",
+    "x-url": "/en/datahub/datahubitem-view/c952f520-8d71-42c9-b74c-b7eb002f939b",
+    "X-Cacheable": "YES",
+    "Vary": "Origin",
+    "X-Varnish": "985407",
+    "Age": "0",
+    "Via": "1.1 frontend-dpl-varnish-788ff875b9-gc2bx (Varnish/9.1)",
+    "Accept-Ranges": "bytes",
+    "grace": "",
+    "X-Backend": "cluster(frontend-volto:(null))",
+    "X-Cache": "MISS",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Permissions-Policy": "accelerometer=(), autoplay=(), camera=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), usb=()"
+  },
+  "format_check": {
+    "format": "html_or_metadata",
+    "data_payload": false
+  }
+}

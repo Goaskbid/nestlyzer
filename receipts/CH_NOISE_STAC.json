@@ -1,0 +1,51 @@
+{
+  "source_id": "CH_NOISE_STAC",
+  "request_url": "https://data.geo.admin.ch/api/stac/v1/collections/ch.bafu.laerm-strassenlaerm_tag/items",
+  "retrieved_at": "2026-11-19T09:06:32.144212+00:00",
+  "status": "acquired_format_checked",
+  "kind": "json",
+  "payload_role": "metadata",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 0.557,
+      "result": "success"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://data.geo.admin.ch/api/stac/v1/collections/ch.bafu.laerm-strassenlaerm_tag/items",
+  "bytes": 2463,
+  "sha256": "6f804354893a90ec462232be3e2eb20e628cd2d329044c01d4302171e61d44ed",
+  "path": "originals/CH_NOISE_STAC.json",
+  "headers": {
+    "Content-Type": "application/json",
+    "Content-Length": "2463",
+    "Connection": "close",
+    "Date": "Thu, 19 Nov 2026 09:06:32 GMT",
+    "apigw-requestid": "HFJT6jCtFiAEPcA=",
+    "Server": "gunicorn",
+    "access-control-allow-headers": "Content-Type,Accept,Accept-Language",
+    "access-control-allow-methods": "GET,HEAD",
+    "access-control-allow-origin": "*",
+    "Allow": "GET, POST, HEAD, OPTIONS",
+    "Cache-Control": "max-age=600, public",
+    "Cross-Origin-Opener-Policy": "same-origin",
+    "Expires": "Thu, 19 Nov 2026 09:16:32 GMT",
+    "referrer-policy": "same-origin",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "Vary": "Accept",
+    "X-Cache": "Miss from cloudfront",
+    "Via": "1.1 949f02beb00874a68d9d2ac605c9b938.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Pop": "HIO52-P5",
+    "X-Amz-Cf-Id": "MEDsojfRZJlXwwReIe3hJMR3yR-0BZ38JNPv2wxLbJh6fJF8Uxz8VA=="
+  },
+  "format_check": {
+    "format": "json",
+    "root_type": "dict"
+  }
+}

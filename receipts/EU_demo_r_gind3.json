@@ -1,0 +1,41 @@
+{
+  "source_id": "EU_demo_r_gind3",
+  "request_url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/demo_r_gind3?format=TSV&compressed=true",
+  "retrieved_at": "2026-11-19T09:05:18.917297+00:00",
+  "status": "acquired_format_checked",
+  "kind": "tsv.gz",
+  "payload_role": "data",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 3.534,
+      "result": "success"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/demo_r_gind3?format=TSV&compressed=true",
+  "bytes": 1059556,
+  "sha256": "2785fd12846753adbe79f7c2239cfc2f33525bfe912dbbb3220601e2ee9c5180",
+  "path": "originals/EU_demo_r_gind3.tsv.gz",
+  "headers": {
+    "Date": "Thu, 19 Nov 2026 09:05:19 GMT",
+    "Transfer-Encoding": "chunked",
+    "Content-Type": "text/tab-separated-values",
+    "Content-Disposition": "attachment; filename=\"estat_demo_r_gind3.tsv.gz\"",
+    "X-ORACLE-DMS-ECID": "5374ef80-1a20-4ab7-91e2-9403bceb73ef-002cb6a8",
+    "Access-Control-Allow-Headers": "Content-Type, Accept, X-Requested-With",
+    "Access-Control-Allow-Methods": "GET",
+    "X-ORACLE-DMS-RID": "0",
+    "Access-Control-Allow-Origin": "*",
+    "Connection": "close",
+    "Set-Cookie": "rps=!0Nn8r40LVlsQyxkJ1l7j19/F6MRRhIIH6iCS5gqYGg3SZeF+s+HQh1bWn5dVpFs3qDi97wWaZ8p46ZfigM+UI1JvOvq07oVhbGNIyvQ2; path=/; Httponly; Secure"
+  },
+  "format_check": {
+    "format": "tsv.gz",
+    "header": "freq,indic_de,geo\\TIME_PERIOD\t2000 \t2001 \t2002 \t2003 \t2004 \t2005 \t2006 \t2007 \t2008 \t2009 \t2010 \t2011 \t2012 \t2013 \t2014 \t2015 \t2016 \t2017 \t2018 \t2019 \t2020 \t2021 \t2022 \t2023 \t2024 \t2025 \t2026"
+  }
+}

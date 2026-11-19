@@ -1,0 +1,51 @@
+{
+  "source_id": "US_COUNTY_CHANGE_2025",
+  "request_url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/counties/totals/co-est2025-alldata.csv",
+  "retrieved_at": "2026-11-19T09:05:36.040030+00:00",
+  "status": "acquired_format_checked",
+  "kind": "csv",
+  "payload_role": "data",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 0.242,
+      "result": "success"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/counties/totals/co-est2025-alldata.csv",
+  "bytes": 2071735,
+  "sha256": "4f5a499d851e2cb48fd7a5405e5a9235453a8a66933657aacd10df0e264f35d5",
+  "path": "originals/US_COUNTY_CHANGE_2025.csv",
+  "headers": {
+    "Date": "Thu, 19 Nov 2026 09:05:36 GMT",
+    "Content-Type": "text/csv",
+    "Content-Length": "2071735",
+    "Connection": "close",
+    "Content-Security-Policy": "default-src 'self' 'unsafe-inline' 'unsafe-eval' census.gov *.census.gov http://www.census.gov assets.adobedtm.com www.googletagmanager.com https://dpm.demdex.net https://cm.everesttech.net https://uscensusbureau.demdex.net dap.digitalgov.gov www.google-analytics.com https://static.cloudflareinsights.com; frame-ancestors 'self';",
+    "X-Frame-Options": "SAMEORIGIN",
+    "X-Content-Type-Options": "nosniff",
+    "Cache-Control": "public, max-age=14400",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Last-Modified": "Thu, 26 Mar 2026 12:15:28 GMT",
+    "Accept-Ranges": "bytes",
+    "Server-Timing": "cfEdge;dur=6,cfOrigin;dur=0",
+    "Vary": "Accept-Encoding",
+    "X-XSS-Protection": "1; mode=block",
+    "set-cookie": "__cf_bm=y21rqgrXJ1cLxml1RhMrRNO7Bsiy3ns5m7JKvwD4Tn4-1795079136.1812532-1.0.1.1-E1iHAGtHZHM4ARmTVsHemyQ3WfaDQzCPmoBy85k4dWxvp.e6cuWvRrvEqKaR4f859M6n36GKe6mwb0f8ZsYF_tTwZ8MjttqFo7ju7WDGF5TniewsbkJaoxBsSW25pRVM; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=www2.census.gov; Expires=Thu, 19 Nov 2026 09:35:36 GMT",
+    "Strict-Transport-Security": "max-age=31536000",
+    "Age": "334441",
+    "expires": "Thu, 19 Nov 2026 13:05:36 GMT",
+    "cf-cache-status": "HIT",
+    "Server": "cloudflare",
+    "CF-RAY": "a5ce0dd92efeacec-SJC"
+  },
+  "format_check": {
+    "format": "csv",
+    "header": "SUMLEV,REGION,DIVISION,STATE,COUNTY,STNAME,CTYNAME,ESTIMATESBASE2020,POPESTIMATE2020,POPESTIMATE2021,POPESTIMATE2022,POPESTIMATE2023,POPESTIMATE2024,POPESTIMATE2025,NPOPCHG2020,NPOPCHG2021,NPOPCHG2022,NPOPCHG2023,NPOPCHG2024,NPOPCHG2025,BIRTHS2020,BIRTHS2021,BIRTHS2022,BIRTHS2023,BIRTHS2024,BIRTHS2025,DEATHS2020,DEATHS2021,DEATHS2022,DEATHS2023,DEATHS2024,DEATHS2025,NATURALCHG2020,NATURALCHG2021,NATURALCHG2022,NATURALCHG2023,NATURALCHG2024,NATURALCHG2025,INTERNATIONALMIG2020,INTERNATIONALMIG2021,INTERNATION"
+  }
+}

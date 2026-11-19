@@ -1,0 +1,45 @@
+{
+  "source_id": "MY_PRICECATCHER_2026_10",
+  "request_url": "https://storage.data.gov.my/pricecatcher/pricecatcher_2026-10.csv",
+  "retrieved_at": "2026-11-19T09:06:28.729325+00:00",
+  "status": "acquired_format_checked",
+  "kind": "csv",
+  "payload_role": "data",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 3.069,
+      "result": "success"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://storage.data.gov.my/pricecatcher/pricecatcher_2026-10.csv",
+  "bytes": 35231128,
+  "sha256": "a2b9e0ef33f9e70f4d237dbab04839cadb6addc0398d8cc20e2882e599c830e6",
+  "path": "originals/MY_PRICECATCHER_2026_10.csv",
+  "headers": {
+    "Content-Type": "binary/octet-stream",
+    "Content-Length": "35231128",
+    "Connection": "close",
+    "Accept-Ranges": "bytes",
+    "Date": "Thu, 19 Nov 2026 09:06:29 GMT",
+    "Server": "AmazonS3",
+    "Last-Modified": "Sat, 31 Oct 2026 12:00:29 GMT",
+    "ETag": "\"d1ed3bb4815c550dcbf52afcc75b361d-5\"",
+    "x-amz-version-id": "KGOG1UpZ5sH7lM30zOkdP_C3f7MuC9Mq",
+    "x-amz-server-side-encryption": "AES256",
+    "X-Cache": "Miss from cloudfront",
+    "Via": "1.1 caca3796a9753caf000b1d1a5f744530.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Pop": "HIO52-P4",
+    "Alt-Svc": "h3=\":443\"; ma=86400",
+    "X-Amz-Cf-Id": "0x1P-2lV1SRqvGhTUBYrlHd1vWSDWI1zALAMIXEqI70lpFhCWYWxbg=="
+  },
+  "format_check": {
+    "format": "csv",
+    "header": "date,premise_code,item_code,price"
+  }
+}

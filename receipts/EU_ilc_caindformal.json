@@ -1,0 +1,39 @@
+{
+  "source_id": "EU_ilc_caindformal",
+  "request_url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/ilc_caindformal?format=TSV&compressed=true",
+  "retrieved_at": "2026-11-19T09:05:29.473237+00:00",
+  "status": "acquired_format_checked",
+  "kind": "tsv.gz",
+  "payload_role": "data",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 0.775,
+      "result": "success"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/ilc_caindformal?format=TSV&compressed=true",
+  "bytes": 13633,
+  "sha256": "13b31b99da52954072c0020cbb74096eef772b5341eacf3effaafeb221f504d8",
+  "path": "originals/EU_ilc_caindformal.tsv.gz",
+  "headers": {
+    "Date": "Thu, 19 Nov 2026 09:05:30 GMT",
+    "Transfer-Encoding": "chunked",
+    "Content-Type": "text/tab-separated-values",
+    "Content-Disposition": "attachment; filename=\"estat_ilc_caindformal.tsv.gz\"",
+    "Access-Control-Allow-Headers": "Content-Type, Accept, X-Requested-With",
+    "Access-Control-Allow-Methods": "GET",
+    "Access-Control-Allow-Origin": "*",
+    "Connection": "close",
+    "Set-Cookie": "rps=!lMJq4Gwss52tg84J1l7j19/F6MRRhDI3WyUkQXJOgGBPx4nR0XVzxumZUmqoclNTxhca99N0HV686OdCUhUXlV6xEjeVh00BalxTLF6g; path=/; Httponly; Secure"
+  },
+  "format_check": {
+    "format": "tsv.gz",
+    "header": "freq,age,duration,unit,geo\\TIME_PERIOD\t2005 \t2006 \t2007 \t2008 \t2009 \t2010 \t2011 \t2012 \t2013 \t2014 \t2015 \t2016 \t2017 \t2018 \t2019 \t2020 \t2021 \t2022 \t2023 \t2024 \t2025"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "source_id": "GITHUB_RELEASE",
+  "request_url": "https://raw.githubusercontent.com/Goaskbid/nestlyzer/main/RELEASE.json",
+  "retrieved_at": "2026-11-19T09:05:14.045700+00:00",
+  "status": "not_acquired",
+  "kind": "json",
+  "payload_role": "repository_snapshot",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 0.105,
+      "error_type": "HTTPError",
+      "message": "HTTP Error 404: Not Found"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1"
+}

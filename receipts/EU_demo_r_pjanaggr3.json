@@ -1,0 +1,39 @@
+{
+  "source_id": "EU_demo_r_pjanaggr3",
+  "request_url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/demo_r_pjanaggr3?format=TSV&compressed=true",
+  "retrieved_at": "2026-11-19T09:05:22.455075+00:00",
+  "status": "acquired_format_checked",
+  "kind": "tsv.gz",
+  "payload_role": "data",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 3.598,
+      "result": "success"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/demo_r_pjanaggr3?format=TSV&compressed=true",
+  "bytes": 2020817,
+  "sha256": "ce8f6ee514d30e1e417582513f8df12029adb9cb1c8dea2eb337a76756d4a773",
+  "path": "originals/EU_demo_r_pjanaggr3.tsv.gz",
+  "headers": {
+    "Date": "Thu, 19 Nov 2026 09:05:22 GMT",
+    "Transfer-Encoding": "chunked",
+    "Content-Type": "text/tab-separated-values",
+    "Content-Disposition": "attachment; filename=\"estat_demo_r_pjanaggr3.tsv.gz\"",
+    "Access-Control-Allow-Headers": "Content-Type, Accept, X-Requested-With",
+    "Access-Control-Allow-Methods": "GET",
+    "Access-Control-Allow-Origin": "*",
+    "Connection": "close",
+    "Set-Cookie": "rps=!URg7cch97ODMJJbbA+6l1zXkw7/S2bZt/UcBiI9soJF/KgxN3UPj8o/LHKaz4y67kIuGWccMmvgB/6kSj4NOCCD+NVgWYiw0N1ymui9m; path=/; Httponly; Secure"
+  },
+  "format_check": {
+    "format": "tsv.gz",
+    "header": "freq,unit,sex,age,geo\\TIME_PERIOD\t1990 \t1991 \t1992 \t1993 \t1994 \t1995 \t1996 \t1997 \t1998 \t1999 \t2000 \t2001 \t2002 \t2003 \t2004 \t2005 \t2006 \t2007 \t2008 \t2009 \t2010 \t2011 \t2012 \t2013 \t2014 \t2015 \t2016 \t2017 \t2018 \t2019 \t2020 \t2021 \t2022 \t2023 \t2024 \t2025"
+  }
+}

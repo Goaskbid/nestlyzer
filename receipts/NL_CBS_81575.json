@@ -1,0 +1,41 @@
+{
+  "source_id": "NL_CBS_81575",
+  "request_url": "https://datasets.cbs.nl/CSV/CBS/nl/81575NED",
+  "retrieved_at": "2026-11-19T09:06:21.937181+00:00",
+  "status": "acquired_format_checked",
+  "kind": "csv_or_zip",
+  "payload_role": "data",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 4.601,
+      "result": "success"
+    }
+  ],
+  "licence_status": "requires_source_specific_review",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://datasets.cbs.nl/CSV/CBS/nl/81575NED",
+  "bytes": 1685553,
+  "sha256": "0d4469badb5f1061f6a84d584c86adbc580dcb6ca1888efb7714f013b4e060bd",
+  "path": "originals/NL_CBS_81575.download",
+  "headers": {
+    "content-length": "1685553",
+    "content-type": "application/octet-stream",
+    "date": "Thu, 19 Nov 2026 09:06:22 GMT",
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "etag": "\"78b1fe7826d0dc1:0\"",
+    "last-modified": "Sun, 19 Apr 2026 18:00:57 GMT",
+    "content-disposition": "attachment; filename=81575NED-202604200000.zip",
+    "x-envoy-upstream-service-time": "18",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+  },
+  "format_check": {
+    "format": "zip",
+    "members": 15,
+    "expanded_bytes": 11714185
+  }
+}

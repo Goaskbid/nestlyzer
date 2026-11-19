@@ -4,7 +4,7 @@
 (function () {
   var slot = document.querySelector('[data-sarms]'); if (!slot || !window.fetch) return;
   try { if (JSON.parse(localStorage.getItem('nz:ext')) === false) return; } catch (e) {}
-  var d = slot.dataset, KEY = 'nz:arms4:' + d.id;
+  var d = slot.dataset, KEY = 'nz:arms5:' + d.id;
   var PROP = { CH: 'P771', DE: 'P439', FR: 'P374', IT: 'P635', ES: 'P772', AT: 'P964', NL: 'P382', BE: 'P1567' };
   var FAIL = {};
   function allowed(){try{return JSON.parse(localStorage.getItem('nz:ext'))!==false;}catch(e){return false;}}
@@ -26,12 +26,12 @@
   function near(e) { var g = val(e, 'P625'); if (!g || !d.lat) return true; var dy = (g.latitude - d.lat) * 111, dx = (g.longitude - d.lon) * 111 * Math.cos(d.lat * Math.PI / 180); return Math.sqrt(dx * dx + dy * dy) < 30; }
   function lic(l, u) { return /^(CC0|CC[ -]BY(?:[ -]SA)?[ -][1-4]\.[05]\b.*|Public domain|PD\b.*)$/i.test(l) && !/noncommercial|no ?derivatives|\bNC\b|\bND\b/i.test(l + ' ' + u); }
   function commons(f, of) {
-    return get('https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=96&format=json&origin=*&titles=' + encodeURIComponent('File:' + f)).then(function (q) {
+    return get('https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=120&format=json&origin=*&titles=' + encodeURIComponent('File:' + f)).then(function (q) {
       var p = q.query && q.query.pages, i = p && Object.values(p)[0] && Object.values(p)[0].imageinfo && Object.values(p)[0].imageinfo[0], m = (i && i.extmetadata) || {};
       var l = (m.LicenseShortName || {}).value || '', u = (m.LicenseUrl || {}).value || '', img = i && (i.thumburl || i.url);
       if (!i || !lic(l, u) || !/^https:\/\/upload\.wikimedia\.org\//.test(img || '')) return null;
       var by = new DOMParser().parseFromString((m.Artist || {}).value || 'Wikimedia Commons', 'text/html').body.textContent.trim().slice(0, 80);
-      return { src: img, lic: l, by: by, of: of || '', page: i.descriptionurl || '' };
+      return { src: img, full: /^https:\/\/upload\.wikimedia\.org\//.test(i.url || '') ? i.url : '', lic: l, by: by, of: of || '', page: i.descriptionurl || '' };
     });
   }
   function resolve() {
@@ -48,7 +48,9 @@
     var a = document.createElement('a'); a.href = v.page || '#'; a.target = '_blank'; a.rel = 'noopener';
     a.title='Coat of arms. '+v.by+', '+v.lic+', Wikimedia Commons. Official-symbol restrictions may apply.';
     var im = new Image(); im.alt = 'Coat of arms of ' + (v.of || d.name); im.width = 40; im.height = 48; im.decoding = 'async'; im.referrerPolicy = 'no-referrer';
-    im.onload = function () { if(!allowed()||!slot.isConnected)return;slot.hidden=false;slot.replaceChildren(a); }; a.appendChild(im); im.src = v.src;
+    im.onload = function () { if(!allowed()||!slot.isConnected)return;slot.hidden=false;slot.replaceChildren(a); }; a.appendChild(im);
+    im.onerror = function () { if (v.full && im.src !== v.full) im.src = v.full; };   // 2.15.30-r7: thumbnail refused, load the original file
+    im.src = v.src;
   }
   var c; try { c = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
   if (c && c.t && Date.now() - c.t < 2592e6) return show(c.v);

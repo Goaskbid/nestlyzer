@@ -814,7 +814,7 @@ function evidenceCSV() {
    rent trends, pay by occupation, employer labour costs. They describe the place, its zone or metro, or the country, and
    say which; they are never place factors, never change a score and never count as measured local data. */
 var NACE_NAME = { A: 'agriculture, forestry, fishing', 'B-E': 'industry incl. energy', C: 'manufacturing', F: 'construction', 'G-I': 'trade, transport, hotels and restaurants', G: 'trade', H: 'transport and storage', I: 'hotels and restaurants', J: 'information and communication', K: 'finance and insurance', L: 'real estate', 'M-N': 'professional, scientific and support services', 'O-Q': 'public administration, education, health', 'R-U': 'other services', 'G-N_R-U': 'market services (trade, transport, hotels, information, finance, real estate, business and other services)', 'GZ-IZ': 'trade, transport, hotels and restaurants', 'OZ-QZ': 'public administration, education, health' };
-var CX_REL = { is: '', group_member: 'municipality group', zone_member: 'rental zone', metro_member: 'metropolitan area', principal_city: 'metropolitan area (principal city)', state: 'state', region: 'county', station: 'weather station', station_context_within_25km: 'nearby weather station (within 25 km, not municipal data)', district: 'district', municipality: 'municipality', county: 'county', stat_region: 'statistical region', contains: 'county or region' };
+var CX_REL = { is: '', department: 'department', municipality_context: 'whole municipality (not this parish alone)', group_member: 'municipality group', zone_member: 'rental zone', metro_member: 'metropolitan area', principal_city: 'metropolitan area (principal city)', state: 'state', region: 'county', station: 'weather station', station_context_within_25km: 'nearby weather station (within 25 km, not municipal data)', district: 'district', municipality: 'municipality', county: 'county', stat_region: 'statistical region', contains: 'county or region' };
 function cxDim(r) {
   var d = r.dimensions || {}, b = [];
   if (d.calendar_month != null) { var mo = Number(d.calendar_month); b.push(mo === 0 ? 'annual normal' : ['','January','February','March','April','May','June','July','August','September','October','November','December'][mo] || 'unresolved month'); }
@@ -873,7 +873,9 @@ function cxNote(r) {
 function cxRows(r) {
   var sh = SHARDS[r.country], cx = sh && sh.extra && sh.extra.ctx; if (!cx) return null;
   var mine = {}; (cx.places[r.oid] || []).forEach(function (a) { mine[a[0]] = a[1]; });
-  var rg = cx.regions || {}; Object.keys(rg).forEach(function (g) { var v = rg[g][1], pv = r[rg[g][0]]; if (pv && (pv === v || v.slice(-1) === '*' && String(pv).indexOf(v.slice(0, -1)) === 0)) mine[g] = rg[g][0] === 'rc' ? 'state' : 'region'; });
+  // 2.15.30-r7: a department or state figure (geo id "FR:department:01", "DE:state:08") also needs the place's own official code to
+  // start with that department or state code, so a place with a stray region code never shows a neighbour's figure
+  var rg = cx.regions || {}; Object.keys(rg).forEach(function (g) { var v = rg[g][1], pv = r[rg[g][0]], px = /^[A-Z]{2}:(department|state):(\w+)$/.exec(g); if (px && String(r.oid).indexOf(px[2]) !== 0) return; if (pv && (pv === v || v.slice(-1) === '*' && String(pv).indexOf(v.slice(0, -1)) === 0)) mine[g] = px ? px[1] : rg[g][0] === 'rc' ? 'state' : 'region'; });
   var rows = cx.records.filter(function (o) { return (mine.hasOwnProperty(o.source_geo_id) || o.source_geo_level === 'country' || o.source_geo_level === 'country_scenario' || o.source_geo_id === 'EUROSTAT:EU27_2020') && cxTotal(o); });
   // latest period per indicator, geography and dimensions; earliest kept for a source trend where the series is a trend
   var best = {};
@@ -1067,6 +1069,8 @@ var CX_IDX = {};
 function cxTone(o, cx, biz) {
   if (o.source_geo_level === 'climate_station') return ['ref', 'Station normal, not a municipal measurement or ranking input'];
   if (!fin(o.value)) return ['ref', 'description, not a measure'];
+  // 2.15.30-r7: a count of moves is not a rate; bigger states have more moves, so no ranking against other states
+  if (/^migration_net_moves_/.test(o.indicator_id)) return ['ref', 'number of moves in the year, not a rate: larger states have more'];
   var dir = cxDir(o.indicator_id, biz), cn = countryName(String(o.country || '').toUpperCase()) || 'the country';
   if (o.source_geo_level === 'multicountry_aggregate') return ['ref', 'benchmark to compare against'];
   if (o.source_geo_level === 'country' || o.source_geo_level === 'country_scenario') {
@@ -1845,6 +1849,7 @@ function programmesHTML(r) {
     e.preventDefault(); var o = document.getElementById('srcpop'); if (o) o.remove();
     var html = sheetHTML(r, t.dataset.k); if (html) openSheet(html, t);
   });
+  window.NZ_QW = function (r) { try { return crossQuickWinsHTML(r, 'score'); } catch (e) { return ''; } };
   window.NZ_SHEET = function (k) { var r = BYID[S.selected]; return r ? sheetHTML(r, k) : ''; };
 })();
 function openSheet(html, back) {
@@ -1896,6 +1901,55 @@ function catSheetExtra(r, c, sc) {
   }
   return out;
 }
+/* 2.15.30-r7 owner request: quick wins. For one category, which measures would lift this place most if it reached the level
+   the better quarter of places in the same ranking already has? The category score is the plain mean of its measures,
+   so lifting one measure to that level adds (target - now) / number of measures. Location facts (climate, terrain, sea,
+   distances to airports or borders) are never offered as a fix: a municipality cannot move. */
+var QW_FIXED = /climate|sun|temp|rain|frost|snow|heat|koppen|alt|relief|terrain|slope|coast|shore|sea|lake|river|mountain|border|_km$|km_|airport|port|elev|nature|forest|green_share|flood|quake|seism/i;
+function quickWinsData(r, c, ids, fs, fr) {
+  var R = typeof RES !== 'undefined' && RES; if (!R || !R.scored || R.scored.length < 20) return null;
+  var n = ids.length, cand = [];
+  ids.forEach(function (id) {
+    var f = ENGINE.factorById[id] || {}; if (QW_FIXED.test(id) || QW_FIXED.test(f.name || '')) return;
+    var now = fs[id]; if (!fin(now) || now >= 70) return;
+    var peers = []; R.scored.forEach(function (q) { var v = ((q.r || {}).factorScores || {})[id]; if (fin(v)) peers.push([v, q.r]); });
+    if (peers.length < 20) return;
+    peers.sort(function (a, b) { return a[0] - b[0]; });
+    var t = peers[Math.floor(peers.length * 0.75)], target = t[0]; if (target - now < 5) return;
+    var gain = (target - now) / n, raw = ((t[1] || {}).factorRaw || {})[id];
+    cand.push({ id: id, f: f, now: now, target: target, gain: gain, rawNow: fr[id], rawTarget: raw, cat: c });
+  });
+  return cand.sort(function (a, b) { return b.gain - a.gain; });
+}
+function quickWinsHTML(r, c, ids, fs, fr, catNow) {
+  var R = typeof RES !== 'undefined' && RES; if (!R || !R.scored || R.scored.length < 20 || !fin(catNow)) return '';
+  var cand = quickWinsData(r, c, ids, fs, fr) || [];
+  if (!cand.length) return '<div class="qw"><h4>Quick wins</h4><p class="cap">No quick win here: every measure in this category is already at or above the level of the better quarter of places, or depends on location.</p></div>';
+  cand = cand.slice(0, 3);
+  var cats = []; R.scored.forEach(function (q) { var v = (q.catScores || {})[c]; if (fin(v)) cats.push(v); });
+  var rankOf = function (v) { return 1 + cats.filter(function (x) { return x > v; }).length; };
+  var all = catNow + cand.reduce(function (a, x) { return a + x.gain; }, 0);
+  var fv = function (x, v) { return fin(v) ? (adFmtRaw(x.f, v) || fmt(v)) : ''; };
+  return '<div class="qw"><h4>Quick wins: what would lift ' + esc(r.name) + ' most</h4><table><tr><th>Measure</th><th class="n">Now</th><th class="n">Better quarter</th><th class="n">Category points</th></tr>' +
+    cand.map(function (x) { return '<tr><td>' + esc(x.f.name || x.id) + '</td><td class="n">' + esc(fv(x, x.rawNow) || Math.round(x.now)) + '</td><td class="n">' + esc(fv(x, x.rawTarget) || Math.round(x.target)) + '</td><td class="n">+' + fmt(x.gain, 1) + '</td></tr>'; }).join('') + '</table>' +
+    '<p class="cap">Reaching the level that the better quarter of places in this ranking already has on these ' + cand.length + ' measures would raise the ' + esc(catLabel(c).toLowerCase()) + ' score from ' + Math.round(catNow) + ' to about ' + Math.round(all) + (cats.length >= 20 ? ' and move it from position ' + fmtInt(rankOf(catNow)) + ' to about ' + fmtInt(rankOf(all)) + ' of ' + fmtInt(cats.length) : '') + ' for this category. An estimate from the published figures; location facts such as climate or distances are left out because a municipality cannot change them.</p></div>';
+}
+/* 2.15.30-r7 owner request: the same quick wins across all categories of the profile, for the Politics tab ("what local
+   policy could change") and the Scorecard. Profile points = category points x the category's share of the profile. */
+function crossQuickWinsHTML(r, where) {
+  if (typeof ENGINE === 'undefined' || !ENGINE.weightsFor) return '';
+  var w = ENGINE.weightsFor(r, S.profile) || {}, tot = 0; Object.keys(w).forEach(function (k) { if (w[k] > 0) tot += w[k]; }); if (!tot) return '';
+  var fs = r.factorScores || {}, fr = r.factorRaw || {}, all = [];
+  Object.keys(w).forEach(function (c) { if (!(w[c] > 0)) return; var ids = ((ENGINE.factorIdsByCat || {})[c] || []).filter(function (id) { return fin(fs[id]); }); if (!ids.length) return;
+    (quickWinsData(r, c, ids, fs, fr) || []).forEach(function (x) { x.prof = x.gain * w[c] / tot; all.push(x); }); });
+  var pn = (profileDef(S.profile) || {}).name || 'this profile';
+  if (!all.length) return '<p class="cap">' + esc(r.name) + ' already matches the better quarter of places on every measure a municipality can influence for ' + esc(pn.toLowerCase()) + '.</p>';
+  all.sort(function (a, b) { return b.prof - a.prof; }); all = all.slice(0, 5);
+  var fv = function (x, v) { return fin(v) ? (adFmtRaw(x.f, v) || fmt(v)) : ''; }, sum = all.reduce(function (a, x) { return a + x.prof; }, 0);
+  return '<div class="qw"><h4>' + (where === 'politics' ? 'What local policy could change: quick wins for ' : 'Quick wins: what would lift the score for ') + esc(pn.toLowerCase()) + '</h4><table><tr><th>Measure</th><th class="n">Now</th><th class="n">Better quarter</th><th class="n">Profile points</th></tr>' +
+    all.map(function (x) { return '<tr><td>' + esc(x.f.name || x.id) + ' <span class="muted small">(' + esc(shortCat(x.cat)) + ')</span></td><td class="n">' + esc(fv(x, x.rawNow) || Math.round(x.now)) + '</td><td class="n">' + esc(fv(x, x.rawTarget) || Math.round(x.target)) + '</td><td class="n">+' + fmt(x.prof, 1) + '</td></tr>'; }).join('') + '</table>' +
+    '<p class="cap">Reaching the level the better quarter of places in this ranking already has on these measures would add about ' + fmt(sum, 1) + ' points to the score for ' + esc(pn.toLowerCase()) + '. An estimate from the published figures, weighted by how much each category counts in this profile; climate, terrain and distances are left out because a municipality cannot change them.</p></div>';
+}
 function sheetHTML(r, k) {
   var fr = r.factorRaw || {}, fs = r.factorScores || {}, LV = { 1: 'large region', 2: 'region', 3: 'district or county', 9: 'whole country' };
   if (/^fac:\d+$/.test(k)) {
@@ -1911,7 +1965,7 @@ function sheetHTML(r, k) {
         .filter(function (a) { return fin(a[1]); }).map(function (a) { return '<tr><td>' + a[0] + '</td><td class="n">' + (a[2] === 'km' ? (a[1] < 1 ? 'less than 1 km' : fmt(a[1]) + ' km') : fmtInt(a[1]) + (a[2] ? ' ' + a[2] : '')) + '</td></tr>'; }).join('') + '</table>' : '';
     return '<h3 id="nzsh-t">' + esc(catLabel(c)) + '</h3><p class="sub">' + esc(r.name) + ', score ' + (fin(cats[c]) ? Math.round(cats[c]) : 'not available') + ' of 100 against the rest of ' + esc(countryName(r.country)) + '</p>' + extra +
       (ids.length ? '<table><tr><th>Measure</th><th class="n">Value</th><th class="n">Score</th></tr>' + ids.map(function (id) { var f = ENGINE.factorById[id]; return '<tr><td>' + esc(f.name) + '</td><td class="n">' + esc(fin(fr[id]) ? adFmtRaw(f, fr[id]) || fmt(fr[id]) : '') + '</td><td class="n">' + Math.round(fs[id]) + '</td></tr>'; }).join('') + '</table>' : '') +
-      (ids.length ? '' : catSheetExtra(r, c, cats[c])) +
+      (ids.length ? quickWinsHTML(r, c, ids, fs, fr, cats[c]) : catSheetExtra(r, c, cats[c])) +
       '<p class="cap">Scores run from 0 (weakest in the country) to 100 (strongest) for this need.</p>';
   }
   var f = ENGINE.factorById && ENGINE.factorById[k]; if (!f) return '';

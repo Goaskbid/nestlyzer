@@ -58,5 +58,11 @@
   "file_sha256": "08ae72d559edff676c20c5d35e41273413d82ccbaca64ed4b44f90bb3221625a",
   "added": 1264,
   "identical": 0
+ },
+ {
+  "release": "data-2026-11-18",
+  "file_sha256": "2363e2d90b8f702a2420756df8f11b47a209449e5507bb6f60868889787cb114",
+  "added": 389,
+  "identical": 0
  }
 ]

@@ -51,7 +51,7 @@ function placeContext(r) {
     return (function next(i) { if (i >= titles.length) return { s: null, e: e }; return wikiSummary('en', titles[i]).then(function (s) { return s && /municip|commune|town|city|village|comune|gemeinde|district|parish/i.test((s.description || '') + (s.extract || '')) ? { s: s, e: e } : next(i + 1); }); })(0);
   }).then(function (o) {
     var s = o.s || {}, e = o.e;
-    var img = (s.originalimage && s.originalimage.source) || (s.thumbnail && s.thumbnail.source) || (claim(e, 'P18') ? commonsFile(claim(e, 'P18'), 1200) : '');
+    var img = (s.originalimage && s.originalimage.source) || (s.thumbnail && s.thumbnail.source) || (claim(e, 'P18') ? commonsFile(claim(e, 'P18'), 1280) : '');
     return { extract: s.extract || '', url: s.content_urls && s.content_urls.desktop ? s.content_urls.desktop.page : '', image: img, title: s.title || '', entity: e };
   }).catch(function () { return { extract: '', url: '', image: '' }; });
   return WP[key];
@@ -66,7 +66,7 @@ function placeImage(r) {
 function commonsImages(r, limit) {
   var k = r.id + ':' + limit; if (CM[k]) return CM[k];
   var q = stripParen(r.name) + ' ' + localAreaOf(r) + ' ' + countryName(r.country);
-  CM[k] = Promise.all([photoKit(), jget('https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrnamespace=6&gsrsearch=' + encodeURIComponent(q) + '&gsrlimit=' + (limit + 6) + '&prop=imageinfo&iiprop=url|mime|extmetadata&iiurlwidth=720&format=json&origin=*')]).then(function (aa) {
+  CM[k] = Promise.all([photoKit(), jget('https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrnamespace=6&gsrsearch=' + encodeURIComponent(q) + '&gsrlimit=' + (limit + 6) + '&prop=imageinfo&iiprop=url|mime|extmetadata&iiurlwidth=960&format=json&origin=*')]).then(function (aa) {
     var X = aa[0], j = aa[1];
     var c = Object.values((j.query || {}).pages || {}).sort(function (a, b) { return (a.index || 0) - (b.index || 0); }).filter(function (p) { var x = p.imageinfo && p.imageinfo[0]; return x && /^image\/(jpeg|png|webp)/.test(x.mime || '') && X.photoMetaOk(p.title, x.extmetadata); })
       .map(function (p) { var x = p.imageinfo[0]; return { src: x.thumburl || x.url, page: x.descriptionurl }; });
@@ -203,19 +203,21 @@ function wikidataExactFor(r) {
 function armsFor(r) {
   if (ARMS[r.id] !== undefined) return Promise.resolve(ARMS[r.id]);
   // 2.15.28: key 'arms2' so empty results cached by the 8-country lookup before 2.15.28 are asked again
-  var key = 'arms4:' + r.id, c = store(key); if (c && c.t && Date.now() - c.t < 2592e6) return Promise.resolve(ARMS[r.id] = c.v);
+  // 2.15.30-r7: key 'arms5' and 120 px thumbnails: since Feb 2026 Wikimedia rate-limits thumbnail widths outside its standard steps
+  // (20, 40, 60, 120, 250, 330, 500, 960, 1280, 1920, 3840), so the old 96 px images failed; remembered 96 px links are dropped
+  var key = 'arms5:' + r.id, c = store(key); if (c && c.t && Date.now() - c.t < 2592e6) return Promise.resolve(ARMS[r.id] = c.v);
   if (!extOn()) return Promise.resolve(null);
   var done = function (v) { if(!extOn())return null; if (!v && WD_FAIL[r.id]) { delete WD_FAIL[r.id]; return null; } ARMS[r.id] = v; try { store(key, { t: Date.now(), v: v }); } catch (e) {} return v; };
   var p94 = function (e) { var f = e && e.claims && ((e.claims.P94 || [])[0] || {}).mainsnak; return f && f.datavalue && f.datavalue.value; };
   var near = function (e) { var g = e && e.claims && ((e.claims.P625 || [])[0] || {}).mainsnak; g = g && g.datavalue && g.datavalue.value;   // a name match far away is another place
     if (!g || r.lat == null) return true; var dy = (g.latitude - r.lat) * 111, dx = (g.longitude - r.lon) * 111 * Math.cos(r.lat * Math.PI / 180); return Math.sqrt(dx * dx + dy * dy) < 30; };
   var commons = function (f, of) {
-    return jget('https://commons.wikimedia.org/w/api.php?action=query&titles=' + encodeURIComponent('File:' + f) + '&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=96&format=json&origin=*').then(function (q) {
+    return jget('https://commons.wikimedia.org/w/api.php?action=query&titles=' + encodeURIComponent('File:' + f) + '&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=120&format=json&origin=*').then(function (q) {
       var pg = q.query && q.query.pages, i = pg && Object.values(pg)[0] && Object.values(pg)[0].imageinfo && Object.values(pg)[0].imageinfo[0], m = (i && i.extmetadata) || {};
       var lic = (m.LicenseShortName || {}).value || '', url = (m.LicenseUrl || {}).value || '', img = i && (i.thumburl || i.url);
       if (!i || !armsLic(lic, url) || !/^https:\/\/upload\.wikimedia\.org\//.test(img || '')) return null;
       var art = new DOMParser().parseFromString((m.Artist || {}).value || 'Wikimedia Commons', 'text/html').body.textContent.trim().slice(0, 80);
-      return { src: img, lic: lic, by: art, of: of || '', page: i.descriptionurl || ('https://commons.wikimedia.org/wiki/File:' + encodeURIComponent(f)) }; }); };
+      return { src: img, full: /^https:\/\/upload\.wikimedia\.org\//.test(i.url || '') ? i.url : '', lic: lic, by: art, of: of || '', page: i.descriptionurl || ('https://commons.wikimedia.org/wiki/File:' + encodeURIComponent(f)) }; }); };
   // every country: the same exact-ID / LAU-code / name resolver the Story and facts use (shared cache, no extra lookup)
   return wikidataExactFor(r).then(function (e) {
     if (!e || !extOn()) return null;
@@ -230,7 +232,8 @@ function armsPump() {
    var im=new Image();im.alt='Coat of arms of '+(slot.dataset.emblemName||r.name);im.referrerPolicy='no-referrer';im.className='nz-arms-img';
    var link=document.createElement('a');link.href=v.page;link.target='_blank';link.rel='noopener noreferrer';link.title=v.by+'; '+v.lic+'; Wikimedia Commons. Official-symbol restrictions may apply.';link.addEventListener('click',function(e){e.stopPropagation();});link.appendChild(im);
    im.onload=function(){if(!extOn()||!slot.isConnected||slot.dataset.placeEmblem!==id)return;slot.replaceChildren(link);slot.dataset.emblemState='shown';slot.setAttribute('aria-label',im.alt);};
-   im.onerror=function(){if(slot.isConnected&&slot.dataset.placeEmblem===id)slot.dataset.emblemState='load-error';};
+   // 2.15.30-r7: if Wikimedia refuses the 120 px thumbnail (busy or rate-limited), load the original file instead
+   im.onerror=function(){if(v.full&&im.src!==v.full){im.src=v.full;return;}if(slot.isConnected&&slot.dataset.placeEmblem===id)slot.dataset.emblemState='load-error';};
    im.src=v.src;
   }).catch(function(){if(slot.isConnected)slot.dataset.emblemState='load-error';}).finally(function(){ARMN--;armsPump();});
   })(job[0],job[1],job[0].id);
@@ -243,3 +246,110 @@ window.NZ_ARMS = function (slot) { if (!extOn() || !slot || slot.dataset.armsQue
   [4000, 10000].forEach(function (ms) { setTimeout(function () { if (slot.isConnected && slot.dataset.emblemState === 'unavailable' && !slot.querySelector('img')) armsNow(slot, 0); }, ms); });
   var b = slot.getBoundingClientRect(); if (b.width && b.bottom > -400 && b.top < innerHeight * 2 && b.left < innerWidth * 2) { armsNow(slot, 0); return; }   // on screen now: load directly
   if (ARMIO) ARMIO.observe(slot); else { var r = BYID[slot.dataset.placeEmblem]; if (r) { ARMQ.push([r, slot]); armsPump(); } } };
+
+/* 2.15.30-r7 owner request: coats of arms of the region too (Bundesland, canton, département, provincia, county, US state).
+   Same discipline as the municipal arms: the region entity is found only by its exact official code on Wikidata (NUTS code
+   P605 in Europe, ISO 3166-2 code P300 for US states), must carry the right country (P17), and the image must be openly
+   licensed on Wikimedia Commons (standard 120 px thumbnail, original file if the thumbnail is refused). Nothing by name. */
+var RARMS_LEVEL = { DE: 1, AT: 2, BE: 2, NL: 2, IT: 2, ES: 2, FR: 1, PL: 2, PT: 2, EL: 2, DK: 2, IE: 2, UK: 1 };   // the "state" level above NUTS 3
+var RARMS_CQ = { CH: 'Q39', DE: 'Q183', FR: 'Q142', IT: 'Q38', ES: 'Q29', AT: 'Q40', NL: 'Q55', BE: 'Q31', UK: 'Q145', SE: 'Q34', NO: 'Q20', PL: 'Q36', US: 'Q30' };
+var US_FIPS = { '01': 'AL', '02': 'AK', '04': 'AZ', '05': 'AR', '06': 'CA', '08': 'CO', '09': 'CT', '10': 'DE', '11': 'DC', '12': 'FL', '13': 'GA', '15': 'HI', '16': 'ID', '17': 'IL', '18': 'IN', '19': 'IA', '20': 'KS', '21': 'KY', '22': 'LA', '23': 'ME', '24': 'MD', '25': 'MA', '26': 'MI', '27': 'MN', '28': 'MS', '29': 'MO', '30': 'MT', '31': 'NE', '32': 'NV', '33': 'NH', '34': 'NJ', '35': 'NM', '36': 'NY', '37': 'NC', '38': 'ND', '39': 'OH', '40': 'OK', '41': 'OR', '42': 'PA', '44': 'RI', '45': 'SC', '46': 'SD', '47': 'TN', '48': 'TX', '49': 'UT', '50': 'VT', '51': 'VA', '53': 'WA', '54': 'WV', '55': 'WI', '56': 'WY' };
+function regionArmsTargets(r) {
+  var out = [], cq = RARMS_CQ[r.country] || (typeof NZ_CQ === 'object' && NZ_CQ[r.country]); if (!cq) return out;
+  if (r.country === 'US') { var m = /^US(\d{2})$/.exec(String(r.rc || '')), st = m && US_FIPS[m[1]]; if (st) out.push({ p: 'P300', v: 'US-' + st, cq: cq, kind: 'state' }); return out; }
+  var n3 = String(r.n3 || ''); if (!/^[A-Z]{2}[A-Z0-9]{3}$/.test(n3) || n3.slice(0, 2) !== (r.country === 'EL' ? 'EL' : r.country === 'UK' ? 'UK' : r.country)) return out;
+  var lv = RARMS_LEVEL[r.country]; if (lv) out.push({ p: 'P605', v: n3.slice(0, 2 + lv), cq: cq, kind: 'state' });
+  out.push({ p: 'P605', v: n3, cq: cq, kind: 'region' });
+  return out;
+}
+var RARMS = {};
+function regionArmsFor(t) {
+  var key = 'rarms1:' + t.p + ':' + t.v; if (RARMS[key]) return RARMS[key];
+  var c = store(key); if (c && c.t && Date.now() - c.t < 2592e6) return (RARMS[key] = Promise.resolve(c.v));
+  if (!extOn()) return Promise.resolve(null);
+  var failed = false;
+  return (RARMS[key] = wdSearch('haswbstatement:' + t.p + '=' + t.v).then(function (ids) {
+    if (ids.length !== 1) return null;
+    return jget('https://www.wikidata.org/w/api.php?action=wbgetentities&ids=' + ids[0] + '&props=claims|labels&languages=en&format=json&origin=*').then(function (j) {
+      var e = j.entities && j.entities[ids[0]]; if (!e) return null;
+      if (!NZEmblemIdentity.values(e, t.p).some(function (v) { return String(v) === t.v; })) return null;
+      if (!NZEmblemIdentity.values(e, 'P17').some(function (v) { return v && v.id === t.cq; })) return null;
+      var f = NZEmblemIdentity.values(e, 'P94')[0]; if (!f) return null;
+      return rarmsCommons(f, ((e.labels || {}).en || {}).value || t.v);
+    });
+  }).catch(function () { failed = true; return null; }).then(function (v) {
+    if (!failed && extOn()) { try { store(key, { t: Date.now(), v: v }); } catch (e) {} } else delete RARMS[key];   // a failed lookup is never remembered
+    return v;
+  }));
+}
+function rarmsCommons(f, label) {
+  return jget('https://commons.wikimedia.org/w/api.php?action=query&titles=' + encodeURIComponent('File:' + f) + '&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=120&format=json&origin=*').then(function (q) {
+    var pg = q.query && q.query.pages, i = pg && Object.values(pg)[0] && Object.values(pg)[0].imageinfo && Object.values(pg)[0].imageinfo[0], m = (i && i.extmetadata) || {};
+    var lic = (m.LicenseShortName || {}).value || '', url = (m.LicenseUrl || {}).value || '', img = i && (i.thumburl || i.url);
+    if (!i || !armsLic(lic, url) || !/^https:\/\/upload\.wikimedia\.org\//.test(img || '')) return null;
+    var art = new DOMParser().parseFromString((m.Artist || {}).value || 'Wikimedia Commons', 'text/html').body.textContent.trim().slice(0, 80);
+    return { src: img, full: /^https:\/\/upload\.wikimedia\.org\//.test(i.url || '') ? i.url : '', lic: lic, by: art, of: label, page: i.descriptionurl || '' };
+  });
+}
+/* Every other country (Japan, Brazil, India, Canada, Australia, Mexico, Türkiye ...): start from the place's own Wikidata
+   entity (found by its exact official ID, or by country + position within 8 km) and follow Wikidata's own "located in the
+   administrative territorial entity" (P131) chain upwards, up to 4 steps, staying inside the same country (P17). The first
+   parent with a coat of arms is the region; the first one with an ISO 3166-2 code (P300) is the state or province. */
+var RCHAIN = {};
+function regionChainFor(r) {
+  if (RCHAIN[r.id]) return RCHAIN[r.id];
+  var key = 'rchain1:' + r.id, c = store(key); if (c && c.t && Date.now() - c.t < 2592e6) return (RCHAIN[r.id] = Promise.resolve(c.v));
+  if (!extOn()) return Promise.resolve([]);
+  var cq = RARMS_CQ[r.country] || (typeof NZ_CQ === 'object' && NZ_CQ[r.country]), failed = false;
+  var p131 = function (e) { return NZEmblemIdentity.values(e, 'P131').map(function (v) { return v && v.id; }).filter(Boolean); };
+  var walk = function (ids, hop, found, seen) {
+    ids = ids.filter(function (q) { return !seen[q]; }); if (!ids.length || hop >= 4) return Promise.resolve(found);
+    var q = ids[0]; seen[q] = 1;
+    return jget('https://www.wikidata.org/w/api.php?action=wbgetentities&ids=' + q + '&props=claims|labels&languages=en&format=json&origin=*').then(function (j) {
+      var e = j.entities && j.entities[q]; if (!e || !NZEmblemIdentity.values(e, 'P17').some(function (v) { return v && v.id === cq; })) return found;
+      var f = NZEmblemIdentity.values(e, 'P94')[0], iso = NZEmblemIdentity.values(e, 'P300')[0], label = ((e.labels || {}).en || {}).value || q;
+      if (f && (iso || !found.some(function (x) { return x.kind === 'region'; }))) found.push({ file: f, label: label, kind: iso ? 'state' : 'region' });
+      if (iso) return found;   // the first-level division is the top: stop
+      return walk(p131(e), hop + 1, found, seen);
+    });
+  };
+  return (RCHAIN[r.id] = wikidataExactFor(r).then(function (e) {
+    if (!e || !cq) return [];
+    return walk(p131(e), 0, [], {}).then(function (found) {
+      found = found.filter(function (x) { return x.kind === 'state'; }).concat(found.filter(function (x) { return x.kind === 'region'; })).slice(0, 2);
+      return Promise.all(found.map(function (x) { return rarmsCommons(x.file, x.label).then(function (v) { if (v) v.kind = x.kind; return v; }); }));
+    });
+  }).then(function (vs) { return (vs || []).filter(Boolean); }).catch(function () { failed = true; return []; }).then(function (v) {
+    if (!failed && extOn()) { try { store(key, { t: Date.now(), v: v }); } catch (e) {} } else delete RCHAIN[r.id];
+    return v;
+  }));
+}
+function rarmsImg(s, v, kind) {
+  var a = document.createElement('a'); a.href = v.page || '#'; a.target = '_blank'; a.rel = 'noopener noreferrer';
+  a.title = 'Coat of arms of ' + v.of + ' (' + (kind === 'state' ? 'state or province' : 'region') + '). ' + v.by + '; ' + v.lic + '; Wikimedia Commons. Official-symbol restrictions may apply.';
+  a.addEventListener('click', function (e) { e.stopPropagation(); });
+  var im = new Image(); im.alt = 'Coat of arms of ' + v.of; im.referrerPolicy = 'no-referrer'; im.className = 'nz-rarms-img'; im.decoding = 'async';
+  im.onload = function () { if (s.isConnected) { s.appendChild(a); s.hidden = false; } };
+  im.onerror = function () { if (v.full && im.src !== v.full) im.src = v.full; };
+  a.appendChild(im); im.src = v.src;
+}
+function regionArmsHTML(r) {
+  var ts = regionArmsTargets(r); if (!ts.length) return (RARMS_CQ[r.country] || (typeof NZ_CQ === 'object' && NZ_CQ[r.country])) ? '<span class="nz-rarms" data-rarms="' + esc(r.id) + '"><span class="nz-rarm" data-rchain="' + esc(r.id) + '" hidden></span></span>' : '';
+  return '<span class="nz-rarms" data-rarms="' + esc(r.id) + '">' + ts.map(function (t) { return '<span class="nz-rarm" data-rp="' + t.p + '" data-rv="' + esc(t.v) + '" data-rcq="' + t.cq + '" data-rkind="' + t.kind + '" hidden></span>'; }).join('') + '</span>';
+}
+function hydrateRegionArms(root) {
+  if (!extOn()) return;
+  (root || document).querySelectorAll('.nz-rarm:not([data-rstarted])').forEach(function (s) {
+    s.dataset.rstarted = '1';
+    if (s.dataset.rchain) { var rr = BYID[s.dataset.rchain]; if (rr) regionChainFor(rr).then(function (vs) { if (s.isConnected) vs.forEach(function (v) { rarmsImg(s, v, v.kind); }); }); return; }
+    regionArmsFor({ p: s.dataset.rp, v: s.dataset.rv, cq: s.dataset.rcq }).then(function (v) {
+      if (!v || !s.isConnected) return;
+      rarmsImg(s, v, s.dataset.rkind);
+    });
+  });
+}
+if (typeof MutationObserver === 'function' && typeof document !== 'undefined') {
+  var RARMS_Q = false;
+  new MutationObserver(function () { if (RARMS_Q) return; RARMS_Q = true; setTimeout(function () { RARMS_Q = false; hydrateRegionArms(document); }, 50); })
+    .observe(document.documentElement, { childList: true, subtree: true });
+}

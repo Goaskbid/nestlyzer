@@ -554,3 +554,9 @@ html.bizmode,body.bizmode{--navy:#0B4D4C;--blue:#0F7C7A;--cyan:#2AA59F;--r0:#E5E
 .catbars span:not(.b):not(.w){display:flex;align-items:flex-start;justify-content:center;min-height:2.4em}
 .src,.source,.srcline,.attr,.attrib,.credit,.credits,.small.src,[class*="-src"]{font-size:11.5px!important;color:var(--ink-3)!important;opacity:.85}
 .src a,.source a,.attr a,.attrib a,.credit a{color:inherit!important}
+
+/* 2.15.30-r7: coats of arms of the region and state, small, before the area name in the place header */
+#place .nz-rarms{display:inline-flex;gap:4px;align-items:center;vertical-align:middle;margin-right:6px}#place .nz-rarm a{display:inline-flex}#place .nz-rarms-img{height:20px;width:auto;max-width:22px;object-fit:contain;filter:drop-shadow(0 1px 1px rgba(0,0,0,.25))}
+
+/* 2.15.30-r7: quick wins in the category sheet */
+.qw{margin:12px 0 4px;padding:10px 12px;border-radius:10px;background:color-mix(in srgb,var(--sun,#f2b705) 12%,transparent);border:1px solid color-mix(in srgb,var(--sun,#f2b705) 40%,transparent)}.qw h4{margin:0 0 6px;font-size:14px}.qw table{width:100%}

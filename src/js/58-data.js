@@ -18,7 +18,7 @@ function adHydrate(r) {
   }, function () { var slot = $('#place [data-adslot="' + r.id + '"]'); if (slot) slot.innerHTML = MORE_FAIL; });
 }
 function kfHydrate(r) { moreLoad().then(function (X) { var es = $('#place [data-evslot="' + r.id + '"]'); if (es && S.selected === r.id && X.evidenceFill) X.evidenceFill(r, es); var s = $('#place [data-kfslot="' + r.id + '"]'); if (s && S.selected === r.id) s.innerHTML = X.keyFactsHTML(r); var rd = $('#place [data-radar="' + r.id + '"]'); if (rd && S.selected === r.id) rd.outerHTML = X.radarSVG(placeX(r)); }, function () {}); }
-function scHydrate(r) { moreLoad().then(function (X) { var s = $('#place [data-scslot="' + r.id + '"]'); if (s && S.selected === r.id) s.outerHTML = X.scorecardHTML(r); }, function () { var s = $('#place [data-scslot="' + r.id + '"]'); if (s) s.innerHTML = MORE_FAIL; }); }
+function scHydrate(r) { moreLoad().then(function (X) { var s = $('#place [data-scslot="' + r.id + '"]'); if (s && S.selected === r.id) s.outerHTML = X.scorecardHTML(r) + (window.NZ_QW ? '<div class="ptcard">' + window.NZ_QW(r) + '</div>' : ''); }, function () { var s = $('#place [data-scslot="' + r.id + '"]'); if (s) s.innerHTML = MORE_FAIL; }); }
 function cmpAllHTML(list) { return '<details class="cmp-all" data-cmpall="' + esc(list.map(function (r) { return r.id; }).join(',')) + '"><summary>Show all data: every figure for ' + (list.length === 2 ? 'both places' : 'all ' + list.length + ' places') + ', side by side</summary><div data-caslot><div class="skeleton"><i></i></div></div></details>'; }
 document.addEventListener('toggle', function (ev) {
   var d = ev.target; if (!d || !d.matches || !d.matches('details.cmp-all') || !d.open || d.dataset.done) return; d.dataset.done = '1';

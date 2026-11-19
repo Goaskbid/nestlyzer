@@ -40,7 +40,7 @@ function nearbyFor(r) {
     ((j.results || {}).bindings || []).forEach(function (b) {
       var id = b.item.value; if (seen[id]) { if (b.typeLabel && !seen[id].types.includes(b.typeLabel.value)) seen[id].types.push(b.typeLabel.value); return; }
       var name = b.itemLabel && b.itemLabel.value; if (!name || /^Q\d+$/.test(name)) return;
-      var o = { id: id.split('/').pop(), name: name, img: b.img.value.replace('http://', 'https://') + '?width=480', d: +b.dist.value, sl: +b.sl.value, types: b.typeLabel ? [b.typeLabel.value] : [], whs: !!b.whs };
+      var o = { id: id.split('/').pop(), name: name, img: b.img.value.replace('http://', 'https://') + '?width=500', d: +b.dist.value, sl: +b.sl.value, types: b.typeLabel ? [b.typeLabel.value] : [], whs: !!b.whs };
       seen[id] = o; out.push(o);
     });
     return out.filter(function (o) { return !/municipality|commune|human settlement|village|town|city|district|canton|region|county|parish/i.test(o.types.join(' ')); }).slice(0, 12);

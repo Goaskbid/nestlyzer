@@ -200,7 +200,7 @@ function politicsFill(r, el) {
     var P = D.countries[r.country]; if (!P) { el.innerHTML = '<p class="muted">No political data for this country yet.</p>'; return; }
     var cn = countryName(r.country), L = D.structure_levels;
     var html = '<div class="pol"><h4>Who governs</h4><div data-polgov><p class="muted">Looking up the current governments on Wikidata…</p></div>' +
-      '<h4>How power is shared</h4><p class="sub small muted">' + esc(cn) + ' is ' + esc(L[P.structure].toLowerCase()) + ': ' + esc(['', 'most decisions are taken nationally', 'national law with strong local government', 'regions with their own parliaments and powers', 'states or cantons with their own constitutions and taxes'][P.structure]) + '.</p>' + polGauge(P.structure, L) + (P.note ? '<p class="small">' + esc(P.note) + '</p>' : '') + '<h4>Who decides what</h4>' + polLayers(P, D) +
+      (typeof crossQuickWinsHTML === 'function' ? crossQuickWinsHTML(r, 'politics') : '') + '<h4>How power is shared</h4><p class="sub small muted">' + esc(cn) + ' is ' + esc(L[P.structure].toLowerCase()) + ': ' + esc(['', 'most decisions are taken nationally', 'national law with strong local government', 'regions with their own parliaments and powers', 'states or cantons with their own constitutions and taxes'][P.structure]) + '.</p>' + polGauge(P.structure, L) + (P.note ? '<p class="small">' + esc(P.note) + '</p>' : '') + '<h4>Who decides what</h4>' + polLayers(P, D) +
       '<h4>Money and the cost of capital</h4><div data-polmoney></div>' +
       '<h4>Memberships</h4>' + polOrgs(P, D) +
       (P.fta && P.fta.length ? '<h4>Trade agreements in force</h4><div class="pol-fta">' + P.fta.map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + '</div>' : '') +

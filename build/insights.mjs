@@ -4,6 +4,7 @@
    computed from the data it shows. Called from build_site.mjs with its page() and helpers. */
 import fs from 'node:fs';
 import path from 'node:path';
+import zlib from 'node:zlib';
 import { charts } from './insights_charts.mjs';
 
 export function buildInsights(H) {
@@ -150,6 +151,101 @@ ${C.arrows(le.map((r) => ({ label: cl(r.cc), a: r.a, b: r.b })), { title: 'Life 
 ${C.bars(im.map((r) => ({ label: cl(r.cc), v: r.v, note: NY(r.cc, 'infant_mortality') })), { title: 'Infant mortality per 1,000 live births (lowest first)' + ytag('infant_mortality'), fmt: (v) => fmt(v, 1), tone: (v) => v < 3 ? 'g' : v > 10 ? 'b' : '', caption: 'The most sensitive single measure of a health system: deaths before the first birthday per 1,000 live births.' })}
 ${FOOT('Sources: World Bank WDI (CC BY 4.0): SP.DYN.LE00.IN, NY.GNP.PCAP.PP.CD, SP.DYN.IMRT.IN.')}`;
     pageIns('/insights/health-and-longevity/', 'Health and longevity: who lives longest', 'Life expectancy against income for __NCN__ countries: who lives longer than their wealth predicts, ten-year gains and infant mortality, from official data.', body, 'living');
+  }
+
+  /* Flagship (2.15.30-r7): the Nestlyzer Location Index. The world top 100 of every published profile (already computed
+     for the rankings) summarised: which countries hold the most top places, for households and for companies, and the
+     leaders of each profile. A free CSV of all world top-100 lists, Dataset markup, a citation line. */
+  {
+    const GF = path.join(ROOT, 'data/rank/global.json');
+    if (fs.existsSync(GF)) {
+      const G = JSON.parse(fs.readFileSync(GF, 'utf8')), W = ((G.scopes || {}).world || {}).profiles || {};
+      const HH = Object.keys(W).filter((p) => PROF[p] && !p.startsWith('biz_') && (W[p].top || []).length), BB = Object.keys(W).filter((p) => PROF[p] && p.startsWith('biz_') && (W[p].top || []).length);
+      const cnt = (ps) => { const c = {}; for (const p of ps) for (const t of W[p].top) { const cc = String(t[0]).split(':')[0]; c[cc] = (c[cc] || 0) + 1; } return Object.entries(c).sort((a, b) => b[1] - a[1]); };
+      const ch = cnt(HH), cb = cnt(BB);
+      if (HH.length >= 10 && ch.length >= 5) {
+        const PI = '/insights/nestlyzer-location-index/', yr = String(META.v || '').slice(0, 4) || '2026';
+        const csvRows = [], q = (v) => { v = String(v == null ? '' : v); return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; };
+        for (const p of [...HH, ...BB]) W[p].top.forEach((t, i) => csvRows.push([PROF[p].name, p.startsWith('biz_') ? 'business' : 'household', i + 1, t[1], String(t[0]).split(':')[0], nm(String(t[0]).split(':')[0]), t[2]]));
+        const d = path.join(ROOT, PI.replace(/^\//, '')); fs.mkdirSync(d, { recursive: true });
+        const csvName = 'nestlyzer-location-index-world-top100.csv';
+        fs.writeFileSync(path.join(d, csvName), ['profile,audience,rank,place,country_code,country,score', ...csvRows.map((r) => r.map(q).join(','))].join('\n') + '\n');
+        const lead = (ps) => ps.map((p) => { const t = W[p].top[0]; const cc = String(t[0]).split(':')[0]; return { label: esc(PROF[p].name), v: t[2], note: `${esc(t[1])}, ${esc(nm(cc))}` }; });
+        const body = `${kick('living')}${printBtn}<h1>The Nestlyzer Location Index</h1>
+<p class="lede">Where in the world is the best place to live, retire, raise a family or build a company? For each of ${HH.length} household and ${BB.length} business profiles, Nestlyzer ranks ${fmtInt(W[HH[0]].ranked || 0)}+ places in ${countries.length} countries on official open data and keeps the world top 100. ${esc(nm(ch[0][0]))} holds the most top places for households (${ch[0][1]} of ${HH.length * 100}), ${esc(nm(cb[0][0]))} for companies (${cb[0][1]} of ${BB.length * 100}).</p>
+<p class="actions"><a href="${PI}${csvName}" download>Download every world top 100 (CSV, ${fmtInt(csvRows.length)} rows)</a> <small>Cite as: Nestlyzer Location Index ${yr}, nestlyzer.com${PI}. <a href="/press/">How to cite</a>, <a href="/legal/">terms</a>.</small></p>
+${C.bars(ch.slice(0, 20).map(([cc, n]) => ({ label: cl(cc), v: n, note: 'of ' + HH.length * 100 })), { title: 'Countries with the most places in the world top 100, all household profiles', fmt: (v) => fmtInt(v), caption: 'Count of places in the world top 100 summed over every household profile (families, retirees, professionals, students, remote workers and more).' })}
+${BB.length ? C.bars(cb.slice(0, 20).map(([cc, n]) => ({ label: cl(cc), v: n, note: 'of ' + BB.length * 100 })), { title: 'Countries with the most places in the world top 100, all business profiles', fmt: (v) => fmtInt(v), caption: 'Same count for company locations: manufacturing, logistics, tech, services, labs, headquarters, energy-intensive industry and more.' }) : ''}
+${C.bars(lead(HH), { title: 'World leaders: the number 1 place for each household profile', fmt: (v) => fmt(v, 1), caption: 'Score 0 to 100 within the world ranking of that profile.' })}
+${BB.length ? C.bars(lead(BB), { title: 'World leaders: the number 1 place for each business profile', fmt: (v) => fmt(v, 1), caption: 'Score 0 to 100 within the world ranking of that profile.' }) : ''}
+<p>Every profile has its own world, continental and country rankings: <a href="/rankings/">all rankings</a>. Regions are ranked too, on each country's ranking page.</p>
+${FOOT('Built from official open data (Eurostat, World Bank, OECD, national statistics offices, Copernicus and others, each named on the place pages).')}`;
+        pageIns(PI, 'The Nestlyzer Location Index: the world top places', `The world top 100 places for ${HH.length} household and ${BB.length} business profiles, and which countries hold the most, with a free CSV.`, body, 'living',
+          [{ '@context': 'https://schema.org', '@type': 'Dataset', name: 'Nestlyzer Location Index ' + yr, description: 'World top 100 places for every Nestlyzer household and business profile, with scores and countries, built from official open data.', url: 'https://nestlyzer.com' + PI, creator: { '@type': 'Organization', name: 'Nestlyzer', url: 'https://nestlyzer.com/' }, isAccessibleForFree: true, license: 'https://nestlyzer.com/legal/', spatialCoverage: { '@type': 'Place', name: 'World' }, version: String(META.v || ''), distribution: [{ '@type': 'DataDownload', encodingFormat: 'text/csv', contentUrl: 'https://nestlyzer.com' + PI + csvName }], isPartOf: { '@type': 'Dataset', name: 'Nestlyzer place rankings', url: 'https://nestlyzer.com/method/' } }]);
+      }
+    }
+  }
+
+  /* H-new (2.15.30-r7): the official figures of 18 November 2026 (Insee, Destatis, INE Portugal), shown as citable rankings
+     with a CSV each. Context only: these figures do not enter any Nestlyzer score. */
+  {
+    const XR = (cc) => { const f = path.join(ROOT, 'data/x', cc + '.json'); return fs.existsSync(f) ? ((JSON.parse(fs.readFileSync(f, 'utf8')).ctx || {}).records || []) : []; };
+    const GN = {}; try { for (const l of zlib.gunzipSync(fs.readFileSync(path.join(ROOT, 'build/source/context/master_records.jsonl.gz'))).toString('utf8').split('\n')) { if (!l) continue; const o = JSON.parse(l); if (o.source_geo_name && (o.origin_packs || '').includes('data_2026_11_18')) GN[o.source_geo_id] = o.source_geo_name; } } catch (e) {}
+    // names: from the stored record, else from the region it is bound to (reviewed mapping: department or state = NUTS code)
+    try { const NU = {}; const nutsOf = (cc) => NU[cc] || (NU[cc] = (JSON.parse(fs.readFileSync(path.join(ROOT, 'data/c', cc + '.json'), 'utf8')).nuts || {}));
+      for (const l of fs.readFileSync(path.join(ROOT, 'build/source/context/master_geo_mapping.csv'), 'utf8').split('\n').slice(1)) { const [g, kind, code] = l.split(','); if (kind !== 'nuts3' || !code || GN[g]) continue; const cc = g.slice(0, 2), nm = nutsOf(cc)[code.replace(/\*$/, '')]; if (nm) GN[g] = nm; } } catch (e) {}
+    const get = (cc, id, lvl) => XR(cc).filter((o) => o.indicator_id === id && o.source_geo_level === lvl && fin(o.value)).map((o) => ({ g: o.source_geo_id, name: GN[o.source_geo_id] || o.source_geo_id.split(':').pop(), v: o.value, per: o.reference_period, url: o.source_url }));
+    const csvOut = (p, file, head, rows) => { const d = path.join(ROOT, p.replace(/^\//, '')); fs.mkdirSync(d, { recursive: true }); const q = (v) => { v = String(v == null ? '' : v); return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }; fs.writeFileSync(path.join(d, file), [head, ...rows].map((r) => r.map(q).join(',')).join('\n') + '\n'); return p + file; };
+    const dl = (href, n) => `<p class="actions"><a href="${href}" download>Download the data (CSV, ${n} rows)</a> <small>Free to cite with a link to this page: <a href="/press/">how to cite</a>, <a href="/legal/">terms</a>.</small></p>`;
+    const dsLd = (p, name, desc, csv, cover, period) => [{ '@context': 'https://schema.org', '@type': 'Dataset', name, description: desc, url: 'https://nestlyzer.com' + p, creator: { '@type': 'Organization', name: 'Nestlyzer', url: 'https://nestlyzer.com/' }, isAccessibleForFree: true, license: 'https://nestlyzer.com/legal/', spatialCoverage: { '@type': 'Place', name: cover }, temporalCoverage: period, distribution: [{ '@type': 'DataDownload', encodingFormat: 'text/csv', contentUrl: 'https://nestlyzer.com' + csv }], isPartOf: { '@type': 'Dataset', name: 'Nestlyzer place rankings', url: 'https://nestlyzer.com/method/' } }];
+    // 1. France: where retirees move
+    const ret = get('FR', 'retiree_migration_balance_interregional', 'department'), act = get('FR', 'active_migration_balance_interregional', 'department'), old = get('FR', 'population_age_65plus_share', 'department');
+    if (ret.length >= 90) {
+      const P1 = '/insights/where-retirees-move-in-france/', A = Object.fromEntries(act.map((r) => [r.g, r.v])), O = Object.fromEntries(old.map((r) => [r.g, r.v]));
+      const top = ret.slice().sort((a, b) => b.v - a.v), gain = top.filter((r) => r.v > 0), lose = top.filter((r) => r.v < 0);
+      const both = top.filter((r) => fin(A[r.g])), pts = both.map((r) => ({ key: r.g, name: r.name, x: A[r.g], y: r.v }));
+      const oppo = both.filter((r) => r.v > 0 && A[r.g] < 0).map((r) => r.name);
+      const csv = csvOut(P1, 'nestlyzer-france-retiree-migration-2021.csv', ['rank', 'department_code', 'department', 'retirees_net_per_1000', 'active_net_per_1000', 'share_65plus_pct', 'period_migration', 'period_age'],
+        top.map((r, i) => [i + 1, r.g.split(':').pop(), r.name, r.v, fin(A[r.g]) ? A[r.g] : '', fin(O[r.g]) ? O[r.g] : '', '2021 census', (old.find((o) => o.g === r.g) || {}).per || '']));
+      const body = `${kick('living')}${printBtn}<h1>Where retirees move in France: all ${ret.length} departments</h1>
+<p class="lede">Which French departments gain retirees from the rest of the country, and which lose them? Insee measured it in the 2021 census for every department: retirees moving in from other regions minus those leaving for other regions, per 1,000 retirees. ${gain.length} departments gain retirees, ${lose.length} lose them. ${esc(top[0].name)} gains most (${fmt(top[0].v, 1)} per 1,000), ${esc(top[top.length - 1].name)} loses most (${fmt(top[top.length - 1].v, 1)}).</p>
+${dl(csv, top.length)}
+${C.bars(top.slice(0, 20).map((r) => ({ label: esc(r.name), v: r.v, note: '2021' })), { title: 'Departments gaining the most retirees, net per 1,000 retirees', fmt: (v) => fmt(v, 1), tone: (v) => v > 0 ? 'g' : 'b', caption: 'Moves to and from other French regions only; moves within the region and to or from abroad are not counted. Source: Insee, census 2021.' })}
+${C.bars(top.slice(-15).reverse().map((r) => ({ label: esc(r.name), v: r.v, note: '2021' })), { title: 'Departments losing the most retirees, net per 1,000 retirees', fmt: (v) => fmt(v, 1), tone: (v) => v > 0 ? 'g' : 'b', caption: 'Mostly the Paris region and large cities: many people leave when they retire.' })}
+${pts.length >= 50 ? C.scatter(pts, { title: 'Retirees against people in work: who moves where', xl: 'People in work or seeking work, net per 1,000', xlS: 'Working age, net per 1,000', yl: 'Retirees, net per 1,000', ylS: 'Retirees, net per 1,000', xfmt: (v) => fmt(v, 1), yfmt: (v) => fmt(v, 1), good: 'top-right', labels: [...pts.slice().sort((a, b) => b.y - a.y).slice(0, 4), ...pts.slice().sort((a, b) => a.y - b.y).slice(0, 2)], caption: `${oppo.length} departments attract retirees while losing people of working age${oppo.length ? ` (for example ${esc(list(oppo.slice(0, 4)))})` : ''}: typical of the coast and the countryside of the west and south.` }) : ''}
+${old.length >= 90 ? C.bars(old.slice().sort((a, b) => b.v - a.v).slice(0, 15).map((r) => ({ label: esc(r.name), v: r.v, note: r.per })), { title: 'Highest share of residents aged 65 and over, %', fmt: (v) => fmt(v, 1) + '%', caption: 'Insee population estimates, 2022 (Mayotte 2017).' }) : ''}
+<p class="small muted">Shown on every French place in Nestlyzer as department context; not part of any score. The figures were transcribed from Insee's published tables; Nestlyzer will replace them with the original file when it arrives.</p>
+${FOOT('Source: Insee, "Impact des migrations résidentielles" by department, census 2021, and population by age 2022 (Licence Ouverte / Etalab 2.0).')}`;
+      pageIns(P1, 'Where retirees move in France: every department', `Which French departments gain or lose retirees? Insee census 2021 for all ${ret.length} departments, against people in work, with a free CSV.`, body, 'living', dsLd(P1, 'Retiree migration by French department (2021)', 'Net interregional migration of retirees and of economically active people per 1,000, and the share aged 65+, for every French department, from Insee.', csv, 'France', '2021/2022'));
+    }
+    // 2. Germany: childcare by state
+    const u3 = get('DE', 'childcare_participation_under3', 'state'), k35 = get('DE', 'childcare_participation_3_to_5', 'state');
+    if (u3.length >= 16) {
+      const P2 = '/insights/childcare-in-germany-by-state/', K = Object.fromEntries(k35.map((r) => [r.g, r.v])), su = u3.slice().sort((a, b) => b.v - a.v);
+      const nat = XR('DE').find((o) => o.indicator_id === 'childcare_participation_under3' && o.source_geo_level === 'country');
+      const csv = csvOut(P2, 'nestlyzer-germany-childcare-2025.csv', ['rank', 'state_code', 'state', 'under_3_in_day_care_pct', 'age_3_to_5_in_day_care_pct', 'date'], su.map((r, i) => [i + 1, r.g.split(':').pop(), r.name, r.v, fin(K[r.g]) ? K[r.g] : '', '2025-03-01']));
+      const body = `${kick('living')}${printBtn}<h1>Childcare in Germany: all 16 states</h1>
+<p class="lede">How many young children are in day care (Kita or childminder)? On 1 March 2025, ${nat ? fmt(nat.value, 1) + '% of children under 3' : 'about a third of children under 3'} were in day care in Germany, but the states differ by more than ${fmt(su[0].v - su[su.length - 1].v, 0)} percentage points: from ${esc(su[0].name)} (${fmt(su[0].v, 1)}%) to ${esc(su[su.length - 1].name)} (${fmt(su[su.length - 1].v, 1)}%).</p>
+${dl(csv, su.length)}
+${C.bars(su.map((r) => ({ label: esc(r.name), v: r.v, note: '2025' })), { title: 'Children under 3 in day care, %', fmt: (v) => fmt(v, 1) + '%', caption: 'Share of all children under 3 in day-care centres or with a publicly funded childminder, 1 March 2025. The eastern states lead by a wide margin, a legacy of the GDR.' })}
+${k35.length >= 16 ? C.bars(k35.slice().sort((a, b) => b.v - a.v).map((r) => ({ label: esc(r.name), v: r.v, note: '2025' })), { title: 'Children aged 3 to 5 in day care, %', fmt: (v) => fmt(v, 1) + '%', caption: 'Above 100% can occur where children from other states attend or population figures lag; the published figure is kept.' }) : ''}
+<p class="small muted">Shown on every German place in Nestlyzer as state context; not part of any score.</p>
+${FOOT('Source: Statistisches Bundesamt (Destatis), Kindertagesbetreuung, Betreuungsquoten 1 March 2025 (Datenlizenz Deutschland, Namensnennung 2.0).')}`;
+      pageIns(P2, 'Childcare in Germany: day-care rates in all 16 states', 'Share of children under 3 and aged 3 to 5 in day care in every German state, 1 March 2025, from Destatis, with a free CSV.', body, 'living', dsLd(P2, 'Childcare participation by German state (2025)', 'Share of children under 3 and aged 3 to 5 in day care by German state on 1 March 2025, from Destatis.', csv, 'Germany', '2025'));
+    }
+    // 3. Portugal: rents of new leases
+    const pr = get('PT', 'rent_new_lease_median_m2', 'municipality_context'), pn = XR('PT').find((o) => o.indicator_id === 'rent_new_lease_median_m2' && o.source_geo_level === 'country');
+    if (pr.length >= 5) {
+      const P3 = '/insights/new-lease-rents-portugal/', s3 = pr.slice().sort((a, b) => b.v - a.v);
+      const csv = csvOut(P3, 'nestlyzer-portugal-new-lease-rents-2026.csv', ['rank', 'municipality_code', 'municipality', 'median_rent_eur_m2_month', 'period'], s3.map((r, i) => [i + 1, r.g.split(':').pop(), r.name, r.v, 'July 2025 to June 2026']).concat(pn ? [['', 'PT', 'Portugal', pn.value, 'July 2025 to June 2026']] : []));
+      const body = `${kick('living')}${printBtn}<h1>Rents of new leases in Portugal</h1>
+<p class="lede">What does a new rental contract cost per square metre? INE's latest local figures (July 2025 to June 2026) for ${s3.length} municipalities${pn ? `, against the national median of €${fmt(pn.value, 2)} per m² a month` : ''}.</p>
+${dl(csv, s3.length + (pn ? 1 : 0))}
+${C.bars(s3.map((r) => ({ label: esc(r.name), v: r.v, note: '2025-26' })), { title: 'Median rent of new leases, € per m² a month', fmt: (v) => '€' + fmt(v, 2), tone: (v) => pn && v > pn.value ? 'b' : 'g', caption: 'Median of new contracts signed in the 12 months to June 2026, not the average rent of existing tenancies. Red: above the national median.' })}
+<p class="small muted">More municipalities follow as soon as the complete INE file is in. Shown on the parishes of these municipalities as municipal context; not part of any score.</p>
+${FOOT('Source: Statistics Portugal (INE), "Rendas da habitação ao nível local", via DREM; reuse with attribution under the INE dissemination policy.')}`;
+      pageIns(P3, 'Rents of new leases in Portugal by municipality', `Median rent of new leases per square metre in ${s3.length} Portuguese municipalities, July 2025 to June 2026, from INE, with a free CSV.`, body, 'living', dsLd(P3, 'Median new-lease rents, Portugal (2025-2026)', 'Median monthly rent per square metre of new residential leases by municipality, July 2025 to June 2026, from Statistics Portugal (INE).', csv, 'Portugal', '2025-07/2026-06'));
+    }
   }
 
   /* H5. clean air */

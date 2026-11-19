@@ -20,6 +20,8 @@
 __TRACKING__
 <style>__CSS__ .pre-explore .landing,.pre-explore .site-footer{display:none}</style>
 <script type="application/ld+json">__JSONLD__</script>
+<!-- 2.15.30-r6: this page is always fetched fresh, so this line moves visitors on an older cached app to the newest release; if the new release waits behind downloads still running in an old copy, the page reloads once to let it in -->
+<script>if('serviceWorker' in navigator)navigator.serviceWorker.getRegistration().then(function(g){if(g)g.update().then(function(){setTimeout(function(){if(!g.waiting)return;try{var t=+sessionStorage.getItem('nz-upd')||0;if(Date.now()-t<6e4)return;sessionStorage.setItem('nz-upd',Date.now())}catch(e){return}location.reload()},5000)}).catch(function(){})}).catch(function(){})</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

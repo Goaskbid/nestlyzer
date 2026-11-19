@@ -1,0 +1,104 @@
+{
+  "format": "nestlyzer-rent-staging-v1",
+  "as_of": "2026-11-18",
+  "files": [
+    {
+      "path": "00_START_HERE.md",
+      "bytes": 2914,
+      "sha256": "95bd0b854f2e26f3044216eb66109b4db73aa8dfffd0c40e84ebf8fa7bae7eba"
+    },
+    {
+      "path": "CLAUDE.md",
+      "bytes": 3785,
+      "sha256": "5aa9a00520876a81af9df0bb1cb09e97973aa54c3f05476e4aa87038122bec5f"
+    },
+    {
+      "path": "DOWNLOAD_RECEIPTS.json",
+      "bytes": 4368,
+      "sha256": "30abd5322322636b445b8afa0fa349ec925334ed5c1bdd602466624723802538"
+    },
+    {
+      "path": "EVIDENCE.json",
+      "bytes": 2322,
+      "sha256": "6f2c2f212c8279a008cf168eccdc3897d27f62b8a681f5a29d8657d5d921a01d"
+    },
+    {
+      "path": "FINDINGS.csv",
+      "bytes": 1636,
+      "sha256": "a53e826f7874ea681b1a1fa6b11bf5a1938c90cd30d9e5d9ded221d8eecde119"
+    },
+    {
+      "path": "GAPS.csv",
+      "bytes": 1331,
+      "sha256": "c77276597a46d56f1dc7ae222809466c14120c1aff7b070d3d03befda1effb0d"
+    },
+    {
+      "path": "METADATA_PT.json",
+      "bytes": 1430,
+      "sha256": "2b81ecc5408918d2aa91a5b572e070d68d4936eb0746e0ac39180afcc3db59e1"
+    },
+    {
+      "path": "PACK_INVENTORY.json",
+      "bytes": 1405,
+      "sha256": "ca029bae5a84c8d8d733fe95b71e86555fe592e77219fd48dff9bd5ce01617ff"
+    },
+    {
+      "path": "PT_keys.csv",
+      "bytes": 197945,
+      "sha256": "b35fba793f42b16a4d020e6befa7d81946c7c5f029e7c51e0df0ffb84420dd3b"
+    },
+    {
+      "path": "SOURCES.csv",
+      "bytes": 3031,
+      "sha256": "925644cb822f6538f31b6b827f7cc719e152526e5fd9a3b9a184d086bfbbe4ab"
+    },
+    {
+      "path": "TRANSCRIPT_PT.txt",
+      "bytes": 5706,
+      "sha256": "c12502c7460e192c1bb4a0a21db6465e248782bfc5d20efa93704bfde5808e15"
+    },
+    {
+      "path": "VERIFICATION.json",
+      "bytes": 4109,
+      "sha256": "bf173c7d17c66790311c85dfa974931ac3b8d18d52dd5967d8b0ed0c1c27443c"
+    },
+    {
+      "path": "held_CH_rent.csv",
+      "bytes": 3205,
+      "sha256": "2a8fa118e1419f65bd959bac0745a102c981a65c7f6765ce2393bc3f294e62f1"
+    },
+    {
+      "path": "join_ledger_PT.csv",
+      "bytes": 921740,
+      "sha256": "416805e9098864cae32c01845632e5d46df3772d455f49bfaf7f171708c507fd"
+    },
+    {
+      "path": "record_provenance.jsonl",
+      "bytes": 225101,
+      "sha256": "475eb276edb242cf57d28dd68584d67827d93e201cf07b36732e6a51feb09031"
+    },
+    {
+      "path": "rent_tools.py",
+      "bytes": 10072,
+      "sha256": "5c756eeb21b5a2aee06e3b505f8782b81d551b59267d95dc522fa7fc32be7449"
+    },
+    {
+      "path": "source_areas_PT.csv",
+      "bytes": 228888,
+      "sha256": "cb702bbfba44ff104e4dc9835d64e369c42b570e1102fe59b7a444b91ebf5fd6"
+    },
+    {
+      "path": "template_rent.csv",
+      "bytes": 114018,
+      "sha256": "a1720957c049bf4167115f301bf803fca564da6820d741a571f2e08906d9e1a7"
+    },
+    {
+      "path": "test_rent_tools.py",
+      "bytes": 4632,
+      "sha256": "83b701f50715e582d8dc61d6d451ed64171e10b5a3fcc174ff8337d75c7fdb36"
+    }
+  ],
+  "file_count_including_manifest": 20,
+  "original_publisher_files": 0,
+  "note": "SHA-256 identifies delivered materials. No hash is claimed for an unacquired original publisher file."
+}

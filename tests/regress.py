@@ -717,6 +717,8 @@ async def main():
             ctx, q = await new_page(b)
             await mock_media(ctx)
             await explore(q, '#/explore?cc=CH&p=young_family&sel=CH:156'); await q.wait_for_selector('#place.open'); await q.wait_for_timeout(2500)
+            try: await q.wait_for_selector('#place .pstrip img', timeout=12000)   # 2.15.30-r6: photos may arrive later on a busy machine
+            except Exception: pass
             strip = await q.locator('#place .pstrip img').count()
             await q.click('#place [data-ptab="photos"][role="tab"]'); await q.wait_for_timeout(300)
             grid = await q.locator('#place [data-pgrid] figure').count(); cap = await q.inner_text('#place [data-pgrid] figcaption >> nth=0')

@@ -230,6 +230,9 @@ function paintMap() {
 }
 function paintSelection() {
   if (!MAP) return;
+  // 2.15.30-r6: under load the selection could be painted while the map style was still updating, which threw
+  // "Style is not done loading" (seen once in six test runs). Wait for the map to settle, then paint once.
+  if (!MAP.isStyleLoaded() || !MAP.getLayer('sel-line')) { if (!MAPSTATE.selWait) { MAPSTATE.selWait = 1; MAP.once('idle', function () { MAPSTATE.selWait = 0; paintSelection(); }); } return; }
   var sel = S.selected ? BYID[S.selected] : null;
   if (MAPSTATE.sel != null && MAPSTATE.selSrc) { try { MAP.setFeatureState({ source: MAPSTATE.selSrc, id: MAPSTATE.sel }, { sel: false }); } catch (e) {} }
   MAPSTATE.sel = null;

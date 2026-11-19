@@ -313,14 +313,18 @@ const CONSENT_JS = `<script src="/assets/consent.js?v=${VERSION}" defer></script
 // 'Jane Doe, Musterstrasse 1, 10115 Berlin, Germany, jane@example.com'. Empty means the policy says requests go to the controller.
 const EU_REP = process.env.NZ_EU_REP || '';
 const UK_REP = process.env.NZ_UK_REP || '';
-// service worker: versioned cache; pages network-first (so a new release shows at once), data and assets cache-first
-// (their URLs carry ?v=VERSION); nothing from other hosts is touched (ads, analytics, maps, Wikimedia pass straight through)
-const SW_SRC = `const V='nz-__VERSION__';
-self.addEventListener('install',e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(['/offline.html','/assets/site.css?v=__VERSION__','/data/meta.json?v=__VERSION__'])).then(()=>self.skipWaiting()))});
-self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==V).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
+// service worker (2.15.30-r6): the cache name carries a build stamp (public.mjs writes a hash of every published asset and
+// data file into __BUILD__), so each release gets a fresh cache even when the version number stays the same. On update it
+// deletes the old cache and reloads open tabs once, so nobody keeps an old app. Assets are revalidated with the server
+// (ETag) when first fetched for a build; pages stay network-first. Nothing from other hosts is touched.
+const SW_SRC = `const V='nz-__VERSION__-__BUILD__';
+self.addEventListener('install',e=>{e.waitUntil(caches.open(V).then(c=>c.addAll([new Request('/offline.html',{cache:'no-cache'}),new Request('/assets/site.css?v=__VERSION__',{cache:'no-cache'}),new Request('/data/meta.json?v=__VERSION__',{cache:'no-cache'})])).then(()=>self.skipWaiting()))});
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>{const old=ks.filter(k=>k!==V);self.nzUpdated=old.length>0;return Promise.all(old.map(k=>caches.delete(k)))}).then(()=>self.clients.claim()))});
+self.addEventListener('activate',()=>{setTimeout(()=>{if(self.nzUpdated)self.clients.matchAll({type:'window'}).then(cs=>cs.forEach(c=>c.navigate(c.url).catch(()=>{})))},300)});
+self.addEventListener('message',e=>{if(e.data==='nz-version'&&e.source)e.source.postMessage({nzv:V})});
 self.addEventListener('fetch',e=>{const r=e.request,u=new URL(r.url);if(r.method!=='GET'||u.origin!==location.origin)return;
 if(r.mode==='navigate'){e.respondWith(fetch(r).then(res=>{if(res.ok){const c=res.clone();caches.open(V).then(x=>x.put(r,c).then(()=>x.keys()).then(ks=>{const pages=ks.filter(k=>!/[?]v=|offline/.test(k.url));if(pages.length>40)pages.slice(0,pages.length-40).forEach(k=>x.delete(k))}))}return res}).catch(()=>caches.match(r).then(m=>m||caches.match('/offline.html'))));return}
-if(/^\\/(data|assets|vendor)\\//.test(u.pathname)&&u.search.indexOf('v=')>=0){e.respondWith(caches.match(r).then(m=>m||fetch(r).then(res=>{if(res.ok){const c=res.clone();caches.open(V).then(x=>x.put(r,c))}return res})))}});
+if(/^\\/(data|assets|vendor)\\//.test(u.pathname)&&u.search.indexOf('v=')>=0){e.respondWith(caches.open(V).then(x=>x.match(r).then(m=>m||fetch(r,{cache:'no-cache'}).then(res=>{if(res.ok)x.put(r,res.clone());return res}))))}});
 `;
 const ADS_TXT = `google.com, ${ADS_CLIENT.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n`;
 // SEO brief R1: 70 to 155 characters, complete sentences only: keep whole sentences that fit; if even the first is too long,
@@ -362,7 +366,7 @@ function page({ p, title, desc, body, jsonld = [], crumbs = [], cc = null, appHr
 <meta property="og:type" content="website"><meta property="og:site_name" content="Nestlyzer"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${SITE}${p}"><meta property="og:image" content="${SITE}/assets/og.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#F2F4F0">
 <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/site.css?v=${VERSION}"><script>${STATIC_JS}</script>${tracking({ ads: p !== '/legal/' })}
-${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld.length === 1 ? ld[0] : ld).replace(/</g, '\\u003c')}</script>` : ''}</head><body${/^\/(business|rankings\/business|best\/business)\//.test(p) ? ' class="biz"' : ''}><a class="skip" href="#main">Skip to content</a>${CONSENT_HTML}${header(false, cc, appHref)}
+${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld.length === 1 ? ld[0] : ld).replace(/</g, '\\u003c')}</script>` : ''}<script>if('serviceWorker' in navigator)navigator.serviceWorker.getRegistration().then(function(g){if(g)g.update().then(function(){setTimeout(function(){if(!g.waiting)return;try{var t=+sessionStorage.getItem('nz-upd')||0;if(Date.now()-t<6e4)return;sessionStorage.setItem('nz-upd',Date.now())}catch(e){return}location.reload()},5000)}).catch(function(){})}).catch(function(){})</script></head><body${/^\/(business|rankings\/business|best\/business)\//.test(p) ? ' class="biz"' : ''}><a class="skip" href="#main">Skip to content</a>${CONSENT_HTML}${header(false, cc, appHref)}
 <main id="main" class="page">${crumbs.length > 1 ? `<nav class="crumbs" aria-label="Breadcrumb">${crumbs.map((c, i) => i < crumbs.length - 1 ? `<a href="${c[1]}">${esc(c[0])}</a><span aria-hidden="true">›</span>` : `<span aria-current="page">${esc(c[0])}</span>`).join('')}</nav>` : ''}${p === '/legal/' ? '' : SITE_NOTE}${cc && SANCTIONS_NOTE[cc] ? SANCTIONS_NOTE[cc] : ''}${body}</main>${footer()}${STATIC_TAIL.replace('__CONSENT_HTML__', '').replace('__CONSENT_JS__', CONSENT_JS)}</body></html>`;
   write(p.replace(/^\//, '') + 'index.html', emojiSvg(html));
   if (!canonical) SITEMAP.push(p);

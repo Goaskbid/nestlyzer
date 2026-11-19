@@ -1,0 +1,9 @@
+id,location,old_or_risk,new_or_required,status
+D01,PT roster geography,"3092 supplied PT records have 6-digit parish codes, not municipal identifiers.",174 direct source parish matches; municipal values remain source-area context.,data_binding
+D02,Example row contamination,Rent template includes illustrative CH:261 22.1 with placeholder source URL.,Exclude it completely from acquired facts and output template.,repaired_in_delivery
+D03,Superseded PT series,Official metadata names successor 0014698; accessible series ends in2024.,"Label historical/superseded, never overwrite a newer or differently defined series.",release_condition
+D04,Swiss rights,Exact BFS XLS metadata declares terms_by_ask on all inspected resources.,Hold commercial publication until permission or unambiguous eligible alternative exists.,blocking_for_these_records
+D05,Original-file requirement,No unchanged official JSON/XLSX/XLS bytes obtained.,Do not claim strict brief completion; retain labelled transcriptions as private staging.,blocking_for_strict_ingestion
+D06,Roster vs active universe,Pack has147063 rows including2172 CH and8132 ES; brief uses smaller active counts.,"Use current app active/superseded registry at integration, not guessed exclusions.",integration_check
+D07,Parent replication,212 municipal values have2391 possible parish-prefix relationships.,Do not duplicate them into parish measurement fields or count them as2391 observations.,prevented_in_delivery
+D08,No time trend,Only one Portuguese annual snapshot is transcribed.,"No invented trend, series interpolation or average over missing years.",prevented_in_delivery

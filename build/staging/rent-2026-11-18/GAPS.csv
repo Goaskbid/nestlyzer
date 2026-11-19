@@ -1,0 +1,7 @@
+domain,country,status,numeric_source_rows,exact_place_matches,reason,next_action
+rent,ES,original_file_not_acquired,0,0,Original CSV/XLSX binary download inaccessible; summary PDF lacks verified official-code joins.,Acquire the unchanged publisher workbook and its rights/dictionary; parse official municipality codes.
+rent,PT,historical_numeric_transcription_staged,425,174,Original JSON missing; newer successor not acquired; source-level period2024 not current2026.,Obtain original JSON and successor series; review current parish identity; do not discard this historical evidence.
+rent,CH,5_reference_values_held,5,0,No original workbook or direct municipality series; resource-level commercial permission required or unresolved.,Resolve rights before publication; acquire published table with official geography codes and exact dwelling cohort.
+age_migration,all,not_started_in_this_rent_batch,0,0,The brief prioritises rents first.,Follow separate migration template; do not relabel all-age growth as retiree moves.
+childcare,all,not_started_in_this_rent_batch,0,0,The brief prioritises rents first.,"Distinguish capacity, occupancy and participation."
+noise,all,not_started_in_this_rent_batch,0,0,The brief prioritises rents first.,"Preserve Lden/Lnight/Lr, coverage footprint, population denominators and unknowns."

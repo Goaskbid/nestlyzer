@@ -1,0 +1,56 @@
+# Collects the official source files listed in build/collect/acquisition_plan.json ONCE, right after a release is
+# published. Bounded and read-only: about 31 downloads, no schedule, no crawling. Results go to the branch
+# data-intake-<plan hash>, which is not part of the website. A plan that was already collected is skipped.
+name: Collect official data once
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nz-collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+      - name: Wait until the release files are on main
+        run: |
+          for i in $(seq 1 60); do
+            [ -f build/collect/acquisition_plan.json ] && break
+            sleep 10; git pull -q origin main || true
+          done
+          if [ ! -f build/collect/acquisition_plan.json ]; then
+            echo "No collection plan in this release; nothing to do." >> "$GITHUB_STEP_SUMMARY"; echo "SKIP=1" >> "$GITHUB_ENV"; exit 0
+          fi
+          P=$(sha256sum build/collect/acquisition_plan.json | cut -c1-12); echo "PLAN=$P" >> "$GITHUB_ENV"
+          if git ls-remote --exit-code --heads origin "data-intake-$P" >/dev/null 2>&1; then
+            echo "This plan was already collected (branch data-intake-$P); nothing to do." >> "$GITHUB_STEP_SUMMARY"; echo "SKIP=1" >> "$GITHUB_ENV"
+          fi
+      - name: Download the listed official files
+        if: env.SKIP != '1'
+        run: python3 build/collect/collect_once.py --plan build/collect/acquisition_plan.json --out "$RUNNER_TEMP/run" --timeout 60 --workers 2 --attempts 2 || true
+      - name: Save them on the data branch (not part of the website)
+        if: env.SKIP != '1'
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          R="$RUNNER_TEMP/run"; [ -d "$R" ] || { echo "Nothing was collected." >> "$GITHUB_STEP_SUMMARY"; exit 1; }
+          find "$R" -type f -size +95M -print -delete | sed 's/^/Dropped (over 95 MB): /' >> "$GITHUB_STEP_SUMMARY"
+          B="data-intake-$PLAN"; mkdir -p "$RUNNER_TEMP/b"; cd "$RUNNER_TEMP/b"
+          git init -q -b "$B"; cp -a "$R"/. .
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A; git commit -qm "Official source files collected once (plan $PLAN)"
+          git push -q "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "HEAD:refs/heads/$B"
+          echo "Saved on branch $B." >> "$GITHUB_STEP_SUMMARY"
+          [ -f RUN_STATUS.json ] && head -c 3000 RUN_STATUS.json >> "$GITHUB_STEP_SUMMARY" || true

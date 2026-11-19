@@ -1071,6 +1071,7 @@ function cxTone(o, cx, biz) {
   if (!fin(o.value)) return ['ref', 'description, not a measure'];
   // 2.15.30-r7: a count of moves is not a rate; bigger states have more moves, so no ranking against other states
   if (/^migration_net_moves_/.test(o.indicator_id)) return ['ref', 'number of moves in the year, not a rate: larger states have more'];
+  if (/^us_(domestic|international)_migration_2021_2025$/.test(o.indicator_id)) return ['ref', 'number of people over five years, not a rate: larger states have more'];
   var dir = cxDir(o.indicator_id, biz), cn = countryName(String(o.country || '').toUpperCase()) || 'the country';
   if (o.source_geo_level === 'multicountry_aggregate') return ['ref', 'benchmark to compare against'];
   if (o.source_geo_level === 'country' || o.source_geo_level === 'country_scenario') {
@@ -1252,9 +1253,9 @@ function catDetailHTML(r, k) {
     if (fin(x.mway_km)) add('Motorway', trim0(fmt(x.mway_km, 1)) + ' km', lin(x.mway_km, 1, 40), 'this place', 'weight 50%');
     if (fin(x.rail_km)) add('Main railway line', trim0(fmt(x.rail_km, 1)) + ' km', lin(x.rail_km, 1, 25), 'this place', 'weight 30%');
     var sp = fin(x.mport_km) ? x.mport_km : x.port_km, spn = fin(x.mport_km) ? x.mport : x.port;
-    if (fin(sp) && sp <= 200) { add('Major seaport' + (spn ? ' (' + spn + ')' : ''), trim0(fmt(sp, 1)) + ' km', lin(sp, 5, 150), 'this place', 'weight 20%: the nearer of seaport and inland port counts'); portSizeRows(spn, add); }
-    if (fin(x.iport_km) && x.iport_km <= 200) { add('Inland port' + (x.iport ? ' (' + x.iport + ')' : ''), trim0(fmt(x.iport_km, 1)) + ' km', lin(x.iport_km, 5, 150), 'this place', 'Rhine, Danube, Elbe and other key inland ports'); portSizeRows(x.iport, add); }
-    note = 'Straight-line distances: motorways and railways from Natural Earth 1:10m, major sea and inland ports from Nestlyzer\'s port list (Method page); 100 at 1 km (port 5 km), 0 at 40 km (rail 25 km, port 150 km).';
+    if (fin(sp) && sp <= 200) { add('Major seaport' + (spn ? ' (' + spn + ')' : ''), trim0(fmt(sp, 1)) + ' km', lin(sp, 5, 150), 'this place', 'weight 20%: the nearer of seaport and inland port or intermodal terminal counts'); portSizeRows(spn, add); }
+    if (fin(x.iport_km) && x.iport_km <= 200) { add('Inland port or intermodal terminal' + (x.iport ? ' (' + x.iport + ')' : ''), trim0(fmt(x.iport_km, 1)) + ' km', lin(x.iport_km, 5, 150), 'this place', 'key inland ports, rail-road terminals and dry ports worldwide'); portSizeRows(x.iport, add); }
+    note = 'Straight-line distances: motorways and railways from Natural Earth 1:10m, major sea ports, inland ports, intermodal terminals and dry ports from Nestlyzer\'s lists (Method page); 100 at 1 km (port 5 km), 0 at 40 km (rail 25 km, port 150 km).';
   } else if (k === 'focus') {
     var p = (META.config.profiles[S.profile] || {}).focus || {};
     Object.keys(p).forEach(function (id) { var f = byId[id]; if (!f || !fin(fs[id])) return; add(f.name + (p[id] < 0 ? ' (lower counts as better here)' : ''), adFmtRaw(f, fr[id]), p[id] < 0 ? 100 - fs[id] : fs[id], kfLevel(r, lv[id]) || 'this place', 'weight ' + Math.abs(p[id])); });

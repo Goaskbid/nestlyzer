@@ -12,6 +12,14 @@
   var fin = Number.isFinite;
   // distance to a real cargo port: the nearer of a major seaport and a key inland port (build_reach.py); the general
   // Natural Earth port layer only where neither list has a value
+  /* r8: x.iport_km is now the nearest inland port OR intermodal terminal / dry port worldwide (build/add_intermodal_reach.py), used for
+     freight access. Port must-haves (port-based industry) still need a real sea or waterway port: the waterway port distance is
+     recomputed here from the same 76 inland ports with the same straight-line rule and rounding as build_reach.py. */
+  var WPORTS = [[47.588,7.592],[47.548,7.637],[51.455,6.735],[51.205,6.715],[50.99,6.965],[51.355,6.66],[51.535,7.44],[49.505,8.45],[49.505,8.42],[49.015,8.32],[48.585,7.795],[50.02,8.265],[50.11,8.72],[49.985,9.12],[49.155,9.205],[48.79,9.24],[49.405,11.04],[49.025,12.135],[52.165,11.665],[52.535,13.335],[52.375,9.69],[52.3,8.92],[53.055,8.88],[48.555,7.79],[47.785,7.505],[48.94,2.3],[45.71,4.835],[49.14,6.165],[50.65,5.6],[50.88,4.38],[50.47,4.88],[51.85,5.86],[51.39,6.17],[51.03,5.81],[48.195,16.455],[48.3,14.32],[48.225,14.495],[48.4,15.63],[48.135,17.14],[47.755,18.12],[47.43,19.07],[47.735,17.825],[46.175,18.94],[44.825,20.48],[45.255,19.87],[45.345,19.005],[45.555,18.715],[43.845,25.96],[43.995,22.88],[43.89,25.965],[45.43,28.065],[45.27,27.975],[44.625,22.66],[50.335,18.155],[51.125,17.01],[50.77,14.205],[50.355,14.475],[50.105,14.445],[38.42,-82.445],[40.44,-80.0],[38.63,-90.185],[35.11,-90.075],[39.095,-84.515],[38.265,-85.76],[41.7,-87.575],[46.765,-92.095],[30.435,-91.2],[39.115,-94.59],[36.235,-95.735],[36.17,-86.775],[41.665,-83.52],[42.295,-83.1],[41.505,-81.705],[45.555,-73.535],[43.27,-79.82],[48.41,-89.215]], WK = typeof WeakMap === 'function' ? new WeakMap() : null;
+  function waterKm(r) { if (!r || !fin(r.lat) || !fin(r.lon)) return null; if (WK && WK.has(r)) return WK.get(r); var la = r.lat * Math.PI / 180, lo = r.lon * Math.PI / 180, best = 1e9;
+    for (var i = 0; i < WPORTS.length; i++) { var la2 = WPORTS[i][0] * Math.PI / 180, lo2 = WPORTS[i][1] * Math.PI / 180, h = Math.pow(Math.sin((la2 - la) / 2), 2) + Math.cos(la) * Math.cos(la2) * Math.pow(Math.sin((lo2 - lo) / 2), 2), d = 2 * 6371 * Math.asin(Math.sqrt(Math.min(1, h))); if (d < best) best = d; }
+    var v = best >= 10 ? Math.round(best) : Math.round(best * 10) / 10; if (WK) WK.set(r, v); return v; }
+  function seaOrWaterKm(r) { var x = (r && r.x) || {}, a = fin(x.mport_km) ? x.mport_km : null, b = fin(x.iport_km) ? waterKm(r) : null; return a != null || b != null ? Math.min(a == null ? 1e9 : a, b == null ? 1e9 : b) : x.port_km; }
   function portKm(x) { var a = fin(x.mport_km) ? x.mport_km : null, b = fin(x.iport_km) ? x.iport_km : null; return a != null || b != null ? Math.min(a == null ? 1e9 : a, b == null ? 1e9 : b) : x.port_km; }
 
   var METHOD_V2 = [
@@ -39,7 +47,7 @@
      (for example grid connection capacity); it is always unknown and says so. */
   var MUST_GET = {
     mway_km: function (r) { return (r.x || {}).mway_km; }, rail_km: function (r) { return (r.x || {}).rail_km; },
-    port_km: function (r) { return (r.x || {}).port_km; }, anyport_km: function (r) { return portKm(r.x || {}); }, dens: function (r) { return fin(r.density) ? r.density : (r.x && fin(r.x.pop10) ? r.x.pop10 / 314.16 : null); }, border_km: function (r) { return (r.x || {}).border_km; },
+    port_km: function (r) { return (r.x || {}).port_km; }, anyport_km: function (r) { return seaOrWaterKm(r); }, dens: function (r) { return fin(r.density) ? r.density : (r.x && fin(r.x.pop10) ? r.x.pop10 / 314.16 : null); }, border_km: function (r) { return (r.x || {}).border_km; },
     airport_km: function (r) { return (r.factorRaw || {}).geo_hub_airport_km; }, city_km: function (r) { return (r.factorRaw || {}).geo_major_city_km; },
     catch30: function (r) { return (r.factorRaw || {}).geo_catchment_30km; }, campus_km: function (r) { return (r.factorRaw || {}).student_anchor_km; },
     coast_km: function (r) { return (r.factorRaw || {}).geo_coast_km; }, pop: function (r) { return r.population; },
@@ -176,7 +184,7 @@
     if (fin(xx.reach_pct)) out.reach = xx.reach_pct;
     if (fin(xx.reach300_pct)) out.reach300 = xx.reach300_pct;
     if (fin(xx.dom150_pct)) out.domreach = xx.dom150_pct;   // home market: same-country residents within 150 km (2.11.2)   // one-day truck radius: residents within 300 km (2.11)
-    var pkm = portKm(xx); if (fin(pkm)) out.portaccess = lin(pkm, 2, 40);   // right at a major sea or inland port
+    var pkm = seaOrWaterKm(r); if (fin(pkm)) out.portaccess = lin(pkm, 2, 40);   // right at a major sea or inland port
     if (fin(xx.flat_pct)) out.flatland = xx.flat_pct;
     if (fin(xx.chem_km)) out.chempark = lin(xx.chem_km, 3, 40);
     // financial centres by role, 0-100 within commuting distance (2.12, build_reach.py): banking, insurance, funds,

@@ -25,8 +25,7 @@ try:
         check(any('nzdata-icons.json' in u for u in reqs), 'line icons load from nzdata-icons.json and are drawn on the place page')
         import urllib.request
         files = [f for f in os.listdir(SITE) if f.startswith('nzdata-audit-') or f.startswith('nzdata-downloads-')]
-        bad = [f for f in files if urllib.request.urlopen(B + '/' + f).status != 200]
-        check(len(files) >= 10 and not bad, f'Method page downloads are served: {len(files)} files, failing {bad}')
+        check(not files, f'r8 (owner IP rule): internal audit worksheets and collection files are not published: {files[:3]}')
         check(not errs, f'no script errors {errs[:2]}')
         b.close()
 finally:

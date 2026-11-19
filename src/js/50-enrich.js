@@ -253,10 +253,13 @@ window.NZ_ARMS = function (slot) { if (!extOn() || !slot || slot.dataset.armsQue
    licensed on Wikimedia Commons (standard 120 px thumbnail, original file if the thumbnail is refused). Nothing by name. */
 var RARMS_LEVEL = { DE: 1, AT: 2, BE: 2, NL: 2, IT: 2, ES: 2, FR: 1, PL: 2, PT: 2, EL: 2, DK: 2, IE: 2, UK: 1 };   // the "state" level above NUTS 3
 var RARMS_CQ = { CH: 'Q39', DE: 'Q183', FR: 'Q142', IT: 'Q38', ES: 'Q29', AT: 'Q40', NL: 'Q55', BE: 'Q31', UK: 'Q145', SE: 'Q34', NO: 'Q20', PL: 'Q36', US: 'Q30' };
+var US_ST_ALPHA = 'AK AL AR AZ CA CO CT DC DE FL GA HI IA ID IL IN KS KY LA MA MD ME MI MN MO MS MT NC ND NE NH NJ NM NV NY OH OK OR PA RI SC SD TN TX UT VA VT WA WI WV WY'.split(' ');
 var US_FIPS = { '01': 'AL', '02': 'AK', '04': 'AZ', '05': 'AR', '06': 'CA', '08': 'CO', '09': 'CT', '10': 'DE', '11': 'DC', '12': 'FL', '13': 'GA', '15': 'HI', '16': 'ID', '17': 'IL', '18': 'IN', '19': 'IA', '20': 'KS', '21': 'KY', '22': 'LA', '23': 'ME', '24': 'MD', '25': 'MA', '26': 'MI', '27': 'MN', '28': 'MS', '29': 'MO', '30': 'MT', '31': 'NE', '32': 'NV', '33': 'NH', '34': 'NJ', '35': 'NM', '36': 'NY', '37': 'NC', '38': 'ND', '39': 'OH', '40': 'OK', '41': 'OR', '42': 'PA', '44': 'RI', '45': 'SC', '46': 'SD', '47': 'TN', '48': 'TX', '49': 'UT', '50': 'VT', '51': 'VA', '53': 'WA', '54': 'WV', '55': 'WI', '56': 'WY' };
 function regionArmsTargets(r) {
   var out = [], cq = RARMS_CQ[r.country] || (typeof NZ_CQ === 'object' && NZ_CQ[r.country]); if (!cq) return out;
-  if (r.country === 'US') { var m = /^US(\d{2})$/.exec(String(r.rc || '')), st = m && US_FIPS[m[1]]; if (st) out.push({ p: 'P300', v: 'US-' + st, cq: cq, kind: 'state' }); return out; }
+  // 2.15.30-r8 fix: the US region code is the position in the alphabetical list of state abbreviations (as the data build
+  // writes it, 'US34' = NY), not a FIPS number; r7 read it as FIPS and could show a neighbouring state's arms
+  if (r.country === 'US') { var m = /^US(\d{2})$/.exec(String(r.rc || '')), st = m && US_ST_ALPHA[+m[1]]; if (st) out.push({ p: 'P300', v: 'US-' + st, cq: cq, kind: 'state' }); return out; }
   var n3 = String(r.n3 || ''); if (!/^[A-Z]{2}[A-Z0-9]{3}$/.test(n3) || n3.slice(0, 2) !== (r.country === 'EL' ? 'EL' : r.country === 'UK' ? 'UK' : r.country)) return out;
   var lv = RARMS_LEVEL[r.country]; if (lv) out.push({ p: 'P605', v: n3.slice(0, 2 + lv), cq: cq, kind: 'state' });
   out.push({ p: 'P605', v: n3, cq: cq, kind: 'region' });

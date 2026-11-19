@@ -1,0 +1,539 @@
+{
+"source": "Nestlyzer compilation (2.15.30-r8) of major special economic zones, free zones and free ports. Each is marked at the town it is named after or sits in, placed from Nestlyzer's own place index, never as the zone outline. Benefits differ by zone and change; check the zone authority. Reference points only.",
+"rows": [
+[
+"Jebel Ali Free Zone (JAFZA)",
+"AE",
+[
+"Dubai"
+]
+],
+[
+"Dubai Multi Commodities Centre (DMCC)",
+"AE",
+[
+"Dubai"
+]
+],
+[
+"Khalifa Economic Zones Abu Dhabi (KEZAD)",
+"AE",
+[
+"Abu Dhabi"
+]
+],
+[
+"Sharjah Airport International Free Zone",
+"AE",
+[
+"Sharjah"
+]
+],
+[
+"King Abdullah Economic City",
+"SA",
+[
+"Rabigh",
+"Jeddah"
+]
+],
+[
+"Special Integrated Logistics Zone Riyadh",
+"SA",
+[
+"Riyadh"
+]
+],
+[
+"Jazan City for Primary and Downstream Industries",
+"SA",
+[
+"Jazan",
+"Jizan"
+]
+],
+[
+"Suez Canal Economic Zone",
+"EG",
+[
+"Ismailia",
+"Suez"
+]
+],
+[
+"Tanger Med Zones",
+"MA",
+[
+"Tangier",
+"Tanger"
+]
+],
+[
+"Atlantic Free Zone Kenitra",
+"MA",
+[
+"Kenitra"
+]
+],
+[
+"Casablanca Finance City",
+"MA",
+[
+"Casablanca"
+]
+],
+[
+"Coega Special Economic Zone",
+"ZA",
+[
+"Gqeberha",
+"Port Elizabeth"
+]
+],
+[
+"Dube TradePort Special Economic Zone",
+"ZA",
+[
+"Durban"
+]
+],
+[
+"East London Industrial Development Zone",
+"ZA",
+[
+"East London"
+]
+],
+[
+"Richards Bay Industrial Development Zone",
+"ZA",
+[
+"Richards Bay"
+]
+],
+[
+"Shenzhen Special Economic Zone",
+"CN",
+[
+"Shenzhen"
+]
+],
+[
+"China (Shanghai) Pilot Free Trade Zone",
+"CN",
+[
+"Shanghai"
+]
+],
+[
+"Hainan Free Trade Port",
+"CN",
+[
+"Haikou"
+]
+],
+[
+"Xiamen Special Economic Zone",
+"CN",
+[
+"Xiamen"
+]
+],
+[
+"Zhuhai Special Economic Zone",
+"CN",
+[
+"Zhuhai"
+]
+],
+[
+"China (Tianjin) Pilot Free Trade Zone",
+"CN",
+[
+"Tianjin"
+]
+],
+[
+"GIFT City International Financial Services Centre",
+"IN",
+[
+"Gandhinagar"
+]
+],
+[
+"Okinawa Special Economic Zone",
+"JP",
+[
+"Naha"
+]
+],
+[
+"Incheon Free Economic Zone",
+"KR",
+[
+"Incheon"
+]
+],
+[
+"Busan-Jinhae Free Economic Zone",
+"KR",
+[
+"Busan"
+]
+],
+[
+"Kaohsiung Export Processing Zone",
+"TW",
+[
+"Kaohsiung"
+]
+],
+[
+"Taichung Export Processing Zone",
+"TW",
+[
+"Taichung"
+]
+],
+[
+"Eastern Economic Corridor",
+"TH",
+[
+"Rayong",
+"Chon Buri"
+]
+],
+[
+"Dinh Vu - Cat Hai Economic Zone",
+"VN",
+[
+"Haiphong",
+"Hai Phong"
+]
+],
+[
+"Iskandar Malaysia",
+"MY",
+[
+"Johor Bahru"
+]
+],
+[
+"Port Klang Free Zone",
+"MY",
+[
+"Klang"
+]
+],
+[
+"Batam Free Trade Zone",
+"ID",
+[
+"Batam"
+]
+],
+[
+"Clark Freeport Zone",
+"PH",
+[
+"Mabalacat",
+"Angeles City",
+"Angeles"
+]
+],
+[
+"Subic Bay Freeport Zone",
+"PH",
+[
+"Olongapo"
+]
+],
+[
+"Istanbul Free Zone",
+"TR",
+[
+"Istanbul",
+"İstanbul"
+]
+],
+[
+"Aegean Free Zone",
+"TR",
+[
+"Izmir",
+"İzmir"
+]
+],
+[
+"Mersin Free Zone",
+"TR",
+[
+"Mersin"
+]
+],
+[
+"Eilat Free Trade Zone",
+"IL",
+[
+"Eilat"
+]
+],
+[
+"Shannon Free Zone",
+"IE",
+[
+"Shannon"
+]
+],
+[
+"Freeport of Riga",
+"LV",
+[
+"Riga",
+"Rīga"
+]
+],
+[
+"Liepāja Special Economic Zone",
+"LV",
+[
+"Liepāja",
+"Liepaja"
+]
+],
+[
+"Freeport of Ventspils",
+"LV",
+[
+"Ventspils"
+]
+],
+[
+"Klaipėda Free Economic Zone",
+"LT",
+[
+"Klaipėdos miesto savivaldybė"
+]
+],
+[
+"Kaunas Free Economic Zone",
+"LT",
+[
+"Kauno miesto savivaldybė"
+]
+],
+[
+"Katowice Special Economic Zone (Polish Investment Zone)",
+"PL",
+[
+"Katowice"
+]
+],
+[
+"Łódź Special Economic Zone (Polish Investment Zone)",
+"PL",
+[
+"Łódź"
+]
+],
+[
+"Free Port of Trieste",
+"IT",
+[
+"Trieste"
+]
+],
+[
+"Livigno duty-free area",
+"IT",
+[
+"Livigno"
+]
+],
+[
+"Zona Franca de Barcelona",
+"ES",
+[
+"Barcelona"
+]
+],
+[
+"Zona Franca de Cádiz",
+"ES",
+[
+"Cádiz"
+]
+],
+[
+"Zona Franca de Vigo",
+"ES",
+[
+"Vigo"
+]
+],
+[
+"Madeira International Business Centre",
+"PT",
+[
+"Funchal"
+]
+],
+[
+"Malta Freeport",
+"MT",
+[
+"Birżebbuġa",
+"Birzebbuga"
+]
+],
+[
+"Thessaloniki Free Zone",
+"EL",
+[
+"Thessaloniki"
+]
+],
+[
+"Burgas Free Zone",
+"BG",
+[
+"Burgas"
+]
+],
+[
+"Constanța Free Zone",
+"RO",
+[
+"Municipiul Constanţa"
+]
+],
+[
+"Bremerhaven free zone",
+"DE",
+[
+"Bremerhaven"
+]
+],
+[
+"Cuxhaven free zone",
+"DE",
+[
+"Cuxhaven"
+]
+],
+[
+"Ports Francs de Genève",
+"CH",
+[
+"Genève",
+"Geneva"
+]
+],
+[
+"Koper free zone",
+"SI",
+[
+"Koper"
+]
+],
+[
+"Subotica free zone",
+"RS",
+[
+"Subotica"
+]
+],
+[
+"Pirot free zone",
+"RS",
+[
+"Pirot"
+]
+],
+[
+"Larnaca Free Zone",
+"CY",
+[
+"Larnaca",
+"Larnaka"
+]
+],
+[
+"Foreign-Trade Zone 84 Houston",
+"US",
+[
+"Houston"
+]
+],
+[
+"Foreign-Trade Zone 202 Los Angeles",
+"US",
+[
+"Los Angeles"
+]
+],
+[
+"Foreign-Trade Zone 32 Miami",
+"US",
+[
+"Miami"
+]
+],
+[
+"Foreign-Trade Zone 22 Chicago",
+"US",
+[
+"Chicago"
+]
+],
+[
+"Foreign-Trade Zone 94 Laredo",
+"US",
+[
+"Laredo"
+]
+],
+[
+"CentrePort Canada Foreign Trade Zone",
+"CA",
+[
+"Winnipeg"
+]
+],
+[
+"Manaus Free Trade Zone",
+"BR",
+[
+"Manaus"
+]
+],
+[
+"Tierra del Fuego special customs area",
+"AR",
+[
+"Río Grande"
+]
+],
+[
+"La Plata Free Zone",
+"AR",
+[
+"La Plata"
+]
+],
+[
+"Zona Franca de Bogotá",
+"CO",
+[
+"Bogotá"
+]
+],
+[
+"Zona Franca de Barranquilla",
+"CO",
+[
+"Barranquilla"
+]
+]
+]
+}

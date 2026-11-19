@@ -7,16 +7,16 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE = sys.argv[1] if len(sys.argv) > 1 else 'http://127.0.0.1:8787'
 X = {cc: json.load(open(os.path.join(ROOT, 'data', 'x', cc + '.json')))['ctx'] for cc in ('FR', 'DE', 'PT')}
 c = {}
-mine = {cc: [o for o in X[cc]['records'] if 'official_table_transcription' in (o.get('quality_flags') or []) or o['indicator_id'] in (
+mine = {cc: [o for o in X[cc]['records'] if not o['record_id'].startswith(('NZ_EU8_', 'NZ_US8_', 'NZ_PT8_', 'NZ_FR8_')) and ('official_table_transcription' in (o.get('quality_flags') or []) or o['indicator_id'] in (
     'retiree_migration_balance_interregional', 'active_migration_balance_interregional', 'population_age_65plus_share', 'childcare_places_under3_all_forms',
-    'childcare_places_under3_creches', 'childcare_participation_under3', 'childcare_participation_3_to_5', 'migration_net_moves_total', 'migration_net_moves_international', 'rent_new_lease_median_m2')] for cc in X}
+    'childcare_places_under3_creches', 'childcare_participation_under3', 'childcare_participation_3_to_5', 'migration_net_moves_total', 'migration_net_moves_international', 'rent_new_lease_median_m2'))] for cc in X}
 c['FR: 96 departments with retiree and active migration, 101 with share aged 65+'] = (
     sum(o['indicator_id'] == 'retiree_migration_balance_interregional' for o in mine['FR']) == 96 and sum(o['indicator_id'] == 'active_migration_balance_interregional' for o in mine['FR']) == 96
     and sum(o['indicator_id'] == 'population_age_65plus_share' and o['source_geo_level'] == 'department' for o in mine['FR']) == 101)
 c['FR: national 65+ from Insee not repeated (World Bank national figure already shown)'] = not any(o['indicator_id'] == 'population_age_65plus_share' and o['source_geo_level'] == 'country' for o in mine['FR'])
 c['DE: 16 states for childcare (2 ages) and net moves (2 kinds), plus national'] = sum(o['source_geo_level'] == 'state' for o in mine['DE']) == 64 and sum(o['source_geo_level'] == 'country' for o in mine['DE']) == 4
 c['PT: 7 municipal new-lease rents reach their 57 parishes as municipality context, plus Portugal'] = (sum(o['source_geo_level'] == 'municipality_context' for o in mine['PT']) == 7
-    and sum(1 for v in X['PT']['places'].values() for e in v if e[1] == 'municipality_context') == 57 and any(o['source_geo_level'] == 'country' for o in mine['PT']))
+    and sum(1 for v in X['PT']['places'].values() for e in v if e[1] == 'municipality_context' and e[0] in {o['source_geo_id'] for o in mine['PT']}) == 57 and any(o['source_geo_level'] == 'country' for o in mine['PT']))
 allrec = [o for cc in X for o in X[cc]['records']]
 c['noise: none of the 90 rights-held figures is published'] = not any(re.search('noise_exposed', o['indicator_id']) for o in allrec)
 c['CNAF components stay staged (only totals shown)'] = not any(re.search(r'theoretical_under3_places_(psu|non_psu|childminder|home_employee|preschool|individual)', o['indicator_id']) for o in allrec)

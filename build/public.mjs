@@ -10,7 +10,7 @@ import {packRows} from './pack_place_rows.mjs';
 const meta = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/meta.json'), 'utf8'));
 const slug = (s) => String(s || '').normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/ß/g, 'ss').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const dirs = ['assets', 'vendor', 'data', 'best', 'method', 'legal', 'about', 'press', 'business', 'insights', 'world', 'incentives', 'districts', 'immigration', 'evidence-lab', 'places', 'rankings', 'sources', ...meta.countries.map((c) => slug(c.name))];
-const files = ['index.html', '404.html', 'ads.txt', 'favicon.ico', 'favicon.svg', 'robots.txt', 'site.webmanifest', 'sw.js', 'offline.html', 'CNAME', '.nojekyll', 'VERSION.txt'];
+const files = ['index.html', '404.html', 'ads.txt', 'favicon.ico', 'favicon.svg', 'robots.txt', 'site.webmanifest', 'sw.js', 'offline.html', 'CNAME', '.nojekyll', 'VERSION.txt', '.well-known/tdmrep.json'];
 // Reject destructive destinations BEFORE removing any output. This command never writes outside this checkout.
 const relOut = path.relative(ROOT, OUT);
 const protectedRoots = [...dirs, 'src', 'build', 'tools', 'tests', '.git', '.github', '.cache', 'node_modules'];
@@ -22,14 +22,15 @@ console.log('Generated-page deduplication:', JSON.stringify(optimize(ROOT)));
 fs.rmSync(OUT, { recursive: true, force: true }); fs.mkdirSync(OUT, { recursive: true });
 let n = 0, bytes = 0, claimCopyRepairs = 0;
 function copy(src, dst) {
+  if (/^data[\\/](audit|downloads)([\\/]|$)/.test(path.relative(ROOT, src))) return;   // r8: internal collection files and audit worksheets stay off the public site (IP)   // 2.15.16: build-time list only (the app never reads it)
   const st = fs.lstatSync(src); if (st.isSymbolicLink()) throw new Error("Symlink in public input: " + src);
   if (st.isDirectory()) { fs.mkdirSync(dst, { recursive: true }); for (const f of fs.readdirSync(src)) copy(path.join(src, f), path.join(dst, f)); return; }
-  if (path.relative(ROOT, src) === path.join('data', 'routes.json')) return;   // 2.15.16: build-time list only (the app never reads it)
+  if (path.relative(ROOT, src) === path.join('data', 'routes.json')) return;
   if(src.endsWith('.html')){const fix=OutputContract.repairClaimCopy(fs.readFileSync(src,'utf8'));if(fix.replacements){fs.writeFileSync(dst,fix.text);claimCopyRepairs+=fix.replacements;n++;bytes+=Buffer.byteLength(fix.text);return;}}
   fs.copyFileSync(src, dst); n++; bytes += st.size;
 }
 for (const d of dirs) if (fs.existsSync(path.join(ROOT, d))) copy(path.join(ROOT, d), path.join(OUT, d));
-for (const f of files) if (fs.existsSync(path.join(ROOT, f))) copy(path.join(ROOT, f), path.join(OUT, f));
+for (const f of files) if (fs.existsSync(path.join(ROOT, f))) { fs.mkdirSync(path.dirname(path.join(OUT, f)), { recursive: true }); copy(path.join(ROOT, f), path.join(OUT, f)); }
 for (const f of fs.readdirSync(ROOT)) if (/^sitemap(-[a-z0-9-]+)?\.xml$/.test(f)) copy(path.join(ROOT, f), path.join(OUT, f));
 // Lossless footprint pass on the deployment copy. Raw data and authored source are untouched.
 const registryFile=path.join(ROOT,'.cache/seo/pages.json');

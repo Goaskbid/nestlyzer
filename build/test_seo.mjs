@@ -65,7 +65,7 @@ test('Fixture builds every active place, includes small US location, preserves l
 });
 test('Full rankings paginate without truncating rows, empty results are noindex',()=>{
  const f=fixture();try{prepare(f.env);const stats=buildCountries(f.env);assert.equal(stats.find(x=>x.cc==='CH').rankingRows,9);finalize(f.env);
- let h=fs.readFileSync(path.join(f.out,'rankings/households/ch/young-family/page/2/index.html'),'utf8');assert(h.includes('rel="canonical" href="https://nestlyzer.com/rankings/households/ch/young-family/page/2/"'));assert(h.includes('<ol class="rows" start="3">'));assert(h.includes('Three'));
+ let h=fs.readFileSync(path.join(f.out,'rankings/households/ch/young-family/page/2/index.html'),'utf8');assert(h.includes('rel="canonical" href="https://nestlyzer.com/rankings/households/ch/young-family/page/2/"'));assert(h.includes('<ol class="rows rk-list" start="3">'));assert(h.includes('Three'));
  h=fs.readFileSync(path.join(f.out,'rankings/households/us/pensioner/index.html'),'utf8');assert(h.includes('noindex,follow'));
  assert(!fs.readFileSync(path.join(f.out,'sitemap-rankings-households.xml'),'utf8').includes('/us/pensioner/'));
  }finally{f.clean();}

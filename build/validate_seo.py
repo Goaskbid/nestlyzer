@@ -138,7 +138,9 @@ def validate(root: Path, origin: str, *, allow_missing_native: bool=False, max_b
         coverage={'active_records':len(locs),'full_pages_indexed':listed,'compact_pages_noindex':len(locs)-listed,'legacy_preserved':sum(bool(v['legacy']) for v in locs.values())}
     robots=(root/'robots.txt').read_text() if (root/'robots.txt').exists() else ''
     if 'Sitemap: '+origin+'/sitemap.xml' not in robots:error('robots.txt missing sitemap declaration')
-    if re.search(r'^\s*Disallow:\s*/\s*$',robots,re.M):error('Root blocked in robots.txt')
+    # r8: AI-training crawlers may be refused by name; the root must stay open for every search engine (the * group)
+    star=re.search(r'(?ims)^User-agent:\s*\*\s*$(.*?)(?=^User-agent:|\Z)',robots)
+    if star and re.search(r'^\s*Disallow:\s*/\s*$',star.group(1),re.M):error('Root blocked in robots.txt')
     print('Graph and coverage finished',round(time.monotonic()-t,1),flush=True)
     total_bytes=0;files=0
     for directory,_,names in os.walk(root):

@@ -23,7 +23,8 @@ let html = rd('index.html').toString();
 // 2.15.16: the website loads the app from assets/app.js and assets/app.css (cached across pages); the single-file
 // builds put both back inline so they still work from disk or as one uploaded file
 html = html.replace(/<link rel="stylesheet" href="\/assets\/app\.css\?v=[\w.-]+">/, () => '<style>' + rd('assets/app.css').toString() + '</style>')
-  .replace(/<script defer src="\/assets\/app\.js\?v=[\w.-]+"><\/script>/, () => '<script>' + rd('assets/app.js').toString() + '</script>');
+  .replace(/<script defer src="\/assets\/app\.js\?v=[\w.-]+"><\/script>/, () => '<script>' + rd('assets/app.js').toString() + '</script>')
+  .replace(/<script defer src="\/assets\/top\.js\?v=[\w.-]+"><\/script>/, () => '<script>' + rd('assets/top.js').toString() + '</script>');   // r8 back-to-top button
 // 2.15.18: shared page scripts (build/deduplicate_static_assets.mjs) go back inline in the single-file builds
 html = html.replace(/<script src="\/assets\/shared-inline\/([0-9a-f]+)\.js"><\/script>/g, (m, k) => '<script>' + rd('assets/shared-inline/' + k + '.js').toString() + '</script>');
 
@@ -62,6 +63,7 @@ if (SPLIT) { fs.rmSync(SITE, { recursive: true, force: true }); fs.mkdirSync(SIT
 const GEOW = {};
 for (const p of files) {
   if (/LICENSE|\.txt$/.test(p)) continue;
+  if (/^data\/(audit|downloads)\//.test(p)) continue;   // r8: internal collection files and audit worksheets are not published (IP)   // 2.15.30-r8: the gzipped place list stays on the website only (the upload copy carries no archives)
   if (EXTERNAL(p)) {
     const m = p.match(/^data\/(c|x)\/([A-Z]{2})\.json$/);
     if (m) {

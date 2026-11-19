@@ -64,5 +64,29 @@
   "file_sha256": "2363e2d90b8f702a2420756df8f11b47a209449e5507bb6f60868889787cb114",
   "added": 389,
   "identical": 0
+ },
+ {
+  "release": "data-intake-2026-11-19",
+  "file_sha256": "9f1e2125388acd5be034a595515044acae7e97ed7ff0d8de9d66aff763a256a5",
+  "added": 7264,
+  "identical": 0
+ },
+ {
+  "release": "data-intake-2026-11-19",
+  "file_sha256": "a3e0562fbaf1aa688f37c19805753c7cd2ad254ffdb34f372e23f4f059b929de",
+  "added": 248,
+  "identical": 0
+ },
+ {
+  "release": "data-intake-2026-11-19",
+  "file_sha256": "24d2dab6910874983a480f34a50a8ae47ab842edb6aa2ab28804f4bf23996547",
+  "added": 204,
+  "identical": 0
+ },
+ {
+  "release": "data-intake-2026-11-19",
+  "file_sha256": "de9a20a310b2c3701ac1dbb9a5a6e1b525e6d10c200c4b49ea58c57547a31284",
+  "added": 2030,
+  "identical": 0
  }
 ]

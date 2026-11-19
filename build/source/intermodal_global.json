@@ -1,0 +1,957 @@
+{
+"source": "Nestlyzer compilation (2.15.30-r8) of major intermodal rail-road terminals, inland ports and dry ports outside the AGTC list. Each is marked at the town it serves, placed from Nestlyzer's own place index (never guessed); names that cannot be placed are logged in docs/audit/facilities_unresolved.json. Reference points only.",
+"rows": [
+[
+"Logistics Park Chicago and Joliet intermodal hubs",
+"US",
+[
+"Joliet"
+]
+],
+[
+"Chicago rail hub (Class I intermodal ramps)",
+"US",
+[
+"Chicago"
+]
+],
+[
+"Global IV intermodal terminal",
+"US",
+[
+"Rochelle",
+"Chicago"
+]
+],
+[
+"Logistics Park Kansas City",
+"US",
+[
+"Kansas City"
+]
+],
+[
+"Alliance intermodal facility",
+"US",
+[
+"Fort Worth"
+]
+],
+[
+"Dallas intermodal terminals",
+"US",
+[
+"Dallas"
+]
+],
+[
+"Memphis intermodal terminals",
+"US",
+[
+"Memphis"
+]
+],
+[
+"Atlanta intermodal terminals",
+"US",
+[
+"Atlanta"
+]
+],
+[
+"Rickenbacker intermodal terminal",
+"US",
+[
+"Columbus"
+]
+],
+[
+"San Bernardino intermodal facility",
+"US",
+[
+"San Bernardino"
+]
+],
+[
+"Intermodal Container Transfer Facility",
+"US",
+[
+"Los Angeles"
+]
+],
+[
+"Harrisburg intermodal terminal",
+"US",
+[
+"Harrisburg"
+]
+],
+[
+"Charlotte Regional Intermodal Facility",
+"US",
+[
+"Charlotte"
+]
+],
+[
+"Salt Lake City intermodal terminal",
+"US",
+[
+"Salt Lake City"
+]
+],
+[
+"Phoenix intermodal facility",
+"US",
+[
+"Phoenix"
+]
+],
+[
+"Laredo rail and truck border gateway",
+"US",
+[
+"Laredo"
+]
+],
+[
+"San Antonio intermodal terminal",
+"US",
+[
+"San Antonio"
+]
+],
+[
+"Houston intermodal terminals",
+"US",
+[
+"Houston"
+]
+],
+[
+"Inland Port Greer",
+"US",
+[
+"Greer"
+]
+],
+[
+"Brampton Intermodal Terminal",
+"CA",
+[
+"Brampton"
+]
+],
+[
+"Vaughan Intermodal Terminal",
+"CA",
+[
+"Vaughan"
+]
+],
+[
+"Montreal intermodal terminals",
+"CA",
+[
+"Montréal",
+"Montreal"
+]
+],
+[
+"Calgary Logistics Park",
+"CA",
+[
+"Calgary"
+]
+],
+[
+"Winnipeg intermodal terminal (CentrePort Canada)",
+"CA",
+[
+"Winnipeg"
+]
+],
+[
+"Edmonton intermodal terminal",
+"CA",
+[
+"Edmonton"
+]
+],
+[
+"Global Transportation Hub",
+"CA",
+[
+"Regina"
+]
+],
+[
+"Pantaco rail terminal",
+"MX",
+[
+"Mexico City",
+"Ciudad de México"
+]
+],
+[
+"Monterrey intermodal terminal",
+"MX",
+[
+"Monterrey"
+]
+],
+[
+"Guadalajara intermodal terminal",
+"MX",
+[
+"Guadalajara"
+]
+],
+[
+"San Luis Potosí intermodal terminal",
+"MX",
+[
+"San Luis Potosí"
+]
+],
+[
+"Puerto Interior Guanajuato",
+"MX",
+[
+"Silao"
+]
+],
+[
+"Querétaro intermodal terminal",
+"MX",
+[
+"Querétaro",
+"Santiago de Querétaro"
+]
+],
+[
+"Campinas dry port",
+"BR",
+[
+"Campinas"
+]
+],
+[
+"Anápolis dry port",
+"BR",
+[
+"Anápolis"
+]
+],
+[
+"Rondonópolis rail terminal",
+"BR",
+[
+"Rondonópolis"
+]
+],
+[
+"Uberlândia dry port",
+"BR",
+[
+"Uberlândia"
+]
+],
+[
+"Curitiba dry port",
+"BR",
+[
+"Curitiba"
+]
+],
+[
+"Chengdu International Railway Port",
+"CN",
+[
+"Chengdu"
+]
+],
+[
+"Chongqing Tuanjiecun rail container centre",
+"CN",
+[
+"Chongqing"
+]
+],
+[
+"Xi'an International Port",
+"CN",
+[
+"Xi'an",
+"Xian"
+]
+],
+[
+"Zhengzhou rail container hub",
+"CN",
+[
+"Zhengzhou"
+]
+],
+[
+"Yiwu railway port",
+"CN",
+[
+"Yiwu"
+]
+],
+[
+"Wuhan rail container hub",
+"CN",
+[
+"Wuhan"
+]
+],
+[
+"Ürümqi rail container hub",
+"CN",
+[
+"Ürümqi",
+"Urumqi"
+]
+],
+[
+"Kunming rail container hub",
+"CN",
+[
+"Kunming"
+]
+],
+[
+"Inland container depot Tughlakabad",
+"IN",
+[
+"New Delhi",
+"Delhi"
+]
+],
+[
+"Inland container depot Whitefield",
+"IN",
+[
+"Bengaluru",
+"Bangalore"
+]
+],
+[
+"Inland container depot Ludhiana",
+"IN",
+[
+"Ludhiana"
+]
+],
+[
+"Inland container depot Sabarmati",
+"IN",
+[
+"Ahmedabad"
+]
+],
+[
+"Multi-modal hub MIHAN",
+"IN",
+[
+"Nagpur"
+]
+],
+[
+"Inland container depot Kanpur",
+"IN",
+[
+"Kanpur"
+]
+],
+[
+"Inland container depot Hyderabad",
+"IN",
+[
+"Hyderabad"
+]
+],
+[
+"Tokyo Freight Terminal",
+"JP",
+[
+"Tokyo",
+"Shinagawa"
+]
+],
+[
+"Sapporo Freight Terminal",
+"JP",
+[
+"Sapporo"
+]
+],
+[
+"Nagoya Freight Terminal",
+"JP",
+[
+"Nagoya"
+]
+],
+[
+"Suita Freight Terminal",
+"JP",
+[
+"Suita",
+"Osaka"
+]
+],
+[
+"Fukuoka Freight Terminal",
+"JP",
+[
+"Fukuoka"
+]
+],
+[
+"Sendai Freight Terminal",
+"JP",
+[
+"Sendai"
+]
+],
+[
+"Uiwang inland container depot",
+"KR",
+[
+"Uiwang"
+]
+],
+[
+"Yangsan inland container depot",
+"KR",
+[
+"Yangsan"
+]
+],
+[
+"Moorebank Intermodal Precinct",
+"AU",
+[
+"Liverpool",
+"Sydney"
+]
+],
+[
+"Dynon intermodal terminals",
+"AU",
+[
+"Melbourne"
+]
+],
+[
+"Acacia Ridge intermodal terminal",
+"AU",
+[
+"Brisbane"
+]
+],
+[
+"Kewdale intermodal terminal",
+"AU",
+[
+"Perth"
+]
+],
+[
+"Adelaide intermodal terminal",
+"AU",
+[
+"Adelaide"
+]
+],
+[
+"Parkes National Logistics Hub",
+"AU",
+[
+"Parkes"
+]
+],
+[
+"Ruakura Inland Port",
+"NZ",
+[
+"Hamilton"
+]
+],
+[
+"MetroPort Auckland",
+"NZ",
+[
+"Auckland"
+]
+],
+[
+"Lat Krabang inland container depot",
+"TH",
+[
+"Bangkok"
+]
+],
+[
+"Nilai Inland Port",
+"MY",
+[
+"Nilai",
+"Seremban"
+]
+],
+[
+"Ipoh cargo terminal",
+"MY",
+[
+"Ipoh"
+]
+],
+[
+"Cikarang Dry Port",
+"ID",
+[
+"Bekasi",
+"Cikarang"
+]
+],
+[
+"Riyadh Dry Port",
+"SA",
+[
+"Riyadh"
+]
+],
+[
+"Dammam rail container terminal",
+"SA",
+[
+"Dammam"
+]
+],
+[
+"Halkalı logistics centre",
+"TR",
+[
+"Istanbul",
+"İstanbul"
+]
+],
+[
+"Kars logistics centre",
+"TR",
+[
+"Kars"
+]
+],
+[
+"Ankara logistics centre",
+"TR",
+[
+"Ankara"
+]
+],
+[
+"City Deep container terminal",
+"ZA",
+[
+"Johannesburg"
+]
+],
+[
+"10th of Ramadan dry port",
+"EG",
+[
+"10th of Ramadan City",
+"Al ‘Āshir min Ramaḑān"
+]
+],
+[
+"Zenata dry port",
+"MA",
+[
+"Casablanca"
+]
+],
+[
+"Venlo container terminals",
+"NL",
+[
+"Venlo"
+]
+],
+[
+"Tilburg rail terminal",
+"NL",
+[
+"Tilburg"
+]
+],
+[
+"Genk container terminal",
+"BE",
+[
+"Genk"
+]
+],
+[
+"Liège Trilogiport",
+"BE",
+[
+"Liège"
+]
+],
+[
+"Lyon Port Édouard Herriot",
+"FR",
+[
+"Lyon"
+]
+],
+[
+"Valenton rail-road terminal",
+"FR",
+[
+"Valenton",
+"Paris"
+]
+],
+[
+"Delta 3 Dourges",
+"FR",
+[
+"Dourges",
+"Lens"
+]
+],
+[
+"Perpignan Saint-Charles terminal",
+"FR",
+[
+"Perpignan"
+]
+],
+[
+"Strasbourg rail-road terminal",
+"FR",
+[
+"Strasbourg"
+]
+],
+[
+"Puerto Seco de Madrid",
+"ES",
+[
+"Coslada",
+"Madrid"
+]
+],
+[
+"Zaragoza intermodal terminals (PLAZA)",
+"ES",
+[
+"Zaragoza"
+]
+],
+[
+"Antequera logistics area",
+"ES",
+[
+"Antequera"
+]
+],
+[
+"Wien Süd container terminal",
+"AT",
+[
+"Wien",
+"Vienna"
+]
+],
+[
+"Wels container terminal",
+"AT",
+[
+"Wels"
+]
+],
+[
+"Cargo Center Graz",
+"AT",
+[
+"Graz"
+]
+],
+[
+"Villach Fürnitz logistics centre",
+"AT",
+[
+"Villach"
+]
+],
+[
+"Gateway Basel Nord",
+"CH",
+[
+"Basel"
+]
+],
+[
+"Małaszewicze border terminals",
+"PL",
+[
+"Terespol",
+"Biała Podlaska"
+]
+],
+[
+"Sławków Euroterminal",
+"PL",
+[
+"Sławków"
+]
+],
+[
+"Łódź intermodal terminals",
+"PL",
+[
+"Łódź"
+]
+],
+[
+"Poznań intermodal terminals",
+"PL",
+[
+"Poznań"
+]
+],
+[
+"Gliwice container terminal",
+"PL",
+[
+"Gliwice"
+]
+],
+[
+"Kutno intermodal terminal",
+"PL",
+[
+"Kutno"
+]
+],
+[
+"Praha Uhříněves terminal",
+"CZ",
+[
+"Praha",
+"Prague"
+]
+],
+[
+"Lovosice terminal",
+"CZ",
+[
+"Lovosice"
+]
+],
+[
+"Mělník terminal",
+"CZ",
+[
+"Mělník"
+]
+],
+[
+"Ostrava intermodal terminals",
+"CZ",
+[
+"Ostrava"
+]
+],
+[
+"Bratislava intermodal terminals",
+"SK",
+[
+"Bratislava"
+]
+],
+[
+"Žilina intermodal terminal",
+"SK",
+[
+"Žilina"
+]
+],
+[
+"Dobrá broad-gauge terminal",
+"SK",
+[
+"Čierna nad Tisou",
+"Dobrá"
+]
+],
+[
+"BILK Budapest intermodal centre",
+"HU",
+[
+"Budapest"
+]
+],
+[
+"East-West Gate Záhony",
+"HU",
+[
+"Záhony",
+"Fényeslitke"
+]
+],
+[
+"Ljubljana container terminal",
+"SI",
+[
+"Ljubljana"
+]
+],
+[
+"Eskilstuna Kombiterminal",
+"SE",
+[
+"Eskilstuna"
+]
+],
+[
+"Jönköping Torsvik terminal",
+"SE",
+[
+"Jönköping"
+]
+],
+[
+"Hallsberg terminal",
+"SE",
+[
+"Hallsberg"
+]
+],
+[
+"Alnabru freight terminal",
+"NO",
+[
+"Oslo"
+]
+],
+[
+"Kouvola RailGate",
+"FI",
+[
+"Kouvola"
+]
+],
+[
+"Taulov transport centre",
+"DK",
+[
+"Fredericia"
+]
+],
+[
+"Høje Taastrup combi-terminal",
+"DK",
+[
+"Høje-Taastrup",
+"Høje Taastrup"
+]
+],
+[
+"Daventry International Rail Freight Terminal",
+"UK",
+[
+"Daventry"
+]
+],
+[
+"iPort Doncaster",
+"UK",
+[
+"Doncaster"
+]
+],
+[
+"Trafford Park rail terminals",
+"UK",
+[
+"Manchester",
+"Trafford"
+]
+],
+[
+"Eurocentral Mossend",
+"UK",
+[
+"North Lanarkshire"
+]
+],
+[
+"Wakefield Europort",
+"UK",
+[
+"Wakefield"
+]
+],
+[
+"Thriasio freight centre",
+"EL",
+[
+"Aspropyrgos",
+"Athens"
+]
+],
+[
+"Vilnius intermodal terminal",
+"LT",
+[
+"Vilniaus miesto savivaldybė"
+]
+],
+[
+"Kaunas intermodal terminal",
+"LT",
+[
+"Kauno miesto savivaldybė"
+]
+],
+[
+"Belgrade Batajnica intermodal terminal",
+"RS",
+[
+"Belgrade",
+"Beograd"
+]
+],
+[
+"Bettembourg multimodal platform",
+"LU",
+[
+"Bettembourg"
+]
+],
+[
+"Riga rail container terminals",
+"LV",
+[
+"Riga",
+"Rīga"
+]
+],
+[
+"Arad intermodal terminal",
+"RO",
+[
+"Municipiul Arad"
+]
+]
+]
+}

@@ -8,7 +8,7 @@ const files={};
 function walk(relative){for(const name of fs.readdirSync(path.join(root,relative)).sort()){
  const rel=relative+'/'+name,full=path.join(root,rel),st=fs.lstatSync(full);
  if(st.isSymbolicLink())throw Error('Public data symlink not permitted: '+rel);
- if(st.isDirectory())walk(rel);else if(name!=='fingerprints.json')files[rel]=crypto.createHash('sha256').update(fs.readFileSync(full)).digest('hex');
+ if(st.isDirectory())walk(rel);else if(name!=='fingerprints.json'&&!/^data\/(audit|downloads)\//.test(rel))files[rel]=crypto.createHash('sha256').update(fs.readFileSync(full)).digest('hex');
 }}
 walk('data');
 const target=path.join(root,'data/fingerprints.json');

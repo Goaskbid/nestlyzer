@@ -18,5 +18,9 @@ for a, b in MAP.items():
     else: shutil.copy(p, os.path.join(OUT, b))
 for a in ['docs/gaps/gap_matrix.csv', 'docs/gaps/places_lookup_for_mapping.csv']:
     t = open(os.path.join(ROOT, a), encoding='utf-8').read(); assert not BAD.search(t), a
-    shutil.copy(os.path.join(ROOT, a), os.path.join(OUT, os.path.basename(a)))
+    if a.endswith('places_lookup_for_mapping.csv'):   # 2.15.30-r8: 7.7 MB lookup published gzipped (same rows, 1/6 of the size)
+        import gzip
+        with gzip.GzipFile(os.path.join(OUT, os.path.basename(a) + '.gz'), 'wb', mtime=0, compresslevel=9) as g: g.write(t.encode('utf-8'))
+        if os.path.exists(os.path.join(OUT, os.path.basename(a))): os.remove(os.path.join(OUT, os.path.basename(a)))
+    else: shutil.copy(os.path.join(ROOT, a), os.path.join(OUT, os.path.basename(a)))
 print('downloads:', sorted(os.listdir(OUT)))

@@ -128,6 +128,16 @@ def main():
             if not k or k in seen or r.get('commercial_reuse_status') != 'permitted' or (r.get('hold_reason') or '').strip(): continue
             seen.add(k); la, lo, at = ZP[k]
             items.append({'name': nm, 'cc': r['nestlyzer_country_code'] or r['country_code'], 'lat': la, 'lon': lo, 'kind': 'zone', 'label': 'Special economic zone or freeport (marked at ' + at + ', not its outline)', 'detail': (r.get('benefit_summary') or '')[:140], 'by': r.get('source_name') or 'official source', 'source': r.get('source_url') or None, 'period': r.get('reference_period') or None})
+    # 2.15.30-r8: worldwide intermodal terminals and dry ports, and worldwide special zones (owner: the layers were Europe-only).
+    # Placed at the named town from Nestlyzer's own place index; a town that cannot be found is logged, never guessed.
+    have = {(i['kind'], i['cc'], norm(i['name'])) for i in items}
+    for fn, kind, label, by_ in (('intermodal_global.json', 'terminal', 'Intermodal terminal or dry port', 'Nestlyzer compilation of major intermodal terminals and dry ports'),
+                                 ('special_zones_global.json', 'zone', 'Special economic zone, free zone or free port', 'Nestlyzer compilation of special economic zones and free ports')):
+        for nm, cc, towns in json.load(open(J('build/source', fn), encoding='utf-8'))['rows']:
+            if (kind, cc, norm(nm)) in have: continue
+            t = next((x for x in (town(cc, tw) for tw in towns) if x), None)
+            if not t: unres.append({'source': fn, 'name': nm, 'cc': cc, 'location': ' / '.join(towns)}); continue
+            items.append({'name': nm, 'cc': cc, 'lat': round(t[1], 2), 'lon': round(t[2], 2), 'kind': kind, 'label': label + ' (marked at ' + t[3] + ', not its outline)', 'detail': '', 'by': by_, 'source': None, 'period': None})
     cnt = collections.Counter(i['kind'] for i in items)
     json.dump({'version': 1, 'note': 'Points of reference only, not a hazard or safety assessment. Locations are rounded.', 'counts': cnt, 'items': items}, open(J('data/facilities.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
     os.makedirs(J('docs/audit'), exist_ok=True)

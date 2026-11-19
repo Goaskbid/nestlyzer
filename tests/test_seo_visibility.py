@@ -60,7 +60,7 @@ for f in sample_rk:
     m = re.search(r'href=["\']?(/rankings/[^"\' >]+\.csv)', s)
     if not m: continue
     rows = list(csv.reader(io.StringIO(open(os.path.join(SITE, m.group(1).lstrip('/')), encoding='utf-8').read())))
-    csv_ok += rows[0] == ['rank', 'place', 'region', 'country', 'score', 'limited_evidence', 'page'] and 1 <= len(rows) - 1 <= 100 and all(r[0].isdigit() for r in rows[1:])
+    csv_ok += rows[0][:7] == ['rank', 'place', 'region', 'country', 'score', 'limited_evidence', 'page'] and rows[0][7:] in ([], ['population']) and 1 <= len(rows) - 1 <= 100 and all(r[0].isdigit() for r in rows[1:])
     for blk in re.findall(r'<script type=["\']?application/ld\+json["\']?>(.*?)</script>', s, re.S):
         j = json.loads(blk); j = j if isinstance(j, list) else [j]
         ld_ok += any(x.get('@type') == 'Dataset' and x['distribution'][0]['contentUrl'].endswith(m.group(1)) and len(x['description']) >= 50 and x.get('license') for x in j)

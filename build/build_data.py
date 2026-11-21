@@ -704,3 +704,7 @@ for name in ('Meilen', 'Zürich', 'Flensburg, Stadt', 'Nice', 'Valencia'):
         if r['name'] == name:
             print(name, r['country'], r.get('_n3'), r.get('_lat'), r.get('_lon'), {k: (round(v, 1) if isinstance(v, float) else v) for k, v in (geo.get(i) or {}).items()})
             break
+# 2.15.30-r11 (refresh keeps history): the scheduled refresh re-runs this chain from here, so the Swiss population step
+# (2.13.2, latest year of each municipality's own series) must follow the core build, as it did when it was introduced.
+import subprocess as _sp, sys as _sy
+_sp.run([_sy.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'refresh_ch_population.py')], check=True)

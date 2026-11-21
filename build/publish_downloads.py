@@ -24,3 +24,6 @@ for a in ['docs/gaps/gap_matrix.csv', 'docs/gaps/places_lookup_for_mapping.csv']
         if os.path.exists(os.path.join(OUT, os.path.basename(a))): os.remove(os.path.join(OUT, os.path.basename(a)))
     else: shutil.copy(os.path.join(ROOT, a), os.path.join(OUT, os.path.basename(a)))
 print('downloads:', sorted(os.listdir(OUT)))
+# 2.15.30-r11: last step of the scheduled refresh chain: keep everything published, move only population forward.
+import subprocess as _sp, sys as _sy
+_sp.run([_sy.executable, os.path.join(ROOT, 'build', 'keep_published.py')], check=True)

@@ -1,0 +1,11 @@
+{
+  // Nestlyzer on Cloudflare Workers, LIVE variant: also answers on nestlyzer.com (used only when the repository
+  // variable NZ_CLOUDFLARE_DOMAIN is "on"; see docs/Cloudflare guide). Deployed by GitHub Actions with
+  // CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID once the owner approves the move.
+  "name": "nestlyzer",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-20",
+  "assets": { "directory": "../cf_site", "binding": "ASSETS", "html_handling": "auto-trailing-slash", "not_found_handling": "none" },
+  "routes": [ { "pattern": "nestlyzer.com", "custom_domain": true } ],
+  "observability": { "enabled": true }
+}

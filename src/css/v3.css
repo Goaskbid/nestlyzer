@@ -560,3 +560,4 @@ html.bizmode,body.bizmode{--navy:#0B4D4C;--blue:#0F7C7A;--cyan:#2AA59F;--r0:#E5E
 
 /* 2.15.30-r7: quick wins in the category sheet */
 .qw{margin:12px 0 4px;padding:10px 12px;border-radius:10px;background:color-mix(in srgb,var(--sun,#f2b705) 12%,transparent);border:1px solid color-mix(in srgb,var(--sun,#f2b705) 40%,transparent)}.qw h4{margin:0 0 6px;font-size:14px}.qw table{width:100%}
+.nz-busy .results,.nz-busy #results{opacity:.6;transition:opacity .12s}body.nz-busy{cursor:progress}

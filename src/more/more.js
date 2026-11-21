@@ -1039,6 +1039,7 @@ var CX_DIR = [[/^bready_.*(_gni|_days$|outages|generator)/, -1], [/^(bready_|wbl
   [/wage|labour_cost|hourly|earning|minimum_wage/, 'pay'],
   [/inflation|deflator|price_level|_price|tax|electricity_|^rent|_rent|rent_/, -1]];
 function cxDir(id, biz) { id = String(id || ''); var pk = S.profile || '';
+  if (/^nl_establishments_change_/.test(id)) return 1;   // r11: a growing business base means more local jobs and services
   // 2.12 profile-aware directions: the same figure helps one profile and hurts another
   if (/taxable_income/.test(id)) return /shop|cafe|practice|guesthouse|studio|wealth|bank/.test(pk) ? 1 : /low_income|budget|first_home|single_parent|student|rural_value/.test(pk) ? -1 : 0;   // spending power for a shop, an expensive area for a tight budget
   if (/unemploy/.test(id) && biz) return /contact|services|logistics|fulfilment|manufactur|food/.test(pk) ? 0 : -1;   // more people looking for work is not a defect for a labour-hungry site
@@ -1071,6 +1072,8 @@ function cxTone(o, cx, biz) {
   if (!fin(o.value)) return ['ref', 'description, not a measure'];
   // 2.15.30-r7: a count of moves is not a rate; bigger states have more moves, so no ranking against other states
   if (/^migration_net_moves_/.test(o.indicator_id)) return ['ref', 'number of moves in the year, not a rate: larger states have more'];
+  // r11: a count of firms grows with town size, so it is described, not ranked; the change rates are ranked
+  if (o.indicator_id === 'nl_establishments') return ['ref', 'number of firms: larger municipalities have more; the change over 1, 5 and 10 years shows the trend'];
   if (/^us_(domestic|international)_migration_2021_2025$/.test(o.indicator_id)) return ['ref', 'number of people over five years, not a rate: larger states have more'];
   var dir = cxDir(o.indicator_id, biz), cn = countryName(String(o.country || '').toUpperCase()) || 'the country';
   if (o.source_geo_level === 'multicountry_aggregate') return ['ref', 'benchmark to compare against'];
@@ -1108,6 +1111,9 @@ var CX_EXPLAIN = [
   [/unemploy/, 'Share of the labour force without a job and looking for one.', 'For a business: how many people are available to hire.', 'For a household: how easy it is to find work.'],
   [/vacan/, 'Share of homes standing empty on the survey day.', 'For a business: how easily staff find housing.', 'For a household: how easy it is to find a home; very low means a tight market.'],
   [/municipal_facility_count/, 'Number of these facilities in the whole municipality, not within walking distance.', 'For a business: competitors or customers nearby.', 'For a household: everyday services in town.'],
+  [/^nl_establishments_change/, 'How the number of business establishments changed (CBS, all industries).', 'For a business: whether the local economy is growing, which brings suppliers, customers and competition.', 'For a household: whether local jobs and services are growing.'],
+  [/^nl_establishments$/, 'Number of business establishments in the municipality on 1 January (CBS, all industries, including one-person firms).', 'For a business: the size of the local business community.', 'For a household: how many local employers and services there are.'],
+  [/^my_price_level_state/, 'Prices of the same everyday items in this state compared with the Malaysian median (100), from the government PriceCatcher survey.', 'For a business: what staff pay for daily goods here, which shapes wage expectations.', 'For a household: how far money goes here compared with the rest of Malaysia.'],
   [/industry_mix|establishment/, 'How local jobs or firms split across industries.', 'For a business: which industries, suppliers and skills are already here.', 'For a household: which kinds of jobs are local.'],
   [/hotel_/, 'Number of hotels and rooms.', 'For a business: tourism demand and competition.', 'For a household: how touristy the place is.'],
   [/price_level|gfcf/, 'Price level of goods and investment compared with the EU average (100).', 'For a business: what building and equipping a site costs here.', 'For a household: how far money goes.'],
@@ -1907,33 +1913,50 @@ function catSheetExtra(r, c, sc) {
    so lifting one measure to that level adds (target - now) / number of measures. Location facts (climate, terrain, sea,
    distances to airports or borders) are never offered as a fix: a municipality cannot move. */
 var QW_FIXED = /climate|sun|temp|rain|frost|snow|heat|koppen|alt|relief|terrain|slope|coast|shore|sea|lake|river|mountain|border|_km$|km_|airport|port|elev|nature|forest|green_share|flood|quake|seism/i;
+/* r9 owner rule: quick wins only name what a municipality can decide itself. Each lever: [factor id pattern, what the municipality can do]. */
+var QW_LEVERS = [
+  [/^(single_income_tax_|family_income_tax_|retiree_tax_|wealth_tax_)/, 'Lower the municipal tax multiplier (the canton\'s rate is not a local decision)'],
+  [/^n_(municipal_income_tax|municipal_income_tax_part)$/, 'Set a lower municipal income-tax rate'],
+  [/^n_(property_tax_fr|grundsteuer_b|grundsteuer_b_2025|land_tax)$/, 'Lower the local property-tax rate or multiplier'],
+  [/^n_gewerbesteuer$/, 'Lower the local business-tax multiplier'],
+  [/^n_(council_tax_d|council_tax_d_billing)$/, 'Hold down the council\'s share of council tax'],
+  [/^n_waste_tax_fr$/, 'Cut the household waste levy through cheaper collection'],
+  [/^(new_housing_per_1000|n_new_homes_uk|vacancy_rate_balance)$/, 'Zone more land for homes and speed up building permits'],
+  [/^(green_open_land_share|n_exercise_us)$/, 'Protect and open green space and parks in the land-use plan'],
+  [/^(n_gigabit_pct|n_broadband_us)$/, 'Fast-track fibre permits or co-invest through a municipal utility'],
+  [/^n_sports_uk$/, 'Open or share sports facilities, including school halls'],
+  [/^n_library_walk_uk$/, 'Keep libraries open or add a library point'],
+  [/^n_ev_chargers_uk$/, 'Licence public chargers on municipal car parks and streets'],
+  [/^n_(fiscal_strength_jp|balance_ratio_jp|debt_service_jp)$/, 'Rebalance the municipal budget and pay down debt']
+];
+function qwLever(id) { for (var i = 0; i < QW_LEVERS.length; i++) if (QW_LEVERS[i][0].test(id)) return QW_LEVERS[i][1]; return ''; }
 function quickWinsData(r, c, ids, fs, fr) {
   var R = typeof RES !== 'undefined' && RES; if (!R || !R.scored || R.scored.length < 20) return null;
   var n = ids.length, cand = [];
   ids.forEach(function (id) {
-    var f = ENGINE.factorById[id] || {}; if (QW_FIXED.test(id) || QW_FIXED.test(f.name || '')) return;
+    var f = ENGINE.factorById[id] || {}, lever = qwLever(id); if (!lever || QW_FIXED.test(id) || QW_FIXED.test(f.name || '')) return;
     var now = fs[id]; if (!fin(now) || now >= 70) return;
     var peers = []; R.scored.forEach(function (q) { var v = ((q.r || {}).factorScores || {})[id]; if (fin(v)) peers.push([v, q.r]); });
     if (peers.length < 20) return;
     peers.sort(function (a, b) { return a[0] - b[0]; });
     var t = peers[Math.floor(peers.length * 0.75)], target = t[0]; if (target - now < 5) return;
     var gain = (target - now) / n, raw = ((t[1] || {}).factorRaw || {})[id];
-    cand.push({ id: id, f: f, now: now, target: target, gain: gain, rawNow: fr[id], rawTarget: raw, cat: c });
+    cand.push({ id: id, lever: lever, f: f, now: now, target: target, gain: gain, rawNow: fr[id], rawTarget: raw, cat: c });
   });
   return cand.sort(function (a, b) { return b.gain - a.gain; });
 }
 function quickWinsHTML(r, c, ids, fs, fr, catNow) {
   var R = typeof RES !== 'undefined' && RES; if (!R || !R.scored || R.scored.length < 20 || !fin(catNow)) return '';
   var cand = quickWinsData(r, c, ids, fs, fr) || [];
-  if (!cand.length) return '<div class="qw"><h4>Quick wins</h4><p class="cap">No quick win here: every measure in this category is already at or above the level of the better quarter of places, or depends on location.</p></div>';
+  if (!cand.length) return '<div class="qw"><h4>Quick wins</h4><p class="cap">No quick win here: on every measure in this category that the municipality itself decides (local taxes and fees, zoning and permits, green space, fibre, local facilities), it already matches the better quarter of places.</p></div>';
   cand = cand.slice(0, 3);
   var cats = []; R.scored.forEach(function (q) { var v = (q.catScores || {})[c]; if (fin(v)) cats.push(v); });
   var rankOf = function (v) { return 1 + cats.filter(function (x) { return x > v; }).length; };
   var all = catNow + cand.reduce(function (a, x) { return a + x.gain; }, 0);
   var fv = function (x, v) { return fin(v) ? (adFmtRaw(x.f, v) || fmt(v)) : ''; };
   return '<div class="qw"><h4>Quick wins: what would lift ' + esc(r.name) + ' most</h4><table><tr><th>Measure</th><th class="n">Now</th><th class="n">Better quarter</th><th class="n">Category points</th></tr>' +
-    cand.map(function (x) { return '<tr><td>' + esc(x.f.name || x.id) + '</td><td class="n">' + esc(fv(x, x.rawNow) || Math.round(x.now)) + '</td><td class="n">' + esc(fv(x, x.rawTarget) || Math.round(x.target)) + '</td><td class="n">+' + fmt(x.gain, 1) + '</td></tr>'; }).join('') + '</table>' +
-    '<p class="cap">Reaching the level that the better quarter of places in this ranking already has on these ' + cand.length + ' measures would raise the ' + esc(catLabel(c).toLowerCase()) + ' score from ' + Math.round(catNow) + ' to about ' + Math.round(all) + (cats.length >= 20 ? ' and move it from position ' + fmtInt(rankOf(catNow)) + ' to about ' + fmtInt(rankOf(all)) + ' of ' + fmtInt(cats.length) : '') + ' for this category. An estimate from the published figures; location facts such as climate or distances are left out because a municipality cannot change them.</p></div>';
+    cand.map(function (x) { return '<tr><td>' + esc(x.f.name || x.id) + '<br><span class="muted small">' + esc(x.lever) + '</span></td><td class="n">' + esc(fv(x, x.rawNow) || Math.round(x.now)) + '</td><td class="n">' + esc(fv(x, x.rawTarget) || Math.round(x.target)) + '</td><td class="n">+' + fmt(x.gain, 1) + '</td></tr>'; }).join('') + '</table>' +
+    '<p class="cap">Reaching the level that the better quarter of places in this ranking already has on these ' + cand.length + ' measures would raise the ' + esc(catLabel(c).toLowerCase()) + ' score from ' + Math.round(catNow) + ' to about ' + Math.round(all) + (cats.length >= 20 ? ' and move it from position ' + fmtInt(rankOf(catNow)) + ' to about ' + fmtInt(rankOf(all)) + ' of ' + fmtInt(cats.length) : '') + ' for this category. An estimate from the published figures; only measures the municipality decides itself are counted; national and regional matters and location facts are left out.</p></div>';
 }
 /* 2.15.30-r7 owner request: the same quick wins across all categories of the profile, for the Politics tab ("what local
    policy could change") and the Scorecard. Profile points = category points x the category's share of the profile. */
@@ -1945,11 +1968,11 @@ function crossQuickWinsHTML(r, where) {
     (quickWinsData(r, c, ids, fs, fr) || []).forEach(function (x) { x.prof = x.gain * w[c] / tot; all.push(x); }); });
   var pn = (profileDef(S.profile) || {}).name || 'this profile';
   if (!all.length) return '<p class="cap">' + esc(r.name) + ' already matches the better quarter of places on every measure a municipality can influence for ' + esc(pn.toLowerCase()) + '.</p>';
-  all.sort(function (a, b) { return b.prof - a.prof; }); all = all.slice(0, 5);
+  all.sort(function (a, b) { return b.prof - a.prof; }); all = all.slice(0, 3);
   var fv = function (x, v) { return fin(v) ? (adFmtRaw(x.f, v) || fmt(v)) : ''; }, sum = all.reduce(function (a, x) { return a + x.prof; }, 0);
   return '<div class="qw"><h4>' + (where === 'politics' ? 'What local policy could change: quick wins for ' : 'Quick wins: what would lift the score for ') + esc(pn.toLowerCase()) + '</h4><table><tr><th>Measure</th><th class="n">Now</th><th class="n">Better quarter</th><th class="n">Profile points</th></tr>' +
-    all.map(function (x) { return '<tr><td>' + esc(x.f.name || x.id) + ' <span class="muted small">(' + esc(shortCat(x.cat)) + ')</span></td><td class="n">' + esc(fv(x, x.rawNow) || Math.round(x.now)) + '</td><td class="n">' + esc(fv(x, x.rawTarget) || Math.round(x.target)) + '</td><td class="n">+' + fmt(x.prof, 1) + '</td></tr>'; }).join('') + '</table>' +
-    '<p class="cap">Reaching the level the better quarter of places in this ranking already has on these measures would add about ' + fmt(sum, 1) + ' points to the score for ' + esc(pn.toLowerCase()) + '. An estimate from the published figures, weighted by how much each category counts in this profile; climate, terrain and distances are left out because a municipality cannot change them.</p></div>';
+    all.map(function (x) { return '<tr><td>' + esc(x.f.name || x.id) + ' <span class="muted small">(' + esc(shortCat(x.cat)) + ')</span><br><span class="muted small">' + esc(x.lever) + '</span></td><td class="n">' + esc(fv(x, x.rawNow) || Math.round(x.now)) + '</td><td class="n">' + esc(fv(x, x.rawTarget) || Math.round(x.target)) + '</td><td class="n">+' + fmt(x.prof, 1) + '</td></tr>'; }).join('') + '</table>' +
+    '<p class="cap">Reaching the level the better quarter of places in this ranking already has on these measures would add about ' + fmt(sum, 1) + ' points to the score for ' + esc(pn.toLowerCase()) + '. An estimate from the published figures, weighted by how much each category counts in this profile; only measures the municipality decides itself are counted (local taxes and fees, zoning and permits, green space, fibre, local facilities); national and regional matters and location facts are left out.</p></div>';
 }
 function sheetHTML(r, k) {
   var fr = r.factorRaw || {}, fs = r.factorScores || {}, LV = { 1: 'large region', 2: 'region', 3: 'district or county', 9: 'whole country' };

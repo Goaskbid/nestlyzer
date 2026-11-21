@@ -49,7 +49,10 @@ with sync_playwright() as pw:
     look = p.evaluate("""(()=>{const s=document.querySelector('#place-rich section');const tr=document.querySelectorAll('#place-rich tbody tr');const L=c=>{const m=c.match(/\\d+(\\.\\d+)?/g).map(Number);return (0.2126*m[0]+0.7152*m[1]+0.0722*m[2])/255};
       return s?[L(getComputedStyle(s).backgroundColor),L(getComputedStyle(tr[1].cells[1]).color),getComputedStyle(document.querySelector('.feat a')).display, tr[0].cells[2].textContent]:null})()""")
     c['place page in dark mode: dark panels, light text, inline featured links, best rank first (%s)' % (look,)] = bool(look) and look[0] < .3 and look[1] > .6 and look[2] == 'inline' and look[3].startswith('#')
+    q = page('/places/ch/291/'); tr = q.evaluate("document.querySelectorAll('.trend-cells li').length")
+    c['place page: population change over 1/3/5/10 years with a sentence (%d cells)' % tr] = tr >= 1 and len(q.evaluate("(document.querySelector('.trend p')||{}).textContent||''")) > 30
     br.close()
+ih = rd('insights/index.html'); c['insights hub grouped by theme with a jump bar (r10)'] = 'aria-label="Themes"' in ih and ih.count('<h2 id=') >= 5 and 'id="inside"' in ih
 c['no script errors'] = not errs
 for k, v in c.items(): print(('ok   ' if v else 'FAIL ') + k)
 ok = all(c.values()); print('RANKINGS LAYOUT TEST:', 'PASS' if ok else 'FAIL', errs[:2]); sys.exit(0 if ok else 1)

@@ -56,7 +56,11 @@ function selectPlace(id, o) {
 function setProfile(k) {
   if (k === S.profile) return;
   S.profile = k; S.selected = null;
-  update({ autoSelect: true, push: true });
+  /* r9 owner request: the click must answer at once. Mark the new profile now, let the browser paint, then re-score and redraw. */
+  $$('[data-profile]').forEach(function (el) { var on = el.dataset.profile === k; el.classList.toggle('on', on); if (el.hasAttribute('aria-pressed')) el.setAttribute('aria-pressed', String(on)); });
+  document.body.classList.add('nz-busy');
+  var run = function () { try { update({ autoSelect: true, push: true }); } finally { document.body.classList.remove('nz-busy'); } };
+  if (window.requestAnimationFrame) requestAnimationFrame(function () { setTimeout(run, 0); }); else setTimeout(run, 0);
 }
 function enterExplore(noMap) {
   S.view = 'explore'; document.body.classList.add('exploring'); document.documentElement.classList.remove('pre-explore'); var hh = $('.site-header'); if (hh) hh.classList.remove('on-dark');

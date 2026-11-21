@@ -19,6 +19,36 @@ for p in glob.glob(os.path.join(ROOT, 'data', 'x', '*.json')):
     out = json.dumps(x, separators=(',', ':'), ensure_ascii=False); saved += len(raw) - len(out)
     open(p, 'w').write(out)
 print('context records compacted, saved', round(saved / 1e6, 2), 'MB')
+# 2.15.30-r11 (refresh keeps history): the scheduled data refresh on GitHub re-runs this chain. Some published figures came
+# from one-off imports (official files collected once, measured climate normals) that the chain cannot rebuild, so a refresh
+# must never drop them. The published version in git is the baseline: every record and place link it holds is kept;
+# the rebuild may only add newer periods of indicators that country already publishes. Without git (a release replay)
+# nothing changes.
+import subprocess
+def _committed(rel):
+    try:
+        r = subprocess.run(['git', 'show', 'HEAD:' + rel], cwd=ROOT, capture_output=True, timeout=60)
+        return json.loads(r.stdout) if r.returncode == 0 and r.stdout else None
+    except Exception: return None
+_kept = _added = _files = 0
+for p in glob.glob(os.path.join(ROOT, 'data', 'x', '*.json')):
+    old = _committed(os.path.relpath(p, ROOT).replace(os.sep, '/'))
+    if old is None: continue
+    x = json.load(open(p)); ocx = old.get('ctx'); ncx = x.get('ctx')
+    if not ocx:
+        if ncx: x.pop('ctx'); _files += 1; open(p, 'w').write(json.dumps(x, separators=(',', ':'), ensure_ascii=False))
+        continue
+    ncx = ncx or {}
+    K = lambda o: (o.get('indicator_id'), o.get('source_geo_id'), str(o.get('reference_period')), o.get('unit'), o.get('statistic'), json.dumps(o.get('dimensions') or {}, sort_keys=True))
+    have = {K(o) for o in ocx.get('records', [])}; known = {o.get('indicator_id') for o in ocx.get('records', [])}
+    extra = [o for o in ncx.get('records', []) if K(o) not in have and o.get('indicator_id') in known]
+    merged = dict(ncx); merged.update(ocx)
+    merged['records'] = ocx.get('records', []) + extra
+    for k, v in ncx.items():
+        if isinstance(v, dict) and isinstance(ocx.get(k), dict): merged[k] = {**v, **ocx[k]}
+    _kept += len(ocx.get('records', [])); _added += len(extra)
+    if merged != ncx: x['ctx'] = merged; _files += 1; open(p, 'w').write(json.dumps(x, separators=(',', ':'), ensure_ascii=False))
+print('refresh keeps history: %d published records kept, %d newer added, %d files restored' % (_kept, _added, _files))
 # 2.11.2: every national figure gets its position among the countries that publish the same indicator (same unit and
 # breakdown, latest period per country, at least 6 countries): o['xc'] = [share of those countries with a lower value, n]
 from collections import defaultdict

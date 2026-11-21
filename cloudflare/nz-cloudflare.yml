@@ -1,0 +1,89 @@
+# Copies each published nestlyzer.com build to Cloudflare as well. GitHub Pages is never touched and keeps working.
+# It does nothing until the two repository secrets CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID exist.
+# Without the variable NZ_CLOUDFLARE_DOMAIN the copy is only reachable at nestlyzer.<account>.workers.dev (for checking);
+# with NZ_CLOUDFLARE_DOMAIN = on it also answers on nestlyzer.com. No build happens here: it reuses the exact files
+# GitHub Pages published, packs the place pages (pack.mjs), tests the Worker against them and deploys.
+name: Copy nestlyzer.com to Cloudflare
+
+on:
+  workflow_run:
+    workflows: ["Build and publish nestlyzer.com"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: nz-cloudflare
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    # Any finished run qualifies: only a build that passed every test uploads the site package this job copies.
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion != 'cancelled'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Find the published build
+        id: find
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "Cloudflare is not set up (secrets missing). Nothing to do; GitHub Pages serves the site." >> "$GITHUB_STEP_SUMMARY"; exit 0
+          fi
+          R="$GITHUB_REPOSITORY"
+          if [ "${{ github.event_name }}" = "workflow_run" ]; then ID="${{ github.event.workflow_run.id }}"; SHA="${{ github.event.workflow_run.head_sha }}"
+          else read ID SHA < <(gh api "repos/$R/actions/workflows/site.yml/runs?status=completed&per_page=20" --jq '.workflow_runs[] | "\(.id) \(.head_sha)"' | while read i s; do
+                 n=$(gh api "repos/$R/actions/runs/$i/artifacts" --jq '[.artifacts[] | select(.name=="github-pages" and (.expired|not))] | length'); [ "$n" = "1" ] && { echo "$i $s"; break; }; done); fi
+          if [ -z "$ID" ]; then echo "No published build is available to copy yet." >> "$GITHUB_STEP_SUMMARY"; exit 0; fi
+          A=$(gh api "repos/$R/actions/runs/$ID/artifacts" --jq '.artifacts[] | select(.name=="github-pages" and (.expired|not)) | .id' | head -1)
+          if [ -z "$A" ]; then echo "That run published nothing new (no site build to copy)." >> "$GITHUB_STEP_SUMMARY"; exit 0; fi
+          echo "run=$ID" >> "$GITHUB_OUTPUT"; echo "sha=$SHA" >> "$GITHUB_OUTPUT"; echo "go=true" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v7
+        if: steps.find.outputs.go == 'true'
+        with:
+          ref: ${{ steps.find.outputs.sha }}
+          sparse-checkout: cloudflare
+      - uses: actions/setup-node@v6
+        if: steps.find.outputs.go == 'true'
+        with:
+          node-version: 22
+      - name: Unpack exactly what GitHub Pages published
+        if: steps.find.outputs.go == 'true'
+        run: |
+          gh run download "${{ steps.find.outputs.run }}" -R "$GITHUB_REPOSITORY" -n github-pages -D "$RUNNER_TEMP/a"
+          mkdir -p _site && tar -xf "$RUNNER_TEMP"/a/artifact.tar -C _site
+          test -f _site/index.html && test -f _site/sw.js
+      - name: Pack the place pages and test the Worker
+        if: steps.find.outputs.go == 'true'
+        run: |
+          node cloudflare/pack.mjs _site cf_site
+          node cloudflare/test-worker.mjs _site cf_site
+      - name: Deploy to Cloudflare
+        if: steps.find.outputs.go == 'true'
+        run: |
+          C=cloudflare/wrangler.jsonc
+          if [ "${{ vars.NZ_CLOUDFLARE_DOMAIN }}" = "on" ]; then C=cloudflare/wrangler.live.jsonc; fi
+          npx --yes wrangler@4.151.3 deploy --config "$C" 2>&1 | tee "$RUNNER_TEMP/deploy.log"
+          test "${PIPESTATUS[0]}" = 0
+          echo "Deployed to Cloudflare with $C (domain: ${{ vars.NZ_CLOUDFLARE_DOMAIN || 'workers.dev only' }})." >> "$GITHUB_STEP_SUMMARY"
+      - name: Check the Cloudflare copy answers like GitHub Pages
+        if: steps.find.outputs.go == 'true'
+        run: |
+          U=$(grep -o 'https://[a-z0-9.-]*workers\.dev' "$RUNNER_TEMP/deploy.log" | head -1)
+          B=("$U"); [ "${{ vars.NZ_CLOUDFLARE_DOMAIN }}" = "on" ] && B+=("https://nestlyzer.com")
+          P=$(cd _site && find places -mindepth 2 -maxdepth 2 -type d | sort | awk 'NR % 20000 == 1' | head -5 | sed 's|$|/|')
+          sleep 20; bad=0
+          for b in "${B[@]}"; do [ -n "$b" ] || continue
+            for p in / /VERSION.txt /sitemap.xml /robots.txt /.well-known/tdmrep.json $(for x in $P; do echo "/$x"; done); do
+              c=$(curl -s -o /dev/null -w '%{http_code}' --retry 3 --retry-delay 5 "$b$p"); echo "$c $b$p"
+              [ "$c" = 200 ] || bad=1; done
+            c=$(curl -s -o /dev/null -w '%{http_code}' "$b/places/zz/1/"); echo "$c $b/places/zz/1/ (must be 404)"; [ "$c" = 404 ] || bad=1
+            [ "$(curl -s "$b/VERSION.txt")" = "$(cat _site/VERSION.txt)" ] || { echo "VERSION differs on $b"; bad=1; }
+          done
+          echo "Checked: ${B[*]}" >> "$GITHUB_STEP_SUMMARY"; exit $bad

@@ -47,7 +47,7 @@ export function buildInsights(H) {
 .ins-print{float:right;margin-left:10px}.ins-two{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media (max-width:860px){.ins-two{grid-template-columns:1fr}}
 .page h1{overflow-wrap:anywhere}.ins-note{font-size:13.5px;color:var(--ink-3);line-height:1.5}
 @media print{.site-header,.site-footer,.ins-print,.cta-band,.consent,.crumbs,.ins-kick{display:none!important}.ins-fig{break-inside:avoid;border:0}.v-m{display:none!important}.v-d{display:block!important}body{background:#fff}}
-</style>`;
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 4px}.chips a{display:inline-flex;padding:5px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);text-decoration:none;font-weight:600;font-size:.9rem}.chips a:hover{border-color:currentColor}</style>`;
   const printBtn = '<button class="btn btn-sm ins-print" type="button" onclick="window.print()">Save as PDF</button>';
   const kick = (k) => `<div class="ins-kick"><a href="/insights/#living"${k === 'living' ? ' class="on"' : ''}>For households</a><a href="/insights/#inside"${k === 'inside' ? ' class="on"' : ''}>Inside the countries</a><a href="/insights/#business"${k === 'business' ? ' class="on"' : ''}>For companies</a></div>`;
   /* 2.13.2: every analysis ends with a direct way into a decision: the map with a fitting profile, the profiles or the business sites */
@@ -317,6 +317,45 @@ ${C.bars(T8.slice(-20).reverse().map((r) => ({ label: esc(r.name), v: r.v, note:
 <p class="small muted">Every one of these towns shows its figure on its card. Context only, not part of any score.</p>
 ${FOOT('Source: CNAF, Taux de couverture en accueil du jeune enfant par commune (data.caf.fr, Licence Ouverte / Etalab 2.0).')}`;
       pageIns(PF, 'Childcare in French towns: places per 100 children', `Childcare places per 100 children under 3 in all ${fmtInt(T8.length)} French communes above 10,000 residents, from CNAF, with a free CSV.`, body, 'living', ld8(PF, 'Childcare coverage of French towns', 'Theoretical childcare places per 100 children under 3 for every French commune of 10,000 residents or more, from CNAF.', csv, 'France', String((T8[0] || {}).per || '2023')));
+    }
+    // r11: Netherlands, business establishments in every municipality (CBS 81575)
+    {
+    const XRn = (cc) => { const f = path.join(ROOT, 'data/x', cc + '.json'); return fs.existsSync(f) ? ((JSON.parse(fs.readFileSync(f, 'utf8')).ctx || {}).records || []) : []; };
+    const NLm = {}; for (const o of XRn('NL')) if (/^nl_establishments/.test(o.indicator_id) && o.source_geo_level === 'municipality' && fin(o.value)) {
+      const r = NLm[o.source_geo_id] = NLm[o.source_geo_id] || { g: o.source_geo_id, name: o.area_label || o.source_geo_id }, k = o.indicator_id, per = String(o.reference_period);
+      if (!r['p_' + k] || per > r['p_' + k]) { r[k] = o.value; r['p_' + k] = per; if (k === 'nl_establishments') r.name = o.area_label || r.name; } }
+    const N = Object.values(NLm).filter((r) => fin(r.nl_establishments) && fin(r.nl_establishments_change_5y) && String(r.p_nl_establishments) >= '2026');
+    if (N.length >= 300) {
+      const PN = '/insights/dutch-business-base-by-municipality/', g5 = N.slice().sort((a, b) => b.nl_establishments_change_5y - a.nl_establishments_change_5y), big = N.slice().sort((a, b) => b.nl_establishments - a.nl_establishments);
+      const m5 = median(N.map((r) => r.nl_establishments_change_5y)), m1 = median(N.filter((r) => fin(r.nl_establishments_change_1y)).map((r) => r.nl_establishments_change_1y)), shrink = N.filter((r) => fin(r.nl_establishments_change_1y) && r.nl_establishments_change_1y < 0);
+      const big10 = big.slice(0, 10), bigFast = big10.slice().sort((a, b) => b.nl_establishments_change_5y - a.nl_establishments_change_5y)[0];
+      const csv = out8(PN, 'nestlyzer-netherlands-business-establishments.csv', ['rank_5y_growth', 'cbs_code', 'municipality', 'establishments_2026', 'change_1y_pct', 'change_5y_pct', 'change_10y_pct'], g5.map((r, i) => [i + 1, r.g, r.name, r.nl_establishments, r.nl_establishments_change_1y ?? '', r.nl_establishments_change_5y ?? '', r.nl_establishments_change_10y ?? '']));
+      const pts = N.map((r) => ({ key: r.g, name: r.name, x: Math.log10(r.nl_establishments), y: r.nl_establishments_change_5y }));
+      const cr = corr(pts.map((p) => p.x), pts.map((p) => p.y));
+      const body = `${kick('business')}${printBtn}<h1>The Dutch business base: ${fmtInt(N.length)} municipalities</h1>
+<p class="lede">Statistics Netherlands counts every business establishment on 1 January, from one-person firms to large employers. The typical municipality has ${fmt(m5, 1)}% more establishments than five years ago and ${fmt(m1, 1)}% more than a year ago. ${esc(g5[0].name)} grew fastest (${fmt(g5[0].nl_establishments_change_5y, 1)}% in five years); ${esc(g5[g5.length - 1].name)} ${g5[g5.length - 1].nl_establishments_change_5y < 0 ? 'shrank most' : 'grew least'} (${fmt(g5[g5.length - 1].nl_establishments_change_5y, 1)}%). ${shrink.length ? `${fmtInt(shrink.length)} municipalities had fewer establishments in 2026 than in 2025.` : 'None had fewer establishments than a year earlier.'} Among the ten largest business centres, ${esc(bigFast.name)} grew fastest (${fmt(bigFast.nl_establishments_change_5y, 1)}%).</p>
+${dl8(csv, N.length)}
+${C.bars(g5.slice(0, 20).map((r) => ({ label: esc(r.name), v: r.nl_establishments_change_5y, note: fmtInt(r.nl_establishments) + ' firms' })), { title: 'Fastest-growing business base: change in establishments over 5 years, %', fmt: (v) => fmt(v, 1), tone: (v) => v > 0 ? 'g' : 'b', caption: 'January 2021 to January 2026, all industries.' })}
+${C.bars(g5.slice(-15).reverse().map((r) => ({ label: esc(r.name), v: r.nl_establishments_change_5y, note: fmtInt(r.nl_establishments) + ' firms' })), { title: 'Slowest growth over 5 years, %', fmt: (v) => fmt(v, 1), tone: (v) => v > m5 ? 'g' : 'b', caption: 'Where a municipality merged with a neighbour during the period, its change is left out, so a merger never looks like growth.' })}
+${C.scatter(pts, { title: 'Do big business centres grow faster? Size against 5-year growth', xl: 'Establishments (log scale, 10^x)', xlS: 'Size', yl: 'Change over 5 years, %', ylS: '5-year change', xfmt: (v) => fmtInt(Math.pow(10, v)), yfmt: (v) => fmt(v, 0), good: 'top-right', labels: [...pts.slice().sort((a, b) => b.y - a.y).slice(0, 3), ...pts.slice().sort((a, b) => b.x - a.x).slice(0, 3), ...pts.slice().sort((a, b) => a.y - b.y).slice(0, 2)], caption: `Across ${fmtInt(pts.length)} municipalities the link between size and growth is ${strength(cr).replace(/^a /, '')}${cr > 0.2 ? ': larger places tend to grow faster' : cr < -0.2 ? ': smaller places tend to grow faster' : ''}.` })}
+${C.bars(big10.map((r) => ({ label: esc(r.name), v: r.nl_establishments, note: (r.nl_establishments_change_5y >= 0 ? '+' : '') + fmt(r.nl_establishments_change_5y, 1) + '% in 5 years' })), { title: 'The ten largest business centres: establishments on 1 January 2026', fmt: (v) => fmtInt(v), caption: 'Counts grow with town size; the growth rates are the fair comparison.' })}
+<p class="small muted">Every Dutch place shows its municipality's figures on its card. Context only, not part of any score.</p>
+${FOOT('Source: CBS Statistics Netherlands, table 81575NED (business establishments by municipality), CC BY 4.0.')}`;
+      pageIns(PN, 'The Dutch business base: establishments by municipality', `Business establishments in all ${fmtInt(N.length)} Dutch municipalities on 1 January 2026, with change over 1, 5 and 10 years, from CBS, with a free CSV.`, body, 'business', ld8(PN, 'Business establishments of Dutch municipalities', 'Number of business establishments on 1 January 2026 and change over 1, 5 and 10 years for every Dutch municipality, from CBS Statistics Netherlands.', csv, 'Netherlands', '2016/2026'));
+    }
+    // r11: Malaysia, everyday prices by state (PriceCatcher)
+    const MY = XRn('MY').filter((o) => o.indicator_id === 'my_price_level_state' && fin(o.value)).map((o) => ({ g: o.source_geo_id, name: o.area_label || o.source_geo_id, v: o.value, per: o.reference_period })).sort((a, b) => b.v - a.v);
+    if (MY.length >= 12) {
+      const PM = '/insights/cost-of-living-malaysian-states/', hi = MY[0], lo = MY[MY.length - 1], above = MY.filter((r) => r.v > 101), below = MY.filter((r) => r.v < 99);
+      const csv = out8(PM, 'nestlyzer-malaysia-state-prices.csv', ['rank', 'state', 'price_index_national_median_100', 'period'], MY.map((r, i) => [i + 1, r.name, r.v, r.per]));
+      const body = `${kick('living')}${printBtn}<h1>Everyday prices in Malaysia's ${MY.length} states and territories</h1>
+<p class="lede">The same basket of everyday items, priced by the government's PriceCatcher survey in shops across the country, compared with the national median (100). ${esc(hi.name)} is the dearest (${fmt(hi.v, 1)}), ${esc(lo.name)} the cheapest (${fmt(lo.v, 1)}), a gap of ${fmt(hi.v - lo.v, 1)} points. ${above.length ? above.map((r) => esc(r.name)).join(', ') + (above.length > 1 ? ' are' : ' is') + ' clearly above the median' : 'No state is clearly above the median'}; ${below.length ? below.map((r) => esc(r.name)).join(', ') + (below.length > 1 ? ' are' : ' is') + ' clearly below it' : 'none is clearly below it'}.</p>
+${dl8(csv, MY.length)}
+${C.bars(MY.map((r) => ({ label: esc(r.name), v: r.v, note: String(r.per) })), { title: 'Everyday price level by state, national median = 100', fmt: (v) => fmt(v, 1), tone: (v) => v > 101 ? 'b' : v < 99 ? 'g' : '', caption: 'Same items in every state; a figure of 105 means the basket costs about 5% more than in the median state.' })}
+<p class="small muted">Every Malaysian place shows its state's figure on its card. Context only, not part of any score.</p>
+${FOOT('Source: Department of Statistics Malaysia, PriceCatcher retail prices (data.gov.my, CC BY 4.0); index computed by Nestlyzer over items priced in every state.')}`;
+      pageIns(PM, 'Cost of living in Malaysia: everyday prices by state', `Everyday prices in all ${MY.length} Malaysian states and federal territories against the national median, from PriceCatcher, with a free CSV.`, body, 'living', ld8(PM, 'Everyday price level of Malaysian states', 'Price index of the same everyday items per state against the national median (100), computed from the PriceCatcher survey.', csv, 'Malaysia', String(MY[0].per)));
+    }
     }
   }
 
@@ -664,12 +703,24 @@ ${FOOT('Sources: World Bank WDI and B-READY, Transparency International, V-Dem, 
   /* =================================================================== HUB */
   {
     const cards = (sec) => OUT.filter((o) => o.sec === sec).map((o) => `<a class="ins-card" href="${o.p}"><b>${esc(o.title.split(':')[0])}</b><span>${esc(o.desc)}</span></a>`).join('');
+    /* r10: one hub grouped by theme, with a jump bar, instead of three long lists */
+    const THEMES = [['people', 'People and migration', 'Who is arriving, who is leaving and how fast places age.', /migration|move|ageing|growth|ten-years/],
+      ['housing', 'Housing and the cost of living', 'Rents, prices and what a home costs against local pay.', /rent|house|price|cost-of-living|energy|yield|property/],
+      ['families', 'Families, schools and childcare', 'Where children are well provided for.', /family|childcare|school/],
+      ['money', 'Work, pay and tax', 'Jobs, incomes, inequality and the tax bill.', /jobs|pay|income|tax-by|sweden|inequality|labour/],
+      ['wellbeing', 'Health, safety and environment', 'How long people live, how safe they are, how clean the air is.', /health|safety|air|quality|best-places-to-live|longevity/],
+      ['business', 'Business climate', 'Capital, red tape, rule of law and where companies do well.', /business|capital|red-tape|rule-of-law|location-index/]];
+    const themeOf = (o) => (THEMES.find((t) => t[3].test(o.p)) || ['more'])[0];
+    const card = (o) => `<a class="ins-card" href="${o.p}"><b>${esc(o.title.split(':')[0])}</b><span>${esc(o.desc)}</span></a>`;
+    const listed = OUT.filter((o) => o.sec !== 'country' && o.sec !== 'hub');
+    const themed = () => { const used = THEMES.filter((t) => listed.some((o) => themeOf(o) === t[0])); const more = listed.filter((o) => themeOf(o) === 'more');
+      return `<span id="living"></span><span id="inside"></span><nav class="chips" aria-label="Themes">${used.map((t) => `<a href="#${t[0]}">${t[1]}</a>`).join('')}${more.length ? '<a href="#more">More</a>' : ''}</nav>` +
+        used.map((t) => `<h2 id="${t[0]}">${t[1]}</h2><p>${t[2]}</p><div class="ins-grid2">${listed.filter((o) => themeOf(o) === t[0]).map(card).join('')}</div>`).join('') +
+        (more.length ? `<h2 id="more">More</h2><div class="ins-grid2">${more.map(card).join('')}</div>` : ''); };
     const pod = (rows, t) => `<div><b>${t}</b><ol>${rows.slice(0, 3).map((r, i) => `<li>${medal(i)} ${cl(r.cc)} <span class="muted small">${fmt(r.s)}</span></li>`).join('')}</ol></div>`;
     const body = `<h1>Insights: places in numbers</h1><p class="lede">Charts, rankings and trends for anyone choosing where to live, invest or build: ${CC.length} countries compared on what matters to households and to companies, and big-data views inside the countries, built from official statistics. Every chart explains itself, works on a phone and prints as a clean PDF.</p>
 <div class="ins-pod">${pod(lifeLeague, 'Quality of life')}${pod(league, 'Business climate')}</div>
-<h2 id="living">For households</h2><div class="ins-grid2">${cards('living')}</div>
-<h2 id="inside">Inside the countries</h2><p>Every municipality at once: rents, incomes, taxes and health for tens of thousands of places.</p><div class="ins-grid2">${cards('inside')}</div>
-<h2 id="business">For companies</h2><div class="ins-grid2">${cards('business')}</div>
+${themed()}
 <h2>Country by country</h2><p>${lifeLeague.concat(CC.filter((cc) => !lifeLeague.some((r) => r.cc === cc)).map((cc) => ({ cc }))).map((r) => cl(r.cc)).join(' · ')}</p>
 ${FOOT('')}`;
     pageIns('/insights/', 'Insights: places in numbers', `Rankings, charts and trends on quality of life and business climate in ${CC.length} countries, plus municipality-level views of rents, incomes and taxes.`, body, 'hub');

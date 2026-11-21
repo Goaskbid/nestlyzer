@@ -1,0 +1,15 @@
+{"note": "Typical publication months of Nestlyzer's official sources, used by the quarterly refresh reminder. Months are typical, not promises; the collector always checks what is actually new.",
+ "sources": [
+  {"name": "Eurostat regional population, age and migration (NUTS 3)", "ids": ["EU_demo_r_gind3", "EU_demo_r_pjanaggr3", "EU_demo_r_pjanind3"], "months": [3, 4]},
+  {"name": "Eurostat regional employment", "ids": ["EU_nama_10r_3empers"], "months": [2]},
+  {"name": "Eurostat formal childcare", "ids": ["EU_ilc_caindformal"], "months": [5, 6]},
+  {"name": "Portugal INE rents of new leases", "ids": ["PT_INE_0014698", "PT_INE_0014773", "PT_INE_0012600_ORIGINAL"], "months": [3, 6, 9, 12]},
+  {"name": "France CNAF childcare coverage", "ids": ["FR_CNAF_COVERAGE"], "months": [1]},
+  {"name": "France INSEE local businesses (FLORES)", "ids": ["FR_FLORES_A88"], "months": [12]},
+  {"name": "US Census county population and migration", "ids": ["US_COUNTY_CHANGE_2025"], "months": [3]},
+  {"name": "Netherlands CBS local statistics", "ids": ["NL_CBS_81575"], "months": [7]},
+  {"name": "Malaysia PriceCatcher prices", "ids": ["MY_PRICECATCHER_2026_10", "MY_ITEMS", "MY_PREMISES"], "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]},
+  {"name": "UK ONS private rents", "ids": ["UK_PIPR_LANDING"], "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]},
+  {"name": "Spain rental atlas (SERPAVI)", "ids": ["ES_SERPAVI_LANDING"], "months": [4]},
+  {"name": "Noise maps (Switzerland and EU, every five years)", "ids": ["CH_NOISE_STAC", "EU_NOISE_LANDING"], "months": [6]}
+ ]}

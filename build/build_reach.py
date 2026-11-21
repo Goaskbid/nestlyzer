@@ -196,3 +196,6 @@ for cc, (s, n) in shards.items():
     cols['climate_s'], cols['climrisk_s'] = cl, cr
     json.dump(x, open(p, 'w'), separators=(',', ':'), ensure_ascii=False)
 print('reach and inland ports added for', len(shards), 'countries;', len(PORTS), 'inland ports')
+# 2.15.30-r11 (refresh keeps history): inland ports AND intermodal terminals worldwide (r8) replace the ports-only distance.
+import subprocess as _sp, sys as _sy
+_sp.run([_sy.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'add_intermodal_reach.py')], check=True)

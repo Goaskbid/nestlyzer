@@ -13,7 +13,7 @@ from collections import defaultdict
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'data', 'audit'); os.makedirs(OUT, exist_ok=True)
 meta = json.load(open(os.path.join(ROOT, 'data', 'meta.json')))
-VERSION = re.search(r"'(\d+\.\d+\.\d+)'", open(os.path.join(ROOT, 'build', 'build_site.mjs')).read()).group(1)
+VERSION = json.load(open(os.path.join(ROOT, 'package.json')))['version']   # r11: package.json is the one source of truth since 2.15.24
 fmeta = {f['id']: f for f in meta['factors']}
 P = meta['config']['profiles']
 biz_cats = {c for k, p in P.items() if p.get('business') for c in p['weights']}

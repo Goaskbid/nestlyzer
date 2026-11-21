@@ -88,5 +88,17 @@
   "file_sha256": "de9a20a310b2c3701ac1dbb9a5a6e1b525e6d10c200c4b49ea58c57547a31284",
   "added": 2030,
   "identical": 0
+ },
+ {
+  "release": "data-intake-2026-11-21",
+  "file_sha256": "3cf159527f5b629ca28de291aaf181ed488dcf004880c26453cb702e8e243dbf",
+  "added": 16,
+  "identical": 0
+ },
+ {
+  "release": "data-intake-2026-11-21",
+  "file_sha256": "70f59d23d8725ddbefffd783dee5b0cd43be8afbfc7d59c02900ec11c579f9c2",
+  "added": 1389,
+  "identical": 0
  }
 ]

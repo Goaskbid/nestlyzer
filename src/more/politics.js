@@ -14,10 +14,16 @@ function polPos(labels) { for (var i = 0; i < POL_SPEC.length; i++) for (var j =
 function polClaims(e, p) { return ((e && e.claims && e.claims[p]) || []).filter(function (c) { return c.mainsnak && c.mainsnak.datavalue && c.rank !== 'deprecated'; }); }
 function polQ(c, p) { var q = c.qualifiers && c.qualifiers[p] && c.qualifiers[p][0]; return q && q.datavalue && q.datavalue.value; }
 function polTime(v) { return v && v.time ? v.time.slice(1, 11) : ''; }
+var POL_KEEP = ['P102', 'P1142', 'P131', 'P1387', 'P1410', 'P194', 'P297', 'P6', 'P31'], POL_TTL = 30 * 864e5;
+function polStorePut(q, e) { try { var c = {}; POL_KEEP.forEach(function (p) { if (e.claims && e.claims[p]) c[p] = e.claims[p]; }); localStorage.setItem('nzpol:' + q, JSON.stringify({ t: Date.now(), e: { id: q, labels: e.labels && e.labels.en ? { en: e.labels.en } : {}, claims: c } })); } catch (x) { try { for (var i = localStorage.length - 1; i >= 0; i--) { var k = localStorage.key(i); if (k && k.indexOf('nzpol:') === 0) localStorage.removeItem(k); } } catch (y) {} } }
+function polStoreGet(q) { try { var v = JSON.parse(localStorage.getItem('nzpol:' + q) || 'null'); return v && Date.now() - v.t < POL_TTL ? v.e : null; } catch (x) { return null; } }
 function polEnts(ids) {   // batches of 50, cached; claims and English labels only
+  /* r10: the Politics tab keeps what it last read. Entities that loaded once are stored in the browser (trimmed to the
+     claims the tab uses, 30 days) and reused when Wikidata is slow or down, so a failed refresh never blanks the tab. */
+  ids.forEach(function (q) { if (q && !POLW[q]) { var c = polStoreGet(q); if (c) POLW[q] = c; } });
   ids = ids.filter(function (q, i, a) { return q && !POLW[q] && a.indexOf(q) === i; });
   var b = []; for (var i = 0; i < ids.length; i += 50) b.push(ids.slice(i, i + 50));
-  return Promise.all(b.map(function (g) { return jget('https://www.wikidata.org/w/api.php?action=wbgetentities&ids=' + g.join('|') + '&props=claims|labels&languages=en&format=json&origin=*').then(function (j) { for (var k in j.entities || {}) POLW[k] = j.entities[k]; }); })).then(function () { return POLW; });
+  return Promise.all(b.map(function (g) { return jget('https://www.wikidata.org/w/api.php?action=wbgetentities&ids=' + g.join('|') + '&props=claims|labels&languages=en&format=json&origin=*').then(function (j) { for (var k in j.entities || {}) { POLW[k] = j.entities[k]; polStorePut(k, j.entities[k]); } }).catch(function () { return null; }); })).then(function () { return POLW; });
 }
 function polLabel(q) { var e = POLW[q]; return e && e.labels && e.labels.en ? e.labels.en.value : ''; }
 function polPartyOf(person, at) {   // the party the person belonged to at a date (or now)

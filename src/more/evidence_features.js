@@ -41,10 +41,14 @@ function loadArms(button){
  getJSON('/data/emblems-reviewed.json').then(function(d){
  var item=d.items&&d.items[id];if(item&&item.permitted_use_reviewed===true&&/^\/assets\/arms\/[^/]+\.(svg|png|webp)$/.test(item.asset||'')){show(item);return;}
  if(!extOn()){fail('Enable external content to load emblem');return;}
- var prop=WD_PROP[r.country];if(!prop){fail('No exact emblem identifier supplied');return;}
+ var prop=WD_PROP[r.country];
+ return (typeof NZEmblemIdentity==='object'&&NZEmblemIdentity.collectedFile?NZEmblemIdentity.collectedFile(r.country,r.oid):Promise.resolve(null)).then(function(file){   // 2.15.30-r13: collected file first
+ if(file)return jget('https://commons.wikimedia.org/w/api.php?action=query&titles='+encodeURIComponent('File:'+file)+'&prop=imageinfo&iiprop=url|mime|extmetadata&iiurlwidth=120&format=json&origin=*');
+ if(!prop){throw Error('No exact emblem identifier supplied');}
  return wdSearch('haswbstatement:'+prop+'='+r.oid).then(ids=>{if(!alive())return null;if(ids.length!==1)throw Error('No unambiguous official identifier');return jget('https://www.wikidata.org/w/api.php?action=wbgetentities&ids='+ids[0]+'&props=claims&format=json&origin=*').then(j=>j.entities[ids[0]])}).then(e=>{
   if(!e||!alive())return null;var ids=(e.claims?.[prop]||[]).map(x=>x.mainsnak?.datavalue?.value);if(!ids.some(x=>String(x)===String(r.oid)))throw Error('Official code mismatch');var file=claim(e,'P94');if(!file)throw Error('No coat of arms');
   return jget('https://commons.wikimedia.org/w/api.php?action=query&titles='+encodeURIComponent('File:'+file)+'&prop=imageinfo&iiprop=url|mime|extmetadata&iiurlwidth=120&format=json&origin=*');
+ });
  }).then(j=>{
   if(!j||!alive()||!extOn())return;var i=Object.values(j.query?.pages||{})[0]?.imageinfo?.[0],m=i?.extmetadata||{},lic=m.LicenseShortName?.value||'',url=m.LicenseUrl?.value||'';
   if(!i||!/^(CC0|CC BY(?:-SA)? [1-4]\.0|Public domain)$/.test(lic)||/noncommercial|no derivatives|\bNC\b|\bND\b/i.test(lic+' '+url))throw Error('Image licence unresolved');

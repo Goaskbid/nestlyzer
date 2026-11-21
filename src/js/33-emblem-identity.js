@@ -20,6 +20,16 @@ var NZEmblemIdentity=(function(){
   if(req.requireIBGE&&!values(entity,'P1585').some(function(v){return /^\d{7}$/.test(String(v));}))return false;
   return true;
  }
- return {request:request,verify:verify,values:values};
+ /* 2.15.30-r13: coats of arms collected once by Nestlyzer's own collector (Wikidata P94, matched by official code, openly
+    licensed files only), one small same-origin file per country. Gives the Commons file name without asking Wikidata. */
+ var collected={};
+ function decode(doc,code){var k=code.indexOf('~');if(k<0)return null;var i=code.slice(0,k),rest=code.slice(k+1),name=(i?doc.p[parseInt(i,36)]||'':'')+rest;return name.slice(-1)==='\u0000'?name.slice(0,-1):name+'.svg';}
+ function collectedFile(cc,oid){
+  if(!cc||!/^[A-Z]{2}$/.test(cc)||oid==null||typeof fetch!=='function')return Promise.resolve(null);
+  if(!collected._i)collected._i=fetch('/data/arms/index.json',{credentials:'same-origin'}).then(function(r){return r.ok?r.json():{};}).catch(function(){return {};});
+  if(!collected[cc])collected[cc]=collected._i.then(function(ix){return ix&&ix[cc]?fetch('/data/arms/'+cc+'.json',{credentials:'same-origin'}):null;}).then(function(r){return r&&r.ok?r.json():null;}).then(function(d){return d&&d.v===1&&d.m&&Array.isArray(d.p)?d:null;}).catch(function(){collected[cc]=null;return null;});
+  return collected[cc].then(function(d){var c=d&&d.m[String(oid)];return c?decode(d,c):null;});
+ }
+ return {request:request,verify:verify,values:values,collectedFile:collectedFile,decode:decode};
 })();
 if(typeof module==='object'&&module.exports)module.exports=NZEmblemIdentity;

@@ -205,7 +205,7 @@ function armsFor(r) {
   // 2.15.28: key 'arms2' so empty results cached by the 8-country lookup before 2.15.28 are asked again
   // 2.15.30-r7: key 'arms5' and 120 px thumbnails: since Feb 2026 Wikimedia rate-limits thumbnail widths outside its standard steps
   // (20, 40, 60, 120, 250, 330, 500, 960, 1280, 1920, 3840), so the old 96 px images failed; remembered 96 px links are dropped
-  var key = 'arms5:' + r.id, c = store(key); if (c && c.t && Date.now() - c.t < 2592e6) return Promise.resolve(ARMS[r.id] = c.v);
+  var key = 'arms6:' + r.id, c = store(key); if (c && c.t && Date.now() - c.t < 2592e6) return Promise.resolve(ARMS[r.id] = c.v);
   if (!extOn()) return Promise.resolve(null);
   var done = function (v) { if(!extOn())return null; if (!v && WD_FAIL[r.id]) { delete WD_FAIL[r.id]; return null; } ARMS[r.id] = v; try { store(key, { t: Date.now(), v: v }); } catch (e) {} return v; };
   var p94 = function (e) { var f = e && e.claims && ((e.claims.P94 || [])[0] || {}).mainsnak; return f && f.datavalue && f.datavalue.value; };
@@ -218,12 +218,19 @@ function armsFor(r) {
       if (!i || !armsLic(lic, url) || !/^https:\/\/upload\.wikimedia\.org\//.test(img || '')) return null;
       var art = new DOMParser().parseFromString((m.Artist || {}).value || 'Wikimedia Commons', 'text/html').body.textContent.trim().slice(0, 80);
       return { src: img, full: /^https:\/\/upload\.wikimedia\.org\//.test(i.url || '') ? i.url : '', lic: lic, by: art, of: of || '', page: i.descriptionurl || ('https://commons.wikimedia.org/wiki/File:' + encodeURIComponent(f)) }; }); };
+  // 2.15.30-r13: the collected file first (exact official code, no Wikidata request); otherwise the live resolver
+  var collected = typeof NZEmblemIdentity === 'object' && NZEmblemIdentity.collectedFile ? NZEmblemIdentity.collectedFile(r.country, r.oid) : Promise.resolve(null);
+  return collected.then(function (f) {
+    if (f && extOn()) return commons(f, '').then(function (v) { if (v) v.identity = { property: 'P94', code: String(r.oid), country: r.country, source: 'collected' }; return v; });
+    return liveArms();
+  }, liveArms).then(done, function () { return null; });
+  function liveArms() {
   // every country: the same exact-ID / LAU-code / name resolver the Story and facts use (shared cache, no extra lookup)
   return wikidataExactFor(r).then(function (e) {
     if (!e || !extOn()) return null;
     var own=p94(e);if(!own)return null;
-    return commons(own,'').then(function(v){if(v)v.identity=e.nzExactIdentity;return v;}); })
-    .then(done, function () { return null; });
+    return commons(own,'').then(function(v){if(v)v.identity=e.nzExactIdentity;return v;}); });
+  }
 }
 function armsPump() {
  while(ARMN<4&&ARMQ.length){var job=ARMQ.shift();if(!extOn())continue;ARMN++;

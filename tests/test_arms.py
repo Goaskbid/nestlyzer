@@ -47,10 +47,10 @@ with sync_playwright() as pw:
     # a failed lookup (rate limit) must not be remembered: the next visit tries again
     ctx2 = br.new_context(); n = {'c': 0}
     def busy(route): n['c'] += 1; route.fulfill(status=503, body='')
-    ctx2.route('**/*wikidata.org/**', busy)
+    ctx2.route('**/*wikidata.org/**', busy); ctx2.route('**/commons.wikimedia.org/**', busy)   # r13: collected arms ask Commons directly
     p2 = ctx2.new_page(); p2.goto(B + '/switzerland/zurich/adliswil/', wait_until='load'); p2.wait_for_timeout(5500)
-    cached = p2.evaluate("Object.keys(localStorage).filter(k=>k.startsWith('nz:arms5:')).length")
-    check('no-fail-cache', cached == 0 and n['c'] >= 3, f'busy Wikidata: {n["c"]} tries with back-off, nothing cached ({cached})')
+    cached = p2.evaluate("Object.keys(localStorage).filter(k=>k.startsWith('nz:arms6:')).length")
+    check('no-fail-cache', cached == 0 and n['c'] >= 3, f'busy Wikimedia: {n["c"]} tries with back-off, nothing cached ({cached})')
     ctx2.close()
     # 2.15.30-r7: Wikimedia rate-limits thumbnail widths outside its standard steps (since Feb 2026). Every request must use a
     # standard width, and when a thumbnail is refused (429) the original file is loaded instead, in the app and on static pages.

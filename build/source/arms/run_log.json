@@ -1,0 +1,462 @@
+{
+ "collector": "N1 2026-11-21",
+ "exported": "2026-11-21T09:38:19.560Z",
+ "finished": "2026-11-21T09:37:19.794Z",
+ "tasks": {
+  "m-CH": {
+   "level": "municipality",
+   "matched_by": "P771",
+   "rows": 3016,
+   "collected": "2026-11-21T08:51:07.947Z",
+   "error": null
+  },
+  "m-DE": {
+   "level": "municipality",
+   "matched_by": "P439",
+   "rows": 9988,
+   "collected": "2026-11-21T08:51:09.459Z",
+   "error": null
+  },
+  "m-FR": {
+   "level": "municipality",
+   "matched_by": "P374",
+   "rows": 20871,
+   "collected": "2026-11-21T08:51:11.684Z",
+   "error": null
+  },
+  "m-IT": {
+   "level": "municipality",
+   "matched_by": "P635",
+   "rows": 3365,
+   "collected": "2026-11-21T08:51:13.197Z",
+   "error": null
+  },
+  "m-ES": {
+   "level": "municipality",
+   "matched_by": "P772",
+   "rows": 7201,
+   "collected": "2026-11-21T08:51:14.707Z",
+   "error": null
+  },
+  "m-AT": {
+   "level": "municipality",
+   "matched_by": "P964",
+   "rows": 2325,
+   "collected": "2026-11-21T08:51:16.024Z",
+   "error": null
+  },
+  "m-NL": {
+   "level": "municipality",
+   "matched_by": "P382",
+   "rows": 1335,
+   "collected": "2026-11-21T08:51:17.290Z",
+   "error": null
+  },
+  "m-BE": {
+   "level": "municipality",
+   "matched_by": "P1567",
+   "rows": 686,
+   "collected": "2026-11-21T08:51:18.774Z",
+   "error": null
+  },
+  "m-UK": {
+   "level": "municipality",
+   "matched_by": "P836",
+   "rows": 279,
+   "collected": "2026-11-21T08:51:19.808Z",
+   "error": null
+  },
+  "m-SE": {
+   "level": "municipality",
+   "matched_by": "P525",
+   "rows": 907,
+   "collected": "2026-11-21T08:51:20.922Z",
+   "error": null
+  },
+  "m-NO": {
+   "level": "municipality",
+   "matched_by": "P2504",
+   "rows": 645,
+   "collected": "2026-11-21T08:51:21.973Z",
+   "error": null
+  },
+  "m-PL": {
+   "level": "municipality",
+   "matched_by": "P1653",
+   "rows": 3358,
+   "collected": "2026-11-21T08:51:23.176Z",
+   "error": null
+  },
+  "m-BR": {
+   "level": "municipality",
+   "matched_by": "P1585",
+   "rows": 3866,
+   "collected": "2026-11-21T08:51:24.447Z",
+   "error": null
+  },
+  "m-AL": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 0,
+   "collected": "2026-11-21T08:51:25.455Z",
+   "error": null
+  },
+  "m-BG": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 296,
+   "collected": "2026-11-21T08:51:26.530Z",
+   "error": null
+  },
+  "m-CY": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 0,
+   "collected": "2026-11-21T08:51:27.551Z",
+   "error": null
+  },
+  "m-CZ": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 5757,
+   "collected": "2026-11-21T08:51:29.089Z",
+   "error": null
+  },
+  "m-DK": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 0,
+   "collected": "2026-11-21T08:51:30.312Z",
+   "error": null
+  },
+  "m-EE": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 0,
+   "collected": "2026-11-21T08:51:32.302Z",
+   "error": null
+  },
+  "m-EL": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 0,
+   "collected": "2026-11-21T08:51:34.314Z",
+   "error": null
+  },
+  "m-FI": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 0,
+   "collected": "2026-11-21T08:51:36.309Z",
+   "error": null
+  },
+  "m-HR": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 0,
+   "collected": "2026-11-21T08:51:38.314Z",
+   "error": null
+  },
+  "m-HU": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 2,
+   "collected": "2026-11-21T08:51:40.315Z",
+   "error": null
+  },
+  "m-IE": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 31,
+   "collected": "2026-11-21T08:51:42.305Z",
+   "error": null
+  },
+  "m-IS": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 4,
+   "collected": "2026-11-21T08:51:43.466Z",
+   "error": null
+  },
+  "m-LI": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 0,
+   "collected": "2026-11-21T08:51:44.501Z",
+   "error": null
+  },
+  "m-LT": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 0,
+   "collected": "2026-11-21T08:51:45.549Z",
+   "error": null
+  },
+  "m-LU": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 101,
+   "collected": "2026-11-21T08:51:46.585Z",
+   "error": null
+  },
+  "m-LV": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 0,
+   "collected": "2026-11-21T08:51:47.620Z",
+   "error": null
+  },
+  "m-MK": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 0,
+   "collected": "2026-11-21T08:51:48.679Z",
+   "error": null
+  },
+  "m-MT": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 0,
+   "collected": "2026-11-21T08:51:49.725Z",
+   "error": null
+  },
+  "m-PT": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 92,
+   "collected": "2026-11-21T08:51:50.770Z",
+   "error": null
+  },
+  "m-RO": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 0,
+   "collected": "2026-11-21T08:51:51.802Z",
+   "error": null
+  },
+  "m-RS": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 0,
+   "collected": "2026-11-21T08:51:52.850Z",
+   "error": null
+  },
+  "m-SI": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 0,
+   "collected": "2026-11-21T08:51:53.895Z",
+   "error": null
+  },
+  "m-SK": {
+   "level": "municipality",
+   "matched_by": "P782",
+   "rows": 561,
+   "collected": "2026-11-21T08:51:55.016Z",
+   "error": null
+  },
+  "m-AE": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 11,
+   "collected": "2026-11-21T08:51:56.053Z",
+   "error": null
+  },
+  "m-AR": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 292,
+   "collected": "2026-11-21T08:51:57.169Z",
+   "error": null
+  },
+  "m-AU": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 24,
+   "collected": "2026-11-21T08:51:58.213Z",
+   "error": null
+  },
+  "m-CA": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 262,
+   "collected": "2026-11-21T08:51:59.343Z",
+   "error": null
+  },
+  "m-CN": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 7,
+   "collected": "2026-11-21T08:52:01.308Z",
+   "error": null
+  },
+  "m-CO": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 757,
+   "collected": "2026-11-21T08:52:03.375Z",
+   "error": null
+  },
+  "m-EG": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 38,
+   "collected": "2026-11-21T08:52:05.326Z",
+   "error": null
+  },
+  "m-HK": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 0,
+   "collected": "2026-11-21T08:52:07.325Z",
+   "error": null
+  },
+  "m-ID": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 362,
+   "collected": "2026-11-21T08:52:09.331Z",
+   "error": null
+  },
+  "m-IL": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 79,
+   "collected": "2026-11-21T08:52:11.330Z",
+   "error": null
+  },
+  "m-IN": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 29,
+   "collected": "2026-11-21T08:52:13.329Z",
+   "error": null
+  },
+  "m-JP": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 1270,
+   "collected": "2026-11-21T08:52:15.416Z",
+   "error": null
+  },
+  "m-KR": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 12,
+   "collected": "2026-11-21T08:52:17.303Z",
+   "error": null
+  },
+  "m-MA": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 38,
+   "collected": "2026-11-21T08:52:19.340Z",
+   "error": null
+  },
+  "m-MX": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 1678,
+   "collected": "2026-11-21T08:52:21.557Z",
+   "error": null
+  },
+  "m-MY": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 23,
+   "collected": "2026-11-21T08:52:23.306Z",
+   "error": null
+  },
+  "m-NZ": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 8,
+   "collected": "2026-11-21T08:52:25.314Z",
+   "error": null
+  },
+  "m-PH": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 47,
+   "collected": "2026-11-21T08:52:27.312Z",
+   "error": null
+  },
+  "m-RU": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 3471,
+   "collected": "2026-11-21T08:52:29.771Z",
+   "error": null
+  },
+  "m-SA": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 4,
+   "collected": "2026-11-21T08:52:31.309Z",
+   "error": null
+  },
+  "m-SG": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 1,
+   "collected": "2026-11-21T08:52:33.318Z",
+   "error": null
+  },
+  "m-TH": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 6,
+   "collected": "2026-11-21T08:52:35.327Z",
+   "error": null
+  },
+  "m-TR": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 5,
+   "collected": "2026-11-21T08:52:37.316Z",
+   "error": null
+  },
+  "m-TW": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 33,
+   "collected": "2026-11-21T08:52:39.392Z",
+   "error": null
+  },
+  "m-US": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 534,
+   "collected": "2026-11-21T08:52:41.428Z",
+   "error": null
+  },
+  "m-VN": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 73,
+   "collected": "2026-11-21T08:52:43.329Z",
+   "error": null
+  },
+  "m-ZA": {
+   "level": "municipality",
+   "matched_by": "P1566",
+   "rows": 12,
+   "collected": "2026-11-21T08:52:45.328Z",
+   "error": null
+  },
+  "regions": {
+   "level": "region",
+   "matched_by": "P300",
+   "rows": 1820,
+   "collected": "2026-11-21T08:52:47.784Z",
+   "error": null
+  },
+  "countries": {
+   "level": "country",
+   "matched_by": "P297",
+   "rows": 63,
+   "collected": "2026-11-21T08:52:49.377Z",
+   "error": null
+  }
+ }
+}

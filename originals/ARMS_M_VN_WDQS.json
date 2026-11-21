@@ -1,0 +1,1322 @@
+{
+  "head" : {
+    "vars" : [ "item", "code", "arms", "label" ]
+  },
+  "results" : {
+    "bindings" : [ {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q881"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Vietnam"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Emblem%20of%20Vietnam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1562822"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q25281"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Đà Lạt"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Petit%20Guide%20illustr%C3%A9%20de%20Dalat%20%28Coat%20of%20Arms%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1584071"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q25282"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Da Nang"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Emblem%20of%20Danang%20City.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905468"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q33369"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Khánh Hòa"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Emblem%20of%20Khanhhoa%20Province.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1579634"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q33929"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ninh Bình"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20th%C3%A0nh%20ph%E1%BB%91%20Ninh%20B%C3%ACnh%2C%20t%E1%BB%89nh%20Ninh%20B%C3%ACnh%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1571968"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q33929"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ninh Bình"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20th%C3%A0nh%20ph%E1%BB%91%20Ninh%20B%C3%ACnh%2C%20t%E1%BB%89nh%20Ninh%20B%C3%ACnh%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905210"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q33996"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hà Tĩnh"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Emblem%20of%20Hatinh%20City.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1581047"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q33996"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hà Tĩnh"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20th%C3%A0nh%20ph%E1%BB%91%20H%C3%A0%20T%C4%A9nh%2C%20t%E1%BB%89nh%20H%C3%A0%20T%C4%A9nh%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1581047"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q35620"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bảo Lộc"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20th%C3%A0nh%20ph%E1%BB%91%20B%E1%BA%A3o%20L%E1%BB%99c%2C%20t%E1%BB%89nh%20L%C3%A2m%20%C4%90%E1%BB%93ng%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1588275"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q36088"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Vĩnh Yên"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20th%C3%A0nh%20ph%E1%BB%91%20V%C4%A9nh%20Y%C3%AAn%2C%20t%E1%BB%89nh%20V%C4%A9nh%20Ph%C3%BAc%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1562548"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q36088"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Vĩnh Yên"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20th%C3%A0nh%20ph%E1%BB%91%20V%C4%A9nh%20Y%C3%AAn%2C%20t%E1%BB%89nh%20V%C4%A9nh%20Ph%C3%BAc%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905571"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q36160"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hội An"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Emblem%20of%20Hoian%20City.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1580541"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q36608"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tây Ninh"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20t%E1%BB%89nh%20T%C3%A2y%20Ninh%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1566557"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q180573"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "South Vietnam"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Emblem%20of%20the%20Republic%20of%20Vietnam%20%281957%E2%80%931963%29%2001.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "11608491"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q180573"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "South Vietnam"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Emblem%20of%20South%20Vietnam%20%281963-1975%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "11608491"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q180573"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "South Vietnam"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20Republic%20of%20Vietnam%20%281957%E2%80%931963%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "11608491"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q180573"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "South Vietnam"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20Republic%20of%20Vietnam%20%281967%E2%80%931975%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "11608491"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q371485"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Long Điền"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20huy%E1%BB%87n%20Long%20%C4%90i%E1%BB%81n%2C%20t%E1%BB%89nh%20B%C3%A0%20R%E1%BB%8Ba%20-%20V%C5%A9ng%20T%C3%A0u%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8421398"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q546840"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hà Đông district"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20qu%E1%BA%ADn%20H%C3%A0%20%C4%90%C3%B4ng%2C%20th%E1%BB%A7%20%C4%91%C3%B4%20H%C3%A0%20N%E1%BB%99i%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905035"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q567923"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chợ Lách"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20huy%E1%BB%87n%20Ch%E1%BB%A3%20L%C3%A1ch%2C%20t%E1%BB%89nh%20B%E1%BA%BFn%20Tre%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1904846"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q596473"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Quảng Ninh"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20Qu%E1%BA%A3ng%20Ninh%2C%20t%E1%BB%89nh%20Qu%E1%BA%A3ng%20B%C3%ACnh.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905260"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q800057"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bình Liêu"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20B%C3%ACnh%20Li%C3%AAu%2C%20t%E1%BB%89nh%20Qu%E1%BA%A3ng%20Ninh%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905116"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1048617"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ba Vì"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20huy%E1%BB%87n%20Ba%20V%C3%AC%2C%20th%E1%BB%A7%20%C4%91%C3%B4%20H%C3%A0%20N%E1%BB%99i%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905044"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1320227"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tri Tôn"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20Tri%20T%C3%B4n%2C%20An%20Giang%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905493"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1320364"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dĩ An"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20of%20D%C4%A9%20An%20City%2C%20B%C3%ACnh%20D%C6%B0%C6%A1ng%20Province%2C%20Viet%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "9091481"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1320364"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dĩ An"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20of%20D%C4%A9%20An%20City%2C%20B%C3%ACnh%20D%C6%B0%C6%A1ng%20Province%2C%20Viet%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1583518"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1320576"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tân Châu"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20th%E1%BB%8B%20x%C3%A3%20T%C3%A2n%20Ch%C3%A2u%2C%20t%E1%BB%89nh%20An%20Giang%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905495"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1924538"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Yên Dũng"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20huy%E1%BB%87n%20Y%C3%AAn%20D%C5%A9ng%2C%20t%E1%BB%89nh%20B%E1%BA%AFc%20Giang%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905438"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1924595"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Lạng Giang"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20huy%E1%BB%87n%20L%E1%BA%A1ng%20Giang%2C%20t%E1%BB%89nh%20B%E1%BA%AFc%20Giang%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905441"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1927073"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chợ Mới"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20huy%E1%BB%87n%20Ch%E1%BB%A3%20M%E1%BB%9Bi%2C%20t%E1%BB%89nh%20An%20Giang%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905490"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2227688"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Việt Yên"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20Vi%E1%BB%87t%20Y%C3%AAn%2C%20t%E1%BB%89nh%20B%E1%BA%AFc%20Giang%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905434"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2236121"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hòa Vang"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20Ho%C3%A0%20Vang%2C%20th%C3%A0nh%20ph%E1%BB%91%20%C4%90%C3%A0%20N%E1%BA%B5ng%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905473"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q216075"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cần Thơ"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Emblem%20of%20Cantho%20City.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1581188"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q172640"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "North Vietnam"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Emblem%20of%20North%20Vietnam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "11608492"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3143381"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hương Sơn"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20H%C6%B0%C6%A1ng%20S%C6%A1n%2C%20t%E1%BB%89nh%20H%C3%A0%20T%C4%A9nh%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905597"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3710674"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bạch Thông"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20B%E1%BA%A1ch%20Th%C3%B4ng%2C%20t%E1%BB%89nh%20B%E1%BA%AFc%20K%E1%BA%A1n%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905670"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q4857421"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bảo Lâm"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20huy%E1%BB%87n%20B%E1%BA%A3o%20L%C3%A2m%2C%20t%E1%BB%89nh%20L%C3%A2m%20%C4%90%E1%BB%93ng%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905201"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q4914337"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bình Lục"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20B%C3%ACnh%20L%E1%BB%A5c%2C%20t%E1%BB%89nh%20H%C3%A0%20Nam%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905642"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5024880"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cẩm Xuyên"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20C%E1%BA%A9m%20Xuy%C3%AAn%2C%20t%E1%BB%89nh%20H%C3%A0%20T%C4%A9nh%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905589"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5034306"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cao Lộc"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20huy%E1%BB%87n%20Cao%20L%E1%BB%99c%2C%20t%E1%BB%89nh%20L%E1%BA%A1ng%20S%C6%A1n%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905533"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5209901"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Đăk R'Lấp"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20%C4%90%E1%BA%AFk%20R%27l%E1%BA%A5p%2C%20t%E1%BB%89nh%20%C4%90%E1%BA%AFk%20N%C3%B4ng%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1904986"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5211841"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Đầm Hà"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20%C4%90%E1%BA%A7m%20H%C3%A0%2C%20t%E1%BB%89nh%20Qu%E1%BA%A3ng%20Ninh%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8595255"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5274939"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Diễn Châu"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20huy%E1%BB%87n%20Di%E1%BB%85n%20Ch%C3%A2u%2C%20t%E1%BB%89nh%20Ngh%E1%BB%87%20An%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905054"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5311199"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Đức Cơ"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20%C4%90%E1%BB%A9c%20C%C6%A1%2C%20t%E1%BB%89nh%20Gia%20Lai%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1904976"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5311206"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Đức Thọ"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20huy%E1%BB%87n%20%C4%90%E1%BB%A9c%20Th%E1%BB%8D%2C%20t%E1%BB%89nh%20H%C3%A0%20T%C4%A9nh%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905596"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5324862"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ea Súp"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20Ea%20S%C3%BAp%2C%20t%E1%BB%89nh%20%C4%90%E1%BA%AFk%20L%E1%BA%AFk%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1904990"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5370325"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Thanh Oai"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20Thanh%20Oai%2C%20th%E1%BB%A7%20%C4%91%C3%B4%20H%C3%A0%20N%E1%BB%99i%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905037"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5370368"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Quốc Oai"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20Qu%E1%BB%91c%20Oai%2C%20th%E1%BB%A7%20%C4%91%C3%B4%20H%C3%A0%20N%E1%BB%99i%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905040"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5638929"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hải Hà"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20H%E1%BA%A3i%20H%C3%A0%2C%20t%E1%BB%89nh%20Qu%E1%BA%A3ng%20Ninh%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905117"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5946114"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hướng Hóa"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20H%C6%B0%E1%BB%9Bng%20Ho%C3%A1%2C%20t%E1%BB%89nh%20Qu%E1%BA%A3ng%20Tr%E1%BB%8B%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905249"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6405291"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Kiên Hải"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20Ki%C3%AAn%20H%E1%BA%A3i%2C%20t%E1%BB%89nh%20Ki%C3%AAn%20Giang%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1904959"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6438917"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Krông Búk"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20Kr%C3%B4ng%20B%C3%BAk%2C%20t%E1%BB%89nh%20%C4%90%E1%BA%AFk%20L%E1%BA%AFk%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "2591728"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6450589"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Kỳ Anh"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20huy%E1%BB%87n%20K%E1%BB%B3%20Anh%2C%20t%E1%BB%89nh%20H%C3%A0%20T%C4%A9nh.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905590"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6480651"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Lâm Hà"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20L%C3%A2m%20H%C3%A0%2C%20t%E1%BB%89nh%20L%C3%A2m%20%C4%90%E1%BB%93ng%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905208"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7022345"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Nghĩa Lộ"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20of%20Ngh%C4%A9a%20L%E1%BB%99%20Town%2C%20Y%C3%AAn%20B%C3%A1i%20Province%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1572565"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7188238"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Phù Cát"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20Ph%C3%B9%20C%C3%A1t%2C%20t%E1%BB%89nh%20B%C3%ACnh%20%C4%90%E1%BB%8Bnh%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905556"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7188288"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Phúc Yên"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20th%C3%A0nh%20ph%E1%BB%91%20Ph%C3%BAc%20Y%C3%AAn%2C%20t%E1%BB%89nh%20V%C4%A9nh%20Ph%C3%BAc%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1570656"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7188350"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Phụng Hiệp"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20huy%E1%BB%87n%20Ph%E1%BB%A5ng%20Hi%E1%BB%87p%2C%20t%E1%BB%89nh%20H%E1%BA%ADu%20Giang%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1904932"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7273042"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Quỳ Hợp"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20Qu%E1%BB%B3%20H%E1%BB%A3p%2C%20t%E1%BB%89nh%20Ngh%E1%BB%87%20An%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905063"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7560993"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sông Hinh"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20S%C3%B4ng%20Hinh%2C%20t%E1%BB%89nh%20Ph%C3%BA%20Y%C3%AAn%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905655"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7680446"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tam Đảo"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20Tam%20%C4%90%E1%BA%A3o%2C%20t%E1%BB%89nh%20V%C4%A9nh%20Ph%C3%BAc%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905572"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7682084"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tân Lạc"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20huy%E1%BB%87n%20T%C3%A2n%20L%E1%BA%A1c%2C%20t%E1%BB%89nh%20Ho%C3%A0%20B%C3%ACnh%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905019"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7683199"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tánh Linh"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20T%C3%A1nh%20Linh%2C%20t%E1%BB%89nh%20B%C3%ACnh%20Thu%E1%BA%ADn%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905568"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7708870"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Thạch Hà"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20Th%E1%BA%A1ch%20H%C3%A0%2C%20t%E1%BB%89nh%20H%C3%A0%20T%C4%A9nh%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905592"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7710664"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tháp Mười"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20Th%C3%A1p%20M%C6%B0%E1%BB%9Di%2C%20t%E1%BB%89nh%20%C4%90%E1%BB%93ng%20Th%C3%A1p%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1904944"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7913789"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Văn Yên"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20huy%E1%BB%87n%20V%C4%83n%20Y%C3%AAn%2C%20t%E1%BB%89nh%20Y%C3%AAn%20B%C3%A1i%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905665"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7932544"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Vĩnh Tường"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logovinhtuong.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905575"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7932544"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Vĩnh Tường"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20V%C4%A9nh%20T%C6%B0%E1%BB%9Dng%2C%20t%E1%BB%89nh%20V%C4%A9nh%20Ph%C3%BAc%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905575"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q8052186"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Yên Lạc"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20Y%C3%AAn%20L%E1%BA%A1c%2C%20t%E1%BB%89nh%20V%C4%A9nh%20Ph%C3%BAc%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905574"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q8052197"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Yên Thành"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20Y%C3%AAn%20Th%C3%A0nh%2C%20t%E1%BB%89nh%20Ngh%E1%BB%87%20An%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1905055"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q10772337"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hớn Quản"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bi%E1%BB%83u%20tr%C6%B0ng%20huy%E1%BB%87n%20H%E1%BB%9Bn%20Qu%E1%BA%A3n%2C%20t%E1%BB%89nh%20B%C3%ACnh%20Ph%C6%B0%E1%BB%9Bc%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "9078131"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q10781868"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Krông Nô"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20huy%E1%BB%87n%20Kr%C3%B4ng%20N%C3%B4%2C%20t%E1%BB%89nh%20%C4%90%E1%BA%AFk%20N%C3%B4ng%2C%20Vi%E1%BB%87t%20Nam.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1904988"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q10805522"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Phong Điền"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20of%20Phong%20%C4%90i%E1%BB%81n%20District%2C%20C%E1%BA%A7n%20Th%C6%A1%20City.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "9533386"
+      }
+    } ]
+  }
+}

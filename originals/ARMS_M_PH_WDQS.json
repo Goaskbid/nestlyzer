@@ -1,0 +1,749 @@
+{
+  "head" : {
+    "vars" : [ "item", "code", "arms", "label" ]
+  },
+  "results" : {
+    "bindings" : [ {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q928"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Philippines"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20Philippines.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1694008"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1475"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Quezon City"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Quezon%20City.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1692192"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1475"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Quezon City"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Quezon%20City.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1692193"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1473"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Davao City"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Davao%20City%20Ph%20official%20seal.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1715348"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1473"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Davao City"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Davao%20City%20Ph%20official%20seal.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1715346"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13727"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Antique"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Official%20Seal%20of%20Antique.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1730491"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13759"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cagayan"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Official%20Seal%20of%20Cagayan.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1721086"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13778"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Catanduanes"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Official%20Seal%20of%20Catanduanes.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1717952"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13812"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ifugao"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ph%20seal%20ifugao.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1711331"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13826"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Isabela"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Official%20Seal%20of%20Isabela.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1710515"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13829"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "La Union"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ph%20seal%20la%20union.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1707052"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13841"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Lanao del Norte"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ph%20seal%20lanao%20del%20norte.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1707668"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13847"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Masbate"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ph%20seal%20masbate.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1700711"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13867"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Occidental Mindoro"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Occ%20Mindoro%20Former%20seal.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1699586"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13865"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Nueva Ecija"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Nueva%20Ecija%20seal.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1697473"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13869"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Palawan"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ph%20seal%20palawan.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1696177"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13857"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Misamis Occidental"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Official%20Seal%20of%20Misamis%20Occidental.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1699493"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13864"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Northern Samar"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ph%20seal%20northern%20samar.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1697549"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13875"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Romblon"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ph%20seal%20romblon.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1691537"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13884"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Southern Leyte"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Official%20Seal%20of%20Southern%20Leyte.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1685725"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13877"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sarangani"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ph%20seal%20sarangani.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "7671047"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13882"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "South Cotabato"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ph%20seal%20south%20cotabato.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1685731"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13893"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tawi-Tawi"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Official%20Seal%20of%20Tawi-Tawi.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1682671"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q59250"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Agoncillo"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Agoncillo%2CBatangasjf4670a.JPG"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1731970"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q356398"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tapaz"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Tapaz%20official%20municipal%20logo.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1682960"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q627190"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Francisco"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/SAN%20FRANCISCO%20SEAL%20%28HI-RES%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1690019"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q75933"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/SanPedroCity.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1688749"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q772211"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Manila%20%28Colonial%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1710642"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13737"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Official%20Seal%20of%20Basilan.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1726404"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13769"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Camiguin%20Seal.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1719694"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13806"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Official%20Seal%20of%20Davao%20Oriental.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1715342"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13827"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ph%20seal%20kalinga.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "7115730"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13825"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ph%20seal%20iloilo.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1711004"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13840"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ph%20seal%20laguna.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1708026"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13846"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ph%20seal%20marinduque.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1700902"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13844"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Leyte%20Province%20seal.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1706800"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13862"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ph%20seal%20negros%20occidental.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1697808"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13860"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ph%20seal%20misamis%20oriental.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1699492"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13871"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Official%20Seal%20of%20Pangasinan.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1695357"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13872"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ph%20seal%20quezon.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1692194"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13873"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Official%20Seal%20of%20Quirino.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1691975"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13887"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Official%20Seal%20of%20Sulu.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1685370"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13891"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ph%20seal%20surigao%20del%20sur.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1685214"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13889"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Official%20Seal%20of%20Surigao%20del%20Norte.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1685215"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13895"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ph%20seal%20zambales.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1679435"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13892"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ph%20seal%20tarlac.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1682811"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13902"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ph%20seal%20zamboanga%20sibugay.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "7115981"
+      }
+    } ]
+  }
+}

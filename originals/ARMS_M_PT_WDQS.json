@@ -1,0 +1,1664 @@
+{
+  "head" : {
+    "vars" : [ "item", "code", "arms", "label" ]
+  },
+  "results" : {
+    "bindings" : [ {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q45412"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Coimbra"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT0603"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Coimbra.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q168112"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Castedo"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT170105"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Brasao%20castedo.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q168544"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ribalonga"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT170111"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blazonry%20of%20Ribalonga.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q205147"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Constantim"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT171407"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Constantim%20bras%C3%A3o.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q206933"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Leiria"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT1009"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Leiria.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q250445"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Poiares"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT170808"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Poiares%20peso%20regua%20brasao%20POI%20PRG.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q117676"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Viseu"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT1823"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bras%C3%A3o%20de%20Cidade%20Viseu.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q64401"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Queimadela"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT11D180110"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bras%C3%A3o%20da%20Freguesia%20de%20Queimadela.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q120822"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Fonte Boa"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030607"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/EPS-fonteboa.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q143815"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Penso (Santo Estêvão)"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030340"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/BRG-sestevaopenso.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q159457"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Faro"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT0805"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Faroarms.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q492475"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Valença"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT1608"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bras%C3%A3o%20de%20Valen%C3%A7a.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q533381"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Basto (Santa Tecla)"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030519"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/CBT.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q577821"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Santiago de Candoso"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030846"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/GMR-santiagocandoso.PNG"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q592516"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Vilarinho de Samardã"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT171430"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Vilarinho%20Samard%C3%A3%20bras%C3%A3o.gif"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q598930"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Este (São Pedro)"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030346"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/BRG-spedroeste.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q322689"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Aboim das Choças"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT160101"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bras%C3%A3o%20de%20Aboim%20das%20Cho%C3%A7as.gif"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q397379"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Castelo de Paiva"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT0106"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/CPV.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q404261"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ovar"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT0115"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bras%C3%A3o%20de%20Ovar.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q758350"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Atães"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030803"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/GMR-ataes.PNG"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q790359"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Aveleda"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030304"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/BRG-aveleda.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q800151"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Freguesia de Bagueixe"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT040504"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bagueixe.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q808980"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Barroselas"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT160906"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Barroselas.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q849026"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Covilhã"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT0503"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/CVL.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1022581"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Passos (São Julião)"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030343"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/BRG-sjuliaopassos.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1022633"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "São Salvador de Souto"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030862"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/GMR-ssalvadorsouto.PNG"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1022672"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tabuadelo"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030869"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/GMR-tabuadelo.PNG"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1022697"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cepães"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030707"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bras%C3%A3o%20de%20Cep%C3%A3es.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1022709"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Gémeos"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030818"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/GMR-gemeos.PNG"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1022857"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Airão (Santa Maria)"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030844"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/GMR-smariaairao.PNG"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q971614"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Morreira"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030326"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/BRG-morreira.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q977825"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Mascotelos"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030829"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/GMR-mascotelos.PNG"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q986217"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Caminha"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT160207"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bras%C3%A3o%20de%20Caminha.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q990933"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Lamaçães"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030321"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/BRG-lamacaes.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1021374"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Moledo"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT160212"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bras%C3%A3o%20de%20Moledo%20do%20Minho.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q894746"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Boticas"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT170205"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/BTC.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q923475"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Maximinos"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030324"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/BRG-maximinos.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q930988"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Lamas de Olo"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT171413"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Lamas%20de%20Olo%20bras%C3%A3o.gif"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q961791"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Paredes de Coura"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT160516"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/PCR.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q610541"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Nossa Senhora da Conceição"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT171419"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/NS%20Concei%C3%A7%C3%A3o%20bras%C3%A3o.gif"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q664979"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rebordainhos"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT040235"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Brasao%20reb.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q757856"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Valpaços"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT171228"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bras%C3%A3o%20de%20Valpa%C3%A7os.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q757860"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Montalegre"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT170613"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/MTR.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1997577"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Esposende"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030605"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/EPS1.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1998342"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Freguesia de Maranhão"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT120307"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/AVS-maranhao.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1998449"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Freguesia de Valongo"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT120308"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/AVS-valongo.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2002750"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Santa Lucrécia de Algeriz"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030339"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/BRG-slucreciaalgeriz.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2031653"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Adoufe"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT171402"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Adoufe%20bras%C3%A3o.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2066542"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Barbacena (Elvas)"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT120704"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/ELV-barbacena.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1407827"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ferreiros"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030314"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/BRG-ferreiros.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1413950"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Subportela"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT160933"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/VCT-subportela.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1447086"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Merelim (São Paio)"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030345"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/BRG-spaiomerelim.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1680041"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Parada"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT040227"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Brasao%20Parada.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1852605"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Lixa do Alvão"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT171309"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/VPA%20Lixa%20Alvao%20brasao.gif"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1981534"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sande (Vila Nova)"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030873"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/LogoG.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1995501"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Nogueiró"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030329"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/BRG-nogueiro.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1023168"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Serafão"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030732"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Freguesia%20de%20Seraf%C3%A3o%20Coat%20of%20arms%2C%20heraldry.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1024350"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Eucisia"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT040104"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/AFE-eucisia.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1024749"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Valverde"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT040117"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/AFE-valverde.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1046208"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Carvoeiro"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT160909"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Brasao%20carvoeiro.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1139713"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Crespos"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030308"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/BRG-crespos.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1407545"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ferradosa"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT040105"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/AFE-ferradosa.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2221607"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Vale de Açor"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT121306"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/PSR-valeacor.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2257141"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Freguesia de Flor da Rosa"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT120603"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Flor%20Rosa%20brasao.JPG"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2257171"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Terrugem"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT120709"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/ELV-terrugem.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2258438"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Freguesia de Crato e Mártires"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT120602"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/CRT-cratomartires.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2259477"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Freguesia de São Lourenço"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT121408"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/PTG-slourenco.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2259797"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Freguesia de Carreiras"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT121403"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/PTG-carreiras.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2260069"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Vila Boim"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT120710"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/ELV-vilaboim.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2260466"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tramaga"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT121307"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/PSR-tramaga.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2279037"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Mouçós"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT171417"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Mou%C3%A7%C3%B3s%20bras%C3%A3o.gif"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2310790"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Vila Cova"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT171428"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Vila%20Cova%20bras%C3%A3o.gif"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2095847"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Merelim (São Pedro)"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030347"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/BRG-spedromerelim.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2096232"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Semelhe"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030353"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/BRG-semelhe.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2116863"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Penso (São Vicente)"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT030350"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/BRG-svicentepenso.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2121828"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Freguesia de Sendim"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT040614"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/BrasaoSendim150px.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2208941"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ermida"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT171408"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ermida%20bras%C3%A3o.gif"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q15261950"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rebordainhos e Pombares"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT040254"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Brasao%20reb.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q16489215"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Alturas do Barroso e Cerdedo"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT170217"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bras%C3%A3o%20de%20Alturas%20do%20Barroso%20e%20Cerdedo.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q16493383"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ardãos e Bobadela"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT170218"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bras%C3%A3o%20de%20Ard%C3%A3os%20e%20Bobadela.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q16502306"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Boticas e Granja"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT170219"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bras%C3%A3o%20de%20Boticas%20e%20Granja.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q18468017"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Arga (Baixo, Cima e São João)"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT160221"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Freguesia%20de%20Arga.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q18468652"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Moledo e Cristelo"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT160224"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/UF%20Moledo%20e%20Cristelo.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q20053403"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Codessoso, Curros e Fiães do Tâmega"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT170220"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bras%C3%A3o%20de%20Codessoso%2C%20Curros%20e%20Fi%C3%A3es%20do%20T%C3%A2mega.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q20061618"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Caminha (Matriz) e Vilarelho"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT160222"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/CMN-matrizvilarelho.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q25439097"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cabaços e Fojo Lobal"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT160756"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bras%C3%A3o%20Caba%C3%A7os%20e%20Fojo%20Lobal.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2431909"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "São Dinis"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT171423"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/S%C3%A3o%20Dinis%20bras%C3%A3o.gif"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2451810"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "São Pedro"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT171424"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/S%C3%A3o%20Pedro%20bras%C3%A3o.gif"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2652561"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Vale de Nogueiras"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT171427"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Vale%20de%20Nogueiras%20bras%C3%A3o.gif"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2652650"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Afonsim"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT171301"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/VPA%20Afonsim%20brasao.gif"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2652833"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Nogueira"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT171418"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Nogueira%20bras%C3%A3o.gif"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2652873"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Pensalvos"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "PT171308"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/VPA%20Pensalvos%20brasao.gif"
+      }
+    } ]
+  }
+}

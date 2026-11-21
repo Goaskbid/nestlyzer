@@ -1,0 +1,116 @@
+{
+  "head" : {
+    "vars" : [ "item", "code", "arms", "label" ]
+  },
+  "results" : {
+    "bindings" : [ {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q241884"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Trat"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Seal%20of%20Trat%20Province.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1605277"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q236769"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Krabi"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Seal%20Krabi.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1152631"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q52028"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chiang Mai"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20of%20Chiang%20Mai%20City%20Municipality.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1153671"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1014322"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Trang"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Seal%20of%20Trang.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1150007"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q13027198"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Wat Suthiwararam School"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Wat%20Suthiwararam%20School%20Crest.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6908690"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q273306"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Phang Nga"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Seal%20Phang%20Nga.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "1151462"
+      }
+    } ]
+  }
+}

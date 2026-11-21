@@ -1,0 +1,5020 @@
+{
+  "head" : {
+    "vars" : [ "item", "code", "arms", "label" ]
+  },
+  "results" : {
+    "bindings" : [ {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q21"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "England"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E92000001"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/England%20COA.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q126514"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dumfries and Galloway"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000006"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20the%20Dumfries%20and%20Galloway%20Regional%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3410"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hertfordshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E10000015"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Hertfordshire%20County%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q80967"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Outer Hebrides"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000013"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20Na%20h-Eileanan%20Siar%20%28Outer%20Hebrides%29.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q109128"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Gwynedd"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "W06000002"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/GWYNEDD%20Shield.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q123709"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dundee"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S20000474"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/CoA%20of%20Dundee%20ext.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q123709"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dundee"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S19000592"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/CoA%20of%20Dundee%20ext.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q9681"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hertford"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04013543"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Hertford%20town%20coat%20of%20arms%20standard.webp"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q189912"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Aberdeenshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000034"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Aberdeenshire%20County%20Council%201890-1975.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q181071"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "New Romney"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04005028"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20New%20Romney%2C%20England.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q182923"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Stirling"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S20000472"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Stirling.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q182923"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Stirling"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S19000589"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Stirling.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q172157"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Winchester"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000074"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coats%20of%20arms%20of%20Winchester.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q188801"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Royal Borough of Kensington and Chelsea"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000210"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20Royal%20Borough%20of%20Kensington%20and%20Chelsea.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q188801"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Royal Borough of Kensington and Chelsea"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000020"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20Royal%20Borough%20of%20Kensington%20and%20Chelsea.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q23095"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "South Yorkshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E11000003"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20South%20Yorkshire%20Metropolitan%20County%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q179351"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "City of Westminster"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000223"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20City%20of%20Westminster.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q179351"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "City of Westminster"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000033"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20City%20of%20Westminster.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q19784"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Berkhamsted"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04004697"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Berkhamsted%20town%20crest.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q23079"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Northumberland"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E06000057"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Northumberland%20County%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q151048"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Barnet"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000193"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Barnet.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q151048"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Barnet"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000003"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Barnet.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q168052"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Lancaster"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000121"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Lancaster%20City%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q852778"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Whitby"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04007706"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Whitby.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q145"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "United Kingdom"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "K02000001"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20United%20Kingdom%20%282022%2C%20variant%202%29.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q25"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Wales"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "W92000004"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Royal%20Badge%20of%20Wales%20%282024%20onwards%29.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q23083"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "West Yorkshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E11000006"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/West%20Yorkshire%20Combined%20Authority.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q23115"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Northamptonshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E10000021"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Northamptonshire%20County%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q9679"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Isle of Wight"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E06000046"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Isle%20of%20Wight%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q4093"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Glasgow"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S19000510"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Glasgow%20Coat%20of%20Arms%201996.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q23099"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Greater Manchester"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E11000001"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Greater%20Manchester%20County%20Council%20Arms.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q202059"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Lambeth"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000212"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20London%20Borough%20of%20Lambeth.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q202059"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Lambeth"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000022"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20London%20Borough%20of%20Lambeth.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q202088"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Camden"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000197"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Camden.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q202088"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Camden"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000007"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Camden.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q168159"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Anglesey"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "W06000001"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Isle%20of%20Anglesey%20County%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q23311"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "City of London"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000191"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20The%20City%20of%20London.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q23311"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "City of London"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000001"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20The%20City%20of%20London.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q22"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Scotland"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S92000003"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Royal%20Arms%20of%20the%20Kingdom%20of%20Scotland.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q23135"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Worcestershire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E10000034"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Worcestershire%20County%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q853012"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bexhill-on-Sea"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04013123"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bexhill%20coat%20of%20arms.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q866347"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bishopbriggs"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S19000502"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/84bishopbriggs.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q23109"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Norfolk"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E10000020"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Norfolk.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q205679"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Hackney"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000202"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/LB%20Hackney%20Coat%20of%20Arms.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q205679"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Hackney"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000012"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/LB%20Hackney%20Coat%20of%20Arms.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q23107"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rutland"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E06000017"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Rutland%20County%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q23287"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "West Sussex"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E10000032"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20the%20West%20Sussex%20County%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q894079"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Burnley"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000117"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Burnley%20Borough%20Council.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q894087"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Harrogate"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000165"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20Borough%20Council%20of%20Harrogate.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q894094"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Stockton-on-Tees"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E06000004"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20Borough%20of%20Stockton-on-Tees.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q914000"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bridgnorth"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04011228"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Bridgnorth.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q202177"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Angus"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000041"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20Angus%20Area%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q9676"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Isle of Man"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "M99999999"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20Isle%20of%20Man.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q23140"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Warwickshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E10000031"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Warwickshire%20County%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q192240"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Northampton"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04013033"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Northampton.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q23111"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Suffolk"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E10000029"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Suffolk.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q23129"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Herefordshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E06000019"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Herefordshire%20County%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q205690"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Hillingdon"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000207"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20London%20Borough%20of%20Hillingdon.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q205690"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Hillingdon"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000017"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20London%20Borough%20of%20Hillingdon.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q205817"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Islington"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000209"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20London%20Borough%20of%20Islington.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q205817"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Islington"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000019"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20London%20Borough%20of%20Islington.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q851718"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Beverley"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04000508"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/The%20Beverley%20Arms.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q170478"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bournemouth"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04013533"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Bounemouth%20Borough%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1017204"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Lauder"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S20000382"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Lauder%20Burgh%20Arms.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1017204"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Lauder"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S19000413"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Lauder%20Burgh%20Arms.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1018723"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Coatbridge"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S19000519"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coatbridge%20coat%20arms.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1022488"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Brighton and Hove"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E06000043"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Brighton%20and%20Hove.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q894074"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ashford"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000105"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Borough%20of%20Ashford.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q894075"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Barrow-in-Furness"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000027"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Barrow%20in%20Furness.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q894078"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Broxbourne"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000075"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Broxbourne%20Borough%20Council%20shield.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q894078"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Broxbourne"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000095"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Broxbourne%20Borough%20Council%20shield.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q201149"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Fife"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000047"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20Fife%20Area%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q23306"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Greater London"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E12000007"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20the%20Greater%20London%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q23276"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Surrey"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E10000030"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Surrey%20shield.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q32508"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Royal Borough of Kingston upon Thames"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000211"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20Royal%20Borough%20of%20Kingston%20upon%20Thames.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q32508"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Royal Borough of Kingston upon Thames"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000021"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20Royal%20Borough%20of%20Kingston%20upon%20Thames.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q32515"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Richmond upon Thames"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000217"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Richmond%20upon%20Thames.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q32515"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Richmond upon Thames"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000027"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Richmond%20upon%20Thames.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q931180"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dacorum"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000096"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Dacorum%20Coat%20of%20Arms.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q939838"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sevenoaks"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04005004"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Sevenoaks%20Town%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1026448"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Calderdale"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E08000033"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Calderdale%20Metropolitan%20Borough%20Council.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1070590"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cheshire East"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E06000049"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Cheshire%20East%20Borough%20Council.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q36405"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Aberdeen"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S20000478"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Aberdeen.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q36405"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Aberdeen"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S19000600"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Aberdeen.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q201970"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Shrewsbury"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04013487"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Shrewsbury.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q205358"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Barking and Dagenham"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000192"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Barking%20and%20Dagenham.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q205358"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Barking and Dagenham"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000002"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Barking%20and%20Dagenham.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1228523"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Knowsley"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E08000011"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Knowsley%20Metropolitan%20Borough%20Council.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1277825"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "East Devon"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000040"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20East%20Devon%20District%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1131007"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Copeland"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000029"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20Borough%20of%20Copeland.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1142118"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Salford"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000160"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Salford%20City%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1142118"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Salford"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E08000006"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Salford%20City%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1171024"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Darlington"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E06000005"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Darlington%20Borough%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q990616"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Harwich"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04004099"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Harwich.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q995647"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sidmouth"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04002989"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Sidmouth%20Town%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q206926"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "North Ayrshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000021"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/North%20Ayrshire%20coat%20of%20arms.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2011497"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Wilmslow"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04012173"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Wilmslow%20Town%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2166127"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Welwyn Hatfield"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000241"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Welwyn%20Hatfield%20District%20Council%20shield.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q204940"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "West Lothian"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000040"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20West%20Lothian%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q203000"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Perth"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S20000473"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coa%20Scotland%20Town%20Perth%20big.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q203000"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Perth"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S19000591"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coa%20Scotland%20Town%20Perth%20big.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q207208"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Bexley"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000194"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20Ldn%20Borough%20of%20Bexley.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q207208"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Bexley"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000004"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20Ldn%20Borough%20of%20Bexley.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q207218"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Ealing"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000199"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ealing%20coat%20of%20arms.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q207218"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Ealing"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000009"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ealing%20coat%20of%20arms.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q208121"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "West Dunbartonshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000039"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20West%20Dunbartonshire.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q208139"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Newham"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000215"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Newham.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q208139"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Newham"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000025"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Newham.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q203349"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Poole"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04013535"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Poole%20%28Naturalistic%20Dolphin%29.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q204720"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hereford"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04000921"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Hereford%20City%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1009298"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Swanage"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04003483"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Swanage.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1012038"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Alyth"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S20000476"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Alyth.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1012038"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Alyth"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S19000596"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Alyth.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q207639"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chichester"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04009888"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/ChichesterCOA.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1278608"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Oldham"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E08000004"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Oldham%20Metropolitan%20Borough%20Council.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1280897"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sunderland"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E08000024"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Sunderland%20City%20Council.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1292592"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Elmbridge"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000207"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Elmbridge%20BC%20Crest%20of%20Arms.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1001536"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Budleigh Salterton"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04002947"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Budleigh%20Salterton%20Town%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1007093"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Exmouth"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04003003"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Exmouth%20Town%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q23436"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Edinburgh"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S20000463"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Edinburgh.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q26888"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Croydon"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000198"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Croydon.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q26888"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Croydon"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000008"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Croydon.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q32504"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Merton"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000214"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Merton.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q32504"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Merton"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000024"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Merton.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q914040"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bridport"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04013370"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Bridport.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q918975"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Kirklees"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E08000034"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Kirklees%20Metropolitan%20Borough%20Council.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q40478"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Hammersmith and Fulham"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000203"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Hammersmith%20and%20Fulham.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q40478"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Hammersmith and Fulham"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000013"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Hammersmith%20and%20Fulham.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q206934"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Midlothian"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000019"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Midlothian%20District%20Council%201975-1996.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q206934"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Midlothian"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000019"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Midlothian%20District%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q207111"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "North Lanarkshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000050"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20North%20Lanarkshire%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q208152"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Tower Hamlets"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000220"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Tower%20Hamlets.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q208152"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Tower Hamlets"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000030"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Tower%20Hamlets.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q207257"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "East Lothian"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000010"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20East%20Lothian.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q207268"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Clackmannanshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000005"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Clackmannanshire.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q207201"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Brent"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000195"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Brent.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q207201"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Brent"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000005"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Brent.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q4796458"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Paglesham"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04004082"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Paglesham%20sign.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5283458"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Newport"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "W06000022"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Newport%20COA%20shield.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q15221505"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Gedling"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E05009699"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Gedling.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q20986417"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Coventry"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E08000026"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Coventry%20City%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1094110"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Carlisle"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000028"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Carlisle.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1094226"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Winchester"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000094"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/180509-0953%2023C3441%20%2842076195902%29.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1120443"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "North Tyneside"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000176"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20North%20Tyneside%20Metropolitan%20Borough%20Council.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1120443"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "North Tyneside"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E08000022"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20North%20Tyneside%20Metropolitan%20Borough%20Council.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q26163"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sandwich"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04004919"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Sandwich%20Town%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q23169"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Oxfordshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E10000025"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Oxfordshire%20County%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q24530541"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Letchworth Garden City"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04004801"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Letchworth%20Garden%20City%20arms.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q28530249"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Highland Council"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000017"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20Highland%20Area%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q28530253"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "East Lothian Council"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000010"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20East%20Lothian.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q28530260"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "The Moray Council"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000020"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Moray%20Area%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q55934339"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Glasgow City"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000049"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Glasgow%20Coat%20of%20Arms%201996.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q62274582"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Aberdeen City"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000033"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Aberdeen-arms.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1364541"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bolton"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E08000001"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Bolton%20Metropolitan%20Borough%20Council.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1423078"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tameside"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E08000008"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Tameside%20Metropolitan%20Borough%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1428848"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Flint"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "W04000186"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Flint%2C%20Wales.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q208201"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Bromley"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000196"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Bromley.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q208201"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Bromley"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000006"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Bromley.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q207679"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Perth and Kinross"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000048"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20Area%20Council%20of%20Perth%20and%20Kinross.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q209135"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "East Ayrshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000008"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20East%20Ayrshire.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1774403"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Camborne"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04011413"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Camborne%2C%20Cornwall.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1829102"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hadstock"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04004136"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Hadstock%20village%20sign.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1878732"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rotherham"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E08000018"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Rotherham%20Metropolitan%20Borough%20Council.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q214162"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Hounslow"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000208"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Hounslow.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q214162"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Hounslow"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000018"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Hounslow.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2673020"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Middlesbrough"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E06000002"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20District%20Council%20of%20Middlesbrough.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2681944"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cranleigh"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04009609"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Cranleigh%2C%20England.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2736112"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Eastwood"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04007858"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Eastwood%20urban%20disctrict%20shield.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q40608"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Waltham Forest"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000221"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Waltham%20Forest.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q40608"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Waltham Forest"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000031"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Waltham%20Forest.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q54809"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Banff"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S20000262"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Banff%20coat%20of%20arms.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q54809"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Banff"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S19000291"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Banff%20coat%20of%20arms.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q20986481"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Worcester"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000237"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Worcester%20City%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q21241814"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "North Yorkshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E06000065"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20North%20Yorkshire%20County%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q21279371"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Lancashire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E10000017"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Lancashire%20County%20Council.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q21487155"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Southend-on-Sea"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E06000033"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms-southend.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q21886152"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Stevenage"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000080"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Stevenage%20Borough%20Council%20shield.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q21886152"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Stevenage"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000243"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Stevenage%20Borough%20Council%20shield.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q24342199"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cardiff"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "W06000015"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Cardiff.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1000115"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Faversham"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04005052"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Faversham%20Town%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1000679"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Wokingham"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04012089"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Wokingham-arms.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1000679"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Wokingham"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04001241"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Wokingham-arms.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q210563"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Wandsworth"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000222"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Wandsworth.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q210563"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Wandsworth"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000032"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Wandsworth.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q211106"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Moray"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000020"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Moray%20Area%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q208279"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Highland"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000017"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20Highland%20Area%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q209131"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "South Ayrshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000028"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20South%20Ayrshire.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1094060"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "St Albans"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000240"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20d%27azur%20au%20sautoir%20d%27or.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1094104"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Canterbury"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000106"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Canterbury%20Arms.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q209142"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "South Lanarkshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000029"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20South%20Lanarkshire.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1891143"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Mansfield"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000174"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Mansfield%20District%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1891939"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sleaford"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04005832"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20uk%20Sleaford%20%28Lincolnshire%29.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1892596"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rochdale"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000159"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Rochdale%20Metropolitan%20Borough%20Council.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1892596"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rochdale"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E08000005"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Rochdale%20Metropolitan%20Borough%20Council.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q207176"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Monmouthshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "W06000021"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/MONMOUTHSHIRE%20Shield.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q215030"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Lewisham"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000213"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Lewisham.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q215030"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Lewisham"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000023"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Lewisham.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q215038"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Havering"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000206"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Havering.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q215038"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Havering"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000016"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Havering.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q213560"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Haringey"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000204"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Haringey.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q213560"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Haringey"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000014"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Haringey.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q668262"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tavistock"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04003354"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Tavistock%20Coat%20of%20Arms.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q676653"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Weymouth and Portland"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000053"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Weymouth%20and%20Portland%20Borough%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q797782"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Medway"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E06000035"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Medway%20Council%20Crest%20-%20geograph.org.uk%20-%201033321.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q839811"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ludlow"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04011309"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Ludlow.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q839811"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ludlow"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04008515"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Ludlow.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q211889"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "East Dunbartonshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000045"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20East%20Dunbartonshire.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q684307"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Wigan"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E08000010"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Wigan%20Metropolitan%20Borough%20Council.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q693450"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Royal Borough of Greenwich"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000201"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20Royal%20Borough%20of%20Greenwich.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q693450"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Royal Borough of Greenwich"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000011"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20Royal%20Borough%20of%20Greenwich.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q285964"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sandwell"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000182"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Sandwell%20Metropolitan%20Borough%20Council.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q285964"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sandwell"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E08000028"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Sandwell%20Metropolitan%20Borough%20Council.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1434448"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Redcar and Cleveland"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E06000003"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Redcar%20and%20Cleveland.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1458060"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "High Peak"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000037"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20High%20Peak.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q516131"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Skipton"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04012269"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Skipton.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q526576"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Thurso"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S20000289"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Barrulet%20thurso%20wiki.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q526576"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Thurso"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S19000318"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Barrulet%20thurso%20wiki.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q527391"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bridlington"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04000511"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20Borough%20of%20Bridlington.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q215829"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Harrogate"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04013500"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20Borough%20Council%20of%20Harrogate.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q217829"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ceredigion"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "W06000008"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Ceredigion%20County%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1908426"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bearsden"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S19000530"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20Burgh%20of%20Bearsden%2C%201959-1975.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1920099"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Blackwell"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04002700"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Blackwell%2C%20Bolsover.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2223229"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bourne"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04005884"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Bourne%2C%20Lincolnshire.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2283481"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Thaxted"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04004164"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Thaxted.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2388660"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Alsager"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04013175"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Alsager%2C%20England.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q697126"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bridgend County Borough"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "W06000013"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bridgend%20COA%20shield.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q730706"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Southwark"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000218"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Southwark.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q730706"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Southwark"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000028"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Southwark.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q661619"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Weymouth"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04013390"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Weymouth.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q210476"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Harrow"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000205"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Harrow.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q210476"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Harrow"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000015"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Harrow.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q210531"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Enfield"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000200"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Enfield.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q210531"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Enfield"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000010"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Enfield.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2834810"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bradford"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E08000032"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Bradford%20City%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3028477"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dinton"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04011697"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/HydeArmorials.PNG"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3028477"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dinton"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04010159"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/HydeArmorials.PNG"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3306663"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Merthyr Tydfil County Borough"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "W06000024"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Merthyr%20Tydfil%20arms.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q217840"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Carmarthenshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "W06000010"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Carmarthenshire%20County%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q246884"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Lewes"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04003777"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Lewes.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1497633"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Gedling"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000173"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Gedling.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1614775"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hertsmere"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000098"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Hertsmere%20Borough%20Council%20shield.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1685976"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "North Hertfordshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000099"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/North%20Hertfordshire%20District%20Council%20shield.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1752424"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Stockport"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000161"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Stockport%20Metropolitan%20Borough%20Council.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1752424"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Stockport"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E08000007"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Stockport%20Metropolitan%20Borough%20Council.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q843868"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Wrexham County Borough"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "W06000006"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/WREXHAM%20Shield.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q213361"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Pembrokeshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "W06000009"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Pembrokeshire%20County%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q213474"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Aylesbury"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04001559"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Aylesbury%20family%20arms.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q320378"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Sutton"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000219"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Sutton.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q320378"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "London Borough of Sutton"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E09000029"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20London%20Borough%20of%20Sutton.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q387419"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Wareham"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04012327"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Wareham.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q748065"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Caerphilly County Borough"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "W06000018"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Caerphilly%20COA%20shield.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q763171"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Wakefield"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E08000036"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Wakefield.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1925858"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Solihull"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E08000029"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Solihull%20Metropolitan%20Borough%20Council.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1942426"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "South Kesteven"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000141"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20South%20Kesteven%20District%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1971967"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dover"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000108"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Dover%20District%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q530885"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Stoke Gifford"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04013348"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/ArmsBerkeleyStokeGifford.jpg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q531311"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Teignmouth"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04003234"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20Of%20Teignmouth%20Devon.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q457014"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Amber Valley"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000032"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Amber%20Valley.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q503331"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dorchester"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04003533"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Dorchester.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q576562"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Kilmarnock"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S20000355"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Complete%20Guide%20to%20Heraldry%20Fig668.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q576562"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Kilmarnock"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S19000385"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Complete%20Guide%20to%20Heraldry%20Fig668.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q589620"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Colchester"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000071"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Colchester.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q654216"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ayr"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S20000330"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ayr%20Coat%20of%20Arms.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q654216"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ayr"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S19000359"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ayr%20Coat%20of%20Arms.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q661529"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ripon"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04007409"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coa%20Ripon.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q607082"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "North Kesteven"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000139"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20district%20uk%20North%20Kesteven%20%28Lincolnshire%29.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q609161"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Abergavenny"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "W04001057"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Abergavenny.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q629802"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "West Dorset"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E07000052"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20West%20Dorset%20District%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q631444"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Shaftesbury"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04003434"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Shaftesbury.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q643919"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Torfaen"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "W06000020"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Torfaen%20County%20Borough%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q772614"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "St Austell"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04013080"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20St%20Austell.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q792596"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Axminster"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E04002937"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Axminster%20Town%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q650682"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Denbighshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "W06000004"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Denbighshire%20County%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q99229588"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "South Lanarkshire Council"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "S12000029"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20South%20Lanarkshire.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q505610"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Flintshire"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "W06000005"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Flintshire%20County%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q512036"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bury"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E43000156"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Bury%20Metropolitan%20Borough%20Council.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q512036"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bury"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "E08000002"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Bury%20Metropolitan%20Borough%20Council.png"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q156150"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "W06000023"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Powys%20County%20Council.svg"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q596885"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "W06000019"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Blaenau%20Gwent%20County%20Borough%20Council.svg"
+      }
+    } ]
+  }
+}

@@ -1,0 +1,4719 @@
+{
+  "head" : {
+    "vars" : [ "item", "code", "arms", "label" ]
+  },
+  "results" : {
+    "bindings" : [ {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q133116"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hamilton"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Hamilton%20%28Ontario%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5969782"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q16"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Canada"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Royal%20Coat%20of%20arms%20of%20Canada.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6251999"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q340"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Montreal"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Montreal.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6077243"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q138841"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Beloeil"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Beloeil%20COA2.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5898138"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q139104"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Brossard"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Brossard%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673382"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q139104"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Brossard"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Brossard%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5909629"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q139231"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Baie-Saint-Paul"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Baie-Saint-Paul%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6690232"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q139398"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Longueuil"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Longueuil%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6059891"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q139415"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Windsor"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Windsor%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6182959"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1930"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ottawa"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Ottawa%2C%20Ontario.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6094817"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q139473"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sherbrooke"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20Sherbrooke.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6146143"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q139497"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Westmount"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Westmount.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6179226"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q176"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Quebec"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Quebec%20%28without%20crown%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6115047"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q139422"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Beauceville"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Beauceville%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672937"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q139422"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Beauceville"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Beauceville%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6295855"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q10566"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saskatoon"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/CAN%20Saskatoon%20CoA.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6141256"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q139503"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Baie-D'Urfé"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Baie-D%27Urf%C3%A9%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673843"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q139503"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Baie-D'Urfé"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Baie-D%27Urf%C3%A9%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5890542"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q139568"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Blainville"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Blainville%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674047"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q139568"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Blainville"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Blainville%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5903510"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q139588"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Côte Saint-Luc"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20C%C3%B4te%20Saint-Luc.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5928488"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q139694"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Richmond"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20Ville%20ca%20Richmond.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673784"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q139694"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Richmond"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20Ville%20ca%20Richmond.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6122078"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q139714"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Amqui"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Amqui%20%28Quebec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6943488"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q139714"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Amqui"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Amqui%20%28Quebec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674002"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1336"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rimouski"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Rimouski%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6354895"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1951"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Alberta"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Alberta.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5883102"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q139427"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Repentigny"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Repentigny.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6119518"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q139437"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Lambert"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20qc%20Saint-Lambert.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6138603"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q34047"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Brockville"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Brockville%20Ontario%20Arms.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5909294"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141873"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Hyacinthe"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ca%20ville%20Saint-Hyacinthe%20%28Canada%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673729"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141881"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Granby"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Granby.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674065"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141881"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Granby"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Granby.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5964215"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141724"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Jérôme"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Saint-J%C3%A9r%C3%B4me%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674099"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141724"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Jérôme"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Saint-J%C3%A9r%C3%B4me%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6138501"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141378"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Plessisville"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Plessisville.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6945991"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141378"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Plessisville"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Plessisville.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674096"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141511"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Félicien"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Saint-F%C3%A9licien.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6138201"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141522"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Châteauguay"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Ch%C3%A2teauguay.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5920433"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141522"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Châteauguay"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Ch%C3%A2teauguay.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674006"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1973"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "British Columbia"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20British%20Columbia.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5909050"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1989"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saskatchewan"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Saskatchewan.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6141242"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1904"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ontario"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Ontario.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6093943"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1948"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Manitoba"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Manitoba.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6065171"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141918"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chibougamau"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Chibougamau%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5921147"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141918"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chibougamau"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Chibougamau%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674156"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141924"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Boucherville"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20Ville%20Ca%20Boucherville%20Quebec.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5906267"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q16461"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Nanaimo"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Nanaimo%2C%20Canada.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6085772"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q172"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Toronto"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Toronto.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6167865"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141954"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Roberval"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Roberval%201959%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674160"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141963"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dorval"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Dorval%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5941925"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141960"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Acton Vale"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ca%20ville%20Acton%20Vale.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5882142"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141960"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Acton Vale"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ca%20ville%20Acton%20Vale.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673959"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q34116"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Thunder Bay"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Thunder%20Bay%20Arms.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6166142"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q34183"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Barrie"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20Barrie.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5894171"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1952"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Nova Scotia"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Nova%20Scotia.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6091530"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1978"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Prince Edward Island"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Prince%20Edward%20Island%2C%20Canada.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6113358"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2003"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Newfoundland and Labrador"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Newfoundland%20and%20Labrador.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6354959"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141542"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bécancour"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20becancour.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674113"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141547"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Contrecœur"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Contrec%C5%93ur%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5927024"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141590"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "L'Ile-Perrot"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20Ville%20de%20l%27%C3%8Ele-Perrot%20Proper.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6053877"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141940"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Drummondville"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ca%20ville%20Drummondville.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5942845"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141946"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Montmagny"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Montmagny%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674159"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141946"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Montmagny"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Montmagny%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6325529"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141743"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Farnham"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Farnham%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5951644"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141748"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Mascouche"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20de%20Mascouche.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673782"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141748"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Mascouche"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20de%20Mascouche.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6067494"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141754"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "L'Assomption"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/COA%20L%27Assomption.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6050263"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141973"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Alma"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Alma%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5884083"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141991"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Percé"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Perc%C3%A9%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672732"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141991"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Percé"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Perc%C3%A9%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6621052"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141995"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Thetford Mines"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Thetford%20Mines%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672673"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141995"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Thetford Mines"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Thetford%20Mines%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6943827"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141764"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Huntingdon"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Huntingdon.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672839"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141764"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Huntingdon"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Huntingdon.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5978683"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141769"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "La Tuque"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20La%20Tuque%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673864"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141783"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Port-Cartier"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Armoiries-VPC2.gif"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673713"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141783"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Port-Cartier"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Armoiries-VPC2.gif"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6111696"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142151"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Trois-Pistoles"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Trois%20Pistoles%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672912"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142151"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Trois-Pistoles"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Trois%20Pistoles%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6942037"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142182"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Clermont"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Clermont%20%28Charlevoix-Est%29%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673914"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142182"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Clermont"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Clermont%20%28Charlevoix-Est%29%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8593687"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142180"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Delson"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Delson%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672589"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142180"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Delson"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Delson%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5937612"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142196"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rosemère"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20Rosem%C3%A8re%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6127681"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142196"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rosemère"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20Rosem%C3%A8re%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674079"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2023"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Nunavut"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Nunavut.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6091732"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2145"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Quebec City"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Quebec%20City%20Coat%20of%20Arms.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674020"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2145"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Quebec City"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Quebec%20City%20Coat%20of%20Arms.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6325494"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q23025"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Red Deer"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Red%20Deer%20Canada.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6118158"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q24639"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Vancouver"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Vancouver.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6173331"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142014"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Varennes"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Armoiries%20de%20Varennes%2C%20Qu%C3%A9bec.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674192"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142029"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Matane"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Matane%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674082"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142039"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Salaberry-de-Valleyfield"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Salaberry-de-Valleyfield%20%28Quebec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6139289"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142211"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Fossambault-sur-le-Lac"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Fossambault-sur-le-Lac.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673338"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142218"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "L'Ancienne-Lorette"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20L%27Ancienne-Lorette.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6534203"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142218"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "L'Ancienne-Lorette"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20L%27Ancienne-Lorette.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674043"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142225"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Barkmere"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Barkmere.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672754"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142225"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Barkmere"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Barkmere.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5893094"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142233"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Lac-Sergent"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Lac-Sergent.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672556"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141605"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Fermont"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Fermont%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5952337"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141605"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Fermont"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Fermont%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673993"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141635"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cap-Santé"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Cap-Sant%C3%A9%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674128"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141635"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cap-Santé"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Cap-Sant%C3%A9%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "7535673"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141658"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Causapscal"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Causapscal.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673912"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141658"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Causapscal"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Causapscal.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8616970"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141699"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sept-Îles"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ca%20ville%20Sept-%C3%8Eles%20%28Sept-Rivi%C3%A8res%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674203"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141699"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sept-Îles"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ca%20ville%20Sept-%C3%8Eles%20%28Sept-Rivi%C3%A8res%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6144312"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44012"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Trois-Rivières"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Trois-Rivieres.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6169141"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142058"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Mont-Laurier"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Mont-Laurier%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673719"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142058"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Mont-Laurier"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Mont-Laurier%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6077128"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142069"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chambly"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Armoiries%20de%20Chambly.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674210"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142069"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chambly"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Armoiries%20de%20Chambly.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5919566"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142076"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Candiac"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Candiac.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5914826"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142076"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Candiac"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Candiac.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674092"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1965"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "New Brunswick"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20New%20Brunswick%2C%20Canada.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6087430"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2055"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Whitehorse"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Whitehorse.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6180550"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142391"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Carignan"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Carignan%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672627"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142391"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Carignan"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Carignan%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5917117"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142397"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Warwick"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Warwick%20%28Quebec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673723"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142490"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Neuville"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20Ca%20Neuville%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6325572"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142490"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Neuville"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20Ca%20Neuville%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673778"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142504"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Rémi"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ville-saint-remi-armoiries.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6138987"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142504"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Rémi"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ville-saint-remi-armoiries.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673969"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q141810"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Laval"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Laval%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6050610"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2007"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Northwest Territories"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Northwest%20Territories.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6091069"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142279"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Lebel-sur-Quévillon"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Lebel-sur-Qu%C3%A9villon.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6051264"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142320"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Marc-des-Carrières"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20Ville%20ca%20Saint-Marc-des-Carri%C3%A8res.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673827"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142320"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Marc-des-Carrières"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20Ville%20ca%20Saint-Marc-des-Carri%C3%A8res.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6138719"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142333"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Bruno-de-Montarville"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Saint-Bruno-de-Montarville.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6137540"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142333"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Bruno-de-Montarville"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Saint-Bruno-de-Montarville.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674100"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q202973"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Kingston"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Kingston%2C%20Canada.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5992500"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2135"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Winnipeg"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Crest%20of%20Winnipeg.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6183235"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2123"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Regina"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ca%20ville%20Regina%20%28Saskatchewan%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6119109"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q271730"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Abbotsford"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Abbotsford.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5881791"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2009"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Yukon"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Yukon.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6185811"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142969"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Grande-Rivière"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20Grande-Rivi%C3%A8re%20Quebec.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672882"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142969"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Grande-Rivière"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20Grande-Rivi%C3%A8re%20Quebec.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6943814"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q143227"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Georges"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Saint-Georges%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672585"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q143227"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Georges"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Saint-Georges%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6620953"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q182625"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Windsor"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Windsor%2C%20Ontario.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6182962"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142092"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "La Prairie"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20La%20Prairie.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6049863"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142102"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Augustin-de-Desmaures"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Saint-Augustin%20%28Quebec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "7535681"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142107"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cowansville"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Cowansville%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5931074"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142107"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cowansville"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Cowansville%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673958"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2127"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Charlottetown"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Charlottetown.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5920288"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142355"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "La Pocatière"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20La%20Pocati%C3%A8re%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673971"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142370"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Thurso"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Thurso%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6166224"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142379"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Senneterre"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Senneterre.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6144197"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142386"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Tite"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ca%20ville%20Saint-Tite.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6139154"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q142386"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Tite"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ca%20ville%20Saint-Tite.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674014"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2219667"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Parry Sound"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Parry%20Sound%20Arms.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6098747"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2423969"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hérouxville"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20H%C3%A9rouxville.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5974270"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2573770"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hawkesbury"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Hawkesbury%20%28Ontario%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5972360"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2861708"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Armagh"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Armagh%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6945982"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2874476"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Avondale"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Avondale%2C%20Newfoundland%20and%20Labrador.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5888557"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1103923"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Kamouraska"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Kamouraska.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673622"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1103923"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Kamouraska"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Kamouraska.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6325493"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1383701"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "New Maryland"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20New%20Maryland%20%28Nouveau%20Brunswick%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6087704"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1422308"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Radium Hot Springs"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Radium%20coa.JPG"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6115713"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1451329"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Damien"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/StDamien-Coa.gif"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6137657"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3433614"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rivière-à-Pierre"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20CA%20Rivi%C3%A8re-%C3%A0-Pierre%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6122923"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3461668"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Adelphe"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Saint-Adelphe%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6137322"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3461677"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Agapit"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Armoirie%20stagapit.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672824"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3461800"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Apollinaire"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Armoirie-st-apo-qc.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8604651"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3461900"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Boniface"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ca%20ville%20Saint-Boniface%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6137527"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3116512"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Grenville-sur-la-Rouge"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Grenville-sur-la-Rouge%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5966858"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3208339"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "La Doré"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20La%20Dor%C3%A9%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6047733"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3212031"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "La Présentation"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Armoiries%20de%20la%20municipalit%C3%A9%20de%20La%20Pr%C3%A9sentation.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6049868"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3214591"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Lac-Bouchette"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Lac-Bouchette%20Armoiries.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6001544"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3461933"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Calixte"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Saint-Calixte%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6137543"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3462038"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Côme–Linière"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ca%20ville%20Saint-C%C3%B4me%E2%80%93Lini%C3%A8re.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6137631"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3462098"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Donat"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Armoiriesaintdonat.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673022"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3462141"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Fabien-de-Panet"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Saint-Fabien-de-Panet%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673565"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3462193"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Fulgence"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Saint-fulgence%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6138258"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3462199"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Félix-de-Kingsey"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Armoiries%20st%20felix%20kingsey.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6138208"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q967165"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "University of York"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/University%20of%20York%20coat%20of%20arms.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6955373"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1008777"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Havre-Saint-Pierre"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Armoiries%20havre%20st%20pierre.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5972291"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q382458"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Regional Municipality of Halton"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20the%20Halton%20Regional%20Municipality.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5969719"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q383434"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Greater Sudbury"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Greater%20Sudbury%2C%20Canada.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5964700"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2132"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Victoria"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Victoria%2C%20Canada.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6174041"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q203403"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint John"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Saint-Jean%20%28Nouveau-Brunswick%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6138517"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3464302"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sainte-Hélène-de-Kamouraska"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Sainte-H%C3%A9l%C3%A8ne-de-Kamouraska.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672809"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3464409"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sainte-Rose-du-Nord"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Sainte-Rose-du-Nord.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8556280"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3464432"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sainte-Thècle"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Sainte-Thecle.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673444"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3464432"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sainte-Thècle"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Sainte-Thecle.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6138118"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3483898"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sillery"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Sillery.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8740849"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q4903092"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bible Hill"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bible%20Hill%20Crest.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5899368"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7054960"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "North Cowichan"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/North%20Cowichan%20Coat%20of%20arms.gif"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6089661"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q14875569"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sainte-Foy"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20de%20Sainte-Foy%20%28Qu%C3%A9bec%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6325488"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q386959"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Uxbridge"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Uxbridge%2C%20Ontario.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6172933"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q391028"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "University of British Columbia"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/British%20columbia%20univ%20coat%20arms.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "7910029"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1517624"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Vaudreuil-Soulanges"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20MRC%20Vaudreuil-Soulanges.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6173572"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1945995"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Montebello"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Montebello%20%28Quebec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674150"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1945995"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Montebello"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Montebello%20%28Quebec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6076939"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2065651"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "United Counties of Stormont, Dundas and Glengarry"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/United%20Counties%20of%20Stormont%2C%20Dundas%20and%20Glengarry%20Arms.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6172003"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2167346"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Souris"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Official%20Seal%20of%20Souris%2C%20Prince%20Edward%20Island.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6151455"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2212402"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Donat"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20de%20la%20municipalit%C3%A9%20de%20Saint-Donat%20%28Matawinie%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673557"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q776930"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Peterborough"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Peterborough%20Ontario%20Arms.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6101645"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q810807"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bathurst"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Bathurst2%20%28Nouveau-Brunswick%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6696259"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1060726"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chambord"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Chambord%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674234"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1060726"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chambord"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Chambord%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5919569"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1067471"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "University of Calgary"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Calgary%20univ%20full%20coat%20arms.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "7626260"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1075086"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Pembroke"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Pembroke%2C%20Ontario.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6100832"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1020159"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Etobicoke"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20of%20Etobicoke%2C%20Ontario%20%28Pre-1997%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5950267"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1022897"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Yorkville"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Yorkville%20Village%20Coat%20of%20Arms.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "7870808"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1035422"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Caraquet"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Caraquet%20%28Nouveau-Brunswick%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6942803"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1041701"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Carleton Place"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Carleton%20Place%20Armorial%20Achievement.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5917158"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3462366"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Gédéon"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Saint-G%C3%A9deon%20Blason.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673524"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3462367"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Gédéon-de-Beauce"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Saint-G%C3%A9d%C3%A9on-de-Beauce%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6138279"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3462426"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Hubert"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Villedesainthubertvig.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6138369"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3463035"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Narcisse-de-Rimouski"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Armoiries%20acc.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672975"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3463078"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Onésime-d'Ixworth"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20Saint-On%C3%A9sime-d%27Ixworth.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672835"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q200166"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Kitchener"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Kitchener%2C%20Canada.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5992996"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3215834"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Lacolle"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Lacolle%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6035592"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3217608"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Lanoraie"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Lanoraie.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6049537"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3231881"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Les Cèdres"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20Les%20C%C3%A8dres%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6052773"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3303708"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "McMasterville"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20McMasterville%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6070782"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3344653"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Notre-Dame-du-Mont-Carmel"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Notre-Dame-du-Mont-Carmel.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6091450"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2899316"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Berthier-sur-Mer"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Berthier-sur-Mer.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6325480"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2908870"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Boileau"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Boileau.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5905106"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2964407"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chomedey"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20Chomedey%2C%20Laval%2C%20Quebec.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5921719"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2981802"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Mississippi Mills"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Armorial%20achievement%20of%20the%20Corporation%20of%20the%20Town%20of%20Mississippi%20Mills.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6075370"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3078488"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Fortierville"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Fortierville.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5955860"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3087431"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Frelighsburg"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Frelighsburg%20%28Quebec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5957903"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q232226"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Kelowna"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20the%20Corporation%20of%20the%20City%20of%20Kelowna.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5990579"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q244025"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Burnaby"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Burnaby%20BC%20coat%20of%20arms.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5911606"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q385335"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Amherstburg"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Amherstburg%20Coat%20of%20Arms.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5884472"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q386365"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ham-Nord"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Armoiries%20Ham-Nord.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5969986"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q386567"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ajax"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ajax%20Ontario%20Arms.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5882873"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q132681711"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Amos"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Amos%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673831"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q132681711"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Amos"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Amos%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5884588"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q923243"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Langley"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Langley%2C%20British%20Columbia.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6049429"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q952269"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chicoutimi"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Chicoutimi%201917%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5921225"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q448372"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Niagara-on-the-Lake"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Niagara-on-the-Lake%2C%20Coat%20of%20Arms.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6087905"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q473209"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Kamloops"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Kamloops%2C%20Canada.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5989045"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q956690"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cornwall"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Cornwall%20Ontario%20Arms.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5928065"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q957746"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sayabec"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Sayabec%20%28Quebec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8605031"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3463229"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Prime"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Saint-Prime.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6138968"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3463229"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Prime"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Saint-Prime.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673905"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3463433"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Tharcisius"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Saint-Tharcisius%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672870"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3463466"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Valentin"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ecu%20de%20Saint-Valentin%20%28Quebec%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6139163"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3463487"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Vianney"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ca%20ville%20Saint-Vianney.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672740"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3463495"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Victor"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20CA%20Saint-Victor.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672736"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3356503"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Orléans"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Ottawa%20%28Ontario%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8556295"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3367223"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Pasadena"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/PascreastJPG.JPG"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6098924"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3393497"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Pointe-Fortune"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Pointe-Fortune%20COA.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6107813"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3393522"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Pointe-des-Cascades"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Pointe-des-Cascades%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6107520"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3399330"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Portneuf-sur-Mer"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Armoiries%20Portneuf-sur-Mer.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672578"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3433557"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rivière-Bleue"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Rivi%C3%A8re-Bleue.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672789"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3433574"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rivière-Ouelle"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Rivi%C3%A8re-Ouelle.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6354899"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q611723"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Toronto Metropolitan University"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Arms%20of%20Toronto%20Metropolitan%20University.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "7670510"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q644273"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Grand Falls"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20de%20Grand-Sault%20%28Nouveau-Brunswick%2C%20Canada%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6621033"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3463533"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Zacharie"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Armoiries%20de%20Saint-Zacharie.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672597"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3463607"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint-Étienne-des-Grès"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20CA%20Saint-%C3%89tienne-des-Gr%C3%A8s.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6138149"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3464179"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sainte-Apolline-de-Patton"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Sainte-Apolline-de-Patton%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672869"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3464192"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sainte-Brigitte-de-Laval"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Sainte-Brigitte-de-Laval%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8593682"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3464192"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sainte-Brigitte-de-Laval"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Sainte-Brigitte-de-Laval%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8674132"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3464213"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sainte-Claire"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Sainte-Claire%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8672653"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3464249"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sainte-Eulalie"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Sainte-Eulalie%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8673123"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3464249"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sainte-Eulalie"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20ville%20ca%20Sainte-Eulalie%20%28Qu%C3%A9bec%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6137878"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2138"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Fredericton%2C%20New%20Brunswick.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "5957776"
+      }
+    } ]
+  }
+}

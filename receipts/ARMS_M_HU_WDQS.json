@@ -1,0 +1,53 @@
+{
+  "source_id": "ARMS_M_HU_WDQS",
+  "request_url": "https://query.wikidata.org/sparql?format=json&query=PREFIX%20wd%3A%20%3Chttp%3A%2F%2Fwww.wikidata.org%2Fentity%2F%3E%0APREFIX%20wdt%3A%20%3Chttp%3A%2F%2Fwww.wikidata.org%2Fprop%2Fdirect%2F%3E%0APREFIX%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0ASELECT%20%3Fitem%20%3Fcode%20%3Farms%20%3Flabel%20WHERE%20%7B%20%3Fitem%20wdt%3AP782%20%3Fcode%20%3B%20wdt%3AP94%20%3Farms%20.%20%3Fitem%20wdt%3AP17%20wd%3AQ28%20.%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20.%20FILTER%28LANG%28%3Flabel%29%20%3D%20%22en%22%29%20%7D%20%7D",
+  "retrieved_at": "2026-11-21T22:59:30.687706+00:00",
+  "status": "acquired_format_checked",
+  "kind": "json",
+  "payload_role": "arms_lookup",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 1.11,
+      "result": "success"
+    }
+  ],
+  "licence_status": "Wikidata CC0; image licences per Commons file, checked when shown",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://query.wikidata.org/sparql?format=json&query=PREFIX%20wd%3A%20%3Chttp%3A%2F%2Fwww.wikidata.org%2Fentity%2F%3E%0APREFIX%20wdt%3A%20%3Chttp%3A%2F%2Fwww.wikidata.org%2Fprop%2Fdirect%2F%3E%0APREFIX%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0ASELECT%20%3Fitem%20%3Fcode%20%3Farms%20%3Flabel%20WHERE%20%7B%20%3Fitem%20wdt%3AP782%20%3Fcode%20%3B%20wdt%3AP94%20%3Farms%20.%20%3Fitem%20wdt%3AP17%20wd%3AQ28%20.%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20.%20FILTER%28LANG%28%3Flabel%29%20%3D%20%22en%22%29%20%7D%20%7D",
+  "bytes": 1044,
+  "sha256": "d72b39df3fa74834046a95dd186138d94bd2f3d8b7091fc0448db3c243d92968",
+  "path": "originals/ARMS_M_HU_WDQS.json",
+  "headers": {
+    "server": "nginx/1.22.1",
+    "date": "Sat, 21 Nov 2026 22:59:31 GMT",
+    "content-type": "application/sparql-results+json;charset=utf-8",
+    "x-first-solution-millis": "2",
+    "x-served-by": "wdqs2014",
+    "access-control-allow-origin": "*",
+    "access-control-allow-headers": "accept, content-type, content-length, user-agent, api-user-agent",
+    "cache-control": "public, max-age=300",
+    "age": "1",
+    "accept-ranges": "bytes",
+    "vary": "Accept, Accept-Encoding",
+    "x-cache": "cp2055 miss, cp2055 pass",
+    "x-cache-status": "pass",
+    "strict-transport-security": "max-age=106384710; includeSubDomains; preload",
+    "report-to": "{ \"group\": \"wm_nel\", \"max_age\": 604800, \"endpoints\": [{ \"url\": \"https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0\" }] }",
+    "nel": "{ \"report_to\": \"wm_nel\", \"max_age\": 604800, \"failure_fraction\": 0.05, \"success_fraction\": 0.0}",
+    "x-client-ip": "52.176.67.5",
+    "set-cookie": "WMF-Uniq=b3iuCEgQznbucby5TuB02gQfAAAAAFvdhcpS25XRr-ALYaF_ckuE0qxsfs-KMLGJ;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Sun, 21 Nov 2027 00:00:00 GMT",
+    "content-length": "1044",
+    "x-request-id": "b47c7b49-42ed-44c4-9d90-a3e5673c9c89",
+    "x-analytics": "",
+    "server-timing": "cache;desc=\"pass\", host;desc=\"cp2055\",co_id;desc=\"1878299491\"",
+    "connection": "close"
+  },
+  "format_check": {
+    "format": "json",
+    "root_type": "dict"
+  }
+}

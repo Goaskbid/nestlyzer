@@ -1,0 +1,152 @@
+{
+  "head" : {
+    "vars" : [ "item", "code", "arms", "label" ]
+  },
+  "results" : {
+    "bindings" : [ {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q664"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "New Zealand"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20New%20Zealand.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "2186224"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q23661"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Wellington"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Wellington%20coat%20of%20arms%20full%20achievement%20%28based%20on%20official%20emblazonment%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "2179537"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q36823"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tokelau"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Badge%20of%20Tokelau.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "4031074"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q79990"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Christchurch"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Christchurch%20Coat%20of%20Arms%20with%20supporters%2C%20mantle%2C%20crest%2C%20motto.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "2192362"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q758634"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Auckland City"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Auckland.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "2193732"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q133073"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dunedin"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Dunedin%20coat%20of%20arms%20full%20achievement%20%28vectorisation%20of%20official%20emblazonment%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "2191562"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q133073"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dunedin"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Dunedin%20coat%20of%20arms%20full%20achievement%20%28vectorisation%20of%20official%20emblazonment%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "2191561"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1015690"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hastings"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/City%20of%20Hastings%2C%20New%20Zealand%20CoA.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "2190224"
+      }
+    } ]
+  }
+}

@@ -1,0 +1,5259 @@
+{
+  "head" : {
+    "vars" : [ "item", "code", "arms", "label" ]
+  },
+  "results" : {
+    "bindings" : [ {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q414"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Argentina"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Argentina.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3865483"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q81561"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "El Calafate"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coa%20el%20calafate.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3858677"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q106063"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Clorinda"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/COAofClorinda.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435364"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q106115"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tartagal"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20munic%20tartagal%20salta.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3834601"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q106122"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rosario de la Frontera"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20Rosario%20de%20la%20Frontera.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3838563"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q106139"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Villa de Merlo"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20Municipal%20de%20Merlo%20%28San%20Luis%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3844377"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q221921"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Comodoro Rivadavia"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/COA-Comodoro%20Rivadavia.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3860443"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q36307"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Salta"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo-Salta.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3838233"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1925048"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Pedro Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20San%20Pedro%20%28Buenos%20Aires%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3428533"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1953119"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Paso de los Libres"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Paso%20de%20los%20Libres%20-%20Corrientes%20-%20Argentina.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3430104"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1953119"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Paso de los Libres"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Paso%20de%20los%20Libres%20-%20Corrientes%20-%20Argentina.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3430103"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1971695"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Fernando Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20partido%20de%20San%20Fernando.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3429088"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2004385"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Nueva Pompeya"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Emblema%20Nueva%20Pompeya.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3430387"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2004531"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Rafael Department"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20san%20rafael%2C%20mendoza.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3836668"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2027949"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Nicolás Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20San%20Nicol%C3%A1s.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3836848"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2031369"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Pirané"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/COAofPirane.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3429949"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2054688"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Pellegrini Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Pellegrini.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3841610"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2054758"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Salliqueló Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Salliquel%C3%B3.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3838240"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2092448"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tafí Viejo"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/TafiViejoEscudo.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3834813"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q533416"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Pigüé"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Blason%20de%20Pig%C3%BC%C3%A9%20-%20Argentina.JPG"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3841159"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q536312"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Caballito"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Caballito%20emblem.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435874"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q547713"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chacarita"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Chacarita%20barrio%20escudo.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435506"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q588032"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Maipú Department"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Maip%C3%BA%20%28Mendoza%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3845244"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q588681"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Campo Grande"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Campo%20Grande%20%28Caingu%C3%A1s%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435789"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q591204"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Santa Ana"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Santa%20Ana%20%28Candelaria%2C%20Misiones%2C%20Argentina%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3428455"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44238"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Posadas"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20Posadas%20%28Misiones%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3429886"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44241"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Juan"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Ciudad%20de%20San%20Juan%20%28Argentina%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3837213"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44211"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Corrientes"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Ciudad%20de%20Corrientes.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435217"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2348421"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Mercedes Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Mercedes.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3430705"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2350685"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tolhuin"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/COA%20Tolhuin.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "11126081"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2364886"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Goya"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Curuz%C3%BA%20Cuati%C3%A1.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435103"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2374393"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Veinticinco de Mayo"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%2025%20de%20Mayo%20%28Veinticinco%20de%20Mayo%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3427537"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2097797"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Casilda"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Casilda%20%28Santa%20Fe%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3862351"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2099330"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Vicente López Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Vicente%20L%C3%B3pez.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3427504"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2145476"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Capilla del Señor"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Exaltacion%20de%20la%20Cruz.gif"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435704"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2157253"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Martín Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20General%20San%20Mart%C3%ADn.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3433778"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44210"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Córdoba"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20ciudad%20de%20cordoba%20argentina.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3860259"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q239789"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Azul Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20Azul.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3436197"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q246956"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Zárate"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Z%C3%A1rate.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3427213"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44214"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Formosa"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/COAFormosaMunicipalidad.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3433899"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44215"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Santa Rosa"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20Municipal%20de%20Santa%20Rosa%20%28La%20Pampa%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3835994"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q376089"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Martín Department"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20muncipal%20SanMart%C3%ADn.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3836982"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q512660"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Guaymallén Department"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20guaymall%C3%A9n.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3854459"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q519881"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Gobernador López"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Gobernador%20L%C3%B3pez%20%28Leandro%20N.%20Alem%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3430015"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q525817"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Deán Funes"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20De%C3%A1n%20Funes%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3859512"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2530831"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Puerto Rico"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Puerto%20Rico%20%28Libertador%20General%20San%20Mart%C3%ADn%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3429732"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2565742"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Puerto Leoni"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Puerto%20Leoni%20%28Libertador%20General%20San%20Mart%C3%ADn%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3429765"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2621613"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Olavarría Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Olavarr%C3%ADa.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3842669"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2621913"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Pilar Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20del%20Pilar.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3429979"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2621919"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Patagones Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Patagones.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3841799"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44208"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rawson"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Rawson%20Argentina%20COA.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3839307"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2644735"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Isidro Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo-San-Isidro-BsAs.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3428983"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2658439"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Alvear"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Alvear%20-%20Corrientes%20-%20Argentina.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3436370"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2693020"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Arias"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20Arias%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3865474"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q859886"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chacabuco Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Chacabuco.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3861944"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q860848"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chivilcoy Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Chivilcoy.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435406"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q901248"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Daireaux Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Daireaux.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3862356"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q908300"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Colonia Aurora"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Colonia%20Aurora%20%28Veinticinco%20de%20Mayo%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435344"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q922694"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Villa Domínguez"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/VillaDominguez.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435030"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q932398"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Avellaneda"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Avellaneda%2C%20Santa%20Fe.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3436230"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q933165"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Reconquista"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20ciudad%20de%20Reconquista%20Santa%20Fe.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3429594"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q253247"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Exaltación de la Cruz Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Exaltacion%20de%20la%20Cruz.gif"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3433977"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q259498"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rafaela"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Rafaela%2C%20Santa%20Fe.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3839479"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q260600"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "La Plata Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20La%20Plata.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3432039"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q288993"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chos Malal"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Chos%20Malal.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3861262"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3115721"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Puerto Piray"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Puerto%20Piray%20%28Montecarlo%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3429738"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3115808"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Wanda"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Colonia%20Wanda%20%28Iguaz%C3%BA%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3427327"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3181334"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Ignacio"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20San%20Ignacio%20%28San%20Ignacio%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3429016"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3266620"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Luis Beltrán"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Luis%20Beltr%C3%A1n%2C%20R%C3%ADo%20Negro.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "385548"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3400944"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Salsipuedes"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20Salsipuedes%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3838235"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3457794"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Teodelina"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Jpteodelina.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3834513"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3627363"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Corpus Christi"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Corpus%20Christi%20%28San%20Ignacio%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435230"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3723035"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Los Polvorines"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Los%20Polvorines%2C%20boceto.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3431057"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44162"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Fernando del Valle de Catamarca"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20sfvc%20peque%C3%B1o.PNG"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3837702"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44206"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Resistencia"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Resistencia%20Coat%20of%20arms.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3429577"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44243"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Luis"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20San%20Luis%20%28Argentina%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3837056"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q662536"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Luján Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20heraldico%20lujan.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3430982"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q671742"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "General Pueyrredón Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20General%20Pueyrred%C3%B3n%20%28color%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3433782"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q727464"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Concepción del Uruguay"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Concep.%20del%20Uruguay%2C%20Logo%20de%20la%20Municipalidad.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435264"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q748028"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Puerto Madryn"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Puerto%20Madryn.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3840092"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q775558"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Navarro Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Navarro.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3430454"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q781553"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Puerto Madero"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Emblema%20Puerto%20Madero.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3429760"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q788626"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bahía Blanca Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Bah%C3%ADa%20Blanca.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3865084"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q790179"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Baradero Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Baradero.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3436149"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q793491"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Berisso Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Berisso.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3436038"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2158715"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hipólito Yrigoyen"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Hip%C3%B3lito%20Yrigoyen%20%28San%20Ignacio%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3433545"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2167140"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rauch Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Rauch.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3429602"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2167140"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rauch Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Rauch.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3429601"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2214082"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saldán"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20Sald%C3%A1n%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3838294"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2242988"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Arroyo del Medio"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Arroyo%20del%20Medio%20%28Leandro%20N.%20Alem%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3436267"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2253017"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Los Cardales"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Exaltacion%20de%20la%20Cruz.gif"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3431204"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2264620"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Profundidad"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Profundidad%20%28Candelaria%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3429847"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2278387"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Las Toscas"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Las%20Toscas%20-%20Santa%20Fe.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3431606"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2280901"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Caucete"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Rojas.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3838650"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1486"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Buenos Aires"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Ciudad%20de%20Buenos%20Aires.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435910"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44217"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Salvador de Jujuy"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20San%20Salvador%20de%20Jujuy.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3836564"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q935606"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hipólito Yrigoyen Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Hip%C3%B3lito%20Yrigoyen.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3854283"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q949535"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Francisco"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20San%20Francisco%20%28C%C3%B3rdoba%2C%20Argentina%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3837675"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q974987"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Arroyo Seco"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20arroyo%20seco%20argentina%201962.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3865385"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2398056"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Antonio de Areco Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20San%20Antonio%20de%20Areco.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3429247"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2400564"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cañadón Seco"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ecanadon.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3862889"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2418595"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cruz Alta"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20Cruz%20Alta%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3859839"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2438138"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Veinticinco de Mayo Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%2025%20de%20Mayo.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3833100"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2440276"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "La Paz"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ciudad%20de%20La%20Paz%20escudo.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3432079"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2456137"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Alderetes"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Municipalidad-de-Alderetes.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3866367"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2472496"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Laguna Paiva"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Laguna-Paiva%20large.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3850920"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2710208"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Salliqueló"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Salliquel%C3%B3.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3838241"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2721011"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Malvinas Argentinas Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Malvinas%20Argentinas%20Partido%20COA.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8715332"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2721011"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Malvinas Argentinas Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Malvinas%20Argentinas%20Partido%20COA.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "7289233"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2728178"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Parera"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Parera.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3841937"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2779417"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chamical"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/ChamicalCOA.jpeg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3861824"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2859097"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Apóstoles"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Ap%C3%B3stoles%20%28Misiones%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3436311"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2500565"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Marull"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20Marull%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3844759"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2510045"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ezeiza Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Ezeiza.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "8063203"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2518584"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chañar Ladeado"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20Cha%C3%B1ar%20Ladeado.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3832783"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2520086"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Laboulaye"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Laboulaye.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3852468"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2525523"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Villa María"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20Villa%20Mar%C3%ADa%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3832694"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2621930"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rojas Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Rojas.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3838646"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2622012"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Zárate Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Z%C3%A1rate.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3427212"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2622293"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Necochea Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Necochea.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3430442"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2622314"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saavedra Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Saavedra.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3838468"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2626346"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bovril"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bovril.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435966"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44244"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Santa Fe"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Ciudad%20de%20Santa%20Fe%20%28Argentina%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3836277"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q365146"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "La Calera"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20La%20Calera%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3852374"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q374013"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Villa Dolores"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20Villa%20Dolores%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3832756"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q375431"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hasenkamp"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20Renovado%20Hasenkamp.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3433580"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q648215"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Montecarlo"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Municipalidad%20de%20Montecarlo.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3430601"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q648215"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Montecarlo"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Municipalidad%20de%20Montecarlo.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3430599"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q653605"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Coronel Rosales Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20partido%20de%20Coronel%20Rosales.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3860201"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q655297"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saavedra"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Saavedra%20barrio%20escudo.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3429422"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2861426"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Aristóbulo del Valle"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Arist%C3%B3bulo%20del%20Valle%20%28Misiones%2C%20Argentina%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3436287"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2911913"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Macachín"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20macachin%20COLOR%2072ppp.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3845344"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2918968"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Campo Ramón"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Municipio%20de%20Campo%20Ram%C3%B3n.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435765"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2933923"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cinco Saltos"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Cinco%20Saltos%2C%20R%C3%ADo%20Negro.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3861061"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2991642"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Concepción de la Sierra"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Concepci%C3%B3n%20de%20la%20Sierra%20%28Concepci%C3%B3n%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435266"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3036199"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Realicó"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Municipio%20de%20Realic%C3%B3%2C%20La%20Pampa.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3839282"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3036970"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Puerto Libertad"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Puerto%20Libertad%20%28Iguaz%C3%BA%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3429764"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44237"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Mendoza"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Ciudad%20de%20Mendoza.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3844421"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44213"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Paraná"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Paran%C3%A1%2C%20Entre%20R%C3%ADos.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3841956"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44757"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chaco Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Provincia%20del%20Chaco.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3861887"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q983451"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Río Cuarto"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20Rio%20Cuarto.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3838874"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q990605"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Río Ceballos"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20R%C3%ADo%20Ceballos%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3838902"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q991758"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Villa Allende"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20Villa%20Allende%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3832815"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2313682"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Juan Pujol"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudomunipujol.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3433291"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2314221"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Villa del Rosario"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/ESCUDO%20OFICIAL%20VILLA%20del%20ROSARIO%20-%20Cordoba.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3832765"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2336157"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "La Carlota"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20La%20Carlota%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3852279"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q794668"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Añatuya"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20A%C3%B1atuya.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3865840"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q806249"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Banda del Río Salí"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Banda%20del%20R%C3%ADo%20Sal%C3%AD.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3864851"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q823073"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bernardo de Irigoyen"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Bernardo%20de%20Irigoyen%20%28General%20Manuel%20Belgrano%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3436030"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q857788"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Campana Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Campana.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435809"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q858587"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Carlos Casares Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Carlos%20Casares.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3862606"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q604640"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "General Villegas Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20partido%20de%20General%20Villegas.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3855039"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q607174"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Cristóbal"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20San%20Crist%C3%B3bal%20%28Santa%20Fe%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3837823"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q628370"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Lobería Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Lober%C3%ADa.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3431318"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q629119"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Balcarce Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Balcarce.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3436176"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q630891"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Buta Ranquil"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20ButaRanquil.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3863663"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q642083"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Arnedo"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/ESCUDO%20DE%20ARNEDO.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6359008"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1055688"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cerrillos"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Cerrillos%20%28Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3862086"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1106974"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Coghlan"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Emblema%20coghlan%20aniko%20szabo.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435359"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1118308"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Parque Chacabuco"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Emblema%20parque%20chacabuco.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3430116"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1239732"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Merlo Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20Arms%20of%20Merlo.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3430696"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1301660"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Mataderos"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Emblema%20Mataderos.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3430787"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1308616"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "La Matanza Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20La%20Matanza.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3430786"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1009156"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "General Pinto Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20partido%20de%20General%20Pinto.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3855071"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1015579"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Suncho Corral"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Ciudad%20de%20Suncho%20Corral.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3834961"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1016001"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "La Caldera"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20La%20Caldera.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3852393"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1016047"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Javier"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20san%20javier-6a20af5d.webp"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3428976"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1016873"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cruz del Eje"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20Cruz%20del%20Eje%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3859828"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1016881"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Marcos Juárez"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20Marcos%20Ju%C3%A1rez%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3844899"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q993283"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Garuhapé"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Garuhap%C3%A9%20%28Libertador%20General%20San%20Mart%C3%ADn%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3433839"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q994351"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Río Tercero"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20R%C3%ADo%20Tercero%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3838793"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1005221"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Río Grande"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Rio%20grande%20shield%20remaster.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3838854"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1009146"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "General Madariaga Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20General%20Madariaga.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3433800"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44762"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Entre Ríos Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Provincia%20de%20Entre%20R%C3%ADos.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3434137"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44761"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Formosa Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Provincia%20de%20Formosa.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3433896"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44795"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "La Pampa Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Provincia%20de%20La%20Pampa.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3849574"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3037564"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Trenel"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Trenel.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3833880"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3050254"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "El Soberbio"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20El%20Soberbio%20%28Guaran%C3%AD%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3434291"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3075894"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Itacaruaré"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Itacaruar%C3%A9%20%28San%20Javier%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3433391"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3082023"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Francisco del Chañar"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20San%20Francisco%20del%20Cha%C3%B1ar%20%28C%C3%B3rdoba%2C%20Argentina%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3837625"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3112883"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Pedro"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20San%20Pedro%20%28San%20Pedro%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3428577"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3112889"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Puerto Esperanza zarza"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Puerto%20Esperanza%20%28Iguaz%C3%BA%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3429786"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3115487"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Jardín América"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Jard%C3%ADn%20Am%C3%A9rica%20%28San%20Ignacio%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3433349"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3115657"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Vicente"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20San%20Vicente%20%28Guaran%C3%AD%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3428068"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44758"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Corrientes Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Provincia%20de%20Corrientes%20%28variante%203%29.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435214"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5031647"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Candelaria"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/EscudoCandelaria.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3862832"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5035413"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Capioví"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Capiov%C3%AD%20%28Libertador%20General%20San%20Mart%C3%ADn%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435701"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5037636"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Caraguatay"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Caraguatay%20%28Montecarlo%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435679"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5048424"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Caseros"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Municipalidad%20de%20Caseros.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435612"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5055544"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Caá Yarí"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Ca%C3%A1%20Yar%C3%AD%20%28Leandro%20N.%20Alem%2C%20Misiones%2C%20Argentina%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435879"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5064858"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cerro Azul"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Cerro%20Azul%20%28Leandro%20N.%20Alem%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435532"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5161015"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Conhelo"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Conhello%2C%20La%20Pampa.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3860354"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5243541"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Azara"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Azara%20%28Ap%C3%B3stoles%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3436205"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5299217"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dos de Mayo"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Dos%20de%20Mayo%20%28Caingu%C3%A1s%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3434995"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5350719"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "El Alcázar"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20El%20Alc%C3%A1zar%20%28Libertador%20General%20San%20Mart%C3%ADn%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3434932"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44764"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Jujuy Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Provincia%20de%20Jujuy.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3853404"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q765820"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Monte Caseros"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Monte%20Caseros%20-%20Corrientes%20-%20Argentina.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3430598"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q768431"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ensenada Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Ensenada.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3434140"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q772760"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Villa Luro"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Emblema%20barrio%20villa%20luro.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3427407"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44756"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Catamarca Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Provincia%20de%20Catamarca.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3862286"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44759"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Córdoba Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Provincia%20de%20C%C3%B3rdoba.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3860255"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1017096"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Villa Regina"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Villa%20Regina%20-%20COA.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3832647"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1019187"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Daireaux"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Daireaux.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3859538"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1020263"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Pedro de Jujuy"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20San%20Pedro%2C%20Jujuy.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3836772"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1025501"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cafayate"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Cafayate%2C%20Salta.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3863503"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44803"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Salta Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Provincia%20de%20Salta.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3838231"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44805"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Juan Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Provincia%20de%20San%20Juan.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3837152"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44829"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tucumán Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Provincia%20de%20Tucum%C3%A1n.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3833578"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44253"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Santiago del Estero"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Ciudad%20de%20Santiago%20del%20Estero.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3835869"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44798"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Misiones Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Provincia%20de%20Misiones.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3430657"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44254"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ushuaia"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Ushuaia.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3833367"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1818180"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Villa Cura Brochero"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20Villa%20Cura%20Brochero%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3832773"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1855418"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Quilmes Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20Municipal%20de%20Quilmes.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3429651"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1863952"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Agustín"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20San%20Agust%C3%ADn%20%28Calamuchita%2C%20C%C3%B3rdoba%2C%20Argentina%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3838174"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1886208"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Mojón Grande"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Moj%C3%B3n%20Grande%20%28San%20Javier%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3430631"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1905080"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Victoria"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/ESCUDOVICTORIAER.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3832934"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q52591"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Colón"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Logo%20ciudad%20de%20Col%C3%B3n%20ER.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435352"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q54108"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bahía Blanca"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Bah%C3%ADa%20Blanca.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3865086"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44832"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tierra del Fuego Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Provincia%20de%20Tierra%20del%20Fuego.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3834450"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q17297395"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Brinkmann"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20Brinkmann%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3863833"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q8250764"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bonpland"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Bonpland%20%28Candelaria%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435989"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q8341370"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Carrilobo"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Carrilobo.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3862515"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q8345116"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chazón"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20Chaz%C3%B3n%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3861595"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q9008444"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ingeniero Luis A. Huergo"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Ingeniero%20Huergo%2C%20R%C3%ADo%20Negro.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3853782"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q9018605"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "La Granja"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20La%20Granja%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3851072"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q9070771"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rosario del Saladillo"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Bras%C3%A3o%20-%20Comuna%20Villa%20Rosario%20del%20Saladillo.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3832633"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q9073324"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Antonio de Litín"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20San%20Antonio%20de%20Lit%C3%ADn%20%28Uni%C3%B3n%2C%20C%C3%B3rdoba%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3837987"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q9075712"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Seguí"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Segu%C3%AD%2C%20Entre%20Rios.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3835402"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q9081736"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tancacha"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Municipio%20de%20Tancacha.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3834665"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q10888788"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Wheelwright"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Comuna%20de%20Wheelwright.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3832397"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q14638682"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Lomas de Zamora Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Lomas%20de%20Zamora.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3431270"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q55377"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Oberá"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Ober%C3%A1%20%28Ober%C3%A1%2C%20Misiones%2C%20Argentina%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3430340"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1323978"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "El Chaltén"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20El%20Chalt%C3%A9n.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "6690180"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1368165"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Esperanza"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Esperanza%20%28Santa%20Fe%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3856022"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1399432"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Almirante Brown Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Almirante%20Brown.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3436394"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1442288"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Etruria"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Etruria.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3855719"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1494067"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "La Banda"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20La%20Banda%2C%20Santiago%20del%20Estero.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3852629"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q45007"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chubut Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Provincia%20de%20Chubut.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3861244"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3724044"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Villa de Mayo"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Villa%20de%20Mayo.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3427453"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3784796"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Henderson"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Partido%20de%20Hip%C3%B3lito%20Yrigoyen.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3854359"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3949073"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Santa Lucía"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Argentina%20corrientes%20santalucia.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3428287"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3981007"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tapso, Santiago del Estero"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Tapso.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3834625"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q4733652"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Almafuerte"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Almafuerte%20%28Leandro%20N.%20Alem%2C%20Misiones%2C%20Argentina%29.gif"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3436398"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q4780228"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Apolinario Saravia"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Apolinario%20Saravia%20%28Salta%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3865605"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5028465"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Campo Viera"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20Campo%20Viera.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435750"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1620664"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Capitán Bermúdez"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Capit%C3%A1n%20Berm%C3%BAdez%2C%20Santa%20Fe.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3862738"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1656936"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Presidencia Roque Sáenz Peña"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Esc%20mun%20sp.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3840300"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44796"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "La Rioja Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20La%20Rioja%20Province.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3848949"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44255"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Miguel de Tucumán"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/EscudoSanMigueldeTucuman.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3836873"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44827"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Santiago del Estero Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Provincia%20de%20Santiago%20del%20Estero.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3835868"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44754"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Buenos Aires Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20the%20Buenos%20Aires%20Province.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435907"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44797"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Mendoza Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20provincia%20Mendoza%20grande.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3844419"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q47772"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bariloche"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20Oficial%20Bariloche.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "7647007"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q48285"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Carlos Paz"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20Villa%20Carlos%20Paz%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3832791"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q55378"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Puerto Iguazú"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Puerto%20Iguaz%C3%BA%20%28Iguaz%C3%BA%2C%20Misiones%2C%20Argentina%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3429777"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q55379"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Candelaria"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Candelaria%20%28Candelaria%2C%20Misiones%2C%20Argentina%29.webp"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435734"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q55854"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Yapeyú"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Yapey%C3%BA%20%28San%20Mart%C3%ADn%2C%20Corrientes%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3427279"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44800"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Neuquén Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Provincia%20de%20Neuqu%C3%A9n.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3843122"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1755283"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Ramón de la Nueva Orán"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20San%20Ram%C3%B3n%20de%20la%20Nueva%20Or%C3%A1n.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3836620"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1756745"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Villa Mercedes"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20Villa%20Mercedes%20%28San%20Luis%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "7116866"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1783539"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Mercedes"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Mercedes%2C%20Corrientes.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3430709"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q48290"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cosquín"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20Cosqu%C3%ADn%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3859965"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q48288"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Jesús María"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20Jes%C3%BAs%20Mar%C3%ADa%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3853510"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q48294"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "La Falda"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20La%20Falda%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3851331"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5524495"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Garupá"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Garup%C3%A1%20%28Capital%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3433836"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5532104"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "General Pinto"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20partido%20de%20General%20Pinto.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3855072"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5532167"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "General San Martín"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20General%20San%20Mart%C3%ADn%2C%20La%20Pampa.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3855056"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5743957"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Herrera"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/EscudoHerrera.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3433564"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6146439"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Ticino"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20Oficial%20de%20Ticino.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3834459"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6162298"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Villa Nueva"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20Villa%20Nueva%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3832662"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q58349"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "General Pico"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20Municipal%20de%20General%20Pico%20%28La%20Pampa%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3855075"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q58372"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Toay"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Toay%2C%20La%20Pampa.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3834310"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44802"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Río Negro Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Provincia%20del%20R%C3%ADo%20Negro.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3838830"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44818"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San Luis Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Provincia%20de%20San%20Luis.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3837029"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44821"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Santa Cruz Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Provincia%20de%20Santa%20Cruz.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3836350"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q44823"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Santa Fe Province"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20la%20Provincia%20de%20Santa%20Fe.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3836276"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q52542"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Coronda"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Coronda%2C%20Santa%20Fe.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3860217"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q52578"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Concordia"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20Ciudad%20de%20Concordia%2C%20Entre%20Rios.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3435261"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q52522"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Choele Choel"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Choele%20Choel%2C%20R%C3%ADo%20Negro.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3861329"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q52535"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rosario"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20armas%20de%20Rosario.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3838583"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1906802"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tigre Partido"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20tigre%20exvitral.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3427753"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2215108"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20Agua%20de%20Oro%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3866667"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6548772"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Lima, Buenos Aires"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20Lima%20Buenos%20Aires.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3431350"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7130019"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Panambí"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Panamb%C3%AD%20%28Ober%C3%A1%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3430178"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7193761"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Pilar"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20municipal%20de%20Pilar%20%28C%C3%B3rdoba%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3841149"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7243486"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Primero de Mayo"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudoprimerodemayo.JPG"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3840276"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7249966"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bolivia"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20del%20Municipio%20de%20Pronunciamiento%2C%20Entre%20R%C3%ADos.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3429843"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7264669"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Pérez"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20P%C3%A9rez%2C%20Santa%20Fe.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3841500"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7414513"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "San José"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20San%20Jos%C3%A9%20%28Ap%C3%B3stoles%2C%20Misiones%2C%20Argentina%29.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3428928"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7420542"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Santo Pipó"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Santo%20Pip%C3%B3%20%28San%20Ignacio%2C%20Misiones%2C%20Argentina%29.jpg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3428079"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7930352"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Villa Hernandarias"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Villa%20Hernandarias%2C%20Entre%20R%C3%ADos.svg"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3427420"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7930566"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Villa del Rosario"
+      },
+      "arms" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Escudo%20de%20Villa%20del%20Rosario%2C%20Entre%20R%C3%ADos.png"
+      },
+      "code" : {
+        "type" : "literal",
+        "value" : "3427454"
+      }
+    } ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "source_id": "ARMS_M_HR_QLEVER",
+  "request_url": "https://qlever.dev/api/wikidata?action=sparql_json_export&query=PREFIX%20wd%3A%20%3Chttp%3A%2F%2Fwww.wikidata.org%2Fentity%2F%3E%0APREFIX%20wdt%3A%20%3Chttp%3A%2F%2Fwww.wikidata.org%2Fprop%2Fdirect%2F%3E%0APREFIX%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0ASELECT%20%3Fitem%20%3Fcode%20%3Farms%20%3Flabel%20WHERE%20%7B%20%3Fitem%20wdt%3AP782%20%3Fcode%20%3B%20wdt%3AP94%20%3Farms%20.%20%3Fitem%20wdt%3AP17%20wd%3AQ224%20.%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20.%20FILTER%28LANG%28%3Flabel%29%20%3D%20%22en%22%29%20%7D%20%7D",
+  "retrieved_at": "2026-11-21T22:59:30.555148+00:00",
+  "status": "acquired_format_checked",
+  "kind": "json",
+  "payload_role": "arms_lookup",
+  "attempts": [
+    {
+      "number": 1,
+      "elapsed_seconds": 0.404,
+      "result": "success"
+    }
+  ],
+  "licence_status": "Wikidata CC0; image licences per Commons file, checked when shown",
+  "publication_approved": false,
+  "score_eligible": false,
+  "collector_version": "2026-11-19.1",
+  "http_status": 200,
+  "effective_url": "https://qlever.dev/api/wikidata?action=sparql_json_export&query=PREFIX%20wd%3A%20%3Chttp%3A%2F%2Fwww.wikidata.org%2Fentity%2F%3E%0APREFIX%20wdt%3A%20%3Chttp%3A%2F%2Fwww.wikidata.org%2Fprop%2Fdirect%2F%3E%0APREFIX%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0ASELECT%20%3Fitem%20%3Fcode%20%3Farms%20%3Flabel%20WHERE%20%7B%20%3Fitem%20wdt%3AP782%20%3Fcode%20%3B%20wdt%3AP94%20%3Farms%20.%20%3Fitem%20wdt%3AP17%20wd%3AQ224%20.%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20.%20FILTER%28LANG%28%3Flabel%29%20%3D%20%22en%22%29%20%7D%20%7D",
+  "bytes": 138,
+  "sha256": "867908ced98883f3d6dfb36f64e5105bf6e514391ab0369c519f7efc2ba03963",
+  "path": "originals/ARMS_M_HR_QLEVER.json",
+  "headers": {
+    "Date": "Sat, 21 Nov 2026 22:59:30 GMT",
+    "Server": "nginx/1.18.0 (Ubuntu)",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, query-id, api-user-agent",
+    "Content-Type": "application/sparql-results+json",
+    "Connection": "close",
+    "Transfer-Encoding": "chunked"
+  },
+  "format_check": {
+    "format": "json",
+    "root_type": "dict"
+  }
+}

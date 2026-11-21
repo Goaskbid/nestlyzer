@@ -1,0 +1,39 @@
+# Nestlyzer rolling data refresh: reminder only. Four times a year (1 Jan, Apr, Jul, Oct) it opens a GitHub issue listing
+# the official sources that usually publish new figures in the past three months, with the steps; GitHub emails it to you.
+# It downloads nothing and changes nothing. Four runs a year, a few seconds each.
+name: Nestlyzer data refresh reminder
+on:
+  schedule:
+    - cron: '17 6 1 1,4,7,10 *'
+  workflow_dispatch:
+permissions:
+  issues: write
+  contents: read
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: build/collect
+      - name: Open the refresh reminder
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          Y=$(date -u +%Y); M=$(date -u +%-m); Q=$(( (M - 1) / 3 + 1 ))
+          T="Nestlyzer: data refresh $Y Q$Q"
+          DUE=$(python3 -c "import json,datetime;m=datetime.date.today().month;w={((m-k-1)%12)+1 for k in range(1,4)};c=json.load(open('build/collect/source_calendar.json'));print(chr(10).join('          - '+s['name'] for s in c['sources'] if w & set(s['months'])) or '          - (no regular source due; a refresh is optional this quarter)')" 2>/dev/null || echo "          - see build/collect/source_calendar.json")
+          if gh issue list -R "$REPO" --state all --search "$T in:title" --json number --jq 'length' | grep -qv '^0$'; then echo "already reminded for $Y"; exit 0; fi
+          gh issue create -R "$REPO" --assignee "${{ github.repository_owner }}" --title "$T" --body "Time for Nestlyzer's rolling data refresh. Official sources that usually published new figures in the last three months:
+          $DUE
+
+          Your steps:
+          1. Send Claude this message: Start the Nestlyzer data refresh $Y Q$Q.
+             Claude checks which official sources have new figures, updates the download list and sends you a normal release zip.
+          2. Publish that release as always (the link comes with it). The collector then downloads the new official files once, about 30 to 40 downloads in about 10 minutes, and saves them on a data branch. Sources that fail are logged; last year's data stays live.
+          3. Tell Claude: collected. Claude folds the new year in, keeps last year as history for the 1, 3, 5 and 10-year trends, runs the full regression test and sends the final release zip.
+
+          Fresh coats of arms or politics lists: ask Claude for this year's ChatGPT instruction in the same message.
+          Close this issue when the new release is live." || gh issue create -R "$REPO" --title "$T" --body "Data refresh $Y Q$Q: send Claude 'Start the Nestlyzer data refresh $Y Q$Q'."

@@ -1,0 +1,72 @@
+# Keeps the Goaskbid/nestlyzer repository lean. Runs on the 2nd of every month (and by hand: Actions -> Run workflow).
+# Deletes ONLY (owner-approved rules, 21 Nov 2026):
+#   1. workflow run logs older than 90 days (the newest run of every workflow is always kept; running ones never touched);
+#   2. expired build packages (artifacts GitHub already marked expired);
+#   3. the nestlyzer-release-*.zip attachments of all releases except the newest three (release entries and tags stay);
+#   4. data-collection branches (data-intake-*) whose collection plan is no longer the one on main and that are older
+#      than 14 days, i.e. their data was already taken into a release.
+# Never touches main, the website, tags, git history, settings or any other branch. Every deletion is listed in the summary.
+name: Repository clean-up
+
+on:
+  schedule:
+    - cron: '37 4 2 * *'
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: write
+
+concurrency:
+  group: nz-cleanup
+  cancel-in-progress: false
+
+jobs:
+  clean:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      R: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          sparse-checkout: build/collect
+      - name: Clean up
+        run: |
+          set -euo pipefail
+          S="$GITHUB_STEP_SUMMARY"; echo "## Repository clean-up $(date -u +%F)" >> "$S"
+          cut=$(date -u -d '90 days ago' +%s)
+          # 1. run logs older than 90 days, keeping the newest run of each workflow
+          n=0
+          gh api --paginate "repos/$R/actions/runs?per_page=100" --jq '.workflow_runs[] | [.id, .workflow_id, .status, .created_at] | @tsv' > runs.tsv
+          sort -t$'\t' -k2,2 -k4,4r runs.tsv | awk -F'\t' 'seen[$2]++' > older.tsv
+          while IFS=$'\t' read -r id wf st created; do
+            [ "$st" = completed ] || continue
+            [ "$(date -u -d "$created" +%s)" -lt "$cut" ] || continue
+            gh api -X DELETE "repos/$R/actions/runs/$id" >/dev/null && n=$((n+1))
+          done < older.tsv
+          echo "- Run logs older than 90 days deleted: $n" >> "$S"
+          # 2. expired build packages
+          n=0
+          for id in $(gh api --paginate "repos/$R/actions/artifacts?per_page=100" --jq '.artifacts[] | select(.expired) | .id'); do
+            gh api -X DELETE "repos/$R/actions/artifacts/$id" >/dev/null && n=$((n+1))
+          done
+          echo "- Expired build packages deleted: $n" >> "$S"
+          # 3. release zips except on the newest three releases
+          n=0
+          gh api --paginate "repos/$R/releases?per_page=100" --jq '.[] | select(.draft|not) | [.published_at, .tag_name, (.assets | map(select(.name|test("^nestlyzer-release-.*\\.zip$")) | .id) | join(","))] | @tsv' | sort -r > rel.tsv
+          tail -n +4 rel.tsv | while IFS=$'\t' read -r pub tag ids; do
+            for id in ${ids//,/ }; do gh api -X DELETE "repos/$R/releases/assets/$id" >/dev/null && echo "- Release zip removed from $tag" >> "$S"; done
+          done
+          echo "- Newest three releases keep their zip: $(head -3 rel.tsv | cut -f2 | paste -sd, -)" >> "$S"
+          # 4. superseded data-collection branches older than 14 days
+          cur=""; [ -f build/collect/acquisition_plan.json ] && cur=$(sha256sum build/collect/acquisition_plan.json | cut -c1-12)
+          old=$(date -u -d '14 days ago' +%s); n=0
+          for b in $(gh api --paginate "repos/$R/branches?per_page=100" --jq '.[].name' | grep '^data-intake-' || true); do
+            [ "$b" = "data-intake-$cur" ] && continue
+            d=$(gh api "repos/$R/commits/$b" --jq '.commit.committer.date')
+            [ "$(date -u -d "$d" +%s)" -lt "$old" ] || continue
+            gh api -X DELETE "repos/$R/git/refs/heads/$b" >/dev/null && { n=$((n+1)); echo "- Branch $b deleted (data already in a release)" >> "$S"; }
+          done
+          echo "- Data-collection branches deleted: $n (current plan: data-intake-${cur:-none} kept)" >> "$S"

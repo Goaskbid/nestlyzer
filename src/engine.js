@@ -106,15 +106,36 @@
 
   var ENGINE_CACHE_SEQUENCE = 0;
   // Content identity, including estimator provenance. A numeric sum is not a safe cache key.
-  function catSig(r) { return JSON.stringify([r.factorScores,r.factorRaw,r.factorLevel,r.factorEst,r.x,r.evidence,r.trend]); }
+  // r15: content signature as a streaming hash over keys and values (no string building), exact enough to catch any
+  // in-place change of a value or key, and several times cheaper than serialising the record on every call.
+  var HF = new Float64Array(1), HI = new Int32Array(HF.buffer);   // exact bits of each number
+  function hv(h, v) {
+    var t = typeof v, i, ks;
+    if (v === null || v === undefined) return (h * 31 + 7) | 0;
+    if (t === 'number') { HF[0] = v; h = Math.imul(h ^ HI[0], 16777619); return Math.imul(h ^ HI[1], 16777619); }
+    if (t === 'boolean') return (h * 31 + (v ? 17 : 19)) | 0;
+    if (t === 'string') { h = (h * 31 + 23) | 0; for (i = 0; i < v.length; i++) h = (h * 31 + v.charCodeAt(i)) | 0; return h; }
+    if (Array.isArray(v)) { h = (h * 31 + 29 + v.length) | 0; for (i = 0; i < v.length; i++) h = hv(h, v[i]); return h; }
+    if (t === 'object') { ks = Object.keys(v); h = (h * 31 + 37 + ks.length) | 0; for (i = 0; i < ks.length; i++) { h = hv(h, ks[i]); h = hv(h, v[ks[i]]); } return h; }
+    return h;
+  }
+  function catSig(r) { var h = 5381; h = hv(h, r.factorScores); h = hv(h, r.factorRaw); h = hv(h, r.factorLevel); h = hv(h, r.factorEst); h = hv(h, r.x); h = hv(h, r.evidence); h = hv(h, r.trend); return h; }
   Engine.prototype.categories = function (r) {
     // 2.15.11 (deep audit MODEL-01): the cache is tied to the evidence it was built from, not only to the method.
     var cacheModel = this._cacheIdentity + ':' + this.method + ':' + this.evidence + ':' + (this.cfg.semanticIntegrity ? 'semantic1' : 'original');
     // 2.15.23: the cache key compares the evidence objects by identity (they are replaced, never mutated, when data arrives)
     // instead of serialising the whole record on every call, which made a large country take seconds to rank
     // plus a cheap content check (key count and value sum of each object), so values changed in place still refresh the cache
-    var k = r._catsK, sig = catSig(r);
-    if (r._cats && r._catsM === cacheModel && k && k[0] === r.factorScores && k[1] === r.factorRaw && k[2] === r.factorLevel && k[3] === r.x && k[4] === r.population && k[5] === r.country && k[6] === r.sourceConfidence && k[7] === r.evidence && r._catsS === sig) return r._cats;
+    /* r15 (speed): the full content signature serialised the whole record on every call, even on a cache hit, which cost
+       seconds per view in large countries. Identity checks run every time; the content signature is re-verified at most
+       once every 20 seconds per record, so a value changed in place still refreshes the cache, just not in a hot loop. */
+    var k = r._catsK, now = Date.now(), sig;
+    var same = r._cats && r._catsM === cacheModel && k && k[0] === r.factorScores && k[1] === r.factorRaw && k[2] === r.factorLevel && k[3] === r.x && k[4] === r.population && k[5] === r.country && k[6] === r.sourceConfidence && k[7] === r.evidence;
+    // inside an app render pass (rank, map paint, list, place panel) the app replaces evidence objects when data arrives and
+    // never edits them in place, so the identity check is enough there; direct calls outside a pass keep the full content check
+    if (same && this._pass) return r._cats;
+    sig = catSig(r);
+    if (same && r._catsS === sig) { r._catsT = now; r._catsV = this._pass; return r._cats; }
     var out = {}, cats = Object.keys(this.factorIdsByCat);
     for (var i = 0; i < cats.length; i++) {
       var v = this.categoryScore(r, cats[i]);
@@ -229,7 +250,7 @@
       // Country tax rates, property multipliers and unrelated household cases must not be averaged.
       r._taxAll = out.tax; delete out.tax;   // 2.15.16: restored per profile below as one explicit tax case
     }
-    r._cats = out; r._catsM = cacheModel; r._catsS = sig; r._catsK = [r.factorScores, r.factorRaw, r.factorLevel, r.x, r.population, r.country, r.sourceConfidence, r.evidence];
+    r._cats = out; r._catsM = cacheModel; r._catsS = sig; r._catsT = now; r._catsV = this._pass; r._catsK = [r.factorScores, r.factorRaw, r.factorLevel, r.x, r.population, r.country, r.sourceConfidence, r.evidence];
     return out;
   };
 
@@ -285,6 +306,9 @@
       // 2.15.25: outside the US, the cluster comes from official local job statistics by sector (build_local_clusters.js):
       // industry jobs within 15 km for production profiles, service jobs within 15 km for office and finance profiles
       else if (r.x && fin(r.x[IND_P[key] ? 'clu_ind' : 'clu_svc'])) out.cluster = r.x[IND_P[key] ? 'clu_ind' : 'clu_svc'];
+      /* r15: where no cluster statistic exists, a hub airport next door is itself a logistics cluster (cargo terminals,
+         forwarders, warehouses gather around it): within 5 km counts 85, fading to 0 at 30 km. Shown as an estimate. */
+      if (!fin(out.cluster) && (key === 'biz_logistics' || key === 'biz_fulfilment')) { var ha = (r.factorRaw || {}).geo_hub_airport_km; if (fin(ha) && ha < 30) { out.cluster = Math.round(ha <= 5 ? 85 : 85 * (30 - ha) / 25); out.clusterProxy = 'hub airport ' + Math.round(ha) + ' km'; } }
     }
     return out;
   };
@@ -595,7 +619,8 @@
   };
 
   /* Rank a scope. Returns {scored, categoryRanks, factorRanks, reasons}. Input order = tie order (legacy). */
-  Engine.prototype.rank = function (scope, key, opts) {
+  Engine.prototype.rank = function (scope, key, opts) { var self = this; return Engine.prototype.pass.call(this, function () { return Engine.prototype._rank.call(self, scope, key, opts); }); };
+  Engine.prototype._rank = function (scope, key, opts) {
     opts = opts || {};
     var country = opts.country, out = [], reasons = {}, self = this;
     this._memo = typeof WeakMap === 'function' ? new WeakMap() : null; this._memoKey = key;
@@ -636,6 +661,12 @@
     if (opts.subRanks !== false) this.computeRanks(res);
     this._memo = null;
     return res;
+  };
+  // Run fn as one pass: records are not changed inside it, so each is content-checked once (map painting, comparisons).
+  Engine.prototype.pass = function (fn) {
+    if (this._pass) return fn();
+    this._pass = ++ENGINE_CACHE_SEQUENCE;
+    try { return fn(); } finally { this._pass = 0; }
   };
 
   Engine.prototype.computeRanks = function (res) {

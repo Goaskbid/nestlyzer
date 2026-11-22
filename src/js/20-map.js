@@ -196,7 +196,8 @@ function loadCountryGeometry(cc) {
   return Promise.resolve();
 }
 
-function paintMap() {
+function paintMap() { return ENGINE && ENGINE.pass ? ENGINE.pass(paintMap0) : paintMap0(); }
+function paintMap0() {
   if (!MAP || !SHARD) return;
   var cc = S.cc, inS = {};
   SCOPE.forEach(function (r) { inS[r.id] = 1; });
@@ -369,7 +370,7 @@ function renderLegend() {
     (RES && RES.scored.length > 20 ? '<div class="pinmode" role="group" aria-label="Which places get a pin"><button type="button" data-pinmode="top" aria-pressed="' + (S.pinMode !== 'low') + '">Best 10</button><button type="button" data-pinmode="low" aria-pressed="' + (S.pinMode === 'low') + '">Lowest 10</button></div>' : '');
   var note = $('#mapnote');
   if (note) {
-    var n = SCOPE.length, colored = SCOPE.filter(function (r) { return fin(surfaceValue(r)); }).length;
+    var n = SCOPE.length, colored = (ENGINE && ENGINE.pass ? ENGINE.pass(function () { return SCOPE.filter(function (r) { return fin(surfaceValue(r)); }).length; }) : SCOPE.filter(function (r) { return fin(surfaceValue(r)); }).length);
     if (!colored && n) { var w = document.createElement('div'); w.className = 'small'; w.style.marginTop = '4px'; w.innerHTML = 'Pick another layer to colour the map for ' + esc(countryName(S.cc)) + '.'; el.appendChild(w); }
     note.textContent = scopeName() + ': ' + fmtInt(n) + ' ' + unitWord(S.cc, n) + ' in scope, ' + fmtInt(colored) + ' coloured. ' + (S.cc === 'CH' ? 'Boundaries: Swiss Federal Statistical Office (FSO), generalised boundaries 2026.' : isWorld(S.cc) ? 'Dots sit at the place centres from GeoNames; shaded areas are ' + (LOCAL_KIND[S.cc] || 'region').toLowerCase().replace(/^[a-z]{2} /, '') + ' outlines (Natural Earth).' : 'Dots sit at population-weighted centres (EDJNet); shaded areas are NUTS 3 regions drawn from these places within Natural Earth borders, so inland region edges are approximate.') + (MAPSTATE.basemap === 'offline' ? ' Basemap unavailable, data layers still shown.' : '');
   }

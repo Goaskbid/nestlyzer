@@ -1,5 +1,5 @@
 {
-  "sha256": "965d9b7f71d66e73a8750945563348d659c35c86e39e8cf2d2898713bc5c054a",
+  "sha256": "7bef1493c500c96cc6889570f5b0e3f6c4e1b8cafd4aa79defe0a3ec74f7d1cc",
   "files": {
     "build/build_clusters.py": "c964896cfe92ac135a2ff2aa18189d44e3cb43b769b2af9002360ef3ef46cbda",
     "build/build_evidence_lab.js": "383630f8f498bd5f04ad76a67a5c1fa146822fcc4775002371e16bd5fc2c78e8",
@@ -31,7 +31,7 @@
     "data/c/EL.json": "1dc0c3ab4858e2d55b7b322fa10c5e29a63465791ced37fc3e35282f6929286d",
     "data/c/ES.json": "0051fbb5d9ae8625c5f60590eb84343efab4ca7383243a7b1ccfced5e19729e8",
     "data/c/FI.json": "a93b67e888657b0820d3516105c7c4bea8039f51e9efd6a5e6435922aa0ec6da",
-    "data/c/FR.json": "c5b559c155e42e260ebb5641dc7c64c179ee9e90649265590e3f20315e6fb98d",
+    "data/c/FR.json": "bcb204a04e65142fdb7f17eea9f2d971cfdfdee354e43bcf9852c3d40e48efd2",
     "data/c/HK.json": "e1d459350571b4383bc5fc0830711b94f274b2c0709ac2a4446993aee9ddc27d",
     "data/c/HR.json": "20b922dd50482ce8156d3c693e8479d6a197e3f0cf9a5cbbedbe619d90ecfb0c",
     "data/c/HU.json": "50c2f3f4b580fbc74d51d320539abc54607f2ae2a689ab82f6026adfbd900199",
@@ -97,7 +97,7 @@
     "data/x/EL.json": "819ee05a12bdcc988184bc840049b453f1cd52ef6d72bd1c2964fc3e63865d82",
     "data/x/ES.json": "54023a67fd9138901715601fca07b6426edfa2d2ea8e40b300a1d4fa89768bb5",
     "data/x/FI.json": "e7ada01e59e508583858a13a056c50dfa29cb134b297fefb80028c73547adb75",
-    "data/x/FR.json": "b8c166e2fc077cecd46597a3d58e59459e7d2e9e73f4782a5126f7bb5ccb1f92",
+    "data/x/FR.json": "bc7bc182c4e5cd857a53dfb9c8b44b603321f9a6a18427164328dddad153dc61",
     "data/x/HK.json": "c338f71a75510cfd08ea43859947328bb153890e0523d2ef42909143e7a60a5c",
     "data/x/HR.json": "b3f5007b53660c23054e79581b777551766d89c8fa797ea8057bce40e38b35b4",
     "data/x/HU.json": "ebe074c16758002b9c55c83055841a0714abaf4a11fc3889a94a1360ff8f17e1",
@@ -140,6 +140,6 @@
     "data/x/VN.json": "8f28393acf6e1db23b8e4ac78b59f73879a107d8e39cdb8458a02d2b564025d2",
     "data/x/ZA.json": "20714dbe0711373787871091f9baa710d964650f6509bae417176c79dff16eeb",
     "src/data.js": "a61a335b0f901ae9d12594d8820a911769ef08a3060128286758dca6a117b264",
-    "src/engine.js": "7f5a16d010c7e5e1b6329ca2c4ee2227bb4f12cbf8924d749e072e7b328ffa1d"
+    "src/engine.js": "7761a26f75d3fad4abb0d37aecb025ef13e21513075ae9363daa7a2dae515cc0"
   }
 }

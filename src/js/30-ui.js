@@ -254,7 +254,8 @@ function hideClick(t) {
   if (t.closest('[data-unhideall]')) { store(hideKey(), []); renderResults(); return true; }
   return false;
 }
-function renderResults() {
+function renderResults() { return ENGINE && ENGINE.pass ? ENGINE.pass(renderResults0) : renderResults0(); }   // r15: one cache pass per render
+function renderResults0() {
   var box = $('#results');
   if (!RES) { box.innerHTML = '<div class="skeleton" aria-label="Loading"><i></i><i></i><i></i><i></i></div>'; return; }
   renderResultsHead(); renderDepthNote();

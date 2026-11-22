@@ -52,7 +52,7 @@
  {
   "id": "desktop-open",
   "ok": true,
-  "check": "desktop: each place opens in the app at its own page (/#/explore?cc=DE&p=biz_manufacturing&sel=DE%3A08226084\u2026)"
+  "check": "desktop: each place opens in the app at its own page (/#/explore?cc=DE&p=biz_manufacturing&sel=DE%3A09184149\u2026)"
  },
  {
   "id": "desktop-errors",
@@ -82,7 +82,7 @@
  {
   "id": "phone-open",
   "ok": true,
-  "check": "phone: each place opens in the app at its own page (/#/explore?cc=DE&p=biz_manufacturing&sel=DE%3A08226084\u2026)"
+  "check": "phone: each place opens in the app at its own page (/#/explore?cc=DE&p=biz_manufacturing&sel=DE%3A09184149\u2026)"
  },
  {
   "id": "phone-errors",

@@ -157,7 +157,7 @@ function toolsClick(t, ev) {
   if (t.closest('[data-install-ios]')) { toast('Add Nestlyzer to your Home Screen', 'In Safari, tap the Share button, then “Add to Home Screen”.'); return true; }
   if (t.closest('[data-undo]')) { undoRemove(); return true; }
   if (t.closest('[data-privacy]')) { closeTools(); setTimeout(function () { var f = document.querySelector('#consent.open button'); if (f) f.focus(); }, 30); return true; }
-  if (t.closest('[data-extoggle]')) { var on = !extOn(); store('ext', on); toast(on ? 'Live content on' : 'Live content off', on ? 'Photos, nearby places, weather and local counts load again when you open a place.' : 'Nestlyzer no longer contacts Wikimedia, Wikidata, NASA, OpenStreetMap or Eurostat when you open a place.'); closeTools(); if (S.selected) renderPlace(); return true; }
+  if (t.closest('[data-extoggle]')) { var on = !extOn(); store('ext', on); if (!on) purgeExternal(); toast(on ? 'Live content on' : 'Live content off', on ? 'Photos, nearby places, weather and local counts load again when you open a place.' : 'Nestlyzer no longer contacts Wikimedia, Wikidata, NASA, OpenStreetMap or Eurostat when you open a place.'); closeTools(); if (S.selected) renderPlace(); return true; }
   if (t.closest('[data-import-yes]')) { var ip = IMPORT_PENDING || []; IMPORT_PENDING = null; closeModal(); importList(ip, true); return true; }
   if (t.closest('[data-retry]')) { var keep = S.ptab; renderPlace(); if (keep) setPlaceTab(keep); return true; }
   if (t.closest('[data-tour]')) { startTour(); return true; }
@@ -185,4 +185,16 @@ function toolsClick(t, ev) {
   if (t.closest('label.tick')) return true;
   if (t.closest('textarea.note')) return true;
   return false;
+}
+
+/* r15: switching live content off also cancels outside images already placed on the page but not yet fetched
+   (lazy coats of arms, photos), so not a single request leaves after the switch. */
+function purgeExternal() {
+  try {
+    document.querySelectorAll('img').forEach(function (im) {
+      var u = im.currentSrc || im.getAttribute('src') || '';
+      if (!/^https?:\/\/([^/]*\.)?(wikimedia|wikipedia|wikidata)\.org\//.test(u)) return;
+      im.removeAttribute('srcset'); im.removeAttribute('src'); im.dataset.nzoff = '1'; im.hidden = true;
+    });
+  } catch (e) { /* nothing to cancel */ }
 }

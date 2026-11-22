@@ -158,12 +158,15 @@ function polMoney(r, P, box) {
   if (code) {
     var to = ['USD', 'EUR', 'CNY'].filter(function (c) { return c !== code; });
     if (POL_FXOK.indexOf(code) >= 0 && live) {
-      var d1 = new Date(Date.now() - 365 * 864e5).toISOString().slice(0, 10), u = 'https://api.frankfurter.app/';
-      jobs.push(Promise.all([jget(u + 'latest?from=' + code + '&to=' + to.join(',')), jget(u + d1 + '?from=' + code + '&to=' + to.join(',')).catch(function () { return null; })]).then(function (a) {
+      var d1 = new Date(Date.now() - 365 * 864e5).toISOString().slice(0, 10), U = ['https://api.frankfurter.dev/v1/', 'https://api.frankfurter.app/'];
+      /* r15: the rate service moved to frankfurter.dev; the old address is the fallback */
+      var fx = function (q) { return jget(U[0] + q).catch(function () { return jget(U[1] + q); }); };
+      jobs.push(Promise.all([fx('latest?from=' + code + '&to=' + to.join(',')), fx(d1 + '?from=' + code + '&to=' + to.join(',')).catch(function () { return null; })]).then(function (a) {
+        if (!a[0] || !a[0].rates) throw new Error('no rates');
         var now = (a[0] && a[0].rates) || {}, then = (a[1] && a[1].rates) || {};
         return to.map(function (c) { var v = now[c], o = then[c], ch = fin(v) && fin(o) ? (v / o - 1) * 100 : null;
           return tile('1 ' + code + ' in ' + c, fin(v) ? fmt(v, v < 0.1 ? 4 : v < 10 ? 3 : 2) : '–', (ch == null ? '' : (ch >= 0 ? '+' : '') + fmt(ch, 1) + '% in a year, ') + 'ECB rate ' + esc((a[0] && a[0].date) || '')); }).join('');
-      }).catch(function () { return tile('Exchange rates', '–', 'not available right now'); }));
+      }).catch(function () { return code === 'EUR' ? tile('Exchange-rate risk', 'None in the euro area', 'shared currency with the other euro countries; against the dollar or yuan it floats') : tile('Exchange rates', esc(code), 'floating against the dollar and euro; today\u2019s rate could not be loaded'); }));
     } else jobs.push(Promise.resolve(tile('Exchange rates', '–', live ? 'no ECB reference rate for ' + esc(code) : 'live content is off')));
   }
   if (P.orgs.indexOf('EU') >= 0 && live && typeof esGet === 'function') jobs.push(Promise.all([esGet('irt_lt_mcby_m', r.country, ''), r.country === 'DE' ? null : esGet('irt_lt_mcby_m', 'DE', '').catch(function () { return null; }), esGet('irt_lt_mcby_m', 'EA', '').catch(function () { return null; })]).then(function (a) {

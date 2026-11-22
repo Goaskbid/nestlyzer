@@ -240,7 +240,7 @@ function armsPump() {
    var link=document.createElement('a');link.href=v.page;link.target='_blank';link.rel='noopener noreferrer';link.title=v.by+'; '+v.lic+'; Wikimedia Commons. Official-symbol restrictions may apply.';link.addEventListener('click',function(e){e.stopPropagation();});link.appendChild(im);
    im.onload=function(){if(!extOn()||!slot.isConnected||slot.dataset.placeEmblem!==id)return;slot.replaceChildren(link);slot.dataset.emblemState='shown';slot.setAttribute('aria-label',im.alt);};
    // 2.15.30-r7: if Wikimedia refuses the 120 px thumbnail (busy or rate-limited), load the original file instead
-   im.onerror=function(){if(v.full&&im.src!==v.full){im.src=v.full;return;}if(slot.isConnected&&slot.dataset.placeEmblem===id)slot.dataset.emblemState='load-error';};
+   im.onerror=function(){if(!extOn())return;if(v.full&&im.src!==v.full){im.src=v.full;return;}if(slot.isConnected&&slot.dataset.placeEmblem===id)slot.dataset.emblemState='load-error';};
    im.src=v.src;
   }).catch(function(){if(slot.isConnected)slot.dataset.emblemState='load-error';}).finally(function(){ARMN--;armsPump();});
   })(job[0],job[1],job[0].id);
@@ -348,7 +348,7 @@ function rarmsImg(s, v, kind) {
   a.addEventListener('click', function (e) { e.stopPropagation(); });
   var im = new Image(); im.alt = 'Coat of arms of ' + v.of; im.referrerPolicy = 'no-referrer'; im.className = 'nz-rarms-img'; im.decoding = 'async';
   im.onload = function () { if (s.isConnected) { s.appendChild(a); s.hidden = false; } };
-  im.onerror = function () { if (v.full && im.src !== v.full) im.src = v.full; };
+  im.onerror = function () { if (extOn() && v.full && im.src !== v.full) im.src = v.full; };   // r15: never once live content is off
   a.appendChild(im); im.src = v.src;
 }
 function regionArmsHTML(r) {
@@ -368,6 +368,7 @@ function hydrateRegionArms(root) {
 }
 if (typeof MutationObserver === 'function' && typeof document !== 'undefined') {
   var RARMS_Q = false;
-  new MutationObserver(function () { if (RARMS_Q) return; RARMS_Q = true; setTimeout(function () { RARMS_Q = false; hydrateRegionArms(document); }, 50); })
+  /* r15 (speed): react only when region-arms slots were actually added, instead of scanning the whole page on every change */
+  new MutationObserver(function (ms) { if (RARMS_Q) return; var hit = false; for (var i = 0; i < ms.length && !hit; i++) { var A = ms[i].addedNodes; for (var j = 0; j < A.length; j++) { var n = A[j]; if (n.nodeType === 1 && (n.classList.contains('nz-rarm') || n.classList.contains('nz-rarms') || n.querySelector('.nz-rarm'))) { hit = true; break; } } } if (!hit) return; RARMS_Q = true; setTimeout(function () { RARMS_Q = false; hydrateRegionArms(document); }, 50); })
     .observe(document.documentElement, { childList: true, subtree: true });
 }

@@ -313,7 +313,8 @@ function syncMode() {
   document.body.classList.toggle('bizmode', m === 'biz'); document.documentElement.classList.toggle('bizmode', m === 'biz'); if (typeof recolorTheme === 'function') recolorTheme(); store(m === 'biz' ? 'lastbiz' : 'lasthome', S.profile);
   return true;
 }
-function runRanking() {
+function runRanking() { return ENGINE && ENGINE.pass ? ENGINE.pass(runRanking0) : runRanking0(); }   // r15: one cache pass per render
+function runRanking0() {
   if (!SHARD) return;
   if(S.areaEncoded&&!S.areaDecoded&&!S.areaLoading){S.areaLoading=true;moreLoad().then(function(X){X.restoreAreas();S.areaLoading=false;update({fit:true});}).catch(function(){S.areaLoading=false;toast('Area selection unavailable','No results are shown until the selected-area filter can load.');});}
   if (syncMode()) refreshShortlistUI();

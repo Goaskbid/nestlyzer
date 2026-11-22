@@ -43,7 +43,7 @@ var NZEmblemIdentity=(function(){
     author and licence. */
  function direct(name,of){var h=HASH[name];if(!h||!/^[0-9a-f]{2}$/.test(h))return null;var u=encodeURIComponent(name.replace(/ /g,'_')).replace(/%2C/g,',').replace(/%28/g,'(').replace(/%29/g,')'),base='https://upload.wikimedia.org/wikipedia/commons/',dir=h.charAt(0)+'/'+h+'/',svg=/\.svg$/i.test(name);
   return {src:base+'thumb/'+dir+u+'/120px-'+u+(svg?'.png':/\.(tiff?|webp)$/i.test(name)?'.png':''),full:base+dir+u,lic:'open licence, author and terms on the file page',by:'Wikimedia Commons',of:of||'',page:'https://commons.wikimedia.org/wiki/File:'+u,direct:true};}
- if(typeof document!=='undefined')document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&/upload\.wikimedia\.org\/wikipedia\/commons\/thumb\//.test(t.src)&&!t.dataset.nzfb){t.dataset.nzfb='1';t.src=t.src.replace('/thumb/','/').replace(/\/120px-[^/]+$/,'');}},true);
+ if(typeof document!=='undefined')document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&/upload\.wikimedia\.org\/wikipedia\/commons\/thumb\//.test(t.src)&&!t.dataset.nzfb){if(!(typeof extOn==='function'?extOn():(function(){try{return JSON.parse(localStorage.getItem('nz:ext'))!==false;}catch(_){return false;}})()))return;   /* r15: no fallback request once live content is off */t.dataset.nzfb='1';t.src=t.src.replace('/thumb/','/').replace(/\/120px-[^/]+$/,'');}},true);
  return {request:request,verify:verify,values:values,collectedFile:collectedFile,decode:decode,collectedRegion:collectedRegion,direct:direct};
 })();
 if(typeof module==='object'&&module.exports)module.exports=NZEmblemIdentity;

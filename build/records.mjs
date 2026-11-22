@@ -34,7 +34,7 @@ export function buildRecords(X) {
 
   /* ---------- 1. size ---------- */
   {
-    const big = top(P, 'pop', 12), dense = top(P.filter((p) => p.pop >= 20000), 'dens', 10), wide = top(P, 'area', 10);
+    const big = top(P, 'pop', 12), dense = top(P.filter((p) => p.pop >= 20000), 'dens', 10), wide = top(P.filter((p) => p.pop > 0), 'area', 10);
     const tiny = P.filter((p) => fin(p.pop) && p.pop > 0).sort((a, b) => a.pop - b.pop).slice(0, 10);
     const all = P.filter((p) => fin(p.pop)).length, tot = P.reduce((s, p) => s + (p.pop || 0), 0);
     sec('size', 'Biggest, smallest, most crowded', `The ${fmtInt(all)} places Nestlyzer covers are home to ${fmt(tot / 1e9, 2)} billion people. ${plT(big[0])} is the largest with ${fmtInt(big[0].pop)} residents, ${ratio(big[0].pop, big[1].pop)} ${plT(big[1])}. At the other end, ${esc(tiny[0].name)} in ${esc(nm(tiny[0].cc))} counts ${fmtInt(tiny[0].pop)} ${tiny[0].pop === 1 ? 'resident' : 'residents'}.`,
@@ -47,7 +47,7 @@ export function buildRecords(X) {
 
   /* ---------- 2. height and edges ---------- */
   {
-    const high = top(P.filter((p) => p.pop >= 1000), 'alt', 10), low = top(P.filter((p) => p.pop >= 1000), 'alt', 10, 1), far = top(P.filter((p) => p.pop >= 5000), 'coast', 10);
+    const high = top(P.filter((p) => p.pop >= 1000), 'alt', 10), low = top(P.filter((p) => p.pop >= 1000), 'alt', 10, 1), far = top(P.filter((p) => p.pop >= 5000 && p.coast <= 2700), 'coast', 10);   // r15: no inhabited place is more than ~2,650 km from the sea; larger values are overseas territories measured against the mainland coast
     sec('height', 'Highest, lowest, farthest from the sea', `Altitude decides climate, snow and how far the next motorway is. Among places with at least 1,000 residents, ${plT(high[0])} sits highest at about ${fmtInt(high[0].alt)} m; ${plT(low[0])} lies lowest at ${fmtInt(low[0].alt)} m.`,
       `<div class="ins-two">` +
       C.bars(high.map((p) => ({ label: pl(p), v: p.alt, note: fmtInt(p.pop) + ' residents' })), { title: 'Highest places, metres above sea level', fmt: (v) => fmtInt(v) + ' m', noMedal: false, caption: 'Terrain height at the place centre (open elevation model).' }) +

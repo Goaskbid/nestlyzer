@@ -122,10 +122,10 @@ button.chip:hover{border-color:var(--line-2)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cta-band{background:#183457}}
 .cta-band h2{font-size:var(--step-2);color:#fff}
 .cta-band .btn{background:var(--sun);border-color:var(--sun);color:#132238}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:18px 0}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:10px;margin:18px 0}
 .fact{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px}
 .fact span{display:block;font-size:var(--step--1);color:var(--ink-3)}
-.fact b{font:700 var(--step-2) var(--font-display)}
+.fact b{font:700 clamp(1.05rem,1.5vw,1.3rem)/1.25 var(--font-display);display:block;margin-top:2px}
 .prose{max-width:70ch}
 .prose h2{font-size:var(--step-2);margin:28px 0 10px}
 .prose h3{font-size:var(--step-1);margin:20px 0 8px}
@@ -233,3 +233,26 @@ main a,.prose a,.card a{overflow-wrap:anywhere}
 .nz-note-s{font-size:11.5px;padding:5px 8px;margin:10px 0 0}
 .cine-card .nz-note{color:#f2f5fa;background:#18304a;border-color:#8394a8;font-size:12.5px}.cine-card .nz-note b{color:#fff}.cine-card .nz-note a{color:#c9f3ff;text-decoration:underline}
 .wx-entry{margin:10px 0 0;font-size:var(--step--1)}.cine-card .wx-entry{order:-2;margin:-6px 0 12px}.go-for{margin:-8px 0 10px;font-size:var(--step--1);font-weight:650}.cine-card .go-for{order:-2;color:#fff}.cine-card .wx-entry a{color:#fff;text-underline-offset:3px}
+
+/* r15: house-voice blocks */
+.nz-story{margin-top:18px}.nz-story h2{font-size:var(--step-2);margin-bottom:8px}.nz-story p{max-width:68ch;line-height:1.6;margin:0 0 10px}.nz-story p:last-child{margin-bottom:0}
+.nz-take{margin:14px 0 18px;padding:12px 16px;border-left:3px solid var(--blue,#1f5fbf);background:var(--surface,#fff);border-radius:0 12px 12px 0}.nz-take p{margin:0;max-width:70ch;line-height:1.55}
+:not(.grid-2)>.card+.card{margin-top:16px}
+/* r15 polish: calmer notice, stronger headlines, softer cards, an editorial story block */
+.nz-note{background:none;border:0;border-left:3px solid var(--line-2);border-radius:0;padding:2px 0 2px 10px;color:var(--ink-3);font-size:12px;max-width:80ch;margin:6px 0 14px}
+.nz-note b{color:var(--ink-2)}
+main h1{font-size:clamp(2rem,4.6vw,3.1rem);font-stretch:88%;letter-spacing:-.02em;line-height:1.04;margin:4px 0 12px;color:var(--navy)}
+main .lede{font-size:var(--step-1);line-height:1.55;color:var(--ink-2);max-width:66ch}
+.card{box-shadow:0 1px 2px rgba(19,34,56,.04),0 6px 18px rgba(19,34,56,.05);border-color:color-mix(in srgb,var(--line) 85%,transparent)}
+.nz-story{position:relative;border-top:3px solid var(--sun);background:linear-gradient(180deg,color-mix(in srgb,var(--sun) 7%,var(--surface)) 0,var(--surface) 140px)}
+.nz-story h2{color:var(--navy);font-stretch:90%}
+.nz-story p:first-of-type{font-size:var(--step-1);line-height:1.55;color:var(--ink)}
+.nz-take{box-shadow:0 1px 2px rgba(19,34,56,.04)}
+.fact{transition:border-color .2s}.fact:hover{border-color:var(--line-2)}
+.fact span{letter-spacing:.01em}
+.table tbody tr:hover{background:color-mix(in srgb,var(--blue) 5%,transparent)}
+.cta-band{border-radius:var(--radius-l)}
+/* r15: the compact profile rows line up with the rich ones (numbers right-aligned), and the strengths card no longer stretches to the ranking table */
+@media (min-width: 701px){.table.stack:has(th.num) td:nth-child(2),.table.stack:has(th.num) td:nth-child(3),.table.stack:has(th.num) td:nth-child(4){text-align:right}}
+.grid-2:has(.table.stack){align-items:start}
+.tile:has(small){align-items:flex-start}   /* r15: long tiles read from the top, icon beside the title */

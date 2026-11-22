@@ -34,11 +34,16 @@ function radarSVG(x) {
   if (keys.length < 3) keys = Object.keys(cats).filter(function (k) { return fin(cats[k]); }).slice(0, 8);
   if (keys.length < 3) return '';
   var sameArea = SHARD.records.filter(function (o) { return r.country === 'CH' ? o.canton === r.canton : (r.n2 && o.n2 === r.n2); });
-  function avg(list, k) { var s = 0, n = 0; for (var i = 0; i < list.length; i++) { var v = ENGINE.categories(list[i])[k]; if (fin(v)) { s += v; n++; } } return n ? s / n : null; }
+  /* r15: averages use the same profile-aware categories as the place itself (business categories such as freight access
+     exist only per profile), so the area and country outlines appear; a missing outline is left out of the legend too */
+  var CF = ENGINE.categoriesFor ? function (o) { return ENGINE.categoriesFor(o, S.profile) || {}; } : ENGINE.categories;
+  if (!SHARD._cf || SHARD._cfp !== S.profile) { SHARD._cf = new Map(); SHARD._cfp = S.profile; SHARD._avg = {}; }
+  function catsOf(o) { var c = SHARD._cf.get(o.id); if (!c) { c = CF(o); SHARD._cf.set(o.id, c); } return c; }
+  function avg(list, k) { var s = 0, n = 0; for (var i = 0; i < list.length; i++) { var v = catsOf(list[i])[k]; if (fin(v)) { s += v; n++; } } return n ? s / n : null; }
   if (!SHARD._avg) SHARD._avg = {};
   var place = keys.map(function (k) { return cats[k]; });
   var areaAvg = keys.map(function (k) { return avg(sameArea, k); });
-  var ctry = keys.map(function (k) { var ck = S.method + k; if (!(ck in SHARD._avg)) SHARD._avg[ck] = avg(SHARD.records, k); return SHARD._avg[ck]; });
+  var ctry = keys.map(function (k) { var ck = S.method + S.profile + k; if (!(ck in SHARD._avg)) SHARD._avg[ck] = avg(SHARD._smp || (SHARD._smp = SHARD.records.length > 3000 ? SHARD.records.filter(function (_, i) { return i % Math.ceil(SHARD.records.length / 3000) === 0; }) : SHARD.records), k);   /* r15: a spread sample of 3,000 places is enough for an average and keeps large countries fast */ return SHARD._avg[ck]; });
   var cx = 200, cy = 175, R = 125, n = keys.length;
   function pt(i, v) { var a = -Math.PI / 2 + i * 2 * Math.PI / n; return [cx + Math.cos(a) * R * v / 100, cy + Math.sin(a) * R * v / 100]; }
   var rings = [25, 50, 75, 100].map(function (v) { return '<polygon points="' + keys.map(function (_, i) { return pt(i, v).join(','); }).join(' ') + '" fill="none" stroke="var(--line)"/>'; }).join('');
@@ -46,7 +51,7 @@ function radarSVG(x) {
   function series(vals, col, dash, fill) { var ok = vals.every(fin); if (!ok) return ''; return '<polygon points="' + vals.map(function (v, i) { return pt(i, v).join(','); }).join(' ') + '" fill="' + (fill || 'none') + '" stroke="' + col + '" stroke-width="2.2"' + (dash ? ' stroke-dasharray="' + dash + '"' : '') + '/>'; }
   var areaLabel = r.country === 'CH' ? r.cantonName + ' average' : localAreaOf(r) + ' average';
   var table = keys.map(function (k, i) { var d = place[i] - ctry[i]; return '<tr><td>' + esc(shortCat(k)) + '</td><td class="num"><b>' + fmt(place[i]) + '</b></td><td class="num">' + fmt(areaAvg[i]) + '</td><td class="num">' + fmt(ctry[i]) + '</td><td class="num"><span class="delta ' + (d >= 0 ? 'good' : 'bad') + '">' + signed(d, 0) + '</span></td></tr>'; }).join('');
-  return '<section class="sec"><h3>Profile shape</h3><div class="radar-legend"><span><i style="background:var(--blue)"></i>' + esc(r.name) + '</span><span><i style="background:var(--green)"></i>' + esc(areaLabel) + '</span><span><i style="background:var(--amber)"></i>' + esc(countryName(r.country)) + ' average</span></div>' +
+  return '<section class="sec"><h3>Profile shape</h3><div class="radar-legend"><span><i style="background:var(--blue)"></i>' + esc(r.name) + '</span>' + (areaAvg.every(fin) ? '<span><i style="background:var(--green)"></i>' + esc(areaLabel) + '</span>' : '') + (ctry.every(fin) ? '<span><i style="background:var(--amber)"></i>' + esc(countryName(r.country)) + ' average</span>' : '') + '</div>' +
     '<svg class="radar" viewBox="0 0 400 350" role="img" aria-label="Spider chart comparing ' + esc(r.name) + ' with area and country averages">' + rings + axes + series(ctry, 'var(--amber)', '6 6') + series(areaAvg, 'var(--green)', '4 6') + series(place, 'var(--blue)', '', 'color-mix(in srgb,var(--blue) 14%,transparent)') + '</svg>' +
     '<div class="tablewrap"><table class="table"><thead><tr><th>Category</th><th class="num">Here</th><th class="num">' + esc(r.country === 'CH' ? 'Canton' : 'Region') + '</th><th class="num">Country</th><th class="num">Δ</th></tr></thead><tbody>' + table + '</tbody></table></div></section>';
 }

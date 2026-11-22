@@ -226,7 +226,8 @@ function neighboursHTML(r) {
   if (!list.length) return '';
   return '<section class="sec"><h3>Next door</h3><p class="sub">Municipalities within 12 km. ' + TAP + ' one to open it.</p><div class="pills">' + list.map(function (o) { var y = RES && RES.byId[o.r.id]; return '<button class="chip" type="button" data-id="' + esc(o.r.id) + '">' + esc(o.r.name) + ' <span class="muted">' + fmt(o.d, 0) + ' km</span>' + (y ? ' <b>' + Math.round(y.overall) + '</b>' : '') + '</button>'; }).join('') + '</div></section>';
 }
-function renderPlace() {
+function renderPlace() { return ENGINE && ENGINE.pass ? ENGINE.pass(renderPlace0) : renderPlace0(); }   // r15: one cache pass per render
+function renderPlace0() {
   var el = $('#place'), r = selected();
   if (!r) { el.classList.remove('open'); el.setAttribute('aria-hidden', 'true'); document.body.classList.remove('place-open'); return; }
   el.classList.add('open'); el.removeAttribute('aria-hidden'); document.body.classList.add('place-open');

@@ -205,7 +205,7 @@ function armsFor(r) {
   // 2.15.28: key 'arms2' so empty results cached by the 8-country lookup before 2.15.28 are asked again
   // 2.15.30-r7: key 'arms5' and 120 px thumbnails: since Feb 2026 Wikimedia rate-limits thumbnail widths outside its standard steps
   // (20, 40, 60, 120, 250, 330, 500, 960, 1280, 1920, 3840), so the old 96 px images failed; remembered 96 px links are dropped
-  var key = 'arms6:' + r.id, c = store(key); if (c && c.t && Date.now() - c.t < 2592e6) return Promise.resolve(ARMS[r.id] = c.v);
+  var key = 'arms7:' + r.id, c = store(key); if (c && c.t && Date.now() - c.t < 2592e6) return Promise.resolve(ARMS[r.id] = c.v);
   if (!extOn()) return Promise.resolve(null);
   var done = function (v) { if(!extOn())return null; if (!v && WD_FAIL[r.id]) { delete WD_FAIL[r.id]; return null; } ARMS[r.id] = v; try { store(key, { t: Date.now(), v: v }); } catch (e) {} return v; };
   var p94 = function (e) { var f = e && e.claims && ((e.claims.P94 || [])[0] || {}).mainsnak; return f && f.datavalue && f.datavalue.value; };
@@ -221,7 +221,7 @@ function armsFor(r) {
   // 2.15.30-r13: the collected file first (exact official code, no Wikidata request); otherwise the live resolver
   var collected = typeof NZEmblemIdentity === 'object' && NZEmblemIdentity.collectedFile ? NZEmblemIdentity.collectedFile(r.country, r.oid) : Promise.resolve(null);
   return collected.then(function (f) {
-    if (f && extOn()) return commons(f, '').then(function (v) { if (v) v.identity = { property: 'P94', code: String(r.oid), country: r.country, source: 'collected' }; return v; });
+    if (f && extOn()) { var dv = NZEmblemIdentity.direct && NZEmblemIdentity.direct(f, ''); if (dv) { dv.identity = { property: 'P94', code: String(r.oid), country: r.country, source: 'collected' }; return dv; } return commons(f, '').then(function (v) { if (v) v.identity = { property: 'P94', code: String(r.oid), country: r.country, source: 'collected' }; return v; }); }
     return liveArms();
   }, liveArms).then(done, function () { return null; });
   function liveArms() {
@@ -273,21 +273,28 @@ function regionArmsTargets(r) {
   return out;
 }
 var RARMS = {};
+// r14: cantons, German Länder and Austrian states map from their NUTS code to ISO 3166-2, so their arms come from the collection
+var NUTS_ISO = { CH011: 'CH-VD', CH012: 'CH-VS', CH013: 'CH-GE', CH021: 'CH-BE', CH022: 'CH-FR', CH023: 'CH-SO', CH024: 'CH-NE', CH025: 'CH-JU', CH031: 'CH-BS', CH032: 'CH-BL', CH033: 'CH-AG', CH040: 'CH-ZH', CH051: 'CH-GL', CH052: 'CH-SH', CH053: 'CH-AR', CH054: 'CH-AI', CH055: 'CH-SG', CH056: 'CH-GR', CH057: 'CH-TG', CH061: 'CH-LU', CH062: 'CH-UR', CH063: 'CH-SZ', CH064: 'CH-OW', CH065: 'CH-NW', CH066: 'CH-ZG', CH070: 'CH-TI',
+  DE1: 'DE-BW', DE2: 'DE-BY', DE3: 'DE-BE', DE4: 'DE-BB', DE5: 'DE-HB', DE6: 'DE-HH', DE7: 'DE-HE', DE8: 'DE-MV', DE9: 'DE-NI', DEA: 'DE-NW', DEB: 'DE-RP', DEC: 'DE-SL', DED: 'DE-SN', DEE: 'DE-ST', DEF: 'DE-SH', DEG: 'DE-TH',
+  AT11: 'AT-1', AT12: 'AT-3', AT13: 'AT-9', AT21: 'AT-2', AT22: 'AT-6', AT31: 'AT-4', AT32: 'AT-5', AT33: 'AT-7', AT34: 'AT-8' };
 function regionArmsFor(t) {
-  var key = 'rarms1:' + t.p + ':' + t.v; if (RARMS[key]) return RARMS[key];
+  var key = 'rarms3:' + t.p + ':' + t.v; if (RARMS[key]) return RARMS[key];
   var c = store(key); if (c && c.t && Date.now() - c.t < 2592e6) return (RARMS[key] = Promise.resolve(c.v));
   if (!extOn()) return Promise.resolve(null);
   var failed = false;
-  return (RARMS[key] = wdSearch('haswbstatement:' + t.p + '=' + t.v).then(function (ids) {
+  // r14: a state or province in the collection (exact ISO 3166-2 code) goes straight to Commons, no Wikidata request
+  var iso = t.p === 'P300' ? t.v : NUTS_ISO[t.v], col = iso && NZEmblemIdentity.collectedRegion ? NZEmblemIdentity.collectedRegion(iso) : Promise.resolve(null);   // the regional file name is resolved through Commons (no folder stored)
+  return (RARMS[key] = col.then(function (hit) { if (hit) { var dv = NZEmblemIdentity.direct(hit.file, hit.name); return dv || rarmsCommons(hit.file, hit.name); } return wdSearch('haswbstatement:' + t.p + '=' + t.v).then(function (ids) {
     if (ids.length !== 1) return null;
     return jget('https://www.wikidata.org/w/api.php?action=wbgetentities&ids=' + ids[0] + '&props=claims|labels&languages=en&format=json&origin=*').then(function (j) {
       var e = j.entities && j.entities[ids[0]]; if (!e) return null;
       if (!NZEmblemIdentity.values(e, t.p).some(function (v) { return String(v) === t.v; })) return null;
       if (!NZEmblemIdentity.values(e, 'P17').some(function (v) { return v && v.id === t.cq; })) return null;
-      var f = NZEmblemIdentity.values(e, 'P94')[0]; if (!f) return null;
+      // r14: states without a coat of arms (most US states) show their official seal (P158) instead
+      var f = NZEmblemIdentity.values(e, 'P94')[0] || NZEmblemIdentity.values(e, 'P158')[0]; if (!f) return null;
       return rarmsCommons(f, ((e.labels || {}).en || {}).value || t.v);
     });
-  }).catch(function () { failed = true; return null; }).then(function (v) {
+  }); }).catch(function () { failed = true; return null; }).then(function (v) {
     if (!failed && extOn()) { try { store(key, { t: Date.now(), v: v }); } catch (e) {} } else delete RARMS[key];   // a failed lookup is never remembered
     return v;
   }));
@@ -335,6 +342,7 @@ function regionChainFor(r) {
   }));
 }
 function rarmsImg(s, v, kind) {
+  if (!extOn() || !v || !v.src) return;   // r14: never load an outside image once live content is off
   var a = document.createElement('a'); a.href = v.page || '#'; a.target = '_blank'; a.rel = 'noopener noreferrer';
   a.title = 'Coat of arms of ' + v.of + ' (' + (kind === 'state' ? 'state or province' : 'region') + '). ' + v.by + '; ' + v.lic + '; Wikimedia Commons. Official-symbol restrictions may apply.';
   a.addEventListener('click', function (e) { e.stopPropagation(); });

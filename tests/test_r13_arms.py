@@ -8,18 +8,20 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 B = sys.argv[1] if len(sys.argv) > 1 else 'http://127.0.0.1:8787'
 c = {}
 idx = json.load(open(os.path.join(ROOT, 'data/arms/index.json')))
-c['55,000+ places in 40+ countries carry a collected coat of arms'] = sum(idx.values()) >= 55000 and len(idx) >= 40
+c['58,000+ places in 45 countries carry a collected coat of arms'] = sum(idx.values()) >= 58000 and len(idx) >= 45
 c['all Czech, German, French, Spanish and Swiss matches present'] = idx.get('CZ', 0) >= 5700 and idx.get('DE', 0) >= 9600 and idx.get('FR', 0) >= 20000 and idx.get('ES', 0) >= 6700 and idx.get('CH', 0) >= 2150
-c['no Polish or Brazilian rows (codes cannot be joined exactly)'] = 'PL' not in idx and 'BR' not in idx
+c['Poland and Brazil joined through their exact bridges (r14)'] = idx.get('PL', 0) >= 1900 and idx.get('BR', 0) >= 1400
+reg = json.load(open(os.path.join(ROOT, 'data/arms/regions.json')))
+c['US states and other provinces by exact ISO 3166-2 code (r14)'] = len(reg) >= 1700 and reg.get('US-NY', [''])[0].endswith('.svg') and all(re.fullmatch(r'[A-Z]{2}-[A-Z0-9]{1,3}', k) for k in reg)
 size = sum(os.path.getsize(os.path.join(ROOT, 'data/arms', f)) for f in os.listdir(os.path.join(ROOT, 'data/arms')))
-c['arms files stay small (under 2 MB in total, largest under 1 MB)'] = size < 2_000_000 and max(os.path.getsize(os.path.join(ROOT, 'data/arms', f)) for f in os.listdir(os.path.join(ROOT, 'data/arms'))) < 1_000_000
+c['arms files stay small (under 2.2 MB in total, largest under 1 MB)'] = size < 2_200_000 and max(os.path.getsize(os.path.join(ROOT, 'data/arms', f)) for f in os.listdir(os.path.join(ROOT, 'data/arms'))) < 1_000_000
 src = list(csv.DictReader(io.TextIOWrapper(gzip.open(os.path.join(ROOT, 'build/source/arms/arms_municipalities.csv.gz')), encoding='utf-8')))
 lic = {r['arms_file']: r['licence'] for r in src}
 import importlib.util
 spec = importlib.util.spec_from_file_location('ai', os.path.join(ROOT, 'build/build_arms_index.py')); ai = importlib.util.module_from_spec(spec); spec.loader.exec_module(ai)
 names = []
 for f in os.listdir(os.path.join(ROOT, 'data/arms')):
-    if f == 'index.json': continue
+    if f in ('index.json', 'regions.json'): continue
     d = json.load(open(os.path.join(ROOT, 'data/arms', f))); names += [ai.decode(d['p'], v) for v in d['m'].values()]
 c['every stored file is in the collector export and openly licensed'] = all(n in lic and ai.LIC.match(lic[n]) and not ai.NOTFREE.search(lic[n]) for n in names)
 cz = json.load(open(os.path.join(ROOT, 'data/arms/CZ.json'))); CZOID = sorted(cz['m'])[0]; CZFILE = ai.decode(cz['p'], cz['m'][CZOID])
@@ -38,7 +40,7 @@ with sync_playwright() as pw:
     def ctx_for(consent):
         ctx = br.new_context(viewport={'width': 1400, 'height': 900})
         ctx.route('**/*wikidata.org/**', wd); ctx.route('**/commons.wikimedia.org/**', cm)
-        ctx.route('**/upload.wikimedia.org/**', lambda r: r.fulfill(status=200, content_type='image/svg+xml', body=SVG))
+        ctx.route('**/upload.wikimedia.org/**', lambda r: (seen['files'].append(urllib.parse.unquote(r.request.url).replace('_', ' ')), r.fulfill(status=200, content_type='image/svg+xml', body=SVG)))
         ctx.add_init_script("try{localStorage.setItem('nz:consent2', JSON.stringify({v:2,a:false,d:false,t:1}));localStorage.setItem('nz:toured','1');%s}catch(e){}" % ("" if consent else "localStorage.setItem('nz:ext','false')"))
         return ctx
     ctx = ctx_for(True); pg = ctx.new_page(); errs = []; pg.on('pageerror', lambda e: errs.append(str(e)))
@@ -55,8 +57,9 @@ with sync_playwright() as pw:
         try: pg.wait_for_selector('.nz-sarms img', timeout=15000)
         except Exception: pass
         st = pg.evaluate("(()=>{const s=document.querySelector('.nz-sarms');const a=s&&s.querySelector('a');return {img:!!(s&&s.querySelector('img')),title:a?a.title:''}})()")
-        c['Czech static page shows its collected coat of arms with licence credit (%s)' % slug] = st['img'] and 'Public domain' in st['title'] and any(urllib.parse.quote(ai.decode(de['p'], de['m'][SOID])) in urllib.parse.quote(f) or ai.decode(de['p'], de['m'][SOID]) in f for f in seen['files'])
+        c['Czech static page shows its collected coat of arms with licence credit (%s)' % slug] = st['img'] and ('Public domain' in st['title'] or 'open licence' in st['title']) and any(urllib.parse.quote(ai.decode(de['p'], de['m'][SOID])) in urllib.parse.quote(f) or ai.decode(de['p'], de['m'][SOID]) in f for f in seen['files'])
         c['the static page did not ask Wikidata (file came from /data/arms)'] = seen['wd'] == 0
+        c['image loaded straight from upload.wikimedia.org, no Commons API request (r14)'] = any('/wikipedia/commons/thumb/' in f for f in seen['files']) and not any(f.startswith('File:') for f in seen['files'])
     else:
         c['a Czech static place page with collected arms exists'] = False
     wd_before = seen['wd']

@@ -43,14 +43,15 @@ with sync_playwright() as pw:
     try: sp.wait_for_selector('.nz-sarms img', timeout=15000)
     except Exception: pass
     st = sp.evaluate("(()=>{const s=document.querySelector('.nz-sarms');const a=s&&s.querySelector('a');return {img:!!(s&&s.querySelector('img')),shown:!!(s&&!s.hidden),title:a?a.title:''}})()")
-    check('static-page', st['img'] and st['shown'] and 'Public domain' in st['title'], 'static place page shows the coat of arms with licence credit: ' + json.dumps(st))
+    check('static-page', st['img'] and st['shown'] and ('Public domain' in st['title'] or 'open licence' in st['title']), 'static place page shows the coat of arms with licence credit: ' + json.dumps(st))
     # a failed lookup (rate limit) must not be remembered: the next visit tries again
     ctx2 = br.new_context(); n = {'c': 0}
     def busy(route): n['c'] += 1; route.fulfill(status=503, body='')
     ctx2.route('**/*wikidata.org/**', busy); ctx2.route('**/commons.wikimedia.org/**', busy)   # r13: collected arms ask Commons directly
     p2 = ctx2.new_page(); p2.goto(B + '/switzerland/zurich/adliswil/', wait_until='load'); p2.wait_for_timeout(5500)
-    cached = p2.evaluate("Object.keys(localStorage).filter(k=>k.startsWith('nz:arms6:')).length")
-    check('no-fail-cache', cached == 0 and n['c'] >= 3, f'busy Wikimedia: {n["c"]} tries with back-off, nothing cached ({cached})')
+    cached = p2.evaluate("Object.keys(localStorage).filter(k=>k.startsWith('nz:arms7:')).length")
+    check('no-fail-cache', (cached == 0 and n['c'] >= 3) or (n['c'] == 0 and p2.evaluate("Object.keys(localStorage).filter(k=>k.startsWith('nz:arms7:')).every(k=>(localStorage.getItem(k)||'').indexOf('upload.wikimedia.org')>0)")),  # r14: collected arms need no Commons API call at all
+          f'busy Wikimedia: {n["c"]} tries with back-off, nothing cached ({cached})')
     ctx2.close()
     # 2.15.30-r7: Wikimedia rate-limits thumbnail widths outside its standard steps (since Feb 2026). Every request must use a
     # standard width, and when a thumbnail is refused (429) the original file is loaded instead, in the app and on static pages.
@@ -89,7 +90,8 @@ with sync_playwright() as pw:
         except Exception: pass
         p4.wait_for_timeout(1500); got[cc] = p4.evaluate("[...document.querySelectorAll('#place .nz-rarms-img')].map(i=>i.alt)")
     check('region-arms-DE', len(got['DE']) == 2 and any(a.startswith('DED') or 'DED' in a for a in asked), f'Freital: state and district arms {got["DE"]}, codes asked {sorted(set(asked))[:6]}')
-    check('region-arms-CH', len(got['CH']) == 1 and 'CH040' in asked, f'Zürich: canton arms {got["CH"]}')
+    check('region-arms-CH', len(got['CH']) == 1,  # r14: canton arms come from the collection (CH040 -> CH-ZH), Wikidata not asked
+          f'Zürich: canton arms {got["CH"]}')
     ctx4.close()
     check('errors', not errs, 'no script errors' + (': ' + errs[0][:150] if errs else ''))
     br.close()

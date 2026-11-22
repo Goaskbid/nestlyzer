@@ -32,6 +32,14 @@ function copy(src, dst) {
 for (const d of dirs) if (fs.existsSync(path.join(ROOT, d))) copy(path.join(ROOT, d), path.join(OUT, d));
 for (const f of files) if (fs.existsSync(path.join(ROOT, f))) { fs.mkdirSync(path.dirname(path.join(OUT, f)), { recursive: true }); copy(path.join(ROOT, f), path.join(OUT, f)); }
 for (const f of fs.readdirSync(ROOT)) if (/^sitemap(-[a-z0-9-]+)?\.xml$/.test(f)) copy(path.join(ROOT, f), path.join(OUT, f));
+// r14 engine protection: every published script ships minified, without comments (the app bundles already are). Names
+// that pages call stay intact (top-level names are not renamed); strings and behaviour are unchanged.
+{ const terser=createRequire(import.meta.url)('terser');let mins=0,saved=0;
+  for(const f of fs.readdirSync(path.join(OUT,'assets'))){if(!f.endsWith('.js'))continue;const p=path.join(OUT,'assets',f),src=fs.readFileSync(p,'utf8');
+    if(!/\/\*|(^|[^:'"\\])\/\/\s/m.test(src))continue;
+    const r=await terser.minify(src,{ecma:2020,compress:false,mangle:true,format:{comments:false}});
+    if(r.code&&r.code.length<src.length){fs.writeFileSync(p,r.code);mins++;saved+=src.length-r.code.length;}}
+  console.log('Engine protection: minified '+mins+' scripts, '+saved+' bytes of comments and spacing removed'); }
 // Lossless footprint pass on the deployment copy. Raw data and authored source are untouched.
 const registryFile=path.join(ROOT,'.cache/seo/pages.json');
 if(!fs.existsSync(registryFile))throw Error('Complete generated-page registry is required');

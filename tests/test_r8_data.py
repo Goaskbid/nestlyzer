@@ -44,7 +44,7 @@ with sync_playwright() as pw:
     br.close()
 c['Freital: median age and net migration of its NUTS 3 region'] = 'Median age of residents' in T['DE:14628110'] and 'Net migration into the region' in T['DE:14628110']
 c['New York City: migration rates of its state'] = 'Americans moving in from other states' in T['US:5128581'] and 'Net arrivals from abroad' in T['US:5128581']
-c['US state arms asked for US-NY (not a neighbouring state)'] = 'US-NY' in asked and 'US-NJ' not in asked
+c['US state arms for US-NY (collected since r14, or asked), never a neighbouring state'] = ('US-NY' in asked or 'US-NY' in json.load(open(os.path.join(ROOT, 'data/arms/regions.json')))) and 'US-NJ' not in asked
 c['Lisbon parish: calendar-year municipal new-lease rent'] = 'calendar year' in T['PT:110601']
 c['no script errors'] = not errs
 for k, v in c.items(): print(('ok   ' if v else 'FAIL ') + k)

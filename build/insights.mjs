@@ -6,6 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
 import { charts } from './insights_charts.mjs';
+import { buildRecords } from './records.mjs';
 
 export function buildInsights(H) {
   const { ROOT, page, esc, fmt, fmtInt, countries, flagImg, appLink, cslug } = H;
@@ -40,6 +41,7 @@ export function buildInsights(H) {
   /* ---------- page frame ---------- */
   const CSS = C.CSS + `<style>
 .ins-kick{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}.ins-kick a,.ins-kick span{font-size:13px;font-weight:650;padding:4px 10px;border-radius:999px;background:var(--surface-2,#eef2f4);color:var(--ink-2);text-decoration:none}.ins-kick .on{background:#1b4565;color:#fff}
+.ins-rec{display:flex;flex-direction:column;gap:6px;margin:16px 0;padding:18px 20px;border-radius:16px;text-decoration:none;color:#fff;background:linear-gradient(120deg,#1b4565,#2a7d78)}.ins-rec b{font-size:21px;line-height:1.25}.ins-rec span{font-size:15px;line-height:1.5;opacity:.92}.ins-rec em{font-style:normal;font-weight:700;font-size:14px;text-decoration:underline}.ins-rec:hover{filter:brightness(1.08)}
 .ins-take{border-left:4px solid #2a9c96;padding:10px 14px;margin:14px 0;background:rgba(42,156,150,.07);border-radius:0 12px 12px 0;line-height:1.55}
 .ins-grid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:14px 0}.ins-card{display:flex;flex-direction:column;gap:4px;border:1px solid var(--line,#dde3e8);border-radius:14px;padding:14px 16px;text-decoration:none;color:inherit;background:var(--surface,#fff)}
 .ins-card:hover{border-color:#2a9c96}.ins-card b{font-size:16.5px;line-height:1.3}.ins-card span{font-size:14px;color:var(--ink-3);line-height:1.45}.ins-card em{font-style:normal;font-size:12px;font-weight:700;color:#2a7d78}
@@ -700,6 +702,8 @@ ${FOOT('Sources: World Bank WDI and B-READY, Transparency International, V-Dem, 
     pageIns(cpath(cc), `${nm(cc)} in numbers: living, business and trends`, `How does ${nm(cc)} compare? Quality of life and business climate ranked against ${league.length} countries, with trends since 2010 for health, jobs, prices and air.`, body, 'country');
   }
 
+  /* r14: Book of Records */
+  const REC = buildRecords({ ROOT, C, esc, fmt, fmtInt, nm, cl, flagImg, PAGES: H.PAGES || {}, N, NV, pageIns, kick, printBtn, FOOT, corr, strength, median, fin, list, sgn });
   /* =================================================================== HUB */
   {
     const cards = (sec) => OUT.filter((o) => o.sec === sec).map((o) => `<a class="ins-card" href="${o.p}"><b>${esc(o.title.split(':')[0])}</b><span>${esc(o.desc)}</span></a>`).join('');
@@ -712,13 +716,14 @@ ${FOOT('Sources: World Bank WDI and B-READY, Transparency International, V-Dem, 
       ['business', 'Business climate', 'Capital, red tape, rule of law and where companies do well.', /business|capital|red-tape|rule-of-law|location-index/]];
     const themeOf = (o) => (THEMES.find((t) => t[3].test(o.p)) || ['more'])[0];
     const card = (o) => `<a class="ins-card" href="${o.p}"><b>${esc(o.title.split(':')[0])}</b><span>${esc(o.desc)}</span></a>`;
-    const listed = OUT.filter((o) => o.sec !== 'country' && o.sec !== 'hub');
+    const listed = OUT.filter((o) => o.sec !== 'country' && o.sec !== 'hub' && o.sec !== 'records');
     const themed = () => { const used = THEMES.filter((t) => listed.some((o) => themeOf(o) === t[0])); const more = listed.filter((o) => themeOf(o) === 'more');
       return `<span id="living"></span><span id="inside"></span><nav class="chips" aria-label="Themes">${used.map((t) => `<a href="#${t[0]}">${t[1]}</a>`).join('')}${more.length ? '<a href="#more">More</a>' : ''}</nav>` +
         used.map((t) => `<h2 id="${t[0]}">${t[1]}</h2><p>${t[2]}</p><div class="ins-grid2">${listed.filter((o) => themeOf(o) === t[0]).map(card).join('')}</div>`).join('') +
         (more.length ? `<h2 id="more">More</h2><div class="ins-grid2">${more.map(card).join('')}</div>` : ''); };
     const pod = (rows, t) => `<div><b>${t}</b><ol>${rows.slice(0, 3).map((r, i) => `<li>${medal(i)} ${cl(r.cc)} <span class="muted small">${fmt(r.s)}</span></li>`).join('')}</ol></div>`;
     const body = `<h1>Insights: places in numbers</h1><p class="lede">Charts, rankings and trends for anyone choosing where to live, invest or build: ${CC.length} countries compared on what matters to households and to companies, and big-data views inside the countries, built from official statistics. Every chart explains itself, works on a phone and prints as a clean PDF.</p>
+<a class="ins-rec" href="/insights/records/"><b>The Nestlyzer Book of Records</b><span>Biggest, smallest, highest, fastest growing and fastest shrinking places, the great metro areas compared, country anomalies and the top business clusters, all in charts.</span><em>Open the records</em></a>
 <div class="ins-pod">${pod(lifeLeague, 'Quality of life')}${pod(league, 'Business climate')}</div>
 ${themed()}
 <h2>Country by country</h2><p>${lifeLeague.concat(CC.filter((cc) => !lifeLeague.some((r) => r.cc === cc)).map((cc) => ({ cc }))).map((r) => cl(r.cc)).join(' · ')}</p>

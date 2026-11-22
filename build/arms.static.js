@@ -4,7 +4,7 @@
 (function () {
   var slot = document.querySelector('[data-sarms]'); if (!slot || !window.fetch) return;
   try { if (JSON.parse(localStorage.getItem('nz:ext')) === false) return; } catch (e) {}
-  var d = slot.dataset, KEY = 'nz:arms6:' + d.id;
+  var d = slot.dataset, KEY = 'nz:arms7:' + d.id;
   var PROP = { CH: 'P771', DE: 'P439', FR: 'P374', IT: 'P635', ES: 'P772', AT: 'P964', NL: 'P382', BE: 'P1567' };
   var FAIL = {};
   function allowed(){try{return JSON.parse(localStorage.getItem('nz:ext'))!==false;}catch(e){return false;}}
@@ -37,7 +37,7 @@
   function resolve() {
     // 2.15.30-r13: the collected file first (exact official code, no Wikidata request), live exact-code lookup otherwise
     return NZEmblemIdentity.collectedFile(d.cc,d.oid).then(function(f){
-      if(f&&allowed())return commons(f,'').then(function(v){if(v)v.identity={property:'P94',code:String(d.oid),country:d.cc,source:'collected'};return v;});
+      if(f&&allowed()){var v=NZEmblemIdentity.direct(f,'');if(v){v.identity={property:'P94',code:String(d.oid),country:d.cc,source:'collected'};return v;}return commons(f,'');}
       return live();
     },live);
   }

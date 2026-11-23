@@ -89,6 +89,12 @@ if (!fs.existsSync(path.join(OUT, 'sitemap.xml'))) { console.error('Missing requ
 // Count the final artifact, including forwarders added after the initial copy.
 const finalTree=OutputContract.sizeTree(OUT);n=finalTree.files;bytes=finalTree.bytes;
 console.log('Final publication receipt:',JSON.stringify(finalTree));
+// r16 (audit NZ-AUD-14): bytes per top-level directory after every redirect and fingerprint, written next to the site so
+// every release keeps a size receipt and growth per area is visible from one release to the next
+{ const per = {}; for (const e of fs.readdirSync(OUT, { withFileTypes: true })) { const p0 = path.join(OUT, e.name); if (e.isDirectory()) { const t = OutputContract.sizeTree(p0); per[e.name] = { files: t.files, bytes: t.bytes }; } else { per['(root files)'] = per['(root files)'] || { files: 0, bytes: 0 }; per['(root files)'].files++; per['(root files)'].bytes += fs.statSync(p0).size; } }
+  const top = Object.entries(per).sort((a, b) => b[1].bytes - a[1].bytes);
+  console.log('Size by directory (MB):', top.slice(0, 12).map(([k, v]) => k + ' ' + (v.bytes / 1e6).toFixed(1)).join(', '));
+  fs.mkdirSync(path.join(ROOT, 'docs', 'audit'), { recursive: true }); fs.writeFileSync(path.join(ROOT, 'docs', 'audit', 'publication_size.json'), JSON.stringify({ total: finalTree, budget_bytes: 850e6, github_hard_limit_bytes: 1e9, by_directory: Object.fromEntries(top) }, null, 1)); }
 if(finalTree.headroom<50000000)console.warn('Publication headroom below 50 MB; keep new raw archives outside this artifact.');
 // GitHub rules are hard requirements (owner, 9 Nov 2026): the published site stays far below the 1 GB Pages limit, with
 // room for data growth and fast deploys within the 10-minute window. Stop the build instead of publishing anything larger.

@@ -33,6 +33,7 @@ for r in rel:
     if r.endswith('.json') or r.endswith('.html'):
         t = open(os.path.join(SITE, r), encoding='utf-8', errors='ignore').read()
         t = re.sub(r'data:[a-z/+.-]+;base64,[A-Za-z0-9+/=]+', '', t)   # 2.15.23: inlined images are random base64 and can contain key-like letter runs by chance
+        t = re.sub(r'[A-Za-z0-9+/=]{200,}', '', t)   # r16: packed files (base64 runs of 200+ characters) are random data too; a real key sits in ordinary text
         if re.search(r'(AKIA[0-9A-Z]{16}|ghp_[0-9A-Za-z]{36}|sk-[A-Za-z0-9]{32,}|AIza[0-9A-Za-z_-]{35})', t):
             check(False, 'possible key or token in ' + r)
 check(open(os.path.join(SITE, 'CNAME')).read().strip() == 'nestlyzer.com', 'CNAME is nestlyzer.com')

@@ -1,0 +1,343 @@
+{
+ "total": {
+  "files": 156072,
+  "bytes": 847983910,
+  "headroom": 2016090
+ },
+ "budget_bytes": 850000000,
+ "github_hard_limit_bytes": 1000000000,
+ "by_directory": {
+  "places": {
+   "files": 129977,
+   "bytes": 226714369
+  },
+  "data": {
+   "files": 1549,
+   "bytes": 195848086
+  },
+  "rankings": {
+   "files": 5874,
+   "bytes": 53741805
+  },
+  "switzerland": {
+   "files": 2203,
+   "bytes": 41429991
+  },
+  "united-states": {
+   "files": 1819,
+   "bytes": 36467980
+  },
+  "india": {
+   "files": 1986,
+   "bytes": 34964940
+  },
+  "china": {
+   "files": 1639,
+   "bytes": 28627987
+  },
+  "brazil": {
+   "files": 1308,
+   "bytes": 23227759
+  },
+  "japan": {
+   "files": 950,
+   "bytes": 17851651
+  },
+  "russia": {
+   "files": 670,
+   "bytes": 13176714
+  },
+  "germany": {
+   "files": 463,
+   "bytes": 9847156
+  },
+  "france": {
+   "files": 309,
+   "bytes": 9105310
+  },
+  "philippines": {
+   "files": 442,
+   "bytes": 8128627
+  },
+  "united-kingdom": {
+   "files": 406,
+   "bytes": 7666429
+  },
+  "indonesia": {
+   "files": 415,
+   "bytes": 7594476
+  },
+  "italy": {
+   "files": 344,
+   "bytes": 7298752
+  },
+  "mexico": {
+   "files": 376,
+   "bytes": 7139797
+  },
+  "turkiye": {
+   "files": 354,
+   "bytes": 6838376
+  },
+  "insights": {
+   "files": 141,
+   "bytes": 6567677
+  },
+  "spain": {
+   "files": 299,
+   "bytes": 6519883
+  },
+  "vietnam": {
+   "files": 296,
+   "bytes": 5571566
+  },
+  "canada": {
+   "files": 256,
+   "bytes": 5086562
+  },
+  "thailand": {
+   "files": 267,
+   "bytes": 4892078
+  },
+  "poland": {
+   "files": 224,
+   "bytes": 4649657
+  },
+  "malaysia": {
+   "files": 235,
+   "bytes": 4433289
+  },
+  "egypt": {
+   "files": 229,
+   "bytes": 4325141
+  },
+  "argentina": {
+   "files": 215,
+   "bytes": 4182951
+  },
+  "colombia": {
+   "files": 211,
+   "bytes": 4110161
+  },
+  "netherlands": {
+   "files": 212,
+   "bytes": 4077951
+  },
+  "south-africa": {
+   "files": 201,
+   "bytes": 3725024
+  },
+  "assets": {
+   "files": 134,
+   "bytes": 3141496
+  },
+  "south-korea": {
+   "files": 146,
+   "bytes": 2797165
+  },
+  "morocco": {
+   "files": 137,
+   "bytes": 2686767
+  },
+  "greece": {
+   "files": 92,
+   "bytes": 2516571
+  },
+  "(root files)": {
+   "files": 19,
+   "bytes": 2400643
+  },
+  "romania": {
+   "files": 95,
+   "bytes": 2222116
+  },
+  "belgium": {
+   "files": 103,
+   "bytes": 2210104
+  },
+  "sweden": {
+   "files": 100,
+   "bytes": 1941562
+  },
+  "portugal": {
+   "files": 74,
+   "bytes": 1852426
+  },
+  "australia": {
+   "files": 71,
+   "bytes": 1627181
+  },
+  "czechia": {
+   "files": 47,
+   "bytes": 1618662
+  },
+  "denmark": {
+   "files": 82,
+   "bytes": 1567701
+  },
+  "saudi-arabia": {
+   "files": 79,
+   "bytes": 1527645
+  },
+  "ireland": {
+   "files": 79,
+   "bytes": 1517416
+  },
+  "business": {
+   "files": 17,
+   "bytes": 1516044
+  },
+  "serbia": {
+   "files": 75,
+   "bytes": 1466281
+  },
+  "taiwan": {
+   "files": 74,
+   "bytes": 1462500
+  },
+  "israel": {
+   "files": 65,
+   "bytes": 1421789
+  },
+  "hong-kong": {
+   "files": 61,
+   "bytes": 1299554
+  },
+  "hungary": {
+   "files": 41,
+   "bytes": 1187043
+  },
+  "districts": {
+   "files": 1,
+   "bytes": 1176560
+  },
+  "best": {
+   "files": 28,
+   "bytes": 1141726
+  },
+  "new-zealand": {
+   "files": 45,
+   "bytes": 1080048
+  },
+  "united-arab-emirates": {
+   "files": 52,
+   "bytes": 1067837
+  },
+  "bulgaria": {
+   "files": 51,
+   "bytes": 1053153
+  },
+  "slovakia": {
+   "files": 31,
+   "bytes": 964549
+  },
+  "singapore": {
+   "files": 45,
+   "bytes": 960725
+  },
+  "finland": {
+   "files": 44,
+   "bytes": 917881
+  },
+  "norway": {
+   "files": 44,
+   "bytes": 905268
+  },
+  "method": {
+   "files": 1,
+   "bytes": 898677
+  },
+  "austria": {
+   "files": 27,
+   "bytes": 884190
+  },
+  "vendor": {
+   "files": 4,
+   "bytes": 881773
+  },
+  "lithuania": {
+   "files": 28,
+   "bytes": 587789
+  },
+  "albania": {
+   "files": 29,
+   "bytes": 574490
+  },
+  "croatia": {
+   "files": 23,
+   "bytes": 536548
+  },
+  "north-macedonia": {
+   "files": 24,
+   "bytes": 442532
+  },
+  "latvia": {
+   "files": 22,
+   "bytes": 410003
+  },
+  "slovenia": {
+   "files": 14,
+   "bytes": 325337
+  },
+  "incentives": {
+   "files": 1,
+   "bytes": 254063
+  },
+  "immigration": {
+   "files": 1,
+   "bytes": 178418
+  },
+  "world": {
+   "files": 1,
+   "bytes": 177661
+  },
+  "estonia": {
+   "files": 8,
+   "bytes": 162398
+  },
+  "cyprus": {
+   "files": 7,
+   "bytes": 144110
+  },
+  "sources": {
+   "files": 64,
+   "bytes": 115071
+  },
+  "luxembourg": {
+   "files": 4,
+   "bytes": 83353
+  },
+  "malta": {
+   "files": 3,
+   "bytes": 71085
+  },
+  "iceland": {
+   "files": 3,
+   "bytes": 63730
+  },
+  "evidence-lab": {
+   "files": 1,
+   "bytes": 34474
+  },
+  "about": {
+   "files": 1,
+   "bytes": 32734
+  },
+  "legal": {
+   "files": 1,
+   "bytes": 31604
+  },
+  "liechtenstein": {
+   "files": 1,
+   "bytes": 22675
+  },
+  "press": {
+   "files": 1,
+   "bytes": 10549
+  },
+  ".well-known": {
+   "files": 1,
+   "bytes": 88
+  }
+ }
+}

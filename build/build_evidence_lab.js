@@ -40,9 +40,9 @@ function basis(cc,biz,meta){
   url:cc==='US'?'https://www.census.gov/programs-surveys/cbp.html':null,
   rawField:'cluster_<profile> in factorRaw',kind:'derived_indicator',provenance:'Raw industry counts are retained. Sector aggregation, suppression and national-denominator reconciliation remain a review requirement.',
   limits:'Existing employment concentration is not a move, opening, survival rate, profitability measure or site-capacity commitment. County support is not municipal support.'};
- if(cc==='CH')return {id:'population_change',label:'Resident population change',unit:'%',period:'2019-2024',level:'place',source:'Retained annual population series, Eurostat GISCO LAU, matched by Swiss BFS code',
-  url:'https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units/local-administrative-units',rawField:'trend.annual_population, exact 2019 and 2024 endpoints',kind:'derived_from_retained_counts',
-  provenance:'Computed as 100 * (population_2024 / population_2019 - 1). Original series retained in the country shard; boundary-change comparability still needs review.',
+ if(cc==='CH')return {id:'population_change',label:'Resident population change',unit:'%',period:'2017-2022 (BFS, 31 December)',level:'place',source:'Retained annual population series, Eurostat GISCO LAU, matched by Swiss BFS code',
+  url:'https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units/local-administrative-units',rawField:'trend.annual_population, exact 2017 and 2022 endpoints (published in LAU 2019 and LAU 2024)',kind:'derived_from_retained_counts',
+  provenance:'Computed as 100 * (population_2022 / population_2017 - 1), BFS permanent resident population as carried in the Eurostat LAU releases two years later. Original series retained in the country shard; boundary-change comparability still needs review.',
   limits:'All-age population stocks. Births, deaths, migration and boundary changes can affect growth. Not retirement, family or remote-worker migration.'};
  const f=meta.factors.find(x=>x.id==='common_population_growth_5y'),b=f?.by_country?.[cc]||{};
  return {id:'population_change',label:'Retained population-change measure',unit:'%',period:/year varies/i.test(b.period||'')?'unresolved':'2019-2024 in factor definition; country-period reconciliation pending',level:'municipal LAU unit only with a matched retained direct-cell contract',

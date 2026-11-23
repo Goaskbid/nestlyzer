@@ -12,7 +12,7 @@ os.makedirs(DIST, exist_ok=True)
 SRC_DIRS = ['.github', 'build', 'src', 'tests', 'vendor', 'assets', 'data', 'docs', 'tools']
 SRC_FILES = ['.gitignore', 'CNAME', 'package.json', 'package-lock.json', 'README.md', 'NOTICE.md', 'favicon.ico', 'favicon.svg']
 SKIP_PARTS = {'node_modules', '__pycache__', 'shots', 'results', '.DS_Store', '.cache'}
-GENERATED = {'data/routes.json', 'assets/consent.js', 'assets/hero-ch.svg', 'assets/site.css', 'data/hero.json', 'data/hero.bin', 'data/pages.json'}
+GENERATED = {'data/routes.json', 'assets/consent.js', 'assets/hero-ch.svg', 'assets/site.css', 'data/hero.json', 'data/hero.bin', 'data/hero.bin.gz', 'data/pages.json'}
 
 
 def source_files():

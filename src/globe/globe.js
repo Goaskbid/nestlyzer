@@ -1,3 +1,14 @@
+/* r16: fetch the point cloud gzipped (about 45% of the bytes) and inflate it in the browser; plain file as fallback */
+function heroBuf(v) {
+  function plain() { return fetch('/data/hero.bin?v=' + v).then(function (r) { if (!r.ok) throw 0; return r.arrayBuffer(); }); }
+  if (typeof DecompressionStream !== 'function') return plain();
+  return fetch('/data/hero.bin.gz?v=' + v).then(function (r) {
+    if (!r.ok || !r.body) throw 0;
+    var enc = (r.headers.get('content-encoding') || '').toLowerCase();
+    if (enc.indexOf('gzip') >= 0) return r.arrayBuffer();   // the server already inflated it
+    return new Response(r.body.pipeThrough(new DecompressionStream('gzip'))).arrayBuffer();
+  }).then(function (b) { if (!b || b.byteLength < 8) throw 0; return b; }).catch(plain);
+}
 /* The start page globe: a slowly turning Earth at night. Every ranked place is a point of light, coloured by how well
    it fits the household chosen on the start page; choosing another household crossfades the lights.
    Loaded as /assets/globe.js once the start page is idle. WebGL; the caller shows a still picture if this fails.
@@ -185,7 +196,7 @@ window.NZGLOBE = function (o) {
 
   fetch('/data/hero.json?v=' + o.v).then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (m) {
     meta = m;
-    return fetch('/data/hero.bin?v=' + o.v).then(function (r) { if (!r.ok) throw 0; return r.arrayBuffer(); });
+    return heroBuf(o.v);
   }).then(function (buf) {
     var dv = new DataView(buf), n = dv.getUint32(0, true), off = 4, nb = meta.bytes || 4;
     var lon = new Uint16Array(buf.slice(off, off + 2 * n)); off += 2 * n;
@@ -310,7 +321,7 @@ window.NZGLOBE2D = function (o) {
   var rt = 0; new ResizeObserver(function () { clearTimeout(rt); rt = setTimeout(size, 120); }).observe(wrap);
   function unit(lo, la) { var RAD = Math.PI / 180, cl = Math.cos(la * RAD); return [cl * Math.sin(lo * RAD), Math.sin(la * RAD), cl * Math.cos(lo * RAD)]; }
   fetch('/data/hero.json?v=' + o.v).then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (m) {
-    meta = m; return fetch('/data/hero.bin?v=' + o.v).then(function (r) { if (!r.ok) throw 0; return r.arrayBuffer(); });
+    meta = m; return heroBuf(o.v);
   }).then(function (bf) {
     var dv = new DataView(bf), n = dv.getUint32(0, true), of = 4, nb = meta.bytes || 4;
     var lon = new Uint16Array(bf.slice(of, of + 2 * n)); of += 2 * n;

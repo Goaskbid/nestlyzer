@@ -16,8 +16,19 @@
      freight access. Port must-haves (port-based industry) still need a real sea or waterway port: the waterway port distance is
      recomputed here from the same 76 inland ports with the same straight-line rule and rounding as build_reach.py. */
   var WPORTS = [[47.588,7.592],[47.548,7.637],[51.455,6.735],[51.205,6.715],[50.99,6.965],[51.355,6.66],[51.535,7.44],[49.505,8.45],[49.505,8.42],[49.015,8.32],[48.585,7.795],[50.02,8.265],[50.11,8.72],[49.985,9.12],[49.155,9.205],[48.79,9.24],[49.405,11.04],[49.025,12.135],[52.165,11.665],[52.535,13.335],[52.375,9.69],[52.3,8.92],[53.055,8.88],[48.555,7.79],[47.785,7.505],[48.94,2.3],[45.71,4.835],[49.14,6.165],[50.65,5.6],[50.88,4.38],[50.47,4.88],[51.85,5.86],[51.39,6.17],[51.03,5.81],[48.195,16.455],[48.3,14.32],[48.225,14.495],[48.4,15.63],[48.135,17.14],[47.755,18.12],[47.43,19.07],[47.735,17.825],[46.175,18.94],[44.825,20.48],[45.255,19.87],[45.345,19.005],[45.555,18.715],[43.845,25.96],[43.995,22.88],[43.89,25.965],[45.43,28.065],[45.27,27.975],[44.625,22.66],[50.335,18.155],[51.125,17.01],[50.77,14.205],[50.355,14.475],[50.105,14.445],[38.42,-82.445],[40.44,-80.0],[38.63,-90.185],[35.11,-90.075],[39.095,-84.515],[38.265,-85.76],[41.7,-87.575],[46.765,-92.095],[30.435,-91.2],[39.115,-94.59],[36.235,-95.735],[36.17,-86.775],[41.665,-83.52],[42.295,-83.1],[41.505,-81.705],[45.555,-73.535],[43.27,-79.82],[48.41,-89.215]], WK = typeof WeakMap === 'function' ? new WeakMap() : null;
-  function waterKm(r) { if (!r || !fin(r.lat) || !fin(r.lon)) return null; if (WK && WK.has(r)) return WK.get(r); var la = r.lat * Math.PI / 180, lo = r.lon * Math.PI / 180, best = 1e9;
-    for (var i = 0; i < WPORTS.length; i++) { var la2 = WPORTS[i][0] * Math.PI / 180, lo2 = WPORTS[i][1] * Math.PI / 180, h = Math.pow(Math.sin((la2 - la) / 2), 2) + Math.cos(la) * Math.cos(la2) * Math.pow(Math.sin((lo2 - lo) / 2), 2), d = 2 * 6371 * Math.asin(Math.sqrt(Math.min(1, h))); if (d < best) best = d; }
+  /* r16 (speed): port coordinates in radians and their cosines, computed once (same arithmetic, same results) */
+  var WPR = null;
+  function wportsRad() { if (!WPR) WPR = WPORTS.map(function (p) { var a = p[0] * Math.PI / 180; return [a, p[1] * Math.PI / 180, Math.cos(a)]; }).sort(function (a, b) { return a[0] - b[0]; }); return WPR; }
+  function waterKm(r) { if (!r || !fin(r.lat) || !fin(r.lon)) return null; if (WK && WK.has(r)) return WK.get(r); var la = r.lat * Math.PI / 180, lo = r.lon * Math.PI / 180, best = 1e9, cla = Math.cos(la), WR = wportsRad();
+    /* ports sorted by latitude: walk outwards from this latitude and stop once the latitude gap alone (a lower bound of the
+       great-circle distance) exceeds the best distance found; the nearest port and its distance are exactly as before */
+    var hi = 0, n = WR.length; while (hi < n && WR[hi][0] < la) hi++;
+    var lo_ = hi - 1;
+    function one(k) { var la2 = WR[k][0], lo2 = WR[k][1], h = Math.pow(Math.sin((la2 - la) / 2), 2) + cla * WR[k][2] * Math.pow(Math.sin((lo2 - lo) / 2), 2), d = 2 * 6371 * Math.asin(Math.sqrt(Math.min(1, h))); if (d < best) best = d; }
+    while (hi < n || lo_ >= 0) {
+      var gh = hi < n ? 6371 * (WR[hi][0] - la) : 1e18, gl = lo_ >= 0 ? 6371 * (la - WR[lo_][0]) : 1e18;
+      if (gh <= gl) { if (gh > best + 1e-6) break; one(hi++); } else { if (gl > best + 1e-6) break; one(lo_--); }
+    }
     var v = best >= 10 ? Math.round(best) : Math.round(best * 10) / 10; if (WK) WK.set(r, v); return v; }
   function seaOrWaterKm(r) { var x = (r && r.x) || {}, a = fin(x.mport_km) ? x.mport_km : null, b = fin(x.iport_km) ? waterKm(r) : null; return a != null || b != null ? Math.min(a == null ? 1e9 : a, b == null ? 1e9 : b) : x.port_km; }
   function portKm(x) { var a = fin(x.mport_km) ? x.mport_km : null, b = fin(x.iport_km) ? x.iport_km : null; return a != null || b != null ? Math.min(a == null ? 1e9 : a, b == null ? 1e9 : b) : x.port_km; }
@@ -119,7 +130,21 @@
     if (t === 'object') { ks = Object.keys(v); h = (h * 31 + 37 + ks.length) | 0; for (i = 0; i < ks.length; i++) { h = hv(h, ks[i]); h = hv(h, v[ks[i]]); } return h; }
     return h;
   }
-  function catSig(r) { var h = 5381; h = hv(h, r.factorScores); h = hv(h, r.factorRaw); h = hv(h, r.factorLevel); h = hv(h, r.factorEst); h = hv(h, r.x); h = hv(h, r.evidence); h = hv(h, r.trend); return h; }
+  /* r16: flat value maps hashed by position (insertion order), key length and key letters plus the exact value bits, about
+     twice as fast as hashing every key string; swapped, changed, added or removed values all change the signature */
+  function ho(h, o) {
+    if (o === null || o === undefined) return (h * 31 + 7) | 0;
+    if (typeof o !== 'object' || Array.isArray(o)) return hv(h, o);
+    var n = 0, k, v;
+    for (k in o) {
+      v = o[k];
+      h = Math.imul(h ^ (n++ | (k.length << 8) | (k.charCodeAt(0) << 16) | (k.charCodeAt(k.length - 1) << 24)), 16777619);
+      if (typeof v === 'number') { HF[0] = v; h = Math.imul(h ^ HI[0], 16777619); h = Math.imul(h ^ HI[1], 16777619); }
+      else h = hv(h, v);
+    }
+    return Math.imul(h ^ n, 16777619);
+  }
+  function catSig(r) { var h = 5381; h = ho(h, r.factorScores); h = ho(h, r.factorRaw); h = ho(h, r.factorLevel); h = ho(h, r.factorEst); h = ho(h, r.x); h = hv(h, r.evidence); h = hv(h, r.trend); return h; }
   Engine.prototype.categories = function (r) {
     // 2.15.11 (deep audit MODEL-01): the cache is tied to the evidence it was built from, not only to the method.
     var cacheModel = this._cacheIdentity + ':' + this.method + ':' + this.evidence + ':' + (this.cfg.semanticIntegrity ? 'semantic1' : 'original');
@@ -130,12 +155,15 @@
        seconds per view in large countries. Identity checks run every time; the content signature is re-verified at most
        once every 20 seconds per record, so a value changed in place still refreshes the cache, just not in a hot loop. */
     var k = r._catsK, now = Date.now(), sig;
-    var same = r._cats && r._catsM === cacheModel && k && k[0] === r.factorScores && k[1] === r.factorRaw && k[2] === r.factorLevel && k[3] === r.x && k[4] === r.population && k[5] === r.country && k[6] === r.sourceConfidence && k[7] === r.evidence;
+    var same = r._cats && r._catsM === cacheModel && k && k[0] === r.factorScores && k[1] === r.factorRaw && k[2] === r.factorLevel && k[3] === r.x && k[4] === r.population && k[5] === r.country && k[6] === r.sourceConfidence && k[7] === r.evidence && k[8] === r.factorEst && k[9] === r.trend;
     // inside an app render pass (rank, map paint, list, place panel) the app replaces evidence objects when data arrives and
     // never edits them in place, so the identity check is enough there; direct calls outside a pass keep the full content check
-    if (same && this._pass) return r._cats;
+    /* r16 (audit NZ-AUD-07): every rank() starts a new epoch. Inside a render pass the cache is trusted only for records
+       already content-checked in the current epoch; each record is content-checked once per epoch (once per ranking),
+       so values changed in place between two rankings are always picked up. Outside a pass every call is checked. */
+    if (same && this._pass && r._catsE === (this._epoch | 0)) return r._cats;
     sig = catSig(r);
-    if (same && r._catsS === sig) { r._catsT = now; r._catsV = this._pass; return r._cats; }
+    if (same && r._catsS === sig) { r._catsE = this._epoch | 0; r._catsT = now; r._catsV = this._pass; return r._cats; }
     var out = {}, cats = Object.keys(this.factorIdsByCat);
     for (var i = 0; i < cats.length; i++) {
       var v = this.categoryScore(r, cats[i]);
@@ -250,7 +278,7 @@
       // Country tax rates, property multipliers and unrelated household cases must not be averaged.
       r._taxAll = out.tax; delete out.tax;   // 2.15.16: restored per profile below as one explicit tax case
     }
-    r._cats = out; r._catsM = cacheModel; r._catsS = sig; r._catsT = now; r._catsV = this._pass; r._catsK = [r.factorScores, r.factorRaw, r.factorLevel, r.x, r.population, r.country, r.sourceConfidence, r.evidence];
+    r._cats = out; r._catsM = cacheModel; r._catsS = sig; r._catsT = now; r._catsV = this._pass; r._catsE = this._epoch | 0; r._catsK = [r.factorScores, r.factorRaw, r.factorLevel, r.x, r.population, r.country, r.sourceConfidence, r.evidence, r.factorEst, r.trend];
     return out;
   };
 
@@ -619,7 +647,7 @@
   };
 
   /* Rank a scope. Returns {scored, categoryRanks, factorRanks, reasons}. Input order = tie order (legacy). */
-  Engine.prototype.rank = function (scope, key, opts) { var self = this; return Engine.prototype.pass.call(this, function () { return Engine.prototype._rank.call(self, scope, key, opts); }); };
+  Engine.prototype.rank = function (scope, key, opts) { var self = this; self._epoch = (self._epoch | 0) + 1; return Engine.prototype.pass.call(this, function () { return Engine.prototype._rank.call(self, scope, key, opts); }); };
   Engine.prototype._rank = function (scope, key, opts) {
     opts = opts || {};
     var country = opts.country, out = [], reasons = {}, self = this;
@@ -678,10 +706,19 @@
       var m = {}; for (var k = 0; k < idx.length; k++) m[sc[idx[k]].id] = k + 1; return idx.length ? m : null;
     }
     Object.keys(cats).forEach(function (c) { var v = new Array(n); for (var i = 0; i < n; i++) v[i] = sc[i].catScores[c]; res.categoryRanks[c] = rankBy(v) || {}; });
+    /* r16 (speed): a factor's rank table is built the first time it is read (list chips, place panel), not for all
+       factors up front; the values and ranks are exactly the same, only computed later */
     this.allFactors.forEach(function (f) {
-      var v = new Array(n), any = false;
-      for (var i = 0; i < n; i++) { v[i] = self.factorValue(sc[i].r, f); if (fin(v[i])) any = true; }
-      if (any) { var m = rankBy(v); if (m) res.factorRanks[f.id] = m; }
+      var done = false, val;
+      Object.defineProperty(res.factorRanks, f.id, { configurable: true, enumerable: true, get: function () {
+        if (!done) {
+          done = true;
+          var v = new Array(n), any = false;
+          for (var i = 0; i < n; i++) { v[i] = self.factorValue(sc[i].r, f); if (fin(v[i])) any = true; }
+          val = any ? (rankBy(v) || undefined) : undefined;
+        }
+        return val;
+      } });
     });
   };
 

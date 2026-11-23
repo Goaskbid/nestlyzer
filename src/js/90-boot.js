@@ -33,6 +33,7 @@ function switchCountry(cc, o) {
   return loadCountry(cc).then(function (sh) {
     if (token !== SWITCH_TOKEN || S.cc !== cc) return;
     SHARD = sh;
+    try { evictShards(); } catch (e) { }
     var sp0 = scopeSpecial(); if (sp0 && ((sp0.kind === 'metro' && !metroList().some(function (m) { return m[0] === sp0.name; })) || (sp0.kind === 'group' && !sp0.g) || (sp0.kind === 'near' && !BYID[sp0.id]))) { toast('Area not found', 'That link names an area that does not exist in ' + countryName(cc) + '. Showing the whole country.'); S.region = 'ALL'; }
     if (S.cc === 'CH' && !META.config.swissRegions[S.region] && !scopeSpecial()) S.region = 'ALL';
     var ro = regionOptions().map(function (o) { return o[0]; }); if (ro.indexOf(S.region) < 0) S.region = 'ALL';

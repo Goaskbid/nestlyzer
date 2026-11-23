@@ -219,6 +219,24 @@ function cardCopy(x) {
   var h = Array.from(String(r.id)).reduce(function (a, c) { return a + c.charCodeAt(0); }, 0) % v.length;
   return v[h];
 }
+/* r16 (audit NZ-AUD-11): essential evidence that is NOT known for this place, shown next to the score and before the
+   positive screening ticks: must-haves without open data (grid capacity, plots and permits), must-haves without a value
+   for this place, categories carrying 12% or more of the profile weight with no data here, and fixed profile gaps */
+var PROFILE_GAPS = { remote: ['broadband speed'], digital_native: ['broadband speed'] };
+function essentialUnknowns(x) {
+  var r = x.r, out = [], seen = {};
+  function add(t) { t = String(t || '').replace(/\s*\((no open data|not in open data)[^)]*\)\s*$/i, '').trim(); if (t && !seen[t]) { seen[t] = 1; out.push(t); } }
+  (x.must || []).forEach(function (m) { if (m.k === 'none' || m.status === 'unknown') add(m.label); });
+  var w = S.profile ? ENGINE.weightsFor(r, S.profile) : {}, tot = 0, c, cs = x.catScores || {};
+  for (c in w) tot += w[c] || 0;
+  for (c in w) if (tot && (w[c] || 0) / tot >= 0.12 && !fin(cs[c])) add(shortCat(c).toLowerCase());
+  (PROFILE_GAPS[S.profile] || []).forEach(add);
+  return out;
+}
+function unknownsHTML(x) {
+  var u = essentialUnknowns(x); if (!u.length) return '';
+  return '<div class="unk" role="note"><b>Not known here:</b> ' + esc(u.join(', ')) + '. Check before you decide.</div>';
+}
 var MUST_SHORT = { mway_km: 'motorway', rail_km: 'railway', port_km: 'seaport', airport_km: 'hub airport', city_km: 'city of 100k+', catch30: 'people within 30 km', campus_km: 'university town', coast_km: 'coast', pop: 'residents', anyport_km: 'port', dens: 'density' };
 function mustHTML(x) {
   if (!x.must || !x.must.length) return '';
@@ -238,7 +256,7 @@ function rowHTML(x) {
   return '<li class="row" data-nz-card="ranking" data-id="' + esc(x.id) + '" tabindex="0" aria-current="' + (S.selected === x.id) + '">' +
     '<span class="rk" title="Rank for this profile">' + x.rank + '</span>' +
     '<div><div class="nm nz-place-name">' + placeEmblemHTML(r) + esc(r.name) + '</div><div class="meta">' + esc(localAreaOf(r)) + (isWorld(r.country) || inEurope(r) ? '' : ' (overseas)') + ', ' + (fin(r.popNow) ? fmtInt(r.popNow) + ' residents' : 'Population unavailable') + ', ' + (fin(x.weighted) ? fmt(x.weighted) + '% of profile weight covered' : 'Input coverage unavailable') + '' + '</div>' +
-    cardMetaHTML(r, x) + propertyContextHTML(r) + '<div class="subs">' + cats + '</div><div class="subs f">' + facs + '</div>' + mustHTML(x) + (tl && !x.must ? '<div class="trend">' + esc(tl) + '</div>' : '') + '</div>' +
+    unknownsHTML(x) + cardMetaHTML(r, x) + propertyContextHTML(r) + mustHTML(x) + '<div class="subs">' + cats + '</div><div class="subs f">' + facs + '</div>' + (tl && !x.must ? '<div class="trend">' + esc(tl) + '</div>' : '') + '</div>' +
     '<div class="right">' + scoreBadge(x.overall) + nestBars(x) + '<span class="rowacts">' + saveBtn(x.id, true) + hideBtn(x.id) + '</span></div></li>';
 }
 /* 2.13.3 "Not for this search" (owner package 6 Nov, T03): a visitor can set a place aside for the current profile and
@@ -318,7 +336,7 @@ function defineTerm(key) {
   if (key === 'depthplace') { var r = selected(), x = r && placeX(r), kk = depthKind(r ? r.country : S.cc); return toast('Data depth: ' + kk[1], kk[2] + ' Confidence ' + (r ? fmt(r.sourceConfidence) : '–') + '% says how solid the sources are. ' + (x && fin(x.weighted) ? evidenceLine(x) + '. ' + assessKind(x)[1] + ': ' + assessKind(x)[2] : 'No score for this profile here.')); }
   if (key === 'grank') return moreLoad().then(function (X) { toast('Rankings across countries', X.GRANK_TEXT); });
   if (key === 'confidence') return toast('Confidence', T.confidence);
-  if (key === 'coverage') return toast('Data behind the score', "Coverage is the available share of this profile's declared weight. Missing weight is not redistributed. Supported points and unresolved input ranges are not probabilities. Observed source data, model transformations and profile-specific outcomes are explained separately.");
+  if (key === 'coverage') return toast('Data behind the score', "Coverage is the share of this profile's weight that has data for this place. Categories without data are left out and the remaining weights are rescaled; the score is then pulled towards 50 in proportion to what is missing. Coverage counts model inputs, not proof that every essential need is met: anything essential that is not known is listed next to the score.");
   toast(catLabel(key), T[key] || T.score);
 }
 /* 2.12.2: every window opens at its start (top, left edge), never where an earlier window was scrolled */

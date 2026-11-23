@@ -52,7 +52,7 @@ function storyParagraphs(r) {
   var p2 = (pc ? pickV(r, 'b', [
     'The population ' + (pc.pct >= 1 ? 'grew by ' + fmt(pc.pct, 1) + '%' : pc.pct <= -1 ? 'fell by ' + fmt(-pc.pct, 1) + '%' : 'held steady') + ' between ' + pc.from + ' and ' + pc.to + '.',
     'Between ' + pc.from + ' and ' + pc.to + ' the number of residents ' + (pc.pct >= 1 ? 'rose ' + fmt(pc.pct, 1) + '%' : pc.pct <= -1 ? 'dropped ' + fmt(-pc.pct, 1) + '%' : 'barely moved') + '.',
-    (pc.pct >= 1 ? 'People have been moving in: ' : pc.pct <= -1 ? 'The town has been shrinking: ' : 'Numbers are stable: ') + fmt(pc.pct, 1) + '% from ' + pc.from + ' to ' + pc.to + '.']) + ' ' : '') +
+    (pc.pct >= 1 ? 'The population has grown: ' : pc.pct <= -1 ? 'The population has shrunk: ' : 'Numbers are stable: ') + fmt(pc.pct, 1) + '% from ' + pc.from + ' to ' + pc.to + '.']) + ' ' : '') +
     pickV(r, 'c', ['It is a ' + lg + ' area, which shapes schooling, paperwork and how quickly newcomers settle in.', 'Schools, the town hall and the local clubs work in a ' + lg + ' setting.', 'Expect a ' + lg + ' everyday life, from the bakery to the school gate and the council office.']) +
     (f.background ? ' ' + f.background : '');
   var p3 = (fin(x.rail_km) ? pickV(r, 'd', [
@@ -276,7 +276,7 @@ function renderPlace0() {
     '<div class="scorebox">' + scoreRing(x.overall, 96) +
     '<div class="metrics">' +
     cardMetricHTML(r, x, { reason: why || 'Outside this ranking or eligibility unresolved' }) +
-    '</div></div>' +
+    '</div></div>' + (typeof unknownsHTML === 'function' ? unknownsHTML(x) : '') + (fin(r.lat) && fin(r.lon) ? '' : '<p class="small muted" role="note">No location is on file for this place (official register entry without coordinates), so the map, distances and nearby places are not available. Nothing is assumed in their place.</p>') +
     '<p class="nz-note nz-note-1" role="note">General information, not advice. <a href="/legal/#disclaimer">Limits</a></p>' + (NZ_CNOTE[r.country] || '') +
     (why ? '<p class="small" style="margin:0;color:var(--bad)">' + esc(why) + '</p>' : '') +
     whyHTML(r, x) +

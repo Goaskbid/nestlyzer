@@ -18,6 +18,7 @@ tests/results/
 /assets/site.css
 /data/hero.json
 /data/hero.bin
+/data/hero.bin.gz
 /data/pages.json
 /data/routes.json
 /sw.js

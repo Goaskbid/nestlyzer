@@ -117,8 +117,26 @@ function attachExtra(all, xs) {
     if (NestData.fixShore) NestData.fixShore(all[i]);   // a large lake nearby counts as shore
   }
 }
+/* r16 (audit NZ-AUD-13): one request per country even when several views ask at once, and a bounded cache: after a
+   country switch only the current country, the previous one and countries holding saved places stay in memory */
+var SHARD_PENDING = {}, SHARD_RECENT = [];
+function evictShards() {
+  if (S.cc) { SHARD_RECENT = SHARD_RECENT.filter(function (c) { return c !== S.cc; }); SHARD_RECENT.push(S.cc); if (SHARD_RECENT.length > 2) SHARD_RECENT = SHARD_RECENT.slice(-2); }
+  var keep = {}; SHARD_RECENT.forEach(function (c) { keep[c] = 1; });
+  [store('saved') || [], store('bizsaved') || []].forEach(function (l) { l.forEach(function (e) { if (e && e.id) keep[String(e.id).split(':')[0]] = 1; }); });
+  Object.keys(SHARDS).forEach(function (c) {
+    if (keep[c] || SHARD_PENDING[c]) return;
+    var sh = SHARDS[c]; if (sh === SHARD) return;
+    Object.keys(sh.byId || {}).forEach(function (id) { if (BYID[id] === sh.byId[id]) delete BYID[id]; });
+    delete SHARDS[c];
+  });
+}
 function loadCountry(cc) {
   if (SHARDS[cc]) return Promise.resolve(SHARDS[cc]);
+  if (SHARD_PENDING[cc]) return SHARD_PENDING[cc];
+  return (SHARD_PENDING[cc] = loadCountry0(cc).then(function (v) { delete SHARD_PENDING[cc]; return v; }, function (e) { delete SHARD_PENDING[cc]; throw e; }));
+}
+function loadCountry0(cc) {
   return Promise.all([getJSON('/data/c/' + cc + '.json?v=' + VERSION), getJSON('/data/x/' + cc + '.json?v=' + VERSION)]).then(function (a) {
     var sh = a[0], xs = a[1];
     var all = NestData.hydrate(sh);

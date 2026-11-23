@@ -2,7 +2,7 @@
   "name": "nestlyzer",
   "version": "2.15.30",
   "private": true,
-  "description": "Nestlyzer.com \u2014 find where you fit. Static site build.",
+  "description": "Nestlyzer.com — find where you fit. Static site build.",
   "scripts": {
     "data": "python3 build/build_data.py",
     "build": "node build/build_site.mjs",
@@ -11,7 +11,8 @@
     "test:evidence": "node --test tests/evidence_delivery.test.cjs",
     "test:evidence-lab": "node --test tests/evidence_lab.test.cjs",
     "audit:evidence-lab": "node build/build_evidence_lab.js",
-    "check:evidence-lab": "node build/validate_evidence_lab_release.cjs"
+    "check:evidence-lab": "node build/validate_evidence_lab_release.cjs",
+    "gate": "bash tests/release_gate.sh"
   },
   "devDependencies": {
     "esbuild": "0.23.1",

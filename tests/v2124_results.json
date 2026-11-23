@@ -37,6 +37,6 @@
  {
   "id": "titles",
   "ok": false,
-  "check": "every page title at most 65 characters (1711 longer)"
+  "check": "every page title at most 65 characters (1327 longer)"
  }
 ]

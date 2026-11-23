@@ -21,24 +21,23 @@ concurrency:
 
 jobs:
   deploy:
-    # Any finished run qualifies: only a build that passed every test uploads the site package this job copies.
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion != 'cancelled'
+    # r16 (audit NZ-AUD-18): only a successful build of main in this repository qualifies
+    if: github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.repository.full_name == github.repository)
     runs-on: ubuntu-24.04
     timeout-minutes: 40
     env:
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       GH_TOKEN: ${{ github.token }}
+      HAS_CF: ${{ secrets.CLOUDFLARE_API_TOKEN != '' && secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
     steps:
       - name: Find the published build
         id: find
         run: |
-          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+          if [ "$HAS_CF" != "true" ]; then
             echo "Cloudflare is not set up (secrets missing). Nothing to do; GitHub Pages serves the site." >> "$GITHUB_STEP_SUMMARY"; exit 0
           fi
           R="$GITHUB_REPOSITORY"
           if [ "${{ github.event_name }}" = "workflow_run" ]; then ID="${{ github.event.workflow_run.id }}"; SHA="${{ github.event.workflow_run.head_sha }}"
-          else read ID SHA < <(gh api "repos/$R/actions/workflows/site.yml/runs?status=completed&per_page=20" --jq '.workflow_runs[] | "\(.id) \(.head_sha)"' | while read i s; do
+          else read ID SHA < <(gh api "repos/$R/actions/workflows/site.yml/runs?status=success&branch=main&per_page=20" --jq '.workflow_runs[] | select(.conclusion=="success" and .head_branch=="main" and .repository.full_name=="'"$R"'") | "\(.id) \(.head_sha)"' | while read i s; do
                  n=$(gh api "repos/$R/actions/runs/$i/artifacts" --jq '[.artifacts[] | select(.name=="github-pages" and (.expired|not))] | length'); [ "$n" = "1" ] && { echo "$i $s"; break; }; done); fi
           if [ -z "$ID" ]; then echo "No published build is available to copy yet." >> "$GITHUB_STEP_SUMMARY"; exit 0; fi
           A=$(gh api "repos/$R/actions/runs/$ID/artifacts" --jq '.artifacts[] | select(.name=="github-pages" and (.expired|not)) | .id' | head -1)
@@ -64,8 +63,12 @@ jobs:
         run: |
           node cloudflare/pack.mjs _site cf_site
           node cloudflare/test-worker.mjs _site cf_site
+          node cloudflare/test-worker-faults.mjs
       - name: Deploy to Cloudflare
         if: steps.find.outputs.go == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           C=cloudflare/wrangler.jsonc
           if [ "${{ vars.NZ_CLOUDFLARE_DOMAIN }}" = "on" ]; then C=cloudflare/wrangler.live.jsonc; fi

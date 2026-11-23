@@ -64,8 +64,8 @@ function settingLine(s, v) {
 function growthLine(s, v) {
   const g = v.growth; if (g == null || !isFinite(g)) return '';
   const G = { g: (g > 0 ? '+' : '') + n1(g), a: n1(Math.abs(g)) };
-  if (g > 10) return fill(pick(s, 'gr', ['It is growing fast, {g}% in five years. That usually means cranes, new classrooms and a lively debate about parking.', 'Population {g}% in five years: people are voting with their moving boxes.', '{a}% more residents in five years. Somebody has noticed something.']), G);
-  if (g > 3) return fill(pick(s, 'gr', ['Growth is steady, {g}% over five years: people arrive, quietly, and stay.', 'The population is up {a}% in five years, the healthy kind of growth that rarely makes the news.']), G);
+  if (g > 10) return fill(pick(s, 'gr', ['It is growing fast, {g}% in five years. That usually means cranes, new classrooms and a lively debate about parking.', 'The headcount is up {a}% in five years, a pace few places keep up.', '{a}% more residents in five years. Births, arrivals or new boundaries; the figure alone does not say which.']), G);
+  if (g > 3) return fill(pick(s, 'gr', ['Growth is steady, {g}% over five years: the slow, unspectacular kind.', 'The population is up {a}% in five years, the healthy kind of growth that rarely makes the news.']), G);
   if (g > -1) return fill(pick(s, 'gr', ['The headcount has barely moved in five years ({g}%). Some call that stagnation; others call it stability.', 'Five years, {g}%: a population holding its ground.']), G);
   if (g > -5) return fill(pick(s, 'gr', ['It is shrinking slowly, down {a}% in five years. Gentle, but worth noticing.', 'A slight decline, {a}% fewer residents over five years: more room, fewer neighbours.']), G);
   return fill(pick(s, 'gr', ['It has lost {a}% of its residents in five years. Fewer people means less competition for housing; whether the shops and schools hold on is the question to ask.', 'Five years, {g}%. The decline is real, and so is the room it leaves.']), G);

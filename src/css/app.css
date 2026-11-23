@@ -69,6 +69,12 @@ body:not(.exploring) .site-header.on-dark .search-trigger kbd{color:#c9d6e6;bord
   .stats{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}.feature{grid-template-columns:1fr}
   .starter .go,.cine .go{grid-template-columns:1fr}
 }
+/* r16 (audit NZ-AUD-24): on phones the choice of country, profile and the main button come up sooner */
+@media (max-width:600px){
+  .cine-inner{padding-top:min(30vh,230px);padding-bottom:14px}
+  .cine h1{font-size:2.6rem;margin-bottom:12px}
+  .cine-lede{font-size:1rem;line-height:1.45;margin-bottom:16px}
+}
 
 /* ---------------- explore workspace ---------------- */
 body.exploring{overflow:hidden}
@@ -489,3 +495,9 @@ body.bizmode .modeseg button[aria-pressed="true"]{background:#EA580C;color:#fff}
 /* r15: an opened data-depth note takes the full card width instead of a narrow column of fragments */
 .nz-card-meta>div:has(details[open]){grid-column:1/-1}.nz-depth-disclosure p{margin:4px 0 0;font-size:12px;font-weight:400;line-height:1.45;color:var(--ink-2)}
 .legend .keys{max-width:360px}   /* r15: wraps before the zoom buttons instead of running under them */
+
+/* r16 (audit NZ-AUD-11): essential unknowns next to the score */
+.unk{margin:6px 0 4px;padding:6px 10px;border-radius:8px;background:color-mix(in srgb,var(--amber,#b7791f) 14%,transparent);border-left:3px solid var(--amber,#b7791f);font-size:.82rem;line-height:1.35;color:var(--ink,inherit)}.unk b{font-weight:650}
+/* r16 (audit NZ-AUD-23): comparison on phones: a visible cue, row labels stay in view while the places scroll */
+.cmp-hint{display:none;margin:4px 0 6px;font-size:.8rem;color:var(--ink-2,#5b6b7d)}
+@media (max-width:700px){.cmp-hint{display:block}.cmp-wrap{background:linear-gradient(90deg,var(--surface,#fff) 30%,transparent) left/40px 100% no-repeat local,linear-gradient(270deg,var(--surface,#fff) 30%,transparent) right/40px 100% no-repeat local,radial-gradient(farthest-side at 100% 50%,rgba(0,0,0,.16),transparent) right/14px 100% no-repeat scroll}.cmp-wrap .cmp th:first-child,.cmp-wrap .cmp td:first-child{position:sticky;left:0;z-index:1;background:var(--surface,#fff)}}

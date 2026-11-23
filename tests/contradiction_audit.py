@@ -37,7 +37,7 @@ JS = r"""async ([cc, prof]) => {
     const bad = st.bad.join(' ');
     if (/motorway passes/i.test(bad)) for (const o of pro) if (/fewer nuisances|quiet/i.test(o.lab) && !/motorway/i.test(txt(o))) F('C5', 'watch-out names a motorway, For line on nuisances does not', txt(o));
     if (/hub airport is only/i.test(bad)) for (const o of pro) if (/fewer nuisances|quiet/i.test(o.lab) && !/airport/i.test(txt(o))) F('C5', 'watch-out names the airport, For line on nuisances does not', txt(o));
-    if (/population fell/i.test(bad) && st.good.some(g => /moving in|grew/i.test(g))) F('C5', 'population both fell and grew', bad);
+    if (/population fell/i.test(bad) && st.good.some(g => /moving in|grew|growing/i.test(g))) F('C5', 'population both fell and grew', bad);
   }
   return out;
 }"""

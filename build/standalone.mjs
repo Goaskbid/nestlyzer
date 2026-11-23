@@ -25,6 +25,8 @@ let html = rd('index.html').toString();
 html = html.replace(/<link rel="stylesheet" href="\/assets\/app\.css\?v=[\w.-]+">/, () => '<style>' + rd('assets/app.css').toString() + '</style>')
   .replace(/<script defer src="\/assets\/app\.js\?v=[\w.-]+"><\/script>/, () => '<script>' + rd('assets/app.js').toString() + '</script>')
   .replace(/<script defer src="\/assets\/top\.js\?v=[\w.-]+"><\/script>/, () => '<script>' + rd('assets/top.js').toString() + '</script>');   // r8 back-to-top button
+// r16: the home page's daily band goes inline too
+html = html.replace(/<script src="\/assets\/today\.js\?v=[\w.-]+" defer><\/script>/, () => '<script>' + rd('assets/today.js').toString().replace(/<\/script/gi, '<\\/script') + '</script>');
 // 2.15.18: shared page scripts (build/deduplicate_static_assets.mjs) go back inline in the single-file builds
 html = html.replace(/<script src="\/assets\/shared-inline\/([0-9a-f]+)\.js"><\/script>/g, (m, k) => '<script>' + rd('assets/shared-inline/' + k + '.js').toString() + '</script>');
 
@@ -55,7 +57,7 @@ walk('data'); walk('vendor'); walk('assets/flags');
 for (let i = files.length - 1; i >= 0; i--) if (files[i].startsWith('data/place-detail/')) files.splice(i, 1);   // 2.15.16: rich place details are served by the website only
 const BUILD_ONLY = new Set(['data/routes.json', 'data/rank/global.json', 'data/national.json']);
 for (let i = files.length - 1; i >= 0; i--) if (BUILD_ONLY.has(files[i])) files.splice(i, 1);
-files.push('assets/icon-192.png', 'assets/mark.svg', 'assets/more.js', 'assets/globe.js', 'assets/bizglobe.js', 'assets/fx.js', 'assets/nzx.js', 'assets/home.js');
+files.push('assets/icon-192.png', 'assets/mark.svg', 'assets/more.js', 'assets/globe.js', 'assets/bizglobe.js', 'assets/fx.js', 'assets/nzx.js', 'assets/home.js', 'assets/today.js');
 const pack = {};
 let raw = 0;
 const SITE = path.dirname(OUT), split = {};

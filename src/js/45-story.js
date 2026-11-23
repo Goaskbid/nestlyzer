@@ -155,8 +155,8 @@ function storyFor(r, xr) {
   if (hh && fin(fr.geo_hub_airport_km) && fr.geo_hub_airport_km < 9) out.bad.push('The hub airport is only ' + pfmt('air', fr.geo_hub_airport_km) + ' away. Look up the flight paths before you sign anything.');
   if (hh && g != null && g < -4) out.bad.push('The population fell ' + fmt(-g, 1) + '% in five years. Shops, schools and services tend to follow people out.');
   if (fin(fr.geo_major_city_km) && fr.geo_major_city_km > 70) out.bad.push('The nearest city of 100,000+ is ' + pfmt('city', fr.geo_major_city_km) + ' away, so specialist doctors, big shops and airports take planning.');
-  if (g != null && g > 40) out.unusual.push('The population jumped ' + fmt(g, 0) + '% in five years. A jump this size usually means neighbouring municipalities merged into this one.');
-  else if (g != null && g > 6 && out.good.length < 4) out.good.push('People are moving in: ' + signed(g, 1) + '% more residents in five years.');
+  if (g != null && g > 40) out.unusual.push('The recorded population rose ' + fmt(g, 0) + '% in five years. Check the boundary history before comparing periods: a change this large can come from a merger as well as from growth.');
+  else if (g != null && g > 6 && out.good.length < 4) out.good.push('Growing: ' + signed(g, 1) + '% more residents in five years (births, arrivals and boundary changes together).');
   // unusual: extremes within the country
   var rare = [];
   [['alt', 'has higher surrounding terrain', 'has lower surrounding terrain'], ['relief', 'has steeper, more varied terrain', 'has flatter terrain'], ['pop10', 'has more people within 10 km', 'has fewer people within 10 km'], ['nb10', 'has more neighbours within 10 km', 'has fewer neighbours within 10 km'], ['rail', 'lies further from a main railway line', 'lies closer to a main railway line'], ['city', 'lies further from a big city', 'lies closer to a big city'], ['g5', 'is growing faster', 'is shrinking faster'], ['dens', 'is more densely settled', 'is more thinly settled'], ['area', 'covers more land', 'covers less land'], ['lake', 'lies further from any large lake', 'lies closer to a large lake'], ['border', 'lies further from a land border', 'lies closer to a land border'], ['cap', 'lies further from the capital', 'lies closer to the capital']].forEach(function (a) {
@@ -241,8 +241,8 @@ function observedOfRaw(r, biz) {
   var f=r.factorRaw||{},v,k;
   if(biz){ k='cluster_'+S.profile;if(fin(f[k]))return {k:k,v:f[k],lab:'Industry concentration (location quotient)',u:' location quotient',lvl:evidenceLevel(r,k),period:'',note:'Existing concentration is not new investment, business success or site feasibility. It may also be an input to this profile.'};return null; }
   var ap=r.trend&&r.trend.annual_population;
-  if(r.country==='CH'&&Array.isArray(ap)){var a=ap.filter(function(x){return x.year===2019&&fin(x.population)&&x.population>0}),b=ap.filter(function(x){return x.year===2024&&fin(x.population)&&x.population>=0});
-   if(a.length===1&&b.length===1)return {k:'population_2019_2024',v:100*(b[0].population/a[0].population-1),lab:'Resident population change',u:'%',lvl:'municipality',period:'2019-2024',note:'Calculated from retained annual counts. Births, deaths, migration and boundary changes can affect growth; this is not migration by profile.'}; }
+  if(r.country==='CH'&&Array.isArray(ap)&&ap.length){var L=ap[ap.length-1].year,a=ap.filter(function(x){return x.year===L-5&&fin(x.population)&&x.population>0}),b=ap.filter(function(x){return x.year===L&&fin(x.population)&&x.population>=0});
+   if(a.length===1&&b.length===1)return {k:'population_2019_2024',v:100*(b[0].population/a[0].population-1),lab:'Resident population change',u:'%',lvl:'municipality',period:(L-5)+'-'+L,note:'Calculated from retained annual counts. Births, deaths, migration and boundary changes can affect growth; this is not migration by profile.'}; }
   if(fin(f.common_population_growth_5y))return {k:'common_population_growth_5y',v:f.common_population_growth_5y,lab:'Population change',u:'%',lvl:evidenceLevel(r,'common_population_growth_5y'),period:'2019-2024 in the factor definition; country source period needs reconciliation',note:'All-age context, not evidence that this profile chooses the place.'};
   if(r.country==='CH'&&fin(f.population_growth_pct))return {k:'population_growth_pct',v:f.population_growth_pct,lab:'Population change',u:'%',lvl:'municipality',period:'2010-2019',note:'Historical all-age context, not profile-specific movement.'};
   if(RETIRE_P[S.profile]&&fin(f.n_age65_us))return {k:'n_age65_us',v:f.n_age65_us,lab:'Residents aged 65 and over',u:'%',lvl:evidenceLevel(r,'n_age65_us'),period:'',note:'Age share is a population stock, not pension receipt or retiree migration. It is not a ranking-validation outcome.'};
@@ -251,7 +251,7 @@ function observedOfRaw(r, biz) {
 }
 /* 2.15.23: exact, period-correct outcomes (Swiss annual series first; historical 2010-2019 change labelled as such;
    age share and industry quotient never called migration), plus plain words for the verdict */
-var OBS_WORDS = { strongH: 'people are moving here or staying', weakH: 'people are leaving', strongB: 'firms of this kind already operate here', weakB: 'little of this industry operates here yet',
+var OBS_WORDS = { strongH: 'the population is growing', weakH: 'the population is shrinking', strongB: 'firms of this kind already operate here', weakB: 'little of this industry operates here yet',
   strongA: 'many older residents already live here', weakA: 'few older residents live here' };
 function observedFallback(r, biz) { var f = r.factorRaw || {}, k;
   if (biz) { for (k of ['workplaces_per_1000_residents', 'jobs_per_1000_residents']) if (fin(f[k])) return { k: k, v: f[k], lab: k === 'workplaces_per_1000_residents' ? 'Business establishments per 1,000 residents (firms already here)' : 'Jobs per 1,000 residents (work already here)', u: '', lvl: 'municipality', period: '', bizAct: 1 };

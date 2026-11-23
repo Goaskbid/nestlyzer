@@ -1,8 +1,8 @@
 {
  "total": {
-  "files": 156072,
-  "bytes": 847983910,
-  "headroom": 2016090
+  "files": 156119,
+  "bytes": 847956140,
+  "headroom": 2043860
  },
  "budget_bytes": 850000000,
  "github_hard_limit_bytes": 1000000000,
@@ -12,8 +12,8 @@
    "bytes": 226714369
   },
   "data": {
-   "files": 1549,
-   "bytes": 195848086
+   "files": 1548,
+   "bytes": 194393592
   },
   "rankings": {
    "files": 5874,
@@ -128,8 +128,8 @@
    "bytes": 3725024
   },
   "assets": {
-   "files": 134,
-   "bytes": 3141496
+   "files": 137,
+   "bytes": 3149134
   },
   "south-korea": {
    "files": 146,
@@ -139,13 +139,17 @@
    "files": 137,
    "bytes": 2686767
   },
+  "districts": {
+   "files": 46,
+   "bytes": 2595722
+  },
   "greece": {
    "files": 92,
    "bytes": 2516571
   },
   "(root files)": {
    "files": 19,
-   "bytes": 2400643
+   "bytes": 2403505
   },
   "romania": {
    "files": 95,
@@ -206,10 +210,6 @@
   "hungary": {
    "files": 41,
    "bytes": 1187043
-  },
-  "districts": {
-   "files": 1,
-   "bytes": 1176560
   },
   "best": {
    "files": 28,
@@ -281,15 +281,15 @@
   },
   "incentives": {
    "files": 1,
-   "bytes": 254063
-  },
-  "immigration": {
-   "files": 1,
-   "bytes": 178418
+   "bytes": 252594
   },
   "world": {
    "files": 1,
    "bytes": 177661
+  },
+  "immigration": {
+   "files": 1,
+   "bytes": 176949
   },
   "estonia": {
    "files": 8,

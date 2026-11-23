@@ -17,12 +17,12 @@
  {
   "id": "sitemap",
   "ok": true,
-  "check": "all built indexable Insights pages reachable: {\"passed\": true, \"sitemap_files\": 7, \"urls\": 23249, \"insights_expected\": 130, \"insights_missing\": [], \"duplicates\": [], \"errors\": []}"
+  "check": "all built indexable Insights pages reachable: {\"passed\": true, \"sitemap_files\": 7, \"urls\": 23294, \"insights_expected\": 130, \"insights_missing\": [], \"duplicates\": [], \"errors\": []}"
  },
  {
   "id": "published",
   "ok": true,
-  "check": "published folder: 6 sitemap files, 23249 addresses, 0 missing []"
+  "check": "published folder: 6 sitemap files, 23294 addresses, 0 missing []"
  },
  {
   "id": "percentile-words",
@@ -37,7 +37,7 @@
  {
   "id": "evidence-rule",
   "ok": true,
-  "check": "behavioural thin-data ordering: \n  ---\n  duration_ms: 0.20368\n  type: 'test'\n  ...\n# Subtest: finite zero outranks missing, fixed\nok 5 - finite zero outranks missing, fixed\n  ---\n  duration_ms: 0.151998\n  type: 'test'\n  ...\n# Subtest: descending within each evidence tier fixed\nok 6 - descending within each evidence tier fixed\n  ---\n  duration_ms: 0.090836\n  type: 'test'\n  ...\n# Subtest: thin results follow supported results in weighted\nok 7 - thin results follow supported results in weighted\n  ---\n  duration_ms: 0.138984\n  type: 'test'\n  ...\n# Subtest: finite zero outranks missing, weighted\nok 8 - finite zero outranks missing, weighted\n  ---\n  duration_ms: 0.398777\n  type: 'test'\n  ...\n# Subtest: descending within each evidence tier weighted\nok 9 - descending within each evidence tier weighted\n  ---\n  duration_ms: 0.265561\n  type: 'test'\n  ...\n# Subtest: ties do not depend on input order in v2\nok 10 - ties do not depend on input order in v2\n  ---\n  duration_ms: 9.061404\n  type: 'test'\n  ...\n# Subtest: v1 retains input tie order\nok 11 - v1 retains input tie order\n  ---\n  duration_ms: 0.187797\n  type: 'test'\n  ...\n# Subtest: rank has contiguous ordinal positions\nok 12 - rank has contiguous ordinal positions\n  ---\n  duration_ms: 0.082438\n  type: 'test'\n  ...\n# Subtest: scores are unchanged by ordering policy\nok 13 - scores are unchanged by ordering policy\n  ---\n  duration_ms: 0.116468\n  type: 'test'\n  ...\n1..13\n# tests 13\n# suites 0\n# pass 13\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 27.605369\n"
+  "check": "behavioural thin-data ordering: \n  ---\n  duration_ms: 0.180418\n  type: 'test'\n  ...\n# Subtest: finite zero outranks missing, fixed\nok 5 - finite zero outranks missing, fixed\n  ---\n  duration_ms: 0.145541\n  type: 'test'\n  ...\n# Subtest: descending within each evidence tier fixed\nok 6 - descending within each evidence tier fixed\n  ---\n  duration_ms: 0.090637\n  type: 'test'\n  ...\n# Subtest: thin results follow supported results in weighted\nok 7 - thin results follow supported results in weighted\n  ---\n  duration_ms: 0.131031\n  type: 'test'\n  ...\n# Subtest: finite zero outranks missing, weighted\nok 8 - finite zero outranks missing, weighted\n  ---\n  duration_ms: 0.07494\n  type: 'test'\n  ...\n# Subtest: descending within each evidence tier weighted\nok 9 - descending within each evidence tier weighted\n  ---\n  duration_ms: 0.222789\n  type: 'test'\n  ...\n# Subtest: ties do not depend on input order in v2\nok 10 - ties do not depend on input order in v2\n  ---\n  duration_ms: 8.108873\n  type: 'test'\n  ...\n# Subtest: v1 retains input tie order\nok 11 - v1 retains input tie order\n  ---\n  duration_ms: 0.190675\n  type: 'test'\n  ...\n# Subtest: rank has contiguous ordinal positions\nok 12 - rank has contiguous ordinal positions\n  ---\n  duration_ms: 0.104564\n  type: 'test'\n  ...\n# Subtest: scores are unchanged by ordering policy\nok 13 - scores are unchanged by ordering policy\n  ---\n  duration_ms: 0.151246\n  type: 'test'\n  ...\n1..13\n# tests 13\n# suites 0\n# pass 13\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 23.349365\n"
  },
  {
   "id": "dated",

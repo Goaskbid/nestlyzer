@@ -79,6 +79,9 @@ if (!fs.existsSync(path.join(OUT, 'sitemap.xml'))) { console.error('Missing requ
       const u = 'https://nestlyzer.com' + to.url;
       fs.writeFileSync(f, '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>' + e(r[2]) + ' is now part of ' + e(r[5]) + ' | Nestlyzer</title><meta name="robots" content="noindex"><link rel="canonical" href="' + e(u) + '"><meta http-equiv="refresh" content="0;url=' + e(to.url) + '"></head><body><p>' + e(r[2]) + ' merged into <a href="' + e(to.url) + '">' + e(r[5]) + '</a>.</p></body></html>'); fwd++; }
     console.log('forwarding pages for merged municipalities:', fwd); } }
+// r17: the globe reads the gzipped point cloud (data/hero.bin.gz); the uncompressed copy stays in the repository for
+// the single-file builds but is not published (1.45 MB); a browser without DecompressionStream shows the still globe
+{ const hb = path.join(OUT, 'data', 'hero.bin'); if (fs.existsSync(hb) && fs.existsSync(hb + '.gz')) fs.rmSync(hb); }
 // 2.15.30-r6: stamp the service worker with a hash of everything it caches (assets, vendor, data), so every release that
 // changes any of them gets a new cache and open tabs reload into it. Same content, same stamp: no needless reloads.
 { const crypto = await import('node:crypto'); const h = crypto.createHash('sha256'); const walk = (d) => { if (!fs.existsSync(d)) return; for (const e of fs.readdirSync(d, { withFileTypes: true }).sort((a, b) => a.name < b.name ? -1 : 1)) { const f = path.join(d, e.name); if (e.isDirectory()) walk(f); else { h.update(path.relative(OUT, f)); h.update(fs.readFileSync(f)); } } };

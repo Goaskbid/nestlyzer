@@ -24,6 +24,7 @@ for t in test_v28 split_test test_v27 test_v26 test_v25 test_v29 test_v210 test_
 step smoke_repo python3 tests/smoke.py .
 step smoke_site python3 tests/smoke.py _site
 step voice python3 tests/test_r15_voice.py _site
+step city_maps python3 tests/test_city_maps.py _site
 step seovis python3 tests/test_seo_visibility.py _site
 step swupgrade python3 tests/test_sw_upgrade.py _site tests/fixtures/sw_2.15.30_r5.js
 step profiles node tests/profile_audit.js

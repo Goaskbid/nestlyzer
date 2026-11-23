@@ -1,13 +1,14 @@
 /* r16: fetch the point cloud gzipped (about 45% of the bytes) and inflate it in the browser; plain file as fallback */
 function heroBuf(v) {
   function plain() { return fetch('/data/hero.bin?v=' + v).then(function (r) { if (!r.ok) throw 0; return r.arrayBuffer(); }); }
-  if (typeof DecompressionStream !== 'function') return plain();
+  var alt = function () { return window.NZ_STANDALONE ? plain() : Promise.reject(0); };   /* r17: the website publishes only the gzipped file */
+  if (typeof DecompressionStream !== 'function') return alt();
   return fetch('/data/hero.bin.gz?v=' + v).then(function (r) {
     if (!r.ok || !r.body) throw 0;
     var enc = (r.headers.get('content-encoding') || '').toLowerCase();
     if (enc.indexOf('gzip') >= 0) return r.arrayBuffer();   // the server already inflated it
     return new Response(r.body.pipeThrough(new DecompressionStream('gzip'))).arrayBuffer();
-  }).then(function (b) { if (!b || b.byteLength < 8) throw 0; return b; }).catch(plain);
+  }).then(function (b) { if (!b || b.byteLength < 8) throw 0; return b; }).catch(alt);
 }
 /* The start page globe: a slowly turning Earth at night. Every ranked place is a point of light, coloured by how well
    it fits the household chosen on the start page; choosing another household crossfades the lights.

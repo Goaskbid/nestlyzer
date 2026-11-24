@@ -1,0 +1,659 @@
+{
+ "started_at": "2026-11-24T16:09:41.769109+00:00",
+ "plan_version": "2026-11-24-r20",
+ "tasks": {
+  "lau2024_csv": {
+   "source": "eu_lau_boundaries_2024",
+   "licence": "{\"name\": \"GISCO / EuroGeographics statistical-unit download conditions\", \"url\": \"https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units\", \"commercial_use_confirmed\": false, \"notes\": \"The LA",
+   "files": [
+    {
+     "url": "https://gisco-services.ec.europa.eu/distribution/v2/lau/csv/LAU_RG_01M_2024_3035.csv",
+     "bytes": 5602622,
+     "content_type": "text/csv",
+     "seconds": 1.3,
+     "sha256": "23091333583ea40828c747c23134f059290ffd184e702379ede7a35f09db5201"
+    }
+   ],
+   "status": "kept"
+  },
+  "ch_mutations": {
+   "source": "ch_bfs_municipal_mutations_2017_2026",
+   "licence": "{\"name\": null, \"url\": null, \"commercial_use_confirmed\": null, \"notes\": \"The official REST documentation describes free access; a named reuse licence was not confirmed.\"}",
+   "files": [
+    {
+     "url": "https://www.agvchapp.bfs.admin.ch/api/communes/mutations?includeTerritoryExchange=false&startPeriod=01-01-2017&endPeriod=24-11-2026",
+     "bytes": 50116,
+     "content_type": "text/plain; charset=utf-8",
+     "seconds": 0.9,
+     "sha256": "32c9f3e694cf2c79afe713627976dc9053ee3f1c75f4fca5c5a66bbf5ab586f3"
+    }
+   ],
+   "status": "kept"
+  },
+  "fr_dvf": {
+   "source": "fr_dvf_commune_aggregates",
+   "licence": "{\"name\": \"Licence Ouverte / Open Licence 2.0\", \"url\": \"https://www.etalab.gouv.fr/licence-ouverte-open-licence/\", \"commercial_use_confirmed\": true, \"notes\": \"Official dataset API declares license=lov2",
+   "files": [
+    {
+     "url": "https://www.data.gouv.fr/api/1/datasets/r/851d342f-9c96-41c1-924a-11a7a7aae8a6",
+     "bytes": 30643518,
+     "content_type": "text/csv",
+     "seconds": 2.7,
+     "sha256": "eca12b1b1b45274e315859135d5f4ac15137f3e084712ea9b614b11c4a100722"
+    },
+    {
+     "url": "https://www.data.gouv.fr/api/1/datasets/r/03fba98d-885b-43c0-8986-d299cabc29da",
+     "bytes": 271826428,
+     "content_type": "text/csv",
+     "seconds": 8.4,
+     "sha256": "c42f8ae0b9755ac28964fbcca043993432f3ba2108f43e48a897e98bc4566498"
+    }
+   ],
+   "status": "kept"
+  },
+  "world_postcodes": {
+   "source": "GeoNames postal codes (allCountries), CC BY 4.0",
+   "licence": "Creative Commons Attribution 4.0 (GeoNames)",
+   "files": [
+    {
+     "url": "https://download.geonames.org/export/zip/allCountries.zip",
+     "bytes": 20004904,
+     "content_type": "application/zip",
+     "seconds": 2.4,
+     "sha256": "2192f2f6db218752fd2e31075547f62946ac1f7881b6195acd3f49487771fc61"
+    }
+   ],
+   "status": "kept"
+  },
+  "eu_tercet_index": {
+   "source": "Eurostat GISCO TERCET postcode to LAU correspondence: file listing",
+   "licence": "Eurostat/GISCO reuse policy (EuroGeographics for LAU)",
+   "files": [
+    {
+     "url": "https://gisco-services.ec.europa.eu/tercet/flat-files",
+     "bytes": 855,
+     "content_type": "text/html; charset=utf-8",
+     "seconds": 0.4,
+     "sha256": "5b4a3be365535c9f25e9af00e4ce87ea1c6cc6f6c806f5eea4ace6ae37bd6fd0"
+    }
+   ],
+   "status": "kept (listing page for a later request)"
+  },
+  "nl_woz": {
+   "source": "nl_cbs_woz_municipal",
+   "licence": "{\"name\": \"CBS reuse conditions; exact named licence not independently confirmed\", \"url\": \"https://www.cbs.nl/nl-nl/cijfers/detail/85036NED\", \"commercial_use_confirmed\": null, \"notes\": null}",
+   "files": [
+    {
+     "url": "https://datasets.cbs.nl/CSV/CBS/nl/85036NED",
+     "bytes": 126962,
+     "content_type": "application/octet-stream",
+     "seconds": 1.1,
+     "sha256": "9a1b5a0e633891dd07daf6649413256fa8ab0faf6ed0c959798ffaac47fdb2a1"
+    }
+   ],
+   "status": "kept"
+  },
+  "be_prices": {
+   "source": "be_statbel_municipal_property_prices",
+   "licence": "{\"name\": null, \"url\": null, \"commercial_use_confirmed\": null, \"notes\": \"The workbook download links are official; the exact reuse licence was not independently confirmed.\"}",
+   "files": [
+    {
+     "url": "https://statbel.fgov.be/sites/default/files/files/documents/Bouwen%20%26%20wonen/2.1%20Vastgoedprijzen/NM/FR_immo_statbel_annee.xlsx",
+     "bytes": 1456666,
+     "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+     "seconds": 2.5,
+     "sha256": "4dd90f6c2a87a532c3a08624af5643b3e49dfd2f87f70704686dcabe3a8f4b27"
+    },
+    {
+     "url": "https://statbel.fgov.be/sites/default/files/files/documents/Bouwen%20%26%20wonen/2.1%20Vastgoedprijzen/NM/FR_immo_statbel_semestre.xlsx",
+     "bytes": 2839271,
+     "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+     "seconds": 3.7,
+     "sha256": "c7c05fbe1980473b29d561c91ea551636faed26129cfc0631f19156354d8f480"
+    },
+    {
+     "url": "https://statbel.fgov.be/sites/default/files/files/documents/Bouwen%20%26%20wonen/2.1%20Vastgoedprijzen/NM/FR_immo_statbel_trimestre_par_commune.xlsx",
+     "bytes": 4406338,
+     "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+     "seconds": 4.8,
+     "sha256": "ccefa83d882a4e4c32e6803b6a4934997c05967216ac0e84f4c47a5eaee70584"
+    }
+   ],
+   "status": "kept"
+  },
+  "at_prices": {
+   "source": "at_statistik_property_prices",
+   "licence": "{\"name\": null, \"url\": null, \"commercial_use_confirmed\": null, \"notes\": \"Official data files are publicly reachable; exact reuse licence not independently confirmed.\"}",
+   "files": [
+    {
+     "url": "https://www.statistik.at/fileadmin/pages/222/Baugrundstueckspreise2025.ods",
+     "bytes": 77506,
+     "content_type": "application/vnd.oasis.opendocument.spreadsheet",
+     "seconds": 1.0,
+     "sha256": "70f6df6356e0bb91fa820d23f5ab45ea2b91e96129c5e885fc9eb0009f14d3a5"
+    },
+    {
+     "url": "https://www.statistik.at/fileadmin/pages/222/Haeuserpreise2025.ods",
+     "bytes": 52301,
+     "content_type": "application/vnd.oasis.opendocument.spreadsheet",
+     "seconds": 0.6,
+     "sha256": "5d20fa487002c529469e201fd45143b132d2dfc2f40cb6484bf04599fc169886"
+    },
+    {
+     "url": "https://www.statistik.at/fileadmin/pages/222/Wohnungspreise2025.ods",
+     "bytes": 37276,
+     "content_type": "application/vnd.oasis.opendocument.spreadsheet",
+     "seconds": 0.5,
+     "sha256": "516c26cd7a3390c68ccdf73373dee081249c04bf35d2e65a76741ed743e86225"
+    }
+   ],
+   "status": "kept"
+  },
+  "fi_prices": {
+   "source": "fi_statfin_13mx_municipal_prices",
+   "licence": "{\"name\": \"Creative Commons Attribution 4.0\", \"url\": \"https://stat.fi/en/about-us/get-to-know-statistics-finland/legislation/terms-of-use\", \"commercial_use_confirmed\": true, \"notes\": null}",
+   "files": [
+    {
+     "url": "https://statfin.stat.fi/PxWeb/Resources/PX/Databases/StatFin/ashi/13mx.px",
+     "bytes": 286948,
+     "content_type": "text/x-pcaxis",
+     "seconds": 1.7,
+     "sha256": "2160a843cf1ed46cd09160d5ca803d4ad7eaea955c60343db7a96270c1bcbe6e"
+    }
+   ],
+   "status": "kept"
+  },
+  "fr_broadband": {
+   "source": "extra_fr_broadband_eligibility",
+   "licence": "{\"name\": \"Licence Ouverte / Open Licence 2.0\", \"url\": \"https://www.etalab.gouv.fr/licence-ouverte-open-licence/\", \"commercial_use_confirmed\": true, \"notes\": \"Official data.gouv.fr dataset API declares",
+   "files": [
+    {
+     "url": "https://data.arcep.fr/fixe/maconnexioninternet/statistiques/last/commune/commune.csv",
+     "bytes": 1537706,
+     "content_type": "text/csv; charset=utf-8",
+     "seconds": 2.0,
+     "sha256": "4a9f15f6b32c613759ea08f119b4c3cba1d1bbd61231763e0468f2e53bebd98b"
+    },
+    {
+     "url": "https://data.arcep.fr/fixe/maconnexioninternet/statistiques/last/commune/commune_debit.csv",
+     "bytes": 2456056,
+     "content_type": "text/csv; charset=utf-8",
+     "seconds": 1.6,
+     "sha256": "b89f7b9f35ddf098660e2db4471038bdd8f264e458d8795d1f72a8d49217eddb"
+    },
+    {
+     "url": "https://data.arcep.fr/fixe/maconnexioninternet/statistiques/last/commune/commune_techno.csv",
+     "bytes": 2262503,
+     "content_type": "text/csv; charset=utf-8",
+     "seconds": 1.7,
+     "sha256": "f3cc3d17d7ce99db3fe4d7a7be7a65c14b070691d2111a0c3e645f6426adfba6"
+    }
+   ],
+   "status": "kept"
+  },
+  "eu_healthcare": {
+   "source": "eu_gisco_healthcare",
+   "licence": "{\"name\": \"National source licences listed in GISCO metadata\", \"url\": \"https://gisco-services.ec.europa.eu/pub/healthcare/metadata.pdf\", \"commercial_use_confirmed\": null, \"notes\": \"GISCO reports no add",
+   "files": [
+    {
+     "url": "https://gisco-services.ec.europa.eu/pub/healthcare/2023/csv/EU.csv",
+     "bytes": 4308942,
+     "content_type": "text/csv",
+     "seconds": 1.3,
+     "sha256": "74f7a31bcacdd59b76f85f307c0f14bc1afbdcd7f8cde92438395f04ef4861c3"
+    }
+   ],
+   "status": "kept"
+  },
+  "eu_education": {
+   "source": "eu_gisco_education",
+   "licence": "{\"name\": \"National source licences listed in GISCO metadata\", \"url\": \"https://gisco-services.ec.europa.eu/pub/education/metadata.pdf\", \"commercial_use_confirmed\": null, \"notes\": \"GISCO reports no addi",
+   "files": [
+    {
+     "url": "https://gisco-services.ec.europa.eu/pub/education/2023/csv/EU.csv",
+     "bytes": 64980518,
+     "content_type": "text/csv",
+     "seconds": 2.6,
+     "sha256": "274ce6eafb82f36ff835f8a524afad39c6eef2b8836beee47a1949331f391713"
+    }
+   ],
+   "status": "kept"
+  },
+  "eu_degurba": {
+   "source": "eu_degurba_lau_2021",
+   "licence": "{\"name\": null, \"url\": null, \"commercial_use_confirmed\": null, \"notes\": \"Statistical classification reuse and the accompanying administrative geometry can have different conditions; both need checking.",
+   "files": [
+    {
+     "url": "https://ec.europa.eu/eurostat/documents/7116161/15125332/DGURBA_RG_01M_2021_4258.zip/09a07de6-f16e-af72-1178-123259fadefd?t=1748954595744",
+     "bytes": 44911361,
+     "content_type": "application/zip",
+     "seconds": 36.0,
+     "sha256": "1c4f5d5df8b32f5d3a3773c7fc751b4c0e8be5e9a6e34b86b35a25f44cf23134"
+    }
+   ],
+   "result": [
+    "eu_degurba_0__DGURBA_RG_01M_2021_4258.csv.gz"
+   ],
+   "status": "reduced"
+  },
+  "eu_ghsl_lau": {
+   "source": "extra_ghsl_lau_built_surface",
+   "licence": "{\"name\": \"Creative Commons Attribution 4.0\", \"url\": \"https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/copyright.txt\", \"commercial_use_confirmed\": true, \"notes\": null}",
+   "files": [
+    {
+     "url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_BUILT_LAUSTAT_EUROPE_R2023A/V1-0/GHS-BUILT-LAUSTAT_EUROPE_R2023A.zip",
+     "bytes": 25714639,
+     "content_type": "application/zip",
+     "seconds": 2.9,
+     "sha256": "e6b5d7f527d9970231eac37e19361e6dd5064523d9e136e563e4d5b7a4b91a3f"
+    }
+   ],
+   "result": [
+    "eu_ghsl_lau_0__GHS-BUILT-LAUSTAT_EUROPE_R2023A.xlsx"
+   ],
+   "status": "reduced"
+  },
+  "lau2024_gpkg": {
+   "source": "eu_lau_boundaries_2024",
+   "licence": "{\"name\": \"GISCO / EuroGeographics statistical-unit download conditions\", \"url\": \"https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units\", \"commercial_use_confirmed\": false, \"notes\": \"The LA",
+   "files": [
+    {
+     "url": "https://gisco-services.ec.europa.eu/distribution/v2/lau/gpkg/LAU_RG_01M_2024_3035.gpkg",
+     "bytes": 78225408,
+     "content_type": "application/geopackage+sqlite3",
+     "seconds": 3.2,
+     "sha256": "b1fe431909fd2dca4f5ec4712bb14c073690713bf72b154384a662c94c1d2945"
+    }
+   ],
+   "status": "downloaded for a later task (not kept)"
+  },
+  "eu_census2021": {
+   "source": "eu_census_grid_2021",
+   "licence": "{\"name\": null, \"url\": null, \"commercial_use_confirmed\": null, \"notes\": \"Dataset-specific reuse terms were not confirmed. Do not apply the older GEOSTAT restrictions or a generic EU licence without che",
+   "files": [
+    {
+     "url": "https://gisco-services.ec.europa.eu/census/2021/Eurostat_Census-GRID_2021_V3.zip",
+     "bytes": 566125577,
+     "content_type": "application/zip",
+     "seconds": 28.8,
+     "sha256": "18a467e3d96b71dd89f0440cc184751bded45721cdff8ba778ece79d7a4f5843"
+    }
+   ],
+   "result": {
+    "file": "census2021_grid_by_lau2024.csv.gz",
+    "lau_with_cells": 97259,
+    "cells": 4595919,
+    "cells_outside_lau": 97566,
+    "variables": [
+     "T",
+     "M",
+     "F",
+     "Y_LT15",
+     "Y_1564",
+     "Y_GE65",
+     "EMP",
+     "NAT",
+     "EU_OTH",
+     "OTH",
+     "SAME",
+     "CHG_IN",
+     "CHG_OUT"
+    ]
+   },
+   "status": "reduced"
+  },
+  "eu_no2": {
+   "source": "eea_air_no2_2025_interim",
+   "licence": "{\"name\": \"Creative Commons Attribution 4.0\", \"url\": \"https://creativecommons.org/licenses/by/4.0/\", \"commercial_use_confirmed\": true, \"notes\": null}",
+   "files": [
+    {
+     "url": "https://sdi.eea.europa.eu/datashare/s/MqaoYXK4DKtAw2c/download",
+     "error": "<urlopen error timed out>"
+    }
+   ],
+   "status": "failed: nothing downloaded"
+  },
+  "wc_tavg": {
+   "source": "WorldClim 2.1 monthly climate normals 1970-2000, 10 arc-minutes (tavg)",
+   "licence": "CC BY 4.0 (Fick and Hijmans 2017)",
+   "files": [
+    {
+     "url": "https://geodata.ucdavis.edu/climate/worldclim/2_1/base/wc2.1_10m_tavg.zip",
+     "bytes": 37364656,
+     "content_type": "application/zip",
+     "seconds": 1.1,
+     "sha256": "5e567dcfe94379b94229492849ce91078b1c6e5210aaf435fba449fae6b95405"
+    }
+   ],
+   "result": {
+    "file": "wc_tavg_at_places.csv.gz",
+    "layers": [
+     "wc2.1_10m_tavg_01",
+     "wc2.1_10m_tavg_02",
+     "wc2.1_10m_tavg_03",
+     "wc2.1_10m_tavg_04",
+     "wc2.1_10m_tavg_05",
+     "wc2.1_10m_tavg_06",
+     "wc2.1_10m_tavg_07",
+     "wc2.1_10m_tavg_08",
+     "wc2.1_10m_tavg_09",
+     "wc2.1_10m_tavg_10",
+     "wc2.1_10m_tavg_11",
+     "wc2.1_10m_tavg_12"
+    ]
+   },
+   "status": "reduced"
+  },
+  "wc_tmin": {
+   "source": "WorldClim 2.1 monthly climate normals 1970-2000, 10 arc-minutes (tmin)",
+   "licence": "CC BY 4.0 (Fick and Hijmans 2017)",
+   "files": [
+    {
+     "url": "https://geodata.ucdavis.edu/climate/worldclim/2_1/base/wc2.1_10m_tmin.zip",
+     "bytes": 37605037,
+     "content_type": "application/zip",
+     "seconds": 1.2,
+     "sha256": "918edb6cc60786ec3335c544237074fe2ce50c1d83f0fa7bfd47921b26f3df9b"
+    }
+   ],
+   "result": {
+    "file": "wc_tmin_at_places.csv.gz",
+    "layers": [
+     "wc2.1_10m_tmin_01",
+     "wc2.1_10m_tmin_02",
+     "wc2.1_10m_tmin_03",
+     "wc2.1_10m_tmin_04",
+     "wc2.1_10m_tmin_05",
+     "wc2.1_10m_tmin_06",
+     "wc2.1_10m_tmin_07",
+     "wc2.1_10m_tmin_08",
+     "wc2.1_10m_tmin_09",
+     "wc2.1_10m_tmin_10",
+     "wc2.1_10m_tmin_11",
+     "wc2.1_10m_tmin_12"
+    ]
+   },
+   "status": "reduced"
+  },
+  "wc_tmax": {
+   "source": "WorldClim 2.1 monthly climate normals 1970-2000, 10 arc-minutes (tmax)",
+   "licence": "CC BY 4.0 (Fick and Hijmans 2017)",
+   "files": [
+    {
+     "url": "https://geodata.ucdavis.edu/climate/worldclim/2_1/base/wc2.1_10m_tmax.zip",
+     "bytes": 37446442,
+     "content_type": "application/zip",
+     "seconds": 1.1,
+     "sha256": "599d56a7745a2cd0a50dbe77e15fcb19d06a2c57e5c6922a18155388a58f4f20"
+    }
+   ],
+   "result": {
+    "file": "wc_tmax_at_places.csv.gz",
+    "layers": [
+     "wc2.1_10m_tmax_01",
+     "wc2.1_10m_tmax_02",
+     "wc2.1_10m_tmax_03",
+     "wc2.1_10m_tmax_04",
+     "wc2.1_10m_tmax_05",
+     "wc2.1_10m_tmax_06",
+     "wc2.1_10m_tmax_07",
+     "wc2.1_10m_tmax_08",
+     "wc2.1_10m_tmax_09",
+     "wc2.1_10m_tmax_10",
+     "wc2.1_10m_tmax_11",
+     "wc2.1_10m_tmax_12"
+    ]
+   },
+   "status": "reduced"
+  },
+  "wc_prec": {
+   "source": "WorldClim 2.1 monthly climate normals 1970-2000, 10 arc-minutes (prec)",
+   "licence": "CC BY 4.0 (Fick and Hijmans 2017)",
+   "files": [
+    {
+     "url": "https://geodata.ucdavis.edu/climate/worldclim/2_1/base/wc2.1_10m_prec.zip",
+     "bytes": 7258539,
+     "content_type": "application/zip",
+     "seconds": 0.6,
+     "sha256": "1090f578f6402672a2b6438e252156f6cf867a25002a8ad6ffcbfa19e516ddc6"
+    }
+   ],
+   "result": {
+    "file": "wc_prec_at_places.csv.gz",
+    "layers": [
+     "wc2.1_10m_prec_01",
+     "wc2.1_10m_prec_02",
+     "wc2.1_10m_prec_03",
+     "wc2.1_10m_prec_04",
+     "wc2.1_10m_prec_05",
+     "wc2.1_10m_prec_06",
+     "wc2.1_10m_prec_07",
+     "wc2.1_10m_prec_08",
+     "wc2.1_10m_prec_09",
+     "wc2.1_10m_prec_10",
+     "wc2.1_10m_prec_11",
+     "wc2.1_10m_prec_12"
+    ]
+   },
+   "status": "reduced"
+  },
+  "wc_srad": {
+   "source": "WorldClim 2.1 monthly climate normals 1970-2000, 10 arc-minutes (srad)",
+   "licence": "CC BY 4.0 (Fick and Hijmans 2017)",
+   "files": [
+    {
+     "url": "https://geodata.ucdavis.edu/climate/worldclim/2_1/base/wc2.1_10m_srad.zip",
+     "bytes": 16233364,
+     "content_type": "application/zip",
+     "seconds": 0.9,
+     "sha256": "c72ee7f4f9a0eb4b5f6cd7a003eddc05bda22a2e5666d968ed4e817fd36b9026"
+    }
+   ],
+   "result": {
+    "file": "wc_srad_at_places.csv.gz",
+    "layers": [
+     "wc2.1_10m_srad_01",
+     "wc2.1_10m_srad_02",
+     "wc2.1_10m_srad_03",
+     "wc2.1_10m_srad_04",
+     "wc2.1_10m_srad_05",
+     "wc2.1_10m_srad_06",
+     "wc2.1_10m_srad_07",
+     "wc2.1_10m_srad_08",
+     "wc2.1_10m_srad_09",
+     "wc2.1_10m_srad_10",
+     "wc2.1_10m_srad_11",
+     "wc2.1_10m_srad_12"
+    ]
+   },
+   "status": "reduced"
+  },
+  "eu_pm25": {
+   "source": "eea_air_pm25",
+   "licence": "{\"name\": \"Creative Commons Attribution 4.0\", \"url\": \"https://creativecommons.org/licenses/by/4.0/\", \"commercial_use_confirmed\": true, \"notes\": null}",
+   "files": [
+    {
+     "url": "https://sdi.eea.europa.eu/datashare/s/EPTpArzSfoHwLpR/download",
+     "error": "<urlopen error timed out>"
+    }
+   ],
+   "status": "failed: nothing downloaded"
+  },
+  "uk_price_paid": {
+   "source": "ew_hmlr_price_paid",
+   "licence": "{\"name\": \"Open Government Licence v3.0, with separate address-data rights\", \"url\": \"https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/\", \"commercial_use_confirmed\": true, \"note",
+   "files": [],
+   "result": {
+    "file": "hmlr_price_paid_by_district_year.csv",
+    "rows_read": 31702685,
+    "groups": 1966
+   },
+   "status": "reduced"
+  },
+  "ie_ppr": {
+   "source": "ie_property_price_register",
+   "licence": "{\"name\": null, \"url\": null, \"commercial_use_confirmed\": null, \"notes\": \"Public download confirmed at endpoint level; a commercial bulk-reuse licence was not confirmed.\"}",
+   "files": [
+    {
+     "url": "https://www.propertypriceregister.ie/website/npsra/ppr/npsra-ppr.nsf/Downloads/PPR-ALL.zip/%24FILE/PPR-ALL.zip",
+     "bytes": 19385168,
+     "content_type": "application/x-zip",
+     "seconds": 15.4,
+     "sha256": "0d63e546688ac606387d7314b2974b928245ae044854159bc405bca4e076afd2"
+    }
+   ],
+   "status": "kept"
+  },
+  "fr_crime": {
+   "source": "extra_fr_recorded_crime_communes",
+   "licence": "{\"name\": \"Licence Ouverte / Open Licence 2.0\", \"url\": \"https://www.etalab.gouv.fr/licence-ouverte-open-licence/\", \"commercial_use_confirmed\": true, \"notes\": \"Official data.gouv.fr dataset API declares",
+   "files": [
+    {
+     "url": "https://static.data.gouv.fr/resources/bases-statistiques-communale-departementale-et-regionale-de-la-delinquance-enregistree-par-la-police-et-la-gendarmerie-nationales/20260709-120017/donnee-comm-data.gouv-parquet-2025-geographie2026-produit-le2026-06-25.parquet",
+     "bytes": 16095547,
+     "content_type": "application/vnd.apache.parquet",
+     "seconds": 4.1,
+     "sha256": "09f0897e99bd7b34c65f8dfa9adb43bb5994e9515b8e173c0300ef5fbcb28a52"
+    },
+    {
+     "url": "https://static.data.gouv.fr/resources/bases-statistiques-communale-departementale-et-regionale-de-la-delinquance-enregistree-par-la-police-et-la-gendarmerie-nationales/20260709-115942/donnee-data.gouv-2025-geographie2026-produit-le2026-06-25.csv.gz",
+     "bytes": 39932450,
+     "content_type": "application/gzip",
+     "seconds": 7.2,
+     "sha256": "bb17d7c142c96da85297071c8505c1fde32779909cd1f7463c0421a43ec2ee74"
+    }
+   ],
+   "status": "kept"
+  }
+ },
+ "finished_at": "2026-11-24T16:17:51.025030+00:00",
+ "seconds": 489,
+ "pip": [],
+ "files": {
+  "at_prices_0.ods": {
+   "bytes": 77506,
+   "sha256": "70f6df6356e0bb91fa820d23f5ab45ea2b91e96129c5e885fc9eb0009f14d3a5"
+  },
+  "at_prices_1.ods": {
+   "bytes": 52301,
+   "sha256": "5d20fa487002c529469e201fd45143b132d2dfc2f40cb6484bf04599fc169886"
+  },
+  "at_prices_2.ods": {
+   "bytes": 37276,
+   "sha256": "516c26cd7a3390c68ccdf73373dee081249c04bf35d2e65a76741ed743e86225"
+  },
+  "be_prices_0.xlsx": {
+   "bytes": 1456666,
+   "sha256": "4dd90f6c2a87a532c3a08624af5643b3e49dfd2f87f70704686dcabe3a8f4b27"
+  },
+  "be_prices_1.xlsx": {
+   "bytes": 2839271,
+   "sha256": "c7c05fbe1980473b29d561c91ea551636faed26129cfc0631f19156354d8f480"
+  },
+  "be_prices_2.xlsx": {
+   "bytes": 4406338,
+   "sha256": "ccefa83d882a4e4c32e6803b6a4934997c05967216ac0e84f4c47a5eaee70584"
+  },
+  "census2021_grid_by_lau2024.csv.gz": {
+   "bytes": 2623674,
+   "sha256": "8554d36d155fcbfa9b05c3ad8441db9ad7b227fadae858b44d50eb35b96d0b7e"
+  },
+  "ch_mutations_0.json": {
+   "bytes": 50116,
+   "sha256": "32c9f3e694cf2c79afe713627976dc9053ee3f1c75f4fca5c5a66bbf5ab586f3"
+  },
+  "eu_degurba_0__DGURBA_RG_01M_2021_4258.csv.gz": {
+   "bytes": 1175492,
+   "sha256": "c645a9bc1d0abfcc676d1809f751f9ae2d49c0dc920c9192b405a2963a8a7736"
+  },
+  "eu_education_0.csv": {
+   "bytes": 64980518,
+   "sha256": "274ce6eafb82f36ff835f8a524afad39c6eef2b8836beee47a1949331f391713"
+  },
+  "eu_ghsl_lau_0__GHS-BUILT-LAUSTAT_EUROPE_R2023A.xlsx": {
+   "bytes": 12141952,
+   "sha256": "40e6f08e18690bb489d2ef596b8f316cdbf89f1c70c2af0df1a21cdcf5743a74"
+  },
+  "eu_healthcare_0.csv": {
+   "bytes": 4308942,
+   "sha256": "74f7a31bcacdd59b76f85f307c0f14bc1afbdcd7f8cde92438395f04ef4861c3"
+  },
+  "eu_tercet_index_0.html": {
+   "bytes": 855,
+   "sha256": "5b4a3be365535c9f25e9af00e4ce87ea1c6cc6f6c806f5eea4ace6ae37bd6fd0"
+  },
+  "fi_prices_0.px": {
+   "bytes": 286948,
+   "sha256": "2160a843cf1ed46cd09160d5ca803d4ad7eaea955c60343db7a96270c1bcbe6e"
+  },
+  "fr_broadband_0.csv": {
+   "bytes": 1537706,
+   "sha256": "4a9f15f6b32c613759ea08f119b4c3cba1d1bbd61231763e0468f2e53bebd98b"
+  },
+  "fr_broadband_1.csv": {
+   "bytes": 2456056,
+   "sha256": "b89f7b9f35ddf098660e2db4471038bdd8f264e458d8795d1f72a8d49217eddb"
+  },
+  "fr_broadband_2.csv": {
+   "bytes": 2262503,
+   "sha256": "f3cc3d17d7ce99db3fe4d7a7be7a65c14b070691d2111a0c3e645f6426adfba6"
+  },
+  "fr_crime_0.csv.gz": {
+   "bytes": 16095547,
+   "sha256": "09f0897e99bd7b34c65f8dfa9adb43bb5994e9515b8e173c0300ef5fbcb28a52"
+  },
+  "fr_crime_1.csv.gz": {
+   "bytes": 39932450,
+   "sha256": "bb17d7c142c96da85297071c8505c1fde32779909cd1f7463c0421a43ec2ee74"
+  },
+  "fr_dvf_0.csv": {
+   "bytes": 30643518,
+   "sha256": "eca12b1b1b45274e315859135d5f4ac15137f3e084712ea9b614b11c4a100722"
+  },
+  "fr_dvf_1.csv.gz": {
+   "bytes": 49736585,
+   "sha256": "910c0a0fc1a4e8715604f89ec05fd12e69af2e3cac148254d11a27fbcf6ceb75"
+  },
+  "hmlr_price_paid_by_district_year.csv": {
+   "bytes": 97612,
+   "sha256": "0f4ce99e7705f06e8e326e387bdf922975b10409ae8e1020770cd9b7b65821d9"
+  },
+  "ie_ppr_0.zip": {
+   "bytes": 19385168,
+   "sha256": "0d63e546688ac606387d7314b2974b928245ae044854159bc405bca4e076afd2"
+  },
+  "lau2024_csv_0.csv": {
+   "bytes": 5602622,
+   "sha256": "23091333583ea40828c747c23134f059290ffd184e702379ede7a35f09db5201"
+  },
+  "nl_woz_0.zip": {
+   "bytes": 126962,
+   "sha256": "9a1b5a0e633891dd07daf6649413256fa8ab0faf6ed0c959798ffaac47fdb2a1"
+  },
+  "wc_prec_at_places.csv.gz": {
+   "bytes": 1477607,
+   "sha256": "fc220c428556831ba1c73a1d34868afbc240c11da0d6c04f18bcb19093c8d69d"
+  },
+  "wc_srad_at_places.csv.gz": {
+   "bytes": 2500293,
+   "sha256": "d3a1ed260a2704f1a21b439bf6051fe525f48ca8ad45c4e6b92c0c500bdebc38"
+  },
+  "wc_tavg_at_places.csv.gz": {
+   "bytes": 2008077,
+   "sha256": "f4bc9a55aca332d85130e8d01f8d00d141efe32fbabf4af2c90258607b533d13"
+  },
+  "wc_tmax_at_places.csv.gz": {
+   "bytes": 2028798,
+   "sha256": "adf69356519c29a7aa108bb649d81c24b25b0526f88dea848545b10307d95dd3"
+  },
+  "wc_tmin_at_places.csv.gz": {
+   "bytes": 1999380,
+   "sha256": "c57de663d6cd20feaa4ccc9c858332c4028b32f0ab3b5a9a27c9d87676bfa260"
+  },
+  "world_postcodes_0.zip": {
+   "bytes": 20004904,
+   "sha256": "2192f2f6db218752fd2e31075547f62946ac1f7881b6195acd3f49487771fc61"
+  }
+ },
+ "note": "Downloaded once from the listed official sources and reduced without estimation. Not published; folded into a release only after review and tests."
+}

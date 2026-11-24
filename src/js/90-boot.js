@@ -69,7 +69,7 @@ function enterExplore(noMap) {
   if (!noMap) ensureMap().then(function () { loadCountryGeometry(S.cc).then(function () { paintMap(); fitScope(false); }); }).catch(function (e) { mapProgress(100); $('#mapnote').textContent = 'Map engine failed to load (' + e.message + '). Rankings still work.'; });
   refreshShortlistUI(); maybeTour();
 }
-function leaveExplore() { S.view = 'landing'; document.body.classList.remove('exploring'); document.documentElement.classList.remove('pre-explore'); renderTray(); headerTone(); if (!HERO.canvases) heroInit(); else heroWake(); }
+function leaveExplore() { S.view = 'landing'; document.body.classList.remove('exploring'); try { headerContext(); } catch (e) { } document.documentElement.classList.remove('pre-explore'); renderTray(); headerTone(); if (!HERO.canvases) heroInit(); else heroWake(); }
 
 function onClick(ev) {
   var t = ev.target, b;

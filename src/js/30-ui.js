@@ -273,7 +273,15 @@ function hideClick(t) {
   return false;
 }
 function renderResults() { return ENGINE && ENGINE.pass ? ENGINE.pass(renderResults0) : renderResults0(); }   // r15: one cache pass per render
+/* r18: the header always says what is being ranked and where ("Young families · All Switzerland") */
+function headerContext() {
+  var el = document.getElementById('nz-top-place'); if (!el) return;
+  var t = '';
+  try { if (S.profile && S.cc && document.body.classList.contains('exploring')) t = profileName(S.profile) + ' \u00b7 ' + scopeName(); } catch (e) { t = ''; }
+  if (el.textContent !== t) { el.textContent = t; el.title = t; }
+}
 function renderResults0() {
+  try { headerContext(); } catch (e) { }
   var box = $('#results');
   if (!RES) { box.innerHTML = '<div class="skeleton" aria-label="Loading"><i></i><i></i><i></i><i></i></div>'; return; }
   renderResultsHead(); renderDepthNote();

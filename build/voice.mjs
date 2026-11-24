@@ -15,45 +15,45 @@ export const BANNED = /\b(nestled|vibrant|boasts?|hidden gem|tapestry|bustling|w
 function sizeLine(s, v) {
   const p = v.pop;
   if (p < 1500) return pick(s, 'size', [
-    'With {pop} residents, {name} is the kind of place where a new face at the bus stop gets a second look.',
+    'With {pop} residents, {name} is the kind of place where a new face gets a second look.',
     '{name} counts {pop} residents. That is fewer than a mid-sized concert, and the pace of life tends to follow.',
     'Only {pop} people live in {name}, so anonymity is not really on the menu.',
-    '{pop} residents. {name} is small enough that the village notice board still matters.']);
+    '{pop} residents. {name} is small enough that news still travels by word of mouth faster than by any newsletter.']);
   if (p < 10000) return pick(s, 'size', [
-    '{name} has {pop} residents: big enough for the basics, small enough that the basics are a short walk away.',
+    '{name} has {pop} residents: past village size, still well short of a town that loses track of its people.',
     'At {pop} people, {name} sits in the comfortable middle: not a village any more, not quite a town that forgets your name.',
-    '{pop} people call {name} home. That is a school, a few shops and opinions about the new roundabout.',
-    '{name} is home to {pop} people, which is the size where everyone has a favourite bakery and defends it.']);
+    '{pop} people call {name} home, about the crowd at a full provincial football ground.',
+    '{name} is home to {pop} people, the size at which faces start to repeat at the weekend.']);
   if (p < 100000) return pick(s, 'size', [
     '{name} is a proper town of {pop}, with the choice that brings and the traffic that comes with it.',
-    'With {pop} residents, {name} has outgrown small-town life without signing up for big-city prices everywhere.',
-    '{pop} people live in {name}. Enough to support a real high street, not so many that you need a plan to cross it.',
-    '{name} counts {pop} residents, a size that usually means a hospital, a station and a weekly market argument.']);
+    'With {pop} residents, {name} has outgrown small-town scale without reaching city size.',
+    '{pop} people live in {name}: a town by any measure, still short of a city.',
+    '{name} counts {pop} residents, in the band between market town and regional city.']);
   if (p < 1000000) return pick(s, 'size', [
     '{name} is a city of {pop}. The question here is less whether there is something to do and more which neighbourhood you can live with.',
-    'With {pop} people, {name} plays in the city league: more jobs, more choice, more competition for the good flats.',
-    '{pop} residents make {name} a real city, with all the convenience and all the queues that implies.']);
+    'With {pop} people, {name} plays in the city league; how that feels depends a lot on the district.',
+    '{pop} residents make {name} a real city by any count.']);
   return pick(s, 'size', [
     '{name} is a giant: {pop} people. Rankings here say more about the average than about any one district, so read them that way.',
     'At {pop} residents, {name} is a country-sized city. Somewhere in it is exactly what you want; the trick is finding which part.',
-    '{pop} people. {name} is less a place than a collection of places sharing a name and a transport map.']);
+    '{pop} people. {name} is less a place than a collection of places sharing a name.']);
 }
 
 function densityLine(s, v) {
   const d = v.density; if (!(d >= 0)) return '';
   if (d > 5000) return pick(s, 'dens', ['Space is the scarce thing: about {dens} people share each square kilometre.', 'At {dens} people per square kilometre, a balcony counts as a garden.']);
-  if (d > 1500) return pick(s, 'dens', ['It is built up, about {dens} people per square kilometre, so the shops are close and so are the neighbours.', 'Density runs at {dens} per square kilometre: urban, but not stacked.']);
+  if (d > 1500) return pick(s, 'dens', ['It is built up, about {dens} people per square kilometre, so the neighbours are close.', 'Density runs at {dens} per square kilometre: urban, but not stacked.']);
   if (d < 30) return pick(s, 'dens', ['Neighbours are spread thin, about {dens} people per square kilometre; the nearest one may be a cow.', 'With {dens} people per square kilometre, there is more landscape than streetscape.', 'At {dens} per square kilometre, a traffic jam means two tractors.']);
-  if (d < 120) return pick(s, 'dens', ['Room to breathe: about {dens} people per square kilometre.', 'It is roomy, around {dens} people per square kilometre, so gardens are a normal expectation rather than a luxury.']);
+  if (d < 120) return pick(s, 'dens', ['Room to breathe: about {dens} people per square kilometre.', 'It is roomy, around {dens} people per square kilometre: more ground than buildings.']);
   return '';
 }
 
 function settingLine(s, v) {
   const out = [];
-  if (v.lake && v.lakeKm != null && v.lakeKm < 1) out.push(pick(s, 'lake', ['It sits right on {lake}, which settles the question of where to go on a hot Sunday.', '{lake} is on the doorstep. Summer plans tend to write themselves.', 'The town meets {lake} at the shore, and the shore is where half of it seems to be in July.']));
-  else if (v.lake && v.lakeKm != null && v.lakeKm < 8) out.push(pick(s, 'lake', ['{lake} is {lakeKm} km away: a bike ride, not an expedition.', 'A swim in {lake} is {lakeKm} km off.']));
+  if (v.lake && v.lakeKm != null && v.lakeKm < 1) out.push(pick(s, 'lake', ['It sits right on {lake}, less than a kilometre from the centre.', '{lake} is on the doorstep, under a kilometre away.', 'The town reaches the shore of {lake}.']));
+  else if (v.lake && v.lakeKm != null && v.lakeKm < 8) out.push(pick(s, 'lake', ['{lake} is {lakeKm} km away in a straight line.', 'The shore of {lake} is {lakeKm} km off as the crow flies.']));
   if (v.seaKm != null && v.seaKm < 2) out.push(pick(s, 'sea', ['It is on the coast{seaOf}: the view comes included, the wind is not optional.', 'The sea{seaOf} starts where the town stops.', 'Salt air is part of the address here{seaOfComma}.']));
-  else if (v.seaKm != null && v.seaKm < 15) out.push(pick(s, 'sea', ['The {sea} is {seaKm} km away: close enough for an evening swim, far enough that the beach crowds are somebody else’s problem.', 'It is {seaKm} km to the {sea}, a short drive for a long weekend.']));
+  else if (v.seaKm != null && v.seaKm < 15) out.push(pick(s, 'sea', ['The {sea} is {seaKm} km away in a straight line: near enough to shape the weather, far enough not to shape the town.', 'It is {seaKm} km to the {sea} as the crow flies.']));
   if (v.alt != null && v.alt > 1200) out.push(pick(s, 'alt', ['The land around it averages about {alt} m, so winter here is not a rumour.', 'The surrounding terrain averages roughly {alt} m. Snow tyres are not a lifestyle choice.']));
   else if (v.relief != null && v.relief > 700) out.push(pick(s, 'rel', ['The ground rises {relief} m within the area, so bring calves, not a cargo bike.', 'With {relief} m between the lowest and highest ground, every errand comes with a view and a climb.']));
   else if (v.relief != null && v.relief < 25 && v.alt != null && v.alt < 200) out.push(pick(s, 'flat', ['The land is flat as a ruler, which cyclists love and skiers forgive nobody for.', 'Flat country: the horizon is a long way off and the bike does most of the work.']));
@@ -74,8 +74,8 @@ function growthLine(s, v) {
 function metroLine(s, v) {
   if (!v.metro || v.metroKm == null) return '';
   if (v.metroKm <= 3) return pick(s, 'met', ['It is the heart of Greater {metro}, not a suburb of it.', 'This is the core of Greater {metro}; everything else is measured from here.']);
-  if (v.metroKm < 25) return pick(s, 'met', ['Greater {metro} starts to matter here: the centre is {metroKm} km away, close enough to work there and far enough to sleep well.', 'It is {metroKm} km from the centre of Greater {metro}, which makes it commuter country with a bit of elbow room.', 'Part of Greater {metro}, {metroKm} km out. Close to the jobs, one step back from the noise.']);
-  return pick(s, 'met', ['Greater {metro} is {metroKm} km away: reachable, but this is its own place.', 'The pull of Greater {metro} is felt here, {metroKm} km out, but only just.']);
+  if (v.metroKm < 25) return pick(s, 'met', ['Greater {metro} starts to matter here: its centre is {metroKm} km away in a straight line.', 'It is {metroKm} km, straight line, from the centre of Greater {metro}; travel time depends on the route, which we do not estimate.', 'Part of Greater {metro}, {metroKm} km out from its centre.']);
+  return pick(s, 'met', ['Greater {metro} is {metroKm} km away: near enough to matter, far enough that this is its own place.', 'The pull of Greater {metro} is felt here, {metroKm} km out, but only just.']);
 }
 
 function lightLine(s, v) {
@@ -83,7 +83,7 @@ function lightLine(s, v) {
   const short = v.winterH < 7, late = v.summerSet && /^2[2-3]:/.test(v.summerSet);
   if (short && late) return pick(s, 'sun', ['In December the sun works {winterLen} and clocks off at {winterSet}; in June it hangs around until {summerSet}. The year is a deal, paid in advance.', 'Winter days run {winterLen}, summer evenings stay light until {summerSet}. You pay in December and collect in June.']);
   if (short) return pick(s, 'sun', ['On the shortest day the sun manages {winterLen} and leaves at {winterSet}. Plan the lamps accordingly.', 'December light: {winterLen}, sunset {winterSet}. Hobbies that work indoors are an asset.']);
-  if (late) return pick(s, 'sun', ['In late June the sun does not set until {summerSet}, which makes for very long barbecues.', 'Summer evenings stay bright until {summerSet}.']);
+  if (late) return pick(s, 'sun', ['In late June the sun does not set until {summerSet}.', 'Summer evenings stay bright until {summerSet}.']);
   if (v.winterH > 10) return pick(s, 'sun', ['Even on the shortest day the sun is up for {winterLen}, so winter is mostly a matter of opinion.', 'Winter daylight still runs {winterLen}; the dark season barely shows up.']);
   return '';
 }

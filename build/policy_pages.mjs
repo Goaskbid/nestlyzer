@@ -152,6 +152,7 @@ ${P.map(([h, id, G]) => `<h2 class="pc-h2" id="${id}">${esc(h)} <small>${G.lengt
     const tf = top('young_family'), tp = top('young_professional');
     page({ p: '/districts/' + c.k + '/', title: (nm + ': best districts for families and professionals').slice(0, 58) + ' | Nestlyzer',
       desc: `${nm} split into ${c.z.length} districts on its real map and ranked for families, young professionals and retirees` + (tf ? `: ${tf.n} leads for families` + (tp && tp !== tf ? `, ${tp.n} for professionals.` : '.') : '.'),
+      jsonld: [{ '@context': 'https://schema.org', '@type': 'ItemList', name: `Best districts of ${nm} for families`, itemListElement: c.z.filter((z) => z.r && z.r.young_family).sort((a, b) => a.r.young_family - b.r.young_family).slice(0, 10).map((z, i) => Object.assign({ '@type': 'ListItem', position: i + 1, name: z.n }, z.u ? { url: 'https://nestlyzer.com' + z.u } : {})) }],
       body: `${css}${zonesHTML(c.k)}`, crumbs: [['Home', '/'], ['Worldwide', '/world/'], ['City zones', '/districts/'], [nm, '/districts/' + c.k + '/']] }); }
 
   // Immigration routes module: EU Blue Card shown once with all participating countries; other routes as cards by country

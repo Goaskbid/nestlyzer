@@ -102,15 +102,25 @@ function pathOf(mp, X, Y) {
     if (pts.length >= 3) d += 'M' + pts.map((q) => q[0] + ' ' + q[1]).join('L') + 'Z'; }
   return d;
 }
+function membersOf(SH, la, lo, R, cc) {
+  const kx = 111.32 * Math.cos(la * Math.PI / 180), xy = (r) => [(r.lon - lo) * kx, (la - r.lat) * 110.57];
+  let mem = SH[cc].recs.filter((r) => Number.isFinite(r.lat) && Number.isFinite(r.lon) && (r.popNow || r.population) >= 30000).map((r) => ({ r, p: xy(r) })).filter((o) => Math.hypot(o.p[0], o.p[1]) <= R);
+  const tot = mem.reduce((t, o) => t + (o.r.popNow || o.r.population), 0);
+  mem = mem.filter((o) => (o.r.popNow || o.r.population) < 0.4 * (tot - (o.r.popNow || o.r.population)) || mem.length < 4);   // drop whole-city aggregates
+  const seen = new Set(); return mem.filter((o) => { const key = Math.round(o.p[0] * 2) + ',' + Math.round(o.p[1] * 2); if (seen.has(key)) return false; seen.add(key); return true; });
+}
+/* r18: which world-city map a place belongs to (place pages link to it) */
+export function megaMembership(SH) {
+  const out = {};
+  for (const [k, n, cc, la, lo, R] of MEGA) { if (!SH[cc]) continue; const mem = membersOf(SH, la, lo, R, cc); if (mem.length < 8) continue; for (const o of mem) if (!out[o.r.id]) out[o.r.id] = [k, n.replace(/ area$/, ''), mem.length]; }
+  return out;
+}
 export function megaZones({ SH, RANK, PAGES }) {
   const out = [];
   for (const [k, n, cc, la, lo, R, ctrName] of MEGA) {
     if (!SH[cc] || !RANK[cc]) continue;
     const kx = 111.32 * Math.cos(la * Math.PI / 180), xy = (r) => [(r.lon - lo) * kx, (la - r.lat) * 110.57];
-    let mem = SH[cc].recs.filter((r) => Number.isFinite(r.lat) && Number.isFinite(r.lon) && (r.popNow || r.population) >= 30000).map((r) => ({ r, p: xy(r) })).filter((o) => Math.hypot(o.p[0], o.p[1]) <= R);
-    const tot = mem.reduce((t, o) => t + (o.r.popNow || o.r.population), 0);
-    mem = mem.filter((o) => (o.r.popNow || o.r.population) < 0.4 * (tot - (o.r.popNow || o.r.population)) || mem.length < 4);   // drop whole-city aggregates
-    const seen = new Set(); mem = mem.filter((o) => { const key = Math.round(o.p[0] * 2) + ',' + Math.round(o.p[1] * 2); if (seen.has(key)) return false; seen.add(key); return true; });
+    let mem = membersOf(SH, la, lo, R, cc);
     if (mem.length < 8) continue;
     const W = 1000, S = W / (2 * R), H = W, X = (x) => (x + R) * S, Y = (y) => (y + R) * S;
     const disc = Array.from({ length: 72 }, (_, i) => [R * Math.cos(i * Math.PI / 36), R * Math.sin(i * Math.PI / 36)]);

@@ -82,6 +82,17 @@ if (!fs.existsSync(path.join(OUT, 'sitemap.xml'))) { console.error('Missing requ
 // r17: the globe reads the gzipped point cloud (data/hero.bin.gz); the uncompressed copy stays in the repository for
 // the single-file builds but is not published (1.45 MB); a browser without DecompressionStream shows the still globe
 { const hb = path.join(OUT, 'data', 'hero.bin'); if (fs.existsSync(hb) && fs.existsSync(hb + '.gz')) fs.rmSync(hb); }
+// r19 (audit NZ9-12): the country files (data/c, data/x) are published gzipped (level 9, deterministic header) and the
+// app bundles switch to the gzip loader (src/js/01-gunzip.js); the plain copies stay in the repository for the
+// single-file builds and the tests. About 95 MB of publication headroom.
+{ const zlib = await import('node:zlib'); let before = 0, after = 0, nf = 0;
+  for (const d of ['c', 'x']) { const dir = path.join(OUT, 'data', d); if (!fs.existsSync(dir)) continue;
+    for (const f of fs.readdirSync(dir)) { if (!f.endsWith('.json')) continue; const fp = path.join(dir, f), raw = fs.readFileSync(fp), gz = zlib.gzipSync(raw, { level: 9, mtime: 0 });
+      if (gz[0] !== 0x1f || zlib.gunzipSync(gz).compare(raw) !== 0) { console.error('Stopped: gzip round trip failed for', fp); process.exit(1); }
+      fs.writeFileSync(fp + '.gz', gz); fs.rmSync(fp); before += raw.length; after += gz.length; nf++; } }
+  let sw = 0; for (const f of fs.readdirSync(path.join(OUT, 'assets'))) { if (!f.endsWith('.js')) continue; const fp = path.join(OUT, 'assets', f), t = fs.readFileSync(fp, 'utf8'); if (t.includes('__NZ_DATA_GZ__')) { fs.writeFileSync(fp, t.split('__NZ_DATA_GZ__').join('1')); sw++; } }
+  if (nf && !sw) { console.error('Stopped: country files gzipped but no bundle carries the gzip switch.'); process.exit(1); }
+  console.log('country files gzipped:', nf, 'files,', (before / 1e6).toFixed(1), 'MB ->', (after / 1e6).toFixed(1), 'MB; loader switched on in', sw, 'bundles'); }
 // 2.15.30-r6: stamp the service worker with a hash of everything it caches (assets, vendor, data), so every release that
 // changes any of them gets a new cache and open tabs reload into it. Same content, same stamp: no needless reloads.
 { const crypto = await import('node:crypto'); const h = crypto.createHash('sha256'); const walk = (d) => { if (!fs.existsSync(d)) return; for (const e of fs.readdirSync(d, { withFileTypes: true }).sort((a, b) => a.name < b.name ? -1 : 1)) { const f = path.join(d, e.name); if (e.isDirectory()) walk(f); else { h.update(path.relative(OUT, f)); h.update(fs.readFileSync(f)); } } };
@@ -98,7 +109,11 @@ console.log('Final publication receipt:',JSON.stringify(finalTree));
   const top = Object.entries(per).sort((a, b) => b[1].bytes - a[1].bytes);
   console.log('Size by directory (MB):', top.slice(0, 12).map(([k, v]) => k + ' ' + (v.bytes / 1e6).toFixed(1)).join(', '));
   fs.mkdirSync(path.join(ROOT, 'docs', 'audit'), { recursive: true }); fs.writeFileSync(path.join(ROOT, 'docs', 'audit', 'publication_size.json'), JSON.stringify({ total: finalTree, budget_bytes: 850e6, github_hard_limit_bytes: 1e9, by_directory: Object.fromEntries(top) }, null, 1)); }
-if(finalTree.headroom<50000000)console.warn('Publication headroom below 50 MB; keep new raw archives outside this artifact.');
+/* r19 (audit NZ9-12): an explicit growth reserve. The release stops if less than 40 MB of the 850 MB budget is left, so the
+   planned data additions (about 5 to 10 MB) always fit; it warns below 60 MB. */
+console.log('Publication headroom: ' + (finalTree.headroom / 1e6).toFixed(1) + ' MB (reserve required: 40 MB)');
+if(finalTree.headroom<40000000){console.error('Stopped: publication headroom below the 40 MB growth reserve.');process.exit(1);}
+if(finalTree.headroom<60000000)console.warn('Publication headroom below 60 MB; keep new raw archives outside this artifact.');
 // GitHub rules are hard requirements (owner, 9 Nov 2026): the published site stays far below the 1 GB Pages limit, with
 // room for data growth and fast deploys within the 10-minute window. Stop the build instead of publishing anything larger.
 if (bytes > 850e6) { console.error('Stopped: ' + (bytes / 1e6).toFixed(0) + ' MB is above the 850 MB safety budget for GitHub Pages (hard limit 1 GB).'); process.exit(1); }

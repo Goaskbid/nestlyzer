@@ -11,7 +11,7 @@ const env = { ASSETS: { async fetch(req) {
     if (mode === 'bad') return new Response('{not json', { status: 200 });
     if (mode === 'proto') return Response.json({});
     return Response.json({ ch: 1 }); }
-  if (p === '/_packs/places/ch/' + bucketOf(id, 1) + '.json') return mode === 'packfail' ? new Response('x', { status: 500 }) : Response.json(pack);
+  if (p === '/_packs/places/ch/' + bucketOf(id, 1) + '.json') { if (mode === 'packthrow') throw new TypeError('connection reset'); return mode === 'packfail' ? new Response('x', { status: 500 }) : mode === 'pack404' ? new Response('x', { status: 404 }) : mode === 'packarr' ? Response.json([]) : Response.json(pack); }
   if (p === '/404.html') return new Response('<h1>Not found</h1>');
   return new Response('', { status: 404 });
 } } };
@@ -40,5 +40,11 @@ const h = await get('/places/ch/261/', 'HEAD'); c['HEAD of a valid page: 200 wit
 const red = await get('/places/ch/261'); c['missing slash: 301 with security headers'] = red.status === 301 && /\/places\/ch\/261\/$/.test(red.headers.get('location')) && hasSec(red);
 const nf = await get('/places/ch/999/'); c['unknown place: 404 with security headers'] = nf.status === 404 && hasSec(nf);
 mode = 'packfail'; const pf = await get('/places/ch/261/'); c['pack 500: 503, not 404'] = pf.status === 503;
+/* r19 (audit NZ9-09): an announced bucket that is missing, not an object, or throws is a temporary failure; recovery needs no restart */
+mode = 'pack404'; const p4 = await get('/places/ch/261/'); c['announced pack missing (404): 503 with retry-after and no-store'] = p4.status === 503 && p4.headers.get('retry-after') && p4.headers.get('cache-control') === 'no-store';
+mode = 'packarr'; const pa = await get('/places/ch/261/'); c['pack is an array: 503'] = pa.status === 503;
+mode = 'packthrow'; let pt; try { pt = await get('/places/ch/261/'); } catch (e) { pt = { status: 'threw' }; } c['pack fetch throws: 503, no escaped exception'] = pt.status === 503;
+mode = 'ok'; const rc = await get('/places/ch/261/'); c['recovers after the failures without a restart: 200'] = rc.status === 200;
+mode = 'ok'; const ab = await get('/places/ch/999/'); c['absent place in a valid pack is still 404'] = ab.status === 404;
 for (const [k, v] of Object.entries(c)) console.log((v ? 'ok   ' : 'FAIL ') + k);
 const ok = Object.values(c).every(Boolean); console.log('WORKER FAULT TEST:', ok ? 'PASS' : 'FAIL'); process.exit(ok ? 0 : 1);

@@ -132,13 +132,16 @@
   }
   /* r16: flat value maps hashed by position (insertion order), key length and key letters plus the exact value bits, about
      twice as fast as hashing every key string; swapped, changed, added or removed values all change the signature */
+  var KH = new Map();
   function ho(h, o) {
     if (o === null || o === undefined) return (h * 31 + 7) | 0;
     if (typeof o !== 'object' || Array.isArray(o)) return hv(h, o);
-    var n = 0, k, v;
+    var n = 0, k, v, kh;
     for (k in o) {
       v = o[k];
-      h = Math.imul(h ^ (n++ | (k.length << 8) | (k.charCodeAt(0) << 16) | (k.charCodeAt(k.length - 1) << 24)), 16777619);
+      /* r19 (audit NZ9-07): the whole key counts, not only its length and end characters; key hashes are memoised */
+      kh = KH.get(k); if (kh === undefined) { kh = 2166136261; for (var i = 0; i < k.length; i++) kh = Math.imul(kh ^ k.charCodeAt(i), 16777619); KH.set(k, kh); }
+      h = Math.imul(h ^ n++, 16777619); h = Math.imul(h ^ kh, 16777619);
       if (typeof v === 'number') { HF[0] = v; h = Math.imul(h ^ HI[0], 16777619); h = Math.imul(h ^ HI[1], 16777619); }
       else h = hv(h, v);
     }

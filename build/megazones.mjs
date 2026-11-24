@@ -47,10 +47,9 @@ function clip(poly, a, b) {
   return out;
 }
 /* r17: real geography. build/source/megacity_shapes.json (made by build/make_city_shapes.mjs from geoBoundaries) holds
-   the administrative areas and the land of each city frame. Every administrative area is shared out among the ranked
-   places inside it (each gets the part closest to it); an area with no ranked place goes to the nearest place within the
-   city radius, anything farther stays plain land. Coastlines, rivers, bays and district borders are therefore real; only
-   where one official area holds several ranked places is the split between them the nearest-place rule. */
+   the administrative areas and the land of each city frame. r19 (audit NZ9-02): an area is coloured only when it holds
+   exactly one ranked place, with that place's own facts; empty areas stay grey and unscored, areas shared by several
+   ranked places stay grey with each place as a dot. No area ever takes another place's name or score. */
 import fs from 'node:fs';
 import path from 'node:path';
 const SHAPES = (() => { try { return JSON.parse(fs.readFileSync(path.join(path.dirname(new URL(import.meta.url).pathname), 'source', 'megacity_shapes.json'), 'utf8')); } catch (e) { return null; } })();
@@ -84,16 +83,23 @@ function realZones(k, mem, R) {
     if (!best || sc > best.sc) best = { L, holder, sc };
   }
   if (!best) return null;
-  const pieces = new Map(mem.map((o) => [o, []])), plain = [], exact = new Map(mem.map((o) => [o, 0]));
+  /* r19 (audit NZ9-02): an official area is coloured only with the facts of the one ranked place it holds. An area
+     without a ranked place stays grey and unscored (it never borrows a neighbour's name or score). An area holding
+     several ranked places is not carved up: it stays grey and each place is drawn as a dot at its own location. A record
+     that contains the others in its area (a whole-city aggregate) is not drawn. */
+  { const pp = (o) => o.r.popNow || o.r.population, tot = mem.reduce((t, o) => t + pp(o), 0), cnt = {};
+    best.holder.forEach((h) => { if (h >= 0) cnt[h] = (cnt[h] || 0) + 1; });
+    const agg = mem.filter((o, i) => mem.length >= 4 && pp(o) >= 0.4 * (tot - pp(o)) && (best.holder[i] < 0 || cnt[best.holder[i]] > 1));
+    if (agg.length && !arguments[3]) { const r2 = realZones(k, mem.filter((o) => !agg.includes(o)), R, true); if (r2) { agg.forEach((o) => r2.aggregate.add(o)); return r2; } } }
+  const pieces = new Map(mem.map((o) => [o, []])), plain = [], shared = [], exact = new Map(mem.map((o) => [o, 0])), dots = new Set(), aggregate = new Set(), area = new Map();
   best.L.areas.forEach((a, ai) => {
     const own = mem.filter((o, i) => best.holder[i] === ai);
-    if (own.length === 1) { pieces.get(own[0]).push(...a.mp); exact.set(own[0], exact.get(own[0]) + 1); return; }
-    if (own.length > 1) { for (const o of own) { const cell = cellOf(o, own, F * 2); for (const P of a.mp) { const outer = clipRing(P[0], cell); if (outer.length >= 3 && Math.abs(ringArea(outer)) > 0.01) pieces.get(o).push([outer, ...P.slice(1).map((h) => clipRing(h, cell)).filter((h) => h.length >= 3)]); } } return; }
-    const c = centroid(a.mp); if (Math.hypot(c[0], c[1]) > R) { plain.push(...a.mp); return; }
-    let near = null, nd = 1e9; for (const o of mem) { const d = Math.hypot(o.p[0] - c[0], o.p[1] - c[1]); if (d < nd) { nd = d; near = o; } }
-    pieces.get(near).push(...a.mp); exact.set(near, exact.get(near) - 1000);
+    if (own.length === 1) { pieces.get(own[0]).push(...a.mp); exact.set(own[0], 1); area.set(own[0], { n: a.n, id: a.id || null }); return; }
+    if (own.length > 1) { shared.push(...a.mp); own.forEach((o) => dots.add(o)); return; }
+    plain.push(...a.mp);
   });
-  return { pieces, plain, land: C.land, level: best.L.lvl, exact };   // exact: the zone is exactly one official area
+  mem.forEach((o, i) => { if (best.holder[i] < 0) dots.add(o); });
+  return { pieces, plain, shared, dots, aggregate, area, land: C.land, level: best.L.lvl, exact };   // exact: the zone is exactly one official area
 }
 // draws rings as one SVG path (even-odd fill), simplified to whole pixels
 function pathOf(mp, X, Y) {
@@ -102,38 +108,47 @@ function pathOf(mp, X, Y) {
     if (pts.length >= 3) d += 'M' + pts.map((q) => q[0] + ' ' + q[1]).join('L') + 'Z'; }
   return d;
 }
-function membersOf(SH, la, lo, R, cc) {
+function membersOf(SH, la, lo, R, cc, keepAgg) {
   const kx = 111.32 * Math.cos(la * Math.PI / 180), xy = (r) => [(r.lon - lo) * kx, (la - r.lat) * 110.57];
   let mem = SH[cc].recs.filter((r) => Number.isFinite(r.lat) && Number.isFinite(r.lon) && (r.popNow || r.population) >= 30000).map((r) => ({ r, p: xy(r) })).filter((o) => Math.hypot(o.p[0], o.p[1]) <= R);
   const tot = mem.reduce((t, o) => t + (o.r.popNow || o.r.population), 0);
-  mem = mem.filter((o) => (o.r.popNow || o.r.population) < 0.4 * (tot - (o.r.popNow || o.r.population)) || mem.length < 4);   // drop whole-city aggregates
+  if (!keepAgg) mem = mem.filter((o) => (o.r.popNow || o.r.population) < 0.4 * (tot - (o.r.popNow || o.r.population)) || mem.length < 4);   // drop whole-city aggregates (schematic maps; real maps test containment instead)
   const seen = new Set(); return mem.filter((o) => { const key = Math.round(o.p[0] * 2) + ',' + Math.round(o.p[1] * 2); if (seen.has(key)) return false; seen.add(key); return true; });
 }
 /* r18: which world-city map a place belongs to (place pages link to it) */
 export function megaMembership(SH) {
   const out = {};
-  for (const [k, n, cc, la, lo, R] of MEGA) { if (!SH[cc]) continue; const mem = membersOf(SH, la, lo, R, cc); if (mem.length < 8) continue; for (const o of mem) if (!out[o.r.id]) out[o.r.id] = [k, n.replace(/ area$/, ''), mem.length]; }
+  for (const [k, n, cc, la, lo, R] of MEGA) { if (!SH[cc]) continue; const hasReal = !!(SHAPES && SHAPES.cities[k]); let mem = membersOf(SH, la, lo, R, cc, hasReal); if (mem.length < 8) continue;
+    if (hasReal) { const real = realZones(k, mem, R); if (real) mem = mem.filter((o) => !real.aggregate.has(o)); else mem = membersOf(SH, la, lo, R, cc); }
+    for (const o of mem) if (!out[o.r.id]) out[o.r.id] = [k, n.replace(/ area$/, ''), mem.length]; }
   return out;
 }
 export function megaZones({ SH, RANK, PAGES }) {
-  const out = [];
+  const out = [], JOINS = {};
   for (const [k, n, cc, la, lo, R, ctrName] of MEGA) {
     if (!SH[cc] || !RANK[cc]) continue;
     const kx = 111.32 * Math.cos(la * Math.PI / 180), xy = (r) => [(r.lon - lo) * kx, (la - r.lat) * 110.57];
-    let mem = membersOf(SH, la, lo, R, cc);
+    const hasReal = !!(SHAPES && SHAPES.cities[k]);
+    let mem = membersOf(SH, la, lo, R, cc, hasReal);
     if (mem.length < 8) continue;
     const W = 1000, S = W / (2 * R), H = W, X = (x) => (x + R) * S, Y = (y) => (y + R) * S;
     const disc = Array.from({ length: 72 }, (_, i) => [R * Math.cos(i * Math.PI / 36), R * Math.sin(i * Math.PI / 36)]);
     const real = realZones(k, mem, R);
+    if (hasReal && !real) mem = membersOf(SH, la, lo, R, cc);
+    const dotD = (o) => { const cx = X(o.p[0]), cy = Y(o.p[1]), r = 9; return `M${(cx - r).toFixed(0)} ${cy.toFixed(0)}a${r} ${r} 0 1 0 ${2 * r} 0a${r} ${r} 0 1 0 ${-2 * r} 0Z`; };
+    if (real) mem = mem.filter((o) => !real.aggregate.has(o));
     const Z = mem.map((o) => { let poly = disc; if (!real) for (const q of mem) if (q !== o) { poly = clip(poly, o.p, q.p); if (poly.length < 3) break; }
       const area = Math.abs(poly.reduce((t, p, i) => { const q = poly[(i + 1) % poly.length]; return t + p[0] * q[1] - q[0] * p[1]; }, 0) / 2);
       const s = {}; for (const pf of PROF) { const a = RANK[cc][pf] && RANK[cc][pf].byId[o.r.id]; s[pf] = a ? Math.round(a.score) : null; }
       const pop = o.r.popNow || o.r.population;
-      return { c: String(o.r.id), n: o.r.name.replace(/ \((?:Tokyo|New York|Shanghai|Moscow)\)$/, ''), u: PAGES[o.r.id] || '', d: real ? pathOf(real.pieces.get(o), X, Y) : 'M' + poly.map((p) => X(p[0]).toFixed(0) + ' ' + Y(p[1]).toFixed(0)).join('L') + 'Z', lx: +X(o.p[0]).toFixed(1), ly: +Y(o.p[1]).toFixed(1), km2: Math.round(real ? real.pieces.get(o).reduce((t, P) => t + Math.abs(ringArea(P[0])) - P.slice(1).reduce((u, h) => u + Math.abs(ringArea(h)), 0), 0) : area),
+      return { c: String(o.r.id), n: o.r.name.replace(/ \((?:Tokyo|New York|Shanghai|Moscow)\)$/, ''), u: PAGES[o.r.id] || '', dot: real && real.dots.has(o) ? 1 : 0, ar: real && real.area.get(o) ? real.area.get(o).n : '', d: real ? (real.dots.has(o) ? dotD(o) : pathOf(real.pieces.get(o), X, Y)) : 'M' + poly.map((p) => X(p[0]).toFixed(0) + ' ' + Y(p[1]).toFixed(0)).join('L') + 'Z', lx: +X(o.p[0]).toFixed(1), ly: +Y(o.p[1]).toFixed(1), km2: Math.round(real ? real.pieces.get(o).reduce((t, P) => t + Math.abs(ringArea(P[0])) - P.slice(1).reduce((u, h) => u + Math.abs(ringArea(h)), 0), 0) : area),
         v: { pop, dens: o.r.area_km2 > 0 ? Math.round(pop / o.r.area_km2) : (real && real.exact.get(o) === 1 ? Math.round(pop / Math.max(0.5, real.pieces.get(o).reduce((t, P) => t + Math.abs(ringArea(P[0])) - P.slice(1).reduce((u, h) => u + Math.abs(ringArea(h)), 0), 0))) : null), dist: Math.round(Math.hypot(o.p[0], o.p[1]) * 10) / 10 }, s }; }).filter((z) => z.d.length > 10);
     for (const pf of PROF) { const order = Z.filter((z) => z.s[pf] != null).sort((a, b) => b.s[pf] - a.s[pf]); order.forEach((z, i) => { (z.r = z.r || {})[pf] = i + 1; }); }
+    JOINS[k] = { level: real ? real.level : null, schematic: !real, zones: Z.map((z) => ({ place: z.c, name: z.n, kind: real ? (z.dot ? 'dot: shares an official area or lies outside the boundary data' : 'exact: one official area, one place') : 'modelled nearest-place cell', area: z.ar || null, shapeID: real && !z.dot ? (real.area.get(mem.find((o) => String(o.r.id) === z.c)) || {}).id || null : null })),
+      unscored_areas: real ? real.nPlain : 0, shared_areas: real ? real.nShared : 0, aggregates_not_drawn: real ? [...real.aggregate].map((o) => String(o.r.id)) : [] };
     out.push({ k, n, cc, w: W, h: H, ctr: [X(0), Y(0), ctrName], ind: { pop: ['Residents', ''], dens: ['Residents per km²', ''], dist: ['Distance to ' + ctrName, ' km'] }, z: Z,
-      src: [['Nestlyzer place scores and populations (sources on each place page)', '/method/']].concat(real ? [['Boundaries: geoBoundaries ' + real.level + ' (open licence), coastlines and rivers as drawn there', 'https://www.geoboundaries.org/']] : []), used: Object.fromEntries(PROF.map((p) => [p, ['the full Nestlyzer score of each place']])), cov: null, schematic: !real, real: real ? { land: pathOf(real.land, X, Y), plain: pathOf(real.plain, X, Y), level: real.level } : null });
+      src: [['Nestlyzer place scores and populations (sources on each place page)', '/method/']].concat(real ? [['Boundaries: geoBoundaries ' + real.level + ' (open licence), coastlines and rivers as drawn there', 'https://www.geoboundaries.org/']] : []), used: Object.fromEntries(PROF.map((p) => [p, ['the full Nestlyzer score of each place']])), cov: null, schematic: !real, real: real ? { land: pathOf(real.land, X, Y), plain: pathOf(real.plain.concat(real.shared), X, Y), level: real.level, nPlain: real.plain.length, nShared: real.shared.length, nDots: real.dots.size } : null });
   }
+  try { fs.mkdirSync('docs/audit', { recursive: true }); fs.writeFileSync('docs/audit/city_map_joins.json', JSON.stringify({ note: 'r19 (audit NZ9-02/NZ9-10): how every zone on the world-city maps joins a place to an official area (geoBoundaries shapeID)', cities: JOINS }, null, 1)); } catch (e) {}
   return out;
 }

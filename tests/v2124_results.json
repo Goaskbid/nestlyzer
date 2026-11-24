@@ -32,11 +32,11 @@
  {
   "id": "sitemap",
   "ok": true,
-  "check": "sitemap index with 6 files by page type, 23294 URLs"
+  "check": "sitemap index with 6 files by page type, 23297 URLs"
  },
  {
   "id": "titles",
-  "ok": false,
-  "check": "every page title at most 65 characters (1327 longer)"
+  "ok": true,
+  "check": "every page title at most 65 characters (0 longer)"
  }
 ]

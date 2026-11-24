@@ -1,5 +1,5 @@
 {
-  "sha256": "12e8d59cba0e0e99d3c81c905de7842ce13f32501133c78b6f8b52dbdf49fa36",
+  "sha256": "9d748bdf05f51023f07f3e0e6209b709dbb57f3f4948358216bf40adf2e796a9",
   "files": {
     "build/build_clusters.py": "c964896cfe92ac135a2ff2aa18189d44e3cb43b769b2af9002360ef3ef46cbda",
     "build/build_evidence_lab.js": "f0d1bc893b2f04e79884d2475ac2351f7b26a0054a4075d17bb3d9c98a15e684",
@@ -19,7 +19,7 @@
     "data/c/BG.json": "4e1460b8d2f539233d4c40617ce39274ed6a56651ba28b7d1f4f163f2ff46b88",
     "data/c/BR.json": "109cf851a42d73867c4aed7d165076a7646ca29172e8db503faac072de7c609a",
     "data/c/CA.json": "fad2d38e6141f5c4854fc5c254387b7ba86a0999796564afe1933041a6c4b0b4",
-    "data/c/CH.json": "3bf151ea9c99d08e5aa157ececfc90360f4214f29d0ba32c8ed838add18b674f",
+    "data/c/CH.json": "693d0d92be77b49dbc15b031ccdc7f7e695d72bbe6a20f58a6da0bfa17b0d822",
     "data/c/CN.json": "f8d2b40f02195e39864102ba0eaf66e093363cb82ed9c70b331815b83a39ad18",
     "data/c/CO.json": "7696e62d792d82a148630121d363c62b6fdd2e3e51b949efb14582a0d99c051e",
     "data/c/CY.json": "df37aa0dcff3749cd46f020f1f8cf7c24b58f56974c0ff30b1231beef2b4ebb6",
@@ -140,6 +140,6 @@
     "data/x/VN.json": "8f28393acf6e1db23b8e4ac78b59f73879a107d8e39cdb8458a02d2b564025d2",
     "data/x/ZA.json": "20714dbe0711373787871091f9baa710d964650f6509bae417176c79dff16eeb",
     "src/data.js": "a61a335b0f901ae9d12594d8820a911769ef08a3060128286758dca6a117b264",
-    "src/engine.js": "b07b68e695d21af1d6aa9976fe973a3329be688ade5ac9a90d2aa0fddbcc13e6"
+    "src/engine.js": "561e3da7d18b426deac9bd0bb7d78084e26a3699e409ba2303f708324853255f"
   }
 }

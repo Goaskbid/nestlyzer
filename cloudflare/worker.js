@@ -20,7 +20,8 @@ function respond(body, status, extra, method) {
   const h = new Headers(Object.assign({}, SEC, extra || {}));
   return new Response(method === 'HEAD' ? null : body, { status, headers: h });
 }
-async function asset(env, req, p) { return env.ASSETS.fetch(new Request(new URL(p, req.url), { method: 'GET' })); }
+// r19 (audit NZ9-09): a thrown backing-store fetch is a temporary failure, never an escaped exception or a false 404
+async function asset(env, req, p) { try { return await env.ASSETS.fetch(new Request(new URL(p, req.url), { method: 'GET' })); } catch (e) { throw new Unavailable('fetch ' + p); } }
 async function loadIndex(env, req) {
   if (INDEX) return INDEX;
   if (!PENDING) PENDING = (async () => {
@@ -45,9 +46,11 @@ export default {
         if (own(index, m[1])) {
           const n = index[m[1]];
           const r = await asset(env, req, '/_packs/places/' + m[1] + '/' + bucketOf(m[2], n) + '.json');
-          if (!r.ok) { if (r.status !== 404) throw new Unavailable('pack ' + r.status); }
+          // every bucket the index announces must exist and be a plain object: a missing or malformed pack is 503
+          if (!r.ok) throw new Unavailable('pack ' + r.status);
           else {
             let pack; try { pack = await r.json(); } catch (e) { throw new Unavailable('pack not JSON'); }
+            if (!pack || typeof pack !== 'object' || Array.isArray(pack)) throw new Unavailable('pack invalid');
             if (own(pack, m[2]) && typeof pack[m[2]] === 'string' && pack[m[2]].length) {
               return respond(pack[m[2]], 200, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'public, max-age=0, must-revalidate' }, method);
             }
@@ -58,7 +61,7 @@ export default {
         throw e;
       }
     }
-    const nf = await asset(env, req, '/404.html');
-    return respond(nf.ok ? await nf.text() : 'Not found', 404, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' }, method);
+    let nf = null; try { nf = await asset(env, req, '/404.html'); } catch (e) { nf = null; }
+    return respond(nf && nf.ok ? await nf.text() : 'Not found', 404, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' }, method);
   }
 };

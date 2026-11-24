@@ -8,12 +8,20 @@ cd "$(dirname "$0")/.." || exit 2
 export NODE_OPTIONS=--max-old-space-size=5632
 LOG=${NZ_GATE_LOG:-/tmp/nz-gate}; mkdir -p "$LOG"; : > "$LOG/results.txt"
 SRC_HASH=$(find src build data cloudflare tests package.json package-lock.json -type f ! -path '*/__pycache__/*' ! -path 'tests/results/*' ! -name '*_results.json' -print0 2>/dev/null | sort -z | xargs -0 sha256sum | sha256sum | cut -c1-16)
-step(){ n=$1; shift; s=$(date +%s); if timeout 2400 "$@" > "$LOG/$n.log" 2>&1; then r=PASS; else r=FAIL; fi; echo "$r $n ($(( $(date +%s)-s ))s) :: $(tail -1 "$LOG/$n.log" | cut -c1-160)" | tee -a "$LOG/results.txt"; }
+# r19 (audit NZ9-04): a step passes only if it exits 0 AND its log reports no failed assertion (tests/gate_verdict.py).
+# A failed build or publication step stops the gate.
+step(){ n=$1; shift; s=$(date +%s); timeout 2400 "$@" > "$LOG/$n.log" 2>&1; rc=$?; v=$(python3 tests/gate_verdict.py $rc "$LOG/$n.log"); r=${v%% *}; a=${v#* }; echo "$r $n ($(( $(date +%s)-s ))s) [assertions ${a/ / of }] :: $(tail -1 "$LOG/$n.log" | cut -c1-160)" | tee -a "$LOG/results.txt"; }
+need(){ grep -q "^FAIL $1 " "$LOG/results.txt" && { echo "FAIL gate stopped: $1 failed, later steps would test a broken artifact" | tee -a "$LOG/results.txt"; GATE_STOP=1; }; }
+# 0. the gate checks itself: injected failed assertions that exit 0 must be caught
+step gate_selftest python3 tests/gate_verdict.py --selftest
+
 # 1. production build
 step build node build/build_site.mjs
 step public node build/public.mjs _site
 step standalone_split env NZ_SPLIT=1 node build/standalone.mjs
 step standalone_live env NZ_SINGLE_LIVE=1 node build/standalone.mjs
+for k in build public standalone_split standalone_live; do need $k; done
+if [ -n "$GATE_STOP" ]; then echo 'RELEASE GATE: FAIL (build stopped)'; exit 1; fi
 # 2. unit suites, audit regressions and fault probes
 step npm npm test
 step node_suites bash -c 'node --test tests/*.test.cjs tests/*.test.mjs tests/evidence_retry/context_labels.test.cjs tests/evidence_retry/static_assets.test.mjs build/test_seo.mjs'
@@ -25,6 +33,7 @@ step smoke_repo python3 tests/smoke.py .
 step smoke_site python3 tests/smoke.py _site
 step voice python3 tests/test_r15_voice.py _site
 step city_maps python3 tests/test_city_maps.py _site
+step r19_audit python3 tests/test_r19_audit.py _site
 step seovis python3 tests/test_seo_visibility.py _site
 step swupgrade python3 tests/test_sw_upgrade.py _site tests/fixtures/sw_2.15.30_r5.js
 step profiles node tests/profile_audit.js
@@ -44,6 +53,8 @@ log, src, art, p, f = sys.argv[1:6]
 rows = [l.rstrip('\n') for l in open(os.path.join(log, 'results.txt'))]
 rec = {'command': 'bash tests/release_gate.sh', 'when': datetime.datetime.utcnow().isoformat() + 'Z', 'source_hash': src, 'artifact_hash': art,
        'passed': int(p), 'failed': int(f), 'steps': rows,
+       'assertions': (lambda xs: {'passed': sum(x[0] for x in xs), 'total': sum(x[1] for x in xs), 'failed': sum(x[1] - x[0] for x in xs)})([tuple(map(int, m)) for m in __import__('re').findall(r'\[assertions (\d+) of (\d+)\]', '\n'.join(rows))]),
+       'skipped': [r for r in rows if r.startswith('SKIP')],
        'external_checks': ['Google requests after consent withdrawal on the live domain', 'field Core Web Vitals', 'Search Console indexing',
                            'Cloudflare cutover responses (after the switch)']}
 os.makedirs('docs/audit', exist_ok=True); json.dump(rec, open('docs/audit/release_gate_receipt.json', 'w'), indent=1)

@@ -60,3 +60,4 @@ with sync_playwright() as pw:
 
 json.dump(res, open(os.path.join(ROOT, 'tests/v2122_results.json'), 'w'), indent=1)
 print(f"{sum(r['ok'] for r in res)} of {len(res)} passed")
+sys.exit(0 if all(r['ok'] for r in res) else 1)  # r19 (NZ9-04): a failed assertion fails the process

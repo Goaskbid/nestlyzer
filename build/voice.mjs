@@ -15,17 +15,17 @@ export const BANNED = /\b(nestled|vibrant|boasts?|hidden gem|tapestry|bustling|w
 function sizeLine(s, v) {
   const p = v.pop;
   if (p < 1500) return pick(s, 'size', [
-    'With {pop} residents, {name} is the kind of place where a new face gets a second look.',
-    '{name} counts {pop} residents. That is fewer than a mid-sized concert, and the pace of life tends to follow.',
-    'Only {pop} people live in {name}, so anonymity is not really on the menu.',
-    '{pop} residents. {name} is small enough that news still travels by word of mouth faster than by any newsletter.']);
+    'With {pop} residents, {name} is smaller than many city schools.',
+    '{name} counts {pop} residents, fewer than a mid-sized concert crowd.',
+    'Only {pop} people live in {name}.',
+    '{pop} residents: {name} is village-sized.']);
   if (p < 10000) return pick(s, 'size', [
     '{name} has {pop} residents: past village size, still well short of a town that loses track of its people.',
     'At {pop} people, {name} sits in the comfortable middle: not a village any more, not quite a town that forgets your name.',
     '{pop} people call {name} home, about the crowd at a full provincial football ground.',
     '{name} is home to {pop} people, the size at which faces start to repeat at the weekend.']);
   if (p < 100000) return pick(s, 'size', [
-    '{name} is a proper town of {pop}, with the choice that brings and the traffic that comes with it.',
+    '{name} is a proper town of {pop}.',
     'With {pop} residents, {name} has outgrown small-town scale without reaching city size.',
     '{pop} people live in {name}: a town by any measure, still short of a city.',
     '{name} counts {pop} residents, in the band between market town and regional city.']);
@@ -40,10 +40,11 @@ function sizeLine(s, v) {
 }
 
 function densityLine(s, v) {
-  const d = v.density; if (!(d >= 0)) return '';
+  /* r19 (NZ9-01): only a real measured density, from a population and an area of the same place, gives a sentence. Missing, empty, NaN or infinite values say nothing. */
+  const d = v.density; if (typeof d !== 'number' || !Number.isFinite(d) || d <= 0 || !(v.densityOk)) return '';
   if (d > 5000) return pick(s, 'dens', ['Space is the scarce thing: about {dens} people share each square kilometre.', 'At {dens} people per square kilometre, a balcony counts as a garden.']);
   if (d > 1500) return pick(s, 'dens', ['It is built up, about {dens} people per square kilometre, so the neighbours are close.', 'Density runs at {dens} per square kilometre: urban, but not stacked.']);
-  if (d < 30) return pick(s, 'dens', ['Neighbours are spread thin, about {dens} people per square kilometre; the nearest one may be a cow.', 'With {dens} people per square kilometre, there is more landscape than streetscape.', 'At {dens} per square kilometre, a traffic jam means two tractors.']);
+  if (d < 30) return pick(s, 'dens', ['Neighbours are spread thin: about {dens} people per square kilometre.', 'With {dens} people per square kilometre, there is more landscape than streetscape.', 'At {dens} people per square kilometre, open land outweighs built-up land by a wide margin.']);
   if (d < 120) return pick(s, 'dens', ['Room to breathe: about {dens} people per square kilometre.', 'It is roomy, around {dens} people per square kilometre: more ground than buildings.']);
   return '';
 }
@@ -52,9 +53,9 @@ function settingLine(s, v) {
   const out = [];
   if (v.lake && v.lakeKm != null && v.lakeKm < 1) out.push(pick(s, 'lake', ['It sits right on {lake}, less than a kilometre from the centre.', '{lake} is on the doorstep, under a kilometre away.', 'The town reaches the shore of {lake}.']));
   else if (v.lake && v.lakeKm != null && v.lakeKm < 8) out.push(pick(s, 'lake', ['{lake} is {lakeKm} km away in a straight line.', 'The shore of {lake} is {lakeKm} km off as the crow flies.']));
-  if (v.seaKm != null && v.seaKm < 2) out.push(pick(s, 'sea', ['It is on the coast{seaOf}: the view comes included, the wind is not optional.', 'The sea{seaOf} starts where the town stops.', 'Salt air is part of the address here{seaOfComma}.']));
+  if (v.seaKm != null && v.seaKm < 2) out.push(pick(s, 'sea', ['It is on the coast{seaOf}, under 2 km from the shore.', 'The sea{seaOf} starts where the town stops.', 'Salt air is part of the address here{seaOfComma}.']));
   else if (v.seaKm != null && v.seaKm < 15) out.push(pick(s, 'sea', ['The {sea} is {seaKm} km away in a straight line: near enough to shape the weather, far enough not to shape the town.', 'It is {seaKm} km to the {sea} as the crow flies.']));
-  if (v.alt != null && v.alt > 1200) out.push(pick(s, 'alt', ['The land around it averages about {alt} m, so winter here is not a rumour.', 'The surrounding terrain averages roughly {alt} m. Snow tyres are not a lifestyle choice.']));
+  if (v.alt != null && v.alt > 1200) out.push(pick(s, 'alt', ['The land around it averages about {alt} m above sea level.', 'Average terrain height around it: about {alt} m.']));
   else if (v.relief != null && v.relief > 700) out.push(pick(s, 'rel', ['The ground rises {relief} m within the area, so bring calves, not a cargo bike.', 'With {relief} m between the lowest and highest ground, every errand comes with a view and a climb.']));
   else if (v.relief != null && v.relief < 25 && v.alt != null && v.alt < 200) out.push(pick(s, 'flat', ['The land is flat as a ruler, which cyclists love and skiers forgive nobody for.', 'Flat country: the horizon is a long way off and the bike does most of the work.']));
   if (v.river && v.riverKm != null && v.riverKm < 1 && out.length < 2) out.push(pick(s, 'riv', ['The {river} runs through or right past it.', 'The {river} goes past, as rivers do, and the town has arranged itself around it.']));
@@ -64,11 +65,13 @@ function settingLine(s, v) {
 function growthLine(s, v) {
   const g = v.growth; if (g == null || !isFinite(g)) return '';
   const G = { g: (g > 0 ? '+' : '') + n1(g), a: n1(Math.abs(g)) };
-  if (g > 10) return fill(pick(s, 'gr', ['It is growing fast, {g}% in five years. That usually means cranes, new classrooms and a lively debate about parking.', 'The headcount is up {a}% in five years, a pace few places keep up.', '{a}% more residents in five years. Births, arrivals or new boundaries; the figure alone does not say which.']), G);
+  /* r19 (NZ9-03/-06): a very large five-year jump is often a boundary change, which a headcount alone cannot rule out */
+  if (g > 25 || g < -25) return fill(pick(s, 'gr', ['The headcount changed by {g}% in five years. A jump that large often reflects a boundary change rather than people arriving or leaving; the figure alone cannot tell which.']), G);
+  if (g > 10) return fill(pick(s, 'gr', ['It is growing fast: {g}% more residents in five years.', 'The headcount is up {a}% in five years, a pace few places keep up.', '{a}% more residents in five years. Births, arrivals or new boundaries; the figure alone does not say which.']), G);
   if (g > 3) return fill(pick(s, 'gr', ['Growth is steady, {g}% over five years: the slow, unspectacular kind.', 'The population is up {a}% in five years, the healthy kind of growth that rarely makes the news.']), G);
   if (g > -1) return fill(pick(s, 'gr', ['The headcount has barely moved in five years ({g}%). Some call that stagnation; others call it stability.', 'Five years, {g}%: a population holding its ground.']), G);
-  if (g > -5) return fill(pick(s, 'gr', ['It is shrinking slowly, down {a}% in five years. Gentle, but worth noticing.', 'A slight decline, {a}% fewer residents over five years: more room, fewer neighbours.']), G);
-  return fill(pick(s, 'gr', ['It has lost {a}% of its residents in five years. Fewer people means less competition for housing; whether the shops and schools hold on is the question to ask.', 'Five years, {g}%. The decline is real, and so is the room it leaves.']), G);
+  if (g > -5) return fill(pick(s, 'gr', ['It is shrinking slowly, down {a}% in five years. Gentle, but worth noticing.', 'A slight decline: {a}% fewer residents over five years.']), G);
+  return fill(pick(s, 'gr', ['It has lost {a}% of its residents in five years. The figure alone does not say why: fewer births, people leaving or a boundary change.', 'Five years, {g}%. The decline is real, and so is the room it leaves.']), G);
 }
 
 function metroLine(s, v) {
@@ -103,7 +106,7 @@ function rankLine(s, v) {
 /* A place story: two short paragraphs, 450 to 900 characters, only from figures on the page. */
 export function placeStory(v) {
   const s = String(v.id || v.name);
-  const V = { ...v, pop: n0(v.pop), dens: v.density >= 0 ? n0(v.density) : '', alt: v.alt != null ? n0(Math.round(v.alt / 10) * 10) : '', relief: v.relief != null ? n0(Math.round(v.relief / 10) * 10) : '',
+  const V = { ...v, pop: n0(v.pop), dens: typeof v.density === 'number' && Number.isFinite(v.density) && v.density > 0 ? n0(v.density) : '', alt: v.alt != null ? n0(Math.round(v.alt / 10) * 10) : '', relief: v.relief != null ? n0(Math.round(v.relief / 10) * 10) : '',
     lakeKm: v.lakeKm != null ? n1(v.lakeKm) : '', seaKm: v.seaKm != null ? n0(v.seaKm) : '', metroKm: v.metroKm != null ? n0(v.metroKm) : '',
     seaOf: v.sea ? ' of the ' + String(v.sea).replace(/^The /, '') : '', seaOfComma: v.sea ? ', on the ' + String(v.sea).replace(/^The /, '') : '', sea: v.sea ? String(v.sea).replace(/^The /, '') : 'sea' };
   const p1 = [sizeLine(s, v), densityLine(s, v), settingLine(s, v)].filter(Boolean).map((t) => fill(t, V)).join(' ');
@@ -140,7 +143,7 @@ export function countryStory(v) {
     : v.share >= 10 ? pick(s, 'b', ['{big} is the largest place ({bigPop}), but with {share}% of the residents it leads without owning the country.', 'The biggest name is {big}, {bigPop} people, a capital of attention rather than of everything.'])
     : pick(s, 'b', ['Even {big}, the largest place, holds only {share}% of the residents: this is a country of many centres.', '{c} spreads itself around. The largest place, {big}, has just {share}% of the residents we count.']));
   if (v.median != null) out.push(pick(s, 'm', ['The typical place here has about {med} residents, so most of the {n} on the map are far smaller than the names you know.', v.median < 5000 ? 'Half of the {n} places have fewer than {med} residents. Most of the map is villages and small towns, not cities.' : 'Half of the {n} places have more than {med} residents: the local units here are big, so a place on this map is often a whole town with its suburbs.', v.median < 3000 ? 'Median size: {med} residents. In other words, the typical place is a village, not a town.' : v.median < 20000 ? 'Median size: {med} residents. In other words, the typical place is a small town with one high street.' : 'Median size: {med} residents. Here even the typical place is a sizeable town, because the local units are large.']));
-  if (v.grow) out.push(pick(s, 'g', ['The fastest grower among the larger places is {gName}, {g}% in five years.', '{gName} is where the moving vans go: {g}% in five years, the most among the larger places.']));
-  if (v.high && v.high.alt > 600) out.push(pick(s, 'h', ['The most mountainous setting belongs to {hName}, where the land around averages about {alt} m and winter is a season, not a forecast.', 'For altitude, look at {hName}: the terrain around it averages some {alt} m.']));
+  if (v.grow) out.push(pick(s, 'g', ['The fastest grower among the larger places is {gName}, {g}% in five years.', '{gName} added the most residents among the larger places: {g}% in five years.']));
+  if (v.high && v.high.alt > 600) out.push(pick(s, 'h', ['The highest setting belongs to {hName}, where the land around averages about {alt} m.', 'For altitude, look at {hName}: the terrain around it averages some {alt} m.']));
   return out.length ? '<section class="card nz-story"><h2>' + esc(pick(s, 't', ['The country in a few lines', 'A quick portrait', 'Before the rankings'])) + '</h2><p>' + esc(out.map((t) => fill(t, V)).join(' ')) + '</p></section>' : '';
 }

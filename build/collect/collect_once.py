@@ -11,7 +11,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any
 
-VERSION = '2026-11-19.1'
+VERSION = '2026-11-24.1'
 UA = 'Nestlyzer-Official-Data-Intake/1.0 (user-initiated; bounded requests)'
 NUMERIC = re.compile(r'^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$')
 MISSING = {'', ':', '..', '...', 'NA', 'N/A', 'null', 'NaN', '-'}
@@ -241,7 +241,12 @@ def main():
     parser.add_argument('--attempts',type=int,default=1,choices=[1,2])
     parser.add_argument('--zip',type=Path)
     args=parser.parse_args()
-    jobs=json.loads(args.plan.read_text())['jobs']
+    plan=json.loads(args.plan.read_text())
+    if plan.get('mode')=='download_and_reduce':   # r19: the r20 intake downloads once and reduces large files on the runner
+        import importlib.util
+        spec=importlib.util.spec_from_file_location('reduce_r20',Path(__file__).with_name('reduce_r20.py'));mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
+        return mod.run(plan,Path(__file__).resolve().parents[2],args.out)
+    jobs=plan['jobs']
     if args.only:
         known={x['id'] for x in jobs}; unknown=set(args.only)-known
         if unknown: parser.error('Unknown source IDs: '+','.join(sorted(unknown)))

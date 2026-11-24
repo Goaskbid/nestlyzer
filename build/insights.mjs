@@ -7,6 +7,7 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import { charts } from './insights_charts.mjs';
 import { buildRecords } from './records.mjs';
+import { buildStories } from './stories.mjs';
 import { buildChange } from './insights_change.mjs';
 import { buildLinks } from './insights_links.mjs';
 
@@ -706,6 +707,8 @@ ${FOOT('Sources: World Bank WDI and B-READY, Transparency International, V-Dem, 
 
   /* r14: Book of Records */
   const REC = buildRecords({ ROOT, C, esc, fmt, fmtInt, nm, cl, flagImg, PAGES: H.PAGES || {}, N, NV, pageIns, kick, printBtn, FOOT, corr, strength, median, fin, list, sgn });
+  /* r19: place-level stories (border towns, mergers in numbers, against the trend) */
+  const STO = buildStories({ ROOT, C, esc, fmt, fmtInt, nm, flagImg, PAGES: H.PAGES || {}, pageIns, kick, printBtn, FOOT, fin });
   /* r15: A decade of change (ten chapters) */
   const CHG = buildChange({ C, esc, fmt, nm, cl, flagImg, HD, CC, pageIns, kick, printBtn, median, fin, list, sgn });
   const LNK = buildLinks({ C, esc, fmt, nm, cl, flagImg, HD, CC, pageIns, kick, printBtn, median, fin, list, corr, strength });
@@ -715,7 +718,7 @@ ${FOOT('Sources: World Bank WDI and B-READY, Transparency International, V-Dem, 
     /* r10: one hub grouped by theme, with a jump bar, instead of three long lists */
     const THEMES = [['change', 'A decade of change', 'How every country moved over about ten years: health, air, jobs, prices, debt, power and more, each with the winners, the laggards and why.', /\/change-/],
       ['links', 'How things connect', 'One relationship per chapter: research and high tech, inequality and violence, wealth and clean air. Scatter plots, the countries that defy the pattern, and what it all means.', /\/links-/],
-      ['people', 'People and migration', 'Who is arriving, who is leaving and how fast places age.', /migration|move|ageing|growth|ten-years/],
+      ['people', 'People and migration', 'Who is arriving, who is leaving and how fast places age.', /migration|move|ageing|growth|ten-years|border-towns|mergers-in|against-the-trend/],
       ['housing', 'Housing and the cost of living', 'Rents, prices and what a home costs against local pay.', /rent|house|price|cost-of-living|energy|yield|property/],
       ['families', 'Families, schools and childcare', 'Where children are well provided for.', /family|childcare|school/],
       ['money', 'Work, pay and tax', 'Jobs, incomes, inequality and the tax bill.', /jobs|pay|income|tax-by|sweden|inequality|labour/],

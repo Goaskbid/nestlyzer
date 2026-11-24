@@ -1,0 +1,213 @@
+{
+ "breaks": [
+  {
+   "oid": "241",
+   "name": "Aesch (ZH)",
+   "year": 2018,
+   "absorbed": []
+  },
+  {
+   "oid": "304",
+   "name": "Kallnach",
+   "year": 2018,
+   "absorbed": []
+  },
+  {
+   "oid": "879",
+   "name": "Riggisberg",
+   "year": 2020,
+   "absorbed": []
+  },
+  {
+   "oid": "1123",
+   "name": "Altishofen",
+   "year": 2019,
+   "absorbed": []
+  },
+  {
+   "oid": "2044",
+   "name": "Surpierre",
+   "year": 2020,
+   "absorbed": []
+  },
+  {
+   "oid": "2306",
+   "name": "Tafers",
+   "year": 2020,
+   "absorbed": []
+  },
+  {
+   "oid": "4139",
+   "name": "Menziken",
+   "year": 2022,
+   "absorbed": [
+    "Burg (AG)"
+   ]
+  },
+  {
+   "oid": "4210",
+   "name": "Staufen",
+   "year": 2019,
+   "absorbed": []
+  },
+  {
+   "oid": "4281",
+   "name": "Reitnau",
+   "year": 2018,
+   "absorbed": []
+  },
+  {
+   "oid": "5436",
+   "name": "Saint-Oyens",
+   "year": 2018,
+   "absorbed": []
+  },
+  {
+   "oid": "5472",
+   "name": "Bournens",
+   "year": 2020,
+   "absorbed": []
+  },
+  {
+   "oid": "5511",
+   "name": "Assens",
+   "year": 2020,
+   "absorbed": [
+    "Bioley-Orjulaz"
+   ]
+  },
+  {
+   "oid": "5803",
+   "name": "Vulliens",
+   "year": 2018,
+   "absorbed": []
+  },
+  {
+   "oid": "6458",
+   "name": "Neuchâtel",
+   "year": 2020,
+   "absorbed": []
+  },
+  {
+   "oid": "6708",
+   "name": "Courrendlin",
+   "year": 2018,
+   "absorbed": []
+  }
+ ],
+ "core_reconciled": [
+  {
+   "oid": "5511",
+   "name": "Assens",
+   "population": [
+    1075,
+    1672
+   ],
+   "area_km2": 8.46
+  }
+ ],
+ "density_factor_fixed": [
+  {
+   "oid": "291",
+   "name": "Andelfingen",
+   "was": 331.1573,
+   "now": 200.53
+  },
+  {
+   "oid": "2056",
+   "name": "Fétigny-Ménières",
+   "was": 287.8049,
+   "now": 190.68
+  },
+  {
+   "oid": "2239",
+   "name": "Grolley-Ponthaux",
+   "was": 391.9476,
+   "now": 256.8
+  },
+  {
+   "oid": "3112",
+   "name": "Schwende-Rüte",
+   "was": 91.9157,
+   "now": 61.08
+  },
+  {
+   "oid": "3396",
+   "name": "Neckertal",
+   "was": 83.1633,
+   "now": 76.45
+  },
+  {
+   "oid": "4186",
+   "name": "Herznach-Ueken",
+   "was": 249.2013,
+   "now": 223.06
+  },
+  {
+   "oid": "4185",
+   "name": "Böztal",
+   "was": 140.4402,
+   "now": 123.54
+  },
+  {
+   "oid": "4324",
+   "name": "Zurzach",
+   "was": 671.6258,
+   "now": 294.52
+  },
+  {
+   "oid": "5239",
+   "name": "Tresa",
+   "was": 195.4442,
+   "now": 286.43
+  },
+  {
+   "oid": "5240",
+   "name": "Val Mara",
+   "was": 318.1619,
+   "now": 266.97
+  },
+  {
+   "oid": "5395",
+   "name": "Lema",
+   "was": 190.553,
+   "now": 143.46
+  },
+  {
+   "oid": "5656",
+   "name": "Hautemorges",
+   "was": 113.354,
+   "now": 123.55
+  },
+  {
+   "oid": "5511",
+   "name": "Assens",
+   "was": 201.3109,
+   "now": 197.64
+  },
+  {
+   "oid": "5892",
+   "name": "Blonay - Saint-Légier",
+   "was": 386.4966,
+   "now": 375.54
+  },
+  {
+   "oid": "6513",
+   "name": "Laténa",
+   "was": 1016.8242,
+   "now": 449.54
+  },
+  {
+   "oid": "6812",
+   "name": "Basse-Vendline",
+   "was": 46.0236,
+   "now": 39.74
+  },
+  {
+   "oid": "6811",
+   "name": "Damphreux-Lugnez",
+   "was": 32.6279,
+   "now": 34.26
+  }
+ ]
+}

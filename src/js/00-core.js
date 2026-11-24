@@ -137,7 +137,7 @@ function loadCountry(cc) {
   return (SHARD_PENDING[cc] = loadCountry0(cc).then(function (v) { delete SHARD_PENDING[cc]; return v; }, function (e) { delete SHARD_PENDING[cc]; throw e; }));
 }
 function loadCountry0(cc) {
-  return Promise.all([getJSON('/data/c/' + cc + '.json?v=' + VERSION), getJSON('/data/x/' + cc + '.json?v=' + VERSION)]).then(function (a) {
+  return Promise.all([getJSONz('/data/c/' + cc + '.json?v=' + VERSION), getJSONz('/data/x/' + cc + '.json?v=' + VERSION)]).then(function (a) {
     var sh = a[0], xs = a[1];
     var all = NestData.hydrate(sh);
     if (xs) attachExtra(all, xs);

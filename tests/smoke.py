@@ -30,7 +30,8 @@ def files():
         check(os.path.exists(os.path.join(SITE, m)), 'file present: ' + m)
     meta = json.load(open(os.path.join(SITE, 'data/meta.json')))
     for c in meta['countries']:
-        check(os.path.getsize(os.path.join(SITE, 'data/c', c['cc'] + '.json')) > 1000, 'country data present: ' + c['cc'])
+        f0 = os.path.join(SITE, 'data/c', c['cc'] + '.json'); f0 = f0 if os.path.exists(f0) else f0 + '.gz'   # r19: published copies are gzipped
+        check(os.path.getsize(f0) > (1000 if not f0.endswith('.gz') else 200), 'country data present: ' + c['cc'])
     pages = sum(1 for b, d, f in os.walk(SITE) for x in f if x == 'index.html')
     check(pages > 5000, f'{pages} pages built')
     check(open(os.path.join(SITE, 'CNAME')).read().strip() == 'nestlyzer.com', 'CNAME is nestlyzer.com')

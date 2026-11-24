@@ -1,5 +1,11 @@
 // r17: real city outlines for the megacity zone maps. Developer tool, run once when the boundary sources change:
-//   node build/make_city_shapes.mjs /path/to/geoBoundaries/files /path/to/node_modules/polygon-clipping
+//   node build/make_city_shapes.mjs /path/to/geoBoundaries/files /path/to/node_modules/polygon-clipping /path/to/metadata
+// r19 (audit NZ9-10): every area keeps its geoBoundaries shapeID; every level keeps its boundary ID, year, source, licence
+// and the SHA-256 of the input file; a manifest (build/source/megacity_shapes.manifest.json) records the inputs, the
+// transform version and the output hash, so a coloured area traces back to its source feature without name guessing.
+// Inputs: https://media.githubusercontent.com/media/wmgeolab/geoBoundaries/main/releaseData/gbOpen/<ISO>/<ADMn>/
+//   geoBoundaries-<ISO>-<ADMn>_simplified.geojson (saved as <ISO>_<ADMn>.geojson) and geoBoundaries-<ISO>-<ADMn>-metaData.json
+//   (saved as <ISO>_<ADMn>.json). polygon-clipping is pinned in the manifest.
 // Input: geoBoundaries gbOpen simplified files (https://www.geoboundaries.org, open licences per country, named
 // <ISO3>_<ADMn>.geojson). Output: build/source/megacity_shapes.json with, per city, the administrative areas inside the
 // map frame (kilometres east and south of the city centre, simplified to 100 m) and the land they cover. The build
@@ -7,13 +13,20 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
+import crypto from 'node:crypto';
 import { MEGA } from './megazones.mjs';
-const [, , GB, PCP] = process.argv;
+const [, , GB, PCP, META] = process.argv;
+const TRANSFORM = 'make_city_shapes r19: frame clip at 1.02 R, ring RDP 0.18 km, 0.01 km grid, areas over 0.05 km2';
+const sha = (f) => crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');
+const inputs = {};
 const require = createRequire(import.meta.url);
 const pc = require(PCP || 'polygon-clipping');
 const ISO = { UK: 'GBR', JP: 'JPN', US: 'USA', MX: 'MEX', CN: 'CHN', TR: 'TUR', KR: 'KOR', HK: 'CHN', SG: 'SGP', AR: 'ARG', BR: 'BRA', TH: 'THA', PH: 'PHL', IN: 'IND', RU: 'RUS', ES: 'ESP', IT: 'ITA', CA: 'CAN', MY: 'MYS', ID: 'IDN', ZA: 'ZAF', EG: 'EGY', VN: 'VNM', AU: 'AUS', CO: 'COL', AE: 'ARE', SA: 'SAU', IL: 'ISR', TW: 'TWN', MA: 'MAR', NZ: 'NZL', DE: 'DEU', PT: 'PRT', EL: 'GRC', PL: 'POL', NL: 'NLD', BE: 'BEL', SE: 'SWE', DK: 'DNK', FR: 'FRA' };
 const cache = {};
-function load(iso, lvl) { const k = iso + '_' + lvl, f = path.join(GB, k + '.geojson'); if (!(k in cache)) cache[k] = fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')).features : null; return cache[k]; }
+function load(iso, lvl) { const k = iso + '_' + lvl, f = path.join(GB, k + '.geojson'); if (!(k in cache)) { cache[k] = fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')).features : null;
+  if (cache[k]) { const mf = META && path.join(META, k + '.json'), m = mf && fs.existsSync(mf) ? JSON.parse(fs.readFileSync(mf, 'utf8')) : {};
+    inputs[k] = { file: 'geoBoundaries-' + iso + '-' + lvl + '_simplified.geojson', sha256: sha(f), boundaryID: m.boundaryID || null, year: m.boundaryYear || null, source: m.boundarySource || null, licence: m.boundaryLicense || null, licenceSource: m.licenseSource || null, sourceURL: m.boundarySourceURL || null, buildDate: m.buildDate || null }; } }
+  return cache[k]; }
 function rdp(pts, eps) {
   if (pts.length < 4) return pts;
   const keep = new Uint8Array(pts.length); keep[0] = keep[pts.length - 1] = 1; const st = [[0, pts.length - 1]];
@@ -48,7 +61,7 @@ for (const [k, n, cc, la, lo, R] of MEGA) {
       if (!cut.length) continue;
       const sim = (ring) => { const s = rdpRing(ring, 0.18).map((p) => [Math.round(p[0] * 100) / 100, Math.round(p[1] * 100) / 100]); return s.length >= 4 && area(s) > 0.02 ? s : null; };
       const mp = cut.map((P) => P.map(sim).filter(Boolean)).filter((P) => P.length && P[0] === P[0]);
-      if (mp.length) areas.push({ n: f.properties.shapeName || '', mp, a: cut.reduce((t, P) => t + area(P[0]) - P.slice(1).reduce((u, h) => u + area(h), 0), 0) });
+      if (mp.length) areas.push({ n: f.properties.shapeName || '', id: f.properties.shapeID || null, mp, a: cut.reduce((t, P) => t + area(P[0]) - P.slice(1).reduce((u, h) => u + area(h), 0), 0) });
     }
     if (process.env.DBG) console.log(k, lvl, fs0.length, areas.length);
     if (areas.length) levels.push({ lvl, areas });
@@ -59,8 +72,12 @@ for (const [k, n, cc, la, lo, R] of MEGA) {
   let land; try { land = pc.union(...coarse.areas.map((a) => a.mp)); } catch (e) { console.log(k, 'union failed', e.message); land = null; }
   const landR = []; if (land) for (const P of land) { const Q = P.map((ring) => rdpRing(ring, 0.18).map((p) => [Math.round(p[0] * 100) / 100, Math.round(p[1] * 100) / 100])).filter((r) => r.length >= 4); if (Q.length && area(Q[0]) > 0.05) landR.push(Q); }
   const landShare = landR.reduce((t, P) => t + area(P[0]) - P.slice(1).reduce((u, h) => u + area(h), 0), 0) / (4 * F * F);
-  out.cities[k] = { iso, R, land: landR, levels: levels.map((L) => ({ lvl: L.lvl, areas: L.areas.filter((a) => a.a > 0.05).map((a) => ({ n: a.n, mp: a.mp })) })) };
+  out.cities[k] = { iso, R, land: landR, levels: levels.map((L) => ({ lvl: L.lvl, src: iso + '_' + L.lvl, areas: L.areas.filter((a) => a.a > 0.05).map((a) => ({ n: a.n, id: a.id, mp: a.mp })) })) };
   console.log(k, iso, 'levels', levels.map((L) => L.lvl + ':' + L.areas.length).join(' '), 'land share', landShare.toFixed(2));
 }
-fs.writeFileSync(path.join(path.dirname(new URL(import.meta.url).pathname), 'source', 'megacity_shapes.json'), JSON.stringify(out));
+out.inputs = inputs; out.transform = TRANSFORM;
+const OUTF = path.join(path.dirname(new URL(import.meta.url).pathname), 'source', 'megacity_shapes.json'), body = JSON.stringify(out);
+fs.writeFileSync(OUTF, body);
+let pcv = null; try { pcv = JSON.parse(fs.readFileSync(path.join(PCP, 'package.json'), 'utf8')).version; } catch (e) {}
+fs.writeFileSync(OUTF.replace(/\.json$/, '.manifest.json'), JSON.stringify({ output: 'build/source/megacity_shapes.json', output_sha256: crypto.createHash('sha256').update(body).digest('hex'), transform: TRANSFORM, dependency: { 'polygon-clipping': pcv }, retrieval: 'https://media.githubusercontent.com/media/wmgeolab/geoBoundaries/main/releaseData/gbOpen/<ISO>/<ADM>/', inputs }, null, 1));
 console.log('written', (JSON.stringify(out).length / 1e6).toFixed(2), 'MB');

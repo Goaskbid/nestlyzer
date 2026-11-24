@@ -5,7 +5,7 @@
    "p": "young_family",
    "cc": "CH",
    "kind": "core-mean",
-   "msg": "affordability (16% of the weight) averages 58 in the top 10"
+   "msg": "affordability (15% of the weight) averages 58 in the top 10"
   },
   {
    "p": "young_family",
@@ -17,19 +17,7 @@
    "p": "low_income_family",
    "cc": "CH",
    "kind": "core-mean",
-   "msg": "family (20% of the weight) averages 59 in the top 10"
-  },
-  {
-   "p": "low_income_family",
-   "cc": "CH",
-   "kind": "core-mean",
-   "msg": "safety (16% of the weight) averages 51 in the top 10"
-  },
-  {
-   "p": "single_parent",
-   "cc": "CH",
-   "kind": "core-mean",
-   "msg": "family (22% of the weight) averages 59 in the top 10"
+   "msg": "safety (16% of the weight) averages 50 in the top 10"
   },
   {
    "p": "single_parent",
@@ -41,7 +29,7 @@
    "p": "single_pensioner",
    "cc": "CH",
    "kind": "core-mean",
-   "msg": "safety (18% of the weight) averages 57 in the top 10"
+   "msg": "safety (17% of the weight) averages 57 in the top 10"
   },
   {
    "p": "single",
@@ -197,7 +185,7 @@
    "p": "first_home",
    "cc": "FR",
    "kind": "core-mean",
-   "msg": "jobs (17% of the weight) averages 55 in the top 10"
+   "msg": "jobs (16% of the weight) averages 55 in the top 10"
   },
   {
    "p": "biz_clinic",
@@ -209,7 +197,7 @@
    "p": "young_family",
    "cc": "IT",
    "kind": "core-mean",
-   "msg": "safety (16% of the weight) averages 50 in the top 10"
+   "msg": "safety (15% of the weight) averages 50 in the top 10"
   },
   {
    "p": "young_family",
@@ -251,7 +239,7 @@
    "p": "hnw",
    "cc": "IT",
    "kind": "core-mean",
-   "msg": "tax (28% of the weight) averages 21 in the top 10"
+   "msg": "tax (27% of the weight) averages 21 in the top 10"
   },
   {
    "p": "hnw",
@@ -263,7 +251,7 @@
    "p": "business_owner",
    "cc": "IT",
    "kind": "core-mean",
-   "msg": "tax (22% of the weight) averages 21 in the top 10"
+   "msg": "tax (21% of the weight) averages 21 in the top 10"
   },
   {
    "p": "business_owner",
@@ -287,7 +275,7 @@
    "p": "young_family",
    "cc": "UK",
    "kind": "core-mean",
-   "msg": "affordability (16% of the weight) averages 59 in the top 10"
+   "msg": "affordability (15% of the weight) averages 59 in the top 10"
   },
   {
    "p": "biz_hq",
@@ -335,7 +323,7 @@
    "p": "young_family",
    "cc": "NL",
    "kind": "core-mean",
-   "msg": "safety (16% of the weight) averages 57 in the top 10"
+   "msg": "safety (15% of the weight) averages 57 in the top 10"
   },
   {
    "p": "young_family",
@@ -389,7 +377,7 @@
    "p": "first_home",
    "cc": "NL",
    "kind": "core-mean",
-   "msg": "jobs (17% of the weight) averages 57 in the top 10"
+   "msg": "jobs (16% of the weight) averages 57 in the top 10"
   },
   {
    "p": "healthcare_first",
@@ -407,7 +395,7 @@
    "p": "hnw",
    "cc": "NL",
    "kind": "core-mean",
-   "msg": "tax (28% of the weight) averages 26 in the top 10"
+   "msg": "tax (27% of the weight) averages 26 in the top 10"
   },
   {
    "p": "hnw",
@@ -419,7 +407,7 @@
    "p": "business_owner",
    "cc": "NL",
    "kind": "core-mean",
-   "msg": "tax (22% of the weight) averages 26 in the top 10"
+   "msg": "tax (21% of the weight) averages 26 in the top 10"
   },
   {
    "p": "business_owner",
@@ -449,7 +437,7 @@
    "p": "young_family",
    "cc": "ES",
    "kind": "core-mean",
-   "msg": "affordability (16% of the weight) averages 49 in the top 10"
+   "msg": "affordability (15% of the weight) averages 49 in the top 10"
   },
   {
    "p": "young_family",
@@ -461,37 +449,37 @@
    "p": "single_pensioner",
    "cc": "ES",
    "kind": "core-mean",
-   "msg": "health (24% of the weight) averages 59 in the top 10"
+   "msg": "health (23% of the weight) averages 59 in the top 10"
   },
   {
    "p": "first_home",
    "cc": "ES",
    "kind": "core-mean",
-   "msg": "affordability (28% of the weight) averages 58 in the top 10"
+   "msg": "affordability (27% of the weight) averages 58 in the top 10"
   },
   {
    "p": "first_home",
    "cc": "ES",
    "kind": "core-mean",
-   "msg": "jobs (17% of the weight) averages 53 in the top 10"
+   "msg": "jobs (16% of the weight) averages 53 in the top 10"
   },
   {
    "p": "young_family",
    "cc": "US",
    "kind": "core-mean",
-   "msg": "affordability (16% of the weight) averages 47 in the top 10"
+   "msg": "affordability (15% of the weight) averages 47 in the top 10"
   },
   {
    "p": "single_parent",
    "cc": "US",
    "kind": "core-mean",
-   "msg": "affordability (24% of the weight) averages 57 in the top 10"
+   "msg": "affordability (23% of the weight) averages 57 in the top 10"
   },
   {
    "p": "first_home",
    "cc": "US",
    "kind": "core-mean",
-   "msg": "affordability (28% of the weight) averages 58 in the top 10"
+   "msg": "affordability (27% of the weight) averages 58 in the top 10"
   },
   {
    "p": "cross_border",

@@ -43,6 +43,9 @@ function scoreColor(v) {
   if (!fin(v)) return cs.getPropertyValue('--novalue').trim();
   return v >= 85 ? stops[5] : v >= 72 ? stops[4] : v >= 60 ? stops[3] : v >= 48 ? stops[2] : v >= 34 ? stops[1] : stops[0];
 }
+/* r20: a letter grade next to each category score, for quick scanning (A+ 90+, A 80+, B 70+, C 60+, D 50+, E 40+, F below) */
+function gradeOf(v) { return !fin(v) ? '' : v >= 90 ? 'A+' : v >= 80 ? 'A' : v >= 70 ? 'B' : v >= 60 ? 'C' : v >= 50 ? 'D' : v >= 40 ? 'E' : 'F'; }
+function gradeHTML(v) { var g = gradeOf(v); return g ? '<em class="grade g-' + g.charAt(0).toLowerCase() + '" title="Grade ' + g + ': score ' + Math.round(v) + ' of 100">' + g + '</em>' : ''; }
 function scoreBadge(v) { if (!fin(v)) return '<span class="score score-unavailable" role="status">Not scored</span>'; var c = scoreColor(v); return '<span class="score" style="background:' + c + ';color:' + inkOn(c) + '" title="Score ' + (fin(v) ? Math.round(v) : '–') + ' of 100">' + (fin(v) ? Math.round(v) : '–') + '</span>'; }
 var ICON = {
   search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>',

@@ -256,3 +256,5 @@ main .lede{font-size:var(--step-1);line-height:1.55;color:var(--ink-2);max-width
 @media (min-width: 701px){.table.stack:has(th.num) td:nth-child(2),.table.stack:has(th.num) td:nth-child(3),.table.stack:has(th.num) td:nth-child(4){text-align:right}}
 .grid-2:has(.table.stack){align-items:start}
 .tile:has(small){align-items:flex-start}   /* r15: long tiles read from the top, icon beside the title */
+/* r20: letter grades next to scores (A+ to F); the 4th column of the strengths bars holds them */
+.bars li{grid-template-columns:minmax(120px,40%) 1fr 34px 26px}.grade{display:inline-block;min-width:22px;padding:0 4px;border-radius:6px;font-style:normal;font-weight:700;font-size:11px;line-height:18px;text-align:center;vertical-align:middle;margin-left:4px;color:#fff;background:#6b7a8c}.grade.g-a{background:#1f7a4d}.grade.g-b{background:#3d8b5a}.grade.g-c{background:#8a7a1e}.grade.g-d{background:#a7652a}.grade.g-e,.grade.g-f{background:#a8443d}.bars .grade{margin-left:0}

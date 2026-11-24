@@ -67,7 +67,7 @@ test('NZ9-03: Swiss facts use one boundary vintage (Assens, Zurzach, Latena and 
     if (ap.length && ap[ap.length - 1].population !== r[C.pop]) bad.push('pop ' + r[C.name]);
     if (r[C.pop] && r[C.area]) { const dn = r[C.pop] / r[C.area], f = d.fr.density_people_km2 && d.fr.density_people_km2[i];
       if (f != null && Math.abs(f - dn) > 0.011 * dn) bad.push('density factor ' + r[C.name]); if (r[C.dens] != null && Math.abs(r[C.dens] - dn) > 0.011 * dn) bad.push('density ' + r[C.name]); }
-    for (let k = 1; k < ap.length; k++) if (ap[k - 1].population >= 300 && ap[k].population / ap[k - 1].population - 1 > 0.15 && !t.series_break) bad.push('unhandled jump ' + r[C.name]);
+    if (t.series_break && !(t.series_break.event && t.series_break.event.predecessor_bfs && t.series_break.event.predecessor_bfs.length && t.annual_population_observed)) bad.push('break without an official event ' + r[C.name]);
   });
   assert.deepStrictEqual(bad, []);
   for (const [oid, nm] of [['4324', 'Zurzach'], ['6513', 'Laténa']]) { const i = by[oid], r = d.rows[i]; assert.ok(Math.abs(d.fr.density_people_km2[i] - r[C.pop] / r[C.area]) < 0.02 * r[C.pop] / r[C.area], nm); }
@@ -90,4 +90,19 @@ test('r20 intake plan: one-off, bounded, every task has an official URL and a kn
   const src = fs.readFileSync(path.join(R, 'build/collect/reduce_r20.py'), 'utf8');
   assert.ok(/LIMIT = 94 \* 1024 \* 1024/.test(src) && /BUDGET = /.test(src), 'file size limit and time budget');
   assert.ok(!/schedule|cron/i.test(JSON.stringify(plan)), 'no schedule');
+});
+
+test('NZ10-02: a population jump without an official merger never becomes a boundary claim, and history is kept', () => {
+  const { execFileSync } = require('child_process'), os = require('os');
+  const d = JSON.parse(fs.readFileSync(path.join(R, 'data/c/CH.json'), 'utf8')), C = Object.fromEntries(d.cols.map((k, i) => [k, i]));
+  const i0 = d.rows.findIndex((r) => !r[C.sup] && String(r[C.oid]) === '261');
+  const row = d.rows[i0].slice(); row[C.oid] = '99901'; row[C.name] = 'Fixtureville'; row[C.pop] = 1160; row[C.area] = 10;
+  const fx = { ...d, rows: [row], fr: Object.fromEntries(Object.entries(d.fr).map(([k, v]) => [k, [v[i0]]])), fs: Object.fromEntries(Object.entries(d.fs).map(([k, v]) => [k, [v[i0]]])),
+    trend: [{ annual_population: [{ year: 2020, population: 1000 }, { year: 2021, population: 1160 }], population_5y_pct: 16 }], periodFix: {} };
+  const f = path.join(os.tmpdir(), 'nz_fixture_ch.json'); fs.writeFileSync(f, JSON.stringify(fx));
+  execFileSync('python3', [path.join(R, 'build/fix_ch_consistency.py'), '--write'], { env: { ...process.env, NZ_CH_PATH: f } });
+  const out = JSON.parse(fs.readFileSync(f, 'utf8'));
+  assert.ok(!out.trend[0].series_break, 'no boundary claim without an official event');
+  assert.strictEqual(out.trend[0].annual_population.length, 2, 'the earlier observation is kept');
+  assert.strictEqual(out.trend[0].population_5y_pct, 16);
 });

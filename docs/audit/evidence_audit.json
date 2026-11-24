@@ -14,7 +14,7 @@
         "family_housing_available",
         "childcare_access_known"
       ],
-      "weight_sum": 100,
+      "weight_sum": 106,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
       "condition_scoring": "legacy; software contract audit, not empirical validation",
@@ -29,7 +29,7 @@
         "essential_basket_affordable",
         "essential_services_accessible"
       ],
-      "weight_sum": 108,
+      "weight_sum": 111,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
       "condition_scoring": "legacy; software contract audit, not empirical validation",
@@ -44,7 +44,7 @@
         "essential_basket_affordable",
         "childcare_access_known"
       ],
-      "weight_sum": 100,
+      "weight_sum": 103,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
       "condition_scoring": "legacy; software contract audit, not empirical validation",
@@ -59,7 +59,7 @@
         "childcare_hours_compatible",
         "essential_basket_affordable"
       ],
-      "weight_sum": 100,
+      "weight_sum": 103,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
       "condition_scoring": "legacy; software contract audit, not empirical validation",
@@ -74,7 +74,7 @@
         "pension_budget_feasible",
         "essential_care_access_known"
       ],
-      "weight_sum": 106,
+      "weight_sum": 110,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
       "condition_scoring": "legacy; software contract audit, not empirical validation",
@@ -89,7 +89,7 @@
         "pension_budget_feasible",
         "essential_care_access_known"
       ],
-      "weight_sum": 100,
+      "weight_sum": 104,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
       "condition_scoring": "legacy; software contract audit, not empirical validation",
@@ -104,7 +104,7 @@
         "pre_pension_health_cover_known",
         "fixed_drawdown_budget_feasible"
       ],
-      "weight_sum": 100,
+      "weight_sum": 103,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
       "condition_scoring": "legacy; software contract audit, not empirical validation",
@@ -217,7 +217,7 @@
         "first_home_financing_case_defined",
         "insurance_and_inventory_known"
       ],
-      "weight_sum": 106,
+      "weight_sum": 112,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
       "condition_scoring": "legacy; software contract audit, not empirical validation",
@@ -231,7 +231,7 @@
       "critical_gates": [
         "essential_basket_affordable"
       ],
-      "weight_sum": 108,
+      "weight_sum": 112,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
       "condition_scoring": "legacy; software contract audit, not empirical validation",
@@ -315,7 +315,7 @@
         "published_wealth_and_income_case",
         "residency_rights_known"
       ],
-      "weight_sum": 100,
+      "weight_sum": 103,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
       "condition_scoring": "legacy; software contract audit, not empirical validation",
@@ -370,7 +370,7 @@
       "critical_gates": [
         "household_and_company_cases_separated"
       ],
-      "weight_sum": 100,
+      "weight_sum": 104,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
       "condition_scoring": "legacy; software contract audit, not empirical validation",
@@ -478,7 +478,7 @@
         "substance_requirements",
         "office_use_permission"
       ],
-      "weight_sum": 110,
+      "weight_sum": 113,
       "cohort_validation": "Not empirically validated",
       "general_population_growth_is_validation": false,
       "condition_scoring": "legacy; software contract audit, not empirical validation",

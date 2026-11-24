@@ -2,3 +2,6 @@
 function openBuilder() { return moreLoad().then(function (X) { X.openBuilder(); }, function () { toast('Could not load the profile builder. Check the connection and try again.'); }); }
 function builderClick(t) { return !!(MOREX && MOREX.builderClick(t)); }
 function builderInput(t) { return !!(MOREX && MOREX.builderInput(t)); }
+
+/* r20: the five-question start (same answers as the builder, one question at a time) */
+function openQuickStart() { return moreLoad().then(function (X) { X.openQuickStart(); }, function () { toast('Could not load the questions. Check the connection and try again.'); }); }

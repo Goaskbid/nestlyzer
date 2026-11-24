@@ -48,6 +48,18 @@ try:
     c['Worker: missing pack, invalid pack and a thrown fetch answer 503; recovery 200'] = st == {'pack404': 503, 'invalidpack': 503, 'network': 503, 'recovered': 200}
 except Exception as e:
     c['Worker probe ran: ' + str(e)[:80]] = False
+# r20 (audit NZ10-01): a coloured area must have the place's own name at that level; densities never come from drawn polygons
+try:
+    js = "import('" + os.path.join(R, 'build/megazones.mjs') + "').then(m=>{const J=JSON.parse(require('fs').readFileSync('" + os.path.join(R, 'docs/audit/city_map_joins.json') + "','utf8')).cities;let n=0,bad=[];for(const k in J)for(const z of J[k].zones)if(z.kind.startsWith('exact')){n++;if(!m.sameUnit({name:z.name,officialName:(z.alt||[])[0],latin:(z.alt||[])[1]||(z.alt||[])[0]},z.area))bad.push(k+':'+z.name+'/'+z.area)}console.log(JSON.stringify({n,bad}))})"
+    o = json.loads(subprocess.run(['node', '-e', js], capture_output=True, text=True, timeout=120).stdout)
+    c[f"every coloured area carries the place's own name ({o['n']} areas, {len(o['bad'])} mismatches)"] = o['n'] > 100 and not o['bad']
+except Exception as e:
+    c['map identity check ran: ' + str(e)[:80]] = False
+mz = open(os.path.join(R, 'build/megazones.mjs'), encoding='utf-8').read()
+c['map densities come only from the place\u2019s own official area, never a polygon'] = 'ringArea(P[0])) - P.slice(1)' not in mz.split('dens:')[1][:300]
+for k0, nm0 in (('istanbul', 'Istanbul'), ('seoul', 'Seoul'), ('shanghai', 'Shanghai')):
+    zz = [z for z in zones(k0) if z['name'].startswith(nm0)]
+    c[f'{nm0} (the whole city) is a dot, not a district polygon'] = all(z['kind'].startswith('dot') for z in zz)
 # NZ9-12: the published copy loads its gzipped country files, with and without the browser's DecompressionStream
 try:
     import time

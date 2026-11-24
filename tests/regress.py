@@ -1070,8 +1070,8 @@ async def main():
             foot = await q.locator('.site-footer a[href="/about/"]').count(); nav = await q.locator('.site-header a[href="/about/"]').count()
             await ctx.close()
             sm = urllib.request.urlopen(BASE + '/sitemap.xml').read().decode(); sm += ''.join(urllib.request.urlopen(BASE + '/' + n).read().decode() for n in re.findall(r'/(sitemap-[\w-]+\.xml)</loc>', sm))
-            ok = info[0] == 21 and info[1] == 4 and 'priorities change' in info[2] and not info[3] and not info[4] and foot == 1 and nav == 0 and '/about/' in sm
-            rec('R73', 'About page: the founder interview (21 questions: 18 approved 26 Oct, 2 added 31 Oct, 1 added 7 Nov, 4 photos), linked quietly from the footer only, listed in the sitemap, no draft notes left', ok, f'questions={info[0]}, photos loaded={info[1]}, footer link={foot}, header link={nav}, in sitemap={"/about/" in sm}, draft notes left={info[3] or info[4]}')
+            ok = info[0] == 22 and info[1] == 4 and 'priorities change' in info[2] and not info[3] and not info[4] and foot == 1 and nav == 0 and '/about/' in sm
+            rec('R73', 'About page: the founder interview (22 questions: 18 approved 26 Oct, 2 added 31 Oct, 1 added 7 Nov, 1 on TixTerex added 24 Nov, 4 photos), linked quietly from the footer only, listed in the sitemap, no draft notes left', ok, f'questions={info[0]}, photos loaded={info[1]}, footer link={foot}, header link={nav}, in sitemap={"/about/" in sm}, draft notes left={info[3] or info[4]}')
         await check('R73', 'About page', r73)
 
         rec('R32', 'No uncaught JavaScript errors across all flows', not errors, f'{len(errors)} errors: {errors[:3]}')

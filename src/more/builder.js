@@ -66,6 +66,7 @@ function answersChanged() {
   if (BWEIGHTS) { BNOTE = 'Your answers changed, so the weights were recomputed and your fine-tuning was replaced.'; BWEIGHTS = null; delete BSTATE.manual; }
 }
 function builderClick(t) {
+  if (quickClick(t)) return true;
   if (businessPriorityClick(t)) return true;
   var b;
   if ((b = t.closest('[data-bq]'))) { BSTATE[b.dataset.bq] = b.dataset.v; answersChanged(); renderBuilder(); return true; }
@@ -160,4 +161,34 @@ function businessPriorityClick(t) {
   S.profile='biz_custom_fit';S.gscope='';S.selected=null;S.listTab='ranking';
   if(window.innerWidth<900)S.tab='list';
   closeModal();update({push:true});return true;
+}
+
+/* r20: the five-question start. One question per screen (who, budget, daily anchor, getting around, setting), with a
+   progress line and a back button; the answers fill the same guided profile as the full builder, which stays one tap away. */
+var QSTEP = 0, QORDER = ['household', 'budget', 'anchor', 'mobility', 'climate'];
+var QHELP = { household: 'Who is moving?', budget: 'How tight is the budget?', anchor: 'What should be close in daily life?', mobility: 'How do you get around?', climate: 'What kind of setting do you want?' };
+function openQuickStart() {
+  var B = META.config.builder;
+  BSTATE = S.builder ? JSON.parse(JSON.stringify(S.builder)) : JSON.parse(JSON.stringify(B.defaults));
+  BSTATE.targets = [S.cc].concat((BSTATE.targets || []).filter(function (c) { return c !== S.cc; }));
+  BWEIGHTS = null; QSTEP = 0;
+  openModal('Five questions to your places', '<div class="qs" id="qs"></div>');
+  renderQuick();
+}
+function renderQuick() {
+  var G = META.config.builder.groups, k = QORDER[QSTEP], box = $('#qs'); if (!box) return;
+  if (QSTEP >= QORDER.length) {
+    var g = builderProfile();
+    box.innerHTML = '<p class="qs-step">Done</p><h3 class="qs-q">Your priorities</h3><p>' + esc(g.desc.replace(/^Custom profile: /, '').replace(/\. Targets:.*$/, '.')) + '</p><p class="small muted">These answers set your own profile. You can change any answer or fine-tune the weights later in the full builder.</p><div class="qs-nav"><button type="button" class="btn" data-qs-back>Back</button><button type="button" class="btn btn-primary" data-bapply>Show my places in ' + esc(countryName(BSTATE.targets[0] || S.cc)) + '</button></div>';
+    return;
+  }
+  box.innerHTML = '<p class="qs-step">Question ' + (QSTEP + 1) + ' of ' + QORDER.length + '</p><div class="qs-bar" aria-hidden="true"><i style="width:' + Math.round(100 * QSTEP / QORDER.length) + '%"></i></div><h3 class="qs-q">' + esc(QHELP[k] || G[k].label) + '</h3><div class="qs-opts" role="group" aria-label="' + esc(G[k].label) + '">' + G[k].choices.map(function (c) { return '<button type="button" class="qs-opt" data-qs="' + k + '" data-v="' + c[0] + '" aria-pressed="' + (BSTATE[k] === c[0]) + '">' + esc(c[1]) + '</button>'; }).join('') + '</div><div class="qs-nav">' + (QSTEP ? '<button type="button" class="btn" data-qs-back>Back</button>' : '<span></span>') + '<button type="button" class="btn" data-qs-skip>Keep "' + esc((G[k].choices.find(function (c) { return c[0] === BSTATE[k]; }) || [0, ''])[1]) + '" and continue</button></div>';
+  var f = box.querySelector('[aria-pressed="true"]') || box.querySelector('.qs-opt'); if (f) f.focus();
+}
+function quickClick(t) {
+  var b;
+  if ((b = t.closest('[data-qs]'))) { BSTATE[b.dataset.qs] = b.dataset.v; QSTEP++; renderQuick(); return true; }
+  if (t.closest('[data-qs-skip]')) { QSTEP++; renderQuick(); return true; }
+  if (t.closest('[data-qs-back]')) { QSTEP = Math.max(0, QSTEP - 1); renderQuick(); return true; }
+  return false;
 }

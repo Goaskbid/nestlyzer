@@ -100,6 +100,7 @@ function onClick(ev) {
   }
   if ((b = t.closest('[data-pinmode]'))) { S.pinMode = b.dataset.pinmode === 'low' ? 'low' : 'top'; renderLegend(); paintMarkers(); return; }
   if (t.closest('[data-builder]')) { if ($('#modal').classList.contains('open')) closeModalUI(); return openBuilder(); }
+  if (t.closest('[data-quickstart]')) { if ($('#modal').classList.contains('open')) closeModalUI(); return openQuickStart(); }
   if ((b = t.closest('[data-more]'))) { S.shown += 100; renderResults(); return; }
   // a category chip or label: open its measures (logic in the on-demand module, 2.11)
   if ((b = t.closest('[data-def]')) && META.categoryLabels[b.dataset.def] && (b.closest('.row[data-id]') || BYID[S.selected])) { var cb = b; return moreLoad().then(function (X) { X.catClick(cb); }); }
@@ -124,6 +125,7 @@ function onClick(ev) {
   if (t.id === 'scrim' && !$('#tools').hidden) return closeTools();
   if (t.closest('[data-close]') || t.id === 'scrim') return closeModal();
   if (t.closest('[data-search]')) return openPalette();
+  if ((b = t.closest('[data-ask]'))) return applyAsk(b.dataset.ask);
   if ((b = t.closest('[data-pid]'))) return goToPlace(b.dataset.pid);
   if ((b = t.closest('[data-preg]'))) return goToRegion(b.dataset.preg);
   if ((b = t.closest('[data-pcc]'))) { closePalette(); enterExplore(); S.region = 'ALL'; S.area = 'ALL'; return switchCountry(b.dataset.pcc); }
@@ -197,6 +199,7 @@ function startFromLanding(kind) {
   var who = $('.who [aria-pressed="true"]');
   var cc = $('#start-country') ? $('#start-country').value : 'CH';
   if (kind === 'builder') { enterExplore(); S.cc = cc; return switchCountry(cc).then(openBuilder); }
+  if (kind === 'quick') { enterExplore(); S.cc = cc; return switchCountry(cc).then(openQuickStart); }   /* r20: five questions, one at a time */
   if (kind && kind !== 'go') { var a = kind.split(':'); S.profile = a[0]; if (a[1]) cc = a[1]; }
   else if (who) S.profile = who.dataset.who;
   S.region = 'ALL'; S.area = 'ALL'; S.selected = null; S.tab = 'map';

@@ -1,42 +1,6 @@
 {
  "breaks": [
   {
-   "oid": "241",
-   "name": "Aesch (ZH)",
-   "year": 2018,
-   "absorbed": []
-  },
-  {
-   "oid": "304",
-   "name": "Kallnach",
-   "year": 2018,
-   "absorbed": []
-  },
-  {
-   "oid": "879",
-   "name": "Riggisberg",
-   "year": 2020,
-   "absorbed": []
-  },
-  {
-   "oid": "1123",
-   "name": "Altishofen",
-   "year": 2019,
-   "absorbed": []
-  },
-  {
-   "oid": "2044",
-   "name": "Surpierre",
-   "year": 2020,
-   "absorbed": []
-  },
-  {
-   "oid": "2306",
-   "name": "Tafers",
-   "year": 2020,
-   "absorbed": []
-  },
-  {
    "oid": "4139",
    "name": "Menziken",
    "year": 2022,
@@ -45,54 +9,12 @@
    ]
   },
   {
-   "oid": "4210",
-   "name": "Staufen",
-   "year": 2019,
-   "absorbed": []
-  },
-  {
-   "oid": "4281",
-   "name": "Reitnau",
-   "year": 2018,
-   "absorbed": []
-  },
-  {
-   "oid": "5436",
-   "name": "Saint-Oyens",
-   "year": 2018,
-   "absorbed": []
-  },
-  {
-   "oid": "5472",
-   "name": "Bournens",
-   "year": 2020,
-   "absorbed": []
-  },
-  {
    "oid": "5511",
    "name": "Assens",
    "year": 2020,
    "absorbed": [
     "Bioley-Orjulaz"
    ]
-  },
-  {
-   "oid": "5803",
-   "name": "Vulliens",
-   "year": 2018,
-   "absorbed": []
-  },
-  {
-   "oid": "6458",
-   "name": "Neuchâtel",
-   "year": 2020,
-   "absorbed": []
-  },
-  {
-   "oid": "6708",
-   "name": "Courrendlin",
-   "year": 2018,
-   "absorbed": []
   }
  ],
  "core_reconciled": [

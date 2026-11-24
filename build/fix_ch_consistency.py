@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """r19 (audit NZ9-03): one boundary vintage per Swiss place. Idempotent.
 
-1. Series breaks. A jump of more than 15% in one year in a place of 300+ residents is a boundary change when a
-   superseded municipality of the same canton has its last observation in the year before the jump and its residents
-   explain the jump (within 25%). The years before the break describe another territory, so they are removed from the
+1. Series breaks (r20, audit NZ10-02). A jump of more than 15% is only a trigger to look: a break is declared only when
+   the official merger register links the municipality to a dated merger with predecessor numbers, and the jump falls
+   within two years of that date. The original observations are kept (annual_population_observed). The years before the break describe another territory, so they are removed from the
    series that growth figures use; the page names the absorbed municipalities and the break year. Growth figures that
    crossed the break (yearly, 5-year, annualised, growth ranks) are dropped, never guessed.
 2. Core facts follow the latest observation: when the core population still describes the old territory (Assens:
@@ -16,7 +16,7 @@ Run: python3 build/fix_ch_consistency.py --write
 import json, os, sys
 import numpy as np
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-P = os.path.join(R, 'data', 'c', 'CH.json')
+P = os.environ.get('NZ_CH_PATH') or os.path.join(R, 'data', 'c', 'CH.json')   # override for fixture tests
 
 
 def scale(raw, sc):
@@ -43,7 +43,7 @@ def main(write):
     src = open(os.path.join(R, 'build', 'build_ch_mergers.py'), encoding='utf-8').read()
     import ast, re
     M = ast.literal_eval(re.search(r'^M = (\[.*?^\])', src, re.S | re.M).group(1))
-    MERG = {str(m[1]): m[3] for m in M}
+    MERGD = {str(m[1]): (m[0], m[3]) for m in M}
     GROW = ('population_yoy_pct', 'population_5y_pct', 'recent_annualized_pct', 'population_growth_rank_latest', 'population_growth_rank_delta')
     for i, r in enumerate(rows):
         if r[C['sup']]: continue
@@ -51,9 +51,15 @@ def main(write):
         if len(s) < 2 or t.get('series_break'): continue
         for a, b in zip(s, s[1:]):
             if not a['population'] or a['population'] < 300 or b['population'] / a['population'] - 1 <= 0.15: continue
-            # named only from the official merger register (build_ch_mergers.py); otherwise an unnamed boundary jump
-            pick = [by[str(f)] for f in MERG.get(str(r[C['oid']]), []) if str(f) in by]
+            # r20 (audit NZ10-02): a jump alone proves nothing. A break is declared only when the official merger register
+            # (build_ch_mergers.py: date, successor and predecessor BFS numbers) links this municipality to the change
+            # and the jump falls within two years of the effective date; anything else keeps its full history.
+            ev = MERGD.get(str(r[C['oid']]))
+            if not ev or not (int(ev[0][:4]) - 2 <= b['year'] <= int(ev[0][:4]) + 1): continue
+            pick = [by[str(f)] for f in ev[1] if str(f) in by]
             Y = b['year']; names = [rows[j][C['name']] for j in pick]
+            if not names: continue
+            t['annual_population_observed'] = [dict(e) for e in s]   # the original observations, each on its own territory
             old_core = r[C['pop']]
             t['annual_population'] = [e for e in s if e['year'] >= Y]
             for k in ('population_rank_series', 'population_growth_rank_series'):
@@ -61,7 +67,8 @@ def main(write):
             for k in GROW:
                 if k in t: t[k] = None
             t['series_break'] = {'year': Y, 'absorbed': names, 'jump_pct': round(100 * (b['population'] / a['population'] - 1), 1),
-                                 'note': (f"Boundary change: {', '.join(names)} joined" if names else f"The series jumps {round(100 * (b['population'] / a['population'] - 1))}% from {a['year']} to {Y}, which points to a boundary change") + f"; figures before {Y} describe a different territory and are not compared."}
+                                 'event': {'date': ev[0], 'successor_bfs': int(r[C['oid']]), 'predecessor_bfs': list(ev[1]), 'source': 'Swiss official municipality register (BFS mutations), via build/build_ch_mergers.py'},
+                                 'note': f"Boundary change on {ev[0]}: {', '.join(names)} joined; the comparable series starts in {Y}, earlier figures describe the smaller territory."}
             T[i] = t
             rep['breaks'].append({'oid': r[C['oid']], 'name': r[C['name']], 'year': Y, 'absorbed': names})
             # 2. core facts on the old territory (core population equals the pre-break value)
@@ -96,7 +103,7 @@ def main(write):
     print(json.dumps({k: (len(v), v[:30]) for k, v in rep.items()}, ensure_ascii=False, indent=0))
     if write:
         json.dump(d, open(P, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
-        json.dump(rep, open(os.path.join(R, 'build', 'source', 'ch_consistency_r19.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+        if not os.environ.get('NZ_CH_PATH'): json.dump(rep, open(os.path.join(R, 'build', 'source', 'ch_consistency_r19.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 
 
 if __name__ == '__main__':

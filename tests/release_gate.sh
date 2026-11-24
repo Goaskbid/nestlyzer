@@ -7,7 +7,7 @@
 cd "$(dirname "$0")/.." || exit 2
 export NODE_OPTIONS=--max-old-space-size=5632
 LOG=${NZ_GATE_LOG:-/tmp/nz-gate}; mkdir -p "$LOG"; : > "$LOG/results.txt"
-SRC_HASH=$(find src build data cloudflare tests package.json package-lock.json -type f ! -path '*/__pycache__/*' ! -path 'tests/results/*' ! -name '*_results.json' -print0 2>/dev/null | sort -z | xargs -0 sha256sum | sha256sum | cut -c1-16)
+SRC_START=$(python3 tests/source_hash.py .)   # r20 (NZ10-11): the same fingerprint the packer checks on the archive
 # r19 (audit NZ9-04): a step passes only if it exits 0 AND its log reports no failed assertion (tests/gate_verdict.py).
 # A failed build or publication step stops the gate.
 step(){ n=$1; shift; s=$(date +%s); timeout 2400 "$@" > "$LOG/$n.log" 2>&1; rc=$?; v=$(python3 tests/gate_verdict.py $rc "$LOG/$n.log"); r=${v%% *}; a=${v#* }; echo "$r $n ($(( $(date +%s)-s ))s) [assertions ${a/ / of }] :: $(tail -1 "$LOG/$n.log" | cut -c1-160)" | tee -a "$LOG/results.txt"; }
@@ -28,7 +28,7 @@ step node_suites bash -c 'node --test tests/*.test.cjs tests/*.test.mjs tests/ev
 step worker_faults node cloudflare/test-worker-faults.mjs
 # 3. browser and artifact suites (local server on port 8787 mimics GitHub Pages)
 (node tests/serve.mjs . 8787 > "$LOG/serve.log" 2>&1 &) ; sleep 2
-for t in test_v28 split_test test_v27 test_v26 test_v25 test_v29 test_v210 test_v2103 test_v211 regress test_flat test_v2122 test_v2124 test_v213 test_v2133 test_mobile_journey test_world test_compare_upgrade data_use_trace world_benchmark test_arms test_evidence_ui test_everyday_prices test_politics test_map_picker test_context_2026_11_18 test_thumb_steps test_quick_wins test_r8_data test_r11_data test_rankings_layout test_ip_protection test_intermodal test_keep_published test_r13_arms test_r14_records boom_audit test_emblem_trail; do step "$t" python3 "tests/$t.py"; done
+for t in test_v28 split_test test_v27 test_v26 test_v25 test_v29 test_v210 test_v2103 test_v211 regress test_flat test_v2122 test_v2124 test_v213 test_v2133 test_mobile_journey test_world test_compare_upgrade data_use_trace world_benchmark test_arms test_evidence_ui test_everyday_prices test_politics test_map_picker test_context_2026_11_18 test_thumb_steps test_quick_wins test_r8_data test_r11_data test_rankings_layout test_ip_protection test_intermodal test_keep_published test_r13_arms test_r14_records boom_audit test_emblem_trail test_intake_r20; do step "$t" python3 "tests/$t.py"; done
 step smoke_repo python3 tests/smoke.py .
 step smoke_site python3 tests/smoke.py _site
 step voice python3 tests/test_r15_voice.py _site
@@ -45,13 +45,15 @@ step links python3 tests/test_release_links.py
 step strict_crawl python3 build/validate_seo.py --site _site --registry .cache/seo/registry.json --report "$LOG/strict-crawl.json" --max-bytes 850000000
 if [ -d "${NZ_PREVIOUS_LIVE:-/nonexistent}" ]; then step livesim python3 tests/livesim.py "$NZ_PREVIOUS_LIVE" dist/site; else echo "SKIP livesim :: needs NZ_PREVIOUS_LIVE (a checkout of the live repository)" | tee -a "$LOG/results.txt"; fi
 pkill -f "[s]erve.mjs . 8787"
+SRC_HASH=$(python3 tests/source_hash.py .)   # after the build: this is the source tree that gets packed
 ART_HASH=$(cd _site && find . -type f -print0 | sort -z | xargs -0 sha256sum | sha256sum | cut -c1-16)
 PASS=$(grep -c '^PASS' "$LOG/results.txt"); FAIL=$(grep -c '^FAIL' "$LOG/results.txt")
-python3 - "$LOG" "$SRC_HASH" "$ART_HASH" "$PASS" "$FAIL" <<'PY'
+SRC_START=$SRC_START python3 - "$LOG" "$SRC_HASH" "$ART_HASH" "$PASS" "$FAIL" <<'PY'
 import json, sys, os, datetime
 log, src, art, p, f = sys.argv[1:6]
 rows = [l.rstrip('\n') for l in open(os.path.join(log, 'results.txt'))]
 rec = {'command': 'bash tests/release_gate.sh', 'when': datetime.datetime.utcnow().isoformat() + 'Z', 'source_hash': src, 'artifact_hash': art,
+       'source_hash_before_build': os.environ.get('SRC_START', ''), 'source_hash_rule': 'tests/source_hash.py (same rule as the packer)',
        'passed': int(p), 'failed': int(f), 'steps': rows,
        'assertions': (lambda xs: {'passed': sum(x[0] for x in xs), 'total': sum(x[1] for x in xs), 'failed': sum(x[1] - x[0] for x in xs)})([tuple(map(int, m)) for m in __import__('re').findall(r'\[assertions (\d+) of (\d+)\]', '\n'.join(rows))]),
        'skipped': [r for r in rows if r.startswith('SKIP')],

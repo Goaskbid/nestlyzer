@@ -69,6 +69,9 @@ function inRing(pt, r) { let c = false; for (let i = 0, j = r.length - 1; i < r.
 const inMP = (pt, mp) => mp.some((P) => inRing(pt, P[0]) && !P.slice(1).some((h) => inRing(pt, h)));
 function centroid(mp) { let A = 0, x = 0, y = 0; for (const P of mp) { const r = P[0]; for (let i = 0; i < r.length; i++) { const p = r[i], q = r[(i + 1) % r.length], f = p[0] * q[1] - q[0] * p[1]; A += f; x += (p[0] + q[0]) * f; y += (p[1] + q[1]) * f; } } return A ? [x / (3 * A), y / (3 * A)] : mp[0][0][0]; }
 function cellOf(o, others, F) { let poly = [[-F, -F], [F, -F], [F, F], [-F, F]]; for (const q of others) if (q !== o) { poly = clip(poly, o.p, q.p); if (poly.length < 3) break; } return poly; }
+const ADMW = /\b(district|distrikt|gu|ku|shi|si|city|municipality|municipal|metropolitan|borough|london borough of|royal borough of|city of|kommune|municipio|comune|commune|gemeinde|stadt|ilcesi|ilce|ward|county|prefecture|province|region|town|district council|council|of|the|de|di|du|da|del|la|le|el)\b/g;
+function unitKey(s) { return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\([^)]*\)/g, ' ').replace(/[-'’.,/]/g, ' ').replace(ADMW, ' ').replace(/\d+/g, ' ').replace(/[^a-z]+/g, ''); }
+export function sameUnit(r, areaName) { const a = unitKey(areaName); if (a.length < 3) return false; return [r.name, r.officialName, r.latin].filter(Boolean).some((n) => unitKey(n) === a); }
 function realZones(k, mem, R) {
   const C = SHAPES && SHAPES.cities[k]; if (!C) return null;
   const F = R * 1.02;
@@ -94,7 +97,11 @@ function realZones(k, mem, R) {
   const pieces = new Map(mem.map((o) => [o, []])), plain = [], shared = [], exact = new Map(mem.map((o) => [o, 0])), dots = new Set(), aggregate = new Set(), area = new Map();
   best.L.areas.forEach((a, ai) => {
     const own = mem.filter((o, i) => best.holder[i] === ai);
-    if (own.length === 1) { pieces.get(own[0]).push(...a.mp); exact.set(own[0], 1); area.set(own[0], { n: a.n, id: a.id || null }); return; }
+    /* r20 (audit NZ10-01): a point inside a polygon is not an identity. The area is coloured only when its official name
+       matches the place's own name (the boundary data and the statistics share no codes, so the name at the same
+       administrative level is the identity test); otherwise the area stays grey and the place is a dot at its location */
+    if (own.length === 1 && sameUnit(own[0].r, a.n)) { pieces.get(own[0]).push(...a.mp); exact.set(own[0], 1); area.set(own[0], { n: a.n, id: a.id || null }); return; }
+    if (own.length === 1) { plain.push(...a.mp); dots.add(own[0]); return; }
     if (own.length > 1) { shared.push(...a.mp); own.forEach((o) => dots.add(o)); return; }
     plain.push(...a.mp);
   });
@@ -142,9 +149,9 @@ export function megaZones({ SH, RANK, PAGES }) {
       const s = {}; for (const pf of PROF) { const a = RANK[cc][pf] && RANK[cc][pf].byId[o.r.id]; s[pf] = a ? Math.round(a.score) : null; }
       const pop = o.r.popNow || o.r.population;
       return { c: String(o.r.id), n: o.r.name.replace(/ \((?:Tokyo|New York|Shanghai|Moscow)\)$/, ''), u: PAGES[o.r.id] || '', dot: real && real.dots.has(o) ? 1 : 0, ar: real && real.area.get(o) ? real.area.get(o).n : '', d: real ? (real.dots.has(o) ? dotD(o) : pathOf(real.pieces.get(o), X, Y)) : 'M' + poly.map((p) => X(p[0]).toFixed(0) + ' ' + Y(p[1]).toFixed(0)).join('L') + 'Z', lx: +X(o.p[0]).toFixed(1), ly: +Y(o.p[1]).toFixed(1), km2: Math.round(real ? real.pieces.get(o).reduce((t, P) => t + Math.abs(ringArea(P[0])) - P.slice(1).reduce((u, h) => u + Math.abs(ringArea(h)), 0), 0) : area),
-        v: { pop, dens: o.r.area_km2 > 0 ? Math.round(pop / o.r.area_km2) : (real && real.exact.get(o) === 1 ? Math.round(pop / Math.max(0.5, real.pieces.get(o).reduce((t, P) => t + Math.abs(ringArea(P[0])) - P.slice(1).reduce((u, h) => u + Math.abs(ringArea(h)), 0), 0))) : null), dist: Math.round(Math.hypot(o.p[0], o.p[1]) * 10) / 10 }, s }; }).filter((z) => z.d.length > 10);
+        v: { pop, dens: o.r.area_km2 > 0 ? Math.round(pop / o.r.area_km2) : null /* r20 (NZ10-01): only the record's own official area; never a drawn or clipped polygon */, dist: Math.round(Math.hypot(o.p[0], o.p[1]) * 10) / 10 }, s }; }).filter((z) => z.d.length > 10);
     for (const pf of PROF) { const order = Z.filter((z) => z.s[pf] != null).sort((a, b) => b.s[pf] - a.s[pf]); order.forEach((z, i) => { (z.r = z.r || {})[pf] = i + 1; }); }
-    JOINS[k] = { level: real ? real.level : null, schematic: !real, zones: Z.map((z) => ({ place: z.c, name: z.n, kind: real ? (z.dot ? 'dot: shares an official area or lies outside the boundary data' : 'exact: one official area, one place') : 'modelled nearest-place cell', area: z.ar || null, shapeID: real && !z.dot ? (real.area.get(mem.find((o) => String(o.r.id) === z.c)) || {}).id || null : null })),
+    JOINS[k] = { level: real ? real.level : null, schematic: !real, zones: Z.map((z) => ({ place: z.c, name: z.n, alt: (() => { const o = mem.find((x) => String(x.r.id) === z.c); return o ? [o.r.officialName, o.r.latin].filter(Boolean) : []; })(), kind: real ? (z.dot ? 'dot: no official area of its own name at this level (or it shares one)' : 'exact: official area with the same name as the place, at the chosen level') : 'modelled nearest-place cell', area: z.ar || null, shapeID: real && !z.dot ? (real.area.get(mem.find((o) => String(o.r.id) === z.c)) || {}).id || null : null })),
       unscored_areas: real ? real.nPlain : 0, shared_areas: real ? real.nShared : 0, aggregates_not_drawn: real ? [...real.aggregate].map((o) => String(o.r.id)) : [] };
     out.push({ k, n, cc, w: W, h: H, ctr: [X(0), Y(0), ctrName], ind: { pop: ['Residents', ''], dens: ['Residents per km²', ''], dist: ['Distance to ' + ctrName, ' km'] }, z: Z,
       src: [['Nestlyzer place scores and populations (sources on each place page)', '/method/']].concat(real ? [['Boundaries: geoBoundaries ' + real.level + ' (open licence), coastlines and rivers as drawn there', 'https://www.geoboundaries.org/']] : []), used: Object.fromEntries(PROF.map((p) => [p, ['the full Nestlyzer score of each place']])), cov: null, schematic: !real, real: real ? { land: pathOf(real.land, X, Y), plain: pathOf(real.plain.concat(real.shared), X, Y), level: real.level, nPlain: real.plain.length, nShared: real.shared.length, nDots: real.dots.size } : null });

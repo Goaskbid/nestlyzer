@@ -6,14 +6,13 @@ Live site: https://nestlyzer.com
 
 ## How the site is published
 
-This repository holds the **sources**. GitHub builds the website from them and publishes it with GitHub Pages. The workflow is `.github/workflows/site.yml`:
-## How the site is published
+This repository holds the **sources**. One release zip per version (`nestlyzer-release-<version>.zip`) is attached to a GitHub Release; the workflows unpack it, commit it, build the site and publish it with GitHub Pages. The complete, current procedure (gate, version check, rollback) is in **docs/DEPLOY.md**. The old flat-folder browser upload is an archived incident procedure (`docs/archive/DEPLOY_2.4.1_incident.md`) and is not used.
 
-The website is one flat folder, `dist/site` (built by `NZ_SPLIT=1 node build/standalone.mjs` after `node build/build_site.mjs`): `index.html`, `business.html`, the `nzdata-…` data files, `404.html`, `CNAME`, `ads.txt`, `robots.txt` and `.nojekyll`. It has no subfolders, so it survives GitHub's browser upload, which drops folders. Release: unzip `nestlyzer-website-<version>.zip`, select all files, **Add file → Upload files**, commit. GitHub Pages serves the repository root (deploy from branch).
+Before a release: `bash tests/release_gate.sh` (every suite, with a receipt whose source fingerprint the packer checks against the archive).
 
-Before a release: `npm test`, `python3 tests/split_test.py dist/site`, `python3 tests/livesim.py <repo clone> dist/site` and the browser suites in `tests/` (see docs/CHANGELOG.md for what each release checked).
+## Yearly population update
 
-ropa.eu/distribution/v2/lau/). A new year updates:
+Population figures come from the Eurostat GISCO LAU releases (https://gisco-services.ec.europa.eu/distribution/v2/lau/). A new year updates:
 - residents and density;
 - five-year growth;
 - residents within 30 km;

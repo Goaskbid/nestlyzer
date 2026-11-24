@@ -23,7 +23,12 @@
    ],
    "reduce": "keep",
    "ext": ".csv",
-   "licence": "{\"name\": \"GISCO / EuroGeographics statistical-unit download conditions\", \"url\": \"https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units\", \"commercial_use_confirmed\": false, \"notes\": \"The LA"
+   "licence": {
+    "name": "GISCO / EuroGeographics statistical-unit download conditions",
+    "url": "https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units",
+    "commercial_use_confirmed": false,
+    "notes": "The LAU landing page explicitly links the statistical-unit download rules. Those rules prohibit commercial use without separate permission and require EuroGeographics attribution. Public access is not commercial-reuse clearance."
+   }
   },
   {
    "id": "ch_mutations",
@@ -34,7 +39,12 @@
    ],
    "reduce": "keep",
    "ext": ".json",
-   "licence": "{\"name\": null, \"url\": null, \"commercial_use_confirmed\": null, \"notes\": \"The official REST documentation describes free access; a named reuse licence was not confirmed.\"}"
+   "licence": {
+    "name": null,
+    "url": null,
+    "commercial_use_confirmed": null,
+    "notes": "The official REST documentation describes free access; a named reuse licence was not confirmed."
+   }
   },
   {
    "id": "fr_dvf",
@@ -46,7 +56,12 @@
    ],
    "reduce": "keep",
    "ext": ".csv",
-   "licence": "{\"name\": \"Licence Ouverte / Open Licence 2.0\", \"url\": \"https://www.etalab.gouv.fr/licence-ouverte-open-licence/\", \"commercial_use_confirmed\": true, \"notes\": \"Official dataset API declares license=lov2"
+   "licence": {
+    "name": "Licence Ouverte / Open Licence 2.0",
+    "url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+    "commercial_use_confirmed": true,
+    "notes": "Official dataset API declares license=lov2; rechecked on 2026-11-24."
+   }
   },
   {
    "id": "nl_woz",
@@ -57,7 +72,12 @@
    ],
    "reduce": "keep",
    "ext": ".zip",
-   "licence": "{\"name\": \"CBS reuse conditions; exact named licence not independently confirmed\", \"url\": \"https://www.cbs.nl/nl-nl/cijfers/detail/85036NED\", \"commercial_use_confirmed\": null, \"notes\": null}"
+   "licence": {
+    "name": "CBS reuse conditions; exact named licence not independently confirmed",
+    "url": "https://www.cbs.nl/nl-nl/cijfers/detail/85036NED",
+    "commercial_use_confirmed": null,
+    "notes": null
+   }
   },
   {
    "id": "be_prices",
@@ -70,7 +90,12 @@
    ],
    "reduce": "keep",
    "ext": ".xlsx",
-   "licence": "{\"name\": null, \"url\": null, \"commercial_use_confirmed\": null, \"notes\": \"The workbook download links are official; the exact reuse licence was not independently confirmed.\"}"
+   "licence": {
+    "name": null,
+    "url": null,
+    "commercial_use_confirmed": null,
+    "notes": "The workbook download links are official; the exact reuse licence was not independently confirmed."
+   }
   },
   {
    "id": "at_prices",
@@ -83,7 +108,12 @@
    ],
    "reduce": "keep",
    "ext": ".ods",
-   "licence": "{\"name\": null, \"url\": null, \"commercial_use_confirmed\": null, \"notes\": \"Official data files are publicly reachable; exact reuse licence not independently confirmed.\"}"
+   "licence": {
+    "name": null,
+    "url": null,
+    "commercial_use_confirmed": null,
+    "notes": "Official data files are publicly reachable; exact reuse licence not independently confirmed."
+   }
   },
   {
    "id": "fi_prices",
@@ -94,7 +124,12 @@
    ],
    "reduce": "keep",
    "ext": ".px",
-   "licence": "{\"name\": \"Creative Commons Attribution 4.0\", \"url\": \"https://stat.fi/en/about-us/get-to-know-statistics-finland/legislation/terms-of-use\", \"commercial_use_confirmed\": true, \"notes\": null}"
+   "licence": {
+    "name": "Creative Commons Attribution 4.0",
+    "url": "https://stat.fi/en/about-us/get-to-know-statistics-finland/legislation/terms-of-use",
+    "commercial_use_confirmed": true,
+    "notes": null
+   }
   },
   {
    "id": "fr_broadband",
@@ -107,7 +142,12 @@
    ],
    "reduce": "keep",
    "ext": ".csv",
-   "licence": "{\"name\": \"Licence Ouverte / Open Licence 2.0\", \"url\": \"https://www.etalab.gouv.fr/licence-ouverte-open-licence/\", \"commercial_use_confirmed\": true, \"notes\": \"Official data.gouv.fr dataset API declares"
+   "licence": {
+    "name": "Licence Ouverte / Open Licence 2.0",
+    "url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+    "commercial_use_confirmed": true,
+    "notes": "Official data.gouv.fr dataset API declares license=lov2; rechecked on 2026-11-24."
+   }
   },
   {
    "id": "eu_healthcare",
@@ -118,7 +158,12 @@
    ],
    "reduce": "keep",
    "ext": ".csv",
-   "licence": "{\"name\": \"National source licences listed in GISCO metadata\", \"url\": \"https://gisco-services.ec.europa.eu/pub/healthcare/metadata.pdf\", \"commercial_use_confirmed\": null, \"notes\": \"GISCO reports no add"
+   "licence": {
+    "name": "National source licences listed in GISCO metadata",
+    "url": "https://gisco-services.ec.europa.eu/pub/healthcare/metadata.pdf",
+    "commercial_use_confirmed": null,
+    "notes": "GISCO reports no additional common restriction; the national-source terms and attribution still apply."
+   }
   },
   {
    "id": "eu_education",
@@ -129,7 +174,12 @@
    ],
    "reduce": "keep",
    "ext": ".csv",
-   "licence": "{\"name\": \"National source licences listed in GISCO metadata\", \"url\": \"https://gisco-services.ec.europa.eu/pub/education/metadata.pdf\", \"commercial_use_confirmed\": null, \"notes\": \"GISCO reports no addi"
+   "licence": {
+    "name": "National source licences listed in GISCO metadata",
+    "url": "https://gisco-services.ec.europa.eu/pub/education/metadata.pdf",
+    "commercial_use_confirmed": null,
+    "notes": "GISCO reports no additional common restriction; the national-source terms and attribution still apply."
+   }
   },
   {
    "id": "eu_degurba",
@@ -140,7 +190,12 @@
    ],
    "reduce": "zip_tables",
    "ext": ".zip",
-   "licence": "{\"name\": null, \"url\": null, \"commercial_use_confirmed\": null, \"notes\": \"Statistical classification reuse and the accompanying administrative geometry can have different conditions; both need checking."
+   "licence": {
+    "name": null,
+    "url": null,
+    "commercial_use_confirmed": null,
+    "notes": "Statistical classification reuse and the accompanying administrative geometry can have different conditions; both need checking."
+   }
   },
   {
    "id": "eu_ghsl_lau",
@@ -151,7 +206,12 @@
    ],
    "reduce": "zip_tables",
    "ext": ".zip",
-   "licence": "{\"name\": \"Creative Commons Attribution 4.0\", \"url\": \"https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/copyright.txt\", \"commercial_use_confirmed\": true, \"notes\": null}"
+   "licence": {
+    "name": "Creative Commons Attribution 4.0",
+    "url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/copyright.txt",
+    "commercial_use_confirmed": true,
+    "notes": null
+   }
   },
   {
    "id": "lau2024_gpkg",
@@ -162,7 +222,12 @@
    ],
    "reduce": "raw_only",
    "ext": ".gpkg",
-   "licence": "{\"name\": \"GISCO / EuroGeographics statistical-unit download conditions\", \"url\": \"https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units\", \"commercial_use_confirmed\": false, \"notes\": \"The LA"
+   "licence": {
+    "name": "GISCO / EuroGeographics statistical-unit download conditions",
+    "url": "https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units",
+    "commercial_use_confirmed": false,
+    "notes": "The LAU landing page explicitly links the statistical-unit download rules. Those rules prohibit commercial use without separate permission and require EuroGeographics attribution. Public access is not commercial-reuse clearance."
+   }
   },
   {
    "id": "eu_census2021",
@@ -173,7 +238,12 @@
    ],
    "reduce": "census_grid",
    "ext": ".zip",
-   "licence": "{\"name\": null, \"url\": null, \"commercial_use_confirmed\": null, \"notes\": \"Dataset-specific reuse terms were not confirmed. Do not apply the older GEOSTAT restrictions or a generic EU licence without che",
+   "licence": {
+    "name": null,
+    "url": null,
+    "commercial_use_confirmed": null,
+    "notes": "Dataset-specific reuse terms were not confirmed. Do not apply the older GEOSTAT restrictions or a generic EU licence without checking the Census package."
+   },
    "lau_from": "lau2024_gpkg_0.gpkg"
   },
   {
@@ -185,7 +255,13 @@
    ],
    "reduce": "raster_pts",
    "ext": "",
-   "licence": "{\"name\": \"Creative Commons Attribution 4.0\", \"url\": \"https://creativecommons.org/licenses/by/4.0/\", \"commercial_use_confirmed\": true, \"notes\": null}"
+   "licence": {
+    "name": "Creative Commons Attribution 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/",
+    "commercial_use_confirmed": true,
+    "notes": null
+   },
+   "member": "(?i)(no2[^/]*(mean|avg|annual)[^/]*|^[^/]*no2[^/]*)\\.tiff?$"
   },
   {
    "id": "eu_pm25",
@@ -196,7 +272,13 @@
    ],
    "reduce": "raster_pts",
    "ext": "",
-   "licence": "{\"name\": \"Creative Commons Attribution 4.0\", \"url\": \"https://creativecommons.org/licenses/by/4.0/\", \"commercial_use_confirmed\": true, \"notes\": null}"
+   "licence": {
+    "name": "Creative Commons Attribution 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/",
+    "commercial_use_confirmed": true,
+    "notes": null
+   },
+   "member": "(?i)(pm2[._]?5[^/]*(mean|avg|annual)[^/]*|^[^/]*pm2[._]?5[^/]*)\\.tiff?$"
   },
   {
    "id": "uk_price_paid",
@@ -207,7 +289,12 @@
    ],
    "reduce": "hmlr",
    "ext": "",
-   "licence": "{\"name\": \"Open Government Licence v3.0, with separate address-data rights\", \"url\": \"https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/\", \"commercial_use_confirmed\": true, \"note"
+   "licence": {
+    "name": "Open Government Licence v3.0, with separate address-data rights",
+    "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "commercial_use_confirmed": true,
+    "notes": "OGL does not remove Royal Mail/Ordnance Survey address-data conditions. The publisher permits residential property price information services; other address reuse may need permission."
+   }
   },
   {
    "id": "ie_ppr",
@@ -218,7 +305,12 @@
    ],
    "reduce": "keep",
    "ext": ".zip",
-   "licence": "{\"name\": null, \"url\": null, \"commercial_use_confirmed\": null, \"notes\": \"Public download confirmed at endpoint level; a commercial bulk-reuse licence was not confirmed.\"}"
+   "licence": {
+    "name": null,
+    "url": null,
+    "commercial_use_confirmed": null,
+    "notes": "Public download confirmed at endpoint level; a commercial bulk-reuse licence was not confirmed."
+   }
   },
   {
    "id": "fr_crime",
@@ -230,7 +322,12 @@
    ],
    "reduce": "keep",
    "ext": ".csv.gz",
-   "licence": "{\"name\": \"Licence Ouverte / Open Licence 2.0\", \"url\": \"https://www.etalab.gouv.fr/licence-ouverte-open-licence/\", \"commercial_use_confirmed\": true, \"notes\": \"Official data.gouv.fr dataset API declares"
+   "licence": {
+    "name": "Licence Ouverte / Open Licence 2.0",
+    "url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+    "commercial_use_confirmed": true,
+    "notes": "Official data.gouv.fr dataset API declares license=lov2; rechecked on 2026-11-24."
+   }
   },
   {
    "id": "world_postcodes",
@@ -263,7 +360,9 @@
    ],
    "reduce": "raster_multi",
    "ext": ".zip",
-   "licence": "CC BY 4.0 (Fick and Hijmans 2017)"
+   "licence": "CC BY 4.0 (Fick and Hijmans 2017)",
+   "member": "wc2\\.1_10m_tavg_\\d{2}\\.tif$",
+   "expect_layers": 12
   },
   {
    "id": "wc_tmin",
@@ -274,7 +373,9 @@
    ],
    "reduce": "raster_multi",
    "ext": ".zip",
-   "licence": "CC BY 4.0 (Fick and Hijmans 2017)"
+   "licence": "CC BY 4.0 (Fick and Hijmans 2017)",
+   "member": "wc2\\.1_10m_tmin_\\d{2}\\.tif$",
+   "expect_layers": 12
   },
   {
    "id": "wc_tmax",
@@ -285,7 +386,9 @@
    ],
    "reduce": "raster_multi",
    "ext": ".zip",
-   "licence": "CC BY 4.0 (Fick and Hijmans 2017)"
+   "licence": "CC BY 4.0 (Fick and Hijmans 2017)",
+   "member": "wc2\\.1_10m_tmax_\\d{2}\\.tif$",
+   "expect_layers": 12
   },
   {
    "id": "wc_prec",
@@ -296,7 +399,9 @@
    ],
    "reduce": "raster_multi",
    "ext": ".zip",
-   "licence": "CC BY 4.0 (Fick and Hijmans 2017)"
+   "licence": "CC BY 4.0 (Fick and Hijmans 2017)",
+   "member": "wc2\\.1_10m_prec_\\d{2}\\.tif$",
+   "expect_layers": 12
   },
   {
    "id": "wc_srad",
@@ -307,7 +412,13 @@
    ],
    "reduce": "raster_multi",
    "ext": ".zip",
-   "licence": "CC BY 4.0 (Fick and Hijmans 2017)"
+   "licence": "CC BY 4.0 (Fick and Hijmans 2017)",
+   "member": "wc2\\.1_10m_srad_\\d{2}\\.tif$",
+   "expect_layers": 12
   }
- ]
+ ],
+ "execution_budget_seconds": 1320,
+ "peak_disk_gb_estimate": 8,
+ "runner": "GitHub-hosted ubuntu-latest, job timeout 30 minutes (nz-collect-once.yml)",
+ "worldclim_note": "WorldClim 2.1 monthly normals 1970-2000 at 10 arc-minutes: background climate for charts, not daily E-OBS counts of hot days, tropical nights or frost days."
 }

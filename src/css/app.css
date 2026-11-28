@@ -509,3 +509,6 @@ body.bizmode .modeseg button[aria-pressed="true"]{background:#EA580C;color:#fff}
 .pal-list .ask button,#pal-list .ask button{background:var(--surface-2);border-left:3px solid var(--accent,#2a6f97)}
 .movechk .chk{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px}.movechk .chk label{display:flex;gap:8px;align-items:flex-start;line-height:1.4;cursor:pointer}.movechk .chk input{margin-top:3px;flex:none}
 #pal-list .askbtn{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left}#pal-list .askbtn > span{display:block;max-width:100%}
+/* r21: plain statement of what the site is (start page), Ask clauses that were not applied */
+.nz-identity{max-width:72ch;margin:6px auto 22px;padding:0 16px;text-align:center;color:var(--muted);font-size:.98rem;line-height:1.55}
+.askbtn .askskip{display:block;color:var(--warn,#9a5b00);margin-top:2px}

@@ -14,7 +14,8 @@ for cat, ws in ADD.items():
         if p in prof and prof[p].get('weights', {}).get(cat) != w: prof[p].setdefault('weights', {})[cat] = w; done.append(f'{p}.{cat}={w}')
 used = {c for p in prof.values() for c, v in (p.get('weights') or {}).items() if v}
 unused = sorted({f['category'] for f in m['factors']} - used)
-json.dump({'note':'r20 owner change: every data category is weighed by at least one profile','additions':ADD},open(os.path.join(R,'docs','audit','r20_profile_coverage.json'),'w'),indent=1)
+# NZ11-10: the record is a fixed, committed build input (build/r20_profile_coverage.json); only --write touches files
+if '--write' in sys.argv: json.dump({'note':'r20 owner change: every data category is weighed by at least one profile','additions':ADD},open(os.path.join(R,'build','r20_profile_coverage.json'),'w'),indent=1)
 print('set:', done or 'nothing to change'); print('categories still weighed by no profile:', unused or 'none')
 if '--write' in sys.argv and done: json.dump(m, open(P, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
 sys.exit(1 if unused else 0)

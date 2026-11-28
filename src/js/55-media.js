@@ -88,8 +88,9 @@ function climateSummary(c) {
   var bits = [M[warm] + ' days reach about ' + Math.round(c.hi[warm]) + ' °C', M[cold] + ' nights drop to about ' + Math.round(c.lo[cold]) + ' °C'];
   bits.push('about ' + fmtInt(Math.round(c.year / 10) * 10) + ' mm of rain a year, most in ' + M[wet] + ', least in ' + M[dry]);
   if (frost) bits.push(frost === 1 ? 'one month averages below freezing at night' : frost + ' months average below freezing at night');
-  else bits.push('night frost is rare on average');
-  return bits.join('; ') + '.';
+  else bits.push('the average night low stays above freezing in every month (single frosty nights can still occur; these are monthly means)');
+  var per = c.source_period && c.source_period.start ? ' Monthly averages for ' + String(c.source_period.start).slice(0, 4) + (c.source_period.end ? '–' + String(c.source_period.end).slice(0, 4) : '') + '.' : ' Monthly averages.';
+  return bits.join('; ') + '.' + per;
 }
 /* small facts from Wikidata: altitude, postcode, founded, sister cities, mayor, demonym */
 function wdFacts(r) {

@@ -710,7 +710,7 @@ ${FOOT('Sources: World Bank WDI and B-READY, Transparency International, V-Dem, 
   /* r19: place-level stories (border towns, mergers in numbers, against the trend) */
   const STO = buildStories({ ROOT, C, esc, fmt, fmtInt, nm, flagImg, PAGES: H.PAGES || {}, pageIns, kick, printBtn, FOOT, fin });
   /* r15: A decade of change (ten chapters) */
-  const CHG = buildChange({ C, esc, fmt, nm, cl, flagImg, HD, CC, pageIns, kick, printBtn, median, fin, list, sgn });
+  const CHG = buildChange({ C, esc, fmt, nm, cl, flagImg, HD, CC, pageIns, kick, printBtn, median, fin, list, sgn, fs, path, ROOT });
   const LNK = buildLinks({ C, esc, fmt, nm, cl, flagImg, HD, CC, pageIns, kick, printBtn, median, fin, list, corr, strength });
   /* =================================================================== HUB */
   {

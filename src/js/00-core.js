@@ -82,6 +82,45 @@ var S = {
 };
 var META = null, ENGINE = null, RECORDS = [], BYID = {}, SHARDS = {}, RES = null, SCOPE = [], NUTS = {}, SHARD = null;
 var saved = store('saved') || [];
+/* NZ11-14: shortlists are merged with what other tabs wrote since this tab last read them (three-way merge),
+   so a stale tab never overwrites another tab's additions, deletions, notes or order */
+function rawStore(k) { try { return JSON.parse(localStorage.getItem('nz:' + k)); } catch (e) { return undefined; } }
+var SL_BASE = {};
+function slBase(k, v) { SL_BASE[k] = JSON.stringify(v == null ? null : v); }
+function mergeList(base, mine, theirs, idOf) {
+  idOf = idOf || function (e) { return e && e.id; };
+  var B = {}, M = {}, T = {}; (base || []).forEach(function (e) { B[idOf(e)] = e; }); (mine || []).forEach(function (e) { M[idOf(e)] = e; }); (theirs || []).forEach(function (e) { T[idOf(e)] = e; });
+  var out = [], seen = {};
+  (mine || []).forEach(function (e) { var id = idOf(e); if (!(id in B) && !seen[id]) { out.push(e); seen[id] = 1; } });   // added here
+  var myOrderChanged = JSON.stringify((base || []).map(idOf).filter(function (id) { return id in M; })) !== JSON.stringify((mine || []).map(idOf).filter(function (id) { return id in B; }));
+  var order = myOrderChanged ? (mine || []).map(idOf).concat((theirs || []).map(idOf)) : (theirs || []).map(idOf).concat((mine || []).map(idOf));
+  order.forEach(function (id) {
+    if (seen[id]) return; var inB = id in B, inM = id in M, inT = id in T;
+    if (inB && !inM) return;                     // deleted here
+    if (inB && !inT) return;                     // deleted elsewhere
+    if (!inT && !inM) return;
+    var e = inM && inT ? (JSON.stringify(M[id]) !== JSON.stringify(B[id]) ? M[id] : T[id]) : inT ? T[id] : M[id];
+    out.push(e); seen[id] = 1;
+  });
+  return out;
+}
+slBase('saved', saved); slBase('cmp', rawStore('cmp') || []); slBase('bizsaved', rawStore('bizsaved') || []); slBase('bizcmp', rawStore('bizcmp') || []);
+/* another tab changed the shortlist: take its state now (nothing of ours is pending, every change here is written at once) */
+window.addEventListener('storage', function (e) {
+  var k = e.key && e.key.indexOf('nz:') === 0 ? e.key.slice(3) : null; if (!k) return;
+  if (store.memory) delete store.memory[k];
+  var biz = typeof CURMODE !== 'undefined' && CURMODE === 'biz';
+  if (k === (biz ? 'bizsaved' : 'saved')) { saved = rawStore(k) || []; slBase(k, saved); }
+  else if (k === (biz ? 'bizcmp' : 'cmp')) { S.compare = rawStore(k) || []; slBase(k, S.compare); }
+  else if (k !== 'home' && k !== 'custom' && k !== 'scenarios') return;
+  if (k === 'home') S.home = rawStore('home') || null;
+  if (typeof refreshShortlistUI === 'function') try { refreshShortlistUI(); } catch (x) {}
+});
+function slSync(k, mine, idOf) {
+  var theirs = rawStore(k); if (theirs === undefined || !Array.isArray(theirs)) theirs = [];
+  var base = SL_BASE[k] != null ? JSON.parse(SL_BASE[k]) : theirs;
+  return mergeList(base, mine, theirs, idOf);
+}
 S.compare = (store('cmp') || []).filter(function (id) { return saved.some(function (s) { return s.id === id; }); }).slice(0, 3);
 
 function profileDef(k) { return k === 'self_fit' ? (S.custom || ENGINE.profiles.self_fit) : ENGINE.profiles[k]; }
@@ -329,7 +368,7 @@ function isBizKey(k) { return String(k || '').indexOf('biz_') === 0; }
 function syncMode() {
   var m = isBizKey(S.profile) ? 'biz' : 'home'; if (m === CURMODE) return false;
   persistShortlist(); CURMODE = m;
-  saved = store(m === 'biz' ? 'bizsaved' : 'saved') || [];
+  saved = store(m === 'biz' ? 'bizsaved' : 'saved') || []; slBase(m === 'biz' ? 'bizsaved' : 'saved', saved); slBase(m === 'biz' ? 'bizcmp' : 'cmp', rawStore(m === 'biz' ? 'bizcmp' : 'cmp') || []);
   S.compare = (store(m === 'biz' ? 'bizcmp' : 'cmp') || []).filter(function (id) { return saved.some(function (s) { return s.id === id; }); }).slice(0, 3);
   document.body.classList.toggle('bizmode', m === 'biz'); document.documentElement.classList.toggle('bizmode', m === 'biz'); if (typeof recolorTheme === 'function') recolorTheme(); store(m === 'biz' ? 'lastbiz' : 'lasthome', S.profile);
   return true;

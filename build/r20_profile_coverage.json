@@ -1,0 +1,22 @@
+{
+ "note": "r20 owner change: every data category is weighed by at least one profile",
+ "additions": {
+  "realestate": {
+   "first_home": 6,
+   "young_family": 3,
+   "budget": 4,
+   "single_parent": 3,
+   "low_income": 3,
+   "low_income_family": 3
+  },
+  "governance": {
+   "pensioner": 4,
+   "single_pensioner": 4,
+   "early_retiree": 3,
+   "young_family": 3,
+   "business_owner": 4,
+   "hnw": 3,
+   "biz_hq": 3
+  }
+ }
+}

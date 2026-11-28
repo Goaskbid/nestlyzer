@@ -71,7 +71,18 @@ function centroid(mp) { let A = 0, x = 0, y = 0; for (const P of mp) { const r =
 function cellOf(o, others, F) { let poly = [[-F, -F], [F, -F], [F, F], [-F, F]]; for (const q of others) if (q !== o) { poly = clip(poly, o.p, q.p); if (poly.length < 3) break; } return poly; }
 const ADMW = /\b(district|distrikt|gu|ku|shi|si|city|municipality|municipal|metropolitan|borough|london borough of|royal borough of|city of|kommune|municipio|comune|commune|gemeinde|stadt|ilcesi|ilce|ward|county|prefecture|province|region|town|district council|council|of|the|de|di|du|da|del|la|le|el)\b/g;
 function unitKey(s) { return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\([^)]*\)/g, ' ').replace(/[-'’.,/]/g, ' ').replace(ADMW, ' ').replace(/\d+/g, ' ').replace(/[^a-z]+/g, ''); }
-export function sameUnit(r, areaName) { const a = unitKey(areaName); if (a.length < 3) return false; return [r.name, r.officialName, r.latin].filter(Boolean).some((n) => unitKey(n) === a); }
+/* r21 (audit NZ11-03): numbers are part of a name ("City of Johannesburg 060" is ward 60, not the city), and a ward is
+   never the whole place; the name test is only a first filter, see plausibleUnit for the independent size test */
+const digitsOf = (s) => (String(s || '').match(/\d+/g) || []).map((d) => String(+d)).sort().join(',');
+const WARDW = /\b(ward|wards|subdistrict|sub-district|neighbourhood|neighborhood|quarter|precinct|sector|block|section)\b/i;
+export function sameUnit(r, areaName) {
+  const a = unitKey(areaName); if (a.length < 3) return false;
+  return [r.name, r.officialName, r.latin].filter(Boolean).some((n) => unitKey(n) === a && digitsOf(n) === digitsOf(areaName) && (WARDW.test(n) || !WARDW.test(areaName)));
+}
+/* the polygon must also be the size of the place: no more than 50,000 people per km2 on it, and within a factor of 3
+   of the place's own recorded area where there is one */
+export function polyKm2(mp) { let t = 0; for (const P of mp) P.forEach((ring, ri) => { const lat = ring.reduce((s, p) => s + p[1], 0) / ring.length, k = 111.32 * 111.32 * Math.cos(lat * Math.PI / 180); t += (ri ? -1 : 1) * Math.abs(ring.reduce((u, p, i) => { const q = ring[(i + 1) % ring.length]; return u + p[0] * q[1] - q[0] * p[1]; }, 0) / 2) * k; }); return Math.abs(t); }
+export function plausibleUnit(r, km2) { if (!(km2 > 0)) return false; if (r.population > 0 && r.population / km2 > 50000) return false; if (r.area_km2 > 0 && (km2 > 3 * r.area_km2 || km2 < r.area_km2 / 3)) return false; return true; }
 function realZones(k, mem, R) {
   const C = SHAPES && SHAPES.cities[k]; if (!C) return null;
   const F = R * 1.02;
@@ -100,7 +111,7 @@ function realZones(k, mem, R) {
     /* r20 (audit NZ10-01): a point inside a polygon is not an identity. The area is coloured only when its official name
        matches the place's own name (the boundary data and the statistics share no codes, so the name at the same
        administrative level is the identity test); otherwise the area stays grey and the place is a dot at its location */
-    if (own.length === 1 && sameUnit(own[0].r, a.n)) { pieces.get(own[0]).push(...a.mp); exact.set(own[0], 1); area.set(own[0], { n: a.n, id: a.id || null }); return; }
+    if (own.length === 1 && sameUnit(own[0].r, a.n) && plausibleUnit(own[0].r, polyKm2(a.mp))) { pieces.get(own[0]).push(...a.mp); exact.set(own[0], 1); area.set(own[0], { n: a.n, id: a.id || null }); return; }
     if (own.length === 1) { plain.push(...a.mp); dots.add(own[0]); return; }
     if (own.length > 1) { shared.push(...a.mp); own.forEach((o) => dots.add(o)); return; }
     plain.push(...a.mp);

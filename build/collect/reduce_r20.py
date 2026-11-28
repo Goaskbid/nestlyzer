@@ -79,6 +79,11 @@ def places(root: Path) -> list[tuple[str, str, float, float]]:
     return out
 
 # ---------------------------------------------------------------- reductions
+def safe_member(name: str) -> str:
+    """NZ11-12: the whole member path, so equal file names in different folders never overwrite each other."""
+    import re as _re
+    return _re.sub(r'[^A-Za-z0-9._-]+', '~', name.strip('/'))[-180:]
+
 def zip_tables(src: Path, out: Path, stem: str) -> list[str]:
     """Keep the attribute tables of an archive: CSV/TXT members as they are (gzip if large), DBF members converted to CSV."""
     made = []
@@ -86,15 +91,16 @@ def zip_tables(src: Path, out: Path, stem: str) -> list[str]:
         for m in z.infolist():
             low = m.filename.lower()
             if low.endswith(('.csv', '.txt', '.xlsx', '.ods', '.json')):
-                p = out / (stem + '__' + Path(m.filename).name + ('.gz' if m.file_size > LIMIT // 2 else ''))
+                p = out / (stem + '__' + safe_member(m.filename) + ('.gz' if m.file_size > LIMIT // 2 else ''))
                 with z.open(m) as a, (gzip.open(p, 'wb') if p.suffix == '.gz' else p.open('wb')) as b:
                     while True:
                         c = a.read(1 << 20)
                         if not c: break
                         b.write(c)
+                if p.name in made: raise ValueError('two archive members map to the same output name: ' + p.name)
                 made.append(p.name)
             elif low.endswith('.dbf'):
-                p = out / (stem + '__' + Path(m.filename).stem + '.csv.gz')
+                p = out / (stem + '__' + safe_member(m.filename[:-4]) + '.csv.gz')
                 with z.open(m) as a, gzip.open(p, 'wt', encoding='utf-8', newline='') as b: dbf_to_csv(a.read(), b)
                 made.append(p.name)
     return made
@@ -172,7 +178,7 @@ def census_grid(zsrc: Path, lau_gpkg: Path, out: Path) -> dict:
     tmp.replace(p)
     return {'file': p.name, 'lau_with_cells': len(acc), 'cells': len(keep), 'cells_outside_lau': int((owner < 0).sum()), 'variables': [head[i] for i in num]}
 
-def sample_masked(ds, pts):
+def sample_masked(ds, pts, band: int = 1):
     """Values at the points; outside the raster bounds, masked, nodata or non-finite cells are missing (None), a real
     measured zero stays zero (r20, audit NZ10-04)."""
     from pyproj import Transformer
@@ -180,12 +186,13 @@ def sample_masked(ds, pts):
     X, Y = tr.transform([p[3] for p in pts], [p[2] for p in pts]); b = ds.bounds; nod = ds.nodata
     inside = [(b.left <= x <= b.right and b.bottom <= y <= b.top) for x, y in zip(X, Y)]
     vals = [None] * len(pts); idx = [i for i, ok in enumerate(inside) if ok]
-    for i, v in zip(idx, ds.sample([(X[i], Y[i]) for i in idx], masked=True)):
+    sc = (ds.scales[band - 1] if ds.scales else 1.0) or 1.0; of = (ds.offsets[band - 1] if ds.offsets else 0.0) or 0.0
+    for i, v in zip(idx, ds.sample([(X[i], Y[i]) for i in idx], indexes=band, masked=True)):
         import numpy as _np
         if bool(_np.ma.getmaskarray(v)[0]): continue
         x = float(v[0])
         if x != x or (nod is not None and x == nod) or abs(x) > 1e30: continue
-        vals[i] = x
+        vals[i] = x * sc + of            # NZ11-05: the documented scale and offset give the physical value
     return vals
 
 def pick_member(z: zipfile.ZipFile, pattern: str | None) -> list[str]:
@@ -194,6 +201,8 @@ def pick_member(z: zipfile.ZipFile, pattern: str | None) -> list[str]:
     tifs = sorted(n for n in z.namelist() if n.lower().endswith(('.tif', '.tiff')))
     if not pattern: raise ValueError('no member pattern in the plan: ' + ', '.join(tifs[:8]))
     hit = [n for n in tifs if _re.search(pattern, n)]
+    # NZ11-05: companion layers (uncertainty, error, count, flags, quality) are never the variable itself
+    hit = [n for n in hit if not _re.search(r'(?i)(uncert|error|stdev|std_?dev|_sd\b|count|flag|quality|qa\b|mask|coverage)', Path(n).name)]
     if not hit: raise ValueError('no raster matches ' + pattern + ' among ' + ', '.join(tifs[:8]))
     return hit
 
@@ -212,8 +221,8 @@ def raster_pts(src: Path, out: Path, stem: str, pts, member: str | None = None, 
                     b.write(c)
     with rasterio.open(path) as ds:
         if band < 1 or band > ds.count: raise ValueError(f'band {band} not in 1..{ds.count}')
-        vals = sample_masked(ds, pts) if ds.count == 1 or band == 1 else None
-        meta = {'crs': str(ds.crs), 'res': list(ds.res), 'nodata': ds.nodata, 'band': band, 'band_description': ds.descriptions[band - 1] if ds.descriptions else None, 'units': ds.units[band - 1] if ds.units else None, 'bounds': list(ds.bounds)}
+        vals = sample_masked(ds, pts, band)
+        meta = {'crs': str(ds.crs), 'res': list(ds.res), 'nodata': ds.nodata, 'band': band, 'scale': (ds.scales or [1])[band - 1], 'offset': (ds.offsets or [0])[band - 1], 'band_description': ds.descriptions[band - 1] if ds.descriptions else None, 'units': ds.units[band - 1] if ds.units else None, 'bounds': list(ds.bounds)}
     p = out / (stem + '_at_places.csv.gz'); n = miss = 0; tmp = out / (stem + '_at_places.csv.gz.part')
     with gzip.open(tmp, 'wt', encoding='utf-8', newline='') as f:
         w = csv.writer(f); w.writerow(['place_id', 'value'])
@@ -239,7 +248,7 @@ def raster_multi(src: Path, out: Path, stem: str, pts, member: str | None = None
                     c = a.read(1 << 20)
                     if not c: break
                     b.write(c)
-            with rasterio.open(tmp) as ds: col = sample_masked(ds, pts)
+            with rasterio.open(tmp) as ds: col = sample_masked(ds, pts, 1)
             tmp.unlink(); cols.append(Path(n).stem); vals.append(col)
     p = out / (stem + '_at_places.csv.gz'); tmp = out / (stem + '_at_places.csv.gz.part')
     with gzip.open(tmp, 'wt', encoding='utf-8', newline='') as f:
@@ -280,6 +289,7 @@ def run(plan: dict, root: Path, out: Path) -> int:
     for t in sorted(plan['tasks'], key=lambda t: t.get('order', 50)):
         tid = t['id']; rec = status['tasks'][tid] = {'source': t.get('source'), 'licence': t.get('licence'), 'files': []}
         if left() < 60: rec['status'] = 'skipped: time budget'; continue
+        before = set(p.name for p in out.iterdir() if p.is_file())
         try:
             red = t.get('reduce', 'keep')
             if red == 'hmlr': rec['result'] = hmlr(t['urls'][0], out); rec['status'] = 'reduced'; continue
@@ -316,6 +326,16 @@ def run(plan: dict, root: Path, out: Path) -> int:
                 rec['result'] = raster_pts(got[0], out, tid, pts, t.get('member'), int(t.get('band', 1))); rec['status'] = 'reduced'
             for d in got:
                 if d.exists() and red != 'keep' and not t.get('keep_raw_for'): d.unlink()
+            # NZ11-04: complete inputs and non-empty outputs, or the task is not accepted
+            opt = set(t.get('optional_urls', []))
+            miss = [i for i, f in enumerate(rec['files']) if 'error' in f and i not in opt]
+            made = sorted(set(p.name for p in out.iterdir() if p.is_file()) - before)
+            rec['output_files'] = made
+            st0 = rec.get('status', '')
+            if miss and not st0.startswith('failed'): rec['status'] = f'partial: {len(miss)} of {len(t["urls"]) - len(opt)} required downloads failed'
+            if red not in ('raw_only', 'index') and st0.startswith(('kept', 'reduced')) and not made: rec['status'] = 'failed: no usable output (nothing extracted or everything dropped)'
+            if rec.get('dropped') and rec['status'].startswith(('kept', 'reduced')): rec['status'] = 'partial: ' + '; '.join(rec['dropped'])
+            if red == 'zip_tables' and isinstance(rec.get('result'), list) and not rec['result']: rec['status'] = 'failed: the archive holds no supported tables'
         except Exception as e:
             rec['status'] = 'failed: ' + str(e)[:300]
         finally:
@@ -330,7 +350,7 @@ def run(plan: dict, root: Path, out: Path) -> int:
     status['acceptance'] = {'tasks': len(st), 'completed': ok, 'partial': part, 'failed_or_skipped': bad, 'accepted_for_review': bad == 0 and part == 0,
                             'note': 'Raw acquisitions (kept) still need an adapter before any value reaches the site; production_writes stays false.'}
     (out / 'RUN_STATUS.json').write_text(json.dumps(status, indent=1), encoding='utf-8')
-    return 0 if ok else 2   # an all-failed run fails (NZ10-05)
+    return 0 if status['acceptance']['accepted_for_review'] else (1 if ok else 2)   # NZ11-04: anything incomplete is a non-zero result
 
 if __name__ == '__main__':
     plan = json.loads(Path(sys.argv[1]).read_text(encoding='utf-8'))

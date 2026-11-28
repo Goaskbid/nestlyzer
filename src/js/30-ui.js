@@ -445,12 +445,15 @@ function isSaved(id) { return saved.some(function (s) { return s.id === id; }); 
 function isCmp(id) { return S.compare.indexOf(id) >= 0; }
 function savedEntry(id) { var r = BYID[id], x = RES && RES.byId[id]; return { id: id, name: r.name, area: localAreaOf(r) + ', ' + countryName(r.country), profile: S.profile, score: x ? x.overall : null, t: Date.now() }; }
 function persistShortlist() {
-  var a = store(CURMODE === 'biz' ? 'bizsaved' : 'saved', saved), b = store(CURMODE === 'biz' ? 'bizcmp' : 'cmp', S.compare);
+  var ks = CURMODE === 'biz' ? 'bizsaved' : 'saved', kc = CURMODE === 'biz' ? 'bizcmp' : 'cmp';
+  saved = slSync(ks, saved); var ids = {}; saved.forEach(function (e) { ids[e.id] = 1; });
+  S.compare = slSync(kc, S.compare, function (x) { return x; }).filter(function (id) { return ids[id]; }).slice(-3);
+  var a = store(ks, saved), b = store(kc, S.compare); if (a === true) slBase(ks, saved); if (b === true) slBase(kc, S.compare);
   if (a !== true || b !== true) { toast('Saved for this session only', 'Browser storage failed. Export your shortlist before leaving; changes may not survive a reload.'); return false; }
   return true;
 }
 function refreshShortlistUI() {
-  $$('[data-save]').forEach(function (b) { var id = b.dataset.save, on = isSaved(id); b.setAttribute('aria-pressed', on); if (b.classList.contains('lbl')) b.innerHTML = (on ? ICON.heartFill : ICON.heart) + '<span>' + (on ? 'Saved' : 'Save') + '</span>'; else b.innerHTML = on ? ICON.heartFill : ICON.heart; b.setAttribute('aria-label', (on ? 'Remove from' : 'Save to') + ' shortlist'); b.title = on ? 'On your shortlist' : 'Save to shortlist'; });
+  $$('[data-save]').forEach(function (b) { var id = b.dataset.save, on = isSaved(id); b.setAttribute('aria-pressed', on); if (b.classList.contains('lbl')) b.innerHTML = (on ? ICON.heartFill : ICON.heart) + '<span>' + (on ? 'Saved' : 'Save') + '</span>'; else b.innerHTML = on ? ICON.heartFill : ICON.heart; b.setAttribute('aria-label', (on ? 'Saved, remove from' : 'Save to') + ' shortlist'); b.title = on ? 'On your shortlist' : 'Save to shortlist'; });
   $$('[data-cmp]').forEach(function (b) { var on = isCmp(b.dataset.cmp); b.setAttribute('aria-pressed', on); if (b.type === 'checkbox') b.checked = on; else if (b.classList.contains('lbl')) b.innerHTML = '<span class="cbox" aria-hidden="true">' + (on ? '✓' : '') + '</span><span>Compare</span>'; });
   $$('[data-opencmp]').forEach(function (b) { if (b.classList.contains('pa-cmp')) b.hidden = S.compare.length < 2; else b.disabled = S.compare.length < 2; var n = b.querySelector('.n'); if (n) n.textContent = S.compare.length; });
   $$('.sl-n').forEach(function (e) { e.textContent = saved.length; e.hidden = !saved.length; });
@@ -464,8 +467,8 @@ function toggleSave(id) {
   else { saved.unshift(savedEntry(id)); toast('Saved to your shortlist', r.name + '. You have ' + saved.length + ' saved place' + (saved.length > 1 ? 's' : '') + '.', { label: 'View shortlist', attr: 'data-lt="saved"' }); }
   persistShortlist(); refreshShortlistUI();
 }
-function saveBtn(id, small) { var on = isSaved(id); return '<button class="icon-btn' + (small ? ' sm' : '') + '" type="button" data-save="' + esc(id) + '" aria-pressed="' + on + '" aria-label="' + (on ? 'Remove from' : 'Save to') + ' shortlist" title="' + (on ? 'On your shortlist' : 'Save to shortlist') + '">' + (on ? ICON.heartFill : ICON.heart) + '</button>'; }
-function saveBtnL(id) { var on = isSaved(id); return '<button class="btn btn-sm lbl save-l" type="button" data-save="' + esc(id) + '" aria-pressed="' + on + '" aria-label="' + (on ? 'Remove from' : 'Save to') + ' shortlist">' + (on ? ICON.heartFill : ICON.heart) + '<span>' + (on ? 'Saved' : 'Save') + '</span></button>'; }
+function saveBtn(id, small) { var on = isSaved(id); return '<button class="icon-btn' + (small ? ' sm' : '') + '" type="button" data-save="' + esc(id) + '" aria-pressed="' + on + '" aria-label="' + (on ? 'Saved, remove from' : 'Save to') + ' shortlist" title="' + (on ? 'On your shortlist' : 'Save to shortlist') + '">' + (on ? ICON.heartFill : ICON.heart) + '</button>'; }
+function saveBtnL(id) { var on = isSaved(id); return '<button class="btn btn-sm lbl save-l" type="button" data-save="' + esc(id) + '" aria-pressed="' + on + '" aria-label="' + (on ? 'Saved, remove from' : 'Save to') + ' shortlist">' + (on ? ICON.heartFill : ICON.heart) + '<span>' + (on ? 'Saved' : 'Save') + '</span></button>'; }
 function cmpBtn(id) { var on = isCmp(id); return '<button class="btn btn-sm lbl cmp-l" type="button" data-cmp="' + esc(id) + '" aria-pressed="' + on + '" title="Tick to compare side by side (up to three)"><span class="cbox" aria-hidden="true">' + (on ? '✓' : '') + '</span><span>Compare</span></button>'; }
 function toggleCompare(id, replaceId) {
   var r = BYID[id] || saved.filter(function (s) { return s.id === id; })[0]; if (!r && !isSaved(id)) return;

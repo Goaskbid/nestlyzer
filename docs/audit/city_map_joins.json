@@ -21,9 +21,9 @@
      "alt": [
       "Barking and Dagenham"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Barking and Dagenham",
-     "shapeID": "12218062B79068053065252"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000003",
@@ -31,9 +31,9 @@
      "alt": [
       "Barnet"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Barnet",
-     "shapeID": "12218062B66990718698356"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000004",
@@ -41,9 +41,9 @@
      "alt": [
       "Bexley"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Bexley",
-     "shapeID": "12218062B10858218491268"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000005",
@@ -51,9 +51,9 @@
      "alt": [
       "Brent"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Brent",
-     "shapeID": "12218062B66786196747465"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000006",
@@ -61,9 +61,9 @@
      "alt": [
       "Bromley"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Bromley",
-     "shapeID": "12218062B6004772957253"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000007",
@@ -71,9 +71,9 @@
      "alt": [
       "Camden"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Camden",
-     "shapeID": "12218062B5752631249312"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000008",
@@ -81,9 +81,9 @@
      "alt": [
       "Croydon"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Croydon",
-     "shapeID": "12218062B70157372237970"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000009",
@@ -91,9 +91,9 @@
      "alt": [
       "Ealing"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Ealing",
-     "shapeID": "12218062B97802490385631"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000010",
@@ -101,9 +101,9 @@
      "alt": [
       "Enfield"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Enfield",
-     "shapeID": "12218062B28689849058272"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000011",
@@ -111,9 +111,9 @@
      "alt": [
       "Greenwich"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Greenwich",
-     "shapeID": "12218062B5818529321017"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000012",
@@ -121,9 +121,9 @@
      "alt": [
       "Hackney"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Hackney",
-     "shapeID": "12218062B83614663939731"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000013",
@@ -131,9 +131,9 @@
      "alt": [
       "Hammersmith and Fulham"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Hammersmith and Fulham",
-     "shapeID": "12218062B54467865876949"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000014",
@@ -141,9 +141,9 @@
      "alt": [
       "Haringey"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Haringey",
-     "shapeID": "12218062B7505384354966"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000015",
@@ -151,9 +151,9 @@
      "alt": [
       "Harrow"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Harrow",
-     "shapeID": "12218062B32912498835267"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000018",
@@ -161,9 +161,9 @@
      "alt": [
       "Hounslow"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Hounslow",
-     "shapeID": "12218062B38308976115505"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000019",
@@ -171,9 +171,9 @@
      "alt": [
       "Islington"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Islington",
-     "shapeID": "12218062B84351111325519"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000020",
@@ -181,9 +181,9 @@
      "alt": [
       "Kensington and Chelsea"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Kensington and Chelsea",
-     "shapeID": "12218062B97725418338747"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000021",
@@ -191,9 +191,9 @@
      "alt": [
       "Kingston upon Thames"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Kingston upon Thames",
-     "shapeID": "12218062B98376125511316"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000022",
@@ -201,9 +201,9 @@
      "alt": [
       "Lambeth"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Lambeth",
-     "shapeID": "12218062B6093327183981"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000023",
@@ -211,9 +211,9 @@
      "alt": [
       "Lewisham"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Lewisham",
-     "shapeID": "12218062B82752255202758"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000024",
@@ -221,9 +221,9 @@
      "alt": [
       "Merton"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Merton",
-     "shapeID": "12218062B49558452945810"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000025",
@@ -231,9 +231,9 @@
      "alt": [
       "Newham"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Newham",
-     "shapeID": "12218062B22793969440291"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000026",
@@ -241,9 +241,9 @@
      "alt": [
       "Redbridge"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Redbridge",
-     "shapeID": "12218062B27891802665148"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000027",
@@ -251,9 +251,9 @@
      "alt": [
       "Richmond upon Thames"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Richmond upon Thames",
-     "shapeID": "12218062B52193380437628"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000028",
@@ -261,9 +261,9 @@
      "alt": [
       "Southwark"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Southwark",
-     "shapeID": "12218062B96751156425504"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000029",
@@ -271,9 +271,9 @@
      "alt": [
       "Sutton"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Sutton",
-     "shapeID": "12218062B61679937460806"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000030",
@@ -281,9 +281,9 @@
      "alt": [
       "Tower Hamlets"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Tower Hamlets",
-     "shapeID": "12218062B13394713879400"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000031",
@@ -291,9 +291,9 @@
      "alt": [
       "Waltham Forest"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Waltham Forest",
-     "shapeID": "12218062B65581186991066"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000032",
@@ -301,9 +301,9 @@
      "alt": [
       "Wandsworth"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Wandsworth",
-     "shapeID": "12218062B42446947001994"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E09000033",
@@ -311,9 +311,9 @@
      "alt": [
       "Westminster"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Westminster",
-     "shapeID": "12218062B94516498834051"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     }
    ],
    "aggregates_not_drawn": []
@@ -5915,9 +5915,9 @@
      "alt": [
       "Alcobendas"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Alcobendas",
-     "shapeID": "28895703B58810378396487"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "ES:28007",
@@ -5925,9 +5925,9 @@
      "alt": [
       "Alcorcón"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Alcorcón",
-     "shapeID": "28895703B38614513639980"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "ES:28022",
@@ -5935,9 +5935,9 @@
      "alt": [
       "Boadilla del Monte"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Boadilla del Monte",
-     "shapeID": "28895703B3430083147695"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "ES:28049",
@@ -5945,9 +5945,9 @@
      "alt": [
       "Coslada"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Coslada",
-     "shapeID": "28895703B75200598557710"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "ES:28058",
@@ -5955,9 +5955,9 @@
      "alt": [
       "Fuenlabrada"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Fuenlabrada",
-     "shapeID": "28895703B84603018975693"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "ES:28065",
@@ -5965,9 +5965,9 @@
      "alt": [
       "Getafe"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Getafe",
-     "shapeID": "28895703B88675747570516"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "ES:28074",
@@ -5975,9 +5975,9 @@
      "alt": [
       "Leganés"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Leganés",
-     "shapeID": "28895703B75517859421571"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "ES:28079",
@@ -5985,9 +5985,9 @@
      "alt": [
       "Madrid"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Madrid",
-     "shapeID": "28895703B99603285877815"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "ES:28080",
@@ -5995,9 +5995,9 @@
      "alt": [
       "Majadahonda"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Majadahonda",
-     "shapeID": "28895703B85322535003236"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "ES:28092",
@@ -6005,9 +6005,9 @@
      "alt": [
       "Móstoles"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Móstoles",
-     "shapeID": "28895703B19379802445785"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "ES:28106",
@@ -6015,9 +6015,9 @@
      "alt": [
       "Parla"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Parla",
-     "shapeID": "28895703B58302111853919"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "ES:28113",
@@ -6025,9 +6025,9 @@
      "alt": [
       "Pinto"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Pinto",
-     "shapeID": "28895703B60415315343282"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "ES:28115",
@@ -6035,9 +6035,9 @@
      "alt": [
       "Pozuelo de Alarcón"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Pozuelo de Alarcón",
-     "shapeID": "28895703B7110809364039"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "ES:28123",
@@ -6045,9 +6045,9 @@
      "alt": [
       "Rivas-Vaciamadrid"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Rivas-Vaciamadrid",
-     "shapeID": "28895703B52811485341978"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "ES:28127",
@@ -6065,9 +6065,9 @@
      "alt": [
       "San Fernando de Henares"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "San Fernando de Henares",
-     "shapeID": "28895703B3095718355887"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "ES:28134",
@@ -6075,9 +6075,9 @@
      "alt": [
       "San Sebastián de los Reyes"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "San Sebastián de los Reyes",
-     "shapeID": "28895703B72339018691614"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "ES:28148",
@@ -6085,9 +6085,9 @@
      "alt": [
       "Torrejón de Ardoz"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Torrejón de Ardoz",
-     "shapeID": "28895703B52382686427467"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "ES:28903",
@@ -6095,9 +6095,9 @@
      "alt": [
       "Tres Cantos"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Tres Cantos",
-     "shapeID": "28895703B37312083450746"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     }
    ],
    "aggregates_not_drawn": []
@@ -6112,9 +6112,9 @@
      "alt": [
       "Bollate"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Bollate",
-     "shapeID": "92750298B56435290393386"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:015070",
@@ -6122,9 +6122,9 @@
      "alt": [
       "Cernusco sul Naviglio"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Cernusco sul Naviglio",
-     "shapeID": "92750298B52023618179368"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:015077",
@@ -6132,9 +6132,9 @@
      "alt": [
       "Cinisello Balsamo"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Cinisello Balsamo",
-     "shapeID": "92750298B24096485799033"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:015081",
@@ -6142,9 +6142,9 @@
      "alt": [
       "Cologno Monzese"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Cologno Monzese",
-     "shapeID": "92750298B8805950211539"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:015093",
@@ -6152,9 +6152,9 @@
      "alt": [
       "Corsico"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Corsico",
-     "shapeID": "92750298B31808215286402"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:015146",
@@ -6162,9 +6162,9 @@
      "alt": [
       "Milano"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Milano",
-     "shapeID": "92750298B73923388708293"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:015166",
@@ -6172,9 +6172,9 @@
      "alt": [
       "Paderno Dugnano"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Paderno Dugnano",
-     "shapeID": "92750298B6773741016641"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:015175",
@@ -6182,9 +6182,9 @@
      "alt": [
       "Pioltello"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Pioltello",
-     "shapeID": "92750298B27312197963658"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:015182",
@@ -6192,9 +6192,9 @@
      "alt": [
       "Rho"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Rho",
-     "shapeID": "92750298B68160772460558"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:015189",
@@ -6202,9 +6202,9 @@
      "alt": [
       "Rozzano"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Rozzano",
-     "shapeID": "92750298B27763710011970"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:015192",
@@ -6212,9 +6212,9 @@
      "alt": [
       "San Donato Milanese"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "San Donato Milanese",
-     "shapeID": "92750298B85953215175005"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:015195",
@@ -6222,9 +6222,9 @@
      "alt": [
       "San Giuliano Milanese"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "San Giuliano Milanese",
-     "shapeID": "92750298B36997317256057"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:015205",
@@ -6232,9 +6232,9 @@
      "alt": [
       "Segrate"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Segrate",
-     "shapeID": "92750298B73549205964006"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:015209",
@@ -6242,9 +6242,9 @@
      "alt": [
       "Sesto San Giovanni"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Sesto San Giovanni",
-     "shapeID": "92750298B50500821939927"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:108012",
@@ -6252,9 +6252,9 @@
      "alt": [
       "Brugherio"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Brugherio",
-     "shapeID": "92750298B12810092376824"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:108019",
@@ -6262,9 +6262,9 @@
      "alt": [
       "Cesano Maderno"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Cesano Maderno",
-     "shapeID": "92750298B69435633682896"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:108023",
@@ -6272,9 +6272,9 @@
      "alt": [
       "Desio"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Desio",
-     "shapeID": "92750298B65286612729599"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:108027",
@@ -6282,9 +6282,9 @@
      "alt": [
       "Limbiate"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Limbiate",
-     "shapeID": "92750298B77297490759310"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:108028",
@@ -6292,9 +6292,9 @@
      "alt": [
       "Lissone"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Lissone",
-     "shapeID": "92750298B8544571784417"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:108033",
@@ -6302,9 +6302,9 @@
      "alt": [
       "Monza"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Monza",
-     "shapeID": "92750298B92862730710242"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     }
    ],
    "aggregates_not_drawn": []
@@ -6992,9 +6992,9 @@
      "alt": [
       "Johannesburg"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "City of Johannesburg 060",
-     "shapeID": "77130982B17531978362530"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "ZA:953781",
@@ -9327,9 +9327,9 @@
      "alt": [
       "Aversa"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Aversa",
-     "shapeID": "92750298B58009758762362"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063001",
@@ -9337,9 +9337,9 @@
      "alt": [
       "Acerra"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Acerra",
-     "shapeID": "92750298B4992639866572"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063002",
@@ -9347,9 +9347,9 @@
      "alt": [
       "Afragola"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Afragola",
-     "shapeID": "92750298B87715342908002"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063005",
@@ -9357,9 +9357,9 @@
      "alt": [
       "Arzano"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Arzano",
-     "shapeID": "92750298B74311596938437"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063011",
@@ -9367,9 +9367,9 @@
      "alt": [
       "Caivano"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Caivano",
-     "shapeID": "92750298B111753876061"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063017",
@@ -9377,9 +9377,9 @@
      "alt": [
       "Casalnuovo di Napoli"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Casalnuovo di Napoli",
-     "shapeID": "92750298B71578703528475"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063023",
@@ -9387,9 +9387,9 @@
      "alt": [
       "Casoria"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Casoria",
-     "shapeID": "92750298B42679685881409"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063034",
@@ -9397,9 +9397,9 @@
      "alt": [
       "Giugliano in Campania"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Giugliano in Campania",
-     "shapeID": "92750298B37192310963599"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063041",
@@ -9407,9 +9407,9 @@
      "alt": [
       "Marano di Napoli"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Marano di Napoli",
-     "shapeID": "92750298B24415310510421"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063045",
@@ -9417,9 +9417,9 @@
      "alt": [
       "Melito di Napoli"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Melito di Napoli",
-     "shapeID": "92750298B322536167273"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063048",
@@ -9427,9 +9427,9 @@
      "alt": [
       "Mugnano di Napoli"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Mugnano di Napoli",
-     "shapeID": "92750298B49172296851528"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063049",
@@ -9437,9 +9437,9 @@
      "alt": [
       "Napoli"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Napoli",
-     "shapeID": "92750298B61166957705593"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063057",
@@ -9447,9 +9447,9 @@
      "alt": [
       "Pomigliano d'Arco"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Pomigliano d'Arco",
-     "shapeID": "92750298B55723479932849"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063059",
@@ -9457,9 +9457,9 @@
      "alt": [
       "Portici"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Portici",
-     "shapeID": "92750298B99969561778602"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063060",
@@ -9467,9 +9467,9 @@
      "alt": [
       "Pozzuoli"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Pozzuoli",
-     "shapeID": "92750298B21345316349896"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063063",
@@ -9477,9 +9477,9 @@
      "alt": [
       "Quarto"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Quarto",
-     "shapeID": "92750298B13426805755348"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063064",
@@ -9487,9 +9487,9 @@
      "alt": [
       "Ercolano"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Ercolano",
-     "shapeID": "92750298B53915407019382"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063067",
@@ -9497,9 +9497,9 @@
      "alt": [
       "San Giorgio a Cremano"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "San Giorgio a Cremano",
-     "shapeID": "92750298B76248468082182"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063068",
@@ -9507,9 +9507,9 @@
      "alt": [
       "San Giuseppe Vesuviano"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "San Giuseppe Vesuviano",
-     "shapeID": "92750298B46065064041381"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063073",
@@ -9517,9 +9517,9 @@
      "alt": [
       "Sant'Antimo"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Sant'Antimo",
-     "shapeID": "92750298B41843143240935"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063079",
@@ -9527,9 +9527,9 @@
      "alt": [
       "Somma Vesuviana"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Somma Vesuviana",
-     "shapeID": "92750298B50341782610285"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063083",
@@ -9537,9 +9537,9 @@
      "alt": [
       "Torre Annunziata"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Torre Annunziata",
-     "shapeID": "92750298B66154432037800"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063084",
@@ -9547,9 +9547,9 @@
      "alt": [
       "Torre del Greco"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Torre del Greco",
-     "shapeID": "92750298B49936870106737"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "IT:063087",
@@ -9557,9 +9557,9 @@
      "alt": [
       "Villaricca"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Villaricca",
-     "shapeID": "92750298B47899150330314"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     }
    ],
    "aggregates_not_drawn": []
@@ -9871,9 +9871,9 @@
      "alt": [
       "Bolton"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Bolton",
-     "shapeID": "12218062B60480085234091"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E08000002",
@@ -9881,9 +9881,9 @@
      "alt": [
       "Bury"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Bury",
-     "shapeID": "12218062B39479901538798"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E08000003",
@@ -9891,9 +9891,9 @@
      "alt": [
       "Manchester"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Manchester",
-     "shapeID": "12218062B99247526005489"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E08000004",
@@ -9901,9 +9901,9 @@
      "alt": [
       "Oldham"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Oldham",
-     "shapeID": "12218062B2969910295056"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E08000005",
@@ -9911,9 +9911,9 @@
      "alt": [
       "Rochdale"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Rochdale",
-     "shapeID": "12218062B77373089314719"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E08000006",
@@ -9921,9 +9921,9 @@
      "alt": [
       "Salford"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Salford",
-     "shapeID": "12218062B53922533702340"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E08000007",
@@ -9931,9 +9931,9 @@
      "alt": [
       "Stockport"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Stockport",
-     "shapeID": "12218062B41257639956094"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E08000008",
@@ -9941,9 +9941,9 @@
      "alt": [
       "Tameside"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Tameside",
-     "shapeID": "12218062B7005162181147"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "UK:E08000009",
@@ -9951,9 +9951,9 @@
      "alt": [
       "Trafford"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Trafford",
-     "shapeID": "12218062B55771965524308"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     }
    ],
    "aggregates_not_drawn": []
@@ -9988,9 +9988,9 @@
      "alt": [
       "Benfica"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Benfica",
-     "shapeID": "12082587B84904324912935"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "PT:110618",
@@ -9998,9 +9998,9 @@
      "alt": [
       "Lumiar"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Lumiar",
-     "shapeID": "12082587B33675874620431"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "PT:110621",
@@ -10008,9 +10008,9 @@
      "alt": [
       "Marvila"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Marvila",
-     "shapeID": "12082587B8699116330732"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "PT:110633",
@@ -10018,9 +10018,9 @@
      "alt": [
       "Olivais"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Olivais",
-     "shapeID": "12082587B41475959030860"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "PT:110639",
@@ -10038,9 +10038,9 @@
      "alt": [
       "Alvalade"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Alvalade",
-     "shapeID": "12082587B99508574849530"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "PT:110656",
@@ -10048,9 +10048,9 @@
      "alt": [
       "Arroios"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Arroios",
-     "shapeID": "12082587B63751264183671"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "PT:110707",
@@ -10058,9 +10058,9 @@
      "alt": [
       "Loures"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Loures",
-     "shapeID": "12082587B29640599118180"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "PT:110728",
@@ -10128,9 +10128,9 @@
      "alt": [
       "Rio de Mouro"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Rio De Mouro",
-     "shapeID": "12082587B10314971375276"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "PT:111122",
@@ -10198,9 +10198,9 @@
      "alt": [
       "Águas Livres"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Aguas Livres",
-     "shapeID": "12082587B32726240312965"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "PT:111516",
@@ -10218,9 +10218,9 @@
      "alt": [
       "Odivelas"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Odivelas",
-     "shapeID": "12082587B73531027915828"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "PT:111608",
@@ -10308,9 +10308,9 @@
      "alt": [
       "Amora"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Amora",
-     "shapeID": "12082587B50084561267710"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "PT:151005",
@@ -10318,9 +10318,9 @@
      "alt": [
       "Corroios"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Corroios",
-     "shapeID": "12082587B18083910991796"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "PT:151007",
@@ -10434,9 +10434,9 @@
       "Ψευδοδημοτική Κοινότητα Ηρακλείου",
       "Irakleio"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Irakleio",
-     "shapeID": "53547021B61397551596629"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "EL:46050101",
@@ -10500,9 +10500,9 @@
       "Ψευδοδημοτική Κοινότητα Περιστερίου",
       "Peristeri"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Peristeri",
-     "shapeID": "53547021B39305400178376"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "EL:47030101",
@@ -10566,9 +10566,9 @@
       "Ψευδοδημοτική Κοινότητα Καλλιθέας",
       "Kallithea"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Kallithea",
-     "shapeID": "53547021B28142208211838"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "EL:48020000",
@@ -10599,9 +10599,9 @@
       "Ψευδοδημοτική Κοινότητα Γλυφάδας",
       "Glyfada"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Glyfada",
-     "shapeID": "53547021B42397561694605"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "EL:48050101",
@@ -10759,9 +10759,9 @@
      "alt": [
       "Warszawa"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Warszawa",
-     "shapeID": "59564084B58839780764160"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "PL:1007141290801",
@@ -10769,9 +10769,9 @@
      "alt": [
       "Legionowo"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Legionowo",
-     "shapeID": "59564084B85285965455834"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "PL:1007141291702",
@@ -10779,9 +10779,9 @@
      "alt": [
       "Otwock"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Otwock",
-     "shapeID": "59564084B12247419932642"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "PL:1007141293402",
@@ -10789,9 +10789,9 @@
      "alt": [
       "Marki"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Marki",
-     "shapeID": "59564084B1016036347883"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "PL:1007141293403",
@@ -10799,9 +10799,9 @@
      "alt": [
       "Ząbki"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Ząbki",
-     "shapeID": "59564084B13667873514253"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "PL:1007141293412",
@@ -10839,9 +10839,9 @@
      "alt": [
       "Pruszków"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Pruszków",
-     "shapeID": "59564084B90826864991976"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "PL:1007141303205",
@@ -10876,9 +10876,9 @@
      "alt": [
       "Almere"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Almere",
-     "shapeID": "6326949B15537896627734"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "NL:GM0358",
@@ -10886,9 +10886,9 @@
      "alt": [
       "Aalsmeer"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Aalsmeer",
-     "shapeID": "6326949B69762252447495"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "NL:GM0362",
@@ -10896,9 +10896,9 @@
      "alt": [
       "Amstelveen"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Amstelveen",
-     "shapeID": "6326949B86462259358438"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "NL:GM0363",
@@ -10906,9 +10906,9 @@
      "alt": [
       "Amsterdam"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Amsterdam",
-     "shapeID": "6326949B30737301574950"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "NL:GM0375",
@@ -10916,9 +10916,9 @@
      "alt": [
       "Beverwijk"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Beverwijk",
-     "shapeID": "6326949B38309574133073"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "NL:GM0383",
@@ -10926,9 +10926,9 @@
      "alt": [
       "Castricum"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Castricum",
-     "shapeID": "6326949B28698094502949"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "NL:GM0384",
@@ -10936,9 +10936,9 @@
      "alt": [
       "Diemen"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Diemen",
-     "shapeID": "6326949B31079897562518"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "NL:GM0385",
@@ -10946,9 +10946,9 @@
      "alt": [
       "Edam-Volendam"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Edam-Volendam",
-     "shapeID": "6326949B91205406123023"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "NL:GM0392",
@@ -10956,9 +10956,9 @@
      "alt": [
       "Haarlem"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Haarlem",
-     "shapeID": "6326949B1246311998557"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "NL:GM0394",
@@ -10966,9 +10966,9 @@
      "alt": [
       "Haarlemmermeer"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Haarlemmermeer",
-     "shapeID": "6326949B97819203783200"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "NL:GM0396",
@@ -10976,9 +10976,9 @@
      "alt": [
       "Heemskerk"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Heemskerk",
-     "shapeID": "6326949B56112339503679"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "NL:GM0402",
@@ -10986,9 +10986,9 @@
      "alt": [
       "Hilversum"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Hilversum",
-     "shapeID": "6326949B10155979142139"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "NL:GM0406",
@@ -10996,9 +10996,9 @@
      "alt": [
       "Huizen"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Huizen",
-     "shapeID": "6326949B75136097066874"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "NL:GM0439",
@@ -11006,9 +11006,9 @@
      "alt": [
       "Purmerend"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Purmerend",
-     "shapeID": "6326949B8869090595059"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "NL:GM0451",
@@ -11016,9 +11016,9 @@
      "alt": [
       "Uithoorn"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Uithoorn",
-     "shapeID": "6326949B94592387287284"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "NL:GM0453",
@@ -11026,9 +11026,9 @@
      "alt": [
       "Velsen"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Velsen",
-     "shapeID": "6326949B54976538615964"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "NL:GM0479",
@@ -11036,9 +11036,9 @@
      "alt": [
       "Zaanstad"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Zaanstad",
-     "shapeID": "6326949B52425900686836"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "NL:GM0736",
@@ -11046,9 +11046,9 @@
      "alt": [
       "De Ronde Venen"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "De Ronde Venen",
-     "shapeID": "6326949B84891227552476"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "NL:GM1904",
@@ -11056,9 +11056,9 @@
      "alt": [
       "Stichtse Vecht"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Stichtse Vecht",
-     "shapeID": "6326949B24894131059498"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "NL:GM1942",
@@ -11066,9 +11066,9 @@
      "alt": [
       "Gooise Meren"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Gooise Meren",
-     "shapeID": "6326949B89511959643085"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     }
    ],
    "aggregates_not_drawn": []
@@ -11093,9 +11093,9 @@
      "alt": [
       "Anderlecht"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Anderlecht",
-     "shapeID": "45533444B36433362163086"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "BE:21002",
@@ -11103,9 +11103,9 @@
      "alt": [
       "Auderghem / Oudergem"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Auderghem | Oudergem",
-     "shapeID": "45533444B4375576306312"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "BE:21004",
@@ -11113,9 +11113,9 @@
      "alt": [
       "Bruxelles / Brussel"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Bruxelles | Brussel",
-     "shapeID": "45533444B10712148045407"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "BE:21005",
@@ -11123,9 +11123,9 @@
      "alt": [
       "Etterbeek"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Etterbeek",
-     "shapeID": "45533444B85413476268082"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "BE:21006",
@@ -11133,9 +11133,9 @@
      "alt": [
       "Evere"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Evere",
-     "shapeID": "45533444B36893222722226"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "BE:21007",
@@ -11153,9 +11153,9 @@
      "alt": [
       "Ixelles / Elsene"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Ixelles | Elsene",
-     "shapeID": "45533444B77463096226300"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "BE:21010",
@@ -11163,9 +11163,9 @@
      "alt": [
       "Jette"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Jette",
-     "shapeID": "45533444B30392141977878"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "BE:21012",
@@ -11193,9 +11193,9 @@
      "alt": [
       "Schaerbeek / Schaarbeek"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Schaerbeek | Schaarbeek",
-     "shapeID": "45533444B35937201820823"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "BE:21016",
@@ -11203,9 +11203,9 @@
      "alt": [
       "Uccle / Ukkel"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Uccle /|Ukkel",
-     "shapeID": "45533444B40048773130452"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "BE:21018",
@@ -11233,9 +11233,9 @@
      "alt": [
       "Asse"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Asse",
-     "shapeID": "45533444B99846299330937"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "BE:23016",
@@ -11243,9 +11243,9 @@
      "alt": [
       "Dilbeek"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Dilbeek",
-     "shapeID": "45533444B55400877901350"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "BE:23025",
@@ -11253,9 +11253,9 @@
      "alt": [
       "Grimbergen"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Grimbergen",
-     "shapeID": "45533444B37356599328798"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "BE:23027",
@@ -11273,9 +11273,9 @@
      "alt": [
       "Sint-Pieters-Leeuw"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Sint-Pieters-Leeuw",
-     "shapeID": "45533444B83843188622560"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "BE:23088",
@@ -11293,9 +11293,9 @@
      "alt": [
       "Zaventem"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Zaventem",
-     "shapeID": "45533444B85045438158254"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "BE:25014",
@@ -11313,9 +11313,9 @@
      "alt": [
       "Waterloo"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Waterloo",
-     "shapeID": "45533444B4152665438435"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     }
    ],
    "aggregates_not_drawn": []
@@ -11340,9 +11340,9 @@
      "alt": [
       "Vallentuna"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Vallentuna",
-     "shapeID": "48621223B73427044737493"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "SE:0117",
@@ -11380,9 +11380,9 @@
      "alt": [
       "Huddinge"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Huddinge",
-     "shapeID": "48621223B60918848661278"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "SE:0127",
@@ -11390,9 +11390,9 @@
      "alt": [
       "Botkyrka"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Botkyrka",
-     "shapeID": "48621223B77133590858681"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "SE:0136",
@@ -11420,9 +11420,9 @@
      "alt": [
       "Täby"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "TÃ¤by",
-     "shapeID": "48621223B59936429448589"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "SE:0162",
@@ -11430,9 +11430,9 @@
      "alt": [
       "Danderyd"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Danderyd",
-     "shapeID": "48621223B14195996214665"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "SE:0163",
@@ -11440,9 +11440,9 @@
      "alt": [
       "Sollentuna"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Sollentuna",
-     "shapeID": "48621223B24791813653568"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "SE:0180",
@@ -11460,9 +11460,9 @@
      "alt": [
       "Nacka"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Nacka",
-     "shapeID": "48621223B40624292078957"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "SE:0183",
@@ -11470,9 +11470,9 @@
      "alt": [
       "Sundbyberg"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Sundbyberg",
-     "shapeID": "48621223B71045884733760"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "SE:0184",
@@ -11517,9 +11517,9 @@
      "alt": [
       "Frederiksberg"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Frederiksberg",
-     "shapeID": "71786716B96110524527409"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "DK:151",
@@ -11527,9 +11527,9 @@
      "alt": [
       "Ballerup"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Ballerup",
-     "shapeID": "71786716B39657663077774"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "DK:153",
@@ -11537,9 +11537,9 @@
      "alt": [
       "Brøndby"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Brøndby",
-     "shapeID": "71786716B57593819644291"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "DK:157",
@@ -11547,9 +11547,9 @@
      "alt": [
       "Gentofte"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Gentofte",
-     "shapeID": "71786716B53270433009438"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "DK:159",
@@ -11557,9 +11557,9 @@
      "alt": [
       "Gladsaxe"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Gladsaxe",
-     "shapeID": "71786716B38121687618802"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "DK:167",
@@ -11567,9 +11567,9 @@
      "alt": [
       "Hvidovre"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Hvidovre",
-     "shapeID": "71786716B96315335718138"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "DK:169",
@@ -11577,9 +11577,9 @@
      "alt": [
       "Høje-Taastrup"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Høje-Taastrup",
-     "shapeID": "71786716B42272868765696"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "DK:173",
@@ -11587,9 +11587,9 @@
      "alt": [
       "Lyngby-Taarbæk"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Lyngby-Taarbæk",
-     "shapeID": "71786716B60882746740321"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "DK:175",
@@ -11597,9 +11597,9 @@
      "alt": [
       "Rødovre"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Rødovre",
-     "shapeID": "71786716B94034131707530"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "DK:185",
@@ -11607,9 +11607,9 @@
      "alt": [
       "Tårnby"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Tårnby",
-     "shapeID": "71786716B34155480621965"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "DK:190",
@@ -11617,9 +11617,9 @@
      "alt": [
       "Furesø"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Furesø",
-     "shapeID": "71786716B96319125747184"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "DK:230",
@@ -11627,9 +11627,9 @@
      "alt": [
       "Rudersdal"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Rudersdal",
-     "shapeID": "71786716B12088833667766"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "DK:240",
@@ -11637,9 +11637,9 @@
      "alt": [
       "Egedal"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Egedal",
-     "shapeID": "71786716B46121035431506"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     },
     {
      "place": "DK:253",
@@ -11647,9 +11647,9 @@
      "alt": [
       "Greve"
      ],
-     "kind": "exact: official area with the same name as the place, at the chosen level",
-     "area": "Greve",
-     "shapeID": "71786716B88423540640223"
+     "kind": "dot: no official area of its own name at this level (or it shares one)",
+     "area": null,
+     "shapeID": null
     }
    ],
    "aggregates_not_drawn": []

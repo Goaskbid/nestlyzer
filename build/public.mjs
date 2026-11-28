@@ -9,7 +9,7 @@ import {slimPages,inventory} from './slim_place_pages.mjs';
 import {packRows} from './pack_place_rows.mjs';
 const meta = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/meta.json'), 'utf8'));
 const slug = (s) => String(s || '').normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/ß/g, 'ss').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-const dirs = ['assets', 'vendor', 'data', 'best', 'method', 'legal', 'about', 'press', 'business', 'insights', 'world', 'incentives', 'districts', 'immigration', 'evidence-lab', 'places', 'rankings', 'sources', ...meta.countries.map((c) => slug(c.name))];
+const dirs = ['assets', 'vendor', 'data', 'best', 'method', 'legal', 'about', 'press', 'business', 'insights', 'world', 'incentives', 'districts', 'immigration', 'evidence-lab', 'places', 'rankings', 'sources', 'atlas', ...meta.countries.map((c) => slug(c.name))];
 const files = ['index.html', '404.html', 'ads.txt', 'favicon.ico', 'favicon.svg', 'robots.txt', 'site.webmanifest', 'sw.js', 'offline.html', 'CNAME', '.nojekyll', 'VERSION.txt', '.well-known/tdmrep.json'];
 // Reject destructive destinations BEFORE removing any output. This command never writes outside this checkout.
 const relOut = path.relative(ROOT, OUT);

@@ -1,0 +1,95 @@
+{
+ "note": "Official operator and EU figures; operators define 'on time' differently, so the figures show direction and scale, not a strict league table.",
+ "rows": [
+  {
+   "cc": "CH",
+   "who": "SBB (all trains)",
+   "year": 2025,
+   "pct": 94.1,
+   "rule": "on time at the destination (SBB's own definition)",
+   "src": "SBB annual figures as reported by Blick, January 2026",
+   "url": "https://www.blick.ch/wirtschaft/nur-5-prozent-der-zuege-zu-spaet-sbb-waren-letztes-jahr-so-puenktlich-wie-noch-nie-id21636638.html"
+  },
+  {
+   "cc": "NL",
+   "who": "long-distance and high-speed trains",
+   "year": 2022,
+   "pct": 88,
+   "rule": "at most 5 minutes late",
+   "src": "European Commission, 9th rail market monitoring report (2025)",
+   "url": "https://data.consilium.europa.eu/doc/document/ST-12018-2025-ADD-2/en/pdf"
+  },
+  {
+   "cc": "BE",
+   "who": "long-distance and high-speed trains",
+   "year": 2022,
+   "pct": 88,
+   "rule": "at most 5 minutes late",
+   "src": "European Commission, 9th rail market monitoring report (2025)",
+   "url": "https://data.consilium.europa.eu/doc/document/ST-12018-2025-ADD-2/en/pdf"
+  },
+  {
+   "cc": "EU",
+   "who": "EU average, long-distance and high-speed",
+   "year": 2022,
+   "pct": 87,
+   "rule": "at most 5 minutes late",
+   "src": "European Commission, 9th rail market monitoring report (2025)",
+   "url": "https://data.consilium.europa.eu/doc/document/ST-12018-2025-ADD-2/en/pdf"
+  },
+  {
+   "cc": "DE",
+   "who": "DB Fernverkehr (ICE, IC, EC)",
+   "year": 2024,
+   "pct": 62.5,
+   "rule": "less than 6 minutes late at each stop",
+   "src": "DB Fernverkehr annual report 2025",
+   "url": "https://ir.deutschebahn.com/fileadmin/Deutsch/2026/Toechter_2025/DB25_Fernverkehr_web.pdf"
+  },
+  {
+   "cc": "DE",
+   "who": "DB Fernverkehr (ICE, IC, EC)",
+   "year": 2025,
+   "pct": 60.1,
+   "rule": "less than 6 minutes late at each stop",
+   "src": "DB Fernverkehr annual report 2025",
+   "url": "https://ir.deutschebahn.com/fileadmin/Deutsch/2026/Toechter_2025/DB25_Fernverkehr_web.pdf"
+  },
+  {
+   "cc": "AT",
+   "who": "ÖBB (all passenger trains)",
+   "year": 2025,
+   "pct": 94.1,
+   "rule": "on time by ÖBB's own definition",
+   "src": "ÖBB balance-sheet figures 2025 (Zahlentabelle Bilanz 2025)",
+   "url": "https://presse.oebb.at/de/dam/jcr:232f71a7-56a4-436f-b6f9-41a31fc2c5e4/%C3%96BB_Zahlentabelle_Bilanz%202025.pdf"
+  },
+  {
+   "cc": "SE",
+   "who": "all passenger trains",
+   "year": 2025,
+   "pct": 88.6,
+   "rule": "at most 5 minutes late at the final stop",
+   "src": "Trafikverket, January 2026",
+   "url": "https://www.trafikverket.se/om-oss/nyheter/nationella-nyheter/2026/januari/nio-av-tio-tag-i-tid-nar-punktligheten-forbattrades-2025/"
+  },
+  {
+   "cc": "UK",
+   "who": "all passenger trains on Network Rail lines",
+   "year": 2025,
+   "pct": 84.3,
+   "rule": "within 3 minutes at each station, April 2024 to March 2025",
+   "src": "Office of Rail and Road, annual assessment of Network Rail 2024-25",
+   "url": "https://www.orr.gov.uk/annual-assessment-network-rail-2024-2025/train-service-performance"
+  },
+  {
+   "cc": "FR",
+   "who": "high-speed trains (TGV)",
+   "year": 2025,
+   "pct": 75,
+   "rule": "at most 5 minutes late at the terminus; provisional, from a 25% delay rate",
+   "src": "Autorité de régulation des transports, rail figures 2025 (first results)",
+   "url": "https://www.autorite-transports.fr/wp-content/uploads/2026/06/art-bilan-ferroviaire-france-premiers-chiffres-2025.pdf"
+  }
+ ]
+}

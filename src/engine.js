@@ -72,6 +72,9 @@
     family: 'modelled from young residents, growth and calm', jobs: 'modelled from working-age share and size',
     lifestyle: 'modelled from size and the population within 30 km', environment: 'modelled from low crowding',
     foundation: '', demographics: '' };
+  /* NZ11-01: a custom profile built from a fixed one (base) keeps every rule tied to that profile's key */
+  var RK_ENG = null;
+  function rk(k) { var P = RK_ENG && RK_ENG.profiles, p = P && P[k], b = p && (p.base || p.baseProfile); return b && b !== k && P[b] && !P[b].base && !P[b].baseProfile ? b : k; }
   function Engine(meta, opts) {
     opts = opts || {};
     this._cacheIdentity = ++ENGINE_CACHE_SEQUENCE;
@@ -83,7 +86,7 @@
     // activity already is. Countries under comprehensive sanctions are never ranked against other countries.
     if (meta.categoryLabels && !meta.categoryLabels.observed) meta.categoryLabels.observed = 'Population and economic context';
     this.sanctioned = (meta.config && meta.config.sanctioned) || { RU: 'EU, Swiss, UK and US sanctions against Russia' };
-    this.profiles = JSON.parse(JSON.stringify(this.cfg.profiles));
+    this.profiles = JSON.parse(JSON.stringify(this.cfg.profiles)); RK_ENG = this;
     if (this.method === 'v1') delete this.profiles.coastal;
     var self = this;
     // allFactors: legacy rule (scored or category access); v1 excludes the new geo factors
@@ -303,16 +306,16 @@
     // what this group dislikes nearby (2.11.3): noise, heavy industry, flooding and heat, crowding, steep terrain, dirty air
     var nz = p && p.avoid && p.avoid.length && this.method !== 'v1' ? this.nuisances(r, p.avoid) : null;
     if (!p) return cats;
-    var ob = this.method !== 'v1' && key !== LOTTERY && key !== 'self_fit' ? this.observedScore(r, p, key) : null;
-    if (!p.focus && !nz && ob == null && key !== 'sun_retiree' && !(this.evidence==='fixed' && this.cfg.semanticIntegrity)) return cats;
+    var ob = this.method !== 'v1' && rk(key) !== LOTTERY && rk(key) !== 'self_fit' ? this.observedScore(r, p, key) : null;
+    if (!p.focus && !nz && ob == null && rk(key) !== 'sun_retiree' && !(this.evidence==='fixed' && this.cfg.semanticIntegrity)) return cats;
     var out = {}; for (var k in cats) out[k] = cats[k];
     if (ob != null) out.observed = ob;
     // 2.15.24: "sun and coast" means a warm, sunny climate. Its climate category is the Koeppen class of the place (measured
     // 1991-2020 climatology), so cool-summer coasts (Maine, Brittany) no longer pass as sun destinations
     // for "retiring abroad, sun and coast" the coast is the sea (audit: Willowick, Ohio scored 100 at 480 km from the sea).
     // The separate "coastal living" profile keeps large-lake shores on purpose (Toronto on Lake Ontario).
-    if (key === 'sun_retiree' && fin(out.coast)) { var ckm = fin((r.factorRaw || {}).geo_sea_km) ? r.factorRaw.geo_sea_km : (r.factorRaw || {}).geo_coast_km; if (fin(ckm)) out.coast = Math.max(0, Math.min(100, 100 - ckm * 2)); }
-    if (key === 'sun_retiree' && r.x && SUNK[r.x.kg] != null) out.climate = r.x.kg === 'Cfa' && fin(r.lat) ? Math.max(0, Math.min(100, 100 - (Math.abs(r.lat) - 28) * 4)) : SUNK[r.x.kg];   // humid-subtropical spans Florida to Rhode Island: its winters warm with lower latitude
+    if (rk(key) === 'sun_retiree' && fin(out.coast)) { var ckm = fin((r.factorRaw || {}).geo_sea_km) ? r.factorRaw.geo_sea_km : (r.factorRaw || {}).geo_coast_km; if (fin(ckm)) out.coast = Math.max(0, Math.min(100, 100 - ckm * 2)); }
+    if (rk(key) === 'sun_retiree' && r.x && SUNK[r.x.kg] != null) out.climate = r.x.kg === 'Cfa' && fin(r.lat) ? Math.max(0, Math.min(100, 100 - (Math.abs(r.lat) - 28) * 4)) : SUNK[r.x.kg];   // humid-subtropical spans Florida to Rhode Island: its winters warm with lower latitude
     if (this.evidence==='fixed' && this.cfg.semanticIntegrity) {
       var fr=r.factorScores||{};
       // 2.15.16: tax stays in every household ranking, as ONE explicit case per profile (no averaging of unlike cases):
@@ -336,10 +339,10 @@
       var cl = (r.factorScores || {})['cluster_' + key]; if (fin(cl)) out.cluster = cl;
       // 2.15.25: outside the US, the cluster comes from official local job statistics by sector (build_local_clusters.js):
       // industry jobs within 15 km for production profiles, service jobs within 15 km for office and finance profiles
-      else if (r.x && fin(r.x[IND_P[key] ? 'clu_ind' : 'clu_svc'])) out.cluster = r.x[IND_P[key] ? 'clu_ind' : 'clu_svc'];
+      else if (r.x && fin(r.x[IND_P[rk(key)] ? 'clu_ind' : 'clu_svc'])) out.cluster = r.x[IND_P[rk(key)] ? 'clu_ind' : 'clu_svc'];
       /* r15: where no cluster statistic exists, a hub airport next door is itself a logistics cluster (cargo terminals,
          forwarders, warehouses gather around it): within 5 km counts 85, fading to 0 at 30 km. Shown as an estimate. */
-      if (!fin(out.cluster) && (key === 'biz_logistics' || key === 'biz_fulfilment')) { var ha = (r.factorRaw || {}).geo_hub_airport_km; if (fin(ha) && ha < 30) { out.cluster = Math.round(ha <= 5 ? 85 : 85 * (30 - ha) / 25); out.clusterProxy = 'hub airport ' + Math.round(ha) + ' km'; } }
+      if (!fin(out.cluster) && (rk(key) === 'biz_logistics' || rk(key) === 'biz_fulfilment')) { var ha = (r.factorRaw || {}).geo_hub_airport_km; if (fin(ha) && ha < 30) { out.cluster = Math.round(ha <= 5 ? 85 : 85 * (30 - ha) / 25); out.clusterProxy = 'hub airport ' + Math.round(ha) + ' km'; } }
     }
     return out;
   };
@@ -352,7 +355,7 @@
   var SUNK = { Csa: 100, BSh: 95, BWh: 90, Aw: 90, As: 90, Am: 85, Af: 80, Cfa: 80, Csb: 60, Cwa: 75, BSk: 55, BWk: 50, Cfb: 35, Cwb: 45, Csc: 30, Cfc: 15, Dsa: 40, Dwa: 30, Dfa: 30, Dsb: 25, Dwb: 20, Dfb: 15, Dfc: 5, Dfd: 0, Dwc: 5, Dsc: 10, ET: 0, EF: 0 };
   Engine.prototype.observedScore = function (r, p, key) {
     var f = r.factorRaw || {}, s = r.factorScores || {}, v = null;
-    if (OBS_SKIP[key]) return null;
+    if (OBS_SKIP[rk(key)]) return null;
     if (p.business) {
       for (var k in s) if (k.indexOf('cluster_') === 0 && fin(s[k])) return null;
       if (r.x && (fin(r.x.clu_ind) || fin(r.x.clu_svc))) return null;   // the local cluster already is the observed reality
@@ -371,7 +374,7 @@
     return v == null ? null : clamp(50 + v * 5, 0, 100);
   };
   Engine.prototype.weightsFor = function (r, key) {
-    if (key === LOTTERY && r && r.country !== 'CH') return this.cfg.europeLotteryWeights;
+    if (rk(key) === LOTTERY && r && r.country !== 'CH') return this.cfg.europeLotteryWeights;
     var p = this.profiles[key];
     // the audited legacy method (v1) keeps a profile's original weights where they were changed later (weightsV1)
     if (p && this.method === 'v1' && p.weightsV1) return p.weightsV1;
@@ -379,12 +382,12 @@
     // 2.15.28: business priorities keep the meaning of the profile they start from (sector, cluster, tax case, observed reality);
     // only the weights are the user's. A custom profile without a base gets nothing added.
     var sk = p && p.custom && p.baseProfile && this.profiles[p.baseProfile] ? p.baseProfile : key;
-    if (this.method !== 'v1' && p && r && key !== LOTTERY && key !== 'self_fit' && (!p.custom || sk !== key) && !w.observed && this.observedScore(r, p, sk) != null) {   // only where it is measured, so coverage never counts it as missing
+    if (this.method !== 'v1' && p && r && rk(key) !== LOTTERY && rk(key) !== 'self_fit' && (!p.custom || sk !== key) && !w.observed && this.observedScore(r, p, sk) != null) {   // only where it is measured, so coverage never counts it as missing
        var o = {}; for (var k in w) o[k] = w[k]; o.observed = p.business ? 15 : 8; return o; }
     return w;
   };
   Engine.prototype.usesAccess = function (key, country) {
-    if (key === LOTTERY && country !== 'CH') return true;
+    if (rk(key) === LOTTERY && country !== 'CH') return true;
     var p = this.profiles[key], w = p && p.weights;
     return !!(w && (w.commuter_access || w.student_access));
   };
@@ -433,21 +436,21 @@
     /* 2.15.23 honest certainty: a score that rests on a small part of the profile's weight is pulled toward the neutral 50,
        in proportion to what is missing (full effect from 70% of the weight measured). Without this, a budget ranking with no
        housing-cost data could show 90s from transport alone. Ordering among equally covered places is unchanged. */
-    if (this.method !== 'v1' && key !== LOTTERY && key !== 'self_fit') { var cf = Math.max(0.35, Math.min(1, (den / total) / 0.7)); score = 50 + (score - 50) * cf; }
+    if (this.method !== 'v1' && rk(key) !== LOTTERY && rk(key) !== 'self_fit') { var cf = Math.max(0.35, Math.min(1, (den / total) / 0.7)); score = 50 + (score - 50) * cf; }
     stage('missing_weight_neutral_shrink');
     var strictCov = coverage;   // 2.13.2: the same measure in every country, before the country-specific adjustments below
-    if (key === LOTTERY) score = this.softLotteryPenalty(score, cats, r);
+    if (rk(key) === LOTTERY) score = this.softLotteryPenalty(score, cats, r);
     else { var m = p.min || {}; for (c in m) if (fin(cats[c]) && cats[c] < m[c]) score = Math.min(score, 55 + cats[c] * 0.45); }
     stage('lottery_or_minimum_cap');
     /* a weak core need is not made up for by strengths elsewhere (2.11.3): every category that carries 15% or more of the
        weight costs 1.5 x its share for each point under 50 (measured values only; legacy method unchanged) */
-    if (this.method !== 'v1' && key !== LOTTERY && r.country === 'CH') { var st0 = p.strict || {}; for (c in st0) if (c !== 'foundation' && c !== 'coast' && fin(cats[c]) && cats[c] < st0[c]) score -= (st0[c] - cats[c]) * 0.5; }
+    if (this.method !== 'v1' && rk(key) !== LOTTERY && r.country === 'CH') { var st0 = p.strict || {}; for (c in st0) if (c !== 'foundation' && c !== 'coast' && fin(cats[c]) && cats[c] < st0[c]) score -= (st0[c] - cats[c]) * 0.5; }
     stage('swiss_strict_penalty');
     // 2.15.16 budget reality: a fixed income cannot pay for the most expensive housing markets, however good the doctors
     // and safety are; profiles with softFloors (budget, and the defining climate of a sun retiree) lose points below them in every country (not only the Swiss floors above)
     if (this.method !== 'v1' && p.softFloors) { var sf = p.softFloors; for (c in sf) { var f0 = Array.isArray(sf[c]) ? sf[c][0] : sf[c], k0 = Array.isArray(sf[c]) ? sf[c][1] : 0.5; if (fin(cats[c]) && cats[c] < f0) score -= (f0 - cats[c]) * k0; } }
     stage('profile_soft_floors');
-    if (this.method !== 'v1' && key !== LOTTERY) { var tw0 = 0, pen = 0; for (c in w) tw0 += w[c]; for (c in w) if (w[c] / tw0 >= 0.15 && fin(cats[c]) && cats[c] < 50 && !px[c]) pen += w[c] / tw0 * (50 - cats[c]) * 1.5; score = Math.max(0, score - pen); }
+    if (this.method !== 'v1' && rk(key) !== LOTTERY) { var tw0 = 0, pen = 0; for (c in w) tw0 += w[c]; for (c in w) if (w[c] / tw0 >= 0.15 && fin(cats[c]) && cats[c] < 50 && !px[c]) pen += w[c] / tw0 * (50 - cats[c]) * 1.5; score = Math.max(0, score - pen); }
     stage('weak_core_penalty');
     if (r.country !== 'CH') {
       var sourceCount = Number(r.availableFactorCount || Object.keys(r.factorScores || {}).length || 0);
@@ -461,7 +464,7 @@
        common floor (8; 6 for the lottery profile) and marks it `thin` when less than half of the profile's weight rests on
        measured data or less than 55% is covered once estimates count half. Thin places stay ranked, after the others.
        Method v1 keeps the legacy rule (Switzerland 55, elsewhere 8) so the legacy fixtures stay reproducible. */
-    var floor = this.method === 'v1' ? (key === LOTTERY ? (r.country === 'CH' ? 12 : 6) : (r.country === 'CH' ? minCoverage : 8)) : (r.country === 'CH' && minCoverage === 0 ? 0 : key === LOTTERY ? 6 : 8);
+    var floor = this.method === 'v1' ? (rk(key) === LOTTERY ? (r.country === 'CH' ? 12 : 6) : (r.country === 'CH' ? minCoverage : 8)) : (r.country === 'CH' && minCoverage === 0 ? 0 : rk(key) === LOTTERY ? 6 : 8);
     if (coverage < floor) return null;
     /* coverage above is the legacy ranking input (count-based floor outside Switzerland, kept so rankings do not change
        silently). What users see is `weighted`: the share of this profile's weight whose category has a value, and
@@ -509,7 +512,7 @@
     // Penalties operate on both endpoints and stay visible as a separate model adjustment.
     var penalty=0; detail.forEach(function(d){d.points=d.value===null?0:d.value*d.knownWeight/total;});
     lower=clamp(lower-penalty,0,100);upper=clamp(upper-penalty,lower,100);
-    if (coverage < (key === LOTTERY ? 6 : 8)) return null;
+    if (coverage < (rk(key) === LOTTERY ? 6 : 8)) return null;
     return {score:lower,lower:lower,upper:upper,penalty:penalty,coverage:Math.round(coverage),
       weighted:Math.round(coverage),measured:Math.round(measuredCoverage),cats:cats,
       thin:measuredCoverage<50||coverage<55,contributions:detail,missingWeight:unresolved/total*100,
@@ -526,16 +529,25 @@
       comparison:'within-country:'+r.country,score:x.score,upper:x.upper==null?x.score:x.upper,
       coverage:x.coverage,measured:x.measured,receipt:x.receipt||null,contributions:x.contributions||[],
       readiness:this.profiles[key].must?this.mustStatus(r,this.profiles[key]):[],
-      validation:(this.cfg.profileEvidence||{})[key]||{status:'not-empirically-validated'}};
+      validation:(this.cfg.profileEvidence||{})[rk(key)]||{status:'not-empirically-validated'}};
+  };
+  /* r21 (audit NZ11-18): one country-aware source resolver for sheets, receipts and exports. A country-specific entry wins;
+     a measure registered country by country never borrows another country's source; a field holding several links is split */
+  function splitUrls(u){return String(u||'').match(/https?:\/\/[^\s;,)]+/g)||[];}
+  Engine.prototype.sourceFor = function(f,cc){
+    f=f||{};var bc=f.by_country&&Object.keys(f.by_country).length?f.by_country:null,m=bc?bc[cc]:f;
+    if(!m)return {name:null,dataset:null,url:null,urls:[],period:null,licence:null,resolved:false};
+    var urls=splitUrls(m.url||m.source_url);
+    return {name:m.source_name||m.source_id||null,dataset:m.dataset||null,url:urls[0]||null,urls:urls,period:m.period||m.source_period||null,licence:m.licence||null,resolved:!!(m.source_name||m.source_id)};
   };
   Engine.prototype.categoryProvenance = function(r,category,key) {
     var ids=this.factorIdsByCat[category]||[], fs=r.factorScores||{},fe=r.factorEst||{},fr=r.factorRaw||{},fl=r.factorLevel||{},self=this;
     var rows=ids.filter(function(id){return fin(fs[id]);}).map(function(id){
-      var f=self.factorById[id]||{},specific=f.by_country&&f.by_country[r.country],m=f.by_country&&Object.keys(f.by_country).length?(specific||{}):f;
+      var f=self.factorById[id]||{},m=f.by_country&&Object.keys(f.by_country).length?(f.by_country[r.country]||{}):f,src=self.sourceFor(f,r.country);
       var estimated=!!fe[id]||id==='n_cost_est_income'||id==='n_ch_price_pressure'||/estimate|modelled|modeled|imput/i.test([f.name,f.description,f.methodology_note,m.methodology_note].join(' '));
       return {factor:id,value:fin(fr[id])?fr[id]:null,normalisedValue:fs[id],estimated:estimated,
         support:fl[id]===0?'local':[1,2,3].indexOf(fl[id])>=0?'regional':fl[id]===9?'national':'unresolved',
-        source:m.source_url||m.url||null,period:m.period||m.source_period||null,unit:f.unit||null};
+        source:src.url,sourceName:src.name,period:src.period,unit:f.unit||null};
     });
     var modelCategories={observed:1,quiet:1,services:1,climate:1,climaterisk:1,outdoor:1,focus:1,freight:1,city:1,environment:1,cluster:1};
     var notes={quiet:'Distance-based nuisance screen, not measured noise exposure.',services:'Population and catchment proxy, not verified service capacity.',climate:'Climate-class and daylight model, not a measured municipal climate panel.',environment:'Composite environment model, including settlement and land shares; not measured access to green space.',cluster:'Derived cluster screen. Inspect the sector, statistical unit, area and year before using it as site evidence.',observed:'Contextual population or economic input; not independently validated preference or business success.'};
@@ -560,7 +572,7 @@
     if (!p || p.disabled) return 'disabled';
     // a whole-city entry outside Europe sums its own districts, which are ranked themselves
     if (r.whole) return 'whole-city entry';
-    if (key === LOTTERY) return '';
+    if (rk(key) === LOTTERY) return '';
     var cats = this.categories(r), c;
     var mp = this.method === 'v1' && 'minPopV1' in p ? p.minPopV1 : p.minPop;
     if (mp && r.population < mp) return 'population floor';
@@ -573,32 +585,32 @@
     }
     if (r.country !== 'CH') {
       if (this.usesAccess(key, country)) {
-        var k = key === 'student' ? 'student_access' : 'commuter_access', min = key === 'student' ? 18 : 12;
+        var k = rk(key) === 'student' ? 'student_access' : 'commuter_access', min = rk(key) === 'student' ? 18 : 12;
         // the commute floor is for commute-centred profiles; a family profile that also weighs the commute must not drop
         // whole countries without a large job centre (Malta, Liechtenstein) (2.11; legacy method unchanged)
         var wacc = this.weightsFor(r, key)[k] || 0;
         if (fin(cats[k]) && cats[k] < min && (this.method === 'v1' || k === 'student_access' || wacc >= 20)) return this.shortCat(k) + ' floor';
       }
-      if (key === 'coastal' && this.method !== 'v1') {
+      if (rk(key) === 'coastal' && this.method !== 'v1') {
         if (!fin(cats.coast) || cats.coast < p.strict.coast) return 'coast floor';
       }
       // v63 wrapper
-      var gate = this.cfg.europeAccessGates[key];
+      var gate = this.cfg.europeAccessGates[rk(key)];
       if (gate) {
         var v = cats[gate[0]];
         if (!fin(v) || v < gate[1]) return 'regional access floor';
       }
-      if (this.method !== 'v1' && SERVICE_CATCHMENT[key]) {
+      if (this.method !== 'v1' && SERVICE_CATCHMENT[rk(key)]) {
         var c30 = (r.factorRaw || {}).geo_catchment_30km;
         if (!fin(c30) || c30 < 50000) return 'daily-services catchment floor';
       }
-      if (key === 'student' && r.population < 9000 && !(cats.student_access >= 78)) return 'campus scale floor';
-      if (key === 'car_free' && r.population < 6000 && !(cats.commuter_access >= 75)) return 'daily-service floor';
+      if (rk(key) === 'student' && r.population < 9000 && !(cats.student_access >= 78)) return 'campus scale floor';
+      if (rk(key) === 'car_free' && r.population < 6000 && !(cats.commuter_access >= 75)) return 'daily-service floor';
       return '';
     }
     var strict = p.strict || {};
     for (c in strict) {
-      if (c === 'foundation' && this.method !== 'v1' && URBAN_NO_FOUNDATION_FLOOR[key]) continue;
+      if (c === 'foundation' && this.method !== 'v1' && URBAN_NO_FOUNDATION_FLOOR[rk(key)]) continue;
       // 2.11.3: in method v2 only the basics floor excludes; the other Swiss floors lower the score instead (scoreRaw), so a
       // place a little under one (Lugano on safety for pensioners) is ranked lower, not removed
       if (this.method !== 'v1' && c !== 'foundation' && c !== 'coast') continue;   // the coast defines coastal living: stays a hard floor

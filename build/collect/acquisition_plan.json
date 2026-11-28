@@ -415,6 +415,40 @@
    "licence": "CC BY 4.0 (Fick and Hijmans 2017)",
    "member": "wc2\\.1_10m_srad_\\d{2}\\.tif$",
    "expect_layers": 12
+  },
+  {
+   "id": "imf_gg_debt",
+   "purpose": "General government gross debt, % of GDP, every country (IMF World Economic Outlook) - replaces the tabulated copy in build/source",
+   "urls": [
+    "https://www.imf.org/external/datamapper/api/v1/GGXWDG_NGDP"
+   ],
+   "reduce": "keep",
+   "licence": {
+    "name": "IMF copyright and usage terms",
+    "url": "https://www.imf.org/external/terms.htm",
+    "commercial_use_confirmed": false,
+    "notes": "IMF data may be reused with attribution; confirm before any commercial redistribution of the raw file."
+   },
+   "source": "imf_weo",
+   "order": 33,
+   "ext": ".json"
+  },
+  {
+   "id": "fr_commune_accounts",
+   "source": "ofgl_comptes_communes",
+   "order": 34,
+   "purpose": "Municipal finances per commune (debt per resident, savings capacity, investment, tax revenue), France 2018-2025 - first country of the municipal-finance layer",
+   "urls": [
+    "https://www.data.gouv.fr/api/1/datasets/r/7701d6a6-97e4-4938-9c38-a852cb14cfba"
+   ],
+   "reduce": "keep",
+   "ext": ".csv",
+   "licence": {
+    "name": "Licence Ouverte / Open Licence 2.0",
+    "url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/",
+    "commercial_use_confirmed": true,
+    "notes": "OFGL aggregates from DGFiP commune balances; attribution: OFGL, data.gouv.fr."
+   }
   }
  ],
  "execution_budget_seconds": 1320,

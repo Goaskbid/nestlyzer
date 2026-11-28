@@ -15,6 +15,21 @@ test('Ask reads profile, country, size and setting from plain words', () => {
   assert.strictEqual(parseAsk('zurich'), null, 'a place name stays a place search');
   assert.strictEqual(parseAsk('bad homburg vor der hoehe'), null, 'a long place name is not a request');
 });
+test('r21 (NZ11-09): Ask never reverses a wish or reads money and age as town size', () => {
+  const parseAsk = loadAsk();
+  const a = parseAsk('quiet town in Switzerland away from an airport');
+  assert.ok(!a.f.airportKm, 'away from an airport is not an airport filter'); assert.ok(a.skipped.some((x) => /airport/.test(x)));
+  const b = parseAsk('not near a railway in Switzerland');
+  assert.ok(!b || !b.f.railKm, 'not near a railway is not a railway filter');
+  const c = parseAsk('rent under 2000 CHF in Switzerland for a family');
+  assert.ok(!c.f.popMax, 'money is not a town size'); assert.ok(c.skipped.some((x) => /money/.test(x)));
+  const d = parseAsk('retiree under 65 in Austria near a lake');
+  assert.ok(!d.f.popMax || d.f.popMax !== 65, 'an age is not a town size');
+  const e = parseAsk('no hot summers family in Austria');
+  assert.notStrictEqual(e.climate, 'med', 'no hot summers is not a Mediterranean climate');
+  assert.strictEqual(parseAsk('single parent with children in Switzerland').profile, 'single_parent');
+  assert.strictEqual(parseAsk('lake town in Austria under 10,000 residents').f.popMax, 10000);
+});
 test('Grades follow the score bands', () => {
   const src = fs.readFileSync(path.join(R, 'src/js/00-core.js'), 'utf8');
   const gradeOf = new Function('fin', /function gradeOf\(v\) \{[^\n]*\}/.exec(src)[0] + '; return gradeOf;')(Number.isFinite);

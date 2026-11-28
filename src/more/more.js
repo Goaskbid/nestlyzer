@@ -59,6 +59,7 @@ var AD_REG = { kids: 'family', fert: 'family', medage: 'people', old: 'people', 
 var AD_LVL = { 0: '', 3: 'district value', 2: 'regional value', 1: 'large-region value', 9: 'national value' };
 function adSrc(f, r) {
   var b = f.by_country && f.by_country[r.country], lv = r.factorLevel && r.factorLevel[f.id];
+  if (!b && f.by_country && Object.keys(f.by_country).length) return 'source for ' + countryName(r.country) + ' not yet registered';
   if (!b) return (f.source_name || '') + (f.source_period ? ', ' + String(f.source_period).replace(/\s*snapshot in embedded build/i, '') : '');
   var world = isWorld(r.country), lvl = lv === 3 && r.country === 'US' ? 'county value' : lv === 3 && r.country === 'IL' ? 'regional council value' : lv === 3 && r.country === 'PT' ? 'municipality value' : lv === 3 && r.country === 'UK' && /^S30/.test(r.oid) ? 'council area value' : AD_LVL[lv];
   var reg = !world && (lv === 3 || lv === 2 || lv === 1) && r.n3 ? ' for ' + (lv === 3 ? nutsName(r.n3) : lv === 2 ? nutsName(r.n2) : nutsName(r.n1)) : world && lv === 2 && r.n2 ? ' for ' + nutsName(r.n2) : '';
@@ -714,7 +715,7 @@ function keyFactsHTML(r) {
     if (f.countries && f.countries.length && f.countries.indexOf(r.country) < 0 && !(f.by_country && f.by_country[r.country])) return;
     var val = adFmtRaw(f, v); if (val == null) return;
     var b = f.by_country && f.by_country[r.country];
-    cand.push({ f: f, val: val, lv: lv, w: (w[f.category] || 0) + (f.score_role === 'raw' ? -0.5 : 0), yr: b ? b.period : (f.source_period || ''), src: b ? b.source_name : (f.source_name || '') });
+    cand.push({ f: f, val: val, lv: lv, w: (w[f.category] || 0) + (f.score_role === 'raw' ? -0.5 : 0), yr: ENGINE.sourceFor(f, r.country).period || '', src: ENGINE.sourceFor(f, r.country).name || 'source not yet registered' });
   });
   // the place's own and district figures first; regional and national ones only fill up a short list, and say so
   // business: only figures that matter to the site (its weighted categories and site-fit measures), and the
@@ -798,8 +799,8 @@ function evidenceCSV() {
       var fr = r.factorRaw || {}, lv = r.factorLevel || {};
       META.factors.forEach(function (f) {
         var v = adFmtRaw(f, fr[f.id]); if (v == null) return;
-        var b = f.by_country && f.by_country[r.country], l = lv[f.id] || 1;
-        L.push(['figure', r.id, r.name, f.name, v, b ? b.period : (f.source_period || ''), l === 9 ? 'country' : l === 2 ? 'region' : l === 3 ? (kfLevel(r, 3) || 'district') : 'place', b ? b.source_name : (f.source_name || '')]);
+        var so = ENGINE.sourceFor(f, r.country), l = lv[f.id] || 1;
+        L.push(['figure', r.id, r.name, f.name, v, so.period || '', l === 9 ? 'country' : l === 2 ? 'region' : l === 3 ? (kfLevel(r, 3) || 'district') : 'place', so.name || 'source not yet registered']);
       });
       var cx = cxRows(r); if (cx) cx.items.forEach(function (b) { var o = b.last; L.push(['context', r.id, r.name, o.label + (cxDim(o) ? ' (' + cxDim(o) + ')' : ''), cxVal(o) + (o.statistic ? ' [' + o.statistic + ']' : ''), String(o.reference_period), cxGeo(o, cx.rel), o.source_id + ' ' + (o.source_url || '')]); });
       if (s.note) L.push(['note', r.id, r.name, 'Your note', s.note, '', '', '']);
@@ -2001,7 +2002,8 @@ function sheetHTML(r, k) {
     sheetDist(r, function (q) { return (q.factorRaw || {})[k]; }, fv, dir) +
     '<dl>' + (f.description ? '<dt>What it measures</dt><dd>' + esc(f.description) + '</dd>' : '') + '<dt>Measured for</dt><dd>' + esc(lv === 'municipality' ? 'the municipality itself' : 'the ' + lv + ' around it (no municipal figure published)') + '</dd>' +
     (f.methodology_note ? '<dt>How it is scored</dt><dd>' + esc(f.methodology_note) + '</dd>' : '') +
-    '<dt>Source</dt><dd>' + (f.source_url ? '<a href="' + esc(f.source_url) + '" target="_blank" rel="noopener">' + esc(f.source_name || f.source_id || 'source') + '</a>' : esc(f.source_name || f.source_id || '')) + (f.source_period ? ', ' + esc(f.source_period) : '') + '</dd></dl>';
+    (function () { var so = ENGINE.sourceFor(f, r.country); if (!so.resolved) return '<dt>Source</dt><dd>The source of this figure for ' + esc(countryName(r.country)) + ' is not yet registered; the value is shown, but treat it with care.</dd></dl>';
+      return '<dt>Source</dt><dd>' + (so.url ? '<a href="' + esc(so.url) + '" target="_blank" rel="noopener">' + esc(so.name) + '</a>' : esc(so.name)) + (so.dataset ? ', ' + esc(so.dataset) : '') + (so.period ? ', ' + esc(so.period) : '') + (so.urls.length > 1 ? '. Also: ' + so.urls.slice(1, 4).map(function (u, i) { return '<a href="' + esc(u) + '" target="_blank" rel="noopener">link ' + (i + 2) + '</a>'; }).join(', ') : '') + '</dd></dl>'; })();
 }
 
 /* 2.15.27 (owner request): the Story tab. How the place came to be and how it changed, read from Wikipedia (CC BY-SA 4.0,
